@@ -1,0 +1,15 @@
+tischbelegt{width: 75px; height: 75px; background-image:url("./templates/img/besteckgekreuzt.gif"); }
+tischfrei{width: 75px; height:75px; background-image:url("./templates/img/besteckNebeneinander.gif"); }
+backgroundColor{background-color: #FFFFFF;}
+standardSchrift{font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;text-align: left;font-weight: normal;color: #000000;}
+kleineSchrift{font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; color: #000000; }
+belegt{font-size: 12px;font-style: normal;text-align: center;font-weight: normal;color: #FF0000;border: 0px ridge ;background-color: #FF0000;}
+frei{font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal; font-variant: normal; background-color: #009BFA; border: 1px ridge #000000; text-align: center; }
+reserviert{font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal; font-variant: normal; background-color: #000000; border: 1px ridge #000000; text-align: center; }
+standardSchriftBold{font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; line-height: normal; font-weight: bold; font-variant: normal; color: #000000; }
+ueberschrift{font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-style: normal;text-align: left;font-weight: bold;}
+table{font-size: 12px;font-style: normal;text-align: left;font-weight: normal;border: 0px ridge ;}
+tableColor{font-size: 12px;font-style: normal;text-align: left;font-weight: normal;color: #FFFFFF;border: 0px ridge ;background-color: #FFFFFF;}
+button200pxA{font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; font-variant: normal; background-color: #FFFFFF; height: 20px; width: 170px; border:1px solid #ccc; }
+selects{font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; font-variant: normal; background-color: #FFFFFF; height: 20px; border:1px solid #ccc; }
+button200pxB{font-size: 11px;font-style: normal;text-align: left;font-weight: normal;border: 0px ridge ;height: 20px;width: 170px;}

@@ -1,0 +1,148 @@
+.standardSchrift {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000000;
+}
+.belegt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #FF0000;
+	border: 1px ridge #000000;
+	text-align: center;
+}
+
+.samstagBelegt {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: pink;
+	border: 1px ridge #000000;
+	text-align: center;
+}
+
+.frei {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #009BFA;
+	border: 1px ridge #000000;
+	text-align: center;
+}
+
+.samstagFrei {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: yellow;
+	border: 1px ridge #000000;
+	text-align: center;
+}
+
+.reserviert {
+
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #6666FF;
+	border: 1px ridge #000000;
+	text-align: center;
+}
+
+.samstagReserviert {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: lightblue;
+	border: 1px ridge #000000;
+	text-align: center;
+}
+
+.standardSchriftBold {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	color: #000000;
+}
+.ueberschrift {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+}
+
+.table {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #F1F1F7;
+	border: 0 ridge #6666FF;
+}
+.tableColor {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #FFFFFF;
+	border: 1 ridge #6666FF;
+}
+.button200pxB {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #0023DC;
+	height: 20px;
+	width: 170px;
+	color: #FFFFFF;
+	border: 1px ridge #FFFFCC;
+}
+.button200pxA {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #FFFFFF;
+	height: 20px;
+	width: 170px;
+	border: 1px ridge #6666FF;
+}
+.backgroundColor {
+	background-color: #F1F1F7;
+
+}

@@ -1,0 +1,96 @@
+
++----------------------------------------------------------------------------
+| Rezervi - Availibility overview and guest database by UTILO
++----------------------------------------------------------------------------
+|             company:  UTILO, DI Christian Osterrieder-Schlick
+|                       Rosittengasse 22, 5020 Salzburg, Austria
+|                 URL:  http://www.utilo.eu | http://www.rezervi.com 
+|               author: DI Christian Osterrieder-Schlick office@utilo.eu
+|  
+| Installation infos:  doc/install.html
+|             Licence:  LICENCE.txt 
+|
++----------------------------------------------------------------------------
+| Copyright (c) 2002 - 2006 - UTILO - All rights reserved.
++----------------------------------------------------------------------------
+
+
+Rezervi - end user licence agreement (EULA)
+UTILO, Christian Osterrieder-Schlick, Rosittengasse 22, 5020 Salzburg, Austria
+
+1. Preliminary remarks:
+
+This licence agreement relate to the availability overview and guest database 
+"Rezervi" of UTILO.
+The following notations "Rezervi" resp. "availability overview"
+contains the complete source code of the descripted software product of UTILO,
+included the complete content of the files and all works based on it.
+
+Rezervi is a copyrighted product. The copyright is at Christian Osterrieder-Schlick,
+UTILO, Rosittengasse 22, 5020 Salzburg, Austria.
+
+Please read the following appointments carfully before you use Rezervi.
+We deffer between commercial use and test use of Rezervi. For this reason
+please read careful point 3 "Licence for the commercial use" of this licence. 
+
+If you have questions to this licence, you can send an eMail to UTILO
+<osterrieder@directbox.com>. You get more informations on the
+website http://www.rezervi.com/.
+
+2. Consents:
+
+If the licensee hasn't another licence agreement with the licenser, 
+UTILO - Christian Osterrieder-Schlick, the licencee agree 
+this licence agreement by downloading, installationing, renting or
+changing the software.
+
+If you don't agree this licence agreement, or some points of this
+licence agreement, you don't have the right to use this software or
+parts of this software.
+
+3. Licence for the commercial use
+
+You have to order a "Licence for commercial use" if you adjust Rezervi
+for a third party or if you use Rezervi commercial or set a link to your commercial
+website.
+
+You get a "Licence for commercial use" on the website:
+http://www.rezervi.com/www/german/registrierung/index.php
+
+4. Scale of the licence:
+
+This copy of Rezervi is for the installation on a webserver und for
+the management of one accomodation (hotel, appartement, holiday house or similar).
+If you install Rezervi on more than one webserver, you have to buy a licence for
+every webserver.
+
+If you install Rezervi you agree that the URL which is 
+defined in the config file is going to send to UTILO with an e-mail. 
+
+You have not the right to lease out Rezervi or use parts or the complete
+software for your own products, accept this is allowed by the licencer.
+
+Every right, that is not in this licence agreement stays at the licencer.
+
+5. Warranty
+
+The licencee can use this software without any warranty. There is no
+warranty for the software or the content of the software. There is no
+warranty for the content that you produce with the software.
+
+The risks for the quality and performance of the software 
+is on the licencee. If Rezervi is defective you can't get back
+any money or other reparations. This includes also the lost
+of content or data that you produce with Rezervi. We take no
+warrenty for incorrect usage of Rezervi or for attacks from
+outside of the software system.
+
+For contentions the area of jurisdiction is in Salzburg, Austria.
+
+For this warranty apply the austrian rights. 
+The Convention on Contract for the International Sale of Goods - CISG
+is not acceptable for this product. 
+
+Copyright © 2002 - 2005 
+UTILO DI Christian Osterrieder-Schlick
+All rights reserved.

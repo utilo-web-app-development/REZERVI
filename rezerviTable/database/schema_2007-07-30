@@ -1,0 +1,253 @@
+-- === dropping alter statements ===
+alter table booklineV1_0.BOOKLINE_ANTWORTEN drop foreign key FK_BOOKLINE_ANTWORTEN_1;
+alter table booklineV1_0.BOOKLINE_BENUTZER drop foreign key FK_BOOKLINE_BENUTZER_1;
+alter table booklineV1_0.BOOKLINE_CSS drop foreign key FK_BOOKLINE_CSS_1;
+alter table booklineV1_0.BOOKLINE_FILE drop foreign key FK_BOOKLINE_FILE_1;
+alter table booklineV1_0.BOOKLINE_GAST drop foreign key FK_BOOKLINE_GAST_1;
+alter table booklineV1_0.BOOKLINE_GAST drop foreign key FK_BOOKLINE_GAST_2;
+alter table booklineV1_0.BOOKLINE_GAST drop foreign key FK_BOOKLINE_GAST_3;
+alter table booklineV1_0.BOOKLINE_GASTRO drop foreign key FK_BOOKLINE_GASTRO_1;
+alter table booklineV1_0.BOOKLINE_GASTRO_PROPERTIES drop foreign key FK_BOOKLINE_GASTRO_PROPERTIES_1;
+alter table booklineV1_0.BOOKLINE_GAST_TEXTE drop foreign key FK_BOOKLINE_GAST_TEXTE_1;
+alter table booklineV1_0.BOOKLINE_OEFFNUNGSZEITEN drop foreign key FK_BOOKLINE_OEFFNUNGSZEITEN_1;
+alter table booklineV1_0.BOOKLINE_RAUM drop foreign key FK_BOOKLINE_RAUM_2;
+alter table booklineV1_0.BOOKLINE_RAUM drop foreign key FK_BOOKLINE_RAUM_3;
+alter table booklineV1_0.BOOKLINE_RESERVIERUNG drop foreign key FK_BOOKLINE_RESERVIERUNG_1;
+alter table booklineV1_0.BOOKLINE_RESERVIERUNG drop foreign key FK_BOOKLINE_RESERVIERUNG_2;
+alter table booklineV1_0.BOOKLINE_RUHETAGE drop foreign key FK_BOOKLINE_RUHETAGE_1;
+alter table booklineV1_0.BOOKLINE_SPRACHEN drop foreign key FK_BOOKLINE_SPRACHEN_1;
+alter table booklineV1_0.BOOKLINE_SPR_GASTRO drop foreign key FK_BOOKLINE_SPR_GASTRO_1;
+alter table booklineV1_0.BOOKLINE_SPR_GASTRO drop foreign key FK_BOOKLINE_SPR_GASTRO_2;
+alter table booklineV1_0.BOOKLINE_TISCH drop foreign key FK_BOOKLINE_TISCH_1;
+alter table booklineV1_0.BOOKLINE_TISCHKARTE drop foreign key FK_BOOKLINE_TISCHKARTE_1;
+alter table booklineV1_0.BOOKLINE_TISCHKARTE drop foreign key FK_BOOKLINE_TISCHKARTE_2;
+alter table booklineV1_0.BOOKLINE_TISCHKARTE drop foreign key FK_BOOKLINE_TISCHKARTE_3;
+alter table booklineV1_0.BOOKLINE_UEBERSETZUNGEN drop foreign key FK_BOOKLINE_UEBERSETZUNGEN_1;
+alter table booklineV1_0.BOOKLINE_UEBERSETZUNGEN drop foreign key FK_BOOKLINE_UEBERSETZUNGEN_2;
+alter table booklineV1_0.BOOKLINE_UEBERSETZUNGEN drop index INDEX_TEXT;
+alter table booklineV1_0.BOOKLINE_RESERVIERUNGSEINSCHRAENKUNG drop foreign key FK_BOOKLINE_RESERVIERUNGSEINSCHRAENKUNG_1;
+-- === drop statements ===
+drop table booklineV1_0.BOOKLINE_ADRESSE;
+drop table booklineV1_0.BOOKLINE_ANTWORTEN;
+drop table booklineV1_0.BOOKLINE_BENUTZER;
+drop table booklineV1_0.BOOKLINE_BILDER;
+drop table booklineV1_0.BOOKLINE_CSS;
+drop table booklineV1_0.BOOKLINE_FILE;
+drop table booklineV1_0.BOOKLINE_GAST;
+drop table booklineV1_0.BOOKLINE_GASTRO;
+drop table booklineV1_0.BOOKLINE_GASTRO_PROPERTIES;
+drop table booklineV1_0.BOOKLINE_GAST_TEXTE;
+drop table booklineV1_0.BOOKLINE_OEFFNUNGSZEITEN;
+drop table booklineV1_0.BOOKLINE_RAUM;
+drop table booklineV1_0.BOOKLINE_RESERVIERUNG;
+drop table booklineV1_0.BOOKLINE_RUHETAGE;
+drop table booklineV1_0.BOOKLINE_SESSION;
+drop table booklineV1_0.BOOKLINE_SPRACHEN;
+drop table booklineV1_0.BOOKLINE_SPR_GASTRO;
+drop table booklineV1_0.BOOKLINE_TISCH;
+drop table booklineV1_0.BOOKLINE_TISCHKARTE;
+drop table booklineV1_0.BOOKLINE_UEBERSETZUNGEN;
+drop table booklineV1_0.BOOKLINE_RESERVIERUNGSEINSCHRAENKUNG;
+drop schema booklineV1_0;
+-- === create statements ===
+create schema booklineV1_0;
+create table booklineV1_0.BOOKLINE_ADRESSE(
+    ADRESSE_ID INT AUTO_INCREMENT not null,
+    ANREDE VARCHAR (100),
+    VORNAME VARCHAR (255),
+    NACHNAME VARCHAR (255),
+    STRASSE VARCHAR (255),
+    PLZ VARCHAR (100),
+    ORT VARCHAR (255),
+    LAND VARCHAR (255),
+    EMAIL VARCHAR (255),
+    TELEFON VARCHAR (255),
+    TELEFON2 VARCHAR (255),
+    FAX VARCHAR (255),
+    WWW VARCHAR (255),
+    FIRMA VARCHAR (255),
+    primary key (ADRESSE_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_ANTWORTEN(
+    ANTWORTEN_ID INT AUTO_INCREMENT not null,
+    TEXT TEXT,
+    TYPE VARCHAR (100) not null,
+    AKTIV SMALLINT default 0 not null,
+    GASTRO_ID INT default 1 not null,
+    primary key (ANTWORTEN_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_BENUTZER(
+    BENUTZER_ID INT AUTO_INCREMENT not null,
+    NAME VARCHAR (100) not null,
+    PASSWORT VARCHAR (100) not null,
+    RECHTE SMALLINT default 0 not null,
+    GASTRO_ID INT default 1 not null,
+    primary key (BENUTZER_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_BILDER(
+    BILDER_ID INT AUTO_INCREMENT not null,
+    BILD BLOB not null,
+    BESCHREIBUNG TEXT,
+    WIDTH VARCHAR (5),
+    HEIGHT VARCHAR (5),
+    MIME VARCHAR (5) not null,
+    primary key (BILDER_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_CSS(
+    CSS_ID INT AUTO_INCREMENT not null,
+    CLASSNAME VARCHAR (150) not null,
+    WERT TEXT,
+    GASTRO_ID INT default 1 not null,
+    primary key (CSS_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_FILE(
+    FILE_ID INT AUTO_INCREMENT not null,
+    FILE BLOB not null,
+    BESCHREIBUNG TEXT,
+    MIME VARCHAR (5) not null,
+    ANTWORTEN_ID INT,
+    primary key (FILE_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_GAST(
+    GAST_ID INT AUTO_INCREMENT not null,
+    ADRESSE_ID INT default 0 not null,
+    SPRACHE_ID CHAR (2) not null,
+    GASTRO_ID INT default 1 not null,
+    primary key (GAST_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_GASTRO(
+    GASTRO_ID INT AUTO_INCREMENT not null,
+    ADRESSE_ID INT default 0,
+    primary key (GASTRO_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_GASTRO_PROPERTIES(
+    PROPERTY_ID INT AUTO_INCREMENT not null,
+    BEZEICHNUNG VARCHAR (100) not null,
+    WERT TEXT not null,
+    GASTRO_ID INT default 1 not null,
+    primary key (PROPERTY_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_GAST_TEXTE(
+    TEXTE_ID INT AUTO_INCREMENT not null,
+    TEXT TEXT not null,
+    DATUM VARCHAR (12) not null,
+    GAST_ID INT default 1 not null,
+    primary key (TEXTE_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_OEFFNUNGSZEITEN(
+    OEFFNUNGSZEITEN_ID INT AUTO_INCREMENT not null,
+    VON VARCHAR (12) not null,
+    BIS VARCHAR (12) not null,
+    TYPE VARCHAR (100) not null,
+    GASTRO_ID INT default 0 not null,
+    primary key (OEFFNUNGSZEITEN_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_RAUM(
+    RAUM_ID INT AUTO_INCREMENT not null,
+    BEZEICHNUNG VARCHAR (100) not null,
+    BESCHREIBUNG TEXT not null,
+    BILDER_ID INT default 0,
+    GASTRO_ID INT default 1 not null,
+    primary key (RAUM_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_RESERVIERUNG(
+    RESERVIERUNG_ID INT AUTO_INCREMENT not null,
+    VON VARCHAR (12) not null,
+    BIS VARCHAR (12) not null,
+    STATUS SMALLINT default 0 not null,
+    ANZAHL_PERSONEN INT default 0 not null,
+    GAST_ID INT default 0 not null,
+    TISCH_ID VARCHAR (100) default 0 not null,
+    primary key (RESERVIERUNG_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_RUHETAGE(
+    WOCHENTAG INT default 0 not null,
+    GASTRO_ID INT default 0 not null,
+    primary key (GASTRO_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_SESSION(
+    SESSION_ID INT AUTO_INCREMENT not null,
+    ERSTELLUNG VARCHAR (12) not null,
+    BEZEICHNUNG VARCHAR (255),
+    WERT TEXT,
+    HTTP_SESSION_ID VARCHAR (255) not null,
+    primary key (SESSION_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_SPRACHEN(
+    SPRACHE_ID CHAR (2) not null,
+    BEZEICHNUNG VARCHAR (100) not null,
+    BILDER_ID INT default 0,
+    primary key (SPRACHE_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_SPR_GASTRO(
+    GASTRO_ID INT default 0 not null,
+    SPRACHE_ID CHAR (2) not null,
+    primary key (GASTRO_ID, SPRACHE_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_TISCH(
+    TISCHNUMMER VARCHAR (100) not null,
+    BESCHREIBUNG TEXT,
+    MINIMALE_BELEGUNG INT default 0 not null,
+    MAXIMALE_BELEGUNG INT default 0 not null,
+    STATUS VARCHAR (100) not null,
+    RAUM_ID INT default 0 not null,
+    LEFT_POS INT default 0 not null,
+    TOP_POS INT default 0 not null,
+    WIDTH INT default 100 not null,
+    HEIGHT INT default 100 not null,
+    primary key (TISCHNUMMER)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_TISCHKARTE(
+    TISCHKARTE_ID INT AUTO_INCREMENT not null,
+    TEXT TEXT not null,
+    SPRACHE_ID CHAR (2),
+    GASTRO_ID INT default 1 not null,
+    BILDER_ID INT default null,
+    primary key (TISCHKARTE_ID)
+) ENGINE=InnoDB;
+create table booklineV1_0.BOOKLINE_UEBERSETZUNGEN(
+    UEBERSETZUNGS_ID INT AUTO_INCREMENT not null,
+    TEXT TEXT not null,
+    TEXT_STANDARD TEXT not null,
+    SPRACHE_ID CHAR (2) not null,
+    GASTRO_ID INT,
+    primary key (UEBERSETZUNGS_ID)
+) ENGINE=InnoDB;
+create index INDEX_TEXT on booklineV1_0.BOOKLINE_UEBERSETZUNGEN(
+    TEXT_STANDARD asc 
+);
+create table booklineV1_0.BOOKLINE_RESERVIERUNGSEINSCHRAENKUNG(
+    RESERVIERUNGSEINSCHRAENKUNG_ID AUTO_INCREMENT INT not null,
+    TISCHNUMMER VARCHAR (100),
+    VON VARCHAR (12),
+    BIS VARCHAR (12),
+    TYP VARCHAR (100),
+    primary key (RESERVIERUNGSEINSCHRAENKUNG_ID)
+) ENGINE=InnoDB;
+-- === alter statements ===
+alter table booklineV1_0.BOOKLINE_ANTWORTEN add constraint FK_BOOKLINE_ANTWORTEN_1 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_BENUTZER add constraint FK_BOOKLINE_BENUTZER_1 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_CSS add constraint FK_BOOKLINE_CSS_1 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_FILE add constraint FK_BOOKLINE_FILE_1 foreign key (ANTWORTEN_ID) references booklineV1_0.BOOKLINE_ANTWORTEN(ANTWORTEN_ID) on delete set null on update set null;
+alter table booklineV1_0.BOOKLINE_GAST add constraint FK_BOOKLINE_GAST_1 foreign key (ADRESSE_ID) references booklineV1_0.BOOKLINE_ADRESSE(ADRESSE_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_GAST add constraint FK_BOOKLINE_GAST_2 foreign key (SPRACHE_ID) references booklineV1_0.BOOKLINE_SPRACHEN(SPRACHE_ID) on delete no action on update no action;
+alter table booklineV1_0.BOOKLINE_GAST add constraint FK_BOOKLINE_GAST_3 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_GASTRO add constraint FK_BOOKLINE_GASTRO_1 foreign key (ADRESSE_ID) references booklineV1_0.BOOKLINE_ADRESSE(ADRESSE_ID) on delete set null on update set null;
+alter table booklineV1_0.BOOKLINE_GASTRO_PROPERTIES add constraint FK_BOOKLINE_GASTRO_PROPERTIES_1 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_GAST_TEXTE add constraint FK_BOOKLINE_GAST_TEXTE_1 foreign key (GAST_ID) references booklineV1_0.BOOKLINE_GAST(GAST_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_OEFFNUNGSZEITEN add constraint FK_BOOKLINE_OEFFNUNGSZEITEN_1 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_RAUM add constraint FK_BOOKLINE_RAUM_2 foreign key (BILDER_ID) references booklineV1_0.BOOKLINE_BILDER(BILDER_ID) on delete set null on update set null;
+alter table booklineV1_0.BOOKLINE_RAUM add constraint FK_BOOKLINE_RAUM_3 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_RESERVIERUNG add constraint FK_BOOKLINE_RESERVIERUNG_1 foreign key (TISCH_ID) references booklineV1_0.BOOKLINE_TISCH(TISCHNUMMER) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_RESERVIERUNG add constraint FK_BOOKLINE_RESERVIERUNG_2 foreign key (GAST_ID) references booklineV1_0.BOOKLINE_GAST(GAST_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_RUHETAGE add constraint FK_BOOKLINE_RUHETAGE_1 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_SPRACHEN add constraint FK_BOOKLINE_SPRACHEN_1 foreign key (BILDER_ID) references booklineV1_0.BOOKLINE_BILDER(BILDER_ID) on delete set null on update set null;
+alter table booklineV1_0.BOOKLINE_SPR_GASTRO add constraint FK_BOOKLINE_SPR_GASTRO_1 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_SPR_GASTRO add constraint FK_BOOKLINE_SPR_GASTRO_2 foreign key (SPRACHE_ID) references booklineV1_0.BOOKLINE_SPRACHEN(SPRACHE_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_TISCH add constraint FK_BOOKLINE_TISCH_1 foreign key (RAUM_ID) references booklineV1_0.BOOKLINE_RAUM(RAUM_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_TISCHKARTE add constraint FK_BOOKLINE_TISCHKARTE_1 foreign key (SPRACHE_ID) references booklineV1_0.BOOKLINE_SPRACHEN(SPRACHE_ID) on delete set null on update set null;
+alter table booklineV1_0.BOOKLINE_TISCHKARTE add constraint FK_BOOKLINE_TISCHKARTE_2 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_TISCHKARTE add constraint FK_BOOKLINE_TISCHKARTE_3 foreign key (BILDER_ID) references booklineV1_0.BOOKLINE_BILDER(BILDER_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_UEBERSETZUNGEN add constraint FK_BOOKLINE_UEBERSETZUNGEN_1 foreign key (GASTRO_ID) references booklineV1_0.BOOKLINE_GASTRO(GASTRO_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_UEBERSETZUNGEN add constraint FK_BOOKLINE_UEBERSETZUNGEN_2 foreign key (SPRACHE_ID) references booklineV1_0.BOOKLINE_SPRACHEN(SPRACHE_ID) on delete cascade on update cascade;
+alter table booklineV1_0.BOOKLINE_RESERVIERUNGSEINSCHRAENKUNG add constraint FK_BOOKLINE_RESERVIERUNGSEINSCHRAENKUNG_1 foreign key (TISCHNUMMER) references booklineV1_0.BOOKLINE_TISCH(TISCHNUMMER) on delete no action on update no action;

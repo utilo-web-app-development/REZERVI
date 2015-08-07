@@ -1,0 +1,136 @@
++----------------------------------------------------------------------------
+| Rezervi Table Reservierungssystem by UTILO
++----------------------------------------------------------------------------
+|               Firma:  UTILO, Christian Osterrieder-Schlick
+|                       Rosittengasse 22, 5020 Salzburg, Österreich
+|                 URL:  http://www.utilo.eu | http://www.rezervi.com 
+|               Autor:  Christian Osterrieder-Schlick osterrieder@directbox.com
+|  
+| Installations-Infos:  doc/install.html
+|              Lizenz:  LIZENZ.txt 
+|
++----------------------------------------------------------------------------
+| Copyright (c) 2002 - 2008 - UTILO - All rights reserved.
++----------------------------------------------------------------------------
+
+
+Rezervi - Lizenzvereinbarung 
+UTILO, Christian Osterrieder-Schlick, Rosittengasse 22, 5020 Salzburg, Österreich
+
+1. Vorbemerkung:
+
+Diese Lizenzvereinbarung bezieht sich auf das von utilo
+veroeffentlichtes Softwareprodukt "Rezervi Table".
+Die im weiteren verwendeten Bezeichnungen "Rezervi Table" bzw. "Rezervi"
+beinhalten alle Bestandteile des von utilo bereitgestellten Quelltextes, 
+also den gesamten Inhalt der gelieferten Dateien, sowie alle darauf
+aufbauenden Arbeiten.
+
+Rezervi Table ist eine urheberrechtlich geschuetzte Arbeit. Das Urheberrecht
+liegt bei Dipl.-Ing. Christian Osterrieder-Schlick, Firma UTILO, Rosittengasse 22, 
+5020 Salzburg, Österreich.
+
+Bitte lesen Sie die folgenden Bestimmungen sorgfaeltig durch, bevor Sie
+Rezervi Table verwenden. Hinsichtlich des Einsatzes von Rezervi Table wird
+zwischen kommerziellem und Test-Einsatz unterschieden.
+Bitte beachten Sie daher besonders Punkt 3 "Lizenz fuer kommerziellen
+Einsatz".
+
+Sollten Sie Fragen zu dieser Lizenzvereinbarung haben, wenden Sie sich
+bitte an Firma utilo <osterrieder@directbox.com>. Weitere Informationen
+finden Sie auf der UTILO-Website unter http://www.utilo.eu/.
+
+
+2. Einverstaendnis:
+
+Sofern der Lizenznehmer mit dem Lizenzgeber von Rezervi, 
+UTILO - Christian Osterrieder-Schlick, nicht schriftlich einen anders lautenden
+Lizenzvertrag abgeschlossen hat, erklaert er durch das Herunterladen,
+Installieren, Mieten oder Anpassen von Rezervi ausdruecklich sein
+Einverstaendnis mit den Bestimmungen der vorliegenden Lizenzvereinbarung.
+
+Mit der Annahme des Lizenzvertrages gewaehrt Ihnen der Lizenzgeber eine
+nicht-ausschliessliche und nicht uebertragbare Lizenz zur Nutzung von
+Rezervi.
+
+Sollten der Lizenznehmer in einigen oder allen Bedingungen dieses
+Lizenzvertrages nicht zustimmen, ist ihm die Nutzung der Software nicht,
+auch nicht in Teilen gestattet.
+
+
+3. Lizenz fuer kommerziellen Einsatz
+
+Wird Rezervi Table nach einer Test- und Anpassungsphase als Ganzes oder
+in Teilen fuer kommerzielle Zwecke eingesetzt oder gegen ein Honorar fuer
+Dritte angepasst, muss vom Lizenznehmer eine "Lizenz zum kommerziellen
+Einsatz" erworben werden. Dies gilt auch bei einer Verlinkung mit einer
+Website für kommerzielle Zwecke.
+
+Eine "Lizenz zum kommerziellen Einsatz" ist ueber die UTILO-Website
+http://www.rezervi.com/ zu beziehen oder
+unter angabe der Rechnungsadresse an die E-Mail-Adresse office@utilo.eu
+
+
+4. Lizenzumfang:
+
+Diese Kopie von Rezervi Generic ist fuer die
+Installation auf einem Webserver vorgesehen. Wird Rezervi Table
+auf mehreren physischen Servern installiert oder werden auf einem physischen 
+Server mehrere Vermietungs-Organisationen verwaltet, so wird eine entsprechende Anzahl an
+Lizenzen benoetigt.
+
+Es ist nicht erlaubt, Rezervi Table im Rahmen dieser Lizenz zu verleihen
+oder zu vermieten, als Grundlage fuer eigene Softwareprogramme zu
+verwenden oder weiterzulizensieren, es sei denn unter ausdruecklicher
+schriftlicher Genehmigung des Lizenzgebers.
+
+Mit der Installation erklärt sich der Lizenznehmer damit
+einverstanden, dass die URL die durch die Konfigurationsdatei
+definiert wird an UTILO gesendet wird. 
+
+Jegliche Rechte an Rezervi Table, die mit dieser Lizenzvereinbarung nicht
+ausdruecklich an den Lizenznehmer uebertragen werden, bleiben
+ausschliesslich dem Lizenzgeber vorbehalten.
+
+
+5. Gewaehrleistung
+
+Dem Lizenznehmer wird Rezervi Table im Rahmen dieser Lizenz so wie es ist,
+ohne Gewaehrleistung, zur Verfuegung gestellt. Es besteht keine
+Gewaehrleistung fuer das Programm, weder ausgedrueckt oder unterstellt,
+einschliesslich, aber nicht darauf beschraenkt, etwaiger unterstellter
+Gewaehrleistungen, die sich auf Marktgaengigkeit und Gebrauchsfaehigkeit
+fuer einen bestimmten Zweck beziehen.
+
+Das gesamte Risiko fuer die Qualitaet und Performance des Systems
+verbleibt beim Lizenznehmer. Sollte sich Rezervi Table als fehlerhaft
+herausstellen, ist der Lizenznehmer fuer alle Kosten, die aus
+Dienstleistungen, Reparaturen und Verbesserungen resultieren,
+verantwortlich. In keinem Fall, ausser wenn es durch geltendes Recht
+erforderlich oder schriftlich vereinbart ist, ist der Lizenzgeber dem
+Lizenznehmer gegenueber haftbar fuer jedwede Schaeden. Dies schliesst
+alle allgemeinen, besonderen, zufaelligen oder sonstigen Schaeden ein,
+welche aus der Nutzung oder nicht moeglichen Nutzung von Rezervi Generic
+entstehen moegen. Es schliesst ebenso Verluste von Daten (beispielsweise
+unsachgemaesse oder fehlende Datensicherung durch den Lizenznehmer) oder
+die Bereitstellung von unrichtigen Daten mit ein, Verluste, die vom
+Lizenznehmer oder Dritten verursacht sind oder aus einem Fehler von
+Rezervi Table resultieren. Dies gilt auch dann, wenn der Benutzer oder jede
+andere Partei auf die Moeglichkeit solcher Schaeden hingewiesen wurde.
+
+Fuer Streitigkeiten aus diesem Lizenzvertrag gilt der Gerichtsstand
+Salzburg.
+
+Auf die vorliegende Vereinbarung findet ausschliesslich österreichisches
+materielles Recht Anwendung. Die Anwendung des Abkommens ueber den
+internationalen Kauf von Waren (CISG) wird ausdruecklich ausgeschlossen.
+Diese Vereinbarung stellt den vollstaendigen Vertrag zwischen den beiden
+Parteien dar und tritt an die Stelle aller frueheren Verabredungen,
+Kaufvertraege, Abmachungen und Vereinbarungen, es sei denn, der
+Lizenznehmer hat eine anderslautende schriftliche Vereinbarung mit dem
+Lizenzgeber getroffen. 
+
+
+Copyright © 2008
+UTILO Christian Osterrieder-Schlick
+Alle Rechte vorbehalten.

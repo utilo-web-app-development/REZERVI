@@ -1,0 +1,8 @@
+CREATE TABLE REZERVI_SESSION (
+  SESSION_ID int(11) NOT NULL auto_increment,
+  ERSTELLUNG int(8) NOT NULL,
+  BEZEICHNUNG varchar(255) default NULL,
+  WERT varchar(255) default NULL,
+  HTTP_SESSION_ID varchar(255) NOT NULL,
+  PRIMARY KEY  (SESSION_ID)
+);

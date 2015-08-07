@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML_DIZ_INFO>
+	<MASTER_PAD_VERSION_INFO>
+		<MASTER_PAD_EDITOR>DeuPAD 3.0.1.54 (http://www.deupad.org)</MASTER_PAD_EDITOR>
+		<MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to dissemminate information to anyone interested in their software products.  To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+		<MASTER_PAD_VERSION>3.01</MASTER_PAD_VERSION>
+	</MASTER_PAD_VERSION_INFO>
+	<Company_Info>
+		<Company_Name>UTILO</Company_Name>
+		<Address_1>Rosittengasse 22</Address_1>
+		<Address_2>DI Christian Osterrieder-Schlick</Address_2>
+		<Zip_Postal_Code>5020</Zip_Postal_Code>
+		<City_Town>Salzburg</City_Town>
+		<Country>Oesterreich</Country>
+		<State_Province />
+		<Company_WebSite_URL>http://www.utilo.eu</Company_WebSite_URL>
+		<Contact_Info>
+			<Author_First_Name>Christian</Author_First_Name>
+			<Author_Last_Name>Osterrieder-Schlick</Author_Last_Name>
+			<Author_Email>osterrieder@directbox.com</Author_Email>
+			<Contact_First_Name>Christian</Contact_First_Name>
+			<Contact_Last_Name>Osterrieder-Schlick</Contact_Last_Name>
+			<Contact_Email>osterrieder@directbox.com</Contact_Email>
+		</Contact_Info>
+		<Support_Info>
+			<General_Email>osterrieder@directbox.com</General_Email>
+			<Support_Email>osterrieder@directbox.com</Support_Email>
+			<Sales_Email>osterrieder@directbox.com</Sales_Email>
+			<General_Phone>+43 (0) 699 116 906 80</General_Phone>
+			<Support_Phone>+43 (0) 699 116 906 80</Support_Phone>
+			<Sales_Phone>+43 (0) 699  116 906 80</Sales_Phone>
+			<Fax_Phone />
+		</Support_Info>
+	</Company_Info>
+	<Program_Info>
+		<Program_Name>Rezervi Belegungsplan und Gästedatenbank</Program_Name>
+		<Program_Version>3.0.3</Program_Version>
+		<Program_Type>Shareware</Program_Type>
+		<Program_Release_Status>Minor Update</Program_Release_Status>
+		<Program_Category_Class>Network &amp; Internet::Other</Program_Category_Class>
+		<Program_Release_Year>2010</Program_Release_Year>
+		<Program_Release_Month>05</Program_Release_Month>
+		<Program_Release_Day>15</Program_Release_Day>
+		<Program_Cost_Other>149.00</Program_Cost_Other>
+		<Program_Cost_Other_Code>EUR</Program_Cost_Other_Code>
+		<Program_Cost_Dollars>195.00</Program_Cost_Dollars>
+		<Program_Categories />
+		<Program_Specific_Category>Internet</Program_Specific_Category>
+		<Program_Change_Info>Security Fix</Program_Change_Info>
+		<Program_Language>German</Program_Language>
+		<Program_OS_Support>Win95,Win98,WinME,WinNT 3.x,WinNT 4.x,WinXP,Windows2000,Windows2003,Windows Tablet PC Edition 2005,Windows Vista Starter,Windows Vista Home Basic,Windows Vista Home Premium,Windows Vista Business,Windows Vista Enterprise,Windows Vista Ultimate,Windows Vista Home Basic x64,Windows Vista Home Premium x64,Windows Vista Business x64,Windows Vista Enterprise x64,Windows Vista Ultimate x64,Unix,Linux</Program_OS_Support>
+		<Program_Install_Support>Install Only</Program_Install_Support>
+		<Program_System_Requirements>Webserver mit PHP und MySQL</Program_System_Requirements>
+		<Includes_VB_Runtime>Y</Includes_VB_Runtime>
+		<Includes_JAVA_VM>N</Includes_JAVA_VM>
+		<Includes_DirectX>N</Includes_DirectX>
+		<File_Info>
+			<Filename_Long>rezerviV2_5.zip</Filename_Long>
+			<Filename_Generic>rezerviV2_5.zip</Filename_Generic>
+			<Filename_Versioned>rezerV2_5.zip</Filename_Versioned>
+			<Filename_Previous>rezerV2_5.zip</Filename_Previous>
+			<File_Size_Bytes>1,2MB</File_Size_Bytes>
+			<File_Size_K>1</File_Size_K>
+			<File_Size_MB>0.01</File_Size_MB>
+		</File_Info>
+		<Expire_Info>
+			<Has_Expire_Info>Y</Has_Expire_Info>
+			<Expire_Based_On />
+			<Expire_Count>0</Expire_Count>
+			<Expire_Other_Info>Bei Verlinkung mit einer Website ist Erwerb einer Lizenz erforderlich.</Expire_Other_Info>
+			<Expire_Year />
+			<Expire_Month />
+			<Expire_Day />
+		</Expire_Info>
+	</Program_Info>
+	<Program_Descriptions>
+		<German>
+			<Keywords>Belegungsplan, Zimmerreservierungsplan, Gästedatenbank, Kundendatenbank, Privatzimmervermieter, Hotelsoftware, PHP, MySQL, SQL, Webserver, Vermieter, Vermietung, online, Plan, Gast, Gäste, Datenbank, Belegung, Belegungen, Reservierung, Reservierungen</Keywords>
+			<Char_Desc_45>Belegungsplan und Gästedatenbank Rezervi</Char_Desc_45>
+			<Char_Desc_80>Belegungsplan und Gästedatenbank Rezervi für PHP und MySQL Webserver</Char_Desc_80>
+			<Char_Desc_250>Belegungsplan und Gästedatenbank Rezervi für PHP und MySQL Webserver. Integrieren sie einen grafischen Belegungsplan ihrer Zimmerreservierungen in ihre Homepage. Verwalten sie Ihre Gäste online in einer Datenbank. Automatische E-Mail Benachrichtigung</Char_Desc_250>
+			<Char_Desc_450>Belegungsplan und Gästedatenbank Rezervi für PHP und MySQL Webserver. Integrieren sie einen grafischen Belegungsplan ihrer Zimmerreservierungen in ihre Homepage. Verwalten sie Ihre Gäste online in einer Datenbank. Der Zimmerreservierungsplan ist grafisch an das Design ihrer Website anpassbar und wird in Deutsch, Französisch und Englisch online angezeigt. Webschnittstelle zur Wartung ihrer Kundendaten. Rezervi kann gemietet oder gekauft werden.</Char_Desc_450>
+			<Char_Desc_2000>Belegungsplan und Gästedatenbank Rezervi für PHP und MySQL Webserver. Integrieren sie einen grafischen Belegungsplan ihrer Zimmerreservierungen in ihre Homepage. Verwalten sie Ihre Gäste online in einer Datenbank. Der Zimmerreservierungsplan ist grafisch an das Design ihrer Website anpassbar und wird in Deutsch, Französisch, Englisch und Estnisch angezeigt. Eine einfach zu bedienende Webschnittstelle ermöglicht ihnen die Wartung ihres Belegungsplanes und ihrer Gäste. Sie können Reservierungen anzeigen und ändern, neue Benutzer definieren, Gäste anzeigen und exportieren, Informationen über ihre Unterkunft ändern, neue Zimmer anlegen, das Design ihres Planes ändern und automatische E-Mail Benachrichtungen für ihre Gäste in  verschiedenen Sprachen definieren. Der Belegungsplan ist durch einen einfachen Link in ihre Website integrierbar. Er bietet für ihren Gast eine ausführliche Monatsübersicht oder eine Jahresübersicht über ihre Belegungen. Mit einen praktischen Suchfunktion kann ein Gast nach freien Zimmern oder Appartements suchen oder über ein einfaches E-Mail-Formular mit ihnen Kontakt aufnehmen. Rezervi kann gemietet werden oder auf einen Webserver mit PHP und MySQL Datenbank installiert werden. Der Preis für die Miete ist abhängig von der Größe ihres Fremdenverkehrsbetriebes und ist somit optimal an Ihre Unterkunft angepaßt. Zur Installation auf ihrem Webserver sind wir ihnen gerne behilflich. Rezervi kann auch speziell für ihre Unterkunft angepaßt werden - wir machen ihnen gerne ein entsprechendes Angebot.</Char_Desc_2000>
+		</German>
+		<English>
+			<Keywords>Availability overview, guest database, guest, database, MySQL, availability, homepage, guests, overview, month, calendar, online, accomodation</Keywords>
+			<Char_Desc_45>Availability overview and guest database</Char_Desc_45>
+			<Char_Desc_80>Availability overview and guest database for PHP and MySQL database.</Char_Desc_80>
+			<Char_Desc_250>Availability overview and guest database for PHP and MySQL database. Integrate a graphical availability overview of your rooms in your website. Manage your guests online with a database.</Char_Desc_250>
+			<Char_Desc_450>Availability overview and guest database for PHP and MySQL database. Integrate a graphical availability overview of your rooms in your website. Manage your guests online with a database. You can change the design of the availability overview easiliy so that you have the same design as your website. The availability overview is shows in the languages German, English, French and Estnia.</Char_Desc_450>
+			<Char_Desc_2000>Availability overview and guest database for PHP and MySQL database. Integrate a graphical availability overview of your rooms in your website. Manage your guests online with a database. You can change the design of the availability overview easiliy so that you have the same design as your website. The availability overview is shows in the languages German, English, French and Estnia. You can use a simple webinterface to manage your availability overview and your guests, you need no special knowledge. A search function gives your guests a practical possibility to search for free rooms. You can install Rezervi on a webserver or rent Rezervi.</Char_Desc_2000>
+		</English>
+	</Program_Descriptions>
+	<Web_Info>
+		<Application_URLs>
+			<Application_Info_URL>http://www.rezervi.com</Application_Info_URL>
+			<Application_Order_URL>http://www.rezervi.com</Application_Order_URL>
+			<Application_Screenshot_URL>http://www.utilo.eu/joomla/images/stories/beispieleAni.gif</Application_Screenshot_URL>
+			<Application_Icon_URL>http://www.utilo.eu/joomla/images/stories/utilologo200px.gif</Application_Icon_URL>
+			<Application_XML_File_URL>http://www.rezervi.com/pad_file.xml</Application_XML_File_URL>
+		</Application_URLs>
+		<Download_URLs>
+			<Primary_Download_URL>http://www.rezervi.com/downloads/rezervi3_0_3.zip</Primary_Download_URL>
+			<Secondary_Download_URL />
+			<Additional_Download_URL_1 />
+			<Additional_Download_URL_2 />
+		</Download_URLs>
+	</Web_Info>
+	<Permissions>
+		<Distribution_Permissions>Bei Verlinkung mit Website ist kommerzielle Lizenz erforderlich</Distribution_Permissions>
+		<EULA>Bei Verlinkung mit Website und/oder kommerziellem Einsatz ist Lizenz erforderlich.</EULA>
+	</Permissions>
+	<DeuPAD>
+		<DeuPAD_Extension_Version>2.00</DeuPAD_Extension_Version>
+		<DeuPAD_Extension_Info>For information on the DeuPAD Extensions please go to http://www.deupad.org</DeuPAD_Extension_Info>
+		<SAVE_Member>Y</SAVE_Member>
+		<SAVE_Member_Number>CHU</SAVE_Member_Number>
+		<Company_Unique_ID>{7828F5F0-A893-432F-A6FD-161D11ED4C7A}</Company_Unique_ID>
+		<Save_Prog_Num>REZ</Save_Prog_Num>
+		<Program_Unique_ID>{3CE0897B-6DA1-4B1F-A929-0D5D90E4C3F8}</Program_Unique_ID>
+		<Program_Cost_EUR>149.00</Program_Cost_EUR>
+		<Program_Categories_German />
+		<Program_System_Requirements_German>Webserver mit PHP 4 und MySQL Datenbank</Program_System_Requirements_German>
+		<Expire_Other_Info_German />
+		<EULA_German />
+		<Program_Change_Info_German />
+	</DeuPAD>
+	<ASP>
+		<ASP_FORM>Y</ASP_FORM>
+		<ASP_Member>N</ASP_Member>
+		<ASP_Member_Number />
+	</ASP>
+	<Affiliates>
+		<Affiliates_FORM>Y</Affiliates_FORM>
+		<Affiliates_VERSION>1.0</Affiliates_VERSION>
+		<Affiliates_URL>http://www.asp-shareware.org/pad/extensions/Affiliates.htm</Affiliates_URL>
+		<Affiliates_Information_Page />
+		<Affiliates_BMTMicro_Order_Page />
+		<Affiliates_BMTMicro_Vendor_ID />
+		<Affiliates_BMTMicro_Product_ID />
+		<Affiliates_BMTMicro_Maximum_Commission_Rate />
+		<Affiliates_DigiBuy_Order_Page />
+		<Affiliates_DigiBuy_Vendor_ID />
+		<Affiliates_DigiBuy_Product_ID />
+		<Affiliates_DigiBuy_Maximum_Commission_Rate />
+		<Affiliates_DigitalCandle_Order_Page />
+		<Affiliates_DigitalCandle_Vendor_ID />
+		<Affiliates_DigitalCandle_Product_ID />
+		<Affiliates_DigitalCandle_Maximum_Commission_Rate />
+		<Affiliates_Emetrix_Order_Page />
+		<Affiliates_Emetrix_Vendor_ID />
+		<Affiliates_Emetrix_Product_ID />
+		<Affiliates_Emetrix_Maximum_Commission_Rate />
+		<Affiliates_eSellerate_Order_Page />
+		<Affiliates_eSellerate_Vendor_ID />
+		<Affiliates_eSellerate_Product_ID />
+		<Affiliates_eSellerate_Maximum_Commission_Rate />
+		<Affiliates_Kagi_Order_Page />
+		<Affiliates_Kagi_Vendor_ID />
+		<Affiliates_Kagi_Product_ID />
+		<Affiliates_Kagi_Maximum_Commission_Rate />
+		<Affiliates_NorthStarSol_Order_Page />
+		<Affiliates_NorthStarSol_Vendor_ID />
+		<Affiliates_NorthStarSol_Product_ID />
+		<Affiliates_NorthStarSol_Maximum_Commission_Rate />
+		<Affiliates_Order1_Order_Page />
+		<Affiliates_Order1_Vendor_ID />
+		<Affiliates_Order1_Product_ID />
+		<Affiliates_Order1_Maximum_Commission_Rate />
+		<Affiliates_Osolis_Order_Page />
+		<Affiliates_Osolis_Vendor_ID />
+		<Affiliates_Osolis_Product_ID />
+		<Affiliates_Osolis_Maximum_Commission_Rate />
+		<Affiliates_Regnet_Order_Page />
+		<Affiliates_Regnet_Vendor_ID />
+		<Affiliates_Regnet_Product_ID />
+		<Affiliates_Regnet_Maximum_Commission_Rate />
+		<Affiliates_Regnow_Order_Page />
+		<Affiliates_Regnow_Vendor_ID />
+		<Affiliates_Regnow_Product_ID />
+		<Affiliates_Regnow_Maximum_Commission_Rate />
+		<Affiliates_Regsoft_Order_Page />
+		<Affiliates_Regsoft_Vendor_ID />
+		<Affiliates_Regsoft_Product_ID />
+		<Affiliates_Regsoft_Maximum_Commission_Rate />
+		<Affiliates_ShareIt_Order_Page />
+		<Affiliates_ShareIt_Vendor_ID />
+		<Affiliates_ShareIt_Product_ID />
+		<Affiliates_ShareIt_Maximum_Commission_Rate />
+		<Affiliates_SWReg_Order_Page />
+		<Affiliates_SWReg_Vendor_ID />
+		<Affiliates_SWReg_Product_ID />
+		<Affiliates_SWReg_Maximum_Commission_Rate />
+		<Affiliates_V-Share_Order_Page />
+		<Affiliates_V-Share_Vendor_ID />
+		<Affiliates_V-Share_Product_ID />
+		<Affiliates_V-Share_Maximum_Commission_Rate />
+		<Affiliates_VFree_Order_Page />
+		<Affiliates_VFree_Vendor_ID />
+		<Affiliates_VFree_Product_ID />
+		<Affiliates_VFree_Maximum_Commission_Rate />
+		<Affiliates_Yaskifo_Order_Page />
+		<Affiliates_Yaskifo_Vendor_ID />
+		<Affiliates_Yaskifo_Product_ID />
+		<Affiliates_Yaskifo_Maximum_Commission_Rate />
+		<Affiliates_Avangate_Order_Page />
+		<Affiliates_Avangate_Vendor_ID />
+		<Affiliates_Avangate_Product_ID />
+		<Affiliates_Avangate_Maximum_Commission_Rate />
+		<Affiliates_clixGalore_Order_Page />
+		<Affiliates_clixGalore_Vendor_ID />
+		<Affiliates_clixGalore_Product_ID />
+		<Affiliates_clixGalore_Maximum_Commission_Rate />
+		<Affiliates_CommissionJunction_Order_Page />
+		<Affiliates_CommissionJunction_Vendor_ID />
+		<Affiliates_CommissionJunction_Product_ID />
+		<Affiliates_CommissionJunction_Maximum_Commission_Rate />
+		<Affiliates_LinkShare_Order_Page />
+		<Affiliates_LinkShare_Vendor_ID />
+		<Affiliates_LinkShare_Product_ID />
+		<Affiliates_LinkShare_Maximum_Commission_Rate />
+		<Affiliates_Plimus_Order_Page />
+		<Affiliates_Plimus_Vendor_ID />
+		<Affiliates_Plimus_Product_ID />
+		<Affiliates_Plimus_Maximum_Commission_Rate />
+		<Affiliates_Shareasale_Order_Page />
+		<Affiliates_Shareasale_Vendor_ID />
+		<Affiliates_Shareasale_Product_ID />
+		<Affiliates_Shareasale_Maximum_Commission_Rate />
+		<Affiliates_Cleverbridge_Order_Page />
+		<Affiliates_Cleverbridge_Vendor_ID />
+		<Affiliates_Cleverbridge_Product_ID />
+		<Affiliates_Cleverbridge_Maximum_Commission_Rate />
+		<Affiliates_OneNetworkDirect_Order_Page />
+		<Affiliates_OneNetworkDirect_Vendor_ID />
+		<Affiliates_OneNetworkDirect_Product_ID />
+		<Affiliates_OneNetworkDirect_Maximum_Commission_Rate />
+	</Affiliates>
+</XML_DIZ_INFO>

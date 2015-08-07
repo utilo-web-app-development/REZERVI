@@ -1,0 +1,7 @@
+CREATE TABLE Rezervi_Res_Attribute (
+  FK_Attribut_ID INT NOT NULL, 
+  PK_ID INT NOT NULL AUTO_INCREMENT, 
+  Value TEXT, 
+  FK_Res_ID INT NOT NULL,
+  PRIMARY KEY (PK_ID)
+);

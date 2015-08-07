@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Installation von Rezervi</title>
+<link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="standardSchrift">
+<p class="standardSchrift"><a href="./install_de.html">deutsch</a> | <a href="./install_en.html">english</a></p>
+<p class="ueberschrift">Rezervi Generic Reservierungssystem </p>
+<p class="standardSchriftBold">Autor: DI Christian Osterrieder, UTILO </p>
+<p class="ueberschrift">Installationsanweisungen zu Rezervi Generic </p>
+<ol>
+  <li><span class="standardSchriftBold">Lizenz akzeptieren</span><br>
+    Bevor Sie Rezervi Generic installieren und Testen m&uuml;ssen Sie die Lizenz akzeptieren. Sie finden die Lizenz im Wurzelverzeichnis (Datei &quot;<a href="../LIZENZ.txt" target="_blank">LIZENZ.txt</a>&quot;).<br>
+  </li>
+  <li><span class="standardSchriftBold">Systemvoraussetzungen</span><br>
+    MYSQL-Datenbankmanagementsystem: MySQL &gt;= 4.0.20-standard<br>
+    PHP-Version &gt;= <span class="standardSchrift"> 4.2.3</span> <br>
+  Zur &Uuml;berpr&uuml;fung ihrer PHP-Version k&ouml;nnen Sie die Datei &quot;<a href="phpVersion.php">doc/phpVersion.php</a>&quot; auf Ihrem Webserver ausf&uuml;hren.<br>
+  Falls Ihr Webserver diese Systemvoraussetzungen nicht erf&uuml;llt, k&ouml;nnen Sie Rezervi Generic auch mieten. F&uuml;r mehr Informationen  besuchen Sie die Site: <a href="http://www.rezervi.com/" target="_blank">http://www.rezervi.com/</a><br>
+  </li>
+  <li><span class="standardSchriftBold">Dateien entpacken </span><br>
+Entpacken Sie das erhaltene zip-Archiv bzw. tar-Archiv auf Ihrem Webserver.<br>
+  </li>
+  <li><span class="standardSchriftBold">Zugang zur MySQL Datenbank festlegen</span><br> 
+    <br>
+  Im Verzeichnis &quot;conf&quot; befindet sich die Datei &quot;rdbmsConfig.php&quot; (/conf/rdbmsConfig.php), modifizieren Sie diese Datei um den Zugang zu Ihrer MySQL Datenbank festzulegen. Dazu wird die URL zur Datenbank, der Datenbankname, der Benutzername und das Passwort ben&ouml;tigt.
+    Falls Sie diese Daten nicht vorliegen haben, wenden Sie sich bitte an Ihren
+    Provider. <br>
+  </li>
+  <li><span class="standardSchriftBold">Datenbank installieren und Konfigurieren</span><br>
+    Sie finden im Verzeichnis &quot;install&quot; eine Datei &quot;index.php&quot;. Nachdem Sie Rezervi auf Ihrem Webserver entpackt haben, k&ouml;nnen Sie dieses Script ausf&uuml;hren um Ihren Belegungsplan zu installieren. F&uuml;hren Sie die Anweisungen dieser Seite aus, falls Fehlermeldungen erscheinen, pr&uuml;fen Sie bitte die Zugangsdaten ihrer MySQL Datenbank oder wenden Sie sich an utilo.net. <br>
+  </li>
+  <li class="standardSchriftBold">URLs</li>
+<ul class="standardSchrift">
+  <li class="standardSchrift">Die Startseite Ihres Belegungsplanes: <br>
+    http://ihre-domain/ihr-Installationsverzeichnis/<a href="../start.php" target="_blank">start.php</a></li>
+  <li class="standardSchrift">Dieser Startseite k&ouml;nnen Sie auch die gew&uuml;nschte Sprache &uuml;bergeben:<br>
+    http://ihre-domain/ihr-Installationsverzeichnis/<a href="../start.php?sprache=de" target="_blank">start.php?sprache=de</a><br>
+    http://ihre-domain/ihr-Installationsverzeichnis/<a href="../start.php?sprache=en" target="_blank">start.php?sprache=en</a></li>
+  <li>Den Zugang zur Webschnittstelle erhalten sie &uuml;ber:<br>
+    http://ihre-domain/ihr-Installationsverzeichnis/<a href="../webinterface/index.php" target="_blank">webinterface/index.php</a><a href="../webinterface/index.php" target="_blank"><br>
+    </a></li>
+  </ul>
+<li><strong>Rezervi konfigurieren </strong><br>
+  Falls sie das erste mal die Webschnittstelle besuchen, benutzen sie den Benutzernamen 'test' und das Passwort 'test'. &Auml;ndern sie danach diese Zugangsdaten in der Webschnittstelle. <br>
+  F&uuml;hren sie danach folgende Konfigurationen durch:
+  <ol>
+    <li>Stammdaten &auml;ndern</li>
+    <li>Mietobjekte anlegen<br>
+    </li>
+  </ol>
+  Rezervi Generic ist nun für ihre Vermietungen einsatzbereit.
+  <p></p>
+</li>
+<li><span class="standardSchriftBold">Test und Registrierung</span><br>
+    Sie k&ouml;nnen den Rezervi Generic nach belieben Testen. Sollten Sie Rezervi allerdings kommerziell f&uuml;r Ihre Unterkunft einsetzen oder mit einer bestehenden Website verlinken, ist eine Registrierung bei UTILO notwendig. Sie erhalten nach der Registrierung eine Rechnung und k&ouml;nnen danach Rezervi Generic auf ihrer Website nutzen. <br>
+    Zur Registrierung: <a href="http://www.rezervi.com/www/english/registrierung/index.php">http://www.rezervi.com/www/english/registrierung/index.php</a><br>
+    <br>
+</li>
+<li><span class="standardSchriftBold">Kontakt</span> <br>
+    Falls sie Probleme bei der Installation haben oder Fehler entdecken k&ouml;nnen sie uns gerne unter <br>
+    <a href="mailto:rezervi@utilo.net">rezervi@utilo.net</a><br>
+    kontaktieren. Wir freuen uns auf ihre Nachricht! </li>
+</ol>
+<p>&copy; 2006,UTILO, DI Christian Osterrieder </p>
+<p>&nbsp; </p>
+</body>
+</html>

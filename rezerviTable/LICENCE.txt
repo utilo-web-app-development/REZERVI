@@ -1,0 +1,93 @@
++----------------------------------------------------------------------------
+| Rezervi Table reservation system by UTILO
++----------------------------------------------------------------------------
+|             company:  UTILO, DI Christian Osterrieder-Schlick
+|                       Rosittengasse 22, 5020 Salzburg, Austria
+|                 URL:  http://www.utilo.eu | http://www.rezervi.com 
+|               author:  Christian Osterrieder-Schlick osterrieder@directbox.com
+|  
+| Installations-Infos:  doc/install.html
+|              Lizenz:  LICENCE.txt 
+|
++----------------------------------------------------------------------------
+| Copyright (c) 2002 - 2006 - UTILO - All rights reserved.
++----------------------------------------------------------------------------
+
+
+Rezervi - end user licence agreement (EULA)
+UTILO, Christian Osterrieder-Schlick, Rosittengasse 22, 5020 Salzburg, Austria
+
+1. Preliminary remarks:
+
+This licence agreement relate to the software "Rezervi Table" of UTILO.
+The following notations "Rezervi" resp. "Rezervi Table"
+contains the complete source code of the descripted software product of UTILO,
+included the complete content of the files and all works based on it.
+
+Rezervi Table is a copyrighted product. The copyright is at Christian Osterrieder-Schlick,
+UTILO, Rosittengasse 22, 5020 Salzburg, Austria.
+
+Please read the following appointments carfully before you use Rezervi Table.
+We differs between commercial use and test use of Rezervi Table. For this reason
+please read careful point 3 "Licence for the commercial use" of this licence. 
+
+If you have questions to this licence, you can send an e-mail to UTILO
+<osterrieder@directbox.com>. You get more informations on the
+website http://www.rezervi.com/ or http://www.utilo.eu/.
+
+2. Consents:
+
+If the licensee hasn't another licence agreement with the licenser, 
+UTILO - Christian Osterrieder-Schlick, the licencee agree 
+this licence agreement by downloading, installationing, renting or
+changing the software or any other use of the software or parts of it.
+
+If you don't agree this licence agreement, or some points of this
+licence agreement, you don't have the right to use this software or
+parts of this software.
+
+3. Licence for the commercial use
+
+You have to order a "Licence for commercial use" if you adjust Rezervi Table
+for a third party or if you use Rezervi Table commercial or set a link to your commercial
+website.
+
+You get a "Licence for commercial use" on the website:
+http://www.rezervi.com/
+or by sending an e-mail with your billing address to office@utilo.eu
+
+4. Scale of the licence:
+
+This copy of Rezervi Table is for the installation on a webserver.
+If you install Rezervi Table on more than one webserver, you have to buy a licence for
+every webserver.
+
+If you install Rezervi Table you agree that the URL which is 
+defined in the config file is going to send to UTILO by e-mail. 
+
+You have not the right to lease out Rezervi Table or use parts or the complete
+software for your own products, accept this is allowed by the licencer.
+
+Every right, that is not in this licence agreement stays at the licencer.
+
+5. Warranty
+
+The licencee can use this software without any warranty. There is no
+warranty for the software or the content of the software. There is no
+warranty for the content that you produce with the software.
+
+The risks for the quality and performance of the software 
+is on the licencee. If Rezervi Table is defective you can't get back
+any money or other reparations. This includes also the lost
+of content or data that you produce with Rezervi Table. We take no
+warrenty for incorrect usage of Rezervi Table or for attacks from
+outside of the software system.
+
+For contentions the area of jurisdiction is in Salzburg, Austria.
+For this warranty apply the austrian rights.
+The Convention on Contract for the International Sale of Goods - CISG
+is not acceptable for this product. 
+
+Copyright © 2006 
+UTILO Christian Osterrieder-Schlick
+All rights reserved.
