@@ -1,26 +1,25 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Installation Rezervi</title>
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" type="text/JavaScript">
-	<!--
+		<!--
 	function checkForm(){
 		 if(document.formConfig.unterkunft_name.value == ""){
 		 	
 		 	alert(<?php
 				  if ($_POST["sprache"] == "de"){
 						?>
-						"Bitte geben sie den Namen ihrer Unterkunfte in!"
+							"Bitte geben sie den Namen ihrer Unterkunfte in!"
 						<?
-				  }
-				  else{
+						}
+						else{
 						?>
-						"Please fill in the name of your accomodation!"
+							"Please fill in the name of your accomodation!"
 						<?
-				  }
+						}
 				  ?>);
 				  
 	     	return false;
@@ -30,14 +29,14 @@
 		 	alert(<?php
 				  if ($_POST["sprache"] == "de"){
 						?>
-						"Bitte geben sie den Namen ihres Mietobjektes ein (Einzahl)!"
+							"Bitte geben sie den Namen ihres Mietobjektes ein (Einzahl)!"
 						<?
-				  }
-				  else{
+						}
+						else{
 						?>
-						"Please fill in the name of your object to rent (singular)!"
+							"Please fill in the name of your object to rent (singular)!"
 						<?
-				  }
+						}
 				  ?>);
 	     	return false;
 		 }
@@ -46,14 +45,14 @@
 		 	alert(<?php
 				  if ($_POST["sprache"] == "de"){
 						?>
-						"Bitte geben sie den Namen ihres Mietobjektes ein (Mehrzahl)!"
+							"Bitte geben sie den Namen ihres Mietobjektes ein (Mehrzahl)!"
 						<?
-				  }
-				  else{
+						}
+						else{
 						?>
-						"Please fill in the name of your object to rent (plural)!"
+							"Please fill in the name of your object to rent (plural)!"
 						<?
-				  }
+						}
 				  ?>);
 	     	return false;
 		 }
@@ -62,28 +61,38 @@
 		 	alert(<?php
 				  if ($_POST["sprache"] == "de"){
 						?>
-						"Bitte geben sie den Art ihrer Unterkunft ein!"
+							"Bitte geben sie den Art ihrer Unterkunft ein!"
 						<?
-				  }
-				  else{
+						}
+						else{
 						?>
-						"Please fill in the type of your accomodation!"
+							"Please fill in the type of your accomodation!"
 						<?
-				  }
-				  ?>);
-	     	return false;
-		 }
+						}
+				  ?>
+					);
+					return false;
+					}
 
-		return true;
-	}
-	-->
+					return true;
+					}
+					-->
 </script>
 </head>
 
 <body>
+
 <p class="ueberschrift">Rezervi availability overview and guest database<br/>
 					    Rezervi Belegungsplan und Kundendatenbank</p>
-<p <?php if (isset ($fehler) && $fehler == true) echo("class=\"belegt\""); else echo("class=\"frei\""); ?>><?php if (isset($antwort)) echo($antwort); ?></p>
+<p <?php
+							if (isset($fehler) && $fehler == true)
+								echo("class=\"belegt\"");
+							else
+								echo("class=\"frei\"");
+ ?>><?php
+							if (isset($antwort))
+								echo($antwort);
+ ?></p>
 <form action="install.php" method="post" id="formConfig" name="formConfig" target="_self" onSubmit="return checkForm();">
 	<input type="hidden" name="sprache" value="<?= $_POST["sprache"] ?>" />
 	<table  border="0" cellpadding="0" cellspacing="3" class="table"> 	
@@ -93,12 +102,12 @@
 						?>
 						Name ihrer Unterkunft
 						<?
-				  }
-				  else{
+						}
+						else{
 						?>
 						Name of your accomodation
 						<?
-				  }
+						}
 				  ?></td>
 				  	<td>
 						<input type="text" name="unterkunft_name" />*
@@ -110,12 +119,12 @@
 						?>
 						Art ihrer Unterkunft (z. B. Hotel) 
 						<?
-				  }
-				  else{
+						}
+						else{
 						?>
 						Type of your accomodation (eg. Hotel)
 						<?
-				  }
+						}
 				  ?></td>
 				 	<td>
 						<input name="art" type="text" />*
@@ -127,12 +136,12 @@
 						?>
 						Bezeichnung ihres Mietobjektes - Einzahl (z. B. Zimmer, Appartement) 
 						<?
-				  }
-				  else{
+						}
+						else{
 						?>
 						Name of your object to rent - singular (eg. room, apartement)
 						<?
-				  }
+						}
 				  ?></td>
 				 	<td>
 						<input name="mietobjekt_ez" type="text" />*
@@ -144,12 +153,12 @@
 						?>
 						Bezeichnung ihres Mietobjektes - Mehrzahl (z. B. Zimmer, Appartements) 
 						<?
-				  }
-				  else{
+						}
+						else{
 						?>
 						Name of your object to rent - plural (eg. rooms, apartements)
 						<?
-				  }
+						}
 				  ?></td>
 				 	<td>
 						<input name="mietobjekt_mz" type="text" />*

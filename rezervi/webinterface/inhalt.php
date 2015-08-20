@@ -3,24 +3,24 @@ $root = "..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");	
-//alle alten session_daten löschen:
+//alle alten session_daten lï¿½schen:
 destroyInactiveSessions();
 
 	/* 
 		reservierungsplan - utilo.eu
 		author: christian osterrieder
 		
-		inhaltsverzeinis für die wartung des benutzers
-		über diese seite wird das passwort und der benutzername geprüft,
-		zur prüfung übergeben werden die variablen
+		inhaltsverzeinis fï¿½r die wartung des benutzers
+		ï¿½ber diese seite wird das passwort und der benutzername geprï¿½ft,
+		zur prï¿½fung ï¿½bergeben werden die variablen
 		benutzername 
 		passwort
 	
-		für die jeweiligen Rechten angepasstes Wartungsmenue
+		fï¿½r die jeweiligen Rechten angepasstes Wartungsmenue
 
 		Rechte:
 		1 - Testversion
-		2 - Zimmer bearbeiten, Unterkunftsdaten ändern
+		2 - Zimmer bearbeiten, Unterkunftsdaten ï¿½ndern
 		3 - Design bearbeiten
 		  - Benutzerdaten bearbeiten
 		
@@ -37,8 +37,8 @@ destroyInactiveSessions();
 		$pass= getSessionWert(PASSWORT);
 	}
 	
-	//passwortprüfung vornehmen:
-	//datenbank öffnen:
+	//passwortprï¿½fung vornehmen:
+	//datenbank ï¿½ffnen:
 	include_once("../conf/rdbmsConfig.php");
 	//andere funktionen einbeziehen:
 	include_once("../include/benutzerFunctions.php");
@@ -50,7 +50,7 @@ destroyInactiveSessions();
 		$benutzer_id = checkPassword($ben,$pass,$link);
 	}	
 	if ($benutzer_id == -1){
-		//passwortprüfung fehlgeschlagen, auf index-seite zurück:
+		//passwortprï¿½fung fehlgeschlagen, auf index-seite zurï¿½ck:
 		$fehlgeschlagen = true;
 		include_once("./index.php");
 		exit;
@@ -67,7 +67,7 @@ destroyInactiveSessions();
 	}		
 	
 	//sprache auslesen:
-	//entweder aus übergebener url oder aus session
+	//entweder aus ï¿½bergebener url oder aus session
 	if (isset($_POST["sprache"]) && $_POST["sprache"] != ""){
 		$sprache = $_POST["sprache"];
 	 	setSessionWert(SPRACHE,$sprache);
@@ -78,7 +78,7 @@ destroyInactiveSessions();
 
 		//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		//unterkünfte sperren:
+		//unterkï¿½nfte sperren:
 		// 4 = la vielle maison
 		if ($unterkunft_id == -1){
 			echo("Zugang gesperrt!");
@@ -105,7 +105,7 @@ destroyInactiveSessions();
 <?php } ?>
 <table width="100%" border="0" cellspacing="3" cellpadding="0">
   <?php 
-  //prüfen ob benutzer das recht hat den folgenden link auszuführen:
+  //prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
   if ($benutzerrechte >= 1 && $anzahlVorhandenerZimmer > 0) {
 	?>
   <form action="./reservierung/index.php" method="post" name="resEingebenAendern" target="_self">    
@@ -113,7 +113,7 @@ destroyInactiveSessions();
       <td width="1"><input name="resEingebenAendern" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Reservierungsplan bearbeiten",$sprache,$link)); ?>">
       </td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Reservierungen eingeben, Reservierungen bearbeiten oder löschen.",$sprache,$link)); ?></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Reservierungen eingeben, Reservierungen bearbeiten oder lÃ¶schen.",$sprache,$link)); ?></td>
     </tr>
   </form>
   <form action="./anfragenBearbeiten/index.php" method="post" name="resEingebenAendern" target="_self">
@@ -121,28 +121,28 @@ destroyInactiveSessions();
       <td>
         <input type="submit" name="Submit" value="<?php echo(getUebersetzung("Anfragen bearbeiten",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Anfragen von Gästen als belegt bestätigen oder ablehnen",$sprache,$link)); ?>.</td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Anfragen von Gï¿½sten als belegt bestï¿½tigen oder ablehnen",$sprache,$link)); ?>.</td>
     </tr>
   </form>
   <form action="./gaesteBearbeiten/index.php" method="post" name="gaesteBearbeiten" target="_self">
     <tr>
       <td>
-        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("Gäste bearbeiten",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("Gï¿½ste bearbeiten",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Gespeicherte Daten der Gäste bearbeiten oder abfragen (z. B. E-Mail-Adressen ausgeben)",$sprache,$link)); ?></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Gespeicherte Daten der Gï¿½ste bearbeiten oder abfragen (z. B. E-Mail-Adressen ausgeben)",$sprache,$link)); ?></td>
     </tr>
   </form>
   <?php
 	 	} //ende benutzerrechte >= 1
-	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 		if ($benutzerrechte == 1) {
 	?>
   <form name="benutzerdatenEingebenAendern" method="post" action="">
     <tr>
       <td width="1"><input name="Benutzerdatenbearbeiten" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="Benutzerdatenbearbeiten" value="<?php echo(getUebersetzung("Benutzerdaten bearbeiten",$sprache,$link)); ?>"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Benutzer anlegen, ändern (z. B. Passwort) oder bestehende Benutzer löschen",$sprache,$link)); ?>.<strong><br/>
-		<?php echo(getUebersetzung("Diese Funktion ist nur für Administratoren verfügbar",$sprache,$link)); ?>!</strong></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Benutzer anlegen, ï¿½ndern (z. B. Passwort) oder bestehende Benutzer lï¿½schen",$sprache,$link)); ?>.<strong><br/>
+		<?php echo(getUebersetzung("Diese Funktion ist nur fï¿½r Administratoren verfï¿½gbar",$sprache,$link)); ?>!</strong></td>
     </tr>
   </form>
   <?php
@@ -153,19 +153,19 @@ destroyInactiveSessions();
     <tr>
       <td width="1"><input name="Benutzerdatenbearbeiten" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="Benutzerdatenbearbeiten" value="<?php echo(getUebersetzung("Benutzerdaten bearbeiten",$sprache,$link)); ?>"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Benutzer anlegen, ändern (z. B. Passwort) oder bestehende Benutzer löschen",$sprache,$link)); ?>.</td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Benutzer anlegen, ï¿½ndern (z. B. Passwort) oder bestehende Benutzer lï¿½schen",$sprache,$link)); ?>.</td>
     </tr>
   </form>
   <?php
 	 	}
-	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 		if ($benutzerrechte >= 2) {
 	?>
   <form action="./zimmerBearbeiten/index.php" method="post" name="ZimmerBearbeiten" target="_self">
     <tr>
       <td width="1"><input name="ZimmerBearbeiten" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="ZimmerBearbeiten" value="<?php echo(getUebersetzung("Zimmer bearbeiten",$sprache,$link)); ?>"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Zimmer/Appartements/Wohnung/etc. anlegen, löschen, oder bereits bestehende ändern",$sprache,$link)); ?>.</td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Zimmer/Appartements/Wohnung/etc. anlegen, lï¿½schen, oder bereits bestehende ï¿½ndern",$sprache,$link)); ?>.</td>
     </tr>
   </form>
   <?php
@@ -176,20 +176,20 @@ destroyInactiveSessions();
     <tr>
       <td width="1"><input name="ZimmerBearbeiten" type="button" class="button200pxA" onMouseOver="this.className='button200pxB';"
 		   onMouseOut="this.className='button200pxA';" id="ZimmerBearbeiten" value="<?php echo(getUebersetzung("Zimmer bearbeiten",$sprache,$link)); ?>"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Zimmer/Appartements/Wohnung/etc. anlegen, löschen, oder bereits bestehende ändern",$sprache,$link)); ?>. <strong><br/>
-        <?php echo(getUebersetzung("Diese Funktion ist nur für Administratoren verfügbar",$sprache,$link)); ?>!</strong></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Neue Zimmer/Appartements/Wohnung/etc. anlegen, lï¿½schen, oder bereits bestehende ï¿½ndern",$sprache,$link)); ?>. <strong><br/>
+        <?php echo(getUebersetzung("Diese Funktion ist nur fï¿½r Administratoren verfï¿½gbar",$sprache,$link)); ?>!</strong></td>
     </tr>
   </form>
   <?php
 	  }
-	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 		if ($benutzerrechte >= 2) {
 	?>
   <form action="./unterkunftBearbeiten/index.php" method="post" name="UnterkunftBearbeiten" target="_self">
     <tr>
       <td><input name="UnterkunftBearbeiten" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="UnterkunftBearbeiten" value="<?php echo(getUebersetzung("Unterkunft bearbeiten",$sprache,$link)); ?>"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Daten Ihrer Unterkunft ändern (z. B. E-Mail-Adresse)",$sprache,$link)); ?></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Daten Ihrer Unterkunft ï¿½ndern (z. B. E-Mail-Adresse)",$sprache,$link)); ?></td>
     </tr>
   </form>
   <?php
@@ -200,20 +200,20 @@ destroyInactiveSessions();
     <tr>
       <td><input name="UnterkunftBearbeiten" type="button" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="UnterkunftBearbeiten" value="<?php echo(getUebersetzung("Unterkunft bearbeiten",$sprache,$link)); ?>"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Daten Ihrer Unterkunft ändern (z. B. E-Mail-Adresse)",$sprache,$link)); ?><strong><br/>
-        <?php echo(getUebersetzung("Diese Funktion ist nur für Administratoren verfügbar",$sprache,$link)); ?>!</strong></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Daten Ihrer Unterkunft ï¿½ndern (z. B. E-Mail-Adresse)",$sprache,$link)); ?><strong><br/>
+        <?php echo(getUebersetzung("Diese Funktion ist nur fï¿½r Administratoren verfï¿½gbar",$sprache,$link)); ?>!</strong></td>
     </tr>
   </form>
   <?php
   }
-  	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+  	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 	if ($benutzerrechte >= 2) {
 	?>
   <form action="./divEinstellungen/index.php" method="post" name="DiverseEinstellungen" target="_self">
     <tr>
       <td><input name="divEinstellungen" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="divEinstellungen" value="<?php echo(getUebersetzung("Diverse Einstellungen",$sprache,$link)); ?>"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Diverse Einstellungen von Rezervi ändern",$sprache,$link)); ?>.</td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Diverse Einstellungen von Rezervi ï¿½ndern",$sprache,$link)); ?>.</td>
     </tr>
   </form>
   <?php
@@ -224,13 +224,13 @@ destroyInactiveSessions();
     <tr>
       <td><input name="divEinstellungen" type="button" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="divEinstellungen" value="<?php echo(getUebersetzung("diverse Einstellungen",$sprache,$link)); ?>"></td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Diverse Einstellungen von Rezervi ändern",$sprache,$link)); ?>.<strong><br/>
-        <?php echo(getUebersetzung("Diese Funktion ist nur für Administratoren verfügbar",$sprache,$link)); ?>!</strong></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Diverse Einstellungen von Rezervi ï¿½ndern",$sprache,$link)); ?>.<strong><br/>
+        <?php echo(getUebersetzung("Diese Funktion ist nur fï¿½r Administratoren verfï¿½gbar",$sprache,$link)); ?>!</strong></td>
     </tr>
   </form>
   <?php
   }
-	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 		if ($benutzerrechte >= 2) {
 	?>
   <form name="designBearbeiten" method="post" action="../webinterface/designBearbeiten/index.php">
@@ -238,12 +238,12 @@ destroyInactiveSessions();
       <td width="1"><input name="designBearbeiten" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="designBearbeiten2" value="<?php echo(getUebersetzung("Design bearbeiten",$sprache,$link)); ?>">
       </td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Das Design Ihres persönlichen Reservierungsplanes ändern (z. B. Hintergrundfarbe)",$sprache,$link)); ?>.</td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Das Design Ihres persï¿½nlichen Reservierungsplanes ï¿½ndern (z. B. Hintergrundfarbe)",$sprache,$link)); ?>.</td>
     </tr>
   </form>
   <?php
    	} //ende if benutzerrechte <= 2
-	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 	if ($benutzerrechte == 1) {
 	?>
   <form name="designBearbeiten" method="post" action="">
@@ -251,12 +251,12 @@ destroyInactiveSessions();
       <td width="1"><input name="designBearbeiten" type="button" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="designBearbeiten2" value="<?php echo(getUebersetzung("Design bearbeiten",$sprache,$link)); ?>">
       </td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Das Design Ihres persönlichen Reservierungsplanes ändern (z. B. Hintergrundfarbe)",$sprache,$link)); ?>.<strong><br/>
-        <?php echo(getUebersetzung("Diese Funktion ist nur für Administratoren verfügbar",$sprache,$link)); ?>!</strong></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Das Design Ihres persï¿½nlichen Reservierungsplanes ï¿½ndern (z. B. Hintergrundfarbe)",$sprache,$link)); ?>.<strong><br/>
+        <?php echo(getUebersetzung("Diese Funktion ist nur fï¿½r Administratoren verfï¿½gbar",$sprache,$link)); ?>!</strong></td>
     </tr>
   <?php
   }
-	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 	if ($benutzerrechte >= 2) {
 	?>
   <form name="antwortenBearbeiten" method="post" action="./autoResponse/index.php">
@@ -264,12 +264,12 @@ destroyInactiveSessions();
       <td><input name="antwortenBearbeiten" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="designBearbeiten2" value="<?php echo(getUebersetzung("Automatische e-Mails",$sprache,$link)); ?>">
       </td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Die automatischen E-Mail-Antworten an ihre Gäste ändern (z. B. Buchungsbestätigung) oder E-Mails an Ihre Gäste senden",$sprache,$link)); ?>.</td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Die automatischen E-Mail-Antworten an ihre Gï¿½ste ï¿½ndern (z. B. Buchungsbestï¿½tigung) oder E-Mails an Ihre Gï¿½ste senden",$sprache,$link)); ?>.</td>
     </tr>
 	  </form>
   <?php
    	} //ende if benutzerrechte <= 2
-	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 	if ($benutzerrechte == 1) {
 	?>
   <form name="antwortenBearbeiten" method="post" action="">
@@ -277,8 +277,8 @@ destroyInactiveSessions();
       <td><input name="antwortenBearbeiten" type="button" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" id="designBearbeiten2" value="<?php echo(getUebersetzung("Automatische e-Mails",$sprache,$link)); ?>">
       </td>
-      <td class="standardSchrift"><?php echo(getUebersetzung("Die automatischen E-Mail-Antworten an ihre Gäste ändern (z. B. Buchungsbestätigung) oder E-Mails an Ihre Gäste senden",$sprache,$link)); ?>.<strong><br/>
-    <?php echo(getUebersetzung("Diese Funktion ist nur für Administratoren verfügbar",$sprache,$link)); ?>!</strong></td>
+      <td class="standardSchrift"><?php echo(getUebersetzung("Die automatischen E-Mail-Antworten an ihre Gï¿½ste ï¿½ndern (z. B. Buchungsbestï¿½tigung) oder E-Mails an Ihre Gï¿½ste senden",$sprache,$link)); ?>.<strong><br/>
+    <?php echo(getUebersetzung("Diese Funktion ist nur fï¿½r Administratoren verfï¿½gbar",$sprache,$link)); ?>!</strong></td>
     </tr>
   </form>
   <?php
@@ -317,13 +317,13 @@ destroyInactiveSessions();
   </form>
   <?php
 	}
-	//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+	//prï¿½fen ob benutzer das recht hat den folgenden link auszufï¿½hren:
 	//	if ($benutzerrechte < 1000) {
 	?>
 </table>
 </body>
 </html>
 <?php
-	} //ende sperren unterk+ünfte
-//} //ende passwortprüfung ok
+	} //ende sperren unterk+ï¿½nfte
+//} //ende passwortprï¿½fung ok
 ?>
