@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			author: christian osterrieder utilo.eu						
 */
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -34,10 +34,10 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen",$sprache,$link)); ?>.</p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("Ã„ndern der angezeigten Sprachen",$sprache,$link)); ?>.</p>
 <table  border="0" cellpadding="0" cellspacing="3" class="table">
   <tr>
     <td><?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen",$sprache,$link)); ?>:</td>
@@ -77,7 +77,7 @@ if (isset($nachricht) && $nachricht != ""){
   <tr>
     <td colspan="2">
  	 <?php 
-	  showSubmitButton(getUebersetzung("ändern",$sprache,$link));
+	  showSubmitButton(getUebersetzung("Ã¤ndern",$sprache,$link));
 	?>
 	</td>
   </tr>
@@ -85,18 +85,18 @@ if (isset($nachricht) && $nachricht != ""){
 </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

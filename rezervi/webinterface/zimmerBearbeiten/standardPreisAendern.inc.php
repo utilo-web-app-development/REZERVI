@@ -36,20 +36,20 @@ define( '_JEXEC', 1 );
  	
  	$preis =  $_POST["preis_neu"];
  	$preis = str_replace(",",".",$preis);
-	//prüfe ob preis ein float oder integer:
+	//prï¿½fe ob preis ein float oder integer:
 	if (!is_numeric($preis)){
 		$fehler = true;
- 		$nachricht = "Der Preis ist kein gültiger Wert.";
+ 		$nachricht = "Der Preis ist kein gÃ¼ltiger Wert.";
  		$nachricht = getUebersetzung($nachricht,$sprache,$link);
  		include_once("./standardpreis.php");
  		exit;
 	}
 	
-	//wurde ein zimmer ausgewählt:
+	//wurde ein zimmer ausgewï¿½hlt:
 	if (!isset($_POST["zimmer_id_neu"]) || empty($_POST["zimmer_id_neu"])
 		|| count($_POST["zimmer_id_neu"])<1){
 		$fehler = true;
- 		$nachricht = "Es muss mindestens ein Mietobjekt ausgewählt werden.";
+ 		$nachricht = "Es muss mindestens ein Mietobjekt ausgewÃ¤hlt werden.";
  		$nachricht = getUebersetzung($nachricht,$sprache,$link);
  		include_once("./standardpreis.php");
  		exit;
@@ -58,19 +58,19 @@ define( '_JEXEC', 1 );
  	//preis speichern:
  	setPrice($zimmer_id_neu,null,null,$preis,"Euro",true,$link); 	
  	
- 	$nachricht = "Der Preis wurde erfolgreich hinzugefügt.";
+ 	$nachricht = "Der Preis wurde erfolgreich hinzugefÃ¼gt.";
  	$nachricht = getUebersetzung($nachricht,$sprache,$link);
  	include_once("./standardpreis.php");
  	exit;
  }
 
- //2. wurde löschen geklickt?
+ //2. wurde lï¿½schen geklickt?
  $res = getStandardPrices($unterkunft_id,$link);
  while ($d = mysql_fetch_array($res)){	
 	$preis_id 	= $d["PK_ID"];
 	if (isset($_POST["loeschen_".$preis_id])){
 		deletePreis($preis_id);
- 		$nachricht = "Der Preis wurde erfolgreich gelöscht.";
+ 		$nachricht = "Der Preis wurde erfolgreich gelÃ¶scht.";
  		$nachricht = getUebersetzung($nachricht,$sprache,$link);		
 		include_once("./standardpreis.php");
  		exit;
@@ -81,7 +81,7 @@ define( '_JEXEC', 1 );
  if (isset($_POST["aendern"])){
  	
  	 $res = getStandardPrices($unterkunft_id,$link);
- 	 //gehe alle preise durch ob sie evt. verändert wurden:
+ 	 //gehe alle preise durch ob sie evt. verï¿½ndert wurden:
 	 while ($d = mysql_fetch_array($res)){	
 	 		
 	 		$preis_id = $d["PK_ID"];
@@ -97,20 +97,20 @@ define( '_JEXEC', 1 );
 		 	
 		 	$preis =  $_POST["preis_".$preis_id];
 		 	$preis = str_replace(",",".",$preis);
-			//prüfe ob preis ein float oder integer:
+			//prï¿½fe ob preis ein float oder integer:
 			if (!is_numeric($preis)){
 				$fehler = true;
-		 		$nachricht = "Der Preis ist kein gültiger Wert.";
+		 		$nachricht = "Der Preis ist kein gÃ¼ltiger Wert.";
 		 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		 		include_once("./standardpreis.php");
 		 		exit;
 			}			
 			
-			//wurde ein zimmer ausgewählt:
+			//wurde ein zimmer ausgewï¿½hlt:
 			if (!isset($_POST["zimmer_".$preis_id]) || empty($_POST["zimmer_".$preis_id])
 				|| count($_POST["zimmer_".$preis_id])<1){
 				$fehler = true;
-		 		$nachricht = "Es muss mindestens ein Mietobjekt ausgewählt werden.";
+		 		$nachricht = "Es muss mindestens ein Mietobjekt ausgewÃ¤hlt werden.";
 		 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		 		include_once("./standardpreis.php");
 		 		exit;
@@ -119,8 +119,8 @@ define( '_JEXEC', 1 );
 		 	//preis speichern:
 		 	changePrice($preis_id,$zimmer_id_neu,null,null,$preis,"Euro",true,$link); 	
 		
-	 }//ende alle möglichen preise durchlaufen
-	$nachricht = "Die Preise wurden erfolgreich geändert.";
+	 }//ende alle mï¿½glichen preise durchlaufen
+	$nachricht = "Die Preise wurden erfolgreich geÃ¤ndert.";
  	$nachricht = getUebersetzung($nachricht,$sprache,$link);
  	include_once("./standardpreis.php");
  	exit;

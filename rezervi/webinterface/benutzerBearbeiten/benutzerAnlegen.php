@@ -13,7 +13,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -35,9 +35,9 @@ $sprache = getSessionWert(SPRACHE);
   <table border="0" cellpadding="0" cellspacing="3" class="table">
     <tr>
       <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?><br/>
-          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
+          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte fï¿½llen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
           <br/>
-          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden!",$sprache,$link)); ?></span></p></td>
+          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mï¿½ssen ausgefï¿½llt werden!",$sprache,$link)); ?></span></p></td>
     </tr>
     <tr>
       <td height="30" colspan="2">&nbsp;</td>
@@ -65,17 +65,21 @@ $sprache = getSessionWert(SPRACHE);
         </select></td>
     </tr>
     <tr>
-      <td colspan="2"><input name="Submit" type="submit" id="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?>"></td>
+      <td colspan="2"><input name="Submit" type="submit" id="Submit" class="btn btn-success"  
+      value="<?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?>">
+     </td>
     </tr>
   </table>
 </form>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+    <td>
+    	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+    	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-      </form></td>
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
+      </form> -->
+    </td>
   </tr>
 </table>
 <br/>
@@ -83,7 +87,7 @@ $sprache = getSessionWert(SPRACHE);
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>

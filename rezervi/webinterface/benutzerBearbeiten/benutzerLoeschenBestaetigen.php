@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			bestätigung zum löschen 
+			bestï¿½tigung zum lï¿½schen 
 			author utilo.eu
 */
 
@@ -15,7 +15,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
 $id = $_POST["id"];
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -31,7 +31,7 @@ $sprache = getSessionWert(SPRACHE);
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("LÃ¶schung bestÃ¤tigen",$sprache,$link)); ?></p>
 <form action="./benutzerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">
   <table border="0" cellpadding="0" cellspacing="3" class="table">
     <tr>
@@ -48,11 +48,10 @@ $sprache = getSessionWert(SPRACHE);
 			?>
           </select>
         </p>
-        <p><?php echo(getUebersetzung("Nur die hier selektierten Benutzer werden gelöscht.",$sprache,$link)); ?> 
-		<?php echo(getUebersetzung("Entfernen Sie die Markierungen (mit [STRG] und Mausklick) wenn Benutzer nicht gelöscht werden sollen!",$sprache,$link)); ?></p>
+        <p><?php echo(getUebersetzung("Nur die hier selektierten Benutzer werden gelï¿½scht.",$sprache,$link)); ?> 
+		<?php echo(getUebersetzung("Entfernen Sie die Markierungen (mit [STRG] und Mausklick) wenn Benutzer nicht gelÃ¶scht werden sollen!",$sprache,$link)); ?></p>
         
-        <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>">
+        <input name="retour" type="submit" class="btn btn-danger"  id="retour"  value="<?php echo(getUebersetzung("lÃ¶schen",$sprache,$link)); ?>">
       </td>
     </tr>
   </table>
@@ -60,10 +59,13 @@ $sprache = getSessionWert(SPRACHE);
 <br/>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+    <td>
+    	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
         <input name="zurueck" type="submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-      </form></td>
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
+      </form> -->
+        <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+    </td>
   </tr>
 </table>
 <br/>
@@ -71,7 +73,7 @@ $sprache = getSessionWert(SPRACHE);
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
         <input name="hauptmenue" type="submit" class="button200pxA" id="hauptmenue" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>

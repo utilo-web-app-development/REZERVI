@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			reservierungsplan
 			ein neues zimmer anlegen.
 */
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -38,8 +38,8 @@ include_once($root."/include/sessionFunctions.inc.php");
   <table border="0" cellpadding="0" cellspacing="3" class="tableColor">
     <tr> 
       <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen",$sprache,$link)); ?><br/>
-          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
-		  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!
+          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte fï¿½llen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
+		  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mï¿½ssen ausgefï¿½llt werden",$sprache,$link)); ?>!
 		  </span></p></td>
     </tr>
     <tr> 
@@ -87,7 +87,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     if (isFrenchShown($unterkunft_id,$link)){
     ?>
 	    <tr> 
-	      <td><?php echo(getUebersetzung("Zimmerart in französisch",$sprache,$link)); ?>
+	      <td><?php echo(getUebersetzung("Zimmerart in franzï¿½sisch",$sprache,$link)); ?>
 	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?> 
 	      <?php if ($standardsprache == "fr"){ ?>
 	      	*
@@ -125,7 +125,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     if (isNetherlandsShown($unterkunft_id,$link)){
     ?>
     	<tr> 
-	      <td><?php echo(getUebersetzung("Zimmerart in holländisch",$sprache,$link)); ?> 
+	      <td><?php echo(getUebersetzung("Zimmerart in hollï¿½ndisch",$sprache,$link)); ?> 
 	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
 	      <?php if ($standardsprache == "nl"){ ?>
 	      	*
@@ -223,7 +223,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     if (isFrenchShown($unterkunft_id,$link)){
     ?>
     <tr> 
-      <td><?php echo(getUebersetzung("Zimmernummer in französisch (z. B. Typ A, Nr. 10, Balkonzimmer, etc.)",$sprache,$link)); ?> 
+      <td><?php echo(getUebersetzung("Zimmernummer in franzÃ¶sisch (z. B. Typ A, Nr. 10, Balkonzimmer, etc.)",$sprache,$link)); ?> 
       	      <?php if ($standardsprache == "fr"){ ?>
 	      	*
 	      <?php } 
@@ -259,7 +259,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     if (isNetherlandsShown($unterkunft_id,$link)){
     ?>
     <tr> 
-      <td><?php echo(getUebersetzung("Zimmernummer in holländisch (z. B. Typ A, Nr. 10, Balkonzimmer, etc.)",$sprache,$link)); ?> 
+      <td><?php echo(getUebersetzung("Zimmernummer in hollÃ¤ndisch (z. B. Typ A, Nr. 10, Balkonzimmer, etc.)",$sprache,$link)); ?> 
 	      <?php if ($standardsprache == "nl"){ ?>
 	      	*
 	      <?php } 
@@ -315,11 +315,11 @@ include_once($root."/include/sessionFunctions.inc.php");
       <td height="30" colspan="2">&nbsp;</td>
     </tr>
     <tr> 
-      <td><?php echo(getUebersetzung("Anzahl der Betten für Erwachsene",$sprache,$link)); ?>*</td>
+      <td><?php echo(getUebersetzung("Anzahl der Betten fï¿½r Erwachsene",$sprache,$link)); ?>*</td>
       <td><input name="betten" type="text" id="betten" value="<?php if (isset($betten)) {echo($betten);} ?>" maxlength="6"></td>
     </tr>
     <tr>
-      <td><?php echo(getUebersetzung("Anzahl der Betten für Kinder",$sprache,$link)); ?>*</td>
+      <td><?php echo(getUebersetzung("Anzahl der Betten fï¿½r Kinder",$sprache,$link)); ?>*</td>
       <td><input name="bettenKinder" type="text" id="bettenKinder" value="<?php if (isset($bettenKinder)) { 
 	  																					echo($bettenKinder); 
 																					} 
@@ -370,19 +370,21 @@ include_once($root."/include/sessionFunctions.inc.php");
 	}
     ?>
     <tr> 
-      <td colspan="2"><input name="Submit" type="submit" id="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Zimmer eintragen",$sprache,$link)); ?>"></td>
+      <td colspan="2"><input name="Submit" type="submit" id="Submit" class="btn btn-success"
+      value="<?php echo(getUebersetzung("Zimmer eintragen",$sprache,$link)); ?>"></td>
     </tr>
   </table>
 </form>
 
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-
-	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-  </form></td>
+    <td>
+    	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
+	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>"></form> -->
+	 	
+	 	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+	</td>
   </tr>
 </table><br/>
 
@@ -391,7 +393,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
   </form></td>
   </tr>
 </table>

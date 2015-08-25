@@ -6,10 +6,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 
 /*   
 			reservierungsplan
-			startseite zur wartung der reservierung für den benutzer
+			startseite zur wartung der reservierung fï¿½r den benutzer
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss ï¿½bergeben werden:
 			Benutzer PK_ID $benutzer_id
 */
 
@@ -19,7 +19,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -76,7 +76,7 @@ include_once("../../include/uebersetzer.php");
 	    //-->
 </script>
 <?php		
-//passwortprüfung:	
+//passwortprï¿½fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <p class="standardSchriftBold">
 <?= getUebersetzung("G&auml;ste-Daten abfragen und bearbeiten",$sprache,$link) ?>
@@ -87,7 +87,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
   <tr> 
     <td><table border="0" cellpadding="0" cellspacing="3" class="table">
       <tr>
-        <td><p><?php echo(getUebersetzung("Bitte wählen Sie aus, welche Daten der Gäste angezeigt werden sollen",$sprache,$link)); ?>:</p></td>
+        <td><p><?php echo(getUebersetzung("Bitte wï¿½hlen Sie aus, welche Daten der Gï¿½ste angezeigt werden sollen",$sprache,$link)); ?>:</p></td>
       </tr>
     </table>
       <br/>
@@ -113,7 +113,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           </tr>
           <tr> 
             <td><input name="strasse_val" type="checkbox" id="strasse_val" value="true" checked></td>
-            <td><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?></td>
+            <td><?php echo(getUebersetzung("Straï¿½e/Hausnummer",$sprache,$link)); ?></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
           </tr>
@@ -169,8 +169,8 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           <tr> 
             <td>&nbsp;</td>
             <td> 
-              <input name="ListeAnzeigen" type="submit" class="button200pxA" id="ListeAnzeigen" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Gästeliste anzeigen",$sprache,$link)); ?>"></td>
+            	<a class="btn btn-primary" href="./gastAnlegen/index.php"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("GÃ¤steliste anzeigen",$sprache,$link)); ?></a>
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
           </tr>
@@ -235,11 +235,9 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
  <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr> 
     <td>
-      <form action="./gastAnlegen/index.php" method="post" name="gastAnlegen" target="_self">
-        <input type="submit" name="gastAnlegenAbsenden" value="<?php echo(getUebersetzung("neuen Gast anlegen",$sprache,$link)); ?>" class="button200pxA" 
-			onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';">
-      </form></td>
+    	<a class="btn btn-primary" href="./gastAnlegen/index.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("neuen Gast anlegen",$sprache,$link)); ?></a>
+     
+    </td>
   </tr>
 </table>
 <br/>
@@ -247,7 +245,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
   <tr> 
     <td>
       <form action="../inhalt.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" 
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>" class="button200pxA" 
 			onMouseOver="this.className='button200pxB';"
        		onMouseOut="this.className='button200pxA';">
       </form></td>

@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			startseite zur wartung der reservierung für den benutzer
+			startseite zur wartung der reservierung fï¿½r den benutzer
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss ï¿½bergeben werden:
 			Benutzer PK_ID $benutzer_id
 */
 
@@ -18,7 +18,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -41,21 +41,21 @@ include_once("../../include/uebersetzer.php");
 <script language="JavaScript">
 	<!--
 	    function sicher(){
-	    	return confirm("<?php echo(getUebersetzung("Anfrage wirklich löschen?",$sprache,$link)); ?>"); 	    
+	    	return confirm("<?php echo(getUebersetzung("Anfrage wirklich lÃ¶schen?",$sprache,$link)); ?>"); 	    
 	    }
 	//-->
 </script>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortprüfung:	
+<?php //passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Reservierungsanfragen von Gästen bestätigen/löschen",$sprache,$link)); ?></p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("Reservierungsanfragen von GÃ¤sten bestÃ¤tigen/lÃ¶schen",$sprache,$link)); ?></p>
 <table width="100%" border="0" cellpadding="0" cellspacing="3" class="tableColor">
   <tr>
-    <td><p><?php echo(getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestätigten bzw. gelöschten Reservierungsanfragen.",$sprache,$link)); ?><br/>
-        <?php echo(getUebersetzung("Falls Sie eine Reservierungsanfrage bestätigen wird diese als belegt im Reservierungsplan eingetragen, der Gast wird darüber nur informiert wenn die automatischen E-Mails aktiviert wurden.",$sprache,$link)); ?><br/>
-        <?php echo(getUebersetzung("Bei Löschung einer Reservierungsanfrage bleiben die Informationen des Gastes in der Datenbank erhalten, wollen Sie auch den Gast löschen, bestätigen Sie dies bitte mit dem entsprechenden Feld.",$sprache,$link)); ?>
-		<?php echo(getUebersetzung("Ein Gast kann nur gelöscht werden, falls es keine anderen Reservierungen für diesen Gast gibt.",$sprache,$link)); ?>
+    <td><p><?php echo(getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestÃ¤tigten bzw. gelÃ¶schten Reservierungsanfragen.",$sprache,$link)); ?><br/>
+        <?php echo(getUebersetzung("Falls Sie eine Reservierungsanfrage bestÃ¤tigen wird diese als belegt im Reservierungsplan eingetragen, der Gast wird darÃ¼ber nur informiert wenn die automatischen E-Mails aktiviert wurden.",$sprache,$link)); ?><br/>
+        <?php echo(getUebersetzung("Bei LÃ¶schung einer Reservierungsanfrage bleiben die Informationen des Gastes in der Datenbank erhalten, wollen Sie auch den Gast lÃ¶schen, bestÃ¤tigen Sie dies bitte mit dem entsprechenden Feld.",$sprache,$link)); ?>
+		<?php echo(getUebersetzung("Ein Gast kann nur gelÃ¶scht werden, falls es keine anderen Reservierungen fÃ¼r diesen Gast gibt.",$sprache,$link)); ?>
     </td>
   </tr>
 </table>
@@ -191,12 +191,12 @@ include_once("../../include/uebersetzer.php");
           <tr>
             <td><input name="gast_id" type="hidden" value="<?php echo($gast_id); ?>">
               <input name="reservierungs_id" type="hidden" value="<?php echo($reservierungen); ?>">
-              <input name="entfernen" type="submit" id="entfernen" value="<?php echo(getUebersetzung("Anfrage löschen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+              <input name="entfernen" type="submit" id="entfernen" value="<?php echo(getUebersetzung("Anfrage lï¿½schen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
               <input name="gastEntfernen" type="checkbox" id="gastEntfernen" value="true">
-              <?php echo(getUebersetzung("Gast aus Datenbank löschen",$sprache,$link)); ?>
+              <?php echo(getUebersetzung("Gast aus Datenbank lï¿½schen",$sprache,$link)); ?>
               <?php
-			  //automatische absage muß hier nochmals bestätigt werden,
+			  //automatische absage muï¿½ hier nochmals bestï¿½tigt werden,
 			  //allerdings nur wenn sie auch aktiv ist:
 			  if (isMessageActive($unterkunft_id,"ablehnung",$link)){
 			  ?>
@@ -212,14 +212,14 @@ include_once("../../include/uebersetzer.php");
         <form action="./anfrageBestaetigen.php" method="post" name="reservierungBestaetigen" target="_self" id="reservierungBestaetigen">
           <tr>
             <td><input name="reservierungs_id" type="hidden" value="<?php echo($reservierungen); ?>">
-              <input type="submit" name="submit" value="<?php echo(getUebersetzung("Anfrage bestätigen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+              <input type="submit" name="submit" value="<?php echo(getUebersetzung("Anfrage bestï¿½tigen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
               <?php
                if (isMessageActive($unterkunft_id,"bestaetigung",$link)){
 			  ?>
 				  <input name="antwort" type="checkbox" id="antwort" value="true" checked>
 				  <input name="art" type="hidden" value="bestaetigung">
-				  <?php echo(getUebersetzung("automatische Bestätigung senden",$sprache,$link)); ?>
+				  <?php echo(getUebersetzung("automatische Bestï¿½tigung senden",$sprache,$link)); ?>
               <?php
 			  }
 			  ?>
@@ -238,20 +238,22 @@ if ($leer == true){  ?>
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><p><?php echo(getUebersetzung("Es sind keine offenen Reservierungsanfragen vorhanden",$sprache,$link)); ?>!</p>
-      <form action="../inhalt.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';">
+      <!-- <form action="../inhalt.php" method="post" name="form1" target="_self">
+        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+       onMouseOut="this.className='button200pxA';"> -->
+       <a class="btn btn-primary" href="../inhalt.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+     
       </form></td>
   </tr>
 </table>
 <?php } 
-	else { //zurück-button anzeigen: 
+	else { //zurï¿½ck-button anzeigen: 
 ?>
 <br/>
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
       </form></td>
   </tr>
@@ -259,9 +261,9 @@ if ($leer == true){  ?>
 <?php } //ende else
  ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
 ?>
 </body>

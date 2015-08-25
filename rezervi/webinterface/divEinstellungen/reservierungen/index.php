@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			author: christian osterrieder utilo.eu						
 */
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -49,10 +49,10 @@ if (empty($xDays) || $xDays == 0 || $xDays == "0"){
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einstellungen für Reservierungen",$sprache,$link)); ?>.</p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("Einstellungen fÃ¼r Reservierungen",$sprache,$link)); ?>.</p>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -81,8 +81,8 @@ if (isset($nachricht) && $nachricht != ""){
 	    <td>
 	 	 <?= getUebersetzung("Eingehende Anfragen nach",$sprache,$link) ?>&nbsp; 	 	 
   			<input type="text" name="xDays" value="<?= $xDays ?>" size="3" maxlength="3"/>&nbsp;  
-	 	 <?= getUebersetzung("Tagen löschen falls unbestätigt.",$sprache,$link) ?>&nbsp;  
-	 	 <?= getUebersetzung("(Bitte lassen sie dieses Feld leer falls dies nicht erwünscht ist.)",$sprache,$link) ?>  
+	 	 <?= getUebersetzung("Tagen lÃ¶schen falls unbestÃ¤tigt.",$sprache,$link) ?>&nbsp;  
+	 	 <?= getUebersetzung("(Bitte lassen sie dieses Feld leer falls dies nicht erwÃ¼nscht ist.)",$sprache,$link) ?>  
 		</td>
     </tr>  
     <tr>
@@ -107,18 +107,18 @@ if (isset($nachricht) && $nachricht != ""){
 </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

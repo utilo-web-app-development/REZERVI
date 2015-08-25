@@ -3,7 +3,7 @@
  * Created on 19.01.2007
  *
  * @author coster
- * preise hinzufügen löschen ändern
+ * preise hinzufï¿½gen lï¿½schen ï¿½ndern
  */
 
 session_start();
@@ -42,10 +42,10 @@ include_once("../templates/headerA.php");
 include_once("../templates/headerB.php"); 
 include_once("../templates/bodyA.php"); 
 
-//passwortprüfung:	
+//passwortprï¿½fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
-//generiert das heutige datum für den date picker:
+//generiert das heutige datum fï¿½r den date picker:
 $startdatumDP = getTodayDay()."/".parseMonthNumber(getTodayMonth())."/".getTodayYear();
 
 $sizeRoomSelectBox = getAnzahlVorhandeneZimmer($unterkunft_id,$link);
@@ -54,12 +54,12 @@ if ($sizeRoomSelectBox > 5){
 }
 ?>
 <p class="standardSchriftBold">
-	<?= getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
+	<?= getUebersetzung("Preise hinzufï¿½gen, ï¿½ndern, lï¿½schen",$sprache,$link) ?>.
 </p>
 <p class="standardSchrift">
 	<?php
-	$text = "Definieren sie hier für jedes Mietobjekt einen Standardpreis. Wird " .
-			"bei der Berechnung des Preises kein Preis für eine Saison gefunden, dann " .
+	$text = "Definieren sie hier fÃ¼r jedes Mietobjekt einen Standardpreis. Wird " .
+			"bei der Berechnung des Preises kein Preis fÃ¼r eine Saison gefunden, dann " .
 			"wird dieser Preis zur Preisberechnung herangezogen.";
 	?>
 	<?= getUebersetzung($text,$sprache,$link) ?>
@@ -133,9 +133,8 @@ if (isset($nachricht) && $nachricht != ""){
 			<td>
 			    <input 
       				name="loeschen_<?= $preis_id ?>" type="submit" id="loeschen_<?= $preis_id ?>" 
-      				class="button200pxA" onMouseOver="this.className='button200pxB';"
-       				onMouseOut="this.className='button200pxA';" 
-       				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
+      				class="btn btn-danger" 
+       				value="<?php echo(getUebersetzung("lÃ¶schen",$sprache,$link)); ?>" />
 			</td>
 		</tr>
 <?php
@@ -176,9 +175,8 @@ if (isset($nachricht) && $nachricht != ""){
 		<td>
 		    <input 
   				name="hinzufuegen" type="submit" id="hinzufuegen" 
-  				class="button200pxA" onMouseOver="this.className='button200pxB';"
-   				onMouseOut="this.className='button200pxA';" 
-   				value="<?php echo(getUebersetzung("hinzufügen",$sprache,$link)); ?>" />
+  				class="btn btn-success"
+   				value="<?php echo(getUebersetzung("hinzufÃ¼gen",$sprache,$link)); ?>" />
 		</td>
 	</tr>
 </table>
@@ -188,8 +186,7 @@ if (isset($nachricht) && $nachricht != ""){
 		<td colspan="3">
 			<input 
   				name="aendern" type="submit" id="aendern" 
-  				class="button200pxA" onMouseOver="this.className='button200pxB';"
-   				onMouseOut="this.className='button200pxA';" 
+  				class="btn btn-success" 
    				value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
 		</td>
 	</tr>
@@ -197,24 +194,27 @@ if (isset($nachricht) && $nachricht != ""){
 </form>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-  </form></td>
+    <td>
+    	 <a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+    	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
+	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurï¿½ck",$sprache,$link)); ?>">
+  		</form> -->
+   </td>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
   </form></td>
   </tr>
 </table>
 <?php
 }
 else {
-	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 }
 ?>   
 </body>

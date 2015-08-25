@@ -15,7 +15,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -93,7 +93,7 @@ $sprache = getSessionWert(SPRACHE);
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <?php
@@ -109,8 +109,8 @@ $sprache = getSessionWert(SPRACHE);
 	}
 ?>
 <p class="standardSchriftBold">
-      <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
-	  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!
+      <?php echo(getUebersetzung("Bitte fÃ¼llen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
+	  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden",$sprache,$link)); ?>!
 </p>
 <form name="form" method="post" action="./unterkunftAendern.php">
 <table border="0" cellpadding="0" cellspacing="3" class="table">
@@ -153,7 +153,7 @@ if (isEnglishShown($unterkunft_id,$link)){
 if (isFrenchShown($unterkunft_id,$link)){
 ?>
   <tr>
-    <td><?php echo(getUebersetzung("Name der Unterkunft in Französisch",$sprache,$link)); ?> 
+    <td><?php echo(getUebersetzung("Name der Unterkunft in FranzÃ¶sisch",$sprache,$link)); ?> 
     <?php if ($standardsprache == "fr") { echo("*"); } 
     	  else {
     ?>
@@ -187,7 +187,7 @@ if (isItalianShown($unterkunft_id,$link)){
 if (isNetherlandsShown($unterkunft_id,$link)){
 ?>
   <tr>
-    <td><?php echo(getUebersetzung("Name der Unterkunft in Holländisch",$sprache,$link)); ?> 
+    <td><?php echo(getUebersetzung("Name der Unterkunft in HollÃ¤ndisch",$sprache,$link)); ?> 
     <?php if ($standardsprache == "nl") { echo("*"); }
     	  else {
     ?>
@@ -238,7 +238,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
 
 ?>
   <tr>
-    <td><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?></td>
+    <td><?php echo(getUebersetzung("StraÃŸe/Hausnummer",$sprache,$link)); ?></td>
     <td><input name="strasse" type="text" id="strasse" value="<?php echo($strasse) ?>" size="50"></td>
   </tr>
   <tr>
@@ -282,7 +282,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
   <tr>
-    <td><?php echo(getUebersetzung("Land auf Französisch",$sprache,$link));     
+    <td><?php echo(getUebersetzung("Land auf FranzÃ¶sisch",$sprache,$link));     
     if ($standardsprache != "fr"){
     ?>
     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
@@ -310,7 +310,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
   if (isNetherlandsShown($unterkunft_id,$link)){
   ?>
   <tr>
-    <td><?php echo(getUebersetzung("Land auf Holländisch",$sprache,$link));     
+    <td><?php echo(getUebersetzung("Land auf HollÃ¤ndisch",$sprache,$link));     
     if ($standardsprache != "nl"){
     ?>
     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
@@ -372,7 +372,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><?php echo(getUebersetzung("Währung ihrer Preisangaben",$sprache,$link)); ?>*</td>
+    <td><?php echo(getUebersetzung("WÃ¤hrung ihrer Preisangaben",$sprache,$link)); ?>*</td>
     <td><input name="waehrung" type="text" id="waehrung" value="<?php echo($waehrung); ?>" size="50"></td>
   </tr>
   <tr>
@@ -413,7 +413,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
   <tr>
-    <td><?php echo(getUebersetzung("Art der Unterkunft in Französisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
+    <td><?php echo(getUebersetzung("Art der Unterkunft in FranzÃ¶sisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
       
     <?php if ($standardsprache == "fr") { echo("*"); } 
     	  else {
@@ -445,7 +445,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
   if (isNetherlandsShown($unterkunft_id,$link)){
   ?>
   <tr>
-    <td><?php echo(getUebersetzung("Art der Unterkunft in Holländisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
+    <td><?php echo(getUebersetzung("Art der Unterkunft in HollÃ¤ndisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
      <?php if ($standardsprache == "nl") { echo("*"); } 
     	  else {
     ?>
@@ -551,7 +551,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
   <tr>
-    <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Französisch",$sprache,$link)); ?>.
+    <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in FranzÃ¶sisch",$sprache,$link)); ?>.
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
        <?php if ($standardsprache == "fr") { echo("*"); }
     	  else {
@@ -564,7 +564,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
     <td><input name="zimmerart_fr" type="text" id="zimmerart_fr" value="<?php echo($zimmerart_fr); ?>" size="50"></td>
   </tr>
   <tr>
-    <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Französisch - Mehrzahl",$sprache,$link)); ?>
+    <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in FranzÃ¶sisch - Mehrzahl",$sprache,$link)); ?>
     	<?php if ($standardsprache == "fr") { echo("*"); } 
     	  else {
     ?>
@@ -609,7 +609,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
   if (isNetherlandsShown($unterkunft_id,$link)){
   ?>
   <tr>
-    <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Holländisch",$sprache,$link)); ?>.
+    <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in HollÃ¤ndisch",$sprache,$link)); ?>.
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
       <?php if ($standardsprache == "nl") { echo("*"); } 
     	  else {
@@ -622,7 +622,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
     <td><input name="zimmerart_nl" type="text" id="zimmerart_nl" value="<?php echo($zimmerart_nl); ?>" size="50"></td>
   </tr>
   <tr>
-    <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Holländisch - Mehrzahl",$sprache,$link)); ?>
+    <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in HollÃ¤ndisch - Mehrzahl",$sprache,$link)); ?>
     	<?php if ($standardsprache == "nl") { echo("*"); } 
     	  else {
     ?>
@@ -700,7 +700,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><?php echo(getUebersetzung("Bis zu welchem Alter erhalten Kinder in Ihrer Unterkunft eine Ermäßigung",$sprache,$link)); ?>?</td>
+    <td><?php echo(getUebersetzung("Bis zu welchem Alter erhalten Kinder in Ihrer Unterkunft eine ErmÃ¤ÃŸigung",$sprache,$link)); ?>?</td>
     <td><select name="kindesalter" id="kindesalter">
     <?php
     for ($i=0; $i<=23; $i++){
@@ -712,28 +712,31 @@ if (isEstoniaShown($unterkunft_id,$link)){
     </select></td>
   </tr>
   <tr>
-    <td><input type="submit" name="Submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Unterkunft ändern",$sprache,$link)); ?>"></td>
+    <td>
+    <!-- alter button <input type="submit" name="Submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Unterkunft ï¿½ndern",$sprache,$link)); ?>"> -->
+	 <input type="submit" name="Submit" class="btn btn-primary" id="retour" value="<?php echo(getUebersetzung("Unterkunft Ã¤ndern",$sprache,$link)); ?>">
+	</td>
     <td>&nbsp;</td>
   </tr>
 </table>
 </form>
 <?php
-//-----buttons um zurück zum menue zu gelangen: 
+//-----buttons um zurï¿½ck zum menue zu gelangen: 
 ?>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

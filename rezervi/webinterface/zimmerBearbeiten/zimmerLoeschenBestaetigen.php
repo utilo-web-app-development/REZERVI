@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			bestätigung zum löschen von zimmern von benutzer einholen!
+			bestï¿½tigung zum lï¿½schen von zimmern von benutzer einholen!
 */
 
 	//variablen intitialisieren:
@@ -15,7 +15,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$zimmer_id = $_POST["zimmer_id"];
 	$sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -26,10 +26,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 	include_once("../../include/zimmerFunctions.php");
 	include_once("../../include/uebersetzer.php");
 	
-		//wurde auch ein zimmer ausgewählt?
+		//wurde auch ein zimmer ausgewï¿½hlt?
 	if (!isset($zimmer_id) || $zimmer_id == ""){
 		$fehler = true;
-		$nachricht = "Bitte wählen sie ein Zimmer aus!";
+		$nachricht = "Bitte wï¿½hlen sie ein Zimmer aus!";
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		include_once("./index.php");
 		exit;
@@ -42,7 +42,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("LÃ¶schung bestÃ¤tigen",$sprache,$link)); ?></p>
 <form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">	
 <table border="0" cellpadding="0" cellspacing="3" class="table">
   <tr>
@@ -62,11 +62,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 			?>
           </select>
 	  </p>
-        <p><?php echo(getUebersetzung("Nur die hier selektierten Zimmer/Appartements/Wohnungen/etc. werden gelöscht.",$sprache,$link)); ?> 
-		<?php echo(getUebersetzung("Entfernen Sie die Markierungen (mit [STRG] und Mausklick) die nicht gelöscht werden sollen!",$sprache,$link)); ?></p>
+        <p><?php echo(getUebersetzung("Nur die hier selektierten Zimmer/Appartements/Wohnungen/etc. werden gelÃ¶scht.",$sprache,$link)); ?> 
+		<?php echo(getUebersetzung("Entfernen Sie die Markierungen (mit [STRG] und Mausklick) die nicht gelÃ¶scht werden sollen!",$sprache,$link)); ?></p>
 		         
-       <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("weiter",$sprache,$link)); ?>">         
+       <input name="retour" type="submit" class="btn btn-success" id="retour" value="<?php echo(getUebersetzung("weiter",$sprache,$link)); ?>">         
         		
     </td>
   </tr>
@@ -75,11 +74,13 @@ include_once($root."/include/sessionFunctions.inc.php");
 <br/>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr> 
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-
-        <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-      </form></td>
+    <td>
+    	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+<input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
+      </form></td> -->
+        <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+     </td>
   </tr>
 </table>
 <br/>
@@ -88,7 +89,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>

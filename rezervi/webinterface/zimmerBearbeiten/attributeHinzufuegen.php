@@ -34,12 +34,12 @@ include_once("../templates/headerA.php");
 include_once("../templates/headerB.php"); 
 include_once("../templates/bodyA.php"); 
 
-//passwortprüfung:	
+//passwortprï¿½fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 ?>
 <p class="standardSchriftBold">
-	<?= getUebersetzung("Weitere Attribute für Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link) ?>.
+	<?= getUebersetzung("Weitere Attribute fï¿½r Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link) ?>.
 </p>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
@@ -89,7 +89,7 @@ if (isset($nachricht) && $nachricht != ""){
       				name="loeschen_<?= $att_id ?>" type="submit" id="loeschen_<?= $att_id ?>" 
       				class="button200pxA" onMouseOver="this.className='button200pxB';"
        				onMouseOut="this.className='button200pxA';" 
-       				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
+       				value="<?php echo(getUebersetzung("lÃ¶schen",$sprache,$link)); ?>" />
 			</td>
 		</tr>
 <?php
@@ -105,9 +105,8 @@ if (isset($nachricht) && $nachricht != ""){
 		<td>
 		    <input 
   				name="hinzufuegen" type="submit" id="hinzufuegen" 
-  				class="button200pxA" onMouseOver="this.className='button200pxB';"
-   				onMouseOut="this.className='button200pxA';" 
-   				value="<?php echo(getUebersetzung("hinzufügen",$sprache,$link)); ?>" />
+  				class="btn btn-success" 
+   				value="<?php echo(getUebersetzung("hinzufÃ¼gen",$sprache,$link)); ?>" />
 		</td>
 	</tr>
 </table>
@@ -118,7 +117,7 @@ if (isset($nachricht) && $nachricht != ""){
 <table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	<tr>
 		<td>
-			<?= getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
+			<?= getUebersetzung("GesamtÃ¼bersicht",$sprache,$link) ?>
 		</td>
 		<td>
 			<input type="checkbox" name="showInGesamtuebersicht" value="true"
@@ -138,8 +137,7 @@ if (isset($nachricht) && $nachricht != ""){
 		<td colspan="3">
 			<input 
   				name="aendern" type="submit" id="aendern" 
-  				class="button200pxA" onMouseOver="this.className='button200pxB';"
-   				onMouseOut="this.className='button200pxA';" 
+  				class="btn btn-success" 
    				value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
 		</td>
 	</tr>
@@ -147,24 +145,27 @@ if (isset($nachricht) && $nachricht != ""){
 </form>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-  </form></td>
+    <td>
+    	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+    	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
+	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
+  		</form> -->
+  	</td>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>">
   </form></td>
   </tr>
 </table>
 <?php
 }
 else {
-	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 }
 ?>   
 </body>

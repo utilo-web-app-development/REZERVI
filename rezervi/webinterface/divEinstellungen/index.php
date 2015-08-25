@@ -15,7 +15,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -32,7 +32,7 @@ include_once("../templates/components.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <p class="standardSchriftBold"><?php echo(getUebersetzung("diverse Einstellungen",$sprache,$link)); ?></p>
@@ -52,67 +52,67 @@ if (isset($nachricht) && $nachricht != ""){
   <form action="./sprachen/sprachen.php" method="post" target="_self">
   <tr>
     <td><?php showSubmitButton(getUebersetzung("Sprachen",$sprache,$link)); ?></td>
-    <td><?php echo(getUebersetzung("Ändern der zur Auswahl stehenden Sprachen ihres Belegungsplanes",$sprache,$link)); ?>.</td>
+    <td><?php echo(getUebersetzung("Ã„ndern der zur Auswahl stehenden Sprachen ihres Belegungsplanes",$sprache,$link)); ?>.</td>
   </tr>
   </form>
   <form action="./standardSprache/index.php" method="post" target="_self">
   <tr>
     <td><?php showSubmitButton(getUebersetzung("Standard-Sprache",$sprache,$link)); ?></td>
-    <td><?php echo(getUebersetzung("Ändern der Standard-Sprache des Belegungsplanes und Webinterfaces",$sprache,$link)); ?>.</td>
+    <td><?php echo(getUebersetzung("Ã¤ndern der Standard-Sprache des Belegungsplanes und Webinterfaces",$sprache,$link)); ?>.</td>
   </tr>
   </form>
   <form action="./frame/index.php" method="post" target="_self">
     <tr>
       <td><?php showSubmitButton(getUebersetzung("Frames",$sprache,$link)); ?></td>
-      <td><?php echo(getUebersetzung("Ändern der Standard-Framegrößen des Belegungsplanes",$sprache,$link)); ?>.</td>
+      <td><?php echo(getUebersetzung("Ã¤ndern der Standard-FramegrÃ¶ÃŸen des Belegungsplanes",$sprache,$link)); ?>.</td>
     </tr>
   </form>	
   <form action="./suche/index.php" method="post" target="_self">
     <tr>
 	  <td><?php showSubmitButton(getUebersetzung("Suche",$sprache,$link)); ?></td>
-      <td><?php echo(getUebersetzung("Ändern der Suchoptionen",$sprache,$link)); ?>.</td>
+      <td><?php echo(getUebersetzung("Ã¤ndern der Suchoptionen",$sprache,$link)); ?>.</td>
     </tr>
   </form>
   <form action="./buchungseinschraenkungen/index.php" method="post" target="_self">
   <tr>
-    <td><?php showSubmitButton(getUebersetzung("Buchung einschränken",$sprache,$link)); ?></td>
-    <td><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</td>
+    <td><?php showSubmitButton(getUebersetzung("Buchung einschrÃ¤nken",$sprache,$link)); ?></td>
+    <td><?php echo(getUebersetzung("EinschrÃ¤nken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</td>
    </tr>
    </form>
    <form action="./bilder/index.php" method="post" target="_self">
 	  <tr>
 	    <td><?php showSubmitButton(getUebersetzung("Bilder",$sprache,$link)); ?></td>
-	    <td><?php echo(getUebersetzung("Einstellungen für Bilder der Zimmer",$sprache,$link)); ?>.</td>
+	    <td><?php echo(getUebersetzung("Einstellungen fÃ¼r Bilder der Zimmer",$sprache,$link)); ?>.</td>
 	  </tr>
     </form>
 	<form action="./belegungsplan/index.php" method="post" target="_self">
 	  <tr>
 	    <td><?php showSubmitButton(getUebersetzung("Belegungsplan",$sprache,$link)); ?></td>
-	    <td><?php echo(getUebersetzung("Einstellungen für den Belegungsplan",$sprache,$link)); ?>.</td>
+	    <td><?php echo(getUebersetzung("Einstellungen fÃ¼r den Belegungsplan",$sprache,$link)); ?>.</td>
 	  </tr>
     </form>
 	<form action="./reservierungen/index.php" method="post" target="_self">
 	  <tr>
 	    <td><?php showSubmitButton(getUebersetzung("Reservierungen",$sprache,$link)); ?></td>
-	    <td><?php echo(getUebersetzung("Einstellungen für Reservierungen",$sprache,$link)); ?>.</td>
+	    <td><?php echo(getUebersetzung("Einstellungen fÃ¼r Reservierungen",$sprache,$link)); ?>.</td>
 	  </tr>
     </form>    
    	<form action="./buchungsformular/index.php" method="post" target="_self">
 	  <tr>
 	    <td><?php showSubmitButton(getUebersetzung("Buchungsformular",$sprache,$link)); ?></td>
-	    <td><?php echo(getUebersetzung("Einstellungen für das Buchungsformular",$sprache,$link)); ?>.</td>
+	    <td><?php echo(getUebersetzung("Einstellungen fÃ¼r das Buchungsformular",$sprache,$link)); ?>.</td>
 	  </tr>
     </form>
     </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../templates/end.php"); ?>

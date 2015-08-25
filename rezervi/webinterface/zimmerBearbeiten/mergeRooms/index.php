@@ -3,7 +3,7 @@
  * Created on 19.01.2007
  *
  * @author coster
- * preise hinzufügen löschen ändern
+ * preise hinzufï¿½gen lï¿½schen ï¿½ndern
  */
 
 session_start();
@@ -44,19 +44,19 @@ include_once($root."/webinterface/templates/headerA.php");
 include_once($root."/webinterface/templates/headerB.php"); 
 include_once($root."/webinterface/templates/bodyA.php"); 
 
-//wurde irgend eine zuweisung gelöscht?
+//wurde irgend eine zuweisung gelï¿½scht?
 $res = getAllRoomsWithChilds($unterkunft_id);
 while ( $d = mysql_fetch_array($res) ){
 	$zimmer_id = $d['Parent_ID'];
 	if (
 		isset( $_POST['loeschen_'.$zimmer_id] ) && 
-		$_POST['loeschen_'.$zimmer_id] == getUebersetzung("löschen",$sprache,$link)
+		$_POST['loeschen_'.$zimmer_id] == getUebersetzung("lï¿½schen",$sprache,$link)
 		){
 			deleteChildRooms($zimmer_id);
 		}
 }
 
-//passwortprüfung:	
+//passwortprï¿½fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 ?>
@@ -66,8 +66,8 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 <p class="standardSchrift">
 	<?php
 	$text = "Falls Sie ein Haus mit mehreren Zimmern vermieten und die Zimmer des ".
-                       "Hauses und das Haus selbst vermieten wollen, können Sie hier die Zimmer zum Haus ".
-                       "festlegen. Das Haus und die Zimmer müssen vorher angelegt worden sein."
+                       "Hauses und das Haus selbst vermieten wollen, kï¿½nnen Sie hier die Zimmer zum Haus ".
+                       "festlegen. Das Haus und die Zimmer mï¿½ssen vorher angelegt worden sein."
 	?>
 	<?= getUebersetzung($text,$sprache,$link) ?>
 </p>
@@ -129,7 +129,7 @@ if (hasParentRooms($unterkunft_id)){
 	  				name="loeschen_<?= $zimmer_id ?>" type="submit" id="aendern" 
 	  				class="button200pxA" onMouseOver="this.className='button200pxB';"
 	   				onMouseOut="this.className='button200pxA';" 
-	   				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
+	   				value="<?php echo(getUebersetzung("lï¿½schen",$sprache,$link)); ?>" />
 			</td>
 		</tr>
 	<?php
@@ -179,7 +179,7 @@ if (hasParentRooms($unterkunft_id)){
 		</td>
 	</tr>
 	<tr>
-		<td colspan = "2"><?php	$text = "Folgende Zimmer gehören zum ausgewählten Haus"
+		<td colspan = "2"><?php	$text = "Folgende Zimmer gehï¿½ren zum ausgewï¿½hlten Haus"
 	?>
 	<?= getUebersetzung($text,$sprache,$link) ?>:</td>
 		<td></td>
@@ -205,8 +205,7 @@ if (hasParentRooms($unterkunft_id)){
 		<td colspan="3">
 			<input 
   				name="aendern" type="submit" id="aendern" 
-  				class="button200pxA" onMouseOver="this.className='button200pxB';"
-   				onMouseOut="this.className='button200pxA';" 
+  				class="btn btn-success" 
    				value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
 		</td>
 	</tr>	
@@ -215,24 +214,27 @@ if (hasParentRooms($unterkunft_id)){
 </form>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
-    <td><form action="../index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-  </form></td>
+    <td>
+    	<a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+    	<!-- <form action="../index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
+		 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurï¿½ck",$sprache,$link)); ?>">
+ 		</form> -->
+ 	</td>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
   </form></td>
   </tr>
 </table>
 <?php
 }
 else {
-	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 }
 ?>   
 </body>

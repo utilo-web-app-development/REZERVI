@@ -14,33 +14,30 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="./inhalt.php"><a href="#">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservierungen <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="./reservierung/index.php"><?php echo(getUebersetzung("Reservierungsplan",$sprache,$link)); ?></a></li>
-                <li><a href="./anfragenBearbeiten/index.php"><?php echo(getUebersetzung("Anfragen bearbeiten",$sprache,$link)); ?></a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="<?= $root ?>/webinterface/reservierung/index.php"><?php echo(getUebersetzung("Reservierungsplan",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/anfragenBearbeiten/index.php"><?php echo(getUebersetzung("Anfragen",$sprache,$link)); ?></a></li>
+              
               </ul> 
             </li>           
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="<?= $root ?>/webinterface/gaesteBearbeiten/index.php"><?php echo(getUebersetzung("Gäste",$sprache,$link)); ?></a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Einstellungen <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="<?= $root ?>/webinterface/benutzerBearbeiten/index.php"><?php echo(getUebersetzung("Benutzerdaten bearbeiten",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/zimmerBearbeiten/index.php"><?php echo(getUebersetzung("Zimmer bearbeiten",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/unterkunftBearbeiten/index.php"><?php echo(getUebersetzung("Unterkunft bearbeiten",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/index.php"><?php echo(getUebersetzung("Diverse Einstellungen",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/designBearbeiten/index.php"><?php echo(getUebersetzung("Design bearbeiteien",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/autoResponse/index.php"><?php echo(getUebersetzung("Automatische e-Mails",$sprache,$link)); ?></a></li>
               </ul>
             </li>            
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?= $root ?>/webinterface/abmelden.php">Abmelden</a></li>
         </div><!--/.nav-collapse -->
       </div>
     </nav>

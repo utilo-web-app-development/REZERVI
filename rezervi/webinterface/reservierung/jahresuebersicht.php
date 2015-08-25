@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	anzeige des kalenders
 	author: christian osterrieder utilo.eu		
 	
-	dieser seite muss übergeben werden:
+	dieser seite muss ï¿½bergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
@@ -23,7 +23,7 @@ $jahr = $_POST["jahr"];
 setSessionWert(ZIMMER_ID,$zimmer_id);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -35,7 +35,7 @@ include_once("../../include/reservierungFunctions.php");
 include_once("../../include/gastFunctions.php");
 include_once("../../include/benutzerFunctions.php");
 include_once("../../include/uebersetzer.php");
-//helper-funktionen einfügen:
+//helper-funktionen einfï¿½gen:
 include_once("./jahresuebersichtHelper.php");
 
 	include_once("../../include/propertiesFunctions.php");
@@ -52,13 +52,13 @@ include_once("./jahresuebersichtHelper.php");
 <script language="JavaScript" type="text/javascript" src="./rightJS.js">
 </script>
 <?php		
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 
 <table width="100%" border="0" class="tableColor">
   <tr>  
     <td class="standardSchriftBold"><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <? echo($jahr); ?>, 
-      <?php echo(getUebersetzung("für",$sprache,$link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?> 
+      <?php echo(getUebersetzung("fÃ¼r",$sprache,$link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?> 
       <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?></td>
   </tr>
 </table>
@@ -81,8 +81,7 @@ include_once("./jahresuebersichtHelper.php");
           <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">
           <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
           <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
-          <input name="zurueck" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" value="<?php echo(getUebersetzung("ein Jahr zurück",$sprache,$link)); ?>">
+          <input name="zurueck" type="submit" class="btn btn-primary"  onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" value="<?php echo(getUebersetzung("ein Jahr zurÃ¼ck",$sprache,$link)); ?>">
         </div>
       </form>
       <?php } //ende if jahr 
@@ -95,8 +94,7 @@ include_once("./jahresuebersichtHelper.php");
         <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
         <input name="jahr" type="hidden" id="jahr" value="<? echo ($jah); ?>">
         <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">
-        <input name="weiter" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,1);" id="weiter" value="<?php echo(getUebersetzung("ein Jahr weiter",$sprache,$link)); ?>">
+        <input name="weiter" type="submit" class="btn btn-primary"  onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,1);" id="weiter" value="<?php echo(getUebersetzung("ein Jahr weiter",$sprache,$link)); ?>">
       </form>
       <?php } //ende if jahr 
 	  ?></td>
@@ -106,9 +104,9 @@ include_once("./jahresuebersichtHelper.php");
     <td>&nbsp;</td>
   </tr>
 </table>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprï¿½fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

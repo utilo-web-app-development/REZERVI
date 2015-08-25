@@ -15,7 +15,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -32,15 +32,15 @@ include_once("../../include/uebersetzer.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Automatische Antworten bearbeiten, E-Mails an Ihre Gäste senden",$sprache,$link)); ?></p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("Automatische Antworten bearbeiten, E-Mails an Ihre GÃ¤ste senden",$sprache,$link)); ?></p>
 <table  border="0" cellpadding="0" cellspacing="3" class="table">
   <tr>
-    <td><?php echo(getUebersetzung("Ändern Sie hier die automatischen E-Mail Antworten an Ihre Gäste oder benutzen Sie das Mail-Formular zum senden von E-Mails an Ihre Gäste.",$sprache,$link)); ?>
-	<?php echo(getUebersetzung("Bitte achten Sie darauf, dass die automatischen E-Mail Antworten nur ausgeführt werden wenn Sie aktiviert wurden.",$sprache,$link)); ?>
-	<?php echo(getUebersetzung("Eine nicht-aktivierte E-Mail Antwort wird nicht an Ihren Gast gesendet - Sie müssen die Anfragen händisch beantworten!",$sprache,$link)); ?></td>
+    <td><?php echo(getUebersetzung("Ã¤ndern Sie hier die automatischen E-Mail Antworten an Ihre GÃ¤ste oder benutzen Sie das Mail-Formular zum senden von E-Mails an Ihre GÃ¤ste.",$sprache,$link)); ?>
+	<?php echo(getUebersetzung("Bitte achten Sie darauf, dass die automatischen E-Mail Antworten nur ausgefÃ¼hrt werden wenn Sie aktiviert wurden.",$sprache,$link)); ?>
+	<?php echo(getUebersetzung("Eine nicht-aktivierte E-Mail Antwort wird nicht an Ihren Gast gesendet - Sie mÃ¼ssen die Anfragen hÃ¤ndisch beantworten!",$sprache,$link)); ?></td>
   </tr>
 </table>
 <br/>
@@ -48,43 +48,39 @@ include_once("../../include/uebersetzer.php");
 <table  border="0" cellpadding="0" cellspacing="3" class="table">
   <tr>
     <td>
-		<input name="bestaetigung" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';" id="bestaetigung" value="<?php echo(getUebersetzung("Buchungsbestätigung",$sprache,$link)); ?>">
+		<input name="bestaetigung" type="submit" class="btn btn-primary" id="bestaetigung" value="<?php echo(getUebersetzung("BuchungsbestÃ¤tigung",$sprache,$link)); ?>">
    </td>
-    <td><?php echo(getUebersetzung("Ändern der E-Mail-Buchungsbestätigung die ein Gast erhält wenn Sie die Reservierung akzeptieren",$sprache,$link)); ?>.</td>
+    <td><?php echo(getUebersetzung("Ã¤ndern der E-Mail-BuchungsbestÃ¤tigung die ein Gast erhÃ¤lt wenn Sie die Reservierung akzeptieren",$sprache,$link)); ?>.</td>
   </tr>
   <tr>
     <td>
-		<input name="ablehnung" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';" id="ablehnung" value="<?php echo(getUebersetzung("Buchungs-Absage",$sprache,$link)); ?>">
+		<input name="ablehnung" type="submit" class="btn btn-primary" id="ablehnung" value="<?php echo(getUebersetzung("Buchungs-Absage",$sprache,$link)); ?>">
     </td>
-    <td><?php echo(getUebersetzung("Ändern des Absagetextes einer Anfrage die ein Gast erhält wenn Sie die Reservierung ablehnen",$sprache,$link)); ?>.</td>
+    <td><?php echo(getUebersetzung("Ã¤ndern des Absagetextes einer Anfrage die ein Gast erhÃ¤lt wenn Sie die Reservierung ablehnen",$sprache,$link)); ?>.</td>
   </tr>
     <tr>
     <td>
-		<input name="anfrage" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';" id="anfrage" value="<?php echo(getUebersetzung("Buchungs-Anfrage",$sprache,$link)); ?>">
+		<input name="anfrage" type="submit" class="btn btn-primary" id="anfrage" value="<?php echo(getUebersetzung("Buchungs-Anfrage",$sprache,$link)); ?>">
     </td>
-    <td><?php echo(getUebersetzung("Ändern des Bestätigungstextes einer Buchungsanfrage die ein Gast erhält wenn er eine Buchungsanfrage im Belegungsplan vornimmt",$sprache,$link)); ?>.</td>
+    <td><?php echo(getUebersetzung("Ã¤ndern des BestÃ¤tigungstextes einer Buchungsanfrage die ein Gast erhÃ¤lt wenn er eine Buchungsanfrage im Belegungsplan vornimmt",$sprache,$link)); ?>.</td>
   </tr>
     <tr>
-      <td><input name="emails" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';" id="emails" value="<?php echo(getUebersetzung("E-Mails senden",$sprache,$link)); ?>">
+      <td><input name="emails" type="submit" class="btn btn-primary" id="emails" value="<?php echo(getUebersetzung("E-Mails senden",$sprache,$link)); ?>">
       </td>
-      <td><?php echo(getUebersetzung("E-Mails an ihre Gäste senden",$sprache,$link)); ?>.</td>
+      <td><?php echo(getUebersetzung("E-Mails an ihre GÃ¤ste senden",$sprache,$link)); ?>.</td>
     </tr>
 </table>
 </form>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
       include_once("../templates/components.php"); 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../templates/end.php"); ?>

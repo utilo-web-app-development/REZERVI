@@ -5,15 +5,15 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	steuerung des kalenders und reservierung für den gast
+	steuerung des kalenders und reservierung fï¿½r den gast
 	author: christian osterrieder utilo.eu
 	
-	dieser seite kann optional übergeben werden:
+	dieser seite kann optional ï¿½bergeben werden:
 	Zimmer PK_ID ($zimmer_id)
 	Jahr ($jahr)
 	Monat ($monat)
 	
-	dieser seite muss übergeben werden:
+	dieser seite muss ï¿½bergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
@@ -23,7 +23,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../conf/rdbmsConfig.php");
 //datums-funktionen einbinden:
 include_once("../../include/datumFunctions.php");
@@ -34,7 +34,7 @@ include_once("../../include/unterkunftFunctions.php");
 include_once("../../include/propertiesFunctions.php");
 include_once("../../include/reseller/reseller.php");
 	
-	//falls keine zimmer_id ausgewählt wurde, das erste gefundene zimmer nehmen:
+	//falls keine zimmer_id ausgewï¿½hlt wurde, das erste gefundene zimmer nehmen:
 	if (!isset($zimmer_id) || $zimmer_id == "" || empty($zimmer_id)) {
 		$query = "
 			select 
@@ -55,12 +55,12 @@ include_once("../../include/reseller/reseller.php");
 		$zimmer_id = $d["PK_ID"];
 	}
 	
-	//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgewï¿½hlt wurde, das aktuelle jahr verwenden:
 	if (!isset($jahr) || $jahr == "" || empty($jahr)){
 		$jahr = getTodayYear();
 	}
 	
-	//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
+	//falls kein monat ausgewï¿½hlt wurde, das aktuelle monat verwenden:
 	if (!isset($monat) || $monat == "" || empty($monat)){
 		$monat = getTodayMonth();
 	}	
@@ -78,7 +78,7 @@ include_once("../../include/reseller/reseller.php");
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<!-- dynamisches update der anzahl der tage für ein gewisses monat mit java-script: -->
+<!-- dynamisches update der anzahl der tage fï¿½r ein gewisses monat mit java-script: -->
 <script language="JavaScript" type="text/javascript" src="../../templates/changeForms.js">
 </script>
 <script language="JavaScript" type="text/javascript" src="./leftJS.js">
@@ -86,7 +86,7 @@ include_once("../../include/reseller/reseller.php");
 </head>
 <body class="backgroundColor">
 <?php		
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <table width="100%" border="0">
   <tr>
@@ -94,7 +94,7 @@ include_once("../../include/reseller/reseller.php");
       <form action="./ansichtWaehlen.php" method="post" id="ZimmerNrForm" name="ZimmerNrForm" target="kalender">
         <table border="0" cellspacing="3" cellpadding="0">
           <tr>
-            <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Ansicht für",$sprache,$link)); ?>:</span></td>
+            <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Ansicht fÃ¼r",$sprache,$link)); ?>:</span></td>
             <td>&nbsp;</td>
           </tr>
           <tr>
@@ -149,15 +149,15 @@ include_once("../../include/reseller/reseller.php");
         </table>
       </form></td>
   </tr>  <tr>
-    <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Ansicht wählen",$sprache,$link)); ?>:</span></td>
+    <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Ansicht wÃ¤hlen",$sprache,$link)); ?>:</span></td>
   </tr>
   <tr>
     <td>
 		<form action="./ansichtWaehlen.php" method="post" name="ansichtWaehlen" target="kalender">
         <div align="left">
-          <select name="ansichtWechsel" onChange="submit()" class="button200pxA">
-            <option value="0"><?php echo(getUebersetzung("Monatsübersicht",$sprache,$link)); ?></option>
-            <option value="1"><?php echo(getUebersetzung("Jahresübersicht",$sprache,$link)); ?></option>
+          <select name="ansichtWechsel" onChange="submit()" class="btn btn-primary">
+            <option value="0"><?php echo(getUebersetzung("MonatsÃ¼bersicht",$sprache,$link)); ?></option>
+            <option value="1"><?php echo(getUebersetzung("JahresÃ¼bersicht",$sprache,$link)); ?></option>
           </select>
           <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
           <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
@@ -168,7 +168,7 @@ include_once("../../include/reseller/reseller.php");
   </tr>
   <tr>
     <td><form action="./resAendern/resAendern.php" method="post" name="reservierung" target="kalender" id="reservierung">
-        <p class="ueberschrift"><span class="standardSchriftBold"><?php echo(getUebersetzung("Reservierung ändern",$sprache,$link)); ?>:</span>
+        <p class="ueberschrift"><span class="standardSchriftBold"><?php echo(getUebersetzung("Reservierung Ã¤ndern",$sprache,$link)); ?>:</span>
         </p>
         <table width="200">
           <tr>
@@ -217,7 +217,7 @@ include_once("../../include/reseller/reseller.php");
           <select name="vonMonat" class="tableColor" id="vonMonat" onChange="chkDays(0)">
             <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
             <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
+            <option value="3"<?php if (getTodayMonth() == "Mï¿½rz") echo " selected"; ?>><?php echo(getUebersetzung("Mï¿½rz",$sprache,$link)); ?></option>
             <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
             <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
             <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -246,7 +246,7 @@ include_once("../../include/reseller/reseller.php");
           <select name="bisMonat" class="tableColor" id="bisMonat" onChange="chkDays(1)">
             <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
             <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
+            <option value="3"<?php if (getTodayMonth() == "Mï¿½rz") echo " selected"; ?>><?php echo(getUebersetzung("Mï¿½rz",$sprache,$link)); ?></option>
             <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
             <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
             <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -267,14 +267,13 @@ include_once("../../include/reseller/reseller.php");
         </p>
         <div align="left">
           <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
-          <input name="reservierungAendern" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" id="reservierungAbsenden2" value="<?php echo(getUebersetzung("Reservierung ändern",$sprache,$link)); ?>">
+          <input name="reservierungAendern" type="submit" class="btn btn-primary" id="reservierungAbsenden2" value="<?php echo(getUebersetzung("Reservierung Ã¤ndern",$sprache,$link)); ?>">
         </div>
       </form></td>
   </tr>
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_parent">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        			onMouseOut="this.className='button200pxA';">
       </form></td>
   </tr>
@@ -293,9 +292,9 @@ include_once("../../include/reseller/reseller.php");
     </td>
   </tr>
 </table>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprï¿½fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

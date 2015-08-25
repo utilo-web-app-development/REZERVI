@@ -269,7 +269,7 @@ if (
       ) 
    ){
 	$fehler = true;
-	$message = getUebersetzung("Es wurden nicht alle Felder korrekt ausgefüllt!",$sprache,$link);
+	$message = getUebersetzung("Es wurden nicht alle Felder korrekt ausgefï¿½llt!",$sprache,$link);
 }
 if($fehler == true){
 	//zurueck zur eingabeseite:
@@ -327,7 +327,7 @@ else if ($standardsprache == "es"){
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 	if ($art != "emails"){
@@ -365,7 +365,7 @@ else if ($standardsprache == "es"){
 			}
 		}	
 	
-	//änderungen durchführen:
+	//ï¿½nderungen durchfï¿½hren:
 	changeMessage($unterkunft_id,$art,$subjectStandard,$textStandard,$unterschriftStandard,$anredeStandard,$link);
 	//auch die anderen sprachen:
 	setUebersetzungUnterkunft($subject_de,$subjectStandard,"de",$standardsprache,$unterkunft_id,$link);
@@ -411,7 +411,7 @@ else if ($standardsprache == "es"){
 ?>
 <table border="0" cellpadding="0" cellspacing="2">
   <tr>
-    <td class="frei"><?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.",$sprache,$link)); ?></td>
+    <td class="frei"><?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verÃ¤ndert.",$sprache,$link)); ?></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -495,16 +495,16 @@ else if ($standardsprache == "es"){
 <br/>
 <?php
 	}	
-	showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+	showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../templates/end.php"); ?>

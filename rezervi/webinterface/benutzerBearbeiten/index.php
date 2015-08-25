@@ -15,7 +15,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -32,7 +32,7 @@ $sprache = getSessionWert(SPRACHE);
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortprüfung:	
+<?php //passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 
@@ -41,7 +41,7 @@ $sprache = getSessionWert(SPRACHE);
     <tr>
       <td><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer bearbeiten",$sprache,$link)); ?>
 			<br />        
-        <span class="standardSchrift"><?php echo(getUebersetzung("Bitte wählen Sie den zu verändernden Benutzer aus",$sprache,$link)); ?>:</span></p></td>
+        <span class="standardSchrift"><?php echo(getUebersetzung("Bitte wÃ¤hlen Sie den zu verÃ¤ndernden Benutzer aus",$sprache,$link)); ?>:</span></p></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -79,26 +79,26 @@ $sprache = getSessionWert(SPRACHE);
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td><input name="benutzerAendern" type="submit" id="benutzerAendern" class="button200pxA" onMouseOver="this.className='button200pxB';"
-		   onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Benutzer ändern",$sprache,$link)); ?>"></td>
+      <td>      	
+      	<input name="benutzerAendern" type="submit" id="benutzerAendern" class="btn btn-primary" value="<?php echo(getUebersetzung("Benutzer Ã„ndern",$sprache,$link)); ?>"></td>  
       <td>&nbsp;</td>
     </tr>
   </table>
 </form>
 <?php
-//-------------ende benutzer ändern
+//-------------ende benutzer ï¿½ndern
 /*
-//-------------benutzer löschen
-prüfen ob benutzer überhaupt vorhanden sind 
+//-------------benutzer lï¿½schen
+prï¿½fen ob benutzer ï¿½berhaupt vorhanden sind 
 */
 if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
 ?>
 <form action="./benutzerLoeschenBestaetigen.php" method="post" name="benutzerLoeschen" target="_self">
   <table border="0" cellpadding="0" cellspacing="3" class="table">
     <tr>
-      <td><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?><br/>
-          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus",$sprache,$link)); ?>. 
-		  <?php echo(getUebersetzung("Sie können mehrere Benutzer zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Benutzernamen klicken",$sprache,$link)); ?>.</span></p></td>
+      <td><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer lÃ¶schen",$sprache,$link)); ?><br/>
+          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte wÃ¤hlen Sie den zu lÃ¶schenden Benutzer aus",$sprache,$link)); ?>. 
+		  <?php echo(getUebersetzung("Sie kÃ¶nnen mehrere Benutzer zugleich auswÃ¤hlen und lÃ¶schen indem Sie die [STRG]-Taste gedrÃ¼ckt halten und auf die Benutzernamen klicken",$sprache,$link)); ?>.</span></p></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -137,9 +137,10 @@ if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td><input name="benutzerLoeschen" type="submit" id="benutzerLoeschen" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?>"></td>
-      <td>&nbsp;</td>
+    <td><input name="benutzerLoeschen" type="submit" id="benutzerLoeschen" class="btn btn-danger" 
+      	 value="<?php echo(getUebersetzung("Benutzer lÃ¶schen",$sprache,$link)); ?>">
+    </td>
+     	<td>&nbsp;</td>
     </tr>
   </table>
 </form>
@@ -150,12 +151,16 @@ if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
   <table border="0" cellpadding="0" cellspacing="3" class="table">
     <tr>
       <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?></span><br/>
-        <?php echo(getUebersetzung("Klicken Sie auf den Button [Benutzer anlegen] um einen neuen Benutzer hinzuzufügen",$sprache,$link)); ?>.</td>
+        <?php echo(getUebersetzung("Klicken Sie auf den Button [Benutzer anlegen] um einen neuen Benutzer hinzuzufÃ¼gen",$sprache,$link)); ?>.</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td><input name="benutzerAnlegenButton" type="submit" id="benutzerAnlegenButton" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?>"></td>
+ <!-- alter button -->
+      <!-- <td><input name="benutzerAnlegenButton" type="submit" id="benutzerAnlegenButton" class="button200pxA" onMouseOver="this.className='button200pxB';"
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?>"></td> -->
+       
+       <td><a class="btn btn-primary" href="./benutzerAnlegen.php"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?></a>
+     	</td></td>
       <td>&nbsp;</td>
     </tr>
   </table>
@@ -165,16 +170,16 @@ if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
 <p> </p>
 <p>
   <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

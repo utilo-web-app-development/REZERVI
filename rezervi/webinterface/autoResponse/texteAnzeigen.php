@@ -15,7 +15,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -71,32 +71,32 @@ $unterschrift_es = "";
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <?php 
 	if (isset($_POST["bestaetigung"])){
 		$art = "bestaetigung";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("Ändern der Buchungsbestätigung",$sprache,$link)); ?></p>
+<p class="ueberschrift"><?php echo(getUebersetzung("Ã„ndern der BuchungsbestÃ¤tigung",$sprache,$link)); ?></p>
 <?php
 	}
 	else if (isset($_POST["ablehnung"])){
 		$art = "ablehnung";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("Ändern des Absagetextes einer Anfrage",$sprache,$link)); ?></p>
+<p class="ueberschrift"><?php echo(getUebersetzung("Ã¤ndern des Absagetextes einer Anfrage",$sprache,$link)); ?></p>
 <?php
 	}
 	else if (isset($_POST["anfrage"])){
 		$art = "anfrage";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("Ändern des Bestätigungstextes einer Buchungsanfrage",$sprache,$link)); ?></p>
+<p class="ueberschrift"><?php echo(getUebersetzung("Ã¤ndern des Bestï¿½tigungstextes einer Buchungsanfrage",$sprache,$link)); ?></p>
 <?php
 	}
 	else if (isset($_POST["emails"])){
 		$art = "emails";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("Senden von E-Mails an Ihre Gäste",$sprache,$link)); ?></p>
+<p class="ueberschrift"><?php echo(getUebersetzung("Senden von E-Mails an Ihre GÃ¤ste",$sprache,$link)); ?></p>
 <?php
 	}
 	if ($art != "emails"){
@@ -156,7 +156,7 @@ $unterschrift_es = "";
 <form action="./texteAendern.php" method="post" target="_self">
   <input name="art" type="hidden" value="<?php echo($art); ?>">
   <p class="standardSchrift">
-  	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!
+  	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden",$sprache,$link)); ?>!
   </p>
   <?php
 	if (isset($fehler) && $fehler == true){
@@ -245,7 +245,7 @@ $unterschrift_es = "";
   }
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
-  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in Französisch",$sprache,$link)); 
+  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in FranzÃ¶sisch",$sprache,$link)); 
   	if ($standardsprache != "fr"){
   	?>
    (<?php echo(getUebersetzung("Wenn sie diese Felder leer lassen wird auch in dieser Sprache die Standardsprache verwendet.",$sprache,$link)); ?>):
@@ -315,7 +315,7 @@ $unterschrift_es = "";
   }
   if (isNetherlandsShown($unterkunft_id,$link)){
   ?>
-  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in Holländisch",$sprache,$link)); 
+  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in HollÃ¤ndisch",$sprache,$link)); 
   	if ($standardsprache != "nl"){
   	?>
    (<?php echo(getUebersetzung("Wenn sie diese Felder leer lassen wird auch in dieser Sprache die Standardsprache verwendet.",$sprache,$link)); ?>):
@@ -439,8 +439,8 @@ $unterschrift_es = "";
     </tr>
     <tr valign="top">
       <td>&nbsp;</td>
-      <td><?php echo(getUebersetzung("Falls sie bei dieser Option nein gewählt haben, werden keine automatischen Antworten an Ihre Gäste gesendet.",$sprache,$link)); ?> 
-	  <?php echo(getUebersetzung("Sie müssen sich in diesem Falle selbst mit Ihren Gästen in Verbindung setzen.",$sprache,$link)); ?></td>
+      <td><?php echo(getUebersetzung("Falls sie bei dieser Option nein gewÃ¤hlt haben, werden keine automatischen Antworten an Ihre GÃ¤ste gesendet.",$sprache,$link)); ?> 
+	  <?php echo(getUebersetzung("Sie mÃ¼ssen sich in diesem Falle selbst mit Ihren GÃ¤sten in Verbindung setzen.",$sprache,$link)); ?></td>
     </tr>
   </table>
   <br/>
@@ -494,24 +494,24 @@ $unterschrift_es = "";
   </table>
   <br/>
   <?php 
-	  //-----buttons um zurück zum menue zu gelangen:
-  	  showSubmitButton(getUebersetzung("Texte ändern",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen:
+  	  showSubmitButton(getUebersetzung("Texte Ã¤ndern",$sprache,$link));
   ?>
   <?php
 	}
 	else{
 		echo("<br/>");
-		//gästeliste anzeigen zur auswahl:
+		//gï¿½steliste anzeigen zur auswahl:
 		?>
   <table class="table" border="0" cellspacing="2" cellpadding="0">
     <tr>
-      <td><?php echo(getUebersetzung("Bitte wählen Sie die Gäste aus, an denen das E-Mail gesendet werden soll.",$sprache,$link)); ?><br/>
-          <?php echo(getUebersetzung("Wenn Sie mehrere auswählen wollen müssen Sie die [Strg] Taste gedrückt halten.",$sprache,$link)); ?></td>
+      <td><?php echo(getUebersetzung("Bitte wÃ¤hlen Sie die GÃ¤ste aus, an denen das E-Mail gesendet werden soll.",$sprache,$link)); ?><br/>
+          <?php echo(getUebersetzung("Wenn Sie mehrere auswÃ¤hlen wollen mÃ¼ssen Sie die [Strg] Taste gedrï¿½ckt halten.",$sprache,$link)); ?></td>
     </tr>
     <tr>
       <td><select name="gaeste[]" size="10" multiple>
           <?php
-		//alle gäste der unterkunft auslesen:
+		//alle gï¿½ste der unterkunft auslesen:
 		$res = getGuestList($unterkunft_id,$link);
 		while ($d = mysql_fetch_array($res)){
 			$gast_id = $d["PK_ID"];
@@ -535,16 +535,16 @@ $unterschrift_es = "";
 ?>
 </form>
 <?php 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 <?php include_once("../templates/end.php"); ?>
