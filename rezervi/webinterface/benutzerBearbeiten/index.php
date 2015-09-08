@@ -36,8 +36,19 @@ $sprache = getSessionWert(SPRACHE);
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 
-<form action="./benutzerAendern.php" method="post" name="zimmerAendern" target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="table">
+
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+		<form action="./benutzerAendern.php" method="post" name="zimmerAendern" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+			
+
+<!-- <form action="./benutzerAendern.php" method="post" name="zimmerAendern" target="_self">
+  <table border="0" cellpadding="0" cellspacing="3" class="table"> -->
+    
+    
     <tr>
       <td><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer bearbeiten",$sprache,$link)); ?>
 			<br />        

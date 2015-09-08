@@ -78,7 +78,9 @@ include_once("../../include/uebersetzer.php");
 <?php		
 //passwortpr�fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
-<p class="standardSchriftBold">
+
+<!-- Alte überschrift & form action
+	<p class="standardSchriftBold">
 <?= getUebersetzung("G&auml;ste-Daten abfragen und bearbeiten",$sprache,$link) ?>
 </p>
 
@@ -87,10 +89,29 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
   <tr> 
     <td><table border="0" cellpadding="0" cellspacing="3" class="table">
       <tr>
-        <td><p><?php echo(getUebersetzung("Bitte w�hlen Sie aus, welche Daten der G�ste angezeigt werden sollen",$sprache,$link)); ?>:</p></td>
+        <td><p><?php echo(getUebersetzung("Bitte wählen Sie aus, welche Daten der Gäste angezeigt werden sollen",$sprache,$link)); ?>:</p></td>
       </tr>
     </table>
-      <br/>
+      <br/> -->
+      <h2><?= getUebersetzung("G&auml;ste-Daten abfragen und bearbeiten",$sprache,$link) ?></h2>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	<?php echo(getUebersetzung("Bitte wählen Sie aus, welche Daten der Gäste angezeigt werden sollen",$sprache,$link)); ?>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+	<form action="./gaesteListe/index.php" method="post" name="listeAnzeigen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+
+<!-- Test Forumular Anrede
+	<div class="form-group">
+				<label for="anrede" class="col-sm-2 control-label"><?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<input name="anrede-val" type="checkbox" id="anrede-val" value="true" checked> <class="form-control">
+				</div>
+				</div>	
+				 -->
       <table border="0" cellspacing="1" cellpadding="0" class="tableColor">
           <tr> 
             <td width="1"> <input name="anrede_val" type="checkbox" id="anrede_val" value="true" checked> 
@@ -113,7 +134,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           </tr>
           <tr> 
             <td><input name="strasse_val" type="checkbox" id="strasse_val" value="true" checked></td>
-            <td><?php echo(getUebersetzung("Stra�e/Hausnummer",$sprache,$link)); ?></td>
+            <td><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
           </tr>
@@ -169,7 +190,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           <tr> 
             <td>&nbsp;</td>
             <td> 
-            	<a class="btn btn-primary" href="./gastAnlegen/index.php"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("Gästeliste anzeigen",$sprache,$link)); ?></a>
+            	<a class="btn btn-primary" href="./gaesteListe/index.php"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("Gästeliste anzeigen",$sprache,$link)); ?></a>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -178,6 +199,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 	  </td>
   </tr>
 </table>
+
 </form><?php /*
 <table width="100%" border="0" cellpadding="0" cellspacing="3" class="table">
   <tr> 
@@ -232,25 +254,14 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
  </form>
  */ 
  ?>
+  
  <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr> 
-    <td>
-    	<a class="btn btn-primary" href="./gastAnlegen/index.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("neuen Gast anlegen",$sprache,$link)); ?></a>
-     
-    </td>
+  <br>
+    <a class="btn btn-primary" href="./gastAnlegen/index.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("neuen Gast anlegen",$sprache,$link)); ?></a>
   </tr>
 </table>
-<br/>
-<table border="0" cellspacing="3" cellpadding="0" class="table">
-  <tr> 
-    <td>
-      <form action="../inhalt.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>" class="button200pxA" 
-			onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';">
-      </form></td>
-  </tr>
-</table>
+
 <?php } //ende else
  ?>
 </body>

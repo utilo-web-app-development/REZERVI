@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			ein neues zimmer anlegen.
 */
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -28,10 +28,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$sprache = getSessionWert(SPRACHE);
 	$standardsprache = getStandardSprache($unterkunft_id,$link);
 	
-	//wurde auch ein zimmer ausgew�hlt?
+	//wurde auch ein zimmer ausgewählt?
 	if (!isset($zimmer_id) || $zimmer_id == ""){
 		$fehler = true;
-		$nachricht = "Bitte w�hlen sie ein Zimmer aus!";
+		$nachricht = "Bitte wählen sie ein Zimmer aus!";
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		include_once("./index.php");
 		exit;
@@ -54,27 +54,36 @@ include_once($root."/include/sessionFunctions.inc.php");
 		
 ?>
 
-<form action="./zimmerAendernDurchfuehren.php" method="post" name="zimmerEintragen" target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="tableColor">
-    <tr> 
-      <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link)); ?><br/>
-          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte f�llen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
-          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder m�ssen ausgef�llt werden",$sprache,$link)); ?>!</span></p>
-      </td>
-    </tr>
-    <tr> 
-      <td height="30" colspan="2">&nbsp;</td>
-    </tr>
+<h2><?php echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link)); ?></h2><br/>
+         <h4> <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
+          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!</h4>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+  	<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+  		
+
+  
+ 	
+  
     <?php
     if (isGermanShown($unterkunft_id,$link)){
-    //daten des ausgew�hlten zimmers auslesen:
+    //daten des ausgewählten zimmers auslesen:
 	$zimmernr =    getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link);
     $zimmerart =   getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link);	
     ?>
-    <tr> 
-      <td><?php echo(getUebersetzung("Zimmerart in deutsch",$sprache,$link)); ?>
-          <?php echo(" "); ?>
-          <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
+
+       <div class="form-group">
+				<label for="zimmerart" class="col-sm-2 control-label"><?php echo(getUebersetzung("Zimmerart in deutsch",$sprache,$link)); ?>
+        
+          
 	      <?php if ($standardsprache == "de"){ ?>
 	      	*
 	      <?php } 
@@ -83,18 +92,23 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
 	      <?php
 	      	}
-	      ?>
-	      </td>
-      <td><input name="zimmerart" type="text" id="zimmerart" value="<?php if (isset($zimmerart)) {echo($zimmerart);} ?>" maxlength="30"></td>
-    </tr>
+	      ?>	</label>
+				<div class="col-sm-6">
+					<input name="zimmerart" type="text" id="zimmerart" value="<?php if (isset($zimmerart)) {echo($zimmerart);} ?>" class="form-control">
+				</div>
+				<div class="col-sm-4">
+					<?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
+				</div>
+		</div>		
+ 
     <?php
     }
     if (isEnglishShown($unterkunft_id,$link)){
     $zimmernr_en = getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"en",$unterkunft_id,$link);	
     $zimmerart_en =   getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"en",$unterkunft_id,$link);
     ?>
-    <tr> 
-      <td><?php echo(getUebersetzung("Zimmerart in englisch",$sprache,$link)); ?>
+     	<div class="form-group">
+				<label for="zimmerart_en" class="col-sm-8 control-label"><?php echo(getUebersetzung("Zimmerart in englisch",$sprache,$link)); ?>
        	      <?php if ($standardsprache == "en"){ ?>
 	      	*
 	      <?php } 
@@ -103,18 +117,22 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
 	      <?php
 	      	}
-	      ?>
-	      </td>
-      <td><input name="zimmerart_en" type="text" id="zimmerart_en" value="<?php if (isset($zimmerart_en)) {echo($zimmerart_en);} ?>" maxlength="30"></td>
-    </tr>
+	      ?>	</label>
+	      <div class="col-sm-4">
+					<input name="zimmerart_en" type="text" id="zimmerart_en" value="<?php if (isset($zimmerart_en)) {echo($zimmerart_en);} ?>" class="form-control">
+				</div>
+				
+		</div>		
+	      
+	      
     <?php
     }
     if (isFrenchShown($unterkunft_id,$link)){
     $zimmernr_fr = getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"fr",$unterkunft_id,$link);
     $zimmerart_fr =   getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"fr",$unterkunft_id,$link);
   	?>
-    <tr> 
-      <td><?php echo(getUebersetzung("Zimmerart in franz�sisch",$sprache,$link)); ?> 
+      	<div class="form-group">
+				<label for="zimmerart_fr" class="col-sm-8 control-label"><?php echo(getUebersetzung("Zimmerart in französisch",$sprache,$link)); ?> 
       	      <?php if ($standardsprache == "fr"){ ?>
 	      	*
 	      <?php } 
@@ -123,18 +141,20 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
 	      <?php
 	      	}
-	      ?>
-	      </td>
-      <td><input name="zimmerart_fr" type="text" id="zimmerart_fr"  value="<?php if (isset($zimmerart_fr)) {echo($zimmerart_fr);} ?>" maxlength="30"></td>
-    </tr>
-    <?php
+	      ?>	</label>
+	      <div class="col-sm-4">
+					<input name="zimmerart_fr" type="text" id="zimmerart_fr" value="<?php if (isset($zimmerart_fr)) {echo($zimmerart_fr);} ?>" class="form-control">
+				</div>
+		</div>	
+		
+	<?php
     }
     if (isItalianShown($unterkunft_id,$link)){
     $zimmernr_it = getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"it",$unterkunft_id,$link);
     $zimmerart_it =   getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"it",$unterkunft_id,$link);
  	?>
-    <tr> 
-      <td><?php echo(getUebersetzung("Zimmerart in italienisch",$sprache,$link)); ?> 
+      	<div class="form-group">
+				<label for="zimmerart_it" class="col-sm-8 control-label"><?php echo(getUebersetzung("Zimmerart in italienisch",$sprache,$link)); ?> 
       	      <?php if ($standardsprache == "it"){ ?>
 	      	*
 	      <?php } 
@@ -143,18 +163,21 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
 	      <?php
 	      	}
-	      ?>
-	      </td>
-      <td><input name="zimmerart_it" type="text" id="zimmerart_it"  value="<?php if (isset($zimmerart_it)) {echo($zimmerart_it);} ?>" maxlength="30"></td>
-    </tr>
-    <?php
+	      ?>	
+	      		</label>
+	     	<div class="col-sm-4">
+				<input name="zimmerart_it" type="text" id="zimmerart_it" value="<?php if (isset($zimmerart_it)) {echo($zimmerart_it);} ?>" class="form-control">
+			</div>
+		</div>
+	
+	<?php
     }
     if (isNetherlandsShown($unterkunft_id,$link)){
     $zimmernr_nl = getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"nl",$unterkunft_id,$link);
     $zimmerart_nl =   getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"nl",$unterkunft_id,$link);
  	?>
-    <tr> 
-      <td><?php echo(getUebersetzung("Zimmerart in holl�ndisch",$sprache,$link)); ?> 
+      	<div class="form-group">
+				<label for="zimmerart_nl" class="col-sm-8 control-label"><?php echo(getUebersetzung("Zimmerart in holländisch",$sprache,$link)); ?> 
       	      <?php if ($standardsprache == "nl"){ ?>
 	      	*
 	      <?php } 
@@ -164,17 +187,20 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      <?php
 	      	}
 	      ?>
-	      </td>
-      <td><input name="zimmerart_nl" type="text" id="zimmerart_nl"  value="<?php if (isset($zimmerart_nl)) {echo($zimmerart_nl);} ?>" maxlength="30"></td>
-    </tr>
-    <?php
-    }    
+	      		</label>
+	     	<div class="col-sm-4">
+				<input name="zimmerart_nl" type="text" id="zimmerart_nl" value="<?php if (isset($zimmerart_nl)) {echo($zimmerart_nl);} ?>" class="form-control">
+			</div>
+		</div>
+   
+   <?php
+   }    
     if (isEspaniaShown($unterkunft_id,$link)){
     $zimmernr_sp = getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"sp",$unterkunft_id,$link);
     $zimmerart_sp =   getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"sp",$unterkunft_id,$link);
     ?>
-    <tr> 
-      <td><?php echo(getUebersetzung("Zimmerart in spanisch",$sprache,$link)); ?> 
+      	<div class="form-group">
+				<label for="zimmerart_sp" class="col-sm-8 control-label"><?php echo(getUebersetzung("Zimmerart in spanisch",$sprache,$link)); ?> 
       	      <?php if ($standardsprache == "sp"){ ?>
 	      	*
 	      <?php } 
@@ -184,17 +210,20 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      <?php
 	      	}
 	      ?>
-	      </td>
-      <td><input name="zimmerart_sp" type="text" id="zimmerart_sp"  value="<?php if (isset($zimmerart_sp)) {echo($zimmerart_sp);} ?>" maxlength="30"></td>
-    </tr>       
-    <?php
-    }
+	      		</label>
+	     	<div class="col-sm-4">
+				<input name="zimmerart_sp" type="text" id="zimmerart_sp" value="<?php if (isset($zimmerart_sp)) {echo($zimmerart_sp);} ?>" class="form-control">
+			</div>
+		</div>
+   
+  <?php
+  }
     if (isEstoniaShown($unterkunft_id,$link)){
     $zimmernr_es = getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"es",$unterkunft_id,$link);
     $zimmerart_es =   getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"es",$unterkunft_id,$link);  
     ?>
-    <tr> 
-      <td><?php echo(getUebersetzung("Zimmerart in estnisch",$sprache,$link)); ?> 
+      	<div class="form-group">
+				<label for="zimmerart_es" class="col-sm-8 control-label">?php echo(getUebersetzung("Zimmerart in estnisch",$sprache,$link)); ?> 
       	      <?php if ($standardsprache == "es"){ ?>
 	      	*
 	      <?php } 
@@ -204,9 +233,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      <?php
 	      	}
 	      ?>
-	      </td>
-      <td><input name="zimmerart_es" type="text" id="zimmerart_es"  value="<?php if (isset($zimmerart_es)) {echo($zimmerart_es);} ?>" maxlength="30"></td>
-    </tr> 
+	      		</label>
+	     	<div class="col-sm-4">
+				<input name="zimmerart_es" type="text" id="zimmerart_es" value="<?php if (isset($zimmerart_es)) {echo($zimmerart_es);} ?>" class="form-control">
+			</div>
+		</div>  
+      
     <?php
     }
     ?>     
@@ -253,7 +285,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     if (isFrenchShown($unterkunft_id,$link)){
     ?>
     <tr> 
-      <td><?php echo(getUebersetzung("Zimmernummer in franz�sisch (z. B. Typ A, Nr. 10, Balkonzimmer, etc.)",$sprache,$link)); ?> 
+      <td><?php echo(getUebersetzung("Zimmernummer in französisch (z. B. Typ A, Nr. 10, Balkonzimmer, etc.)",$sprache,$link)); ?> 
     	      <?php if ($standardsprache == "fr"){ ?>
 	      	*
 	      <?php } 
@@ -289,7 +321,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     if (isNetherlandsShown($unterkunft_id,$link)){
     ?>
     <tr> 
-      <td><?php echo(getUebersetzung("Zimmernummer in holl�ndisch (z. B. Typ A, Nr. 10, Balkonzimmer, etc.)",$sprache,$link)); ?>
+      <td><?php echo(getUebersetzung("Zimmernummer in holländisch (z. B. Typ A, Nr. 10, Balkonzimmer, etc.)",$sprache,$link)); ?>
        	      <?php if ($standardsprache == "nl"){ ?>
 	      	*
 	      <?php } 
@@ -345,11 +377,11 @@ include_once($root."/include/sessionFunctions.inc.php");
       <td height="30" colspan="2">&nbsp;</td>
     </tr>
     <tr> 
-      <td><?php echo(getUebersetzung("Anzahl der Betten f�r Erwachsene",$sprache,$link)); ?></td>
+      <td><?php echo(getUebersetzung("Anzahl der Betten für Erwachsene",$sprache,$link)); ?></td>
       <td><input name="betten" type="text" id="betten" value="<?php if (isset($betten)) {echo($betten);} ?>" maxlength="6"></td>
     </tr>
     <tr>
-      <td><?php echo(getUebersetzung("Anzahl der Betten f�r Kinder",$sprache,$link)); ?></td>
+      <td><?php echo(getUebersetzung("Anzahl der Betten für Kinder",$sprache,$link)); ?></td>
       <td><input name="bettenKinder" type="text" id="bettenKinder" value="<?php if (isset($bettenKinder)) {echo($bettenKinder);} ?>" maxlength="6"></td>
     </tr>
 	<td>
@@ -400,6 +432,8 @@ include_once($root."/include/sessionFunctions.inc.php");
         <input name="Submit" type="submit" id="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Zimmer ändern",$sprache,$link)); ?>"></td> -->
        
+      <br>
+      <br> 
        <td colspan="2"><input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
         <input name="Submit" type="submit" id="Submit" class="btn btn-success" value="<?php echo(getUebersetzung("Zimmer ändern",$sprache,$link)); ?>">
        </td>
@@ -408,29 +442,14 @@ include_once($root."/include/sessionFunctions.inc.php");
   </table>
 </form>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td>
-    <!-- alter button <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern"> -->
-	<!-- <input name="retour" type="submit" class="btn btn-primary" id="retour" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>"> -->
-	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
-  </form></td>
-  </tr>
-</table><br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
-
-	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
-  </form></td>
-  </tr>
 </table>
 <p></td> </tr> </table> </p>  
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>   
+ 
     </body>
 </html>

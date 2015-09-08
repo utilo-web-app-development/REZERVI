@@ -93,31 +93,55 @@ $sprache = getSessionWert(SPRACHE);
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <?php
 	if (isset($fehler) && $fehler == true){
 ?>
-	<table border="0" cellpadding="0" cellspacing="0" class="belegt">
+	<!-- <table border="0" cellpadding="0" cellspacing="0" class="belegt">
 	  <tr>
 		<td><?php echo($message); ?></td>
 	  </tr>
-	</table>
+	</table> -->
 	<br />
 <?php
 	}
 ?>
-<p class="standardSchriftBold">
+<!-- <p class="standardSchriftBold">
       <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
 	  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!
 </p>
 <form name="form" method="post" action="./unterkunftAendern.php">
-<table border="0" cellpadding="0" cellspacing="3" class="table">
-<?php
+	
+<table border="0" cellpadding="0" cellspacing="3" class="table"> -->
+	
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+		<form action="./unterkunftAendern.php" method="post" name="form" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+	   
+	    <!-- <h2> <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
+	    	<br>
+	    	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!
+	   </h2>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  
+  	
+
+	<form action="./unterkunftAendern.php" method="post" name="form" target="_self" onSubmit="return chkFormular();" class="form-horizontal"> -->
+		
+
+	
+			
+			
+		<?php
 if (isGermanShown($unterkunft_id,$link)){
 ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Name der Unterkunft in Deutsch",$sprache,$link)); ?>
     <?php if ($standardsprache == "de") { echo("*"); } 
     	  else {
@@ -130,12 +154,30 @@ if (isGermanShown($unterkunft_id,$link)){
     <td>
       <input name="name_de" type="text" id="name" value="<?php echo($name_de) ?>" size="50">
     </td>
-  </tr>
+  </tr> -->
+  
+  <div class="form-group">
+				<label for="name_de" class="col-sm-3 control-label"><?php echo(getUebersetzung("Name der Unterkunft in Deutsch",$sprache,$link)); ?>
+    <?php if ($standardsprache == "de") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>			</label>
+     <div class="col-sm-5">
+					
+	</div>
+				<div class="col-sm-4">
+					<input name="name_de" type="text" id="name" value="<?php echo($name_de) ?>" class="form-control">
+				</div>
+	</div>		
+  
 <?php
 }
 if (isEnglishShown($unterkunft_id,$link)){
 ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Name der Unterkunft in Englisch",$sprache,$link)); ?> 
      <?php if ($standardsprache == "en") { echo("*"); } 
     	  else {
@@ -147,12 +189,26 @@ if (isEnglishShown($unterkunft_id,$link)){
     </td>
     <td><input name="name_en" type="text" id="name_en" value="<?php echo($name_en) ?>" size="50">
     </td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="name_en" class="col-sm-8 control-label"><?php echo(getUebersetzung("Name der Unterkunft in Englisch",$sprache,$link)); ?> 
+     <?php if ($standardsprache == "en") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>			</label>
+     
+				<div class="col-sm-4">
+					<input name="name_en" type="text" id="name_en" value="<?php echo($name_en) ?>" class="form-control">
+				</div>
+	</div>		
 <?php
 }
 if (isFrenchShown($unterkunft_id,$link)){
 ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Name der Unterkunft in Französisch",$sprache,$link)); ?> 
     <?php if ($standardsprache == "fr") { echo("*"); } 
     	  else {
@@ -164,12 +220,25 @@ if (isFrenchShown($unterkunft_id,$link)){
     </td>
     <td><input name="name_fr" type="text" id="name_fr" value="<?php echo($name_fr) ?>" size="50">
     </td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="name_fr" class="col-sm-8 control-label"><?php echo(getUebersetzung("Name der Unterkunft in Französisch",$sprache,$link)); ?> 
+    <?php if ($standardsprache == "fr") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>			</label>
+				<div class="col-sm-4">
+					<input name="name_fr" type="text" id="name_fr" value="<?php echo($name_fr) ?>" class="form-control">
+				</div>
+	</div>		
 <?php
 }
 if (isItalianShown($unterkunft_id,$link)){
 ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Name der Unterkunft in Italienisch",$sprache,$link)); ?> 
     <?php if ($standardsprache == "it") { echo("*"); }
     	  else {
@@ -181,12 +250,25 @@ if (isItalianShown($unterkunft_id,$link)){
     </td>
     <td><input name="name_it" type="text" id="name_it" value="<?php echo($name_it) ?>" size="50">
     </td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="name_it" class="col-sm-8 control-label"><?php echo(getUebersetzung("Name der Unterkunft in Italienisch",$sprache,$link)); ?> 
+    <?php if ($standardsprache == "it") { echo("*"); }
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>			</label>
+				<div class="col-sm-4">
+					<input name="name_it" type="text" id="name_it" value="<?php echo($name_it) ?>" class="form-control">
+				</div>
+	</div>		
 <?php
 }
 if (isNetherlandsShown($unterkunft_id,$link)){
 ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Name der Unterkunft in Holländisch",$sprache,$link)); ?> 
     <?php if ($standardsprache == "nl") { echo("*"); }
     	  else {
@@ -198,12 +280,25 @@ if (isNetherlandsShown($unterkunft_id,$link)){
     </td>
     <td><input name="name_nl" type="text" id="name_nl" value="<?php echo($name_nl) ?>" size="50">
     </td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="name_nl" class="col-sm-8 control-label"><?php echo(getUebersetzung("Name der Unterkunft in Holländisch",$sprache,$link)); ?> 
+    <?php if ($standardsprache == "nl") { echo("*"); }
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>			</label>
+				<div class="col-sm-4">
+					<input name="name_nl" type="text" id="name_nl" value="<?php echo($name_nl) ?>" class="form-control">
+				</div>
+	</div>		
 <?php
 }
 if (isEspaniaShown($unterkunft_id,$link)){
 ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Name der Unterkunft in Spanisch",$sprache,$link)); ?> 
     <?php if ($standardsprache == "sp") { echo("*"); } 
     	  else {
@@ -215,12 +310,25 @@ if (isEspaniaShown($unterkunft_id,$link)){
     </td>
     <td><input name="name_sp" type="text" id="name_sp" value="<?php echo($name_sp) ?>" size="50">
     </td>
-  </tr>
+  </tr> -->
+   <div class="form-group">
+				<label for="name_sp" class="col-sm-8 control-label"><?php echo(getUebersetzung("Name der Unterkunft in Spanisch",$sprache,$link)); ?> 
+    <?php if ($standardsprache == "sp") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>			</label>
+				<div class="col-sm-4">
+					<input name="name_sp" type="text" id="name_sp" value="<?php echo($name_sp) ?>" class="form-control">
+				</div>
+	</div>		
 <?php
 }
 if (isEstoniaShown($unterkunft_id,$link)){
 ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Name der Unterkunft in Estnisch",$sprache,$link)); ?> 
      <?php if ($standardsprache == "es") { echo("*"); } 
     	  else {
@@ -232,27 +340,58 @@ if (isEstoniaShown($unterkunft_id,$link)){
     </td>
     <td><input name="name_es" type="text" id="name_es" value="<?php echo($name_es) ?>" size="50">
     </td>
-  </tr>
+  </tr> -->
+     <div class="form-group">
+				<label for="name_es" class="col-sm-8 control-label"><?php echo(getUebersetzung("Name der Unterkunft in Estnisch",$sprache,$link)); ?> 
+     <?php if ($standardsprache == "es") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>			</label>
+				<div class="col-sm-4">
+					<input name="name_es" type="text" id="name_es" value="<?php echo($name_es) ?>" class="form-control">
+				</div>
+	</div>
 <?php
 }
 
 ?>
-  <tr>
+<div class="form-group">
+				<label for="strasse" class="col-sm-2 control-label"><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<input name="strasse" type="text" id="strasse" value="<?php echo($strasse) ?>" class="form-control">
+				</div>
+</div>			
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?></td>
     <td><input name="strasse" type="text" id="strasse" value="<?php echo($strasse) ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="ort" class="col-sm-2 control-label"><?php echo(getUebersetzung("Ort",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<input name="ort" type="text" id="ort" value="<?php echo($ort) ?>" class="form-control">
+				</div>
+</div>	
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Ort",$sprache,$link)); ?></td>
     <td><input name="ort" type="text" id="ort" value="<?php echo($ort) ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="plz" class="col-sm-2 control-label"><?php echo(getUebersetzung("PLZ",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<input name="plz" type="text" id="plz" value="<?php echo($plz) ?>" class="form-control">
+				</div>
+ </div>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("PLZ",$sprache,$link)); ?></td>
     <td><input name="plz" type="text" id="plz" value="<?php echo($plz) ?>" size="50"></td>
-  </tr>
+  </tr> -->
   <?php
   if (isGermanShown($unterkunft_id,$link)){
   ?>
-  <tr>
+   <!-- <tr>
     <td><?php echo(getUebersetzung("Land auf Deutsch",$sprache,$link)); 
     if ($standardsprache != "de"){
     ?>
@@ -262,12 +401,26 @@ if (isEstoniaShown($unterkunft_id,$link)){
     ?>
     </td>
     <td><input name="land_de" type="text" id="land" value="<?php echo($land_de) ?>" size="50"></td>
-  </tr>
+  </tr> -->
+    <div class="form-group">
+				<label for="land_de" class="col-sm-2 control-label"><?php echo(getUebersetzung("Land auf Deutsch",$sprache,$link)); 
+    if ($standardsprache != "de"){
+    ?>
+    (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+    <?php
+    }
+    ?>			
+    			</label>
+		<div class="col-sm-10">
+					<input name="land_de" type="text" id="land" value="<?php echo($land_de) ?>" class="form-control">
+		</div>
+ </div>
+ 
   <?php
   }
   if (isEnglishShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Land auf Englisch",$sprache,$link)); 
         if ($standardsprache != "en"){
     ?>
@@ -276,12 +429,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
     }
     ?></td>
     <td><input name="land_en" type="text" id="land_en" value="<?php echo($land_en) ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="land_en" class="col-sm-8 control-label"><?php echo(getUebersetzung("Land auf Englisch",$sprache,$link)); 
+        if ($standardsprache != "en"){
+    ?>
+    (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+    <?php
+    }
+    ?>			
+    			</label>
+		<div class="col-sm-4">
+					<input name="land_en" type="text" id="land_en" value="<?php echo($land_en) ?>" class="form-control">
+		</div>
+ </div>
   <?php
   }
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Land auf Französisch",$sprache,$link));     
     if ($standardsprache != "fr"){
     ?>
@@ -290,12 +456,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
     }
     ?> </td>
     <td><input name="land_fr" type="text" id="land_fr" value="<?php echo($land_fr) ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="land_fr" class="col-sm-8 control-label"><?php echo(getUebersetzung("Land auf Französisch",$sprache,$link));     
+    if ($standardsprache != "fr"){
+    ?>
+    (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+    <?php
+    }
+    ?>
+    			</label>
+		<div class="col-sm-4">
+					<input name="land_fr" type="text" id="land_fr" value="<?php echo($land_fr) ?>" class="form-control">
+		</div>
+ </div>
   <?php
   }
   if (isItalianShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Land auf Italienisch",$sprache,$link));     
     if ($standardsprache != "it"){
     ?>
@@ -304,12 +483,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
     }
     ?></td>
     <td><input name="land_it" type="text" id="land_it" value="<?php echo($land_it) ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="land_it" class="col-sm-8 control-label"><?php echo(getUebersetzung("Land auf Italienisch",$sprache,$link));     
+    if ($standardsprache != "it"){
+    ?>
+    (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+    <?php
+    }
+    ?>
+    			</label>
+		<div class="col-sm-4">
+					<input name="land_it" type="text" id="land_it" value="<?php echo($land_it) ?>" class="form-control">
+		</div>
+ </div>
   <?php
   }
   if (isNetherlandsShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Land auf Holländisch",$sprache,$link));     
     if ($standardsprache != "nl"){
     ?>
@@ -318,12 +510,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
     }
     ?></td>
     <td><input name="land_nl" type="text" id="land_nl" value="<?php echo($land_nl) ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="land_nl" class="col-sm-8 control-label"><?php echo(getUebersetzung("Land auf Holländisch",$sprache,$link));     
+    if ($standardsprache != "nl"){
+    ?>
+    (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+    <?php
+    }
+    ?>
+    			</label>
+		<div class="col-sm-4">
+					<input name="land_nl" type="text" id="land_nl" value="<?php echo($land_nl) ?>" class="form-control">
+		</div>
+ </div>
   <?php
   }  
   if (isEspaniaShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Land auf Spanisch",$sprache,$link));  
       if ($standardsprache != "sp"){
     ?>
@@ -332,12 +537,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
     }
     ?> </td>
     <td><input name="land_sp" type="text" id="land_sp" value="<?php echo($land_sp) ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="land_sp" class="col-sm-8 control-label"><?php echo(getUebersetzung("Land auf Spanisch",$sprache,$link));  
+      if ($standardsprache != "sp"){
+    ?>
+    (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+    <?php
+    }
+    ?>
+    			</label>
+		<div class="col-sm-4">
+					<input name="land_sp" type="text" id="land_sp" value="<?php echo($land_sp) ?>" class="form-control">
+		</div>
+ </div>
   <?php
   }
   if (isEstoniaShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <<!-- tr>
     <td><?php echo(getUebersetzung("Land auf Estnisch",$sprache,$link));   
       if ($standardsprache != "es"){
     ?>
@@ -346,35 +564,81 @@ if (isEstoniaShown($unterkunft_id,$link)){
     }
     ?> </td>
     <td><input name="land_es" type="text" id="land_es" value="<?php echo($land_es) ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="land_es" class="col-sm-8 control-label"><?php echo(getUebersetzung("Land auf Estnisch",$sprache,$link));   
+      if ($standardsprache != "es"){
+    ?>
+    (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+    <?php
+    }
+    ?>
+    			</label>
+		<div class="col-sm-4">
+					<input name="land_es" type="text" id="land_es" value="<?php echo($land_es) ?>" class="form-control">
+		</div>
+ </div>
   <?php
   }  
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("E-Mail-Adresse",$sprache,$link)); ?>*
     </td>
     <td><input name="email" type="text" id="email" value="<?php echo($email) ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="email" class="col-sm-2 control-label"><?php echo(getUebersetzung("E-Mail-Adresse",$sprache,$link)); ?>*</label>
+				<div class="col-sm-10">
+					<input name="email" type="text" id="email" value="<?php echo($email) ?>" class="form-control">
+				</div>
+</div>			
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Telefonnummer",$sprache,$link)); ?></td>
     <td><input name="tel" type="text" id="tel" value="<?php echo($tel); ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> --->
+ 
+ <div class="form-group">
+				<label for="tel" class="col-sm-2 control-label"><?php echo(getUebersetzung("Telefonnummer",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<input name="tel" type="text" id="tel" value="<?php echo($tel); ?>" class="form-control">
+				</div>
+</div>	
+ <!-- <tr>	
     <td>2. <?php echo(getUebersetzung("Telefonnummer",$sprache,$link)); ?> </td>
     <td><input name="tel2" type="text" id="tel2" value="<?php echo($tel2); ?>" size="50"></td>
-  </tr>
-  <tr>
+ </tr> --->
+  
+ <div class="form-group">
+				<label for="tel2" class="col-sm-2 control-label">2. <?php echo(getUebersetzung("Telefonnummer",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<input name="tel2" type="text" id="tel2" value="<?php echo($tel2); ?>" class="form-control">
+				</div>
+</div>	
+<!-- <tr>
     <td><?php echo(getUebersetzung("Faxnummer",$sprache,$link)); ?> </td>
     <td><input name="fax" type="text" id="fax" value="<?php echo($fax); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="fax" class="col-sm-2 control-label"><?php echo(getUebersetzung("Faxnummer",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<input name="fax" type="text" id="fax" value="<?php echo($fax); ?>" class="form-control">
+				</div>
+</div>	
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Währung ihrer Preisangaben",$sprache,$link)); ?>*</td>
     <td><input name="waehrung" type="text" id="waehrung" value="<?php echo($waehrung); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="waehrung" class="col-sm-3 control-label"><?php echo(getUebersetzung("Währung ihrer Preisangaben",$sprache,$link)); ?>*</label>
+				<div class="col-sm-9">
+					<input name="waehrung" type="text" id="waehrung" value="<?php echo($waehrung); ?>" class="form-control">
+				</div>
+</div>	
+  
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -382,7 +646,8 @@ if (isEstoniaShown($unterkunft_id,$link)){
   <?php
   if (isGermanShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Art der Unterkunft in Deutsch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?> 
      <?php if ($standardsprache == "de") { echo("*"); } 
     	  else {
@@ -392,12 +657,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
     	  }
      ?></td>
     <td><input name="art_de" type="text" id="art" value="<?php echo($art_de); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="art_de" class="col-sm-5 control-label"><?php echo(getUebersetzung("Art der Unterkunft in Deutsch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?> 
+     <?php if ($standardsprache == "de") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-7">
+					<input name="art_de" type="text" id="art_de" value="<?php echo($art_de); ?>" class="form-control">
+				</div>
+ </div>
   <?php
   }
   if (isEnglishShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Art der Unterkunft in Englisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
      <?php if ($standardsprache == "en") { echo("*"); } 
     	  else {
@@ -407,12 +685,24 @@ if (isEstoniaShown($unterkunft_id,$link)){
     	  }
      ?> </td>
     <td><input name="art_en" type="text" id="art_en" value="<?php echo($art_en); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="art_en" class="col-sm-8 control-label"><?php echo(getUebersetzung("Art der Unterkunft in Englisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
+     <?php if ($standardsprache == "en") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="art_en" type="text" id="art_en" value="<?php echo($art_en); ?>" class="form-control">
+	</div>			</div>
   <?php
   }
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Art der Unterkunft in Französisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
       
     <?php if ($standardsprache == "fr") { echo("*"); } 
@@ -423,12 +713,26 @@ if (isEstoniaShown($unterkunft_id,$link)){
     	  }
      ?></td>
     <td><input name="art_fr" type="text" id="art_fr" value="<?php echo($art_fr); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="art_fr" class="col-sm-8 control-label"><?php echo(getUebersetzung("Art der Unterkunft in Französisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
+      
+    <?php if ($standardsprache == "fr") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="art_fr" type="text" id="art_fr" value="<?php echo($art_fr); ?>" class="form-control">
+				</div>
+	</div>
   <?php
   }
   if (isItalianShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Art der Unterkunft in Italienisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
      <?php if ($standardsprache == "it") { echo("*"); } 
     	  else {
@@ -439,12 +743,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="art_it" type="text" id="art_it" value="<?php echo($art_it); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="art_it" class="col-sm-8 control-label"><?php echo(getUebersetzung("Art der Unterkunft in Italienisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
+     <?php if ($standardsprache == "it") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="art_it" type="text" id="art_it" value="<?php echo($art_it); ?>" class="form-control">
+				</div>
+				</div>
   <?php
   }
   if (isNetherlandsShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Art der Unterkunft in Holländisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
      <?php if ($standardsprache == "nl") { echo("*"); } 
     	  else {
@@ -455,12 +772,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="art_nl" type="text" id="art_nl" value="<?php echo($art_nl); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+   <div class="form-group">
+				<label for="art_nl" class="col-sm-8 control-label"><?php echo(getUebersetzung("Art der Unterkunft in Holländisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
+     <?php if ($standardsprache == "nl") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="art_nl" type="text" id="art_nl" value="<?php echo($art_nl); ?>" class="form-control">
+				</div>
+  </div>
   <?php
   }  
   if (isEspaniaShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Art der Unterkunft in Spanisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
     <?php if ($standardsprache == "es") { echo("*"); } 
     	  else {
@@ -471,12 +801,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="art_sp" type="text" id="art_sp" value="<?php echo($art_sp); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="art_nl" class="col-sm-8 control-label"><?php echo(getUebersetzung("Art der Unterkunft in Holländisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
+     <?php if ($standardsprache == "nl") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="art_nl" type="text" id="art_nl" value="<?php echo($art_nl); ?>" class="form-control">
+				</div>
+	</div>
   <?php
   }
   if (isEstoniaShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Art der Unterkunft in Estnisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
       <?php if ($standardsprache == "es") { echo("*"); }
     	  else {
@@ -487,12 +830,26 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="art_es" type="text" id="art_es" value="<?php echo($art_es); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="art_es" class="col-sm-8 control-label"><?php echo(getUebersetzung("Art der Unterkunft in Estnisch (z. B. Hotel, Pension, ...)",$sprache,$link)); ?>.
+      <?php if ($standardsprache == "es") { echo("*"); }
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>
+     ?></label>
+				<div class="col-sm-4">
+					<input name="art_es" type="text" id="art_es" value="<?php echo($art_es); ?>" class="form-control">
+				</div>
+	</div>
   <?php
   } 
   if (isGermanShown($unterkunft_id,$link)){ 
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Deutsch",$sprache,$link)); ?>
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
        <?php if ($standardsprache == "de") { echo("*"); } 
@@ -504,8 +861,23 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_de" type="text" id="zimmerart" value="<?php echo($zimmerart); ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Deutsch",$sprache,$link)); ?>
+    	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
+       <?php if ($standardsprache == "de") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?>
+    			 </label>
+				<div class="col-sm-4">
+					<input name="zimmerart_de" type="text" id="zimmerart" value="<?php echo($zimmerart); ?>" class="form-control">
+				</div>
+	</div>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Deutsch - Mehrzahl",$sprache,$link)); ?>
     <?php if ($standardsprache == "de") { echo("*"); }
     	  else {
@@ -516,12 +888,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_mz_de" type="text" id="zimmerart_mz" value="<?php echo($zimmerart_mz_de); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+   <div class="form-group">
+				<label for="zimmerart_mz_de" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Deutsch - Mehrzahl",$sprache,$link)); ?>
+    <?php if ($standardsprache == "de") { echo("*"); }
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_mz_de" type="text" id="zimmerart_mz_de" value="<?php echo($zimmerart_mz_de); ?>" class="form-control">
+				</div>
+	</div>
   <?php
   }
   if (isEnglishShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Englisch",$sprache,$link)); ?>.
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
         <?php if ($standardsprache == "en") { echo("*"); } 
@@ -533,8 +918,22 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_en" type="text" id="zimmerart_en" value="<?php echo($zimmerart_en); ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart_en" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Englisch",$sprache,$link)); ?>.
+    	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
+        <?php if ($standardsprache == "en") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_en" type="text" id="zimmerart_en" value="<?php echo($zimmerart_en); ?>" class="form-control">
+				</div>
+	</div>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Englisch - Mehrzahl",$sprache,$link)); ?>
     <?php if ($standardsprache == "en") { echo("*"); } 
     	  else {
@@ -545,12 +944,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_mz_en" type="text" id="zimmerart_en_mz" value="<?php echo($zimmerart_mz_en); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart_en" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Englisch - Mehrzahl",$sprache,$link)); ?>
+    <?php if ($standardsprache == "en") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_en" type="text" id="zimmerart_en" value="<?php echo($zimmerart_mz_en); ?>" class="form-control">
+				</div>
+	</div>
   <?php
   }
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Französisch",$sprache,$link)); ?>.
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
        <?php if ($standardsprache == "fr") { echo("*"); }
@@ -562,8 +974,22 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_fr" type="text" id="zimmerart_fr" value="<?php echo($zimmerart_fr); ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart_fr" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Französisch",$sprache,$link)); ?>.
+    	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
+       <?php if ($standardsprache == "fr") { echo("*"); }
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_fr" type="text" id="zimmerart_fr" value="<?php echo($zimmerart_fr); ?>" class="form-control">
+				</div>
+	</div>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Französisch - Mehrzahl",$sprache,$link)); ?>
     	<?php if ($standardsprache == "fr") { echo("*"); } 
     	  else {
@@ -574,12 +1000,26 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_mz_fr" type="text" id="zimmerart_fr_mz" value="<?php echo($zimmerart_mz_fr); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart_mz_fr" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Französisch - Mehrzahl",$sprache,$link)); ?>
+    	<?php if ($standardsprache == "fr") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_mz_fr" type="text" id="zimmerart_mz_fr" value="<?php echo($zimmerart_mz_fr); ?>" class="form-control">
+				</div>
+	</div>
+  
   <?php
   }
   if (isItalianShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Italienisch",$sprache,$link)); ?>.
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
       <?php if ($standardsprache == "it") { echo("*"); } 
@@ -591,8 +1031,22 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_it" type="text" id="zimmerart_it" value="<?php echo($zimmerart_it); ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart_it" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Italienisch",$sprache,$link)); ?>.
+    	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
+      <?php if ($standardsprache == "it") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_it" type="text" id="zimmerart_it" value="<?php echo($zimmerart_it); ?>" class="form-control">
+				</div>
+	</div>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Italienisch - Mehrzahl",$sprache,$link)); ?>
     	<?php if ($standardsprache == "it") { echo("*"); } 
     	  else {
@@ -603,12 +1057,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_mz_it" type="text" id="zimmerart_it_mz" value="<?php echo($zimmerart_mz_it); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart_it_mz" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Italienisch - Mehrzahl",$sprache,$link)); ?>
+    	<?php if ($standardsprache == "it") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_it_mz" type="text" id="zimmerart_it_mz" value="<?php echo($zimmerart_mz_it); ?>" class="form-control">
+				</div>
+	</div>
   <?php
   }
   if (isNetherlandsShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Holländisch",$sprache,$link)); ?>.
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
       <?php if ($standardsprache == "nl") { echo("*"); } 
@@ -620,8 +1087,23 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_nl" type="text" id="zimmerart_nl" value="<?php echo($zimmerart_nl); ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+
+  	<div class="form-group">
+				<label for="zimmerart_nl" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Holländisch",$sprache,$link)); ?>.
+    	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
+      <?php if ($standardsprache == "nl") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_nl" type="text" id="zimmerart_nl" value="<?php echo($zimmerart_nl); ?>" class="form-control">
+				</div>
+	</div>
+	 <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Holländisch - Mehrzahl",$sprache,$link)); ?>
     	<?php if ($standardsprache == "nl") { echo("*"); } 
     	  else {
@@ -632,12 +1114,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_mz_nl" type="text" id="zimmerart_nl_mz" value="<?php echo($zimmerart_mz_nl); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart_nl" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Holländisch - Mehrzahl",$sprache,$link)); ?>
+    	<?php if ($standardsprache == "nl") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_nl" type="text" id="zimmerart_nl" value="<?php echo($zimmerart_mz_nl); ?>" class="form-control">
+				</div>
+	</div>
   <?php
   }  
   if (isEspaniaShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Spanisch",$sprache,$link)); ?>.
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
        <?php if ($standardsprache == "sp") { echo("*"); } 
@@ -649,8 +1144,22 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_sp" type="text" id="zimmerart_sp" value="<?php echo($zimmerart_sp); ?>" size="50"></td>
-  </tr>
-  <tr>
+  </tr> -->
+   <div class="form-group">
+				<label for="zimmerart_sp" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Spanisch",$sprache,$link)); ?>.
+    	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
+       <?php if ($standardsprache == "sp") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_sp" type="text" id="zimmerart_sp" value="<?php echo($zimmerart_sp); ?>" class="form-control">
+				</div>
+	</div>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Spanisch - Mehrzahl",$sprache,$link)); ?>
     	<?php if ($standardsprache == "sp") { echo("*"); } 
     	  else {
@@ -661,12 +1170,25 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_mz_sp" type="text" id="zimmerart_sp_mz" value="<?php echo($zimmerart_mz_sp); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <!-- <div class="form-group">
+				<label for="zimmerart_mz_sp" class="col-sm-8 control-label"<?php echo(getUebersetzung("Bezeichnung der Zimmer in Spanisch - Mehrzahl",$sprache,$link)); ?>
+    	<?php if ($standardsprache == "sp") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_mz_sp" type="text" id="zimmerart_mz_sp" value="<?php echo($zimmerart_mz_sp); ?>" class="form-control">
+				</div>
+	</div> -->
   <?php
   }
   if (isEstoniaShown($unterkunft_id,$link)){
   ?>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Estnisch",$sprache,$link)); ?>.
     	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
       <?php if ($standardsprache == "es") { echo("*"); }
@@ -678,7 +1200,21 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_es" type="text" id="zimmerart_es" value="<?php echo($zimmerart_es); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+   <div class="form-group">
+				<label for="zimmerart_mz_sp" class="col-sm-8 control-label"<?php echo(getUebersetzung("Bezeichnung der Zimmer in Estnisch",$sprache,$link)); ?>.
+    	<?php echo(getUebersetzung("(z. B. Ferienwohnung, Ferienhaus, Zimmer, Appartement)",$sprache,$link)); ?>    
+      <?php if ($standardsprache == "es") { echo("*"); }
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_es" type="text" id="zimmerart_es" value="<?php echo($zimmerart_es); ?>" class="form-control">
+				</div>
+	</div>
   <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Estnisch - Mehrzahl",$sprache,$link)); ?>
     	<?php if ($standardsprache == "es") { echo("*"); } 

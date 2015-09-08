@@ -3,7 +3,7 @@
  * Created on 19.01.2007
  *
  * @author coster
- * preise hinzuf�gen l�schen �ndern
+ * preise hinzufügen löschen ändern
  */
 
 session_start();
@@ -42,10 +42,10 @@ include_once("../templates/headerA.php");
 include_once("../templates/headerB.php"); 
 include_once("../templates/bodyA.php"); 
 
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
-//generiert das heutige datum f�r den date picker:
+//generiert das heutige datum für den date picker:
 $startdatumDP = getTodayDay()."/".parseMonthNumber(getTodayMonth())."/".getTodayYear();
 
 $sizeRoomSelectBox = getAnzahlVorhandeneZimmer($unterkunft_id,$link);
@@ -54,7 +54,7 @@ if ($sizeRoomSelectBox > 5){
 }
 ?>
 <p class="standardSchriftBold">
-	<?= getUebersetzung("Preise hinzuf�gen, �ndern, l�schen",$sprache,$link) ?>.
+	<?= getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
 </p>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
@@ -75,10 +75,10 @@ if (isset($nachricht) && $nachricht != ""){
 <table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	<tr>
 		<td>
-			<?= getUebersetzung("g�ltig von",$sprache,$link) ?>
+			<?= getUebersetzung("gültig von",$sprache,$link) ?>
 		</td>
 		<td>
-			<?= getUebersetzung("g�ltig bis",$sprache,$link) ?>
+			<?= getUebersetzung("gültig bis",$sprache,$link) ?>
 		</td>
 		<td>
 			<?= getUebersetzung("Preis",$sprache,$link) ?>
@@ -263,18 +263,11 @@ if (isset($nachricht) && $nachricht != ""){
     </td>
   </tr>
 </table>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
-	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
-  </form></td>
-  </tr>
-</table>
+
 <?php
 }
 else {
-	echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
 ?>   
 </body>
