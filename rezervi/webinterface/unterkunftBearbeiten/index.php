@@ -1215,7 +1215,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
 					<input name="zimmerart_es" type="text" id="zimmerart_es" value="<?php echo($zimmerart_es); ?>" class="form-control">
 				</div>
 	</div>
-  <tr>
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bezeichnung der Zimmer in Estnisch - Mehrzahl",$sprache,$link)); ?>
     	<?php if ($standardsprache == "es") { echo("*"); } 
     	  else {
@@ -1226,16 +1226,26 @@ if (isEstoniaShown($unterkunft_id,$link)){
      ?>
     </td>
     <td><input name="zimmerart_mz_es" type="text" id="zimmerart_es_mz" value="<?php echo($zimmerart_mz_es); ?>" size="50"></td>
-  </tr>
+  </tr> -->
+  <div class="form-group">
+				<label for="zimmerart_mz_sp" class="col-sm-8 control-label"><?php echo(getUebersetzung("Bezeichnung der Zimmer in Estnisch - Mehrzahl",$sprache,$link)); ?>
+    	<?php if ($standardsprache == "es") { echo("*"); } 
+    	  else {
+    ?>
+     (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+     <?php
+    	  }
+     ?></label>
+				<div class="col-sm-4">
+					<input name="zimmerart_mz_es" type="text" id="zimmerart_mz_es" value="<?php echo($zimmerart_mz_es); ?>" class="form-control">
+				</div>
+	</div>
   <?php
   }
   ?>
 
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
+
+  <!-- <tr>
     <td><?php echo(getUebersetzung("Bis zu welchem Alter erhalten Kinder in Ihrer Unterkunft eine Ermäßigung",$sprache,$link)); ?>?</td>
     <td><select name="kindesalter" id="kindesalter">
     <?php
@@ -1246,21 +1256,35 @@ if (isEstoniaShown($unterkunft_id,$link)){
     }
     ?>
     </select></td>
-  </tr>
-  <tr>
-    <td>
+  </tr> -->
+    <div class="form-group">
+				<label for="kindesalter" class="col-sm-8 control-label">
+					<?php echo(getUebersetzung("Bis zu welchem Alter erhalten Kinder in Ihrer Unterkunft eine Ermäßigung",$sprache,$link)); ?>?
+    			</label>
+		<div class="col-sm-4">
+					<select name="kindesalter" type="text" id="kindesalter"> <?php
+    for ($i=0; $i<=23; $i++){
+    ?>
+      <option value="<?php echo($i); ?>" <?php if ($kindesalter == $i) echo("selected"); ?>><?php echo($i); ?></option>
+	<?php
+    }
+    ?> 
+    </select>
+		</div>
+	</div>
+  
     <!-- alter button <input type="submit" name="Submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Unterkunft �ndern",$sprache,$link)); ?>"> -->
 	 <input type="submit" name="Submit" class="btn btn-primary" id="retour" value="<?php echo(getUebersetzung("Unterkunft ändern",$sprache,$link)); ?>">
 	</td>
     <td>&nbsp;</td>
-  </tr>
+ 
 </table>
 </form>
 <?php
 //-----buttons um zur�ck zum menue zu gelangen: 
 ?>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
@@ -1268,7 +1292,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
+</table> -->
 <?php 
 	} //ende if passwortpr�fung
 	else {
