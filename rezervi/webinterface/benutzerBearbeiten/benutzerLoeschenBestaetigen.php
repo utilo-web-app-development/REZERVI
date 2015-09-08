@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			best�tigung zum l�schen 
+			bestätigung zum löschen 
 			author utilo.eu
 */
 
@@ -15,7 +15,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
 $id = $_POST["id"];
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -48,7 +48,7 @@ $sprache = getSessionWert(SPRACHE);
 			?>
           </select>
         </p>
-        <p><?php echo(getUebersetzung("Nur die hier selektierten Benutzer werden gel�scht.",$sprache,$link)); ?> 
+        <p><?php echo(getUebersetzung("Nur die hier selektierten Benutzer werden gelöscht.",$sprache,$link)); ?> 
 		<?php echo(getUebersetzung("Entfernen Sie die Markierungen (mit [STRG] und Mausklick) wenn Benutzer nicht gelöscht werden sollen!",$sprache,$link)); ?></p>
         
         <input name="retour" type="submit" class="btn btn-danger"  id="retour"  value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>">
@@ -69,13 +69,13 @@ $sprache = getSessionWert(SPRACHE);
   </tr>
 </table>
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
         <input name="hauptmenue" type="submit" class="button200pxA" id="hauptmenue" onMouseOver="this.className='button200pxB';"
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
+</table> -->
 </body>
 </html>

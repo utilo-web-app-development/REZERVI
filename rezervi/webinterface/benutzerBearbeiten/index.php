@@ -36,27 +36,23 @@ $sprache = getSessionWert(SPRACHE);
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 
-
-
-
-<div class="panel panel-default">
-  <div class="panel-body">
-  	
-		<form action="./benutzerAendern.php" method="post" name="zimmerAendern" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
-			
-
 <!-- <form action="./benutzerAendern.php" method="post" name="zimmerAendern" target="_self">
   <table border="0" cellpadding="0" cellspacing="3" class="table"> -->
     
+   <div class="panel panel-default">
+  <div class="panel-body">
+  	
+<form action="./benutzerAendern.php" method="post" name="zimmerAendern" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
     
-    <tr>
-      <td><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer bearbeiten",$sprache,$link)); ?>
-			<br />        
-        <span class="standardSchrift"><?php echo(getUebersetzung("Bitte wählen Sie den zu verändernden Benutzer aus",$sprache,$link)); ?>:</span></p></td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><select name="id" size="5" id="id">
+ 
+      <h1><?php echo(getUebersetzung("Benutzer bearbeiten",$sprache,$link)); ?></h1>     
+      <h5><?php echo(getUebersetzung("Bitte wählen Sie den zu verändernden Benutzer aus",$sprache,$link)); ?>:</h5>
+      
+   <div class="form-group">
+				
+				<div class="col-sm-12">
+			 <select name="id" type="text" id="id" value="" class="form-control">
+			
           <?php
 		
 		//benutzer auslesen:
@@ -86,15 +82,9 @@ $sprache = getSessionWert(SPRACHE);
 		 //ende benutzer ausgeben    
 		 ?>
         </select>
-      </td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>      	
-      	<input name="benutzerAendern" type="submit" id="benutzerAendern" class="btn btn-primary" value="<?php echo(getUebersetzung("Benutzer Ändern",$sprache,$link)); ?>"></td>  
-      <td>&nbsp;</td>
-    </tr>
-  </table>
+    		</div>
+	</div>	 
+<input name="benutzerAendern" type="submit" id="benutzerAendern" class="btn btn-primary" value="<?php echo(getUebersetzung("Benutzer Ändern",$sprache,$link)); ?>">      
 </form>
 <?php
 //-------------ende benutzer �ndern
@@ -104,16 +94,55 @@ pr�fen ob benutzer �berhaupt vorhanden sind
 */
 if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
 ?>
-<form action="./benutzerLoeschenBestaetigen.php" method="post" name="benutzerLoeschen" target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="table">
-    <tr>
+<!-- <form action="./benutzerLoeschenBestaetigen.php" method="post" name="benutzerLoeschen" target="_self"> -->
+
+<form action="./benutzerLoeschenBestaetigen.php" method="post" name="benuterLoeschen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+  <h1><?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?></h1>
+ <h5><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus",$sprache,$link)); ?>. 
+	 <?php echo(getUebersetzung("Sie können mehrere Benutzer zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Benutzernamen klicken",$sprache,$link)); ?>.</h5>
+    <!-- <tr>
       <td><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?><br/>
           <span class="standardSchrift"><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus",$sprache,$link)); ?>. 
 		  <?php echo(getUebersetzung("Sie können mehrere Benutzer zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Benutzernamen klicken",$sprache,$link)); ?>.</span></p></td>
       <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><select name="id[]" size="5" multiple id="select">
+    </tr> -->
+   
+   <!-- <select name="id[]"  id="select">
+          <?php 
+		  		//benutzer auslesen:
+		$query = "select 
+				  PK_ID, Name, Passwort
+				  from 
+				  Rezervi_Benutzer
+				  where
+				  FK_Unterkunft_ID = '$unterkunft_id'
+				  ORDER BY 
+				  Name";
+	
+		 $res = mysql_query($query, $link);
+		 if (!$res)
+			echo("die Anfrage $query scheitert.");
+		 else{     
+		  	$i = 0;
+			  while($d = mysql_fetch_array($res)) {
+			  //selbst nicht loeschen!
+			  if ($d["Name"] == $benutzername && $d["Passwort"] == $passwort){
+			  	continue;
+			  }	
+			  ?>
+          		<option value="<?php echo($d["PK_ID"]); ?>" 
+          			<?php if ($i == 0) echo(" selected"); $i++; ?>> 
+          			<?php echo($d["Name"]); ?></option>
+          	  <?php
+			  } //ende while
+		  }	  
+		 ?>
+        </select> -->
+      <div class="form-group">
+				
+				<div class="col-sm-12">
+			 <select name="id[]" type="text" id="select" value="" class="form-control">
+			
           <?php 
 		  		//benutzer auslesen:
 		$query = "select 
@@ -144,40 +173,34 @@ if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
 		  }	  
 		 ?>
         </select>
-      </td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-    <td><input name="benutzerLoeschen" type="submit" id="benutzerLoeschen" class="btn btn-danger" 
-      	 value="<?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?>">
-    </td>
-     	<td>&nbsp;</td>
-    </tr>
-  </table>
+    		</div>
+	</div>
+   <input name="benutzerLoeschen" type="submit" id="benutzerLoeschen" class="btn btn-danger" 
+      	  value="<?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?>">
+    
+
 </form>
 <?php
 } //ende anzahlBenutzer ist ok
 ?>
 <form action="./benutzerAnlegen.php" method="post" name="benutzerAnlegen" target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="table">
+ 
     <tr>
-      <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?></span><br/>
-        <?php echo(getUebersetzung("Klicken Sie auf den Button [Benutzer anlegen] um einen neuen Benutzer hinzuzufügen",$sprache,$link)); ?>.</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
+      <h1><?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?></h1>
+        <h5><?php echo(getUebersetzung("Klicken Sie auf den Button [Benutzer anlegen] um einen neuen Benutzer hinzuzufügen",$sprache,$link)); ?>.</h5>
+      
  <!-- alter button -->
       <!-- <td><input name="benutzerAnlegenButton" type="submit" id="benutzerAnlegenButton" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?>"></td> -->
        
-       <td><a class="btn btn-primary" href="./benutzerAnlegen.php"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?></a>
-     	</td></td>
-      <td>&nbsp;</td>
-    </tr>
-  </table>
+     <a class="btn btn-primary" href="./benutzerAnlegen.php"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("Benutzer anlegen",$sprache,$link)); ?></a>
+     	
+     
+    
+
 </form>
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
@@ -186,8 +209,7 @@ if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
   </tr>
 </table>
 <p> </p>
-<p>
-  <?php 
+<p> -->  <?php 
 	} //ende if passwortpr�fung
 	else {
 		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
