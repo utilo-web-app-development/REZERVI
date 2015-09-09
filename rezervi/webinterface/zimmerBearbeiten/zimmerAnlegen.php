@@ -260,7 +260,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     }
     if (isEstoniaShown($unterkunft_id,$link)){
     ?>
-        <tr> 
+        <!-- <tr> 
 	      <td><?php echo(getUebersetzung("Zimmerart in estnisch",$sprache,$link)); ?> 
 	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
 	      <?php if ($standardsprache == "es"){ ?>
@@ -274,7 +274,23 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      ?>
 	      </td>
 	      <td><input name="zimmerart_es" type="text" id="zimmerart_es"  value="<?php if (isset($zimmerart_es)) {echo($zimmerart_es);} ?>" maxlength="30"></td>
-	    </tr>
+	    </tr> -->
+	     <div class="form-group">
+				<label for="zimmerart_sp" class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in estnisch",$sprache,$link)); ?> 
+	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
+	      <?php if ($standardsprache == "es"){ ?>
+	      	*
+	      <?php } 
+	      	else {
+	      ?>
+	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+	      <?php
+	      	}
+	      ?></label>
+				<div class="col-sm-5">
+					<input name="zimmerart_es" type="text" id="zimmerart_es" value="<?php if (isset($zimmerart_es)) {echo($zimmerart_es);} ?>" class="form-control">
+				</div>
+			</div>
     <?php
     }
     ?>
