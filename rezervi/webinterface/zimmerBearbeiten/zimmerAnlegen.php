@@ -120,7 +120,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     }
     if (isFrenchShown($unterkunft_id,$link)){
     ?>
-	    <tr> 
+	    <!-- <tr> 
 	      <td><?php echo(getUebersetzung("Zimmerart in französisch",$sprache,$link)); ?>
 	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?> 
 	      <?php if ($standardsprache == "fr"){ ?>
@@ -134,12 +134,28 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      ?>
 	      </td>
 	      <td><input name="zimmerart_fr" type="text" id="zimmerart_fr"  value="<?php if (isset($zimmerart_fr)) {echo($zimmerart_fr);} ?>" maxlength="30"></td>
-	    </tr>
+	    </tr> -->
+	     <div class="form-group">
+				<label for="zimmerart_fr" class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in französisch",$sprache,$link)); ?>
+	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?> 
+	      <?php if ($standardsprache == "fr"){ ?>
+	      	*
+	      <?php } 
+	      	else {
+	      ?>
+	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+	      <?php
+	      	}
+	      ?></label>
+				<div class="col-sm-5">
+					<input name="zimmerart_fr" type="text" id="zimmerart_fr" value="<?php if (isset($zimmerart_fr)) {echo($zimmerart_fr);} ?>" class="form-control">
+				</div>
+			</div>	
     <?php
     }
     if (isItalianShown($unterkunft_id,$link)){
     ?>
-    	<tr> 
+    	<!-- <tr> 
 	      <td><?php echo(getUebersetzung("Zimmerart in italienisch",$sprache,$link)); ?> 
 	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
 	      <?php if ($standardsprache == "it"){ ?>
@@ -153,12 +169,28 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      ?>
 	      </td>
 	      <td><input name="zimmerart_it" type="text" id="zimmerart_it"  value="<?php if (isset($zimmerart_it)) {echo($zimmerart_it);} ?>" maxlength="30"></td>
-	    </tr>
+	    </tr> -->
+	    <div class="form-group">
+				<label for="zimmerart_it" class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in italienisch",$sprache,$link)); ?> 
+	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
+	      <?php if ($standardsprache == "it"){ ?>
+	      	*
+	      <?php } 
+	      	else {
+	      ?>
+	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+	      <?php
+	      	}
+	      ?></label>
+				<div class="col-sm-5">
+					<input name="zimmerart_it" type="text" id="zimmerart_it" value="<?php if (isset($zimmerart_it)) {echo($zimmerart_it);} ?>" class="form-control">
+				</div>
+			</div>
     <?php
     }
     if (isNetherlandsShown($unterkunft_id,$link)){
     ?>
-    	<tr> 
+    	<!-- <tr> 
 	      <td><?php echo(getUebersetzung("Zimmerart in holländisch",$sprache,$link)); ?> 
 	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
 	      <?php if ($standardsprache == "nl"){ ?>
@@ -172,12 +204,28 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      ?>
 	      </td>
 	      <td><input name="zimmerart_nl" type="text" id="zimmerart_nl"  value="<?php if (isset($zimmerart_nl)) {echo($zimmerart_nl);} ?>" maxlength="30"></td>
-	    </tr>
+	    </tr> -->
+	    <div class="form-group">
+				<label for="zimmerart_nl" class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in holländisch",$sprache,$link)); ?> 
+	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
+	      <?php if ($standardsprache == "nl"){ ?>
+	      	*
+	      <?php } 
+	      	else {
+	      ?>
+	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+	      <?php
+	      	}
+	      ?></label>
+				<div class="col-sm-5">
+					<input name="zimmerart_nl" type="text" id="zimmerart_nl" value="<?php if (isset($zimmerart_nl)) {echo($zimmerart_nl);} ?>" class="form-control">
+				</div>
+			</div>
     <?php
     }    
     if (isEspaniaShown($unterkunft_id,$link)){
     ?>
-        <tr> 
+        <!-- <tr> 
 	      <td><?php echo(getUebersetzung("Zimmerart in spanisch",$sprache,$link)); ?>
 	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
 	      <?php if ($standardsprache == "sp"){ ?>
@@ -191,7 +239,23 @@ include_once($root."/include/sessionFunctions.inc.php");
 	      ?>
 	       </td>
 	      <td><input name="zimmerart_sp" type="text" id="zimmerart_sp"  value="<?php if (isset($zimmerart_sp)) {echo($zimmerart_sp);} ?>" maxlength="30"></td>
-	    </tr>
+	    </tr> -->
+	    <div class="form-group">
+				<label for="zimmerart_sp" class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in spanisch",$sprache,$link)); ?>
+	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)",$sprache,$link)); ?>
+	      <?php if ($standardsprache == "sp"){ ?>
+	      	*
+	      <?php } 
+	      	else {
+	      ?>
+	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.",$sprache,$link)); ?>)
+	      <?php
+	      	}
+	      ?></label>
+				<div class="col-sm-5">
+					<input name="zimmerart_sp" type="text" id="zimmerart_sp" value="<?php if (isset($zimmerart_sp)) {echo($zimmerart_sp);} ?>" class="form-control">
+				</div>
+			</div>
     <?php
     }
     if (isEstoniaShown($unterkunft_id,$link)){
