@@ -31,13 +31,16 @@ $sprache = getSessionWert(SPRACHE);
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></p>
-<form action="./benutzerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">
-  <table border="0" cellpadding="0" cellspacing="3" class="table">
-    <tr>
-      <td><p><?php echo(getUebersetzung("Folgende Benutzer werden aus der Datenbank entfernt",$sprache,$link)); ?>:
+<!-- <p class="standardSchriftBold"><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></p> -->
+<h1><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></h1>
+<!-- <form action="./benutzerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen"> -->
+	<div class="panel panel-default">
+  <div class="panel-body">
+	<form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+  
+      <h4><?php echo(getUebersetzung("Folgende Benutzer werden aus der Datenbank entfernt",$sprache,$link)); ?>:</h4>
         <p>
-          <select name="id[]" size="5" multiple>
+          <!-- <select name="id[]" size="5" multiple>
             <?php 
 				$anzahl = count($id);				
 	  			for($i = 0; $i < $anzahl; $i++){ ?>
@@ -46,28 +49,40 @@ $sprache = getSessionWert(SPRACHE);
             <?php 
 				} //ende for
 			?>
-          </select>
+          </select> -->
+          	<select name="id[]" type="text" id="id[]" value="" class="form-control">
+			
+          <?php 
+				$anzahl = count($id);				
+	  			for($i = 0; $i < $anzahl; $i++){ ?>
+            <option value="<?php echo($id[$i]); ?>" selected> <?php echo(getUserName($id[$i],$link)); 
+            ?> </option>
+            <?php 
+				} //ende for
+			?>
+				  } //ende while
+			 //ende zimmer ausgeben    
+			 ?>
+        </select>
         </p>
         <p><?php echo(getUebersetzung("Nur die hier selektierten Benutzer werden gelöscht.",$sprache,$link)); ?> 
 		<?php echo(getUebersetzung("Entfernen Sie die Markierungen (mit [STRG] und Mausklick) wenn Benutzer nicht gelöscht werden sollen!",$sprache,$link)); ?></p>
         
         <input name="retour" type="submit" class="btn btn-danger"  id="retour"  value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>">
-      </td>
-    </tr>
-  </table>
+   
+    
+  
 </form>
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td>
+
+  
     	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
         <input name="zurueck" type="submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
       </form> -->
         <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
-    </td>
-  </tr>
-</table>
+   
+
 <br/>
 <!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>

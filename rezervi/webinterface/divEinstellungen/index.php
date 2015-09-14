@@ -35,7 +35,8 @@ include_once("../templates/components.php");
 	//passwortpr�fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("diverse Einstellungen",$sprache,$link)); ?></p>
+<!-- <p class="standardSchriftBold"><?php echo(getUebersetzung("diverse Einstellungen",$sprache,$link)); ?></p> -->
+<h1><?php echo(getUebersetzung("diverse Einstellungen",$sprache,$link)); ?></h1>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -48,8 +49,12 @@ if (isset($nachricht) && $nachricht != ""){
 <?php 
 }
 ?>
-<table  border="0" cellpadding="0" cellspacing="3" class="table">
-  <form action="./sprachen/sprachen.php" method="post" target="_self">
+
+	
+  <!-- <form action="./sprachen/sprachen.php" method="post" target="_self"> -->
+<div class="panel panel-default">
+  <div class="panel-body">
+	<form action="./sprachen/sprachen.php" method="post" name="sprachen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
   <tr>
     <td><?php showSubmitButton(getUebersetzung("Sprachen",$sprache,$link)); ?></td>
     <td><?php echo(getUebersetzung("Ändern der zur Auswahl stehenden Sprachen ihres Belegungsplanes",$sprache,$link)); ?>.</td>
@@ -104,10 +109,10 @@ if (isset($nachricht) && $nachricht != ""){
 	  </tr>
     </form>
     </table>
-<br/>
+
 <?php 
 	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  // showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?>
 <?php 
 	} //ende if passwortpr�fung

@@ -51,10 +51,15 @@ if ($showReservation != "true"){
 ?>
 </p>
 
-<table  border="0" cellpadding="0" cellspacing="3" class="table">
-  <tr valign="top">
-    <td width="1"><form action="./styles.php" method="post" target="_self">
-		<input name="hintergrund" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Hintergrund",$sprache,$link)); ?>">
+<!-- <table  border="0" cellpadding="0" cellspacing="3" class="table"> -->
+	<div class="panel panel-default">
+  <div class="panel-body" 	
+				
+							
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="hintergrund" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Hintergrund",$sprache,$link)); ?>">
 	   <input name="font_family" type="hidden" value="0">
 	   <input name="font_size" type="hidden" value="0">
 	   <input name="font_style" type="hidden" value="0">
@@ -67,10 +72,14 @@ if ($showReservation != "true"){
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
 	   <input name="stylesheet" type="hidden" value="hintergrund">
-    </form></td>
-    <td><?php echo(getUebersetzung("ändern der Hintergrundfarbe",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+	   			</label>			
+					</br><?php echo(getUebersetzung("ändern der Hintergrundfarbe",$sprache,$link)); ?>
+	
+			</div>
+				</div>
+					</div>
+			</form>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="resEingebenAendern" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Schrift",$sprache,$link)); ?>">
 	   <input name="font_family" type="hidden" value="1">
@@ -87,8 +96,32 @@ if ($showReservation != "true"){
 	   <input name="stylesheet" type="hidden" value="standardSchrift">
     </form></td>
     <td><?php echo(getUebersetzung("ändern der Standard-Schrift (Farbe, Art, Größe, ...)",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+ <div class="panel panel-default">
+  <div class="panel-body" 
+ <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Überschrift"  control-label">
+<input name="ueberschrift" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Überschrift",$sprache,$link)); ?>">
+	   <input name="font_family" type="hidden" value="1">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="0">
+	   <input name="border_color" type="hidden" value="0">
+	   <input name="background_color" type="hidden" value="0">
+	   <input name="height" type="hidden" value="0">
+	   <input name="width" type="hidden" value="0">
+	   <input name="stylesheet" type="hidden" value="ueberschrift">
+	   			</label>
+						</br><?php echo(getUebersetzung("ändern der Standard-Schrift (Farbe, Art, Größe, ...)",$sprache,$link)); ?>
+			</div>
+			</div></div>
+			</form>
+
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="ueberschrift" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Überschrift",$sprache,$link)); ?>">
 	   <input name="font_family" type="hidden" value="1">
@@ -105,8 +138,31 @@ if ($showReservation != "true"){
 	   <input name="stylesheet" type="hidden" value="ueberschrift">
     </form></td>
     <td><?php echo(getUebersetzung("ändern der Überschriften (Farbe, Art, Größe, ...)",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+  <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="markierteSchrift" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("markierte Schrift",$sprache,$link)); ?>">
+	   <input name="font_family" type="hidden" value="1">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="0">
+	   <input name="border_color" type="hidden" value="0">
+	   <input name="background_color" type="hidden" value="0">
+	   <input name="height" type="hidden" value="0">
+	   <input name="width" type="hidden" value="0">
+	   <input name="stylesheet" type="hidden" value="markierteSchrift">
+	   			</label>			
+					<br><?php echo(getUebersetzung("ändern der markierten Schrift",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="markierteSchrift" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("markierte Schrift",$sprache,$link)); ?>">
 	   <input name="font_family" type="hidden" value="1">
@@ -123,8 +179,30 @@ if ($showReservation != "true"){
 	   <input name="stylesheet" type="hidden" value="markierteSchrift">
     </form></td>
     <td><?php echo(getUebersetzung("ändern der markierten Schrift",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+  <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="buttonA" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Button",$sprache,$link)); ?>">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="1">
+	   <input name="border_color" type="hidden" value="1">
+	   <input name="background_color" type="hidden" value="1">
+	   <input name="height" type="hidden" value="1">
+	   <input name="width" type="hidden" value="1">
+	   <input name="stylesheet" type="hidden" value="buttonA">
+	   			</label>			
+					<br><?php echo(getUebersetzung("ändern des Buttons",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="buttonA" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Button",$sprache,$link)); ?>">
 	   <input name="font_size" type="hidden" value="1">
@@ -140,8 +218,30 @@ if ($showReservation != "true"){
 	   <input name="stylesheet" type="hidden" value="buttonA">
     </form></td>
     <td><?php echo(getUebersetzung("ändern des Buttons",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+  <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="buttonB" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Button rollover",$sprache,$link)); ?>">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="1">
+	   <input name="border_color" type="hidden" value="1">
+	   <input name="background_color" type="hidden" value="1">
+	   <input name="height" type="hidden" value="1">
+	   <input name="width" type="hidden" value="1">
+	   <input name="stylesheet" type="hidden" value="buttonB">
+	   </label>
+					<br><?php echo(getUebersetzung("ändern des Buttons der angezeigt wird, wenn die Maus darüber bewegt wird",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 		<input name="buttonB" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Button rollover",$sprache,$link)); ?>">
 	   <input name="font_size" type="hidden" value="1">
@@ -158,8 +258,30 @@ if ($showReservation != "true"){
 	   </form>
     </td>
     <td><?php echo(getUebersetzung("ändern des Buttons der angezeigt wird, wenn die Maus darüber bewegt wird",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+  <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="tabelle" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Tabelle",$sprache,$link)); ?>">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="1">
+	   <input name="border_color" type="hidden" value="1">
+	   <input name="background_color" type="hidden" value="1">
+	   <input name="height" type="hidden" value="0">
+	   <input name="width" type="hidden" value="0">
+	   <input name="stylesheet" type="hidden" value="tabelle">
+	   </label>
+					<br><?php echo(getUebersetzung("ändern der Tabelle (Hintergrundfarbe, Schriftfarbe, Rahmen, etc.)",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 		<input name="tabelle" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Tabelle",$sprache,$link)); ?>">
 	   <input name="font_size" type="hidden" value="1">
@@ -176,8 +298,30 @@ if ($showReservation != "true"){
 	   </form>
     </td>
     <td><?php echo(getUebersetzung("ändern der Tabelle (Hintergrundfarbe, Schriftfarbe, Rahmen, etc.)",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+  <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="tabelleColor" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("färbige Tabelle",$sprache,$link)); ?>">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="1">
+	   <input name="border_color" type="hidden" value="1">
+	   <input name="background_color" type="hidden" value="1">
+	   <input name="height" type="hidden" value="0">
+	   <input name="width" type="hidden" value="0">
+	   <input name="stylesheet" type="hidden" value="tabelleColor">
+	   </label>
+					<br><?php echo(getUebersetzung("ändern der färbigen Tabellen",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="tabelleColor" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("färbige Tabelle",$sprache,$link)); ?>">
 	   <input name="font_size" type="hidden" value="1">
@@ -194,8 +338,30 @@ if ($showReservation != "true"){
 	   </form>
     </td>
     <td><?php echo(getUebersetzung("ändern der färbigen Tabellen",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+  <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="belegt" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("belegt",$sprache,$link)); ?>">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="1">
+	   <input name="border_color" type="hidden" value="1">
+	   <input name="background_color" type="hidden" value="1">
+	   <input name="height" type="hidden" value="0">
+	   <input name="width" type="hidden" value="0">
+	   <input name="stylesheet" type="hidden" value="belegt">
+	   </label>
+					<br><?php echo(getUebersetzung("ändern der Farbe der belegt-Anzeige",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="belegt" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("belegt",$sprache,$link)); ?>">
 	   <input name="font_size" type="hidden" value="1">
@@ -212,8 +378,30 @@ if ($showReservation != "true"){
 	   </form>
     </td>
     <td><?php echo(getUebersetzung("ändern der Farbe der belegt-Anzeige",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+  <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="samstagBelegt" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Samstag belegt",$sprache,$link)); ?>">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="1">
+	   <input name="border_color" type="hidden" value="1">
+	   <input name="background_color" type="hidden" value="1">
+	   <input name="height" type="hidden" value="0">
+	   <input name="width" type="hidden" value="0">
+	   <input name="stylesheet" type="hidden" value="samstagBelegt">
+	   </label>
+					<br><?php echo(getUebersetzung("ändern der Farbe der Samstag belegt-Anzeige",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="samstagBelegt" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Samstag belegt",$sprache,$link)); ?>">
 	   <input name="font_size" type="hidden" value="1">
@@ -230,8 +418,30 @@ if ($showReservation != "true"){
 	   </form>
     </td>
     <td><?php echo(getUebersetzung("ändern der Farbe der Samstag belegt-Anzeige",$sprache,$link)); ?></td>
-  </tr>
-  <tr valign="top">
+  </tr> -->
+   <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="frei" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("frei",$sprache,$link)); ?>">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="1">
+	   <input name="border_color" type="hidden" value="1">
+	   <input name="background_color" type="hidden" value="1">
+	   <input name="height" type="hidden" value="0">
+	   <input name="width" type="hidden" value="0">
+	   <input name="stylesheet" type="hidden" value="frei">
+	   </label>
+					<br><?php echo(getUebersetzung("ändern der Farbe der frei-Anzeige",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+  <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="frei" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("frei",$sprache,$link)); ?>">
 	   <input name="font_size" type="hidden" value="1">
@@ -248,8 +458,30 @@ if ($showReservation != "true"){
 	   </form>
     </td>
     <td><?php echo(getUebersetzung("ändern der Farbe der frei-Anzeige",$sprache,$link)); ?></td>
-  </tr>
-   <tr valign="top">
+  </tr> -->
+   <div class="panel panel-default">
+  <div class="panel-body" 
+  <form action="./styles.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">			
+			<div class="form-group">
+				<label for="Hintergrun"  control-label">
+<input name="samstagFrei" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Samstag frei",$sprache,$link)); ?>">
+	   <input name="font_size" type="hidden" value="1">
+	   <input name="font_style" type="hidden" value="1">
+	   <input name="font_weight" type="hidden" value="1">
+	   <input name="text_align" type="hidden" value="1">
+	   <input name="color" type="hidden" value="1">
+	   <input name="border" type="hidden" value="1">
+	   <input name="border_color" type="hidden" value="1">
+	   <input name="background_color" type="hidden" value="1">
+	   <input name="height" type="hidden" value="0">
+	   <input name="width" type="hidden" value="0">
+	   <input name="stylesheet" type="hidden" value="samstagFrei">
+	   </label>
+					<br><?php echo(getUebersetzung("ändern der Farbe der frei-Anzeige",$sprache,$link)); ?>
+	</div>
+	</div>
+			</div>
+   <!-- <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="samstagFrei" type="submit" class="btn btn-primary" id="resEingebenAendern" value="<?php echo(getUebersetzung("Samstag frei",$sprache,$link)); ?>">
 	   <input name="font_size" type="hidden" value="1">
@@ -266,7 +498,7 @@ if ($showReservation != "true"){
 	   </form>
     </td>
     <td><?php echo(getUebersetzung("ändern der Farbe der Samstag frei-Anzeige",$sprache,$link)); ?></td>
-  </tr>
+  </tr> -->
   <?php
   if ($showReservation){
   ?>
@@ -331,7 +563,7 @@ if ($showReservation != "true"){
 <?php
 //-----buttons um zur�ck zum menue zu gelangen: 
 ?>
-<br/>
+<!-- <br/>
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
@@ -339,7 +571,7 @@ if ($showReservation != "true"){
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
+</table> -->
 <?php 
 	} //ende if passwortpr�fung
 	else {
