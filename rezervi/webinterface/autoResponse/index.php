@@ -35,48 +35,41 @@ include_once("../../include/uebersetzer.php");
 	//passwortpr�fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Automatische Antworten bearbeiten, E-Mails an Ihre Gäste senden",$sprache,$link)); ?></p>
-<table  border="0" cellpadding="0" cellspacing="3" class="table">
-  <tr>
-    <td><?php echo(getUebersetzung("ändern Sie hier die automatischen E-Mail Antworten an Ihre Gäste oder benutzen Sie das Mail-Formular zum senden von E-Mails an Ihre Gäste.",$sprache,$link)); ?>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+<h3><?php echo(getUebersetzung("Automatische Antworten bearbeiten, E-Mails an Ihre Gäste senden",$sprache,$link)); ?></h3>
+<h5>
+   	<?php echo(getUebersetzung("ändern Sie hier die automatischen E-Mail Antworten an Ihre Gäste oder benutzen Sie das Mail-Formular zum senden von E-Mails an Ihre Gäste.",$sprache,$link)); ?>
 	<?php echo(getUebersetzung("Bitte achten Sie darauf, dass die automatischen E-Mail Antworten nur ausgeführt werden wenn Sie aktiviert wurden.",$sprache,$link)); ?>
-	<?php echo(getUebersetzung("Eine nicht-aktivierte E-Mail Antwort wird nicht an Ihren Gast gesendet - Sie müssen die Anfragen händisch beantworten!",$sprache,$link)); ?></td>
-  </tr>
-</table>
-<br/>
-<form action="./texteAnzeigen.php" method="post" target="_self">
-<table  border="0" cellpadding="0" cellspacing="3" class="table">
-  <tr>
-    <td>
-		<input name="bestaetigung" type="submit" class="btn btn-primary" id="bestaetigung" value="<?php echo(getUebersetzung("Buchungsbestätigung",$sprache,$link)); ?>">
-   </td>
-    <td><?php echo(getUebersetzung("ändern der E-Mail-Buchungsbestätigung die ein Gast erhält wenn Sie die Reservierung akzeptieren",$sprache,$link)); ?>.</td>
-  </tr>
-  <tr>
-    <td>
-		<input name="ablehnung" type="submit" class="btn btn-primary" id="ablehnung" value="<?php echo(getUebersetzung("Buchungs-Absage",$sprache,$link)); ?>">
-    </td>
-    <td><?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage die ein Gast erhält wenn Sie die Reservierung ablehnen",$sprache,$link)); ?>.</td>
-  </tr>
-    <tr>
-    <td>
-		<input name="anfrage" type="submit" class="btn btn-primary" id="anfrage" value="<?php echo(getUebersetzung("Buchungs-Anfrage",$sprache,$link)); ?>">
-    </td>
-    <td><?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage die ein Gast erhält wenn er eine Buchungsanfrage im Belegungsplan vornimmt",$sprache,$link)); ?>.</td>
-  </tr>
-    <tr>
-      <td><input name="emails" type="submit" class="btn btn-primary" id="emails" value="<?php echo(getUebersetzung("E-Mails senden",$sprache,$link)); ?>">
-      </td>
-      <td><?php echo(getUebersetzung("E-Mails an ihre Gäste senden",$sprache,$link)); ?>.</td>
-    </tr>
-</table>
+	<?php echo(getUebersetzung("Eine nicht-aktivierte E-Mail Antwort wird nicht an Ihren Gast gesendet - Sie müssen die Anfragen händisch beantworten!",$sprache,$link)); ?>
+</h5>
+
+<form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+<!-- <form action="./texteAnzeigen.php" method="post" target="_self"> -->
+
+  <input name="bestaetigung" type="submit" class="btn btn-primary" id="bestaetigung" value="<?php echo(getUebersetzung("Buchungsbestätigung",$sprache,$link)); ?>">
+   <?php echo(getUebersetzung("ändern der E-Mail-Buchungsbestätigung die ein Gast erhält wenn Sie die Reservierung akzeptieren",$sprache,$link)); ?>.
+</br>
+</br>
+<input name="ablehnung" type="submit" class="btn btn-primary" id="ablehnung" value="<?php echo(getUebersetzung("Buchungs-Absage",$sprache,$link)); ?>">
+    <?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage die ein Gast erhält wenn Sie die Reservierung ablehnen",$sprache,$link)); ?>.
+</br>
+</br>
+  <input name="anfrage" type="submit" class="btn btn-primary" id="anfrage" value="<?php echo(getUebersetzung("Buchungs-Anfrage",$sprache,$link)); ?>">
+  <?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage die ein Gast erhält wenn er eine Buchungsanfrage im Belegungsplan vornimmt",$sprache,$link)); ?>.</td>
+</br>
+</br>
+    <input name="emails" type="submit" class="btn btn-primary" id="emails" value="<?php echo(getUebersetzung("E-Mails senden",$sprache,$link)); ?>">
+      <?php echo(getUebersetzung("E-Mails an ihre Gäste senden",$sprache,$link)); ?>.
+ 
 </form>
 <br/>
-<?php 
+<!-- <?php 
 	  //-----buttons um zur�ck zum menue zu gelangen: 
       include_once("../templates/components.php"); 
 	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+?> -->
 <?php 
 	} //ende if passwortpr�fung
 	else {

@@ -37,12 +37,15 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen",$sprache,$link)); ?>.</p>
-<table  border="0" cellpadding="0" cellspacing="3" class="table">
-  <tr>
-    <td><?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen",$sprache,$link)); ?>:</td>
-  </tr>
-</table>
+  <div class="panel panel-default">
+  <div class="panel-body">
+  	
+		<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+			
+<h2><?php echo(getUebersetzung("Ändern der angezeigten Sprachen",$sprache,$link)); ?>.</h2>
+   <h4><?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen",$sprache,$link)); ?>:</h4>
+
+
 <br/>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
@@ -84,7 +87,7 @@ if (isset($nachricht) && $nachricht != ""){
   </form>
 </table>
 <br/>
-<?php 
+<!-- <?php 
 	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
@@ -92,7 +95,7 @@ if (isset($nachricht) && $nachricht != ""){
 <?php 
 	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+?> -->
 <?php 
 	} //ende if passwortprüfung
 	else {
