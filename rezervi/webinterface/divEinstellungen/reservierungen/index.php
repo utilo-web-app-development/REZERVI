@@ -52,11 +52,10 @@ if (empty($xDays) || $xDays == 0 || $xDays == "0"){
 	//passwortpr�fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<div class="panel panel-default">
+  <div class="panel panel-default">
   <div class="panel-body">
-    <a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
-  </div>
-</div>
+  	
+		<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 
 <h3><?php echo(getUebersetzung("Einstellungen für Reservierungen",$sprache,$link)); ?>.</h3>
 <?php 
