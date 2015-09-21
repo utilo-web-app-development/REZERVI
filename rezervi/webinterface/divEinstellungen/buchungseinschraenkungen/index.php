@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	author: christian osterrieder utilo.eu						
 */
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once($root."/conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -39,15 +39,23 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 <?php include_once($root."/webinterface/templates/headerB.php"); ?>
 <?php include_once($root."/webinterface/templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</p>
-<table  border="0" cellpadding="0" cellspacing="3" class="table">
-  <tr>
-    <td><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>:</td>
-  </tr>
-</table>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+		<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+<h3><?php echo(getUebersetzung("EinschrÃ¤nken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</h3>
+
+    <!-- <td><?php echo(getUebersetzung("EinschrÃ¤nken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>:</td> -->
+
 <br/>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
@@ -61,15 +69,17 @@ if (isset($nachricht) && $nachricht != ""){
 <?php 
 }
 ?>
-<table  border="0" cellpadding="0" cellspacing="3" class="table">
+
   <form action="./aendern.php" method="post" target="_self" name="reservierung">
-  <tr>
-    <td colspan="2">
- 	 <?= 
+
+
+ 	<h3> <?= 
 	  getUebersetzung("Zeitraum (z. B. Saison):",$sprache,$link);
-	 ?>
-	</td>
-  </tr>
+	 ?></h3>
+	 
+</br>
+
+
   <tr>
     <td colspan="2">
 		<table class="tableColor" >
@@ -79,7 +89,7 @@ if (isset($nachricht) && $nachricht != ""){
 				<td><?= getUebersetzung("Tag bis",$sprache,$link); ?></td>
 				<td><?= getUebersetzung("Datum von",$sprache,$link); ?></td>
 				<td><?= getUebersetzung("Datum bis",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("löschen/hinzufügen",$sprache,$link); ?></td>
+				<td><?= getUebersetzung("lÃ¶schen/hinzufÃ¼gen",$sprache,$link); ?></td>
 			</tr>
 			<?php			
 			
@@ -107,7 +117,7 @@ if (isset($nachricht) && $nachricht != ""){
 							   class="button200pxA" 
 							   onMouseOver="this.className='button200pxB';"
        						   onMouseOut="this.className='button200pxA';" 
-							   value="<?= getUebersetzung("löschen",$sprache,$link); ?>"/>
+							   value="<?= getUebersetzung("lÃ¶schen",$sprache,$link); ?>"/>
 					</td>
 				</tr>
 			<?php
@@ -160,7 +170,7 @@ if (isset($nachricht) && $nachricht != ""){
 				          <select name="vonMonat" class="tableColor" id="vonMonat" onChange="chkDays(0)">
 				            <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
 				            <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-				            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
+				            <option value="3"<?php if (getTodayMonth() == "Mï¿½rz") echo " selected"; ?>><?php echo(getUebersetzung("Mï¿½rz",$sprache,$link)); ?></option>
 				            <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
 				            <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
 				            <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -191,7 +201,7 @@ if (isset($nachricht) && $nachricht != ""){
 			          <select name="bisMonat" class="tableColor" id="bisMonat" onChange="chkDays(1)">
 			            <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
 			            <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-			            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
+			            <option value="3"<?php if (getTodayMonth() == "Mï¿½rz") echo " selected"; ?>><?php echo(getUebersetzung("Mï¿½rz",$sprache,$link)); ?></option>
 			            <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
 			            <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
 			            <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -216,7 +226,7 @@ if (isset($nachricht) && $nachricht != ""){
 							   class="button200pxA" 
 							   onMouseOver="this.className='button200pxB';"
        						   onMouseOut="this.className='button200pxA';" 
-							   value="<?= getUebersetzung("hinzufügen",$sprache,$link); ?>"/>
+							   value="<?= getUebersetzung("hinzufÃ¼gen",$sprache,$link); ?>"/>
 					</td>
 				</tr>
 				<!-- ende neuen eintrag hinzufuegen -->
@@ -225,20 +235,20 @@ if (isset($nachricht) && $nachricht != ""){
   </tr>  
   </form>
 </table>
-<br/>
+<!-- <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
-<br/>
+<br/> -->
+<!-- <?php 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenï¿½",$sprache,$link));
+?> -->
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
-<?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

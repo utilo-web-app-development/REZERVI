@@ -78,7 +78,7 @@ $unterschrift_es = "";
 	if (isset($_POST["bestaetigung"])){
 		$art = "bestaetigung";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("Ändern der Buchungsbestätigung",$sprache,$link)); ?></p>
+<h1><?php echo(getUebersetzung("Ändern der Buchungsbestätigung",$sprache,$link)); ?></h1>
 <?php
 	}
 	else if (isset($_POST["ablehnung"])){
@@ -90,7 +90,7 @@ $unterschrift_es = "";
 	else if (isset($_POST["anfrage"])){
 		$art = "anfrage";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("ändern des Best�tigungstextes einer Buchungsanfrage",$sprache,$link)); ?></p>
+<p class="ueberschrift"><?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage",$sprache,$link)); ?></p>
 <?php
 	}
 	else if (isset($_POST["emails"])){
@@ -153,19 +153,25 @@ $unterschrift_es = "";
 		} //ende if kein fehler
 	}
 ?>
-<form action="./texteAendern.php" method="post" target="_self">
-  <input name="art" type="hidden" value="<?php echo($art); ?>">
-  <p class="standardSchrift">
+<!-- <form action="./texteAendern.php" method="post" target="_self">
+  <input name="art" type="hidden" value="<?php echo($art); ?>"> -->
+  <div class="panel panel-default">
+  <div class="panel-body">
+  	
+		<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
+  <h4>
   	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!
-  </p>
+  </h4>
   <?php
 	if (isset($fehler) && $fehler == true){
    ?>
-	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="belegt">
+	<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" class="belegt">
 	  <tr>
 		<td><?php echo($message); ?></td>
 	  </tr>
-	</table>
+	</table> -->
+	<br /><?php echo($message); ?>
 	<br />
    <?php
 	}
@@ -173,7 +179,7 @@ $unterschrift_es = "";
   <?php
   if (isGermanShown($unterkunft_id,$link)){
   ?>
-  <p class="standardSchriftBold">
+  <h3>
   	<?php echo(getUebersetzung("Texte in Deutsch",$sprache,$link)); 
   	if ($standardsprache != "de"){
   	?>
@@ -184,8 +190,8 @@ $unterschrift_es = "";
   	  echo("*"); 
   	}
   	?>
-  </p>
-  <table  border="0" cellpadding="0" cellspacing="3" class="table">
+  </h3>
+  <!-- <table  border="0" cellpadding="0" cellspacing="3" class="table">
     <tr valign="top">
       <td><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></td>
       <td><input name="subject_de" type="text" id="subject_de" value="<?php echo($subject_de); ?>" size="100" maxlength="255"></td>
@@ -204,12 +210,50 @@ $unterschrift_es = "";
       <td><?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></td>
       <td><textarea name="unterschrift_de" cols="100" rows="5"  id="unterschrift_de"><?php echo($unterschrift_de); ?></textarea></td>
     </tr>
-  </table>
+  </table> -->
+
+<div class="form-group">
+				<label for="subject_de" class="col-sm-2 control-label"><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="subject_de" type="text" id="subject_de" value="<?php echo($subject_de); ?>" class="form-control">
+				</div>
+</div>			
+
+<div class="form-group">
+				<label for="anrede_de" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="anrede_de" type="text"  id="anrede_de" value="<?php echo($anrede_de); ?>" class="form-control">
+				</div>
+</div>
+				
+<div class="form-group">
+				<label for="subject_de" class="col-sm-2 control-label"> </label>
+				<div class="col-sm-10">
+				(<?php echo(getUebersetzung("Nach ihrer Anrede wird der Name des Gastes automatisch eingesetzt",$sprache,$link)); ?>)
+				</div>
+</div>
+			
+<div class="form-group">
+				<label for="text_de" class="col-sm-2 control-label"><?php echo(getUebersetzung("Text",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="text_de" type="text"  id="text_de" " class="form-control"><?php echo($text_de); ?></textarea>
+				</div>
+</div>
+
+<div class="form-group">
+				<label for="unterschrift_de" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="unterschrift_de" type="text"  id="unterschrift_de" " class="form-control"><?php echo($unterschrift_de); ?></textarea>
+				</div>
+</div>  
+
+   
+  </form>
   <?php 
   }
   if (isEnglishShown($unterkunft_id,$link)){
   ?>
-  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in Englisch",$sprache,$link)); 
+  <h3><?php echo(getUebersetzung("Texte in Englisch",$sprache,$link)); 
   	if ($standardsprache != "en"){
   	?>
    (<?php echo(getUebersetzung("Wenn sie diese Felder leer lassen wird auch in dieser Sprache die Standardsprache verwendet.",$sprache,$link)); ?>):
@@ -219,8 +263,53 @@ $unterschrift_es = "";
   	  echo("*"); 
   	}
   	?>
-  	</p>
-  <table  border="0" cellpadding="0" cellspacing="3" class="table">
+  	</h3>
+ 
+ <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
+ 
+<div class="form-group">
+				<label for="subject_de" class="col-sm-2 control-label"><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="subject_en" type="text"  id="subject_en" value="<?php echo($subject_en); ?>" class="form-control">
+				</div>
+</div>			
+
+<div class="form-group">
+				<label for="anrede_en" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="anrede_en" type="text"  id="anrede_en" value="<?php echo($anrede_en); ?>" class="form-control">
+				</div>
+</div>
+				
+<div class="form-group">
+				<label for="anrede_en" class="col-sm-2 control-label"> </label>
+				<div class="col-sm-10">
+				 (<?php echo(getUebersetzung("Nach ihrer Anrede wird der Name des Gastes automatisch eingesetzt",$sprache,$link)); ?>)
+				</div>
+</div>
+			
+<div class="form-group">
+				<label for="text_en" class="col-sm-2 control-label"><?php echo(getUebersetzung("Text",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="text_en" type="text"  id="text_en" " class="form-control"><?php echo($text_en); ?></textarea>
+				</div>
+</div>
+
+<div class="form-group">
+				<label for="unterschrift_en" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="unterschrift_en" type="text"  id="unterschrift_en" " class="form-control"><?php echo($unterschrift_en); ?></textarea>
+				</div>
+</div>
+
+</form>
+   
+    
+ 
+
+  
+  <!--<table  border="0" cellpadding="0" cellspacing="3" class="table">
     <tr valign="top">
       <td><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></td>
       <td><input name="subject_en" type="text"  id="subject_en" value="<?php echo($subject_en); ?>" size="100" maxlength="255"></td>
@@ -240,12 +329,64 @@ $unterschrift_es = "";
       <td><?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></td>
       <td><textarea name="unterschrift_en" cols="100" rows="5" " id="unterschrift_en"><?php echo($unterschrift_en); ?></textarea></td>
     </tr>
-  </table>
+  </table> --> 
   <?php
   }
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
-  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in Französisch",$sprache,$link)); 
+
+  <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
+ 
+ 
+<h3><?php echo(getUebersetzung("Texte in Französisch",$sprache,$link)); 
+  	if ($standardsprache != "fr"){
+  	?>
+   (<?php echo(getUebersetzung("Wenn sie diese Felder leer lassen wird auch in dieser Sprache die Standardsprache verwendet.",$sprache,$link)); ?>):
+   <?php
+  	}
+  	else {
+  	  echo("*"); 
+  	}
+  	?></h3>
+ 
+<div class="form-group">
+				<label for="subject_fr" class="col-sm-2 control-label"><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="subject_fr" type="text"  id="subject_fr" value="<?php echo($subject_fr); ?>" class="form-control">
+				</div>
+</div>			
+
+<div class="form-group">
+				<label for="anrede_fr" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="anrede_fr" type="text"  id="anrede_fr" value="<?php echo($anrede_fr); ?>" class="form-control">
+				</div>
+</div>
+				
+<div class="form-group">
+				<label for="anrede_fr" class="col-sm-2 control-label"> </label>
+				<div class="col-sm-10">
+				 (<?php echo(getUebersetzung("Nach ihrer Anrede wird der Name des Gastes automatisch eingesetzt",$sprache,$link)); ?>)
+				</div>
+</div>
+			
+<div class="form-group">
+				<label for="text_fr" class="col-sm-2 control-label"><?php echo(getUebersetzung("Text",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="text_fr" type="text"  id="text_fr" " class="form-control"><?php echo($text_fr); ?></textarea>
+				</div>
+</div>
+
+<div class="form-group">
+				<label for="unterschrift_fr" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="unterschrift_fr" type="text"  id="unterschrift_fr" " class="form-control"><?php echo($unterschrift_fr); ?></textarea>
+				</div>
+</div>
+
+</form> 
+  <!-- <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in Französisch",$sprache,$link)); 
   	if ($standardsprache != "fr"){
   	?>
    (<?php echo(getUebersetzung("Wenn sie diese Felder leer lassen wird auch in dieser Sprache die Standardsprache verwendet.",$sprache,$link)); ?>):
@@ -275,12 +416,15 @@ $unterschrift_es = "";
       <td><?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></td>
       <td><textarea name="unterschrift_fr" cols="100" rows="5"  id="unterschrift_fr"><?php echo($unterschrift_fr); ?></textarea></td>
     </tr>
-  </table>
+  </table> -->
+   
+  <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
   <?php
   }
   if (isItalianShown($unterkunft_id,$link)){
   ?>
-  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in Italienisch",$sprache,$link)); 
+  <h3"><?php echo(getUebersetzung("Texte in Italienisch",$sprache,$link)); 
   	if ($standardsprache != "it"){
   	?>
    (<?php echo(getUebersetzung("Wenn sie diese Felder leer lassen wird auch in dieser Sprache die Standardsprache verwendet.",$sprache,$link)); ?>):
@@ -289,8 +433,45 @@ $unterschrift_es = "";
   	else {
   	  echo("*"); 
   	}
-  	?></p>
-  <table  border="0" cellpadding="0" cellspacing="3" class="table">
+  	?></h3>
+  	
+ <div class="form-group">
+				<label for="subject_it" class="col-sm-2 control-label"><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="subject_it" type="text"  id="subject_it" value="<?php echo($subject_it); ?>" class="form-control">
+				</div>
+</div>			
+
+<div class="form-group">
+				<label for="anrede_it" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="anrede_it" type="text"  id="anrede_it" value="<?php echo($anrede_it); ?>" class="form-control">
+				</div>
+</div>
+				
+<div class="form-group">
+				<label for="anrede_it" class="col-sm-2 control-label"> </label>
+				<div class="col-sm-10">
+				 (<?php echo(getUebersetzung("Nach ihrer Anrede wird der Name des Gastes automatisch eingesetzt",$sprache,$link)); ?>)
+				</div>
+</div>
+			
+<div class="form-group">
+				<label for="text_fr" class="col-sm-2 control-label"><?php echo(getUebersetzung("Text",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="text_it" type="text"  id="text_it" " class="form-control"><?php echo($text_fr); ?></textarea>
+				</div>
+</div>
+
+<div class="form-group">
+				<label for="unterschrift_it" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="unterschrift_it" type="text"  id="unterschrift_it" " class="form-control"><?php echo($unterschrift_it); ?></textarea>
+				</div>
+</div>
+</form> 
+
+  <!-- <table  border="0" cellpadding="0" cellspacing="3" class="table">
     <tr valign="top">
       <td><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></td>
       <td><input name="subject_it" type="text" " id="subject_it" value="<?php echo($subject_it); ?>" size="100" maxlength="255"></td>
@@ -310,12 +491,15 @@ $unterschrift_es = "";
       <td><?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></td>
       <td><textarea name="unterschrift_it" cols="100" rows="5" id="unterschrift_it"><?php echo($unterschrift_it); ?></textarea></td>
     </tr>
-  </table>
+  </table> -->
+
+  <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
   <?php
   }
   if (isNetherlandsShown($unterkunft_id,$link)){
   ?>
-  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in Holländisch",$sprache,$link)); 
+  <h3><?php echo(getUebersetzung("Texte in Holländisch",$sprache,$link)); 
   	if ($standardsprache != "nl"){
   	?>
    (<?php echo(getUebersetzung("Wenn sie diese Felder leer lassen wird auch in dieser Sprache die Standardsprache verwendet.",$sprache,$link)); ?>):
@@ -324,8 +508,44 @@ $unterschrift_es = "";
   	else {
   	  echo("*"); 
   	}
-  	?></p>
-  <table  border="0" cellpadding="0" cellspacing="3" class="table">
+  	?></h3>
+  	 <div class="form-group">
+				<label for="subject_it" class="col-sm-2 control-label"><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="subject_it" type="text"  id="subject_it" value="<?php echo($subject_it); ?>" class="form-control">
+				</div>
+</div>			
+
+<div class="form-group">
+				<label for="anrede_it" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="anrede_it" type="text"  id="anrede_it" value="<?php echo($anrede_it); ?>" class="form-control">
+				</div>
+</div>
+				
+<div class="form-group">
+				<label for="anrede_it" class="col-sm-2 control-label"> </label>
+				<div class="col-sm-10">
+				 (<?php echo(getUebersetzung("Nach ihrer Anrede wird der Name des Gastes automatisch eingesetzt",$sprache,$link)); ?>)
+				</div>
+</div>
+			
+<div class="form-group">
+				<label for="text_fr" class="col-sm-2 control-label"><?php echo(getUebersetzung("Text",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="text_it" type="text"  id="text_it" " class="form-control"><?php echo($text_fr); ?></textarea>
+				</div>
+</div>
+
+<div class="form-group">
+				<label for="unterschrift_it" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="unterschrift_it" type="text"  id="unterschrift_it" " class="form-control"><?php echo($unterschrift_fr); ?></textarea>
+				
+				</div>
+			</div>
+				
+  <!-- <table  border="0" cellpadding="0" cellspacing="3" class="table">
     <tr valign="top">
       <td><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></td>
       <td><input name="subject_nl" type="text" " id="subject_nl" value="<?php echo($subject_nl); ?>" size="100" maxlength="255"></td>
@@ -345,12 +565,12 @@ $unterschrift_es = "";
       <td><?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></td>
       <td><textarea name="unterschrift_nl" cols="100" rows="5" id="unterschrift_nl"><?php echo($unterschrift_nl); ?></textarea></td>
     </tr>
-  </table>
+  </table> -->
   <?php
   }  
   if (isEspaniaShown($unterkunft_id,$link)){
   ?>
-  <p class="standardSchriftBold"><?php echo(getUebersetzung("Texte in Spanisch",$sprache,$link)); 
+  <h3><?php echo(getUebersetzung("Texte in Spanisch",$sprache,$link)); 
   	if ($standardsprache != "sp"){
   	?>
    (<?php echo(getUebersetzung("Wenn sie diese Felder leer lassen wird auch in dieser Sprache die Standardsprache verwendet.",$sprache,$link)); ?>):
@@ -359,8 +579,44 @@ $unterschrift_es = "";
   	else {
   	  echo("*"); 
   	}
-  	?> </p>
-  <table  border="0" cellpadding="0" cellspacing="3" class="table">
+  	?> </h3>
+  	
+<div class="form-group">
+				<label for="subject_sp" class="col-sm-2 control-label"><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="subject_sp" type="text"  id="subject_sp" value="<?php echo($subject_sp); ?>" class="form-control">
+				</div>
+</div>			
+
+<div class="form-group">
+				<label for="anrede_sp" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="anrede_sp" type="text"  id="anrede_sp" value="<?php echo($anrede_es); ?>" class="form-control">
+				</div>
+</div>
+				
+<div class="form-group">
+				<label for="anrede_sp" class="col-sm-2 control-label"> </label>
+				<div class="col-sm-10">
+				 (<?php echo(getUebersetzung("Nach ihrer Anrede wird der Name des Gastes automatisch eingesetzt",$sprache,$link)); ?>)
+				</div>
+</div>
+			
+<div class="form-group">
+				<label for="text_sp" class="col-sm-2 control-label"><?php echo(getUebersetzung("Text",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="text_sp" type="text"  id="text_sp" " class="form-control"><?php echo($text_sp); ?></textarea>
+				</div>
+</div>
+
+<div class="form-group">
+				<label for="unterschrift_sp" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="unterschrift_sp" type="text"  id="unterschrift_sp" " class="form-control"><?php echo($unterschrift_sp); ?></textarea>
+				
+				</div>
+			</div>
+  <!-- <table  border="0" cellpadding="0" cellspacing="3" class="table">
     <tr valign="top">
       <td><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></td>
       <td><input name="subject_sp" type="text"  id="subject_sp" value="<?php echo($subject_sp); ?>" size="100" maxlength="255"></td>
@@ -380,7 +636,7 @@ $unterschrift_es = "";
       <td><?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></td>
       <td><textarea name="unterschrift_sp" cols="100" rows="5" " id="unterschrift_sp"><?php echo($unterschrift_sp); ?></textarea></td>
     </tr>
-  </table>
+  </table> -->
   <?php
   }
   if (isEstoniaShown($unterkunft_id,$link)){
@@ -395,7 +651,42 @@ $unterschrift_es = "";
   	  echo("*"); 
   	}
   	?> </p>
-  <table  border="0" cellpadding="0" cellspacing="3" class="table">
+  	<div class="form-group">
+				<label for="subject_es" class="col-sm-2 control-label"><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="subject_es" type="text"  id="subject_es" value="<?php echo($subject_es); ?>" class="form-control">
+				</div>
+</div>			
+
+<div class="form-group">
+				<label for="anrede_es" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<input name="anrede_es" type="text"  id="anrede_es" value="<?php echo($anrede_es); ?>" class="form-control">
+				</div>
+</div>
+				
+<div class="form-group">
+				<label for="anrede_es" class="col-sm-2 control-label"> </label>
+				<div class="col-sm-10">
+				 (<?php echo(getUebersetzung("Nach ihrer Anrede wird der Name des Gastes automatisch eingesetzt",$sprache,$link)); ?>)
+				</div>
+</div>
+			
+<div class="form-group">
+				<label for="text_es" class="col-sm-2 control-label"><?php echo(getUebersetzung("Text",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="text_es" type="text"  id="text_es" " class="form-control"><?php echo($text_es); ?></textarea>
+				</div>
+</div>
+
+<div class="form-group">
+				<label for="unterschrift_es" class="col-sm-2 control-label"> <?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+				<textarea name="unterschrift_es" type="text"  id="unterschrift_es" " class="form-control"><?php echo($unterschrift_es); ?></textarea>
+				
+				</div>
+			</div>
+  <!-- <table  border="0" cellpadding="0" cellspacing="3" class="table">
     <tr valign="top">
       <td><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></td>
       <td><input name="subject_es" type="text"  id="subject_es" value="<?php echo($subject_es); ?>" size="100" maxlength="255"></td>
@@ -415,7 +706,7 @@ $unterschrift_es = "";
       <td><?php echo(getUebersetzung("Unterschrift",$sprache,$link)); ?></td>
       <td><textarea name="unterschrift_es" cols="100" rows="5"  id="unterschrift_es"><?php echo($unterschrift_es); ?></textarea></td>
     </tr>
-  </table>
+  </table> -->
   <?php
   }  
   ?>
@@ -494,24 +785,24 @@ $unterschrift_es = "";
   </table>
   <br/>
   <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen:
+	  //-----buttons um zurück zum menue zu gelangen:
   	  showSubmitButton(getUebersetzung("Texte ändern",$sprache,$link));
   ?>
   <?php
 	}
 	else{
 		echo("<br/>");
-		//g�steliste anzeigen zur auswahl:
+		//gästeliste anzeigen zur auswahl:
 		?>
   <table class="table" border="0" cellspacing="2" cellpadding="0">
     <tr>
       <td><?php echo(getUebersetzung("Bitte wählen Sie die Gäste aus, an denen das E-Mail gesendet werden soll.",$sprache,$link)); ?><br/>
-          <?php echo(getUebersetzung("Wenn Sie mehrere auswählen wollen müssen Sie die [Strg] Taste gedr�ckt halten.",$sprache,$link)); ?></td>
+          <?php echo(getUebersetzung("Wenn Sie mehrere auswählen wollen müssen Sie die [Strg] Taste gedrückt halten.",$sprache,$link)); ?></td>
     </tr>
     <tr>
       <td><select name="gaeste[]" size="10" multiple>
           <?php
-		//alle g�ste der unterkunft auslesen:
+		//alle gäste der unterkunft auslesen:
 		$res = getGuestList($unterkunft_id,$link);
 		while ($d = mysql_fetch_array($res)){
 			$gast_id = $d["PK_ID"];
@@ -533,18 +824,23 @@ $unterschrift_es = "";
 	  	showSubmitButton(getUebersetzung("E-Mails senden",$sprache,$link));
 	}
 ?>
-</form>
-<?php 
+<br>
+<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+
+<!-- <?php 
 	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
-?>
+?> -->
 <br/>
+
+<!--  <?php 
+	   showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+?> -->
+
 <?php 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
-<?php 
+
 	} //ende if passwortpr�fung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 <?php include_once("../templates/end.php"); ?>

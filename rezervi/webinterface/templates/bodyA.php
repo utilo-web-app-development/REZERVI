@@ -14,7 +14,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="./inhalt.php"><a href="#">Home</a></li>
+            <!-- <li class="./inhalt.php"><a href="#">Home</a></li> -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservierungen <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -30,8 +30,15 @@
                 <li><a href="<?= $root ?>/webinterface/benutzerBearbeiten/index.php"><?php echo(getUebersetzung("Benutzerdaten bearbeiten",$sprache,$link)); ?></a></li>
                 <li><a href="<?= $root ?>/webinterface/zimmerBearbeiten/index.php"><?php echo(getUebersetzung("Zimmer bearbeiten",$sprache,$link)); ?></a></li>
                 <li><a href="<?= $root ?>/webinterface/unterkunftBearbeiten/index.php"><?php echo(getUebersetzung("Unterkunft bearbeiten",$sprache,$link)); ?></a></li>
-                <li><a href="<?= $root ?>/webinterface/divEinstellungen/index.php"><?php echo(getUebersetzung("Diverse Einstellungen",$sprache,$link)); ?></a></li>
-                <li><a href="<?= $root ?>/webinterface/designBearbeiten/index.php"><?php echo(getUebersetzung("Design bearbeiteien",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/sprachen/sprachen.php"><?php echo(getUebersetzung("Sprache",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/standardSprache/index.php"><?php echo(getUebersetzung("Standard Sprache",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/frame/index.php"><?php echo(getUebersetzung("Frames",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/suche/index.php"><?php echo(getUebersetzung("Suche",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/buchungseinschraenkungen/index.php"><?php echo(getUebersetzung("Buchung einschränken",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/bilder/index.php"><?php echo(getUebersetzung("Bilder",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/Belegungsplan/index.php"><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/Reservierungen/index.php"><?php echo(getUebersetzung("Reservierungen",$sprache,$link)); ?></a></li>
+                <li><a href="<?= $root ?>/webinterface/divEinstellungen/Buchungsformular/index.php"<?php echo(getUebersetzung("Buchungsformular",$sprache,$link)); ?></a></li>
                 <li><a href="<?= $root ?>/webinterface/autoResponse/index.php"><?php echo(getUebersetzung("Automatische e-Mails",$sprache,$link)); ?></a></li>
               </ul>
             </li>            
