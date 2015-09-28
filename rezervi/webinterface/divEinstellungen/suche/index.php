@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			author: christian osterrieder utilo.eu						
 */
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -35,10 +35,12 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Ändern der Suchoptionen",$sprache,$link)); ?>.</p>
+ <div class="panel panel-default">
+  <div class="panel-body">
+<h1><?php echo(getUebersetzung("Ã„ndern der Suchoptionen",$sprache,$link)); ?>.</h1>
 <br/>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
@@ -53,14 +55,11 @@ if (isset($nachricht) && $nachricht != ""){
 }
 ?>
 <form action="./sucheAendern.php" method="post" target="_self">
-<table class="table">
-<tr>
-<td>
-<table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
-  <tr>
-    <td colspan="2"><?php echo(getUebersetzung("Markieren sie jene Auswahlmöglichkeiten, die bei der Suche zur Verfügung stehen sollen",$sprache,$link)); ?>:</td>
-  </tr>
-  <tr>
+
+ 
+    <td colspan="2"><?php echo(getUebersetzung("Markieren sie jene AuswahlmÃ¶glichkeiten, die bei der Suche zur VerfÃ¼gung stehen sollen",$sprache,$link)); ?>:</td>
+ </br>
+  </br>
     <td>
       <input type="checkbox" name="showParent" value="true"			  
 	  <?php 
@@ -71,26 +70,30 @@ if (isset($nachricht) && $nachricht != ""){
 	  >
 	</td>
 	<td>
-      <?php echo(getUebersetzung("Zusammengefasste Zimmer (z. B. Häuser) in Suche gesondert anzeigen.",$sprache,$link)); ?>
+      <?php echo(getUebersetzung("Zusammengefasste Zimmer (z. B. HÃ¤user) in Suche gesondert anzeigen.",$sprache,$link)); ?>
+   
     </td>
   </tr>		  
   <?php
   //sprachen anzeigen die aktiviert sind: 
-  	//liefert alle Möglichkeiten, die durch den Benutzer ausgesucht werden können
+  	//liefert alle Mï¿½glichkeiten, die durch den Benutzer ausgesucht werden kï¿½nnen
 	$res = getPropertiesSuche($unterkunft_id, $link); //Methode in einstellungenFunctions.php definiert
   	while($d = mysql_fetch_array($res))
 	{
   	  $name = $d["Name"];
-	  //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmöglichkeiten "angehackelt"
+	  //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmï¿½glichkeiten "angehackelt"
   	  $aktiviert = isPropertyShown($unterkunft_id,$name,$link); //Methode in einstellungenFunctions.php definiert     
     ?>  
       <tr>
+      	
+      </br>
         <td><input name="<?php echo($name); ?>" type="checkbox" id="<?php echo($name); ?>" value="true" 
     	<?php
 		  if($aktiviert){ echo(" checked"); }
 		?>
 		>
 		</td>
+		
         <td>
 	      <?php 
 	      	echo(getUebersetzung($name,$sprache,$link));
@@ -101,8 +104,8 @@ if (isset($nachricht) && $nachricht != ""){
   	} //end while-loop
   	?>
   	</table>
-  	<br/>
-  	<table class="tableColor">  
+ </br>
+  </br>
 		<tr>
 		  <td>
 		      <input name="suchFilter" type="radio" value="filterUnterkunft" 
@@ -112,8 +115,10 @@ if (isset($nachricht) && $nachricht != ""){
 			  }
 			  ?>
 			  >
-		      <?php echo(getUebersetzung("Suche nach Anzahl der Erwachsenen und/oder Kindern auf gesamte Unterkunft einschränken",$sprache,$link)); ?></td>
+		      <?php echo(getUebersetzung("Suche nach Anzahl der Erwachsenen und/oder Kindern auf gesamte Unterkunft einschrÃ¤nken",$sprache,$link)); ?></td>
 	      </tr>
+	      
+	     </br>
 		  <tr>
 		    <td>
 		      <input type="radio" name="suchFilter" value="filterZimmer"			  
@@ -123,35 +128,37 @@ if (isset($nachricht) && $nachricht != ""){
 			  }
 			  ?>
 			  >
-		      <?php echo(getUebersetzung("Suche nach Anzahl der Erwachsenen und/oder Kindern auf einzelne Zimmer einschränken",$sprache,$link)); ?>
+		      <?php echo(getUebersetzung("Suche nach Anzahl der Erwachsenen und/oder Kindern auf einzelne Zimmer einschrÃ¤nken",$sprache,$link)); ?>
 		    </td>
+		   </br>
 		  </tr>		  
 	</table>
 </td>
 </tr>
   <tr>
    <td>
+   </br>
  	 <?php 
-	 	showSubmitButton(getUebersetzung("ändern",$sprache,$link));
+	 	showSubmitButton(getUebersetzung("Ã¤ndern",$sprache,$link));
 	?>
 	</td>
   </tr>
 </table>
 </form>
 <br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+<!-- <?php 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurï¿½ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenï¿½",$sprache,$link));
+?> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

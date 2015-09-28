@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			author: christian osterrieder utilo.eu						
 */
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -36,10 +36,12 @@ $standardBelegungsplan = getStandardSpracheBelegungsplan($unterkunft_id,$link);
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Ändern der Standard-Sprache",$sprache,$link)); ?>.</p>
+  <div class="panel panel-default">
+  <div class="panel-body">
+<h1><?php echo(getUebersetzung("Ã¤ndern der Standard-Sprache",$sprache,$link)); ?>.</h1>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -55,12 +57,12 @@ if (isset($nachricht) && $nachricht != ""){
 <form action="./spracheAendern.php" method="post" target="_self">
 <table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
   <tr>
-    <td><?php echo(getUebersetzung("Bitte wählen sie die Standard-Sprache ihres Belegungsplanes",$sprache,$link)); ?>.
+    <td><?php echo(getUebersetzung("Bitte wÃ¤hlen sie die Standard-Sprache ihres Belegungsplanes",$sprache,$link)); ?>.
     </td>
   </tr>
   <tr>
     <td>
-    	<?php echo(getUebersetzung("Es werden hier nur Sprachen angeboten die unter dem Menüpunkt [Sprachen] ausgewählt wurden",$sprache,$link)); ?>.
+    	<?php echo(getUebersetzung("Es werden hier nur Sprachen angeboten die unter dem MenÃ¼punkt [Sprachen] ausgewÃ¤hlt wurden",$sprache,$link)); ?>.
     </td>
   </tr>
   <?php  
@@ -83,7 +85,7 @@ if (isset($nachricht) && $nachricht != ""){
 <table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
   <tr>
     <td>
-    	<?php echo(getUebersetzung("Bitte wählen sie die Standard-Sprache ihres Webinterfaces",$sprache,$link)); ?>.
+    	<?php echo(getUebersetzung("Bitte wÃ¤hlen sie die Standard-Sprache ihres Webinterfaces",$sprache,$link)); ?>.
     </td>
   </tr>
   <?php  
@@ -103,34 +105,26 @@ if (isset($nachricht) && $nachricht != ""){
   <br/>
   <tr>
     <td><input type="checkbox" name="jetztWechseln" value="true" checked>
-    <?php echo(getUebersetzung("Zur ausgewählten Sprache wechseln",$sprache,$link)); ?>.</td>
+    <?php echo(getUebersetzung("Zur ausgewÃ¤hlten Sprache wechseln",$sprache,$link)); ?>.</td>
   </tr>
  </table>
  <br/>
-<table  border="0" cellpadding="0" cellspacing="3" class="table"> 
-  <tr>
-    <td colspan="2">
- 	 <?php 
-	  showSubmitButton(getUebersetzung("ändern",$sprache,$link));
-	?>
-	</td>
-  </tr>
-</table>
+ <?php showSubmitButton(getUebersetzung("Ã¤ndern",$sprache,$link));?>
   </form>
   <br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+<!-- <?php 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
+?> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

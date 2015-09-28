@@ -3,7 +3,7 @@ $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/propertiesFunctions.php");
@@ -28,10 +28,10 @@ $benutzername = getSessionWert(BENUTZERNAME);
   setProperty(SHOW_OTHER_COLOR_FOR_SA,$showSamstag,$unterkunft_id,$link);
 
   
-    //Dieser Satz muss noch in die Sprachtabellen eingefügt werden.
-	$nachricht = "Die Änderungen wurden erfolgreich durchgeführt!";
+    //Dieser Satz muss noch in die Sprachtabellen eingefï¿½gt werden.
+	$nachricht = "Die Ã„nderungen wurden erfolgreich durchgefÃ¼hrt!";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
-	$nachricht2 = "Um die Farbe des Samstages zu ändern müssen sie [Design bearbeiten] aufrufen und die Hintergrundfarben zu [Samstag belegt] und [Samstag frei] ändern.";
+	$nachricht2 = "Um die Farbe des Samstages zu Ã¤ndern mÃ¼ssen sie [Design bearbeiten] aufrufen und die Hintergrundfarben zu [Samstag belegt] und [Samstag frei] Ã¤ndern.";
 	$nachricht2 = getUebersetzung($nachricht2,$sprache,$link);
 	$nachricht .= "<br/>".$nachricht2;
 	$fehler = false;
@@ -44,11 +44,14 @@ $benutzername = getSessionWert(BENUTZERNAME);
 <?php include_once("../../templates/headerB.php");?>
 <?php include_once("../../templates/bodyA.php");?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 {
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einstellungen für den Belegungsplan",$sprache,$link)); ?>.</p>
+ <div class="panel panel-default">
+  <div class="panel-body">
+  	
+<h1><?php echo(getUebersetzung("Einstellungen fÃ¼r den Belegungsplan",$sprache,$link)); ?>.</h1>
 <?php 
 if (isset($nachricht) && $nachricht != "")
 {
@@ -63,19 +66,19 @@ if (isset($nachricht) && $nachricht != "")
 }
 ?>
 <br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+<!-- <?php 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurï¿½ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenï¿½",$sprache,$link));
+?> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); 

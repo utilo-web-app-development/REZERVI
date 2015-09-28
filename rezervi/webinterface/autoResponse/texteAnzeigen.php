@@ -84,19 +84,19 @@ $unterschrift_es = "";
 	else if (isset($_POST["ablehnung"])){
 		$art = "ablehnung";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage",$sprache,$link)); ?></p>
+<h1><?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage",$sprache,$link)); ?></h1>
 <?php
 	}
 	else if (isset($_POST["anfrage"])){
 		$art = "anfrage";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage",$sprache,$link)); ?></p>
+<h1><?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage",$sprache,$link)); ?></h1>
 <?php
 	}
 	else if (isset($_POST["emails"])){
 		$art = "emails";
 	?>
-<p class="ueberschrift"><?php echo(getUebersetzung("Senden von E-Mails an Ihre Gäste",$sprache,$link)); ?></p>
+<h1><?php echo(getUebersetzung("Senden von E-Mails an Ihre Gäste",$sprache,$link)); ?></h1>
 <?php
 	}
 	if ($art != "emails"){
@@ -715,7 +715,7 @@ $unterschrift_es = "";
 	if ($art != "emails"){
   ?>
   <br/>
-  <table  border="0" cellpadding="0" cellspacing="3" class="table">
+  
     <tr valign="top">
       <td><?php echo(getUebersetzung("Automatische Antwort aktiviert",$sprache,$link)); ?> </td>
       <td><p>
@@ -733,9 +733,9 @@ $unterschrift_es = "";
       <td><?php echo(getUebersetzung("Falls sie bei dieser Option nein gewählt haben, werden keine automatischen Antworten an Ihre Gäste gesendet.",$sprache,$link)); ?> 
 	  <?php echo(getUebersetzung("Sie müssen sich in diesem Falle selbst mit Ihren Gästen in Verbindung setzen.",$sprache,$link)); ?></td>
     </tr>
-  </table>
+
   <br/>
-  <table  border="0" cellpadding="0" cellspacing="3" class="table">
+  
     <tr valign="top">
       <td><?php echo(getUebersetzung("Kopie an eigene E-Mailadresse senden",$sprache,$link)); ?> </td>
       <td>
@@ -782,7 +782,7 @@ $unterschrift_es = "";
 		?>
         </td>
     </tr>
-  </table>
+  
   <br/>
   <?php 
 	  //-----buttons um zurück zum menue zu gelangen:

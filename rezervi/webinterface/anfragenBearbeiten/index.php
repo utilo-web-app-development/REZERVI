@@ -49,7 +49,10 @@ include_once("../../include/uebersetzer.php");
 <?php //passwortpr�fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Reservierungsanfragen von Gästen bestätigen/löschen",$sprache,$link)); ?></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+<h1><?php echo(getUebersetzung("Reservierungsanfragen von Gästen bestätigen/löschen",$sprache,$link)); ?></h1>
 <table width="100%" border="0" cellpadding="0" cellspacing="3" class="tableColor">
   <tr>
     <td><p><?php echo(getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestätigten bzw. gelöschten Reservierungsanfragen.",$sprache,$link)); ?><br/>

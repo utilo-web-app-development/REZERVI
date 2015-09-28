@@ -53,17 +53,22 @@ if ($sizeRoomSelectBox > 5){
 	$sizeRoomSelectBox = 5;
 }
 ?>
-<p class="standardSchriftBold">
-	<?= getUebersetzung("Preise hinzuf�gen, �ndern, l�schen",$sprache,$link) ?>.
-</p>
-<p class="standardSchrift">
+   <div class="panel panel-default">
+  <div class="panel-body">
+  	
+<h1>
+	<?= getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
+</h1>
+<h4">
 	<?php
 	$text = "Definieren sie hier für jedes Mietobjekt einen Standardpreis. Wird " .
 			"bei der Berechnung des Preises kein Preis für eine Saison gefunden, dann " .
 			"wird dieser Preis zur Preisberechnung herangezogen.";
 	?>
 	<?= getUebersetzung($text,$sprache,$link) ?>
-</p>
+</h4>
+</br>
+</br>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -192,23 +197,21 @@ if (isset($nachricht) && $nachricht != ""){
 	</tr>
 </table>
 </form>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td>
+</br>
+ 
     	 <a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
     	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
   		</form> -->
-   </td>
-  </tr>
-</table>
+
+ 
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
-    <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
+    <!-- <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
-  </form></td>
+  </form></td> -->
   </tr>
 </table>
 <?php

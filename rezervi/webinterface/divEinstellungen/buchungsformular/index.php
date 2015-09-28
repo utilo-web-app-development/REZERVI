@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	author: christian osterrieder utilo.eu						
 */
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once($root."/conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -35,10 +35,12 @@ $sprache = getSessionWert(SPRACHE);
 <?php include_once($root."/webinterface/templates/headerB.php"); ?>
 <?php include_once($root."/webinterface/templates/bodyA.php"); ?>
 <?php 
-//passwortprüfung:	
+//passwortprï¿½fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einstellungen für das Buchungsformular",$sprache,$link)); ?>.</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+<h1><?php echo(getUebersetzung("Einstellungen fÃ¼r das Buchungsformular",$sprache,$link)); ?>.</h1>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -51,18 +53,19 @@ if (isset($nachricht) && $nachricht != ""){
 <?php 
 }
 ?>
-<table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
+
+  	
   <form action="./aendern.php" method="post" target="_self" name="reservierung">
   <tr>
     <td valign="top">
-		<?php echo(getUebersetzung("Zusätzliche Attribute anzeigen:",$sprache,$link)); ?>
+		<?php echo(getUebersetzung("ZusÃ¤tzliche Attribute anzeigen:",$sprache,$link)); ?>
 	</td>
 	<td>
 		<table border="0" cellpadding="0" cellspacing="0" >
           <tr class="standardSchrift">
             <td>
               <?php
-              	echo(getUebersetzung("Übernachtung",$sprache,$link));
+              	echo(getUebersetzung("Ãœbernachtung",$sprache,$link));
               ?>
             </td>
 		    <td>
@@ -80,7 +83,7 @@ if (isset($nachricht) && $nachricht != ""){
 		  <tr class="standardSchrift">
             <td>
               <?php
-              	echo(getUebersetzung("Frühstück",$sprache,$link));
+              	echo(getUebersetzung("FrÃ¼hstÃ¼ck",$sprache,$link));
               ?>
             </td>
 		    <td>
@@ -133,27 +136,27 @@ if (isset($nachricht) && $nachricht != ""){
           </tr>
 		</table>
 		<tr><td colspan="2"><?php 
-	  	//-----buttons um zurück zum menue zu gelangen: 
-	  	showSubmitButton(getUebersetzung("ändern",$sprache,$link));
+	  	//-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  	showSubmitButton(getUebersetzung("Ã¤ndern",$sprache,$link));
 		?></td></tr>
 	</td>
   </tr>
   </form>
 </table>
 <br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+<!-- <?php 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurï¿½ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenï¿½",$sprache,$link));
+?> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

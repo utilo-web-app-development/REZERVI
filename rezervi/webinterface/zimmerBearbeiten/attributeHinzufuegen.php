@@ -38,9 +38,13 @@ include_once("../templates/bodyA.php");
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 ?>
-<p class="standardSchriftBold">
-	<?= getUebersetzung("Weitere Attribute f�r Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link) ?>.
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+<h1>
+	<?= getUebersetzung("Weitere Attribute für Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link) ?>.
+</h1>
+</br>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -111,9 +115,9 @@ if (isset($nachricht) && $nachricht != ""){
 	</tr>
 </table>
 <input type="hidden" name="att_id" value="<?= $att_id ?>" />
-<p class="standardSchriftBold">
+<h4>
 	<?= getUebersetzung("Attribute anzeigen",$sprache,$link) ?>:
-</p>
+</h4>
 <table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	<tr>
 		<td>
@@ -143,25 +147,21 @@ if (isset($nachricht) && $nachricht != ""){
 	</tr>
 </table>
 </form>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td>
+</br>
     	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
     	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
   		</form> -->
-  	</td>
-  </tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+  
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
   </form></td>
   </tr>
-</table>
+</table> -->
 <?php
 }
 else {

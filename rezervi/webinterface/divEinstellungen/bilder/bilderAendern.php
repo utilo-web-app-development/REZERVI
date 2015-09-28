@@ -14,7 +14,7 @@ $sprache = getSessionWert(SPRACHE);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/propertiesFunctions.php");
 include_once("../../../include/uebersetzer.php");
@@ -38,7 +38,7 @@ include_once("../../templates/components.php");
 	setProperty(BILDER_SUCHE_WIDTH,$width,$unterkunft_id,$link);
 	setProperty(BILDER_SUCHE_HEIGHT,$height,$unterkunft_id,$link);
 	
-	$nachricht = "Die Einstellungen wurden erfolgreich geändert";
+	$nachricht = "Die Einstellungen wurden erfolgreich geÃ¤ndert";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
 	$nachricht.=".";
 	$fehler = false;
@@ -63,10 +63,12 @@ include_once("../../templates/components.php");
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einstellungen für Bilder der Zimmer",$sprache,$link)); ?>.</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+<h1><?php echo(getUebersetzung("Einstellungen fÃ¼r Bilder der Zimmer",$sprache,$link)); ?>.</h1>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -80,19 +82,19 @@ if (isset($nachricht) && $nachricht != ""){
 }
 ?>
 <br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+<!-- <?php 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurï¿½ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenï¿½",$sprache,$link));
+?> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); 

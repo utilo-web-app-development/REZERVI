@@ -53,9 +53,12 @@ if ($sizeRoomSelectBox > 5){
 	$sizeRoomSelectBox = 5;
 }
 ?>
-<p class="standardSchriftBold">
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+<h1>
 	<?= getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
-</p>
+</h1>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -253,16 +256,12 @@ if (isset($nachricht) && $nachricht != ""){
 	</tr>
 </table>
 </form>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td>
+</br>
     	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
     	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="btn btn-primary" id="retour" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
   		</form> -->
-    </td>
-  </tr>
-</table>
+
 
 <?php
 }

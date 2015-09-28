@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			author: christian osterrieder utilo.eu						
 */
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -41,111 +41,98 @@ $showGesamtansicht = getPropertyValue(SHOW_GESAMTANSICHT,$unterkunft_id,$link);
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einstellungen für den Belegungsplan",$sprache,$link)); ?>.</p>
+<h1><?php echo(getUebersetzung("Einstellungen fÃ¼r den Belegungsplan",$sprache,$link)); ?>.</h1>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
-	  <tr>
-		<td <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } else {echo("class=\"belegt\"");} ?>><?php echo($nachricht) ?></td>
-	  </tr>
-	</table>
-	<br/>
+	
+	
+	<?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } else {echo("class=\"belegt\"");} ?>><?php echo($nachricht) ?>
+	
+
+	
 <?php 
 }
 ?>
-<table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
   <form action="./planAendern.php" method="post" target="_self">
-      <tr>
-        <td><input name="showSamstag" type="checkbox" id="showSamstag" value="true" 
+     <input name="showSamstag" type="checkbox" id="showSamstag" value="true" 
 			<?php
 			  if($aktiviert){ echo(" checked=\"checked\""); }
 			?>
 			>
-		</td>		
-		<td>
-			<?php echo(getUebersetzung("Samstage andersfärbig anzeigen.",$sprache,$link)); ?>
-		</td>
-      </tr>
-  <tr>
-    <td colspan="2">
+			
+		
+			<?php echo(getUebersetzung("Samstage andersfÃ¤rbig anzeigen.",$sprache,$link)); ?>
+		
+   </br>  
+
+
  	 <?php 
-	  showSubmitButton(getUebersetzung("ändern",$sprache,$link));
+	  showSubmitButton(getUebersetzung("Ã¤ndern",$sprache,$link));
 	?>
-	</td>
-  </tr>
+
+
   </form>
-</table>
+
 <br/>
-<table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
+
   <form action="./ansichtenAendern.inc.php" method="post" target="_self">
-      <tr>
-	    <td colspan="2">
-	 	 <?= getUebersetzung("Ansichten anzeigen",$sprache,$link) ?>
-		</td>
-  	  </tr>
-      <tr>
-        <td>
+	 	 <h4><?= getUebersetzung("Ansichten anzeigen",$sprache,$link) ?></h4>
+
+
+  <!-- MonatsÃ¼bersicht   -->
         	<input name="showMonatsansicht" type="checkbox" id="showMonatsansicht" value="true" 
 			<?php
 			  if($showMonatsansicht){ echo(" checked=\"checked\""); }
 			?>
 			/>
-		</td>		
-		<td>
-			<?= getUebersetzung("Monatsübersicht",$sprache,$link) ?>
-		</td>
-      </tr>
-      <tr>
-        <td>
+			<?= getUebersetzung("MonatsÃ¼bersicht",$sprache,$link) ?>
+</br>			
+      
+ <!-- JahresÃ¼bersicht -->
         	<input name="showJahresansicht" type="checkbox" id="showJahresansicht" value="true" 
 			<?php
 			  if($showJahresansicht){ echo(" checked=\"checked\""); }
 			?>
 			/>
-		</td>		
-		<td>
-			<?= getUebersetzung("Jahresübersicht",$sprache,$link) ?>
-		</td>
-      </tr>   
-     <tr>
-        <td>
+			<?= getUebersetzung("JahresÃ¼bersicht",$sprache,$link) ?> 
+</br>
+   <!-- GesammtÃ¼bersicht -->
         	<input name="showGesamtansicht" type="checkbox" id="showGesamtansicht" value="true" 
 			<?php
 			  if($showGesamtansicht){ echo(" checked=\"checked\""); }
 			?>
 			/>
-		</td>		
-		<td>
-			<?= getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
-		</td>
-      </tr>           
-  <tr>
-    <td colspan="2">
+		
+			<?= getUebersetzung("GesamtÃ¼bersicht",$sprache,$link) ?>
+</br>
+</br>	         
  	 <?php 
-	  showSubmitButton(getUebersetzung("ändern",$sprache,$link));
+	  showSubmitButton(getUebersetzung("Ã¤ndern",$sprache,$link));
 	?>
-	</td>
-  </tr>
+	
   </form>
-</table>
+
 <br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+<!-- <?php 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
+?> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

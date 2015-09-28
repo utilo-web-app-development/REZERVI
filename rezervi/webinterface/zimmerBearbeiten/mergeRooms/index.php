@@ -60,17 +60,20 @@ while ( $d = mysql_fetch_array($res) ){
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 ?>
-<p class="standardSchriftBold">
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+<h1>
 	<?= getUebersetzung("Zimmer zusammenfassen",$sprache,$link) ?>.
-</p>
-<p class="standardSchrift">
+</h1>
+<h4>
 	<?php
 	$text = "Falls Sie ein Haus mit mehreren Zimmern vermieten und die Zimmer des ".
-                       "Hauses und das Haus selbst vermieten wollen, k�nnen Sie hier die Zimmer zum Haus ".
-                       "festlegen. Das Haus und die Zimmer m�ssen vorher angelegt worden sein."
+                       "Hauses und das Haus selbst vermieten wollen, können Sie hier die Zimmer zum Haus ".
+                       "festlegen. Das Haus und die Zimmer müssen vorher angelegt worden sein."
 	?>
 	<?= getUebersetzung($text,$sprache,$link) ?>
-</p>
+</h4>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -129,7 +132,7 @@ if (hasParentRooms($unterkunft_id)){
 	  				name="loeschen_<?= $zimmer_id ?>" type="submit" id="aendern" 
 	  				class="button200pxA" onMouseOver="this.className='button200pxB';"
 	   				onMouseOut="this.className='button200pxA';" 
-	   				value="<?php echo(getUebersetzung("l�schen",$sprache,$link)); ?>" />
+	   				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
 			</td>
 		</tr>
 	<?php
@@ -179,7 +182,7 @@ if (hasParentRooms($unterkunft_id)){
 		</td>
 	</tr>
 	<tr>
-		<td colspan = "2"><?php	$text = "Folgende Zimmer geh�ren zum ausgew�hlten Haus"
+		<td colspan = "2"><?php	$text = "Folgende Zimmer gehören zum ausgewählten Haus"
 	?>
 	<?= getUebersetzung($text,$sprache,$link) ?>:</td>
 		<td></td>
@@ -212,25 +215,21 @@ if (hasParentRooms($unterkunft_id)){
 </table>
 <br/>
 </form>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td>
+
     	<a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
     	<!-- <form action="../index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 		 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
  		</form> -->
- 	</td>
-  </tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+ 
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
   </form></td>
   </tr>
-</table>
+</table> -->
 <?php
 }
 else {
