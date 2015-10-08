@@ -41,7 +41,7 @@ $standardBelegungsplan = getStandardSpracheBelegungsplan($unterkunft_id,$link);
 ?>
   <div class="panel panel-default">
   <div class="panel-body">
-<h1><?php echo(getUebersetzung("ändern der Standard-Sprache",$sprache,$link)); ?>.</h1>
+<h1><?php echo(getUebersetzung("Ändern der Standard-Sprache",$sprache,$link)); ?>.</h1>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>

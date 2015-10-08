@@ -4,7 +4,7 @@ $root = "../../..";
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once($root."/conf/rdbmsConfig.php");
 include_once($root."/include/buchungseinschraenkung.php");
 include_once($root."/include/uebersetzer.php");
@@ -16,16 +16,16 @@ $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $loeschen = false;
 $hinzufuegen = false;
 $bu_id = -1;
-if (isset($_POST["add"]) && $_POST["add"] == getUebersetzung("hinzufügen",$sprache,$link)){
+if (isset($_POST["add"]) && $_POST["add"] == getUebersetzung("hinzufÃ¼gen",$sprache,$link)){
 	$hinzufuegen = true;
 }
 else{
 	$res = getBuchungseinschraenkungen($unterkunft_id);
 	while ($d=mysql_fetch_array($res)){
 		$id = $d["PK_ID"];
-		//welche id soll gelöscht werden?
+		//welche id soll gelï¿½scht werden?
 		if (isset($_POST["loeschen#".$id]) 
-			&& $_POST["loeschen#".$id] == getUebersetzung("löschen",$sprache,$link)){
+			&& $_POST["loeschen#".$id] == getUebersetzung("lÃ¶schen",$sprache,$link)){
 			$bu_id = $id;
 			$loeschen = true;
 			break;
@@ -47,10 +47,10 @@ $benutzername = getSessionWert(BENUTZERNAME);
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		
-		//löschen oder hinzufuegen:
+		//lï¿½schen oder hinzufuegen:
 		if ($loeschen && !$hinzufuegen){
 			removeBuchungseinschraenkung($bu_id);
 			$nachricht = "Der Datensatz wurde erfolgreich entfernt";
@@ -66,23 +66,23 @@ $benutzername = getSessionWert(BENUTZERNAME);
 			$bisMonat=$_POST["bisMonat"];
 			$vonJahr =$_POST["vonJahr"];
 			$bisJahr =$_POST["bisJahr"];
-			//pruefen ob sich die buchungseinschränkung eh
-			//nicht mit einer bereits bestehenden überschneidet:
+			//pruefen ob sich die buchungseinschrï¿½nkung eh
+			//nicht mit einer bereits bestehenden ï¿½berschneidet:
 			if(hasBuchungseinschraenkung($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zimmer_id)){
 				$fehler = true;
-				$nachricht = "Die Buchungseinschränkung überschneidet sich mit einer bereits existierenden!";
+				$nachricht = "Die BuchungseinschrÃ¤nkung Ã¼berschneidet sich mit einer bereits existierenden!";
 				$nachricht = getUebersetzung($nachricht,$sprache,$link);
 			}
 			else{
 				$fehler = false;
 				setBuchungseinschraenkung($zimmer_id,$von_wochentag,$bis_wochentag,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr);
-				$nachricht = "Der Datensatz wurde erfolgreich hinzugefügt";
+				$nachricht = "Der Datensatz wurde erfolgreich hinzugefÃ¶gt";
 				$nachricht = getUebersetzung($nachricht,$sprache,$link);
 			}
 		}
 		
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("EinschrÃ¤nken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</p>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -97,18 +97,18 @@ if (isset($nachricht) && $nachricht != ""){
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  include_once("../../templates/end.php"); 
  ?>

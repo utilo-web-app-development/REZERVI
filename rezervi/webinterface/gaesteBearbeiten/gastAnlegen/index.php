@@ -60,19 +60,19 @@ include_once("../../../include/einstellungenFunctions.php");
 			<div class="form-group">
 				<label for="anrede" class="col-sm-2 control-label"><?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></label>
 				<div class="col-sm-10">
-					<input name="anrede" type="text" id="anrede" value="" class="form-control">
+					<input name="anrede" type="text" id="anrede" value="" class="form-control" >
 				</div>
 			</div>			
 			<div class="form-group">
 				<label for="vorname" class="col-sm-2 control-label"><?php echo(getUebersetzung("Vorname",$sprache,$link)); ?></label>
 				<div class="col-sm-10">
-					<input name="vorname" type="text" id="vorname" value="" class="form-control">
+					<input name="vorname" type="text" id="vorname" value="" class="form-control" >
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="nachname" class="col-sm-2 control-label"><?php echo(getUebersetzung("Nachname",$sprache,$link)); ?></label>
+				<label for="nachname" class="col-sm-2 control-label"><?php echo(getUebersetzung("Nachname",$sprache,$link)); ?>*</label>
 				<div class="col-sm-10">
-					<input name="nachname" type="text" id="nachname" value="" class="form-control">
+					<input name="nachname" type="text" id="nachname" value="" class="form-control" required="required">
 				</div>
 			</div>
 			<div class="form-group">
@@ -142,11 +142,17 @@ include_once("../../../include/einstellungenFunctions.php");
 					<textarea name="anmerkungen" type="text" id="anmerkungen" value="" class="form-control"></textarea>
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-10">
+					<input type="submit" name="anlegen" class="btn btn-success" value="<?php echo(getUebersetzung("Gast anlegen",$sprache,$link)); ?>">
+				</div>
+			</div>			
+			
 	    </form>     
 	     
-		  <p>
-		    <input type="submit" name="anlegen" class="btn btn-success" value="<?php echo(getUebersetzung("Gast anlegen",$sprache,$link)); ?>">
-		  </p>
+
    </div>
 </div>
 		

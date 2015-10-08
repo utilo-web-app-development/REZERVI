@@ -544,7 +544,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     <div class="form-group">
 				<label for="bettenKinder" class="col-sm-7 control-label"><?php echo(getUebersetzung("Anzahl der Betten für Kinder",$sprache,$link)); ?>*</label>
 				<div class="col-sm-5">
-					<input name="bettenKinder" type="text" id="bettenKinder" value="<?php if (isset($bettenKinder)) { 
+					<input name="bettenKinder" type="number" id="bettenKinder" value="<?php if (isset($bettenKinder)) { 
 	  																					echo($bettenKinder); 
 																					} 
 																					else{ 

@@ -3,7 +3,7 @@ $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//ändern der angezeigten sprachen:
+//ï¿½ndern der angezeigten sprachen:
 
 //variablen initialisieren:
 if (isset($_POST["de"]))
@@ -40,7 +40,7 @@ $sprache = getSessionWert(SPRACHE);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/uebersetzer.php");
@@ -48,17 +48,17 @@ include_once("../../../include/benutzerFunctions.php");
 include_once("../../../include/unterkunftFunctions.php");
 include_once("../../templates/components.php");
 
-//kontrolle ob überhaupt eine sprache ausgewählt wurde:
+//kontrolle ob ï¿½berhaupt eine sprache ausgewï¿½hlt wurde:
 if ($de != "true" && $en != "true" && $fr != "true" 
 	&& $it != "true" && $nl != "true" && $sp != "true" && $es != "true"){
-	$nachricht = "Sie müssen mindestens eine Sprache auswählen!";
+	$nachricht = "Sie mÃ¼ssen mindestens eine Sprache auswÃ¤hlen!";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
 	$fehler = true;
 	include_once("sprachen.php");
 }
 else{
 	
-	//zuerst alle alten eintraege löschen:
+	//zuerst alle alten eintraege lï¿½schen:
 	removeAllStandardSpracheFromModul($unterkunft_id,2,$link);
 	
 	if ($de == "true"){
@@ -84,7 +84,7 @@ else{
 	}
 	
 	
-	$nachricht = "Die angezeigten Sprachen wurden erfolgreich geändert!";
+	$nachricht = "Die angezeigten Sprachen wurden erfolgreich geÃ¤ndert!";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
 	$fehler = false;
 
@@ -96,10 +96,10 @@ else{
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen",$sprache,$link)); ?>.</p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("Ã„ndern der angezeigten Sprachen",$sprache,$link)); ?>.</p>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -114,18 +114,18 @@ if (isset($nachricht) && $nachricht != ""){
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurï¿½ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenï¿½",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); 

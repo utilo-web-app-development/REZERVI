@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			benutzeränderung durchführen
+			benutzerï¿½nderung durchfï¿½hren
 */
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
@@ -25,7 +25,7 @@ else{
 	$testuser = false;
 }
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -41,23 +41,30 @@ else{
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortprüfung:	
+<?php //passwortprï¿½fung:	
 
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){	
 	
 	if ($testuser == true && DEMO == true){
 		?>
-		<table border="0" cellspacing="0" cellpadding="0" class="frei">
-		  <tr>
-		    <td><?php echo(getUebersetzung("Der Testbenutzer kann im Demo-Modus nicht verändert werden.",$sprache,$link)); ?>.</td>
-		  </tr>
-		</table>
+	<div class="panel panel-default">
+  <div class="panel-body">
+    <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+  </div>
+</div>
+		<div class="panel panel-default">
+  <div class="panel-body">
+<form action="./benutzerEintragen.php" method="post" name="benutzer" id="benutzer" target="_self" onSubmit="return chkFormular();" class="form-horizontal"> 
+  
+		
+		  <?php echo(getUebersetzung("Der Testbenutzer kann im Demo-Modus nicht verÃ¤ndert werden.",$sprache,$link)); ?>
+		
 		<br/>
 	<?php
 	}	
 	else if(changeBenutzer($id,$name,$pass,$rechte,$unterkunft_id,$link)){	
 		
-		//änderungen in der session durchführen:
+		//ï¿½nderungen in der session durchfï¿½hren:
 		if (getSessionWert(BENUTZER_ID) == $id){
 			setSessionWert(PASSWORT,$pass);
 			setSessionWert(BENUTZERNAME,$name);
@@ -65,43 +72,32 @@ else{
 		}
 	
 	?>
-		<table border="0" cellspacing="0" cellpadding="0" class="frei">
-		  <tr>
-		    <td><?php echo(getUebersetzung("Die Änderung wurde erfolgreich durchgeführt",$sprache,$link)); ?>.</td>
-		  </tr>
-		</table>
+		<?php echo(getUebersetzung("Die Ã„nderung wurde erfolgreich durchgefÃ¼hrt",$sprache,$link)); ?>.</td>
+		
 		<br/>
 	<?php 
 	}
 	?>
 
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr>
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-        <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-      </form></td>
-  </tr>
-</table>
+
+  
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
+</table> -->
 <p>
-  </td>
-  </tr>
-  </table>
+
 </p>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
 	
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

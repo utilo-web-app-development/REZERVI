@@ -65,7 +65,7 @@ $sprache = getSessionWert(SPRACHE);
     <div class="form-group">
 				<label for="name" class="col-sm-2 control-label"><?php echo(getUebersetzung("Benutzername",$sprache,$link)); ?>*</label>
 				<div class="col-sm-10">
-					<input name="name" type="text" id="name" value="" class="form-control">
+					<input name="name" type="text" id="name" value="" class="form-control"required="required">
 				</div>
 			</div>	
     <!-- <tr>
@@ -75,7 +75,7 @@ $sprache = getSessionWert(SPRACHE);
     <div class="form-group">
 				<label for="pass" class="col-sm-2 control-label"><?php echo(getUebersetzung("Passwort",$sprache,$link)); ?>*</label>
 				<div class="col-sm-10">
-					<input name="pass" type="text" id="pass" value="" class="form-control">
+					<input name="pass" type="text" id="pass" value="" class="form-control"required="required">
 				</div>
 	</div>
     <!-- <tr>
@@ -85,7 +85,7 @@ $sprache = getSessionWert(SPRACHE);
      <div class="form-group">
 				<label for="pass2" class="col-sm-2 control-label"><?php echo(getUebersetzung("Passwort wiederholen",$sprache,$link)); ?>*</label>
 				<div class="col-sm-10">
-					<input name="pass2" type="text" id="pass2" value="" class="form-control">
+					<input name="pass2" type="text" id="pass2" value="" class="form-control"required="required">
 				</div>
 	</div>
     <!-- <tr>

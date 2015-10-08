@@ -190,7 +190,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           <tr> 
             <td>&nbsp;</td>
             <td> 
-            	<a class="btn btn-primary" href="./gaesteListe/index.php"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("Gästeliste anzeigen",$sprache,$link)); ?></a>
+            	
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -199,7 +199,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 	  </td>
   </tr>
 </table>
-
+<a class="btn btn-primary" href="./gaesteListe/index.php"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("Gästeliste anzeigen",$sprache,$link)); ?></a>
 </form><?php /*
 <table width="100%" border="0" cellpadding="0" cellspacing="3" class="table">
   <tr> 

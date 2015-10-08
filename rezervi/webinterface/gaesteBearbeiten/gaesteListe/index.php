@@ -55,23 +55,23 @@ include_once("../../templates/components.php");
 <script language="JavaScript">
 	<!--
 	    function sicher(){
-	    return confirm('<?php echo(getUebersetzung("Gast wirklich l�schen?",$sprache,$link)); ?>'); 	    
+	    return confirm('<?php echo(getUebersetzung("Gast wirklich löschen?",$sprache,$link)); ?>'); 	    
 	    }
 	    //-->
 </script>
+
+<div class="panel panel-default">
+  <div class="panel-body">
 <?php		
 //passwortpr�fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
-<table  border="0" cellspacing="3" cellpadding="0" class="table">
-  <tr>
-    <td><?php echo(getUebersetzung("Gästeliste anzeigen und bearbeiten",$sprache,$link)); ?>.</td>
-  </tr>
-</table>
-<br/>
-<table border="0" cellspacing="3" cellpadding="0" class="table">
-  <tr>
-    <td><?php 
-	//g�steliste ausgeben:	
+
+  
+   <h3><?php echo(getUebersetzung("Gästeliste anzeigen und bearbeiten",$sprache,$link)); ?>.</h3>
+
+
+<?php 
+	//gästeliste ausgeben:	
 	//$res = getGuestList($unterkunft_id,$link);
 	$res = getGuestListWithLimitAndIndex($unterkunft_id,LIMIT,$index,$link);
 		
@@ -93,11 +93,11 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 		else if ($d["Sprache"] == "en")	
 			$speech = "Englisch";
 		else if ($d["Sprache"] == "fr")	
-			$speech = "Franz�sisch";
+			$speech = "Französisch";
 		else if ($d["Sprache"] == "it")	
 			$speech = "Italienisch";
 		else if ($d["Sprache"] == "nl")	
-			$speech = "Holl�ndisch";			
+			$speech = "Holländisch";			
 	
 	?>
       <table width="100%" border="0" cellspacing="3" cellpadding="0" class="tableColor">
@@ -112,7 +112,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           <td><?php echo(getUebersetzung("Nachname",$sprache,$link)); ?></td>
           <?php } 
 			  if ($strasse_val == "true"){ ?>
-          <td><?php echo(getUebersetzung("Stra�e/Hausnummer",$sprache,$link)); ?></td>
+          <td><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?></td>
           <?php } 
 			  if ($plz_val == "true"){ ?>
           <td><?php echo(getUebersetzung("PLZ",$sprache,$link)); ?></td>
@@ -343,21 +343,19 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
  </form>
 </table>
 <br/>
-	 <table  border="0" cellspacing="1" cellpadding="0" class="table">
-        <tr>
-          <td><a class="btn btn-primary" href="../../gaesteBearbeiten/index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+	 
+          <a class="btn btn-primary" href="../../gaesteBearbeiten/index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
           	<!-- <form action="../../gaesteBearbeiten/index.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
               <input name="zurueck" type="submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
        			onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-            </form> --></td>
-        </tr>
-      </table>
+            </form> -->
+       
       <br/>
    
 
 <?php } //ende passwortpr�fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

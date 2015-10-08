@@ -36,7 +36,7 @@ $sprache = getSessionWert(SPRACHE);
 <!-- <form action="./benutzerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen"> -->
 	<div class="panel panel-default">
   <div class="panel-body">
-	<form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+	<form action="./benutzerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
   
       <h4><?php echo(getUebersetzung("Folgende Benutzer werden aus der Datenbank entfernt",$sprache,$link)); ?>:</h4>
         <p>
@@ -50,7 +50,7 @@ $sprache = getSessionWert(SPRACHE);
 				} //ende for
 			?>
           </select> -->
-          	<select name="id[]" type="text" id="id[]" value="" class="form-control">
+          <select name="id[]" type="text" id="id[]" value="" class="form-control" multiple="multiple">
 			
           <?php 
 				$anzahl = count($id);				

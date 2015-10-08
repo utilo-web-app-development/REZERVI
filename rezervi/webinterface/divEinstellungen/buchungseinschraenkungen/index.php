@@ -51,7 +51,7 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 <div class="panel panel-default">
   <div class="panel-body">
   	
-		<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+		<form action="./aendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 <h3><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</h3>
 
     <!-- <td><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>:</td> -->
@@ -82,7 +82,7 @@ if (isset($nachricht) && $nachricht != ""){
 
   <tr>
     <td colspan="2">
-		<table class="tableColor" >
+		<table class="table" >
 			<tr>
 				<td><?= getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link); ?></td>
 				<td><?= getUebersetzung("Tag von",$sprache,$link); ?></td>

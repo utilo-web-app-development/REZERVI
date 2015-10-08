@@ -215,14 +215,14 @@ include_once("../../include/uebersetzer.php");
         <form action="./anfrageBestaetigen.php" method="post" name="reservierungBestaetigen" target="_self" id="reservierungBestaetigen">
           <tr>
             <td><input name="reservierungs_id" type="hidden" value="<?php echo($reservierungen); ?>">
-              <input type="submit" name="submit" value="<?php echo(getUebersetzung("Anfrage best�tigen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+              <input type="submit" name="submit" value="<?php echo(getUebersetzung("Anfrage bestätigen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
               <?php
                if (isMessageActive($unterkunft_id,"bestaetigung",$link)){
 			  ?>
 				  <input name="antwort" type="checkbox" id="antwort" value="true" checked>
 				  <input name="art" type="hidden" value="bestaetigung">
-				  <?php echo(getUebersetzung("automatische Best�tigung senden",$sprache,$link)); ?>
+				  <?php echo(getUebersetzung("automatische Bestätigung senden",$sprache,$link)); ?>
               <?php
 			  }
 			  ?>
@@ -238,9 +238,7 @@ include_once("../../include/uebersetzer.php");
 <?php
 //es sind keine anfragen vorhanden:
 if ($leer == true){  ?>
-<table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
-  <tr>
-    <td><p><?php echo(getUebersetzung("Es sind keine offenen Reservierungsanfragen vorhanden",$sprache,$link)); ?>!</p>
+<p><?php echo(getUebersetzung("Es sind keine offenen Reservierungsanfragen vorhanden",$sprache,$link)); ?>!</p>
       <!-- <form action="../inhalt.php" method="post" name="form1" target="_self">
         <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"> -->
@@ -248,7 +246,7 @@ if ($leer == true){  ?>
      
       </form></td>
   </tr>
-</table>
+
 <?php } 
 	else { //zur�ck-button anzeigen: 
 ?>

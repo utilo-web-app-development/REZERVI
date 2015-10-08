@@ -70,8 +70,10 @@ if (isset($nachricht) && $nachricht != ""){
   		$aktiviert   = isSpracheShown($unterkunft_id,$spracheID,$link);          
     ?>  
   <tr>
-    <td><input name="<?php echo($spracheID); ?>" type="checkbox" id="<?php echo($spracheID); ?>" value="true" 
-    	<?php if($aktiviert){ echo(" checked"); } ?>></td>
+    <td>
+    	<input name="<?php echo($spracheID); ?>" type="checkbox" id="<?php echo($spracheID); ?>" value="true" 
+    	<?php if($aktiviert){ echo(" checked"); } ?>>
+    </td>
     <td><?php echo(getUebersetzung($bezeichnung,$sprache,$link)); ?></td>
   </tr>
 	<?php
