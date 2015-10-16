@@ -48,6 +48,11 @@ include_once($root."/include/sessionFunctions.inc.php");
 <!-- <form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">	 -->
 	<div class="panel panel-default">
   <div class="panel-body">
+	 <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+	</div>
+	</div>
+	<div class="panel panel-default">
+  <div class="panel-body">
   	<form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
   		
 <h4><?php echo(getUebersetzung("Folgende Zimmer/Appartements/Wohnungen/etc. werden aus der Datenbank entfernt",$sprache,$link)); ?>.</h4>
@@ -93,7 +98,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
       </form></td> -->
-        <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+       
 
 
 

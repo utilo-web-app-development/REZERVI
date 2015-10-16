@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			bestätigung zum löschen von zimmern von benutzer einholen!
+			bestï¿½tigung zum lï¿½schen von zimmern von benutzer einholen!
 */
 
 	//variablen intitialisieren:
@@ -15,7 +15,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$zimmer_pk_id = $_POST["zimmer_pk_id"];
 	$sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -33,17 +33,26 @@ include_once($root."/include/sessionFunctions.inc.php");
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Löschung durchführen",$sprache,$link)); ?></p>
- <?php //passwortprüfung:	
+<h3><?php echo(getUebersetzung("LÃ¶schung durchfÃ¼hren",$sprache,$link)); ?></h3>
+ <?php //passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
+<div class="panel panel-default">
+  <div class="panel-body">
+<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+</div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
 <form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">	
 <table border="0" cellpadding="0" cellspacing="3" class="frei">
   <tr>
     <td><p> 
 	<?php 		
 	 			
-		//Reservierungen und Zimmer löschen:
+		//Reservierungen und Zimmer lï¿½schen:
 		$anzahl = count($zimmer_pk_id);
 		$demoNotPossible = false;
 		if (DEMO == true && $anzahl > 1){
@@ -75,11 +84,11 @@ include_once($root."/include/sessionFunctions.inc.php");
 					echo("die Anfrage $query scheitert"); 
 				}			
 			} //ende for
-			echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gelöscht " .
+			echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gelï¿½scht " .
 					"werden",$sprache,$link));
 		}
 		else if (DEMO == true && $anzahl <= 1){
-			echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gelöscht " .
+			echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gelï¿½scht " .
 					"werden",$sprache,$link));
 		}
 		else if (DEMO != true){
@@ -110,7 +119,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 				}			
 			} //ende for
 			echo(getUebersetzung("Der/die/das Zimmer/Appartement/Wohnung/etc. " .
-				"wurde samt seinen Reservierungen aus der Datenbank gelöscht",$sprache,$link));
+				"wurde samt seinen Reservierungen aus der Datenbank gelï¿½scht",$sprache,$link));
 		} 
 		?>!</p>
       </td>
@@ -118,12 +127,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 </table>
 </form>
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr> 
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurï¿½ck",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
@@ -133,14 +142,14 @@ include_once($root."/include/sessionFunctions.inc.php");
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
+</table> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

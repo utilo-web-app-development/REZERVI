@@ -40,6 +40,12 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <div class="panel panel-default">
   <div class="panel-body">
+<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+</div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
   	
 <h1>
 	<?= getUebersetzung("Weitere Attribute für Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link) ?>.
@@ -48,7 +54,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
+	<table border="0" cellpadding="0" cellspacing="3" class="table">
 	  <tr>
 		<td <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
 			else {echo("class=\"belegt\"");} ?>>
@@ -61,7 +67,7 @@ if (isset($nachricht) && $nachricht != ""){
 }
 ?>
 <form action="./attributeAendern.inc.php" method="post" target="_self">
-<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
+<table border="0" cellpadding="0" cellspacing="3" class="table">
 	<tr>
 		<td>
 			<?= getUebersetzung("Bezeichnung",$sprache,$link) ?>
@@ -91,9 +97,9 @@ if (isset($nachricht) && $nachricht != ""){
 			<td>
 			    <input 
       				name="loeschen_<?= $att_id ?>" type="submit" id="loeschen_<?= $att_id ?>" 
-      				class="button200pxA" onMouseOver="this.className='button200pxB';"
-       				onMouseOut="this.className='button200pxA';" 
-       				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
+      				class="btn btn-danger"value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" /> <!-- onMouseOver="this.className='button200pxB';"
+       				onMouseOut="this.className='button200pxA';" --> 
+       				
 			</td>
 		</tr>
 <?php
@@ -148,7 +154,7 @@ if (isset($nachricht) && $nachricht != ""){
 </table>
 </form>
 </br>
-    	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+    	
     	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">

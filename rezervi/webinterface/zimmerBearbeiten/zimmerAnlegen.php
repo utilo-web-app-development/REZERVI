@@ -36,6 +36,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php include_once("../templates/bodyA.php"); ?>
 
 <div class="panel panel-default">
+  	<div class="panel-body">
+		<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+	</div>
+</div>
+
+<div class="panel panel-default">
   <div class="panel-body">
 <!-- <form action="./zimmerEintragen.php" method="post" name="zimmerEintragen" target="_self"> -->
 <form action="./zimmerEintragen.php" method="post" name="zimmerEintragen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
@@ -603,36 +609,33 @@ include_once($root."/include/sessionFunctions.inc.php");
 			$beschreibung = $d["Beschreibung"];
 			$att_id = $d["PK_ID"];
 			?>
-			<tr> 
-		      <td><?= $bezeichnung ?> 
+			<?= $bezeichnung ?> 
 		      <?php if (!empty($beschreibung)){ ?>
 		      	(<?= $beschreibung ?>)</td>
 		      <?php } ?>
-		      <td>
+		      
 		      	<input name="attWert_<?= $att_id ?>" type="text" 
 		      		   id="attWert_<?= $att_id ?>"
 		      		   value="" />
-		      </td>
-		    </tr>
+		     
 			<?php
 		}
 	}
     ?>
-    <tr> 
-      <td colspan="2"><input name="Submit" type="submit" id="Submit" class="btn btn-success"
-      value="<?php echo(getUebersetzung("Zimmer eintragen",$sprache,$link)); ?>"></td>
-    </tr>
-  </table>
+ </div>
+</div>
+  
 </form>
 
-
+  <input name="Submit" type="submit" id="Submit" class="btn btn-success"
+      value="<?php echo(getUebersetzung("Zimmer eintragen",$sprache,$link)); ?>">
  
 
 <!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>"></form> -->
 	 	
-<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+
 	
  
 <br/>

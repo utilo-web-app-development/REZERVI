@@ -12,7 +12,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
-$id = $_POST["id"];
+//$id = $_POST["id"];
 $sprache = getSessionWert(SPRACHE);
 
 	//datenbank öffnen:
@@ -34,43 +34,60 @@ $sprache = getSessionWert(SPRACHE);
 <!-- <p class="standardSchriftBold"><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></p> -->
 <h1><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></h1>
 <!-- <form action="./benutzerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen"> -->
-	<div class="panel panel-default">
+	
+	
+	
+<div class="panel panel-default">
+  	<div class="panel-body">
+  		  <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+  	</div>
+</div>
+	
+
+	<div class="panel panel-default">		
   <div class="panel-body">
 	<form action="./benutzerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
   
       <h4><?php echo(getUebersetzung("Folgende Benutzer werden aus der Datenbank entfernt",$sprache,$link)); ?>:</h4>
-        <p>
-          <!-- <select name="id[]" size="5" multiple>
-            <?php 
-				$anzahl = count($id);				
-	  			for($i = 0; $i < $anzahl; $i++){ ?>
-            <option value="<?php echo($id[$i]); ?>" selected> <?php echo(getUserName($id[$i],$link)); 
-            ?> </option>
-            <?php 
-				} //ende for
-			?>
-          </select> -->
-          <select name="id[]" type="text" id="id[]" value="" class="form-control" multiple="multiple">
-			
-          <?php 
-				$anzahl = count($id);				
-	  			for($i = 0; $i < $anzahl; $i++){ ?>
-            <option value="<?php echo($id[$i]); ?>" selected> <?php echo(getUserName($id[$i],$link)); 
-            ?> </option>
-            <?php 
-				} //ende for
-			?>
-				  } //ende while
-			 //ende zimmer ausgeben    
-			 ?>
-        </select>
-        </p>
-        <p><?php echo(getUebersetzung("Nur die hier selektierten Benutzer werden gelöscht.",$sprache,$link)); ?> 
-		<?php echo(getUebersetzung("Entfernen Sie die Markierungen (mit [STRG] und Mausklick) wenn Benutzer nicht gelöscht werden sollen!",$sprache,$link)); ?></p>
         
+        <?php 
+        
+        $benutzer_id = getUserId($benutzername,$passwort,$link);
+        
+		//benutzer auslesen:
+		$query = "select 
+				  PK_ID, Name
+				  from 
+				  Rezervi_Benutzer
+				  where
+				  FK_Unterkunft_ID = '$unterkunft_id'
+				  ORDER BY 
+				  Name";
+	
+		 $res = mysql_query($query, $link);
+		 if (!$res){
+			echo("die Anfrage $query scheitert.");
+		 }
+		 else{     
+		  
+		   while($d = mysql_fetch_array($res)) {
+	 		
+			if ($d["PK_ID"] == $benutzer_id) continue;
+			if ($d["PK_ID"] == 1 && DEMO == true) continue;
+			
+	  	?>
+	  	
+		  <div class="checkbox">
+		    <label>
+		      <input type="checkbox" name="user_<?php echo($d["PK_ID"]); ?>"> <?php echo(getUserName($d["PK_ID"],$link)); ?>
+		    </label>
+		  </div>
+	  	
+	  	<?php }
+	  	}
+	  	?>
+                
         <input name="retour" type="submit" class="btn btn-danger"  id="retour"  value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>">
-   
-    
   
 </form>
 <br/>
@@ -80,7 +97,7 @@ $sprache = getSessionWert(SPRACHE);
         <input name="zurueck" type="submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
 	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
       </form> -->
-        <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+
    
 
 <br/>

@@ -50,18 +50,21 @@ include_once("../../include/uebersetzer.php");
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <div class="panel panel-default">
-  <div class="panel-body">
-  	
+  	<div class="panel-body">
+  		 <a class="btn btn-primary" href="../inhalt.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+	</div>
+</div>  	
+<div class="panel panel-default">
+  	<div class="panel-body">
 <h1><?php echo(getUebersetzung("Reservierungsanfragen von Gästen bestätigen/löschen",$sprache,$link)); ?></h1>
-<table width="100%" border="0" cellpadding="0" cellspacing="3" class="tableColor">
-  <tr>
-    <td><p><?php echo(getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestätigten bzw. gelöschten Reservierungsanfragen.",$sprache,$link)); ?><br/>
-        <?php echo(getUebersetzung("Falls Sie eine Reservierungsanfrage bestätigen wird diese als belegt im Reservierungsplan eingetragen, der Gast wird darüber nur informiert wenn die automatischen E-Mails aktiviert wurden.",$sprache,$link)); ?><br/>
+
+ 
+   <?php echo(getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestätigten bzw. gelöschten Reservierungsanfragen.",$sprache,$link)); ?><br/>
+        <?php echo(getUebersetzung("Falls Sie eine Reservierungsanfrage bestätigen wird diese als belegt im Reservierungsplan eingetragen, der Gast wird darüber nur informiert wenn die automatischen E-Mails aktiviert wurden.",$sprache,$link)); ?> <br/>
         <?php echo(getUebersetzung("Bei Löschung einer Reservierungsanfrage bleiben die Informationen des Gastes in der Datenbank erhalten, wollen Sie auch den Gast löschen, bestätigen Sie dies bitte mit dem entsprechenden Feld.",$sprache,$link)); ?>
 		<?php echo(getUebersetzung("Ein Gast kann nur gelöscht werden, falls es keine anderen Reservierungen für diesen Gast gibt.",$sprache,$link)); ?>
-    </td>
-  </tr>
-</table>
+    
+
 <p>
   <?php 
   	  //sodala, nun alle reservierungen mit status=1 auslesen, wenn
@@ -103,7 +106,7 @@ include_once("../../include/uebersetzer.php");
 			$reservierungen = "".$reservierungs_id;			
 	?>
 </p>
-<table border="0" cellspacing="0" cellpadding="0" class="tableColor">
+<table border="0" cellspacing="0" cellpadding="0" class="table">
         <tr>
           <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Anfrage von",$sprache,$link)); ?>:</span> <?php echo(getGuestVorname($gast_id,$link)." ".getGuestNachname($gast_id,$link)); ?></td>
         </tr>
@@ -242,7 +245,7 @@ if ($leer == true){  ?>
       <!-- <form action="../inhalt.php" method="post" name="form1" target="_self">
         <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"> -->
-       <a class="btn btn-primary" href="../inhalt.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+      
      
       </form></td>
   </tr>

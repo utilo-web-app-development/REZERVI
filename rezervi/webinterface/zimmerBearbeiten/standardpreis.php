@@ -53,6 +53,11 @@ if ($sizeRoomSelectBox > 5){
 	$sizeRoomSelectBox = 5;
 }
 ?>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+ </div>
+</div>
    <div class="panel panel-default">
   <div class="panel-body">
   	
@@ -72,7 +77,7 @@ if ($sizeRoomSelectBox > 5){
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
+	<table border="0" cellpadding="0" cellspacing="3" class="table">
 	  <tr>
 		<td <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
 			else {echo("class=\"belegt\"");} ?>>
@@ -85,7 +90,7 @@ if (isset($nachricht) && $nachricht != ""){
 }
 ?>
 <form action="./standardPreisAendern.inc.php" method="post" target="_self">
-<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
+<table border="0" cellpadding="0" cellspacing="3" class="table">
 	<tr>
 		<td>
 			<?= getUebersetzung("Preis",$sprache,$link) ?>
@@ -186,21 +191,19 @@ if (isset($nachricht) && $nachricht != ""){
 	</tr>
 </table>
 <br/>
-<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
-	<tr>
-		<td colspan="3">
-			<input 
+
+	
+		<input 
   				name="aendern" type="submit" id="aendern" 
   				class="btn btn-success" 
    				value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
-		</td>
-	</tr>
-</table>
+		
+		
+
 </form>
 </br>
  
-    	 <a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
-    	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+     	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
   		</form> -->

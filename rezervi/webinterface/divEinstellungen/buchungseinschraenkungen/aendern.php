@@ -82,7 +82,11 @@ $benutzername = getSessionWert(BENUTZERNAME);
 		}
 		
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</p>
+<h3><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</h3>
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -97,16 +101,16 @@ if (isset($nachricht) && $nachricht != ""){
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
-<?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+<!-- <?php 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

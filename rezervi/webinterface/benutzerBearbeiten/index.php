@@ -98,47 +98,13 @@ if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
 
 <form action="./benutzerLoeschenBestaetigen.php" method="post" name="benuterLoeschen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
   <h1><?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?></h1>
- <h5><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus",$sprache,$link)); ?>. 
-	 <?php echo(getUebersetzung("Sie können mehrere Benutzer zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Benutzernamen klicken",$sprache,$link)); ?>.</h5>
-    <!-- <tr>
-      <td><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?><br/>
-          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus",$sprache,$link)); ?>. 
-		  <?php echo(getUebersetzung("Sie können mehrere Benutzer zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Benutzernamen klicken",$sprache,$link)); ?>.</span></p></td>
-      <td>&nbsp;</td>
-    </tr> -->
+ <!-- <h5><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus",$sprache,$link)); ?>. 
+	 <?php echo(getUebersetzung("Sie können mehrere Benutzer zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Benutzernamen klicken",$sprache,$link)); ?>.</h5> -->
    
-   <!-- <select name="id[]"  id="select">
-          <?php 
-		  		//benutzer auslesen:
-		$query = "select 
-				  PK_ID, Name, Passwort
-				  from 
-				  Rezervi_Benutzer
-				  where
-				  FK_Unterkunft_ID = '$unterkunft_id'
-				  ORDER BY 
-				  Name";
-	
-		 $res = mysql_query($query, $link);
-		 if (!$res)
-			echo("die Anfrage $query scheitert.");
-		 else{     
-		  	$i = 0;
-			  while($d = mysql_fetch_array($res)) {
-			  //selbst nicht loeschen!
-			  if ($d["Name"] == $benutzername && $d["Passwort"] == $passwort){
-			  	continue;
-			  }	
-			  ?>
-          		<option value="<?php echo($d["PK_ID"]); ?>" 
-          			<?php if ($i == 0) echo(" selected"); $i++; ?>> 
-          			<?php echo($d["Name"]); ?></option>
-          	  <?php
-			  } //ende while
-		  }	  
-		 ?>
-        </select> -->
-      <div class="form-group">
+        
+       <!-- Selectbox -->
+     
+      <!-- <div class="form-group">
 				
 				<div class="col-sm-12">
 			 <select name="id[]" type="text" id="select" value="" class="form-control">
@@ -174,7 +140,7 @@ if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
 		 ?>
         </select>
     		</div>
-	</div>
+	</div> -->
    <input name="benutzerLoeschen" type="submit" id="benutzerLoeschen" class="btn btn-danger" 
       	  value="<?php echo(getUebersetzung("Benutzer löschen",$sprache,$link)); ?>">
     

@@ -42,11 +42,11 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 	//passwortpr�fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<div class="panel panel-default">
+<!-- <div class="panel panel-default">
   <div class="panel-body">
     <a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
   </div>
-</div>
+</div> -->
 
 <div class="panel panel-default">
   <div class="panel-body">
@@ -114,10 +114,11 @@ if (isset($nachricht) && $nachricht != ""){
 					<td>
 						<input name="loeschen#<?= $id ?>" 
 							   type="submit" 
-							   class="button200pxA" 
-							   onMouseOver="this.className='button200pxB';"
-       						   onMouseOut="this.className='button200pxA';" 
+							   class="btn btn-danger" 
 							   value="<?= getUebersetzung("löschen",$sprache,$link); ?>"/>
+							   <!-- onMouseOver="this.className='button200pxB';"
+       						   onMouseOut="this.className='button200pxA';"  -->
+							 
 					</td>
 				</tr>
 			<?php
@@ -223,10 +224,11 @@ if (isset($nachricht) && $nachricht != ""){
 					<td>
 						<input name="add" 
 							   type="submit" 
-							   class="button200pxA" 
-							   onMouseOver="this.className='button200pxB';"
-       						   onMouseOut="this.className='button200pxA';" 
+							   class="btn btn-success" 
 							   value="<?= getUebersetzung("hinzufügen",$sprache,$link); ?>"/>
+							   <!-- onMouseOver="this.className='button200pxB';"
+       						   onMouseOut="this.className='button200pxA';"  -->
+							
 					</td>
 				</tr>
 				<!-- ende neuen eintrag hinzufuegen -->

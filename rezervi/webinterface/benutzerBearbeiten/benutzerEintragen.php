@@ -18,7 +18,7 @@ $pass2 = $_POST["pass2"];
 $rechte = $_POST["rechte"];
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -34,33 +34,35 @@ $sprache = getSessionWert(SPRACHE);
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Einen neuen Benutzer anlegen",$sprache,$link)); ?></p>	
-<?php //passwortprüfung:	
+<h3><?php echo(getUebersetzung("Einen neuen Benutzer anlegen",$sprache,$link)); ?></h3>	
+<?php //passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
 		setUser($name,$pass,$rechte);
 ?>
-		<table border="0" cellpadding="0" cellspacing="0" class="frei">
-			  <tr>
-				<td><?php echo(getUebersetzung("Der Benutzer wurde hinzugefügt.",$sprache,$link)); ?></td>
-			  </tr>
-		</table>
-	
-<p>&nbsp;</p><table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr> 
-    <td><form action="./benutzerAnlegen.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+<div class="panel panel-default">
+  <div class="panel-body">
+<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+</div>
+</div>
 
-        <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("einen weiteren anlegen",$sprache,$link)); ?>">
-      </form></td>
-  </tr>
-</table>
+<div class="panel panel-default">
+  <div class="panel-body">
+		
+		<?php echo(getUebersetzung("Der Benutzer wurde hinzugefÃ¼gt.",$sprache,$link)); ?></td>
+				
+<p>&nbsp;</p>
+   <form action="./benutzerAnlegen.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+
+        <input name="retour" type="submit" class="btn btn-primary" id="retour"  value="<?php echo(getUebersetzung("einen weiteren anlegen",$sprache,$link)); ?>">
+      </form>
+  
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr> 
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurï¿½ck",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
@@ -70,15 +72,15 @@ $sprache = getSessionWert(SPRACHE);
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
+</table> -->
 <p> </p>     
     <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

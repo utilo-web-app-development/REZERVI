@@ -55,7 +55,7 @@ if (empty($xDays) || $xDays == 0 || $xDays == "0"){
   <div class="panel panel-default">
   <div class="panel-body">
   	
-		<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+		<form action="./resAendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 
 <h3><?php echo(getUebersetzung("Einstellungen für Reservierungen",$sprache,$link)); ?>.</h3>
 <?php 

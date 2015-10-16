@@ -5,16 +5,16 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			bestätigung zum löschen von zimmern von benutzer einholen!
+			bestï¿½tigung zum lï¿½schen von zimmern von benutzer einholen!
 */
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
-$id = $_POST["id"];
+//$id = $_POST["id"];
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -33,45 +33,73 @@ $sprache = getSessionWert(SPRACHE);
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></p>
- <?php //passwortprüfung:	
+<h3><?php echo(getUebersetzung("LÃ¶schung bestÃ¤tigen",$sprache,$link)); ?></h3>
+ <?php //passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		$benutzer_id = getUserId($benutzername,$passwort,$link);
 ?>
+<div class="panel panel-default">
+  <div class="panel-body">
+<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+</div>
+</div>
 
-<table border="0" cellpadding="0" cellspacing="3" class="frei">
-  <tr>
-    <td><p> 
+<div class="panel panel-default">
+  <div class="panel-body">
+
 	<?php 		
 	 			
-		$anzahl = count($id);
-	 	for($i = 0; $i < $anzahl; $i++){
-			if ($id[$i] == $benutzer_id) continue;
-			if ($id[$i] == 1 && DEMO == true) continue;
-			//zuerst mal die reservierungen raushauen:
-			$query = ("DELETE FROM 
-						Rezervi_Benutzer
-           			 	WHERE
-           				PK_ID = '$id[$i]'
-		    ");          
-
-			$res = mysql_query($query, $link);
-			if (!$res) { 
-				echo("die Anfrage $query scheitert"); 
-			}			
+		//benutzer auslesen:
+		$query = "select 
+				  PK_ID, Name
+				  from 
+				  Rezervi_Benutzer
+				  where
+				  FK_Unterkunft_ID = '$unterkunft_id'
+				  ORDER BY 
+				  Name";
+	
+		 $res = mysql_query($query, $link);
+		 if (!$res){
+			echo("die Anfrage $query scheitert.");
+		 }
+		 else{     
+		  
+		   while($d = mysql_fetch_array($res)) {
+	 		
+			if ($d["PK_ID"] == $benutzer_id) continue;
+			if ($d["PK_ID"] == 1 && DEMO == true) continue;
+						
+			if (isset($_POST["user_".$d["PK_ID"]])){
+			
+				$query = ("DELETE FROM 
+							Rezervi_Benutzer
+	           			 	WHERE
+	           				PK_ID = ".$d["PK_ID"]);          
+	
+				$res = mysql_query($query, $link);
+				if (!$res) { 
+					echo("die Anfrage $query scheitert"); 
+				}	
+			
+			}		
 		} //ende for
-	?><?php echo(getUebersetzung("Der Benutzer wurde aus der Datenbank gelöscht!",$sprache,$link)); ?></p>
-      </td>
-  </tr>
-</table>
+		
+    }
+	?>
+	
+	<div class="alert alert-success" role="alert">
+		<?php echo(getUebersetzung("Der Benutzer wurde aus der Datenbank gelÃ¶scht!",$sprache,$link)); ?></p>
+	</div>
+	
+	
 
-<br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr> 
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurï¿½ck",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
@@ -81,15 +109,18 @@ $sprache = getSessionWert(SPRACHE);
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
+</table> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
-	}
+	?>
+		<div class="alert alert-danger" role="alert">
+		<?php echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link)); ?>
+		</div>		
+ <?php	}
  ?>
 </body>
 </html>

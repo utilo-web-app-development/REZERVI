@@ -1,3 +1,5 @@
+<html>
+	<head>
 <? session_start();
 $root = "../..";
 // Set flag that this is a parent file
@@ -46,88 +48,73 @@ $sprache = getSessionWert(SPRACHE);
 		$testuser = "true";
 	}
 ?>
+</head>
+ <body>
  <h2><?php echo(getUebersetzung("Benutzer bearbeiten",$sprache,$link)); ?></h2>
+ 
+
 <div class="panel panel-default">
   <div class="panel-body">
   	<a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
   </div>
 </div>
+
+
 <div class="panel panel-default">
   <div class="panel-body">
-  	
+  
 	<form action="./benutzerAendernDurchfuehren.php" method="post" name="benutzer" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 		
 <!-- <form action="./benutzerAendernDurchfuehren.php" method="post" name="benutzer" id="benutzer" target="_self" onSubmit="return chkFormular()"> -->
   <input name="id" type="hidden" value="<?php echo($id); ?>">
   <input name="testuser" type="hidden" value="<?= $testuser ?>">
-  <table border="0" cellpadding="0" cellspacing="3" class="tableColor">
+
   	<?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden!",$sprache,$link)); ?>
-  <br>
-    <!-- <tr class="table">
-      Überschrift <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Benutzer bearbeiten",$sprache,$link)); ?><br/>
-          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden!",$sprache,$link)); ?></span></p></td>
-    </tr> -->
+  
+    
     <div class="form-group">
 				<label for="name" class="col-sm-2 control-label"><?php echo(getUebersetzung("Benutzername",$sprache,$link)); ?>*</label>
 				<div class="col-sm-10">
 					<input name="name" type="text" id="name" value="<?php if (isset($name)) {echo($name);} ?>" class="form-control">
 				</div>
 	</div>	
-    <!-- <tr>
-      <td height="30" colspan="2">&nbsp;</td>
-    </tr>
-    <tr class="table">
-      <td width="50%"><?php echo(getUebersetzung("Benutzername",$sprache,$link)); ?>*</td>
-      <td width="50%"><input name="name" type="text" id="name" value="<?php if (isset($name)) {echo($name);} ?>" maxlength="20"></td>
-    </tr> -->
+	   
     <div class="form-group">
 				<label for="pass" class="col-sm-2 control-label"><?php echo(getUebersetzung("Passwort",$sprache,$link)); ?>*</label>
 				<div class="col-sm-10">
 					<input name="pass" type="password" id="pass" value="<?php if (isset($pass)) {echo($pass);} ?>" class="form-control">
 				</div>
 	</div>	
-    <!-- <tr class="table">
-      <td><?php echo(getUebersetzung("Passwort",$sprache,$link)); ?>*</td>
-      <td><input name="pass" type="password" id="pass" value="<?php if (isset($pass)) {echo($pass);} ?>" maxlength="20"></td>
-    </tr> -->
+    
     <div class="form-group">
-				<label for="pass2" class="col-sm-2 control-label"><?php echo(getUebersetzung("Passwort wiederholen",$sprache,$link)); ?>*</td></label>
+				<label for="pass2" class="col-sm-2 control-label"><?php echo(getUebersetzung("Passwort wiederholen",$sprache,$link)); ?>*</label>
 				<div class="col-sm-10">
 					<input name="pass2" type="password" id="pass2" value="<?php if (isset($pass)) {echo($pass);} ?>" class="form-control">
 				</div>
 	</div>	
-    <!-- <tr class="table">
-      <td><?php echo(getUebersetzung("Passwort wiederholen",$sprache,$link)); ?>*</td>
-      <td><input name="pass2" type="password" id="pass2"  value="<?php if (isset($pass)) {echo($pass);} ?>" maxlength="20"></td>
-    </tr> -->
+	
     <div class="form-group">
-				<label for="rechte" class="col-sm-2 control-label"><?php echo(getUebersetzung("Benutzerrechte",$sprache,$link)); ?>*</td></label>
+				<label for="rechte" class="col-sm-2 control-label"><?php echo(getUebersetzung("Benutzerrechte",$sprache,$link)); ?>*</label>
 				<div class="col-sm-10">
 					<select name="rechte" type="text" id="rechte" class="form-control">
 					<option value="1" <?php if ($rechte == 1) echo(" selected"); ?>><?php echo(getUebersetzung("Benutzer",$sprache,$link)); ?></option>
           			<option value="2" <?php if ($rechte == 2) echo(" selected"); ?>><?php echo(getUebersetzung("Administrator",$sprache,$link)); ?></option> 
+          			</select>
 				</div>
 	</div>	
-    <!-- <tr class="table">
-      <td height="30" colspan="2">&nbsp;</td>
-    </tr>
-    <tr class="table">
-      <td><?php echo(getUebersetzung("Benutzerrechte",$sprache,$link)); ?>*</td>
-      <td><select name="rechte">
-          <option value="1" <?php if ($rechte == 1) echo(" selected"); ?>><?php echo(getUebersetzung("Benutzer",$sprache,$link)); ?></option>
-          <option value="2" <?php if ($rechte == 2) echo(" selected"); ?>><?php echo(getUebersetzung("Administrator",$sprache,$link)); ?></option>
-        </select></td>
-    </tr> -->
-    <tr class="form-group">
-      <td colspan="2">
-        <input name="Submit" type="submit" id="Submit" class="btn btn-success" value="<?php echo(getUebersetzung("Benutzer Ändern",$sprache,$link)); ?>">
-      </td>
-    </tr>
     
-  </table>
- 
-     
+
+ <div class="form-group">
+ 		<div class="col-sm-2">	
+ 		</div>		 
+	<div class="col-sm-10">
+		<input name="Submit" type="submit" id="Submit" class="btn btn-success" value="<?php echo(getUebersetzung("Benutzer Ändern",$sprache,$link)); ?>">
+	</div>
+</div>	
+
 </form>
+</div>
+</div>
 
 <!-- <table  border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
@@ -144,5 +131,5 @@ $sprache = getSessionWert(SPRACHE);
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
-</body>
+
 </html>
