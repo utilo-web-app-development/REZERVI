@@ -47,10 +47,10 @@ include_once($root."/include/sessionFunctions.inc.php");
   <div class="panel-body">
   	
 <form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">	
-<table border="0" cellpadding="0" cellspacing="3" class="frei">
-  <tr>
-    <td><p> 
-	<?php 		
+
+	
+			    	<div class="alert alert-danger" role="alert">
+		  <?php 		
 	 			
 		//Reservierungen und Zimmer l�schen:
 		$anzahl = count($zimmer_pk_id);
@@ -84,11 +84,11 @@ include_once($root."/include/sessionFunctions.inc.php");
 					echo("die Anfrage $query scheitert"); 
 				}			
 			} //ende for
-			echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gel�scht " .
+			echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gelöscht " .
 					"werden",$sprache,$link));
 		}
 		else if (DEMO == true && $anzahl <= 1){
-			echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gel�scht " .
+			echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gelöscht " .
 					"werden",$sprache,$link));
 		}
 		else if (DEMO != true){
@@ -98,7 +98,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 							Rezervi_Reservierung
 	           			 	WHERE
 	           				FK_Zimmer_ID = '$zimmer_pk_id[$i]'
-			    ");          
+			    ");    ?>
+	</div>
+		<div class="alert alert-success" role="alert">
+			    <?php     
 	
 				$res = mysql_query($query, $link);
 				if (!$res) { 
@@ -119,14 +122,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 				}			
 			} //ende for
 			echo(getUebersetzung("Der/die/das Zimmer/Appartement/Wohnung/etc. " .
-				"wurde samt seinen Reservierungen aus der Datenbank gel�scht",$sprache,$link));
+				"wurde samt seinen Reservierungen aus der Datenbank gelöscht",$sprache,$link));
 		} 
-		?>!</p>
-      </td>
-  </tr>
-</table>
+		?>!
+		</div>
 </form>
-<br/>
+
 <!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr> 
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
@@ -146,10 +147,11 @@ include_once($root."/include/sessionFunctions.inc.php");
       </form></td>
   </tr>
 </table> -->
+
 <?php 
 	} //ende if passwortpr�fung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

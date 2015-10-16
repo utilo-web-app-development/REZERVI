@@ -61,6 +61,11 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 {
 ?>
 <div class="panel panel-default">
+  	<div class="panel-body">
+  		  <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+  	</div>
+  </div>
+<div class="panel panel-default">
   <div class="panel-body">
   	
 <h1><?php echo(getUebersetzung("Einstellungen für den Belegungsplan",$sprache,$link)); ?>.</h1>
@@ -68,12 +73,8 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 if (isset($nachricht) && $nachricht != "")
 {
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3">
-	  <tr>
-		<td <?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?></td>
-	  </tr>
-	</table>
-	<br/>
+	<<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
+	
 <?php 
 }
 ?>
@@ -90,7 +91,7 @@ if (isset($nachricht) && $nachricht != "")
 <?php 
 	} //ende if passwortpr�fung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); 

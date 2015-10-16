@@ -48,6 +48,11 @@ $benutzername = getSessionWert(BENUTZERNAME);
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 {
 ?>
+<div class="panel panel-default">
+  	<div class="panel-body">
+  		  <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+  	</div>
+  </div>
  <div class="panel panel-default">
   <div class="panel-body">
   	

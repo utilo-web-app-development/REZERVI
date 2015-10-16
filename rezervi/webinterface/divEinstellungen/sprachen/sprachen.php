@@ -40,7 +40,7 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
   <div class="panel panel-default">
   <div class="panel-body">
   	
-		<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+		<form action="./sprachenAendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 			
 <h2><?php echo(getUebersetzung("Ändern der angezeigten Sprachen",$sprache,$link)); ?>.</h2>
    <h4><?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen",$sprache,$link)); ?>:</h4>
@@ -50,16 +50,15 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
-	  <tr>
-		<td <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } else {echo("class=\"belegt\"");} ?>><?php echo($nachricht) ?></td>
-	  </tr>
-	</table>
-	<br/>
+	
+	 
+		<<?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } else {echo("class=\"belegt\"");} ?>><?php echo($nachricht) ?>
+
+	
 <?php 
 }
 ?>
-<table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
+<table  border="0" cellpadding="0" cellspacing="3" class="table">
   <form action="./sprachenAendern.php" method="post" target="_self">
   <?php
   //sprachen anzeigen die aktiviert sind: 
@@ -79,15 +78,11 @@ if (isset($nachricht) && $nachricht != ""){
 	<?php
   	}
   	?>  
-  <tr>
-    <td colspan="2">
- 	 <?php 
-	  showSubmitButton(getUebersetzung("ändern",$sprache,$link));
-	?>
-	</td>
-  </tr>
+ 
+  </table>
+  <?php showSubmitButton(getUebersetzung("ändern",$sprache,$link));?>
   </form>
-</table>
+
 <br/>
 <!-- <?php 
 	  //-----buttons um zurück zum menue zu gelangen: 

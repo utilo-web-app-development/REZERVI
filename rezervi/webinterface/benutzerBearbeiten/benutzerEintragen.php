@@ -47,8 +47,11 @@ $sprache = getSessionWert(SPRACHE);
 
 <div class="panel panel-default">
   <div class="panel-body">
+  	
+	<div class="alert alert-success" role="alert">
+		  <?php echo(getUebersetzung("Der Benutzer wurde hinzugefügt.",$sprache,$link)); ?></td>
+	</div>
 		
-		<?php echo(getUebersetzung("Der Benutzer wurde hinzugefügt.",$sprache,$link)); ?></td>
 				
 <p>&nbsp;</p>
    <form action="./benutzerAnlegen.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">

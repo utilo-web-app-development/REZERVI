@@ -60,6 +60,11 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 {
 ?>
 <div class="panel panel-default">
+  	<div class="panel-body">
+  		  <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+  	</div>
+  </div>
+<div class="panel panel-default">
   <div class="panel-body">
 <h1><?php echo(getUebersetzung("Einstellungen für Reservierungen",$sprache,$link)); ?>.</h1>
 <?php 
@@ -77,10 +82,10 @@ if (isset($nachricht) && $nachricht != "")
 }
 ?>
 <br/>
-<?php 
+<!-- <?php 
 	  //-----buttons um zur�ck zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
-?>
+?> -->
 <br/>
 <!-- <?php 
 	  //-----buttons um zur�ck zum menue zu gelangen: 

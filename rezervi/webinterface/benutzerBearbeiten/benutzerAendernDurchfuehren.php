@@ -56,10 +56,11 @@ else{
   <div class="panel-body">
 <form action="./benutzerEintragen.php" method="post" name="benutzer" id="benutzer" target="_self" onSubmit="return chkFormular();" class="form-horizontal"> 
   
-		
+	<div class="alert alert-danger" role="alert">
 		  <?php echo(getUebersetzung("Der Testbenutzer kann im Demo-Modus nicht verändert werden.",$sprache,$link)); ?>
+	</div>
+			
 		
-		<br/>
 	<?php
 	}	
 	else if(changeBenutzer($id,$name,$pass,$rechte,$unterkunft_id,$link)){	
@@ -74,14 +75,14 @@ else{
 	?>
 		<?php echo(getUebersetzung("Die Änderung wurde erfolgreich durchgeführt",$sprache,$link)); ?>.</td>
 		
-		<br/>
+	
 	<?php 
 	}
 	?>
 
 
   
-<br/>
+
 <!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">

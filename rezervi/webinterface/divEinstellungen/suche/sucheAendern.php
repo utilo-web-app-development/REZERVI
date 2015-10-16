@@ -3,7 +3,7 @@ $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/propertiesFunctions.php");
@@ -51,7 +51,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $suchFilter = $_POST["suchFilter"];
 
-//Properties für eine bestimmte Unterkunft setzen!
+//Properties fï¿½r eine bestimmte Unterkunft setzen!
   setProperty($kinder,$kinder_wert,$unterkunft_id,$link);
   setProperty($haustiere,$haustiere_wert,$unterkunft_id,$link);
   setProperty($linkName,$link_wert,$unterkunft_id,$link);
@@ -66,8 +66,8 @@ $suchFilter = $_POST["suchFilter"];
 	setProperty(SUCHFILTER_ZIMMER,"false",$unterkunft_id,$link);
   }
   
-    //Dieser Satz muss noch in die Sprachtabellen eingefügt werden.
-	$nachricht = "Die Suchoptionen wurden erfolgreich geändert!";
+    //Dieser Satz muss noch in die Sprachtabellen eingefï¿½gt werden.
+	$nachricht = "Die Suchoptionen wurden erfolgreich geÃ¤ndert!";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
 	$fehler = false;
 
@@ -79,38 +79,45 @@ $suchFilter = $_POST["suchFilter"];
 <?php include_once("../../templates/headerB.php");?>
 <?php include_once("../../templates/bodyA.php");?>
 <?php 
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 {
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Ändern der Suchoptionen",$sprache,$link)); ?>.</p>
+<div class="panel panel-default">
+  	<div class="panel-body">
+  		  <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+  	</div>
+</div>
+<div class="panel panel-default">
+  	<div class="panel-body">
+<h1><?php echo(getUebersetzung("Ã„ndern der Suchoptionen",$sprache,$link)); ?>.</h1>
 <?php 
 if (isset($nachricht) && $nachricht != "")
 {
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3">
-	  <tr>
-		<td <?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?></td>
-	  </tr>
-	</table>
-	<br/>
+	
+	
+		<<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
+
+
+
 <?php 
 }
 ?>
 <br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+<!-- <?php 
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurï¿½ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
+	  //-----buttons um zurï¿½ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenï¿½",$sprache,$link));
+?> -->
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); 
