@@ -11,7 +11,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 */
 
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -120,14 +120,14 @@ include_once($root."/include/sessionFunctions.inc.php");
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<table border="0" cellpadding="0" cellspacing="3" class="table">
-	<tr> 
- 	  <td>
-		<p class="standardSchriftBold"><?php echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen",$sprache,$link)); ?></p>	
-		<?php //passwortprüfung:	
+
+	
+ 	
+		<h1><?php echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen",$sprache,$link)); ?></h1>	
+		<?php //passwortprï¿½fung:	
 			if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 			
-			//prüfung ob alle pflicht-felder eingegeben wurden:
+			//prï¿½fung ob alle pflicht-felder eingegeben wurden:
 			if ( ( ($standardsprache == "de") && ($zimmernr == false    || !isset($zimmernr)) ) ||
 				 ( ($standardsprache == "en") && ($zimmernr_en == false || !isset($zimmernr_en)) ) ||
 				 ( ($standardsprache == "fr") && ($zimmernr_fr == false || !isset($zimmernr_fr)) ) ||
@@ -137,11 +137,9 @@ include_once($root."/include/sessionFunctions.inc.php");
 				 ( ($standardsprache == "es") && ($zimmernr_es == false || !isset($zimmernr_es)) )
 				){
 				?>
-				<table border="0" cellpadding="0" cellspacing="0" class="belegt">
-				  <tr>
-					<td><?php echo(getUebersetzung("Bitte geben Sie die Zimmernummer ihrer Standardsprache ein!",$sprache,$link)); ?></td>
-				  </tr>
-				</table>
+				<div class="alert alert-danger" role="alert">
+				<?php echo(getUebersetzung("Bitte geben Sie die Zimmernummer ihrer Standardsprache ein!",$sprache,$link)); ?></td>
+				</div>
 				<br />
 			<?php
 			include_once("./zimmerAnlegen.php");
@@ -155,23 +153,20 @@ include_once($root."/include/sessionFunctions.inc.php");
 					 ( ($standardsprache == "es") && ($zimmerart_es == false || !isset($zimmerart_es)) )
 					){
 				?>
-				<table border="0" cellpadding="0" cellspacing="0" class="belegt">
-				  <tr>
-					<td><?php echo(getUebersetzung("Bitte geben Sie die Zimmerart ein!",$sprache,$link)); ?></td>
-				  </tr>
-				</table>
-				<br />
+				<div class="alert alert-danger" role="alert">
+					<?php echo(getUebersetzung("Bitte geben Sie die Zimmerart ein!",$sprache,$link)); ?>
+				</div>
+				
+				
 			<?php
 			include_once("./zimmerAnlegen.php");
 			}
 			else if( $betten == "" || $bettenKinder == "" ){
 				?>
-				<table border="0" cellpadding="0" cellspacing="0" class="belegt">
-				  <tr>
-					<td><?php echo(getUebersetzung("Bitte geben Sie die Anzahl der Betten für Kinder und Erwachsene ein!",$sprache,$link)); ?></td>
-				  </tr>
-				</table>
-				<br />
+				<div class="alert alert-danger" role="alert">
+					<?php echo(getUebersetzung("Bitte geben Sie die Anzahl der Betten fÃ¼r Kinder und Erwachsene ein!",$sprache,$link)); ?>
+				</div>
+			
 			<?php
 			include_once("./zimmerAnlegen.php");
 			}
@@ -259,12 +254,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 			$zimmer_id = setZimmer($unterkunft_id,$zimmernr,$betten,$bettenKinder,$zimmerart,$linkName,$haustiere,$link);
 			if ($zimmer_id == false) {
 			?>
-				<table border="0" cellpadding="0" cellspacing="0" class="belegt">
-					  <tr>
-						<td><?php echo(getUebersetzung("Zimmereintragung ist gescheitert, bitte versuchen sie es erneut",$sprache,$link)); ?>.</td>
-					  </tr>
-				</table>
-						<br/>
+			<div class="alert alert-danger" role="alert">
+				
+						<?php echo(getUebersetzung("Zimmereintragung ist gescheitert, bitte versuchen sie es erneut",$sprache,$link)); ?>.
+					  
+			</div>	
+					
 			<?php
 			}
 			else {
@@ -282,11 +277,9 @@ include_once($root."/include/sessionFunctions.inc.php");
 				}
 				
 			?>
-				<table border="0" cellpadding="0" cellspacing="0" class="frei">
-					  <tr>
-						<td><?php echo(getUebersetzung("Zimmer/Appartement/etc. erfolgreich eingetragen",$sprache,$link)); ?>.</td>
-					  </tr>
-				</table>
+				<div class="alert alert-success" role="alert"><?php echo(getUebersetzung("Zimmer/Appartement/etc. erfolgreich eingetragen",$sprache,$link)); ?>.
+				</div>
+				
 			<?php } //ende else 
 			
 			
@@ -315,46 +308,40 @@ include_once($root."/include/sessionFunctions.inc.php");
 		$anzahlVorhandenerZimmer = getAnzahlVorhandeneZimmer($unterkunft_id,$link);
 		if ( $anzahlVorhandenerZimmer < $anzahlZimmer ){
 		?>
-			<table border="0" cellpadding="0" cellspacing="0" class="table">
-			  <tr> 
-				<td><form action="./zimmerAnlegen.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+			<form action="./zimmerAnlegen.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 			
-					<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-				 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("ein weiteres anlegen",$sprache,$link)); ?>">
+					<input name="retour" type="submit" class="btn btn-success" id="retour"  value="<?php echo(getUebersetzung("ein weiteres anlegen",$sprache,$link)); ?>">
 				  </form></td>
-			  </tr>
-			</table>
+			  
 			<br/>
 		<?php
 		}
 		?>
-		</td>
-	</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr> 
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+	
+	
 
-        <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+
+    <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
+
+        <input name="retour2" type="submit" class="btn btn-primary" id="retour2"  value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
+
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr> 
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>    
+</table>  -->   
     <?php 
 	 } //ende else alles korrekt eingeben.
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

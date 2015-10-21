@@ -114,7 +114,7 @@ if (isset($nachricht) && $nachricht != ""){
 ?>
 	
 	
-		<<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
+ <div class="alert alert-info" role="alert"<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
 	  
 
 	

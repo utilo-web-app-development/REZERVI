@@ -50,7 +50,7 @@ while ( $d = mysql_fetch_array($res) ){
 	$zimmer_id = $d['Parent_ID'];
 	if (
 		isset( $_POST['loeschen_'.$zimmer_id] ) && 
-		$_POST['loeschen_'.$zimmer_id] == getUebersetzung("l�schen",$sprache,$link)
+		$_POST['loeschen_'.$zimmer_id] == getUebersetzung("löschen",$sprache,$link)
 		){
 			deleteChildRooms($zimmer_id);
 		}
@@ -82,15 +82,13 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table border="0" cellpadding="0" cellspacing="3" class="table">
-	  <tr>
-		<td <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
+ <div class="alert alert-info" role="alert"
+	<?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
 			else {echo("class=\"belegt\"");} ?>>
 				<?= $nachricht ?>
-		</td>
-	  </tr>
-	</table>
-	<br/>
+</div>
+	  
+	
 <?php 
 }
 ?>
@@ -135,8 +133,7 @@ if (hasParentRooms($unterkunft_id)){
 			<td>
 				<input 
 	  				name="loeschen_<?= $zimmer_id ?>" type="submit" id="aendern" 
-	  				class="button200pxA" onMouseOver="this.className='button200pxB';"
-	   				onMouseOut="this.className='button200pxA';" 
+	  				class="btn btn-danger"
 	   				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
 			</td>
 		</tr>

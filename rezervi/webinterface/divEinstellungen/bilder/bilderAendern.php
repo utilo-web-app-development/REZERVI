@@ -72,16 +72,13 @@ include_once("../../templates/components.php");
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3">
-	  <tr>
-		<td <?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?></td>
-	  </tr>
-	</table>
-	<br/>
+	 <div class="alert alert-info" role="alert"
+		<<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
+</div>
 <?php 
 }
 ?>
-<br/>
+
 <!-- <?php 
 	  //-----buttons um zur�ck zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zur�ck",$sprache,$link));
@@ -94,7 +91,7 @@ if (isset($nachricht) && $nachricht != ""){
 <?php 
 	} //ende if passwortpr�fung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); 

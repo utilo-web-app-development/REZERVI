@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			ein neues zimmer anlegen.
 */
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -22,7 +22,7 @@ include_once("../../include/einstellungenFunctions.php");
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
-//sprachunabhängige variablen:
+//sprachunabhï¿½ngige variablen:
 $strasse = $_POST["strasse"];
 $plz = $_POST["plz"];
 $ort = $_POST["ort"];
@@ -32,7 +32,7 @@ $tel2 = $_POST["tel2"];
 $fax = $_POST["fax"];
 $kindesalter = $_POST["kindesalter"];
 $waehrung = $_POST["waehrung"];
-//variablen sprachabhängig:
+//variablen sprachabhï¿½ngig:
 if (isset($_POST["name_de"])){
 	$name_de = $_POST["name_de"];
 }
@@ -311,11 +311,11 @@ if (
       ) 
    ){
 	$fehler = true;
-	$message = getUebersetzung("Es wurden nicht alle Felder korrekt ausgefüllt!",$sprache,$link);
+	$message = getUebersetzung("Es wurden nicht alle Felder korrekt ausgefÃ¼llt!",$sprache,$link);
 }
 if (empty($waehrung)){
 	$fehler = true;
-	$message = getUebersetzung("Bitte geben sie die Waehrung ein.",$sprache,$link);
+	$message = getUebersetzung("Bitte geben sie die WÃ¤hrung ein.",$sprache,$link);
 }
 if($fehler == true){
 	//zurueck zur eingabeseite:
@@ -330,10 +330,10 @@ else{
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortprüfung:	
+<?php //passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
 	
-	//unterkunft änderung durchführen:	
+	//unterkunft ï¿½nderung durchfï¿½hren:	
 	setUnterkunftStrasse($unterkunft_id,$strasse,$link);
 	setUnterkunftPlz($unterkunft_id,$plz,$link);
 	setUnterkunftOrt($unterkunft_id,$ort,$link);	
@@ -471,37 +471,47 @@ else{
 
 ?>
 
-<table  border="0" cellpadding="0" cellspacing="0" class="frei">
-  <tr>
-    <td><?php echo(getUebersetzung("Die Daten zu Ihrer Unterkunft wurden geändert.",$sprache,$link)); ?></td>
-  </tr>
-</table>
-<p class="standardSchriftBold">&nbsp;</p>
-<table  border="0" cellpadding="0" cellspacing="0" class="table">
+<div class="panel panel-default">
+ 	<div class="panel-body">
+<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+	</div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+ <div class="alert alert-info" role="alert"> 	
+<?php echo(getUebersetzung("Die Daten zu Ihrer Unterkunft wurden geÃ¤ndert.",$sprache,$link)); ?>
+</div> 
+
+<!-- <table  border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="./index.php" method="post" name="unterkunft aendern" target="_self" id="unterkunft aendern">
 
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurï¿½ck",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
-<br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
+</table> -->
+
+<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenï¿½",$sprache,$link)); ?>">
       </form></td>
   </tr>
-</table>
-<?php 
-	} //ende if passwortprüfung
+</table> -->
+
+	<?php 
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
+</div>
+</div>
 </body>
 </html>
 <?php

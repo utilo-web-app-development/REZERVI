@@ -61,12 +61,11 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 if (isset($nachricht) && $nachricht != "")
 {
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3">
-	  <tr>
-		<td <?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?></td>
-	  </tr>
-	</table>
-	<br/>
+	<div class="alert alert-info" role="alert"
+	  <?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
+	</div>
+	 
+	
 <?php 
 }
 ?>

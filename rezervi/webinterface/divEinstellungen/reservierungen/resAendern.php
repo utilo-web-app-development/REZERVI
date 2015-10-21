@@ -72,21 +72,20 @@ if (isset($nachricht) && $nachricht != "")
 {
 ?>
 	
-	  
-		<td <?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} 
-			else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?></td>
-	 
+	<div class="alert alert-info" role="alert"
+		<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} 
+			else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
+	</div>
 
-	<br/>
 <?php 
 }
 ?>
-<br/>
+
 <!-- <?php 
 	  //-----buttons um zur�ck zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?> -->
-<br/>
+
 <!-- <?php 
 	  //-----buttons um zur�ck zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmen�",$sprache,$link));

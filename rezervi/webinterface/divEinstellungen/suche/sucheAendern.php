@@ -95,11 +95,9 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 if (isset($nachricht) && $nachricht != "")
 {
 ?>
-	
-	
-		<<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
-
-
+	 <div class="alert alert-info" role="alert"
+	<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
+</div>
 
 <?php 
 }
@@ -117,7 +115,7 @@ if (isset($nachricht) && $nachricht != "")
 <?php 
 	} //ende if passwortpr�fung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); 

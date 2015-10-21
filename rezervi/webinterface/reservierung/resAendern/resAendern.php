@@ -8,13 +8,13 @@ include_once($root."/include/sessionFunctions.inc.php");
 			daten des gastes aufnehmen
 			author: christian osterrieder utilo.eu					
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss ï¿½bergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 			Zimmer PK_ID ($zimmer_id)
 			Datum: $vonTag,$vonMonat,$vonJahr
 				   $bisTag,$bisMonat,$bisJahr			
 			
-			die seite verwendet anfrage/send.php um das ausgefüllte
+			die seite verwendet anfrage/send.php um das ausgefï¿½llte
 			formular zu versenden
 */ 	
 
@@ -34,7 +34,7 @@ if (isset($_POST["gast_id"])){
 }
 $sprache = getSessionWert(SPRACHE);
         
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 //Unterkunft-funktionen einbeziehen:
 include_once("../../../include/unterkunftFunctions.php");
@@ -61,60 +61,54 @@ if (empty($gast_id) || $gast_id == ""){
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <?php include_once("../../templates/headerB.php"); ?>
-<!-- checken ob formular korrekt ausgefüllt wurde: -->
+<!-- checken ob formular korrekt ausgefï¿½llt wurde: -->
 <script src="./checkForm.php" type="text/javascript">
 </script>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <?php
- 	//zuerst mal prüfen ob datum und so passt:
+ 	//zuerst mal prï¿½fen ob datum und so passt:
 	//variableninitialisierungen:
 	$datumVon = parseDateFormular($vonTag,$vonMonat,$vonJahr);
 	$datumBis = parseDateFormular($bisTag,$bisMonat,$bisJahr);
 
-	//das datum ist nicht korrekt, das von-datum "höher" als bis-datum
+	//das datum ist nicht korrekt, das von-datum "hï¿½her" als bis-datum
 	if (isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr) == FALSE) {
 				
 ?>
-<table border="0" cellpadding="0" cellspacing="0" class="belegt">
-  <tr>
-    <td><p class="standard"><?php echo(getUebersetzung("Das Reservierungs-Datum wurde nicht korrekt angegeben",$sprache,$link)); ?>!</p>
-      <p class="standard"><?php echo(getUebersetzung("Bitte korrigieren Sie das Datum",$sprache,$link)); ?>!</p>
-</td>
-  </tr>
-</table>
-  <table border="0" cellspacing="3" cellpadding="0" class="table">
-    <tr>
-      <td><form action="../ansichtWaehlen.php" method="post" name="adresseForm" target="_self" id="adresseForm" >
+<div class="alert alert-info" role="alert"
+ <h4><?php echo(getUebersetzung("Das Reservierungs-Datum wurde nicht korrekt angegeben",$sprache,$link)); ?>!</h4>
+ <h4><?php echo(getUebersetzung("Bitte korrigieren Sie das Datum",$sprache,$link)); ?>!</h4>
+</div>
+ 
+  
+  <form action="../ansichtWaehlen.php" method="post" name="adresseForm" target="_self" id="adresseForm" >
           <input name="zimmer_id" type="hidden" id="zimmer_id8" value="<?php echo $zimmer_id ?>">
           <input name="monat" type="hidden" id="vonMonat2" value="<?php echo $vonMonat ?>">
           <input name="jahr" type="hidden" id="vonJahr2" value="<?php echo $vonJahr ?>">
-		  <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>"></form></td>
-    </tr>
-  </table>
+		  <input type="submit" name="Submit" class="btn btn-primary" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>"></form></td>
+ 
   <?php
 	}//ende if datum
 	//zimmer ist zu dieser zeit belegt:
 	else if (isRoomTaken($zimmer_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$link) && ($status == 2)){
 	?>
-		<table  border="0" cellpadding="0" cellspacing="0" class="belegt">
-		  <tr>
-			<td><p class="standard"><?php echo(getUebersetzung("Zu diesem Datum existiert bereits eine Reservierung oder die Reservierungen überschneiden sich",$sprache,$link)); ?>!</p>
-		  	<p class="standard"><?php echo(getUebersetzung("Bitte korrigieren Sie das Datum oder löschen Sie die bereits vorhandene Reservierung",$sprache,$link)); ?>!</p>
-		  </td>
-	     </tr>
-	   </table>
+	<div class="alert alert-info" role="alert"
+		 
+			<h4><?php echo(getUebersetzung("Zu diesem Datum existiert bereits eine Reservierung oder die Reservierungen Ã¼berschneiden sich",$sprache,$link)); ?>!</h4>
+		  	<h4><?php echo(getUebersetzung("Bitte korrigieren Sie das Datum oder lÃ¶schen Sie die bereits vorhandene Reservierung",$sprache,$link)); ?>!</h4>
+	</div>
+	    
+	 
 	<table border="0" cellspacing="3" cellpadding="0" class="table">
     <tr>
       <td><form action="../ansichtWaehlen.php" method="post" name="adresseForm" target="_self" id="adresseForm" >
           <input name="zimmer_id" type="hidden" id="zimmer_id8" value="<?php echo $zimmer_id ?>">
           <input name="monat" type="hidden" id="vonMonat2" value="<?php echo $vonMonat ?>">
           <input name="jahr" type="hidden" id="vonJahr2" value="<?php echo $vonJahr ?>">
-		  <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>"></form></td>
+		  <input type="submit" name="Submit" class="btn btn-primary"  value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>"></form></td>
     </tr>
   </table>
 <?php
@@ -123,9 +117,9 @@ if (empty($gast_id) || $gast_id == ""){
 	else{
 ?>
 
-<table border="0" cellpadding="0" cellspacing="0" class="tableColor">
+<table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
-    <td><p><?php echo(getUebersetzung("Reservierungs-Änderung für",$sprache,$link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link)); ?>: <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link)); ?><br/>
+    <td><p><?php echo(getUebersetzung("Reservierungs-Anderung fÃ¼r",$sprache,$link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link)); ?>: <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link)); ?><br/>
         <?php echo(getUebersetzung("von",$sprache,$link)); ?>:<span class="standardSchriftBold"> <?php echo $vonTag ?>. <?php echo $vonMonat ?>. 
         <?php echo $vonJahr ?></span><br/>
         <?php echo(getUebersetzung("bis",$sprache,$link)); ?>:<span class="standardSchriftBold"> <?php echo $bisTag ?>. <?php echo $bisMonat ?>. 
@@ -168,7 +162,7 @@ if ($status != 0) { ?>
   <table border="0" cellspacing="0" cellpadding="3" class="table">
     <tr>
   		<td>
-  			<?php echo(getUebersetzung("Wenn sie keinen Gast eingeben wird die Reservierung für einen anonymen Gast gespeichert",$sprache,$link)); ?>.
+  			<?php echo(getUebersetzung("Wenn sie keinen Gast eingeben wird die Reservierung fï¿½r einen anonymen Gast gespeichert",$sprache,$link)); ?>.
   		</td>
   	</tr>
   	<tr>
@@ -193,14 +187,14 @@ if ($status != 0) { ?>
   <br/>
 <table border="0" cellspacing="0" cellpadding="0" class="table">
   <tr>
-    <td><p class="standardSchrift"><?php echo(getUebersetzung("Bitte geben Sie hier den Gast ein, oder wählen Sie einen bereits vorhanden Gast aus der Liste aus",$sprache,$link)); ?>:</p>
+    <td><p class="standardSchrift"><?php echo(getUebersetzung("Bitte geben Sie hier den Gast ein, oder wï¿½hlen Sie einen bereits vorhanden Gast aus der Liste aus",$sprache,$link)); ?>:</p>
       <form action="./resAendern.php" method="post" name="gastWaehlen" target="_self">
         <table border="0" cellspacing="0" cellpadding="0">
           <tr class="standardSchrift"> 
-            <td><?php echo(getUebersetzung("Gast auswählen",$sprache,$link)); ?></td>
+            <td><?php echo(getUebersetzung("Gast auswï¿½hlen",$sprache,$link)); ?></td>
             <td><select name="gast_id" id="select" onChange="submit()">
                 <option value="-1" selected><?php echo(getUebersetzung("neuer Gast",$sprache,$link)); ?></option>
-                <?php //alle gäste dieser unterkunft vorschlagen:
+                <?php //alle gï¿½ste dieser unterkunft vorschlagen:
 		  	$query = ("SELECT 
 					   PK_ID,Vorname,Nachname,Ort
 					   FROM
@@ -243,7 +237,7 @@ if ($status != 0) { ?>
      
 	    <table border="0" cellspacing="0" cellpadding="3">
           <tr class="standardSchrift"> 
-            <td><?php echo(getUebersetzung("neuer Gast/Gast ändern",$sprache,$link)); ?>:</td>
+            <td><?php echo(getUebersetzung("neuer Gast/Gast ï¿½ndern",$sprache,$link)); ?>:</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
           </tr>
@@ -274,7 +268,7 @@ if ($status != 0) { ?>
             <td>&nbsp;</td>
           </tr>
           <tr class="standardSchrift"> 
-            <td><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?>*</td>
+            <td><?php echo(getUebersetzung("Straï¿½e/Hausnummer",$sprache,$link)); ?>*</td>
             <td><input name="strasse" type="text" id="strasse2" <?php if (!(empty($gast_id))){
 																echo("value=\"".getGuestStrasse($gast_id,$link)."\"");	
 															  } ?>></td>
@@ -366,7 +360,7 @@ if ($status != 0) { ?>
             <td>&nbsp;</td>
           </tr>
           <tr class="standardSchrift"> 
-            <td colspan="3"><?php echo(getUebersetzung("Bitte geben Sie hier die Anzahl der Gäste für die Reservierung/Belegung ein",$sprache,$link)); ?>:</td>
+            <td colspan="3"><?php echo(getUebersetzung("Bitte geben Sie hier die Anzahl der Gï¿½ste fï¿½r die Reservierung/Belegung ein",$sprache,$link)); ?>:</td>
           </tr>
           <tr class="standardSchrift"> 
             <td><?php echo(getUebersetzung("Anzahl Erwachsene",$sprache,$link)); ?></td>
@@ -407,7 +401,7 @@ if ($status != 0) { ?>
               <tr class="standardSchrift">
                 <td>
                   <?php
-                  	echo(getUebersetzung("Übernachtung",$sprache,$link));
+                  	echo(getUebersetzung("ï¿½bernachtung",$sprache,$link));
                   ?>
                 </td>
 			    <td>
@@ -421,7 +415,7 @@ if ($status != 0) { ?>
 			  <tr class="standardSchrift">
                 <td>
                   <?php
-                  	echo(getUebersetzung("Frühstück",$sprache,$link));
+                  	echo(getUebersetzung("Frï¿½hstï¿½ck",$sprache,$link));
                   ?>
                 </td>
 			    <td>
@@ -460,7 +454,7 @@ if ($status != 0) { ?>
   			  }
   			  ?>
         </table>
-        <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!) 
+        <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder mï¿½ssen ausgefï¿½llt werden",$sprache,$link)); ?>!) 
          
 		  <input name="gast_id" type="hidden" id="gast_id" value="<?php echo $gast_id ?>">
         </p>        
@@ -482,12 +476,12 @@ if ($status != 0) { ?>
 	    </p>
 	  </form>
           <?php } //ende if status != frei
-	  		else { //wenn nur frei dann daten löschen und nur ok-button anzeigen:
+	  		else { //wenn nur frei dann daten lï¿½schen und nur ok-button anzeigen:
 			?>
 			<br/>
 			<table cellspacing="0" cellpadding="0" class="belegt">
 			<?php
-			//alle Reservierungen ausgeben die gelöscht werden, wenn auf ok gedrueckt wird:
+			//alle Reservierungen ausgeben die gelï¿½scht werden, wenn auf ok gedrueckt wird:
 			$vonDatum = parseDateFormular($vonTag,$vonMonat,$vonJahr);
 			$bisDatum = parseDateFormular($bisTag,$bisMonat,$bisJahr);
 			$result = getReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link);
@@ -495,7 +489,7 @@ if ($status != 0) { ?>
 			while($d = mysql_fetch_array($result)){
 				if ($first){ ?>					
 					  <tr><td class="standardSchrift">
-					  <?php echo(getUebersetzung("Folgende Reservierungen werden gelöscht",$sprache,$link)); ?>:
+					  <?php echo(getUebersetzung("Folgende Reservierungen werden gelï¿½scht",$sprache,$link)); ?>:
 					  </td></tr>						 
 				<?php }
 				$first = false;
@@ -542,9 +536,9 @@ if ($status != 0) { ?>
     </td>
   </tr>
 </table>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprï¿½fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - Passwortprï¿½fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

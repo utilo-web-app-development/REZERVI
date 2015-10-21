@@ -72,9 +72,9 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 <?php 
 if (isset($nachricht) && $nachricht != "")
 {
-?>
+?><div class="alert alert-info" role="alert"
 	<<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
-	
+</div>
 <?php 
 }
 ?>

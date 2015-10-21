@@ -84,27 +84,32 @@ $benutzername = getSessionWert(BENUTZERNAME);
 ?>
 <h3><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes",$sprache,$link)); ?>.</h3>
 
+<div class="panel panel-default">
+ 	<div class="panel-body">
+<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+	</div>
+</div>
 
 <div class="panel panel-default">
   <div class="panel-body">
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3" <? if (isset($fehler) && $fehler == true) { ?> class="belegt" <? } else { ?> class="frei" <? } ?>>
-	  <tr>
-		<td><?php echo($nachricht) ?></td>
-	  </tr>
-	</table>
-	<br/>
+ <div class="alert alert-info" role="alert" <? if (isset($fehler) && $fehler == true) { ?> class="belegt" <? } else { ?> class="frei" <? } ?>>
+	  
+		<?php echo($nachricht) ?>
+	  
+
+	
 <?php 
 }
 ?>
-<br/>
-<?php 
+
+<!-- <?php 
 	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
-?>
-<br/>
+?> -->
+
 <!-- <?php 
 	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));

@@ -300,9 +300,9 @@ include_once($root."/include/sessionFunctions.inc.php");
     <?php
     }
     ?>
-    <tr> 
-      <td height="30" colspan="2">&nbsp;</td>
-    </tr>
+  
+      <!-- <td height="30" colspan="2">&nbsp;</td>
+    </tr> -->
     <?php
     if (isGermanShown($unterkunft_id,$link)){
     ?>
@@ -616,19 +616,26 @@ include_once($root."/include/sessionFunctions.inc.php");
 		      
 		      	<input name="attWert_<?= $att_id ?>" type="text" 
 		      		   id="attWert_<?= $att_id ?>"
-		      		   value="" />
+		      		   value="" />>
 		     
 			<?php
 		}
 	}
     ?>
- </div>
-</div>
+
+<div class="col-sm-2">
+			
+				<div class="col-sm-10">
+					<input name="Submit" type="submit" id="Submit" class="btn btn-success"
+      value="<?php echo(getUebersetzung("Zimmer eintragen",$sprache,$link)); ?>">
+				</div>
+	</div>
   
+</div>
+</div>
 </form>
 
-  <input name="Submit" type="submit" id="Submit" class="btn btn-success"
-      value="<?php echo(getUebersetzung("Zimmer eintragen",$sprache,$link)); ?>">
+  
  
 
 <!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
