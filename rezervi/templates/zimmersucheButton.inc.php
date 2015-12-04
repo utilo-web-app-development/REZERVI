@@ -6,12 +6,17 @@
  */
 ?>
 <!-- zimmersuche starten: -->
-  <form action="./suche/index.php" method="post" name="suche" target="kalender">
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+  <form action="./suche/index.php" method="post" name="suche" target="kalender" class="form-horizontal">
     <input name="keineSprache" type="hidden" value="true">
     <div align="left">
-      <input name="suche" type="submit" id="suche" value="<?php echo(getUebersetzung("Suchformular öffnen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
-	   onMouseOut="this.className='button200pxA';">
+      <input name="suche" type="submit" id="suche" value="<?php echo(getUebersetzung("Suchformular Ã¶ffnen",$sprache,$link)); ?>" class="btn btn-primary">
       <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
       <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">		  
     </div>
   </form>
+  
+</div>
+</div>

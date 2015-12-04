@@ -17,13 +17,29 @@
  }
  
 ?>
-<span class="standardSchriftBold"><?php echo(getUebersetzung("Belegungsplan für:",$sprache,$link)); ?></span>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+<h4><?php echo(getUebersetzung("Belegungsplan fÃ¼r:",$sprache,$link)); ?></h4>
 <br/>
-  <form action="./ansichtWaehlen.php" method="post" name="ZimmerNrForm" target="kalender">
-    <table border="0" cellspacing="3" cellpadding="0">
-      <tr>
-        <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Jahr",$sprache,$link)); ?></span></td>
-        <td><div align="right">
+  <!-- <form action="./ansichtWaehlen.php" method="post" name="ZimmerNrForm" target="kalender"> -->
+   
+   <form action="./ansichtWaehlen.php" method="post" name="ZimmerNrForm" target="kalender" class="form-horizontal">
+			
+			<div class="form-group">
+				<label for="Jahr" class="col-sm-2 control-label"><?php echo(getUebersetzung("Jahr",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<select name="jahr" type="text" id="jahr" value="" class="form-control" onchange="zimmerNrFormJahrChanged()" >
+						<?php				
+			for ($l=getTodayYear(); $l < (getTodayYear()+4); $l++){ ?>
+              <option value="<?php echo($l); ?>"<?php if ($l == $jahr) echo(" selected"); ?>><?php echo($l); ?></option>
+              <?php } ?>
+            </select>
+				</div>
+			</div>		
+        <!-- <span class="standardSchriftBold"><?php echo(getUebersetzung("Jahr",$sprache,$link)); ?></span></td>
+        <<div align="right">
             <select name="jahr" class="tableColor" id="jahr" onchange="zimmerNrFormJahrChanged()">
               <?php				
 			for ($l=getTodayYear(); $l < (getTodayYear()+4); $l++){ ?>
@@ -31,8 +47,20 @@
               <?php } ?>
             </select>
           </div></td>
-      </tr>
-      <tr>
+      </tr> -->
+      
+			<div class="form-group">
+				<label for="Jahr" class="col-sm-2 control-label"><?php echo(getUebersetzung("Monat",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<select name="monat" class="form-control" id="monat" onchange="zimmerNrFormJahrChanged()">
+              <?php
+			for ($i=1; $i<=12; $i++) { ?>
+              <option value="<? echo($i); ?>" <? if ($i == parseMonthNumber(getTodayMonth())) echo("selected"); ?>><? echo(getUebersetzung(parseMonthName($i),$sprache,$link)); ?></option>
+              <? } ?>
+            </select>
+				</div>
+			</div>		
+      <!-- <tr>
         <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Monat",$sprache,$link)); ?></span></td>
         <td><div align="right">
             <select name="monat" class="tableColor" id="monat" onchange="zimmerNrFormJahrChanged()">
@@ -42,14 +70,15 @@
               <? } ?>
             </select>
           </div></td>
-      </tr>
+      </tr> -->
       <?php
       //auswahl der zimmer:
       if ($showSelectRooms){
       ?>
-      <tr>
-        <td>
-          <span class="standardSchriftBold">				
+      
+      
+      <div class="form-group">
+				<label for="Jahr" class="col-sm-2 control-label"> <h4>				
 				<?php
 				if (getAnzahlZimmer($unterkunft_id,$link) > 1){
 					echo(getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
@@ -58,8 +87,24 @@
 					echo(getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 				}
 				?> 
-          </span>
-        </td>
+          </h4></label>
+				<div class="col-sm-10">
+					<select name="zimmer_id" class="form-control" id="zimmer_id" onchange="zimmerNrFormJahrChanged()">
+              <?
+				$res = getZimmer($unterkunft_id,$link);
+ 				while($d = mysql_fetch_array($res)) { ?>
+              <option <? if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> 
+              	value="<? echo $d["PK_ID"] ?>">
+              <?php
+			  		$temp = $d["Zimmernr"]; 
+			  		echo(getUebersetzungUnterkunft($temp,$sprache,$unterkunft_id,$link)); ?>
+              </option>
+              <? } ?>
+            </select>
+				</div>
+			</div>		
+			   
+        <!-- </td>
         <td>
         	<div align="right">
             <select name="zimmer_id" class="tableColor" id="zimmer_id" onchange="zimmerNrFormJahrChanged()">
@@ -76,9 +121,12 @@
             </select>
           </div>
         </td>
-      </tr>
+      </tr> -->
       <?php
       }
       ?>
-    </table>
+
+   
   </form>
+       </div>
+     </div>

@@ -135,9 +135,9 @@ include_once("./templates/headerB.php");
         <div align="right">          
           <input name="monat" type="hidden" id="monat" value="<? echo($mon); ?>">
           <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
-          <input name="zurueck" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+          <input name="zurueck" type="submit" class="btn btn-primary"
        onMouseOut="this.className='button200pxA';" onClick="updateLeft(<?php echo(($mon).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" 
-	   value="<?php echo(getUebersetzung("einen Monat zurück",$sprache,$link)); ?>">
+	   value="<?php echo(getUebersetzung("einen Monat zurï¿½ck",$sprache,$link)); ?>">
         </div>
       </form>
       <?php }
@@ -162,8 +162,7 @@ include_once("./templates/headerB.php");
 																echo($mo); 
 																?>">
         <input name="jahr" type="hidden" id="jahr" value="<? echo ($ja); ?>">
-        <input name="weiter" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" onClick="updateLeft(<?php echo(($mo).",".($ja)).",".($zimmer_id); ?>,1);" id="weiter" 
+        <input name="weiter" type="submit" class="btn btn-primary" onClick="updateLeft(<?php echo(($mo).",".($ja)).",".($zimmer_id); ?>,1);" id="weiter" 
 	   value="<?php echo(getUebersetzung("einen Monat weiter",$sprache,$link)); ?>">
       </form>
       <?php } ?>

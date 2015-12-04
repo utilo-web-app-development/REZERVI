@@ -62,6 +62,7 @@ else{
 </div>
 <div class="panel panel-default">
   <div class="panel-body">
+	<div class="alert alert-info" role="alert"
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -74,7 +75,7 @@ if (isset($nachricht) && $nachricht != ""){
 <?php 
 }
 ?>
-<br/>
+</div>
 <!-- <?php 
 	  //-----buttons um zur�ck zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));

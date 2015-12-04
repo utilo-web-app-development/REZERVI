@@ -77,14 +77,15 @@ if ($sizeRoomSelectBox > 5){
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table border="0" cellpadding="0" cellspacing="3" class="table">
-	  <tr>
-		<td <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
+<div class="alert alert-info" role="alert"
+	
+	  <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
 			else {echo("class=\"belegt\"");} ?>>
 				<?= $nachricht ?>
-		</td>
-	  </tr>
-	</table>
+	
+	
+	
+</div>
 	<br/>
 <?php 
 }

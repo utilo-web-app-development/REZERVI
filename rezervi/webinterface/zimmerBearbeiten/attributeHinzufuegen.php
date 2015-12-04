@@ -51,18 +51,20 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	<?= getUebersetzung("Weitere Attribute für Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link) ?>.
 </h1>
 </br>
+
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
-	<table border="0" cellpadding="0" cellspacing="3" class="table">
-	  <tr>
-		<td <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
+<div class="alert alert-info" role="alert"
+	
+	<?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
 			else {echo("class=\"belegt\"");} ?>>
 				<?= $nachricht ?>
-		</td>
-	  </tr>
-	</table>
+		
+	
 	<br/>
+	
+</div>
 <?php 
 }
 ?>
@@ -124,7 +126,7 @@ if (isset($nachricht) && $nachricht != ""){
 <h4>
 	<?= getUebersetzung("Attribute anzeigen",$sprache,$link) ?>:
 </h4>
-<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
+<table border="0" cellpadding="0" cellspacing="3" class="table">
 	<tr>
 		<td>
 			<?= getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
@@ -142,19 +144,12 @@ if (isset($nachricht) && $nachricht != ""){
 	</tr>
 </table>
 <br/>
-<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
-	<tr>
-		<td colspan="3">
+
 			<input 
   				name="aendern" type="submit" id="aendern" 
   				class="btn btn-success" 
    				value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
-		</td>
-	</tr>
-</table>
-</form>
-</br>
-    	
+
     	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
@@ -171,7 +166,7 @@ if (isset($nachricht) && $nachricht != ""){
 <?php
 }
 else {
-	echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
 ?>   
 </body>

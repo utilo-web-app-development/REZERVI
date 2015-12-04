@@ -2,7 +2,7 @@
 $root = ".";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once($root."/conf/rdbmsConfig.php");
 include_once($root."/include/sessionFunctions.inc.php");
 include_once($root."/include/reservierungFunctions.php");
@@ -12,10 +12,10 @@ include_once($root."/include/uebersetzer.php");
 include_once($root."/include/unterkunftFunctions.php");
 include_once($root."/include/propertiesFunctions.php");
 include_once($root."/include/autoResponseFunctions.php");
-//alte sessions löschen:
+//alte sessions lï¿½schen:
 destroyInactiveSessions();
 
-	//variablen aus übergebener url auslesen:
+	//variablen aus ï¿½bergebener url auslesen:
 	//variablen kommen von suche.php:
 	if (isset($_POST["keineSprache"])){
 		$keineSprache = $_POST["keineSprache"];
@@ -28,7 +28,7 @@ destroyInactiveSessions();
 	
 	if (isset($_GET["unterkunft_id"])){ //start.php wurde direkt per get aufgerufen:
 		$unterkunft_id = $_GET["unterkunft_id"];
-		//zerstöre session daten falls schon welche vorhanden sind:
+		//zerstï¿½re session daten falls schon welche vorhanden sind:
 		//destroySession();
 		if (isset($_GET["sprache"])){
 			$sprache = $_GET["sprache"];
@@ -87,11 +87,11 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 		$horizontal = true;
 	}	
 	
-	//prüfe ob alte reservierungen zu löschen sind:
+	//prï¿½fe ob alte reservierungen zu lï¿½schen sind:
 	$xDays = getPropertyValue(RESERVATION_STATE_TIME,$unterkunft_id,$link);
 	if (!empty($xDays) && $xDays > 0){
-		//sollen die gäste per mail über die löschung
-		//ihrer reservierung verständigt werden?
+		//sollen die gï¿½ste per mail ï¿½ber die lï¿½schung
+		//ihrer reservierung verstï¿½ndigt werden?
 		$ablehnungSenden = isMessageActive($unterkunft_id,AUTO_RESPONSE_ABLEHNUNG,$link);
 		
 		if (!empty($ablehnungSenden) && $ablehnungSenden == true){
@@ -109,7 +109,7 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 	<html>
 	<head>
-	<title>Zimmerreservierungsplan Belegungsplan und Gästedatenbank Rezervi</title>
+	<title>Zimmerreservierungsplan Belegungsplan und GÃ¤stedatenbank Rezervi</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	</head>
 	<frameset 
@@ -137,12 +137,12 @@ else{
 	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 	<html>
 	<head>
-	<title>Zimmerreservierungsplan Belegungsplan und Gästedatenbank Rezervi</title>
+	<title>Zimmerreservierungsplan Belegungsplan und Gï¿½stedatenbank Rezervi</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	</head>
 	<body>
 	<?php
-	//pruefen ob installation schon durchgeführt wurde:
+	//pruefen ob installation schon durchgefï¿½hrt wurde:
 	if (isInstalled($unterkunft_id)){
 		echo(getUebersetzung("Es wurden noch keine Mietobjekte (z. B. Zimmer) eingegeben. Bitte rufen sie das Webinterface auf und geben sie ihre Mietobjekte ein.",$sprache,$link));
 		?>

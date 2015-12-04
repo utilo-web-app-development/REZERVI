@@ -19,27 +19,61 @@
  if ($showGesamtansicht == "true"){
  	$anzahlAnsichten++;
  }
- //ansicht-auswahl nur anzeigen wenn mehr als 1 ansicht möglich ist:
+ //ansicht-auswahl nur anzeigen wenn mehr als 1 ansicht mï¿½glich ist:
  if ($anzahlAnsichten>1){
 ?>
-<span class="standardSchriftBold"><?php echo(getUebersetzung("Ansicht für",$sprache,$link)); ?>:</span>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+  	<h4><?php echo(getUebersetzung("Ansicht fÃ¼r",$sprache,$link)); ?>:</h4>
+  	
+  	<form action="./ansichtWaehlen.php" method="post" name="ansichtWaehlen" target="kalender" class="form-horizontal">
+  		
+  		
+				<div class="col-sm-12">
+					<select name="ansichtWechsel" onchange="submit()" class="form-control">
+	    <?php
+	    if ($showMonatsansicht == "true"){
+	    ?>
+	    	<option value="0" <?php if (isset($ansicht) && $ansicht == 0) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("MonatsÃ¼bersicht",$sprache,$link)); ?></option>
+	    <?php
+	    }
+	    if ($showJahresansicht == "true"){
+	    ?>
+	    	<option value="1" <?php if (isset($ansicht) && $ansicht == 1) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("JahresÃ¼bersicht",$sprache,$link)); ?></option>
+	    <?php
+	    }
+	    if ($showGesamtansicht == "true"){
+	    ?>
+	    	<option value="2" <?php if (isset($ansicht) && $ansicht == 2) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("GesamtÃ¼bersicht",$sprache,$link)); ?></option>
+	  	<?php
+	    }
+	    ?>
+	  </select>
+	  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
+	  <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
+	  <input name="monat" type="hidden" id="monat" value="<? echo(parseMonthNumber(getTodayMonth())); ?>">
+				</div>
+				
+  		
+<!-- <span class="standardSchriftBold"><?php echo(getUebersetzung("Ansicht fï¿½r",$sprache,$link)); ?>:</span>
 <form action="./ansichtWaehlen.php" method="post" name="ansichtWaehlen" target="kalender">
 	<div align="left">
 	  <select name="ansichtWechsel" onchange="submit()" class="button200pxA">
 	    <?php
 	    if ($showMonatsansicht == "true"){
 	    ?>
-	    	<option value="0" <?php if (isset($ansicht) && $ansicht == 0) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("Monatsübersicht",$sprache,$link)); ?></option>
+	    	<option value="0" <?php if (isset($ansicht) && $ansicht == 0) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("Monatsï¿½bersicht",$sprache,$link)); ?></option>
 	    <?php
 	    }
 	    if ($showJahresansicht == "true"){
 	    ?>
-	    	<option value="1" <?php if (isset($ansicht) && $ansicht == 1) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("Jahresübersicht",$sprache,$link)); ?></option>
+	    	<option value="1" <?php if (isset($ansicht) && $ansicht == 1) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("Jahresï¿½bersicht",$sprache,$link)); ?></option>
 	    <?php
 	    }
 	    if ($showGesamtansicht == "true"){
 	    ?>
-	    	<option value="2" <?php if (isset($ansicht) && $ansicht == 2) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("Gesamtübersicht",$sprache,$link)); ?></option>
+	    	<option value="2" <?php if (isset($ansicht) && $ansicht == 2) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung("Gesamtï¿½bersicht",$sprache,$link)); ?></option>
 	  	<?php
 	    }
 	    ?>
@@ -48,7 +82,9 @@
 	  <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
 	  <input name="monat" type="hidden" id="monat" value="<? echo(parseMonthNumber(getTodayMonth())); ?>">
 	</div>
-</form>
+</form> -->
 <?php
 } //end if ansichten > 0
 ?>
+</div>	
+</div>

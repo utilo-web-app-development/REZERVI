@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	gast-infos anzeigen und evt. ändern:
+	gast-infos anzeigen und evt. ï¿½ndern:
 	author: christian osterrieder utilo.eu
 			
-	dieser seite muss übergeben werden:
+	dieser seite muss ï¿½bergeben werden:
 	Gast PK_ID $gast_id
 	$unterkunft_id
 */
@@ -30,7 +30,7 @@ $speech = $_POST["speech"];
 $anmerkungen = $_POST["anmerkungen"];
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank ï¿½ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -48,7 +48,7 @@ include_once("../../../include/benutzerFunctions.php");
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <?php 
 	//nachsehen ob der gast bereits existiert:
@@ -58,49 +58,37 @@ include_once("../../../include/benutzerFunctions.php");
 	if ($gast_id == -1) {
 		$gast_id = insertGuest($unterkunft_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$fax,$anmerkungen,$speech,$link);	
 		?>
-		<table class="frei"><tr><td><?php echo(getUebersetzung("Der Gast wurde neu angelegt und erfolgreich in der Datenbank gespeichert",$sprache,$link)); ?>!</td></tr></table>
+		<div class="alert alert-info" role="alert">
+		<?php echo(getUebersetzung("Der Gast wurde neu angelegt und erfolgreich in der Datenbank gespeichert",$sprache,$link)); ?>!</div>
 		<?php
 	}
-	else{//2. gast ist bereits vorhanden und wurde gändert
+	else{//2. gast ist bereits vorhanden und wurde gï¿½ndert
 		updateGuest($gast_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$fax,$anmerkungen,$speech,$link);	
 		?>
-		<table class="belegt"><tr><td><?php echo(getUebersetzung("Ein Gast mit denselben Daten existiert bereits, die Daten wurden ergänzt bzw. korregiert",$sprache,$link)); ?>.</td></tr></table>
+		<div class="alert alert-info" role="alert">
+		<?php echo(getUebersetzung("Ein Gast mit denselben Daten existiert bereits, die Daten wurden ergÃ¤nzt bzw. korregiert",$sprache,$link)); ?>.</div>
 		<?php
 	}
 		
 ?>
-<br/><table border="0" cellspacing="3" cellpadding="0" class="table">
-  <tr>
-    <td><form action="./index.php" method="post" name="form1" target="_self">
-        <input name="nochmal" type="submit" class="button200pxA" id="nochmal" 
-			onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("einen weiteren Gast anlegen",$sprache,$link)); ?>">
-    </form></td>
-  </tr>
-</table>
-<br/>
-<table border="0" cellspacing="3" cellpadding="0" class="table">
-  <tr>
-    <td><form action="../index.php" method="post" name="form1" target="_self">
-        <input name="zurueck" type="submit" class="button200pxA" id="zurueck" 
-			onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-    </form></td>
-  </tr>
-</table>
-<br/>
-<table border="0" cellspacing="3" cellpadding="0" class="table">
-  <tr>
-    <td><form action="../../inhalt.php" method="post" name="form1" target="_self">
-        <input name="hauptmenue" type="submit" class="button200pxA" id="hauptmenue" 
-			onMouseOver="this.className='button200pxB';"
-       		onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
-    </form></td>
-  </tr>
-</table>
-<?php } //ende passwortprüfung 
+<div class="panel panel-default">
+  	<div class="panel-body">
+  		<a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+	</div>
+</div>
+
+  <div class="panel panel-default">
+  <div class="panel-body">
+  	
+<form action="./index.php" method="post" name="form1" target="_self">
+        <input name="nochmal" type="submit" class="btn btn-success" id="nochmal" 
+			 value="<?php echo(getUebersetzung("einen weiteren Gast anlegen",$sprache,$link)); ?>">
+ </form>
+  
+  
+<?php } //ende passwortprï¿½fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

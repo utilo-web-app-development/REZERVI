@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			eine angefragte reservierung bestätigen - als belegt im plan eintragen
+			eine angefragte reservierung bestï¿½tigen - als belegt im plan eintragen
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss ï¿½bergeben werden:
 			Benutzer PK_ID $benutzer_id
 			Reservierung PK_ID $reservierungs_id
 			Unterkunft PK_ID $unterkunft_id
@@ -31,7 +31,7 @@ else{
 
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -55,15 +55,23 @@ $sprache = getSessionWert(SPRACHE);
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortprüfung:	
+<?php //passwortprï¿½fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Reservierungsanfrage bestätigen",$sprache,$link)); ?></p>
+<div class="panel panel-default">
+  	<div class="panel-body">
+  		  <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?></a>
+  	</div>
+  </div>
+<div class="panel panel-default">
+  <div class="panel-body">
+<h1><?php echo(getUebersetzung("Reservierungsanfrage bestÃ¤tigen",$sprache,$link)); ?></h1>
+
 <?php
 
 	foreach ($reservierungen as $res_id){
 		
-		//zuerst prüfen ob nicht mitlerweile eine andere buchung eingetragen wurde:
+		//zuerst prï¿½fen ob nicht mitlerweile eine andere buchung eingetragen wurde:
 		$vonDatum = getDatumVon($res_id,$link);
 		$bisDatum = getDatumBis($res_id,$link);
 		
@@ -79,16 +87,14 @@ $sprache = getSessionWert(SPRACHE);
 		
 		if (isRoomTaken($zimmer_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$link)){	
 		?>
-		<table border="0" cellpadding="0" cellspacing="0" class="tableColor">
-		  <tr>
-		    <td><p class="standardSchriftBold"><?php echo(getUebersetzung("Zu dieser Zeit ist bereits eine Buchung eingetragen!",$sprache,$link)); ?></p>
-		        <p class="standardSchriftBold"><?php echo(getUebersetzung("Bitte löschen sie zuerst bereits vorhandene Buchungen zu diesem Datum!",$sprache,$link)); ?></p>
-			</td>
-		  </tr>
-		</table>
-		<br/>
+	<div class="alert alert-info" role="alert">
+		
+		<h4><?php echo(getUebersetzung("Zu dieser Zeit ist bereits eine Buchung eingetragen!",$sprache,$link)); ?></h4>
+		<h4><?php echo(getUebersetzung("Bitte lÃ¶schen sie zuerst bereits vorhandene Buchungen zu diesem Datum!",$sprache,$link)); ?></h4>
+	</div>
+		
 		<?php
-		showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+		showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 		}
 		else{
 			//belegung eintragen
@@ -113,14 +119,14 @@ $sprache = getSessionWert(SPRACHE);
 	}
 			
 	?>
-	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
-	  <tr>
-	    <td><p><?php echo(getUebersetzung("Die Reservierungsanfrage",$sprache,$link)); ?>
+	
+	
+	 <?php echo(getUebersetzung("Die Reservierungsanfrage",$sprache,$link)); ?>
 	        <?php echo(getGuestVorname($gast_id,$link)." ".getGuestNachname($gast_id,$link)); ?>
-	        <br/>
-	        <?php echo(getUebersetzung("von",$sprache,$link)); ?> <?php echo($vonDatum); ?><br/>
-	        <?php echo(getUebersetzung("bis",$sprache,$link)); ?> <?php echo($bisDatum); ?><br/>
-	        <?php echo(getUebersetzung("wurde erfolgreich als",$sprache,$link)); ?> <span class="belegt">&quot;<?php echo(getUebersetzung("belegt",$sprache,$link)); ?>&quot;</span> <?php echo(getUebersetzung("in den Reservierungsplan aufgenommen",$sprache,$link)); ?>.</p>
+	     
+	        <?php echo(getUebersetzung("von",$sprache,$link)); ?> <?php echo($vonDatum); ?>
+	        <?php echo(getUebersetzung("bis",$sprache,$link)); ?> <?php echo($bisDatum); ?>
+	        <?php echo(getUebersetzung("wurde erfolgreich als",$sprache,$link)); ?> <span class="belegt">&quot;<?php echo(getUebersetzung("belegt",$sprache,$link)); ?>&quot;</span> <?php echo(getUebersetzung("in den Reservierungsplan aufgenommen",$sprache,$link)); ?>.
 	     
 	      <?php if ($antwort == "true"){ 
 	         
@@ -142,11 +148,31 @@ $sprache = getSessionWert(SPRACHE);
 			 $message .= $unt;
 	      }
 	      	?>
-	      <p><?php echo(getUebersetzung("Die folgende Mitteilung wird per E-Mail an Ihren Gast gesendet. Sie haben hier die Möglichkeiten noch Korrekturen vorzunehmen",$sprache,$link)); ?>:</p>
-		<form action="./bestaetigungSenden.php" method="post" name="bestaetigungSenden" target="_self">
+	      	
+	      <?php echo(getUebersetzung("Die folgende Mitteilung wird per E-Mail an Ihren Gast gesendet. Sie haben hier die MÃ¶glichkeiten noch Korrekturen vorzunehmen",$sprache,$link)); ?>:
+		
+		<!-- <form action="./bestaetigungSenden.php" method="post" name="bestaetigungSenden" target="_self"> -->
+			
+		<form action="./bestaetigungSenden.php" method="post" name="bestaetigungSenden" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 		<input name="an" type="hidden" value="<?php echo($an); ?>">
 		<input name="von" type="hidden" value="<?php echo($von); ?>">
-		<table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
+	
+			
+			<div class="form-group">
+				<label for="anrede" class="col-sm-2 control-label"><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?> </label>
+				<div class="col-sm-10">
+					<input name="subject" type="text" id="subject_de" value="<?php echo($subject); ?>" class="form-control" >
+				</div>
+			</div>	
+			
+			<div class="form-group">
+				<label for="anmerkungen" class="col-sm-2 control-label"><?php echo(getUebersetzung("Text",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<textarea name="message" type="text" id="text_de" value="" class="form-control" style="height: 200px;"></textarea>
+				</div>
+			</div>
+			
+		<!-- <table  border="0" cellpadding="0" cellspacing="3" class="table">
 			  <tr valign="top">
 				<td><?php echo(getUebersetzung("Betreff",$sprache,$link)); ?></td>
 				<td><input name="subject" type="text"  id="subject_de" value="<?php echo($subject); ?>" size="100"></td>
@@ -156,33 +182,32 @@ $sprache = getSessionWert(SPRACHE);
 				</td>
 				<td><textarea name="message" cols="100" rows="10"  id="text_de"><?php echo($message); ?></textarea></td>
 			  </tr>
-		</table>
-	<br/>
+		</table> -->
+	
 	<?php 
-		  //-----buttons um zurück zum menue zu gelangen: 
+		  //-----buttons um zurï¿½ck zum menue zu gelangen: 
 	  	  showSubmitButton(getUebersetzung("absenden",$sprache,$link));
 		  //} //ende if
 	?>
-	</p>
+	
 	</form>
-	<br/>
-	<?php 
-		  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+</div>
+</div>
+	
+	<!-- <?php 
+		  showSubmitButtonWithForm("./index.php",getUebersetzung("zurï¿½ck",$sprache,$link));
 	?>
 	<br/>
 	<?php 
-		  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-	?>	
+		  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenï¿½",$sprache,$link));
+	?>	 -->
 			      
-	    </td>
-	  </tr>
-	</table>
+
 	<?php 
 		//} //ende wenn noch keine buchung vorhanden
-	} //ende if passwortprüfung
+	} //ende if passwortprï¿½fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
 ?>
-</body>
-</html>
+

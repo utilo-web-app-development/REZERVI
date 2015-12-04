@@ -13,7 +13,10 @@ if ($showReservation != "true"){
 	$showReservation = false;
 }
 ?>
-<table border="0" class="tableColor">
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
+<table border="0" class="table">
     <tr>
       <td width="23" height="23" class="frei">&nbsp;</td>
       <td><?php echo(getUebersetzung("frei",$sprache,$link)); ?></td>
@@ -57,3 +60,4 @@ if ($showReservation != "true"){
 	}
 	?>
   </table>
+  

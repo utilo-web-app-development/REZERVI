@@ -316,7 +316,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
       </td>
     </tr>
 </table>
-<br/>
+
 <table border="0" cellspacing="3" cellpadding="0" class="table">
 <form action="./export/csv.php" method="post" name="hauptmenue" id="hauptmenue">
 	  <input name="plz_val" type="hidden" id="plz_val" value="<? echo($plz_val); ?>">
@@ -331,8 +331,9 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 	  <input name="fax_val" type="hidden" id="anrede_var" value="<? echo($fax_val); ?>">
 	  <input name="anmerkung_val" type="hidden" id="anrede_var" value="<? echo($anmerkung_val); ?>">
 	  <input name="sprache_val" type="hidden" id="anrede_var" value="<? echo($sprache_val); ?>">
-  <tr>
-    <td><select name="format" size="1" class="btn btn-primary">
+	 </table>
+	 
+<select name="format" size="1" class="btn btn-primary">
       <option value="csv"><?php echo(getUebersetzung("Text",$sprache,$link)); ?> CSV</option>
     </select></td>
     <td><input name="exportieren" type="submit" class="btn btn-primary" 
@@ -341,7 +342,8 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
     <td>&nbsp;</td>
   </tr>
  </form>
-</table>
+
+<br/>
 <br/>
 	 
           <a class="btn btn-primary" href="../../gaesteBearbeiten/index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>

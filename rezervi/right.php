@@ -8,16 +8,16 @@ include_once($root."/include/sessionFunctions.inc.php");
 	anzeige des kalenders
 	author: christian osterrieder utilo.eu
 	
-	dieser seite kann optional ¸bergeben werden:
+	dieser seite kann optional ÔøΩbergeben werden:
 	Zimmer PK_ID ($zimmer_id)
 	Jahr ($jahr)
 	Monat ($monat)
 	
-	dieser seite muss ¸bergeben werden:
+	dieser seite muss ÔøΩbergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
-	//datenbank ˆffnen:
+	//datenbank ÔøΩffnen:
 	include_once("./conf/rdbmsConfig.php");
 	
 	//funktions einbinden:
@@ -43,7 +43,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	else{
 		$zimmer_id = $_POST["zimmer_id"];
 	}
-	//falls keine zimmer_id ausgew‰hlt wurde, das erste gefundene zimmer nehmen:
+	//falls keine zimmer_id ausgewÔøΩhlt wurde, das erste gefundene zimmer nehmen:
 	if (!isset($zimmer_id) || $zimmer_id == "" || empty($zimmer_id)) {
 		$zimmer_id = getFirstRoom($unterkunft_id,$link);		
 	}
@@ -65,18 +65,18 @@ include_once($root."/include/sessionFunctions.inc.php");
 		$showPic = true;
 	}	
 	
-	//falls kein jahr ausgew‰hlt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgewÔøΩhlt wurde, das aktuelle jahr verwenden:
 	if (!isset($jahr) || $jahr == "" || empty($jahr)){
 		$jahr = getTodayYear();
 	}
-	//ich brauche f¸r jahr einen integer:
+	//ich brauche fÔøΩr jahr einen integer:
 	$jahr+=1;$jahr-=1;
 	
-	//falls kein monat ausgew‰hlt wurde, das aktuelle monat verwenden:
+	//falls kein monat ausgewÔøΩhlt wurde, das aktuelle monat verwenden:
 	if (!isset($monat) || $monat == "" || empty($monat)){
 		$monat = parseMonthNumber(getTodayMonth());
 	}
-	//und f¸rs monat einen integer
+	//und fÔøΩrs monat einen integer
 	$monat-=1;$monat+=1;
 		
 ?>
@@ -87,11 +87,11 @@ include_once($root."/include/sessionFunctions.inc.php");
 <script language="JavaScript" type="text/javascript" src="./rightJS.js">
 </script>
 <?php include_once("./templates/headerB.php"); ?>
-<?php //kontrolle ob das monat noch g¸ltig ist:
+<?php //kontrolle ob das monat noch gÔøΩltig ist:
 	if ($monat < parseMonthNumber(getTodayMonth()) && $jahr <= getTodayYear()){ ?>
 		<table width="100%" border="0" class="tableColor">
 		  <tr>
-			<td class="standardSchriftBold"><?php echo(getUebersetzung("<p>Das gew‰hlte Monat ist bereits abgelaufen!</p><p>Bitte korrigieren Sie Ihre Anfrage!</p>",$sprache,$link)); ?></td>
+			<td class="standardSchriftBold"><?php echo(getUebersetzung("<p>Das gew√§hlte Monat ist bereits abgelaufen!</p><p>Bitte korrigieren Sie Ihre Anfrage!</p>",$sprache,$link)); ?></td>
 		  </tr>
 		</table>
 <?php } //ende if monat zu klein
@@ -156,7 +156,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			}
 			//monat ausgeben:
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
-			//monat erhˆhen f¸r n‰chste ausgabe:
+			//monat erhÔøΩhen fÔøΩr nÔøΩchste ausgabe:
 			$monat+=1;
 		?></td>
     <td><?php
@@ -171,7 +171,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			}
 			//monat ausgeben:
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
-			//monat erhˆhen f¸r n‰chste ausgabe:
+			//monat erhÔøΩhen fÔøΩr nÔøΩchste ausgabe:
 			$monat+=1;
 		?></td>
   </tr>
@@ -188,7 +188,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			}
 			//monat ausgeben:
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
-			//monat erhˆhen f¸r n‰chste ausgabe:
+			//monat erhÔøΩhen fÔøΩr nÔøΩchste ausgabe:
 			$monat+=1;
 		?></td>
     <td><?php
@@ -251,9 +251,8 @@ include_once($root."/include/sessionFunctions.inc.php");
           <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
           <input name="monat" type="hidden" id="monat" value="<? echo($mon); ?>">
           <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
-          <input name="zurueck" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" onClick="updateLeft(<?php echo(($mon).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" 
-	   value="<?php echo(getUebersetzung("einen Monat zur¸ck",$sprache,$link)); ?>">
+          <input name="zurueck" type="submit" class="btn btn-primary" ;" onClick="updateLeft(<?php echo(($mon).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" 
+	   value="<?php echo(getUebersetzung("einen Monat zur√ºck",$sprache,$link)); ?>">
         </div>
       </form>
       <?php }
@@ -279,8 +278,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 																echo($mo); 
 																?>">
         <input name="jahr" type="hidden" id="jahr" value="<? echo ($ja); ?>">
-        <input name="weiter" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" onClick="updateLeft(<?php echo(($mo).",".($ja)).",".($zimmer_id); ?>,1);" id="weiter" 
+        <input name="weiter" type="submit" class="btn btn-primary" onClick="updateLeft(<?php echo(($mo).",".($ja)).",".($zimmer_id); ?>,1);" id="weiter" 
 	   value="<?php echo(getUebersetzung("einen Monat weiter",$sprache,$link)); ?>">
       </form>
       <?php } ?></td>

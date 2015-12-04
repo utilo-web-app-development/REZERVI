@@ -54,16 +54,17 @@ include_once("./jahresuebersichtHelper.php");
 <?php		
 	//passwortpr�fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
 
-<table width="100%" border="0" class="tableColor">
-  <tr>  
-    <td class="standardSchriftBold"><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <? echo($jahr); ?>, 
+
+    <h4><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <? echo($jahr); ?>, 
       <?php echo(getUebersetzung("für",$sprache,$link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?> 
-      <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?></td>
-  </tr>
-</table>
+      <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?></h4>
+
 <br/>
-<table width="100%" border="0" class="table">
+<table width="100%" border="0" class="tableColor">
   <tr>
     <td colspan="2"><?php			
 			//monat ausgeben:
@@ -76,6 +77,8 @@ include_once("./jahresuebersichtHelper.php");
 		$jah = $jahr-1;
 		if (!($jah < getTodayYear()-4)){																					 																			
 		?>
+		
+		<br>
       <form action="./jahresuebersicht.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
         <div align="right">
           <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">
@@ -83,6 +86,7 @@ include_once("./jahresuebersichtHelper.php");
           <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
           <input name="zurueck" type="submit" class="btn btn-primary"  onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" value="<?php echo(getUebersetzung("ein Jahr zurück",$sprache,$link)); ?>">
         </div>
+        <br>
       </form>
       <?php } //ende if jahr 
 	  ?></td>
@@ -106,8 +110,10 @@ include_once("./jahresuebersichtHelper.php");
 </table>
 <?php } //ende passwortpr�fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
+</div>
+</div>
 </body>
 </html>

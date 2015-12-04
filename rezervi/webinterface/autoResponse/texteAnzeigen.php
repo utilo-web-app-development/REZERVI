@@ -164,7 +164,7 @@ $unterschrift_es = "";
   <div class="panel panel-default">
   <div class="panel-body">
   	
-		<form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+		<form action="./texteAendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
   <h4>
   	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!
@@ -271,7 +271,7 @@ $unterschrift_es = "";
   	?>
   	</h3>
  
- <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+ <form action="./texteAendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
  
 <div class="form-group">
@@ -341,7 +341,7 @@ $unterschrift_es = "";
   if (isFrenchShown($unterkunft_id,$link)){
   ?>
 
-  <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+  <form action="./texteAendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
  
  
@@ -424,7 +424,7 @@ $unterschrift_es = "";
     </tr>
   </table> -->
    
-  <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+  <form action="./texteAendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
   <?php
   }
@@ -499,7 +499,7 @@ $unterschrift_es = "";
     </tr>
   </table> -->
 
-  <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
+  <form action="./texteAendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 			<input name="art" type="hidden" value="<?php echo($art); ?>"> 
   <?php
   }

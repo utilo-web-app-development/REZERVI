@@ -70,6 +70,9 @@ include_once("../../include/reseller/reseller.php");
 		$showReservation = false;
 	}			
 ?>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -84,30 +87,55 @@ include_once("../../include/reseller/reseller.php");
 <script language="JavaScript" type="text/javascript" src="./leftJS.js">
 </script>
 </head>
-<body class="backgroundColor">
+
+
+  	
+  	
+<!-- <body class="backgroundColor"> -->
 <?php		
 	//passwortpr�fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
-<table width="100%" border="0">
-  <tr>
-    <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?></span><br/>
-      <form action="./ansichtWaehlen.php" method="post" id="ZimmerNrForm" name="ZimmerNrForm" target="kalender">
-        <table border="0" cellspacing="3" cellpadding="0">
-          <tr>
-            <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Ansicht für",$sprache,$link)); ?>:</span></td>
-            <td>&nbsp;</td>
+		
+<div class="panel panel-default">
+  <div class="panel-body">
+  
+    <h3><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?></h3>
+    
+      	
+      <!-- <form action="./ansichtWaehlen.php" method="post" id="ZimmerNrForm" name="ZimmerNrForm" target="kalender"> -->
+      	
+       
+          <form action="./ansichtWaehlen.php" method="post" name="ZimmerNrForm" target="kalender" class="form-horizontal">
+            <h4><?php echo(getUebersetzung("Ansicht für",$sprache,$link)); ?>:</h4>
+            
+            
+			<div class="form-group">
+				<label for="anrede" class="col-sm-2 control-label"><?php echo(getUebersetzung("Jahr",$sprache,$link)); ?></label>
+				<div class="col-sm-10">
+					<select name="jahr" class="form-control" id="jahr" value="" onChange="zimmerNrFormJahrChanged()">
+                  <?php				
+				for ($l=getTodayYear()-4; $l < (getTodayYear()+4); $l++){ ?>
+                  <option  value="<?php echo($l); ?>"<?php if ($l == $jahr) echo(" selected"); ?>><?php echo($l); ?></option>
+                  <?php } ?>
+                </select>
+				</div>
+			</div>			
+			
+			
+			
+            <!-- <td>&nbsp;</td>
           </tr>
           <tr>
             <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Jahr",$sprache,$link)); ?></span> </td>
             <td><div align="right">
-                <select name="jahr" class="tableColor" id="jahr" onChange="zimmerNrFormJahrChanged()">
+                <select name="jahr" class="table" id="jahr" onChange="zimmerNrFormJahrChanged()">
                   <?php				
 				for ($l=getTodayYear()-4; $l < (getTodayYear()+4); $l++){ ?>
                   <option  value="<?php echo($l); ?>"<?php if ($l == $jahr) echo(" selected"); ?>><?php echo($l); ?></option>
                   <?php } ?>
                 </select>
               </div></td>
-          </tr>
+          </tr> -->
           <tr>
             <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Monat",$sprache,$link)); ?></span></td>
             <td><div align="right">

@@ -5,63 +5,66 @@
  * @author coster
  */
 ?>
-<table  border="0" cellpadding="0" cellspacing="0" class="tableColor">
+
     	<?php 
     	//laender ausgeben die in den einstellungen definiert wurden:
     	if (isEnglishShown($unterkunft_id,$link) && $sprache != "en"){
     	?>
-        <tr>
-          <td width="1"><img src="./fahneEN.gif" width="25" height="16"></td>
-          <td><div align="left"> <a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=en" target="_parent" class="standardSchrift"> &nbsp;&nbsp;English</a></div></td>
-        </tr>
+   	
+<div class="panel panel-default">
+  <div class="panel-body">
+ 
+        <img src="./fahneEN.gif" width="25" height="16">
+       <a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=en" target="_parent" class="standardSchrift"> &nbsp;&nbsp;English</a>
+    <br>
         <?php
     	}
     	if (isFrenchShown($unterkunft_id,$link) && $sprache != "fr"){
         ?>
-        <tr>
-          <td width="1"><img src="./fahneFR.gif" width="25" height="16"></td>
-          <td><div align="left"><a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=fr" target="_parent" class="standardSchrift">&nbsp;&nbsp;Francais</a></div></td>
-        </tr>
+        
+          <img src="./fahneFR.gif" width="25" height="16"> 
+        <a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=fr" target="_parent" class="standardSchrift">&nbsp;&nbsp;Francais</a>
+     <br>   
         <?php
     	}
     	if (isGermanShown($unterkunft_id,$link) && $sprache != "de"){
         ?>
-        <tr>
-          <td width="1"><img src="./fahneDE.gif" width="25" height="16"></td>
-          <td><div align="left"><a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=de" target="_parent" class="standardSchrift">&nbsp;&nbsp;Deutsch</a></div></td>
-        </tr>
+        
+         <img src="./fahneDE.gif" width="25" height="16">
+         <a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=de" target="_parent" class="standardSchrift">&nbsp;&nbsp;Deutsch</a>
+<br>
         <?php
     	}
     	if (isItalianShown($unterkunft_id,$link) && $sprache != "sp"){
         ?>
-        <tr>
-          <td width="1"><img src="./fahneIT.gif" width="25" height="16"></td>
-          <td><div align="left"><a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=it" target="_parent" class="standardSchrift">&nbsp;&nbsp;Italia</a></div></td>
-        </tr>
+<br>      
+         <img src="./fahneIT.gif" width="25" height="16">
+         <a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=it" target="_parent" class="standardSchrift">&nbsp;&nbsp;Italia</a>
+        
         <?php
     	}
     	if (isNetherlandsShown($unterkunft_id,$link) && $sprache != "nl"){
         ?>
-        <tr>
-          <td width="1"><img src="./fahneNL.gif" width="25" height="16"></td>
-          <td><div align="left"><a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=nl" target="_parent" class="standardSchrift">&nbsp;&nbsp;Nederlande</a></div></td>
-        </tr>
+        
+        <img src="./fahneNL.gif">
+        <a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=nl" target="_parent" class="standardSchrift">&nbsp;&nbsp;Nederlande</a>
+        
         <?php
     	}
     	if (isEspaniaShown($unterkunft_id,$link) && $sprache != "sp"){
         ?>
-        <tr>
-          <td width="1"><img src="./fahneSP.gif" width="25" height="16"></td>
-          <td><div align="left"><a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=sp" target="_parent" class="standardSchrift">&nbsp;&nbsp;Espa�a</a></div></td>
-        </tr>
+       
+          <img src="./fahneSP.gif" width="25" height="16">
+         <a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=sp" target="_parent" class="standardSchrift">&nbsp;&nbsp;España</a>
+      
         <?php
         }
     	if (isEstoniaShown($unterkunft_id,$link) && $sprache != "es"){
         ?>
-        <tr>
-          <td width="1"><img src="./fahneES.gif" width="25" height="16"></td>
-          <td><div align="left"><a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=es" target="_parent" class="standardSchrift">&nbsp;&nbsp;Estnia</a></div></td>
-        </tr>
+       
+          <img src="./fahneES.gif">
+         <a href="./start.php?unterkunft_id=<?php echo($unterkunft_id); ?>&zimmer_id=<?php echo($zimmer_id); ?>&sprache=es" target="_parent" class="standardSchrift">&nbsp;&nbsp;Estnia</a>
+       
         <?php
     	}
     	?>
@@ -93,4 +96,6 @@
 				  ?>
     		</td>
     	</tr>
-      </table>
+    	
+    </div>
+    </div>
