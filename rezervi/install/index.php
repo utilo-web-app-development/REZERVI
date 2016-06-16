@@ -28,14 +28,19 @@
 </script>
 </head>
 
-<body>
-
-<h1>Rezervi availability overview and guest database</br>
-					    Rezervi Belegungsplan und Kundendatenbank</h1>
+<body class="backgroundColor" data-pinterest-extension-installed="cr1.39.1">
+<div class="container" style="margin-top:70px;">	
+ 		
+ 		<h2>Rezervi availability overview and guest database</br>
+					    Rezervi Belegungsplan und Kundendatenbank</h2>
+ 		<div class="panel panel-default">
+  			<div class="panel-body">   
+ <h4>Please check your changings in the 'conf/rdbmsConfig.php' file:<br/>
+Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</h4>
+			</div>
+		</div>
 
 <!-- ist die conf datei richtig? -->					    
-<p>Please check your changings in the 'conf/rdbmsConfig.php' file:<br/>
-Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
 
 <div class="panel panel-default">
   <div class="panel-body">
@@ -84,7 +89,10 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
 				  <div class="col-sm-4"><?=$EMAIL ?></div>
 				
 		</div>
-		
+		</div>
+		</div>
+		<div class="panel panel-default">
+  <div class="panel-body">
 		<!-- Radio Button -->
 	<div class="radio">
   <label>
@@ -106,17 +114,22 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
 Bitte wählen sie ihre Sprache.</p>
 </div>
 <div class=	"col-md-12">
-	      
-     <select name="speech" type="text" id="speech" value="" class="form-control">&gt;
+
+     <select name="sprache" type="text" id="sprache" value="" class="form-control">&gt;
 	          	<option value="de" selected="">Deutsch</option>
 				<option value="en">Englisch</option> 					
 	</select>
+	</br>
 </div>	  
+
 <div class=	"col-md-12">        
-	         <input name="Submit" type="submit" class="btn btn-default" value="ok">
+	         <input name="Submit" type="submit" class="btn btn-success" value="ok">
+	         
+
 </div>	
 </div>
 </div>
+
 
 
   
@@ -208,5 +221,6 @@ Bitte wählen sie ihre Sprache.</p>
 <!-- ende sprache waehlen -->
 
 </form>
+</div>
 </body>
 </html>
