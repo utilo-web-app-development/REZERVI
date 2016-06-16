@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	gast-infos anzeigen und evt. �ndern:
 	author: christian osterrieder utilo.eu
 			
-	dieser seite muss �bergeben werden:
+	dieser seite muss Übergeben werden:
 	Gast PK_ID $gast_id
 	$unterkunft_id
 */
@@ -18,7 +18,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -41,7 +41,7 @@ include_once("../../../include/einstellungenFunctions.php");
 </script>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php		
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 
 <h2><?php echo(getUebersetzung("Anlegen eines neuen Gastes",$sprache,$link)); ?></h2>

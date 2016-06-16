@@ -11,7 +11,7 @@ define( '_JEXEC', 1 );
 	$noLanguage = false;
 	
 	//sprache auslesen:
-	//entweder aus übergebener url oder aus session
+	//entweder aus Ã¼bergebener url oder aus session
 	if (isset($_POST["sprache"])){
 		$sprache = $_POST["sprache"];
 	}
@@ -44,7 +44,7 @@ define( '_JEXEC', 1 );
 	}
  	
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>Wartungsseite Reservierungsplan utilo.eu Belegungsplan und Kundendatenbank Rezervi</title>
@@ -53,7 +53,7 @@ define( '_JEXEC', 1 );
 </head>
 <body>
 <?php
-//pruefen ob installation schon durchgeführt wurde:
+//pruefen ob installation schon durchgefÃ¼hrt wurde:
 if (!isInstalled($unterkunft_id)){
 ?>
 	Please install Rezervi first! <br/>
@@ -109,8 +109,8 @@ else{
 		  ?>
         </td>
         <td class="ueberschrift"><?php echo(getUebersetzung("Willkommen auf der Wartungsseite",$sprache,$link)); ?> 
-          <?php echo(getUebersetzung("ihres persönlichen Belegungsplanes",$sprache,$link)); ?> 
-          <?php echo(getUebersetzung("und Ihrer Gästedatenbank Rezervi",$sprache,$link)); ?> 
+          <?php echo(getUebersetzung("ihres persÃ¶nlichen Belegungsplanes",$sprache,$link)); ?> 
+          <?php echo(getUebersetzung("und Ihrer GÃ¤stedatenbank Rezervi",$sprache,$link)); ?> 
           <?php
           	if ($isReseller){
           ?>
@@ -157,7 +157,7 @@ else{
         }        
         echo(getUebersetzung("Verwenden sie den Benutzernamen und das Password ",$sprache,$link)); ?>
         <?php echo("'test', "); ?>
-        <?php echo(getUebersetzung("wenn sie sich das erste mal anmelden. Vergessen sie nicht diese Daten danach zu ändern!",$sprache,$link));
+        <?php echo(getUebersetzung("wenn sie sich das erste mal anmelden. Vergessen sie nicht diese Daten danach zu Ã„ndern!",$sprache,$link));
         ?>    
         <form action="./inhalt.php" method="post" name="passwortEingabe" target="_self" id="passwortEingabe">
               <table width="10" border="0" align="center" cellpadding="0" cellspacing="5" class="table">
@@ -227,7 +227,7 @@ else{
 		if ($noLanguage){
 			echo("You have no Rezervi for your accommodation?<br/>");
 		} 
-      echo(getUebersetzung("Sie haben noch keinen Belegungs-/Reservierungsplan für Ihre Unterkunft?",$sprache,$link)); ?></span><br/>
+      echo(getUebersetzung("Sie haben noch keinen Belegungs-/Reservierungsplan fÃ¼r Ihre Unterkunft?",$sprache,$link)); ?></span><br/>
     <a href="http://belegungsplan.utilo.eu" target="_blank"><?php 
         //keine sprache -> auch englisch anzeigen:
 		if ($noLanguage){

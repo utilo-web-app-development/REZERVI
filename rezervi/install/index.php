@@ -3,12 +3,15 @@
 	define( '_JEXEC', 1 );
 	include_once($root."/conf/rdbmsConfig.php");
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Installation Rezervi</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Bootstrap ende -->
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" type="text/JavaScript">
 	<!--
@@ -17,7 +20,7 @@
 	       return true;
 	     }
 	     else{
-			alert("Please change the file rdbmsConfig.php in the folder conf! \n Bitte ändern sie die Datei rdbmsConfig.php im Ordner conf!");
+			alert("Please change the file rdbmsConfig.php in the folder conf! \n Bitte Ã¤ndern sie die Datei rdbmsConfig.php im Ordner conf!");
 	     	return false;
 	     }
 	}
@@ -26,39 +29,95 @@
 </head>
 
 <body>
-<p class="ueberschrift">Rezervi availability overview and guest database<br/>
-					    Rezervi Belegungsplan und Kundendatenbank</p>
+	
+
+
+
+<h1>Rezervi availability overview and guest database</br>
+					    Rezervi Belegungsplan und Kundendatenbank</h1>
+<!-- Test -->				    
+<div class="panel panel-default">
+  <div class="panel-body">
+  						    
+<!-- Ende Test -->
 
 <!-- ist die conf datei richtig? -->					    
-<p class="standardSchrift">Please check your changings in the 'conf/rdbmsConfig.php' file:<br/>
-Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
-<form action="lizenz.php" method="post" id="form1" name="form1" target="_self" onSubmit="return checkConf();">
+<p>Please check your changings in the 'conf/rdbmsConfig.php' file:<br/>
+Bitte prÃ¼fen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+
+<form action="lizenz.php" method="post" id="form1" name="form1" target="_self" onSubmit="return checkConf();"class="form-horizontal">
+	
+	  <div class="form-group">
+		<div class="col-sm-8">URL for your MySQL database e.g. "localhost" <br/>
+				  URL zur MySQL Datenbank, z. B. "localhost"</div>
+				  <div class="col-sm-4"><?=$DBMS_URL ?></div>
+		
+		</div>
+		<div class="form-group">
+		<div class="col-sm-8">Name of the MySQL database <br/>
+				  Name der MySQL Datenbank"</div>
+				  <div class="col-sm-4"><?=$DB_NAME ?></div>
+		
+		</div>
+		<div class="form-group">
+		<div class="col-sm-8">Username of the MySQL database<br/>
+				  Benutzername der MySQL Datenbank</div>
+				  <div class="col-sm-4"><?=$USERNAME ?></div>
+		
+		</div>
+		<div class="form-group">
+		<div class="col-sm-8">Password of the MySQL database<br/>
+				  Passwort der MySQL Datenbank</div>
+				  <div class="col-sm-4"><?=$PASS ?></div>
+		
+		</div>
+		<div class="form-group">
+		<div class="col-sm-8">URL of your homepage/your availibilty overview e.g. $URL = "http://www.my-domainname.com"<br/>
+					If you installed Rezervi on a special folder on your webserver, you must also fill in this path. e.g. $URL = "http://www.my-domainname.com/rezerviStable/<br/>
+					<br/>
+				  URL ihrer Homepage/ihres Belegungsplanes z. B. $URL = "http://www.mein-domainname.com"<br/>
+				  falls Rezervi in einem speziellen Verzeichnis ihres Webservers installiert wurde, geben sie bitte auch diesen Pfad mit in der URL an.<br/>
+				  z. B. $URL = "http://www.mein-domainname.com/rezerviStable/"<br/>
+				 </div>
+				  <div class="col-sm-4"><?=$URL ?></div>
+		
+		</div>
+		<div class="form-group">
+		<div class="col-sm-8">E-mail address<br/>
+				  E-Mail-Adresse</div>
+				  <div class="col-sm-4"><?=$EMAIL ?></div>
+				
+		</div>
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
-		<tr>
+		<!-- <tr>
 	          <td>URL for your MySQL database e.g. "localhost" <br/>
 				  URL zur MySQL Datenbank, z. B. "localhost"
 			  </td>
 			  <td valign="bottom"><?=$DBMS_URL ?></td>
-	    </tr>
-		<tr>
+	    </tr> -->
+		<!-- <tr>
 	          <td>Name of the MySQL database <br/>
 				  Name der MySQL Datenbank
 			  </td>
 			  <td valign="bottom"><?=$DB_NAME ?></td>
-	    </tr>
-		<tr>
+	    </tr> -->
+		<!-- <tr>
 	          <td>Username of the MySQL database<br/>
 				  Benutzername der MySQL Datenbank
 			  </td>
 			  <td valign="bottom"><?=$USERNAME ?></td>
-	    </tr>	
-		<tr>
+	    </tr>	 -->
+		<!-- <tr>
 	          <td>Password of the MySQL database<br/>
 				  Passwort der MySQL Datenbank
 			  </td>
 			  <td valign="bottom"><?=$PASS ?></td>
-	    </tr>
-		<tr>
+	    </tr> -->
+		<!-- tr>
 	          <td>URL of your homepage/your availibilty overview<br/>
 					e.g. $URL = "http://www.my-domainname.com"<br/>
 					If you installed Rezervi on a special folder on your<br/>
@@ -72,13 +131,13 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
 					z. B. $URL = "http://www.mein-domainname.com/rezerviStable/"<br/>
 			  </td>
 			  <td valign="bottom"><?=$URL ?></td>
-	    </tr>	
-		<tr>
+	    </tr>	 -->
+		<!-- <tr>
 	          <td>E-mail address<br/>
 				  E-Mail-Adresse
 			  </td>
 			  <td valign="bottom"><?=$EMAIL ?></td>
-	    </tr>	        	 	        
+	    </tr>	     -->    	 	        
 	</table> 	
 	<br/>
 	<table class="table">   	
@@ -100,8 +159,8 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
 <!-- ende ist die conf datei richtig? -->
 					    
 <!-- sprache waehlen -->
-<p class="standardSchrift">Please select your language.<br/>
-Bitte wählen sie ihre Sprache.</p>
+<p >Please select your language.<br/>
+Bitte wÃ¤hlen sie ihre Sprache.</p>
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
 		<tr>
 	          <td><select name="sprache">
@@ -113,9 +172,9 @@ Bitte wählen sie ihre Sprache.</p>
 	          <td>&nbsp;</td>
 	    </tr>
 	    <tr>
-	          <td><input name="Submit" type="submit" class="button200pxA" value="ok"></td>
+	          <td><input name="Submit" type="submit" class="btn btn-default" value="ok"></td>
 	    </tr>
-	</table>  
+	</table> 
 <!-- ende sprache waehlen -->
 
 </form>
