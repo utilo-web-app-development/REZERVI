@@ -52,7 +52,7 @@ define("SONNTAG","SO");
 /**
 author:coster
 date:29.9.05
-prüft ob das datum bereits abgelaufen ist
+prï¿½ft ob das datum bereits abgelaufen ist
 */
 function isDatumAbgelaufen($tagVon,$monatVon,$jahrVon,$tagBis,$monatBis,$jahrBis){
 
@@ -84,7 +84,7 @@ function numberOfDays($month,$day,$year,$month1,$day1,$year1){
 }
 
 //--------------------------------------------
-//funktion die das ausgewählte datum aus den
+//funktion die das ausgewï¿½hlte datum aus den
 //formularfeldern in ein SQL-Datum parst
 function parseDateFormular($tag,$monat,$jahr){
 
@@ -113,7 +113,7 @@ function parseMonthNumber($monat){
 		$mon = 1;
 	elseif ($monat == "Februar")
 		$mon = 2;
-	elseif ($monat == "März")
+	elseif ($monat == "MÃ¤rz")
 		$mon = 3;
 	elseif ($monat == "April")
 		$mon = 4;
@@ -152,7 +152,7 @@ function parseMonthName($month){
 				$month = "Februar";
 			break;
 		case 3:
-				$month = "März";
+				$month = "MÃ¤rz";
 			break;
 		case 4:
 				$month = "April";
@@ -188,12 +188,12 @@ function parseMonthName($month){
 
 
 //-----------------------------------------------
-//prüft ob das von-datum kleiner als das bis-datum
-//ist, übergeben werden integer-werte:
+//prï¿½ft ob das von-datum kleiner als das bis-datum
+//ist, ï¿½bergeben werden integer-werte:
 function isDatumEarlier($vonTag, $vonMonat, $vonJahr, $bisTag, $bisMonat, $bisJahr){	
 
-	//so jetzt mit einem schmäh, einen integer draus machen, falls dieser keiner
-	//sein sollte. der +_operator übernimmt dies für mich...
+	//so jetzt mit einem schmï¿½h, einen integer draus machen, falls dieser keiner
+	//sein sollte. der +_operator ï¿½bernimmt dies fï¿½r mich...
 	$vonJahr+=1;$bisJahr+=1;$vonMonat+=1;$bisMonat+=1;$vonTag+=1;$bisTag+=1;
 	$vonJahr-=1;$bisJahr-=1;$vonMonat-=1;$bisMonat-=1;$vonTag-=1;$bisTag-=1;
 	
@@ -222,7 +222,7 @@ function isDatumEarlier($vonTag, $vonMonat, $vonJahr, $bisTag, $bisMonat, $bisJa
 }//ende isDatumEarlier
 
 //-------------------------------------
-//gibt heutigen tag zurück:
+//gibt heutigen tag zurï¿½ck:
 function getTodayDay(){
 
 	$today = getdate(); 	
@@ -244,7 +244,7 @@ function getTodayDay(){
 }
 
 //-------------------------------------
-//gibt heutiges monat zurück:
+//gibt heutiges monat zurï¿½ck:
 function getTodayMonth(){
 
 	$today = getdate(); 
@@ -257,7 +257,7 @@ function getTodayMonth(){
 			$month = "Februar";
 			break;
 		case 3:
-			$month = "März";
+			$month = "MÃ¤rz";
 			break;
 		case 4:
 			$month = "April";
@@ -291,7 +291,7 @@ function getTodayMonth(){
 } //ende getTodayMonth
 
 //-------------------------------------
-//gibt aktuelles jahr zurück:
+//gibt aktuelles jahr zurï¿½ck:
 function getTodayYear(){
 
 	$today = getdate(); 
@@ -301,7 +301,7 @@ function getTodayYear(){
 } //ende getTodayYear
 
 //------------------------------------
-//gibt anzahl der tage eines monats zurück
+//gibt anzahl der tage eines monats zurï¿½ck
 function getNumberOfDays($monat,$jahr){
 
 	$days = 31;
@@ -319,7 +319,7 @@ function getNumberOfDays($monat,$jahr){
 } //ende getNumberOfDays
 
 //---------------------------------------------------
-//gibt zurück welcher tag der 1.im monat ist:
+//gibt zurï¿½ck welcher tag der 1.im monat ist:
 function getFirstDayOfMonth($month,$year){	
 	
 	//int mktime (int Stunde, int Minute, int Sekunde, int Monat, int Tag, int Jahr [, int is_dst])
@@ -329,7 +329,7 @@ function getFirstDayOfMonth($month,$year){
 } //ende getFirstDayOfMonth
 
 /**----------------------------------------------------
-//gibt den wochentag zurück:
+//gibt den wochentag zurï¿½ck:
 */
 function getDayName($tag,$monat,$jahr){	
 	
@@ -356,7 +356,7 @@ function getDayName($tag,$monat,$jahr){
 /**
  * author:coster
  * date:7.11.05
- * gibt ein array mit allen wochentagen in kurzform zurück
+ * gibt ein array mit allen wochentagen in kurzform zurï¿½ck
  * */
  function getWochentage(){
  	$arr = array();
@@ -372,7 +372,7 @@ function getDayName($tag,$monat,$jahr){
  }
 
 /**----------------------------------------------------
-//gibt den wochentag zurück:
+//gibt den wochentag zurï¿½ck:
 */
 function getFullDayName($tag,$monat,$jahr){	
 	

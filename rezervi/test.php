@@ -2,7 +2,7 @@
 $root = ".";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once($root."/conf/rdbmsConfig.php");
 include_once($root."/include/sessionFunctions.inc.php");
 include_once($root."/include/reservierungFunctions.php");
@@ -12,10 +12,28 @@ include_once($root."/include/uebersetzer.php");
 include_once($root."/include/unterkunftFunctions.php");
 include_once($root."/include/propertiesFunctions.php");
 include_once($root."/include/autoResponseFunctions.php");
-//alte sessions l�schen:
+
+// left.php
+
+include_once($root."/include/reseller/reseller.php");
+include_once($root."/include/datumFunctions.php");
+include_once($root."/leftHelper.php");
+
+// right.php
+
+include_once("./rightHelper.php");	
+
+// Jahresübersicht 
+
+include_once($root."/jahresuebersichtHelper.php");
+include_once($root."/include/gastFunctions.php");
+include_once($root."/include/benutzerFunctions.php");
+
+			
+//alte sessions löschen:
 destroyInactiveSessions();
 
-	//variablen aus �bergebener url auslesen:
+	//variablen aus übergebener url auslesen:
 	//variablen kommen von suche.php:
 	if (isset($_POST["keineSprache"])){
 		$keineSprache = $_POST["keineSprache"];
@@ -28,7 +46,7 @@ destroyInactiveSessions();
 	
 	if (isset($_GET["unterkunft_id"])){ //start.php wurde direkt per get aufgerufen:
 		$unterkunft_id = $_GET["unterkunft_id"];
-		//zerst�re session daten falls schon welche vorhanden sind:
+		//zerstöre session daten falls schon welche vorhanden sind:
 		//destroySession();
 		if (isset($_GET["sprache"])){
 			$sprache = $_GET["sprache"];
@@ -70,28 +88,28 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	setSessionWert(ZIMMER_ID,$zimmer_id);
 	setSessionWert(UNTERKUNFT_ID,$unterkunft_id);
 		
-	//framegroessen auslesen:;
-  	$framesizeLeftBP = getFramesizeLeftBP($unterkunft_id,$link);
-  	$framesizeRightBP= getFramesizeRightBP($unterkunft_id,$link);
-  	$framesizeLeftBPUnit = getFramesizeLeftBPUnit($unterkunft_id,$link);
-  	$framesizeRightBPUnit= getFramesizeRightBPUnit($unterkunft_id,$link);
-  	if ($framesizeLeftBPUnit == "%"){
-  		$framesizeLeftBP.=$framesizeLeftBPUnit;
-  	}	
-  	if ($framesizeRightBPUnit == "%"){
-  		$framesizeRightBP.=$framesizeRigthBPUnit;
-  	}
-  	//wird der frame oben angezeigt oder links? oben => horizontal=true
-	$horizontal = false;
-	if (getPropertyValue(HORIZONTAL_FRAME,$unterkunft_id,$link) == "true"){
-		$horizontal = true;
-	}	
+	// //framegroessen auslesen:;
+  	// $framesizeLeftBP = getFramesizeLeftBP($unterkunft_id,$link);
+  	// $framesizeRightBP= getFramesizeRightBP($unterkunft_id,$link);
+  	// $framesizeLeftBPUnit = getFramesizeLeftBPUnit($unterkunft_id,$link);
+  	// $framesizeRightBPUnit= getFramesizeRightBPUnit($unterkunft_id,$link);
+  	// if ($framesizeLeftBPUnit == "%"){
+  		// $framesizeLeftBP.=$framesizeLeftBPUnit;
+  	// }	
+  	// if ($framesizeRightBPUnit == "%"){
+  		// $framesizeRightBP.=$framesizeRigthBPUnit;
+  	// }
+  	// //wird der frame oben angezeigt oder links? oben => horizontal=true
+	// $horizontal = false;
+	// if (getPropertyValue(HORIZONTAL_FRAME,$unterkunft_id,$link) == "true"){
+		// $horizontal = true;
+	// }	
 	
-	//pr�fe ob alte reservierungen zu l�schen sind:
+	//prüfe ob alte reservierungen zu löschen sind:
 	$xDays = getPropertyValue(RESERVATION_STATE_TIME,$unterkunft_id,$link);
 	if (!empty($xDays) && $xDays > 0){
-		//sollen die g�ste per mail �ber die l�schung
-		//ihrer reservierung verst�ndigt werden?
+		//sollen die gäste per mail über die löschung
+		//ihrer reservierung verständigt werden?
 		$ablehnungSenden = isMessageActive($unterkunft_id,AUTO_RESPONSE_ABLEHNUNG,$link);
 		
 		if (!empty($ablehnungSenden) && $ablehnungSenden == true){
@@ -109,9 +127,10 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 	<html>
 	<head>
-	<title>Zimmerreservierungsplan Belegungsplan und Gästedatenbank Rezervi</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zimmerreservierungsplan Belegungsplan und Gästedatenbank Rezervi</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	</head>
+	<!--
 	<frameset 
 		<?php if ($horizontal){ ?>
 			rows="<?php echo($framesizeLeftBP); ?>,<?php echo($framesizeRightBP); ?>"
@@ -124,6 +143,109 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	  <frame src="left.php" name="reservierung" frameborder="yes" id="reservierung"/>
 	  <frame src="ansichtWaehlen.php?vonStart=true" name="kalender" frameborder="no" id="kalender"/>
 	<noframes>	
+	-->
+	<div class="panel panel-default">
+  <div class="panel-body">	
+	<div class="row">
+		
+		<div class="col-md-2">
+<!-- Linke Seite mit Menü -->
+	
+<!-- left.php -->
+
+<table width="100%" border="0">
+  <tr>
+    <td>
+		<?php include_once($root."/templates/selectDatumZimmer.inc.php"); ?>
+<?php if (!$horizontal){ ?>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<?php } ?>
+		<?php include_once($root."/templates/selectAnsicht.inc.php"); ?>
+		<?php include_once($root."/templates/zimmersucheButton.inc.php"); ?>    
+    </td>
+<?php if (!$horizontal){ ?>
+  </tr>
+  <tr>
+<?php } ?>
+    <td>
+		<?php include_once($root."/templates/reservierung.inc.php"); ?>
+    </td>
+<?php if (!$horizontal){ ?>
+  </tr>
+  <tr>
+<?php } ?>
+    <td>
+    	<?php include_once($root."/templates/showBelegtFrei.inc.php"); ?>
+    	<br/>
+		<?php include_once($root."/templates/sprachauswahl.inc.php"); ?>
+  	</td>
+  </tr>
+</table>
+
+<!-- left.php ende -->
+
+
+
+		</div>
+		<div class="col-md-10">
+<!-- Rechte Seite mit Belegungsplan -->
+
+
+<!-- Ansichtwählen.php -->
+			
+<?
+
+//script waehlt die korrekte ansicht aus:
+//die letzte ansicht wird in der session-veriable ansicht gespeichert
+// 0 = right.php
+// 1 = jahresuebersicht
+// 2 = alle Zimmer
+if (isset($ansicht) && $ansicht != ""){
+	setSessionWert(ANSICHT,$ansicht);
+	switch($ansicht){
+		case 0:
+			include_once("./right.php");
+			break;
+		case 1:
+			include_once("./jahresuebersicht.php");
+			break;
+		case 2:
+			include_once("./gesamtuebersicht.php");
+			break;	
+		default:
+			include_once("./right.php");
+			break;
+	} //ende switch
+}//ende if
+else{
+ 
+ $showMonatsansicht = getPropertyValue(SHOW_MONATSANSICHT,$unterkunft_id,$link);
+ $showJahresansicht = getPropertyValue(SHOW_JAHRESANSICHT,$unterkunft_id,$link);
+ $showGesamtansicht = getPropertyValue(SHOW_GESAMTANSICHT,$unterkunft_id,$link);
+	
+	if ($showMonatsansicht == "true"){
+		include_once("./right.php");
+		exit;
+	}
+	if ($showJahresansicht == "true"){
+		include_once("./jahresuebersicht.php");
+		exit;
+	}
+	if ($showGesamtansicht == "true"){
+		include_once("./gesamtuebersicht.php");
+		exit;
+	}	
+}
+?>
+			
+		</div>
+		
+		
+	</div>
+	
 	<body class="backgroundColor">
 	<p>Rezervi Belegungsplan und Kundendatenbank von utilo.eu</p>
 	<p><a href="http://www.utilo.eu" target="_parent">http://www.utilo.eu</a></p>
@@ -142,7 +264,7 @@ else{
 	</head>
 	<body>
 	<?php
-	//pruefen ob installation schon durchgef�hrt wurde:
+	//pruefen ob installation schon durchgeführt wurde:
 	if (isInstalled($unterkunft_id)){
 		echo(getUebersetzung("Es wurden noch keine Mietobjekte (z. B. Zimmer) eingegeben. Bitte rufen sie das Webinterface auf und geben sie ihre Mietobjekte ein.",$sprache,$link));
 		?>
@@ -161,4 +283,6 @@ else{
 <?php
 }
 ?>
+</div>
+</div>
 </html>

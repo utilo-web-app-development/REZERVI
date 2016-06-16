@@ -65,60 +65,57 @@ include_once($root."/include/sessionFunctions.inc.php");
 		$showPic = true;
 	}	
 	
-	//falls kein jahr ausgew�hlt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
 	if (!isset($jahr) || $jahr == "" || empty($jahr)){
 		$jahr = getTodayYear();
 	}
-	//ich brauche f�r jahr einen integer:
+	//ich brauche für jahr einen integer:
 	$jahr+=1;$jahr-=1;
 	
-	//falls kein monat ausgew�hlt wurde, das aktuelle monat verwenden:
+	//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
 	if (!isset($monat) || $monat == "" || empty($monat)){
 		$monat = parseMonthNumber(getTodayMonth());
 	}
-	//und f�rs monat einen integer
+	//und fürs monat einen integer
 	$monat-=1;$monat+=1;
 		
 ?>
+<div class="panel panel-default">
+  <div class="panel-body">
+  	
 <?php include_once("./templates/headerA.php"); ?>
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<script language="JavaScript" type="text/javascript" src="./rightJS.js">
-</script>
+<!-- <script language="JavaScript" type="text/javascript" src="./rightJS.js">
+</script> -->
 <?php include_once("./templates/headerB.php"); ?>
 <?php //kontrolle ob das monat noch g�ltig ist:
 	if ($monat < parseMonthNumber(getTodayMonth()) && $jahr <= getTodayYear()){ ?>
-		<table width="100%" border="0" class="tableColor">
-		  <tr>
-			<td class="standardSchriftBold"><?php echo(getUebersetzung("<p>Das gewählte Monat ist bereits abgelaufen!</p><p>Bitte korrigieren Sie Ihre Anfrage!</p>",$sprache,$link)); ?></td>
-		  </tr>
-		</table>
+		
+			<h3><?php echo(getUebersetzung("<p>Das gewählte Monat ist bereits abgelaufen!</p><p>Bitte korrigieren Sie Ihre Anfrage!</p>",$sprache,$link)); ?></h3>
+		
 <?php } //ende if monat zu klein
 	else { ?>
-<table width="100%" border="0" class="tableColor">
-  <tr>
-    <td class="standardSchriftBold"><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <?php echo($jahr) ?>,
+
+    <h4><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <?php echo($jahr) ?>,
       <?php	$art = getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link);
 			$nummer = getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link);
 			//wenn zimmernummer und zimmerart gleich sind nur eines ausgeben!
 			if ($art != $nummer){
 				echo($art);	
 			}								   									
-            echo(" ").($nummer); ?></td>
-  </tr>
-  <tr>
-    <td class="standardSchriftBold">
-		<table cellpadding="0" cellspacing="0" border="0">
-			<tr>
-				<?php
+            echo(" ").($nummer); ?></h4>
+  
+    <h3>
+    	<?php
 			//show pic of the room if activated and pic available:
 			if ($showPic){	
 				include_once($root."/include/bildFunctions.php");
 				  if (hasZimmerBilder($zimmer_id,$link)){	  
 					$result = getBilderOfZimmer($zimmer_id,$link);
 					while ($z = mysql_fetch_array($result)){
-					?><td><?php
+					?><?php
 						$pfad = $z["Pfad"];
 						$pfad = substr($pfad,6,strlen($pfad));
 						$width = $z["Width"];
@@ -127,24 +124,21 @@ include_once($root."/include/sessionFunctions.inc.php");
 						$description = getUebersetzungUnterkunft($description,$sprache,$unterkunft_id,$link);
 					  ?>
 					  <img src="<?php echo($pfad); ?>"/>&nbsp;
-					  </td>
-					  <td>
+					  
 					  	<?= $description ?>
-					  </td>
+					  
 					  <?php
 					}
 				  }			
 			}
 			?>
-			</tr>
-		</table>
-	</td>
-  </tr>    
-</table>
+		
+	</h3>
+
 <br/>
-<table width="100%" border="0" class="table">
-  <tr>
-    <td><?php
+
+ 
+   <?php
 			//kontrolle ob monat nicht 0 oder 13:
 			if ($monat > 12){
 				$monat = 1;
@@ -158,8 +152,8 @@ include_once($root."/include/sessionFunctions.inc.php");
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
 			//monat erh�hen f�r n�chste ausgabe:
 			$monat+=1;
-		?></td>
-    <td><?php
+		?>
+   <?php
 			//kontrolle ob monat nicht 0 oder 13:
 			if ($monat > 12){
 				$monat = 1;
@@ -173,10 +167,9 @@ include_once($root."/include/sessionFunctions.inc.php");
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
 			//monat erh�hen f�r n�chste ausgabe:
 			$monat+=1;
-		?></td>
-  </tr>
-  <tr>
-    <td><?php
+		?>
+  
+  <?php
 			//kontrolle ob monat nicht 0 oder 13:
 			if ($monat > 12){
 				$monat = 1;
@@ -190,8 +183,8 @@ include_once($root."/include/sessionFunctions.inc.php");
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
 			//monat erh�hen f�r n�chste ausgabe:
 			$monat+=1;
-		?></td>
-    <td><?php
+		?>
+    <?php
 			//kontrolle ob monat nicht 0 oder 13:
 			if ($monat > 12){
 				$monat = 1;
@@ -203,10 +196,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 			}
 			//monat ausgeben:
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);			
-		?></td>
-  </tr>
-  <tr valign="middle">
-    <td><?php 
+		?>
+ 
+  
+    <?php 
 		//wenn jahr zu klein, button nicht anzeigen:		
 		$mon = $monat-7;
 //		echo($mon);																
@@ -256,8 +249,8 @@ include_once($root."/include/sessionFunctions.inc.php");
         </div>
       </form>
       <?php }
-	   ?></td>
-    <td><?php
+	   ?>
+    <?php
 		//wenn jahr zu gross wird, button nicht mehr anzeigen:
 		$mo = $monat+1;
 		$ja = $jahr;
@@ -268,7 +261,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 		}		
 		else { 																													
 		?>
-      <form action="./right.php" method="post" name="monatWeiter" target="_self" id="monatWeiter">        
+      <form action="./right.php" method="post" name="monatWeiter" target="_self" id="monatWeiter">  
         <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
         <input name="monat" type="hidden" id="monat" value="<? 
 		  														if ($mo > 12){
@@ -280,10 +273,12 @@ include_once($root."/include/sessionFunctions.inc.php");
         <input name="jahr" type="hidden" id="jahr" value="<? echo ($ja); ?>">
         <input name="weiter" type="submit" class="btn btn-primary" onClick="updateLeft(<?php echo(($mo).",".($ja)).",".($zimmer_id); ?>,1);" id="weiter" 
 	   value="<?php echo(getUebersetzung("einen Monat weiter",$sprache,$link)); ?>">
+	     
       </form>
-      <?php } ?></td>
-  </tr>
-</table>
+      <?php } ?>
+  
+
 <?php } //ende else monat zu klein ?>
-</body>
+</div>
+</div>
 </html>

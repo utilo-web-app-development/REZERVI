@@ -101,22 +101,7 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	setSessionWert(ZIMMER_ID,$zimmer_id);
 	setSessionWert(UNTERKUNFT_ID,$unterkunft_id);
 		
-	//framegroessen auslesen:;
-  	$framesizeLeftBP = getFramesizeLeftBP($unterkunft_id,$link);
-  	$framesizeRightBP= getFramesizeRightBP($unterkunft_id,$link);
-  	$framesizeLeftBPUnit = getFramesizeLeftBPUnit($unterkunft_id,$link);
-  	$framesizeRightBPUnit= getFramesizeRightBPUnit($unterkunft_id,$link);
-  	if ($framesizeLeftBPUnit == "%"){
-  		$framesizeLeftBP.=$framesizeLeftBPUnit;
-  	}	
-  	if ($framesizeRightBPUnit == "%"){
-  		$framesizeRightBP.=$framesizeRigthBPUnit;
-  	}
-  	//wird der frame oben angezeigt oder links? oben => horizontal=true
-	$horizontal = false;
-	if (getPropertyValue(HORIZONTAL_FRAME,$unterkunft_id,$link) == "true"){
-		$horizontal = true;
-	}	
+
 	
 	//prüfe ob alte reservierungen zu löschen sind:
 	$xDays = getPropertyValue(RESERVATION_STATE_TIME,$unterkunft_id,$link);
@@ -185,106 +170,13 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
     ?>
     
     
-   <!-- ------------------------------------------------------------- 
-    
-    Ansichtwaehlen.php
-    
-   -------------------------------------------------------------  -->
-   
-    <? session_start();
-$root = ".";
-// Set flag that this is a parent file
-define( '_JEXEC', 1 );
-include_once($root."/include/sessionFunctions.inc.php");
-include_once($root."/include/propertiesFunctions.php");
-
-$unterkunft_id = getSessionWert(UNTERKUNFT_ID);	
-//variablen initialisieren:
-if (isset($_POST["ansichtWechsel"])){
-	$ansicht = $_POST["ansichtWechsel"];
-	setSessionWert(ANSICHT,$ansicht);
-}
-else{
-	$ansicht = getSessionWert(ANSICHT);
-}
-
-// Fehler
-//script waehlt die korrekte ansicht aus:
-//die letzte ansicht wird in der session-veriable ansicht gespeichert
-// 0 = right.php
-// 1 = jahresuebersicht
-// 2 = alle Zimmer
-
-if (isset($ansicht) && $ansicht != ""){
+  
 	
-	setSessionWert(ANSICHT,$ansicht);
-	switch($ansicht){
-		case 0:
-			include_once("./start.php");
-			break;
-		case 1:
-			include_once("./jahresuebersicht.php");
-			break;
-		case 2:
-			include_once("./gesamtuebersicht.php");
-			break;	
-		default:
-			include_once("./startNoFrame.php");
-			break;
-	} //ende switch
-}//ende if
-//script waehlt die korrekte ansicht aus:
-//die letzte ansicht wird in der session-veriable ansicht gespeichert
-// 0 = right.php
-// 1 = jahresuebersicht
-// 2 = alle Zimmer
-if (isset($ansicht) && $ansicht != ""){
 	
-	setSessionWert(ANSICHT,$ansicht);
-	switch($ansicht){
-		case 0:
-			include_once("./startNoFrame.php");
-			break;
-		case 1:
-			include_once("./jahresuebersicht.php");
-			break;
-		case 2:
-			include_once("./gesamtuebersicht.php");
-			break;	
-		default:
-			include_once("./startNoFrane.php");
-			break;
-	} //ende switch
-}//ende if
-else{
 	
- 
- $showMonatsansicht = getPropertyValue(SHOW_MONATSANSICHT,$unterkunft_id,$link);
- $showJahresansicht = getPropertyValue(SHOW_JAHRESANSICHT,$unterkunft_id,$link);
- $showGesamtansicht = getPropertyValue(SHOW_GESAMTANSICHT,$unterkunft_id,$link);
+	<!-- --------------------------------------------------------------------
 	
-	if ($showMonatsansicht == "true")
-			
-	{
-		include_once("./right.php");
-		exit;
-	}
-	if ($showJahresansicht == "true"){
-		include_once("./jahresuebersicht.php");
-		exit;
-	}
-	if ($showGesamtansicht == "true"){
-		include_once("./gesamtuebersicht.php");
-		exit;
-	}
-		
-}
-// Fehler Ende
-?>
-
-<!-- --------------------------------------------------------------------
-	
-	Ansichtwaehlen.php /ende
+	start.php
 	
 	--------------------------------------------------------------------- -->
 
@@ -308,7 +200,7 @@ else{
 	 */
 	?>
 	
->
+
 	<?php } ?>
 	
 	<div class="form-group">
@@ -352,7 +244,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	include_once("./include/unterkunftFunctions.php");
 	//uebersetzer einfuegen:
 	include_once("./include/uebersetzer.php");
-	//helper-datei eing�en:
+	//helper-datei einfügen:
 	include_once("./leftHelper.php");
 	include_once("./include/einstellungenFunctions.php");
 	include_once("./include/propertiesFunctions.php");
@@ -368,12 +260,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 		$horizontal = true;
 	}
 	
-	//falls keine zimmer_id ausgew�hlt wurde, das erste gefundene zimmer nehmen:
+	//falls keine zimmer_id ausgewählt wurde, das erste gefundene zimmer nehmen:
 	if (empty($zimmer_id)) {
 		$zimmer_id = getFirstRoom($unterkunft_id,$link);
 	}
 	
-	//falls kein jahr ausgew�hlt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
 	if (empty($jahr)){
 		$jahr = getTodayYear();
 	}
@@ -381,7 +273,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 		$jahr = $_POST["jahr"];
 	}
 	
-	//falls kein monat ausgew�hlt wurde, das aktuelle monat verwenden:
+	//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
 	if (empty($monat)){
 		$monat = getTodayMonth();
 	}	
@@ -398,18 +290,17 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <!-- dynamisches update der anzahl der tage f�r ein gewisses monat mit java-script: -->
+
 <script language="JavaScript" type="text/javascript" src="./templates/changeForms.js">
 </script>
-<script language="JavaScript" type="text/javascript" src="./leftJS.js">
+
+<!-- <script language="JavaScript" type="text/javascript" src="./leftJS.js">
 </script>
-<script type="text/javascript" src="<?php echo($root); ?>/templates/calendarDateInput.php">
-	/***********************************************
-	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
-	* Script featured on and available at http://www.dynamicdrive.com
-	* Keep this notice intact for use.
-	***********************************************/	
-</script>
-</head>
+<script type="text/javascript" src="<?php echo($root); ?>/templates/calendarDateInput.php">	
+</script> -->
+
+
+
 <div class="panel panel-default">
   <div class="panel-body">
   	
@@ -503,22 +394,23 @@ include_once($root."/include/sessionFunctions.inc.php");
 </style>
 <!-- dynamisches update der anzahl der tage für ein gewisses monat mit java-script: -->
 
-	
-		
+	<?php	
+		/*
 <script language="JavaScript" type="text/javascript" src="./templates/changeForms.js">
 </script>
 <script language="JavaScript" type="text/javascript" src="./leftJS.js">
 </script>
 <script type="text/javascript" src="<?php echo($root); ?>/templates/calendarDateInput.php">
 </script>
-		 
-		 <!-- ***********************************************
+		 /***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
 	* Keep this notice intact for use.
-	********************************************** -->
+	***********************************************/	
 		 
 		 
+?>		
+
 
   <table width="100%" border="0">
   <tr>
@@ -555,6 +447,15 @@ include_once($root."/include/sessionFunctions.inc.php");
 
 		</div>
 		
+<!-- -------------------------------------------------------------
+
+linke splate /ende
+
+------------------------------------------------------------ -->
+
+</div>
+</div>
+</div>
 		<div class="col-md-10">
 			
 	<!-- TODO: Kalender einbauen. 1. Schritt nur right.php -->
@@ -716,7 +617,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 		 else {														 																			
 		?>
 		
-      <form action="./startNoFrame.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
+      <form action="./startNoFrame2.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
         <div align="right">          
           <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
           <input name="monat" type="hidden" id="monat" value="<? echo($mon); ?>">
@@ -738,7 +639,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 		}		
 		else { 																													
 		?>
-      <form action="./startNoFrame.php" method="post" name="monatWeiter" target="_self" id="monatWeiter"> 
+      <form action="./startNoFrame2.php" method="post" name="monatWeiter" target="_self" id="monatWeiter"> 
         <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
         <input name="monat" type="hidden" id="monat" value="<? 
 		  														if ($mo > 12){
@@ -757,8 +658,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 
 <?php } //ende else monat zu klein ?>
 
-</div>
-</div>
-</div>
+
+
+
+
+
+	
+
 </div>
 </html>

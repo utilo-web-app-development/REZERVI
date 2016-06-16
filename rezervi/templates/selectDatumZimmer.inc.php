@@ -29,7 +29,7 @@
 			
 			<div class="form-group">
 				<label for="Jahr" class="col-sm-2 control-label"><?php echo(getUebersetzung("Jahr",$sprache,$link)); ?></label>
-				<div class="col-sm-10">
+				<div class="col-sm-11">
 					<select name="jahr" type="text" id="jahr" value="" class="form-control" onchange="zimmerNrFormJahrChanged()" >
 						<?php				
 			for ($l=getTodayYear(); $l < (getTodayYear()+4); $l++){ ?>
@@ -51,7 +51,7 @@
       
 			<div class="form-group">
 				<label for="Jahr" class="col-sm-2 control-label"><?php echo(getUebersetzung("Monat",$sprache,$link)); ?></label>
-				<div class="col-sm-10">
+				<div class="col-sm-11">
 					<select name="monat" class="form-control" id="monat" onchange="zimmerNrFormJahrChanged()">
               <?php
 			for ($i=1; $i<=12; $i++) { ?>
@@ -88,7 +88,7 @@
 				}
 				?> 
           </h4></label>
-				<div class="col-sm-10">
+				<div class="col-sm-11">
 					<select name="zimmer_id" class="form-control" id="zimmer_id" onchange="zimmerNrFormJahrChanged()">
               <?
 				$res = getZimmer($unterkunft_id,$link);

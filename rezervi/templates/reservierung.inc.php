@@ -12,7 +12,8 @@
         <h4><?php echo(getUebersetzung("Anfrage",$sprache,$link)); ?>: </h4>
                   
         <!-- zimmer auswaehlen: -->
-        <table border="0" cellspacing="0" cellpadding="0" class="table">  
+        
+        <!-- <table border="0" cellspacing="0" cellpadding="0" class="table">  
           <tr>
           	<td><h5><?php echo(getUebersetzung("von",$sprache,$link)); ?>:</h5></td>
           	<td></td>
@@ -27,6 +28,26 @@
           <tr>
           	<td colspan="2"><script>DateInput('datumBis', true, 'DD/MM/YYYY','<?php echo($enddatumDP); ?>')</script></td>
           </tr>
+          </table> -->
+        
+            <div class="form-group">
+				<label for="pass" class="col-sm-2 control-label"><h5><?php echo(getUebersetzung("von",$sprache,$link)); ?>:</h5></label>
+				<div class="col-sm-10 control lable">
+				<label><script>DateInput('datumBis', true, 'DD/MM/YYYY','<?php echo($enddatumDP); ?>')</script></label>
+					
+				</div>
+	</div>
+	
+	<div class="form-group">
+				<label for="pass" class="col-sm-2 control-label"><h5><?php echo(getUebersetzung("bis",$sprache,$link)); ?>:</h5></label>
+				<div class="col-sm-10 control lable">
+				<label><script>DateInput('datumVon', true, 'DD/MM/YYYY','<?php echo($startdatumDP); ?>')</script></label>
+					
+				</div>
+	</div>
+	
+	
+        
           <!-- <tr>
             <td>
               <span class="standardSchriftBold">
@@ -57,7 +78,7 @@
               </div>
             </td>
           </tr> -->
-          </table>
+          
                 <div class="form-group">
 	<label for="Jahr" class="col-sm-2 control-label"> 				
 				<h4><?php
@@ -88,7 +109,7 @@
 				
 			
         
-        <!-- ende zimmer ausw�hlen -->          
+        <!-- ende zimmer auswählen -->          
       
           
      
