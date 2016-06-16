@@ -48,7 +48,7 @@ define( '_JEXEC', 1 );
 <html>
 <head>
 <title>Wartungsseite Reservierungsplan utilo.eu Belegungsplan und Kundendatenbank Rezervi</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
 </head>
 <body>

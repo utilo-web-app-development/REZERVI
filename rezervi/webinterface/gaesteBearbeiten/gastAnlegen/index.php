@@ -187,7 +187,7 @@ include_once("../../../include/einstellungenFunctions.php");
 	
 <?php } //ende passwortpr�fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

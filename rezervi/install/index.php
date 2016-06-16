@@ -7,7 +7,7 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 <title>Installation Rezervi</title>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -29,9 +29,6 @@
 </head>
 
 <body>
-	
-
-
 
 <h1>Rezervi availability overview and guest database</br>
 					    Rezervi Belegungsplan und Kundendatenbank</h1>
@@ -111,7 +108,7 @@ Bitte wählen sie ihre Sprache.</p>
 <div class=	"col-md-12">
 	      
      <select name="speech" type="text" id="speech" value="" class="form-control">&gt;
-	          	<option value="de" selected="">deutsch</option>
+	          	<option value="de" selected="">Deutsch</option>
 				<option value="en">Englisch</option> 					
 	</select>
 </div>	  
@@ -123,7 +120,7 @@ Bitte wählen sie ihre Sprache.</p>
 
 
   
-	 <table  border="0" cellpadding="0" cellspacing="3" class="table">
+	 <!-- <table  border="0" cellpadding="0" cellspacing="3" class="table">
 		<tr>
 	          <td>URL for your MySQL database e.g. "localhost" <br/>
 				  URL zur MySQL Datenbank, z. B. "localhost"
@@ -186,10 +183,11 @@ Bitte wählen sie ihre Sprache.</p>
 					</td><td>
 						<input name="config" type="radio" value="false" checked></td>
 			</tr>
-		</table>					    
+		</table>	
+						    
 <!-- ende ist die conf datei richtig? -->
 					    
- sprache waehlen 
+ <!-- sprache waehlen 
 <p >Please select your language.<br/>
 Bitte wählen sie ihre Sprache.</p>
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
@@ -205,7 +203,7 @@ Bitte wählen sie ihre Sprache.</p>
 	    <tr>
 	          <td><input name="Submit" type="submit" class="btn btn-default" value="ok"></td>
 	    </tr>
-	</table> 
+	</table>  -->
 
 <!-- ende sprache waehlen -->
 
