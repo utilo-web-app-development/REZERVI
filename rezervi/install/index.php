@@ -35,11 +35,6 @@
 
 <h1>Rezervi availability overview and guest database</br>
 					    Rezervi Belegungsplan und Kundendatenbank</h1>
-<!-- Test -->				    
-<div class="panel panel-default">
-  <div class="panel-body">
-  						    
-<!-- Ende Test -->
 
 <!-- ist die conf datei richtig? -->					    
 <p>Please check your changings in the 'conf/rdbmsConfig.php' file:<br/>
@@ -92,32 +87,68 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
 				  <div class="col-sm-4"><?=$EMAIL ?></div>
 				
 		</div>
-	<table  border="0" cellpadding="0" cellspacing="3" class="table">
-		<!-- <tr>
+		
+		<!-- Radio Button -->
+	<div class="radio">
+  <label>
+    <input type="radio" name="config" id="optionsRadios1" value="true">
+    The file entries are correct.<br/>
+						Die Eintragungen im File sind korrekt.
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="config" id="optionsRadios2" value="false"checked>
+   The file entries are not correct.<br/>
+				  	  Die Eintragungen im File sind nicht korrekt.
+  </label>
+</div>
+</br>
+</br>
+<div class= "col-md-12">Please select your language.<br/>
+Bitte wählen sie ihre Sprache.</p>
+</div>
+<div class=	"col-md-12">
+	      
+     <select name="speech" type="text" id="speech" value="" class="form-control">&gt;
+	          	<option value="de" selected="">deutsch</option>
+				<option value="en">Englisch</option> 					
+	</select>
+</div>	  
+<div class=	"col-md-12">        
+	         <input name="Submit" type="submit" class="btn btn-default" value="ok">
+</div>	
+</div>
+</div>
+
+
+  
+	 <table  border="0" cellpadding="0" cellspacing="3" class="table">
+		<tr>
 	          <td>URL for your MySQL database e.g. "localhost" <br/>
 				  URL zur MySQL Datenbank, z. B. "localhost"
 			  </td>
 			  <td valign="bottom"><?=$DBMS_URL ?></td>
-	    </tr> -->
-		<!-- <tr>
+	    </tr>
+		 <tr>
 	          <td>Name of the MySQL database <br/>
 				  Name der MySQL Datenbank
 			  </td>
 			  <td valign="bottom"><?=$DB_NAME ?></td>
-	    </tr> -->
-		<!-- <tr>
+	    </tr> 
+		 <tr>
 	          <td>Username of the MySQL database<br/>
 				  Benutzername der MySQL Datenbank
 			  </td>
 			  <td valign="bottom"><?=$USERNAME ?></td>
-	    </tr>	 -->
-		<!-- <tr>
+	    </tr>	
+	 <tr>
 	          <td>Password of the MySQL database<br/>
 				  Passwort der MySQL Datenbank
 			  </td>
 			  <td valign="bottom"><?=$PASS ?></td>
-	    </tr> -->
-		<!-- tr>
+	    </tr> 
+		<tr>
 	          <td>URL of your homepage/your availibilty overview<br/>
 					e.g. $URL = "http://www.my-domainname.com"<br/>
 					If you installed Rezervi on a special folder on your<br/>
@@ -131,14 +162,14 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
 					z. B. $URL = "http://www.mein-domainname.com/rezerviStable/"<br/>
 			  </td>
 			  <td valign="bottom"><?=$URL ?></td>
-	    </tr>	 -->
-		<!-- <tr>
+	    </tr>	
+		 <tr>
 	          <td>E-mail address<br/>
 				  E-Mail-Adresse
 			  </td>
 			  <td valign="bottom"><?=$EMAIL ?></td>
-	    </tr>	     -->    	 	        
-	</table> 	
+	    </tr>	      	 	        
+	</table> 
 	<br/>
 	<table class="table">   	
 			<tr>
@@ -155,10 +186,10 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</p>
 					</td><td>
 						<input name="config" type="radio" value="false" checked></td>
 			</tr>
-		</table>				    
+		</table>					    
 <!-- ende ist die conf datei richtig? -->
 					    
-<!-- sprache waehlen -->
+ sprache waehlen 
 <p >Please select your language.<br/>
 Bitte wählen sie ihre Sprache.</p>
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
@@ -175,6 +206,7 @@ Bitte wählen sie ihre Sprache.</p>
 	          <td><input name="Submit" type="submit" class="btn btn-default" value="ok"></td>
 	    </tr>
 	</table> 
+
 <!-- ende sprache waehlen -->
 
 </form>
