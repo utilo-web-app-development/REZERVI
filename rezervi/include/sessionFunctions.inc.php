@@ -13,7 +13,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  header('P3P: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"');
  
  //open database first:
- //datenbank öffnen:
+ //datenbank Ã¶ffnen:
  include_once($root."/conf/rdbmsConfig.php");
 
  //session bezeichnungen als konstanten: 
@@ -143,7 +143,7 @@ function setSessionWert($bezeichnung,$wert){
 /**
  * author:coster
  * date: 19.9.05
- * zerstört eine session
+ * zerstÃ¶rt eine session
  * */
 function destroySession(){
 	
@@ -173,7 +173,7 @@ function destroySession(){
 /**
  * author:coster
  * date: 19.9.05
- * zerstört alle session die älter als 1 tag sind
+ * zerstÃ¶rt alle session die Ã¤lter als 1 tag sind
  * 
  * */
 function destroyInactiveSessions(){

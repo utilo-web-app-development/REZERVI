@@ -308,7 +308,7 @@ function setZimmer($unterkunft_id,$zimmernr,$betten,$bettenKinder,$zimmerart,$li
 
 } //ende zimmer eintragen
 
-//zählt die anzahl der bereits angelegten zimmer:
+//zÃ¤hlt die anzahl der bereits angelegten zimmer:
 function getAnzahlVorhandeneZimmer($unterkunft_id,$link){
 
 	$num_rows = 0;
@@ -332,7 +332,7 @@ function getAnzahlVorhandeneZimmer($unterkunft_id,$link){
 } //ende getAnzahlVorhandeneZimmer
 
 /**
-gibt my_sql result aller zimmer einer unterkunft zurück
+gibt my_sql result aller zimmer einer unterkunft zurÃ¼ck
 */
 function getZimmer($unterkunft_id,$link){
 	
@@ -357,11 +357,11 @@ function getZimmer($unterkunft_id,$link){
 } //ende getZimmer
 
 //--------------------------------------------
-//funktion gibt die zimmernummer zurück, 
-//übergeben wird die id der unterkunft,
+//funktion gibt die zimmernummer zurÃ¼ck, 
+//Ã¼bergeben wird die id der unterkunft,
 //des zimmers und 
 //der link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getZimmerNr($unterkunft_id,$zimmer_id,$link){
 
 	//zimmer-nummer aus datenbank auslesen:
@@ -388,11 +388,11 @@ function getZimmerNr($unterkunft_id,$zimmer_id,$link){
 } //ende getZimmerNummer
 
 //--------------------------------------------
-//funktion gibt eine einzelne zimmerart zurück, 
-//übergeben wird die id der unterkunft,
+//funktion gibt eine einzelne zimmerart zurÃ¼ck, 
+//Ã¼bergeben wird die id der unterkunft,
 //des zimmers und 
 //der link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getZimmerArt($unterkunft_id,$zimmer_id,$link){
 
 	//zimmer-art aus datenbank auslesen:
@@ -420,7 +420,7 @@ function getzimmerArtString($unterkunft_id,$link){
 
 	$zimmera = "";
 
-	//feststellen wie viele zimmer es gibt, um einzahl oder mehrzahl zu wählen:
+	//feststellen wie viele zimmer es gibt, um einzahl oder mehrzahl zu wÃ¤hlen:
 	$anzahlZimmer = getAnzahlVorhandeneZimmer($unterkunft_id,$link);
 	if ($anzahlZimmer > 1){
 		//mehrzahl auslesen:
@@ -441,11 +441,11 @@ function getzimmerArtString($unterkunft_id,$link){
 }
 
 //--------------------------------------------
-//funktion gibt alle zimmerarten als string zurück, 
-//übergeben wird die id der unterkunft,
+//funktion gibt alle zimmerarten als string zurÃ¼ck, 
+//Ã¼bergeben wird die id der unterkunft,
 //die sprache und 
 //der link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getZimmerArten($unterkunft_id,$link){
 
 	$zimmerart = "";
@@ -477,9 +477,9 @@ function getZimmerArten($unterkunft_id,$link){
 } //ende getZimmerArten
 
 //--------------------------------------------
-//funktion die die bettenanzahl zurückgibt
+//funktion die die bettenanzahl zurÃ¼ckgibt
 //der link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getBetten($unterkunft_id,$zimmer_id,$link){	
 			
 		$query = "select 
@@ -500,9 +500,9 @@ function getBetten($unterkunft_id,$zimmer_id,$link){
 } //ende getBetten
 
 //--------------------------------------------
-//funktion die die bettenanzahl fuer Kinder zurückgibt
+//funktion die die bettenanzahl fuer Kinder zurÃ¼ckgibt
 //der link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getBettenKinder($unterkunft_id,$zimmer_id,$link){	
 			
 		$query = "select 
@@ -523,9 +523,9 @@ function getBettenKinder($unterkunft_id,$zimmer_id,$link){
 } //ende getBetten
 
 //--------------------------------------------
-//Funktion, die den Link des Zimmers zurückgibt
+//Funktion, die den Link des Zimmers zurÃ¼ckgibt
 //der link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getLink($unterkunft_id,$zimmer_id,$link){	
 			
 		$query = "SELECT
@@ -546,9 +546,9 @@ function getLink($unterkunft_id,$zimmer_id,$link){
 } //ende getLink
 
 //--------------------------------------------
-//Funktion, die das Feld "Haustiere" des Zimmers zurückgibt
+//Funktion, die das Feld "Haustiere" des Zimmers zurÃ¼ckgibt
 //der link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getHaustiere($unterkunft_id,$zimmer_id,$link){	
 			
 		$query = "SELECT

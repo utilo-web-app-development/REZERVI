@@ -24,7 +24,7 @@ include_once("../include/uebersetzer.php");
 
 <body>
 <p class="ueberschrift"><?php 
-	//sprache ist erst ab installation-schritt 3 verfügbar!
+	//sprache ist erst ab installation-schritt 3 verfÃ¼gbar!
 	if ($sprache == "en"){
 		?>
 		Installation of Rezervi availability overview and guest database
@@ -46,7 +46,7 @@ include_once("../include/uebersetzer.php");
 	}
 	else if ($sprache == "de"){
 		?>
-		Installation wird durchgeführt ... 
+		Installation wird durchgefÃ¼hrt ... 
 	<?php 
 	}	
 	?>
@@ -94,35 +94,35 @@ include_once("../include/uebersetzer.php");
 
 <?php if ($fehler == true) { ?><p class="belegt"><?php echo($antwort); ?></p><?php } ?>
 
-<p class="standardSchriftBold"><?php echo(getUebersetzung("So können sie Rezervi verlinken",$sprache,$link)); ?>:</p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("So kÃ¶nnen sie Rezervi verlinken",$sprache,$link)); ?>:</p>
 <ul>
   <li class="standardSchrift"><?php echo(getUebersetzung("Die Startseite Ihres Belegungsplanes",$sprache,$link)); ?>: <br/>
     <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../start.php" target="_blank">start.php</a></li>
-  <li class="standardSchrift"><?php echo(getUebersetzung("Dieser Seite können Sie auch die gewünschte Sprache übergeben",$sprache,$link)); ?>:<br/>
+  <li class="standardSchrift"><?php echo(getUebersetzung("Dieser Seite kÃ¶nnen Sie auch die gewÃ¼nschte Sprache Ã¼bergeben",$sprache,$link)); ?>:<br/>
   <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../start.php?spracheNeu=de" target="_blank">start.php?spracheNeu=de</a><br/>
   <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../start.php?spracheNeu=en" target="_blank">start.php?spracheNeu=en</a><br/>
   <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../start.php?spracheNeu=fr" target="_blank">start.php?spracheNeu=fr</a></li>
-  <li class="standardSchrift"><?php echo(getUebersetzung("Sie können auch direkt die Suchfunktion aufrufen",$sprache,$link)); ?>:<br/>
+  <li class="standardSchrift"><?php echo(getUebersetzung("Sie kÃ¶nnen auch direkt die Suchfunktion aufrufen",$sprache,$link)); ?>:<br/>
   <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../suche/index.php" target="_blank">suche/index.php</a></li>
-  <li class="standardSchrift"><?php echo(getUebersetzung("Auch dieser Seite kann die gewünschte Sprache übergeben werden",$sprache,$link)); ?>: <br/>
+  <li class="standardSchrift"><?php echo(getUebersetzung("Auch dieser Seite kann die gewÃ¼nschte Sprache Ã¼bergeben werden",$sprache,$link)); ?>: <br/>
   <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../suche/index.php?sprache=de" target="_blank">suche/index.php?sprache=de</a><br/>
   <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../suche/index.php?sprache=en" target="_blank">suche/index.php</a><a href="../suche/index.php" target="_blank">?sprache=en</a><br/>
   <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../suche/index.php?sprache=fr" target="_blank">suche/index.php</a><a href="../suche/index.php" target="_blank">?sprache=fr</a> </li>
-  <li class="standardSchrift"><?php echo(getUebersetzung("Den Zugang zur Webschnittstelle erhalten sie über",$sprache,$link)); ?>
-  (<?php echo(getUebersetzung("Verwenden sie als Benutzername und Passwort \"test\" und ändern sie das Passwort nach erstmaligem Einstieg.",$sprache,$link)); ?>):<br/>
+  <li class="standardSchrift"><?php echo(getUebersetzung("Den Zugang zur Webschnittstelle erhalten sie Ã¼ber",$sprache,$link)); ?>
+  (<?php echo(getUebersetzung("Verwenden sie als Benutzername und Passwort \"test\" und Ã¤ndern sie das Passwort nach erstmaligem Einstieg.",$sprache,$link)); ?>):<br/>
   <?php echo(getUebersetzung("http://ihre-domain/ihrInstallationsverzeichnis/",$sprache,$link)); ?><a href="../webinterface/index.php" target="_blank">webinterface/index.php</a></li>
 </ul>
-<p class="standardSchrift"><?php echo(getUebersetzung("Nach erfolgreicher Installation sollten Sie den Ordner &quot;install&quot; auf Ihrem Webserver löschen, ansonsten kann durch einen Angriff von aussen Ihre Datenbank verändert werden",$sprache,$link)); ?>!</p>
+<p class="standardSchrift"><?php echo(getUebersetzung("Nach erfolgreicher Installation sollten Sie den Ordner &quot;install&quot; auf Ihrem Webserver lÃ¶schen, ansonsten kann durch einen Angriff von aussen Ihre Datenbank verÃ¤ndert werden",$sprache,$link)); ?>!</p>
 
 <p class="standardSchrift"><?php echo(getUebersetzung("Wir sind ihnen auch gerne bei Fragen zur Installation behilflich. Senden sie uns einfach ein E-Mail unter",$sprache,$link)); ?>:</p>
 <p class="standardSchrift"><a href="mailto:rezervi@utilo.eu">rezervi@utilo.eu</a></p>
 
-<!-- webinterface öffnen -->
+<!-- webinterface Ã¶ffnen -->
 <form action="../webinterface/index.php" method="post" id="formLizenz" name="formLizenz" target="_self" onSubmit="return checkLicence();">
-	<p class="standardSchrift"><?php echo(getUebersetzung("Bitte ändern sie nun ihre Einstellungen im Webinterface",$sprache,$link)); ?></p>
-	<input name="Submit" type="submit" class="button200pxA" value="<?= getUebersetzung("Webinterface öffnen",$sprache,$link) ?>">
+	<p class="standardSchrift"><?php echo(getUebersetzung("Bitte Ã¤ndern sie nun ihre Einstellungen im Webinterface",$sprache,$link)); ?></p>
+	<input name="Submit" type="submit" class="button200pxA" value="<?= getUebersetzung("Webinterface Ã¶ffnen",$sprache,$link) ?>">
 </form>
-<!-- ende webinterface öffnen -->
+<!-- ende webinterface Ã¶ffnen -->
 
 </body>
 </html>

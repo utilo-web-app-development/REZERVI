@@ -2,11 +2,11 @@
 
 /****************************************************************************
 	Config file for your database.
-	Konfigurationsdatei für die Datenbank.
+	Konfigurationsdatei fÃ¼r die Datenbank.
 	
 	You must fill in the URL, the name of the database, the username and
 	the password of your MySQL database!
-	Hier muß die URL, der Datenbankname, der Benutzername und das Passwort 
+	Hier muss die URL, der Datenbankname, der Benutzername und das Passwort 
 	der MySQL Datenbank	eingegeben werden!	
 *****************************************************************************/
 
@@ -67,8 +67,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
   	if (!$link) {
   		echo("No connection to the database management system on $DBMS_URL!\n
 			  Please check your dates for the database!\n");
-        echo("Keine Verbindung mit dem Datenbankmanagementsystem auf $DBMS_URL möglich!\n
-			  Bitte überprüfen Sie die Zugangsdaten zu Ihrer Datenbank!");
+        echo("Keine Verbindung mit dem Datenbankmanagementsystem auf $DBMS_URL mÃ¶glich!\n
+			  Bitte ÃœberprÃ¼fen Sie die Zugangsdaten zu Ihrer Datenbank!");
         exit;
     }
 	else{
@@ -79,7 +79,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
   			echo("The database $DB_NAME does not exist.\n
 			  Please check your dates for the database!\n");
     		echo("Die Datenbank $DB_NAME existiert nicht.\n
-				  Bitte überprüfen Sie die Zugangsdaten zu Ihrer Datenbank!");
+				  Bitte ÃœberprÃ¼fen Sie die Zugangsdaten zu Ihrer Datenbank!");
   			exit;
   		}
 	}

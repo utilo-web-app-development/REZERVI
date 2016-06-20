@@ -237,7 +237,7 @@ function changeMessage($unterkunft_id,$art,$subject,$body,$unterschrift,$anrede,
 		return setMessage($unterkunft_id,$art,$subject,$body,$unterschrift,$anrede,$link);
 	}
 	else{
-			//ändern des textes in der datenbank:
+			//Ã„ndern des textes in der datenbank:
 		$query = "UPDATE 
 				Rezervi_Auto_Response 
 				SET 
