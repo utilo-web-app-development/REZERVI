@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			ein neues zimmer anlegen.
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -22,7 +22,7 @@ include_once("../../include/einstellungenFunctions.php");
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
-//sprachunabh�ngige variablen:
+//sprachunabhängige variablen:
 $strasse = $_POST["strasse"];
 $plz = $_POST["plz"];
 $ort = $_POST["ort"];
@@ -32,7 +32,7 @@ $tel2 = $_POST["tel2"];
 $fax = $_POST["fax"];
 $kindesalter = $_POST["kindesalter"];
 $waehrung = $_POST["waehrung"];
-//variablen sprachabh�ngig:
+//variablen sprachabhängig:
 if (isset($_POST["name_de"])){
 	$name_de = $_POST["name_de"];
 }
@@ -330,10 +330,10 @@ else{
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortpr�fung:	
+<?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
 	
-	//unterkunft �nderung durchf�hren:	
+	//unterkunft Änderung durchführen:	
 	setUnterkunftStrasse($unterkunft_id,$strasse,$link);
 	setUnterkunftPlz($unterkunft_id,$plz,$link);
 	setUnterkunftOrt($unterkunft_id,$ort,$link);	
@@ -489,7 +489,7 @@ else{
     <td><form action="./index.php" method="post" name="unterkunft aendern" target="_self" id="unterkunft aendern">
 
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table> -->
@@ -499,13 +499,13 @@ else{
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table> -->
 
 	<?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

@@ -3,7 +3,7 @@ $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//gibt select-statements für farbtabelle aus:
+//gibt select-statements fÃ¼r farbtabelle aus:
 	function getColorTable($vorher){
 		$hex = array("00", "33", "66", "99", "CC", "FF");
 		for ($r=0; $r<count($hex); $r++){ //the red colors loop

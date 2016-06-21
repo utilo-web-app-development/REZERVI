@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 
 //einstiegsseite wenn nicht direkt ein Zimmer ausgewaehlt wurde
-//dem benutzer wird vorab die Möglichkeit geboten ein Zimmer auszuwählen.
+//dem benutzer wird vorab die MÃ¶glichkeit geboten ein Zimmer auszuwÃ¤hlen.
 //uebergebene variable ist die sprache und unterkunft_id
 
 //variablen initialisieren:
@@ -21,7 +21,7 @@ else{
 	$sprache = $_GET["sprache"];
 }
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../conf/rdbmsConfig.php");
 //unterkunft-funktionen
 include_once("../include/unterkunftFunctions.php");
@@ -31,7 +31,7 @@ include_once("../include/datumFunctions.php");
 include_once("./sucheFunctions.php");
 include_once("../include/propertiesFunctions.php");
 include_once("../include/einstellungenFunctions.php");
-//uebersetzer einfügen:
+//uebersetzer einfÃ¼gen:
 include_once("../include/uebersetzer.php");
 include_once($root."/include/buchungseinschraenkung.php");
 
@@ -40,7 +40,7 @@ if (!isset($unterkunft_id) || $unterkunft_id == ""){
    $unterkunft_id = "1";
  }
  
-//wenn keine sprache übergeben, deutsch nehmen:	
+//wenn keine sprache Ãœbergeben, deutsch nehmen:	
 if (!isset($sprache) || $sprache == ""){
 	$sprache = "de";						
 }
@@ -58,9 +58,9 @@ if (isset($_POST['datumBis']) && !empty($_POST['datumBis'])){
 	$enddatumDP = $_POST['datumBis'];
 }
 		
-//headerA einfügen:
+//headerA einfÃ¼gen:
 include_once("../templates/headerA.php");
-//stylesheets einfügen:
+//stylesheets einfgen:
 ?>
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
@@ -73,7 +73,7 @@ include_once("../templates/headerA.php");
 	***********************************************/	
 </script>
 <?php
-//headerB einfügen:
+//headerB einfÃ¼gen:
 include_once("../templates/headerB.php");
 ?>
 <table border="0">
@@ -82,7 +82,7 @@ include_once("../templates/headerB.php");
         <?php 
 		 //$zimmerart = getUebersetzungUnterkunft(getZimmerArten($unterkunft_id,$link),$sprache,$unterkunft_id,$link);
 		 $zimmerart_mz = getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link);
-		 echo(getUebersetzung("Sie können den Belegungsplan betrachten, indem Sie eine Auswahl treffen und auf [Belegungsplan anzeigen] klicken...",$sprache,$link));
+		 echo(getUebersetzung("Sie kÃ¶nnen den Belegungsplan betrachten, indem Sie eine Auswahl treffen und auf [Belegungsplan anzeigen] klicken...",$sprache,$link));
 		 ?>
       </p></td>
   </tr>
@@ -98,7 +98,7 @@ include_once("../templates/headerB.php");
   <input name="jahr" type="hidden" value="<?php echo(getTodayYear()); ?>">
   <table border="0" class="table">
     <tr>
-      <td class="standardSchriftBold"><?php	echo(getUebersetzung("Belegungsplan für:",$sprache,$link)); ?></td>
+      <td class="standardSchriftBold"><?php	echo(getUebersetzung("Belegungsplan fÃ¼r:",$sprache,$link)); ?></td>
       <td></td>
     </tr>
     <tr>
@@ -158,7 +158,7 @@ include_once("../templates/headerB.php");
   <tr>
     <td><span class="standardSchrift">
       <?php 
-		echo(getUebersetzung("...oder eine automatische Suche durchführen, indem sie unterstehende Daten angeben und [Suche starten] klicken.",$sprache,$link)); 
+		echo(getUebersetzung("...oder eine automatische Suche durchfÃ¼hren, indem sie unterstehende Daten angeben und [Suche starten] klicken.",$sprache,$link)); 
 	  ?>
       </span></td>
   </tr>
@@ -410,7 +410,7 @@ include_once("../templates/headerB.php");
 				?>
 		  <tr>
 		    <td width="1"><img src="../fahneSP.gif" width="25" height="16"></td>
-			    <td><div align="left"><a href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=sp" target="_self" class="standardSchrift">&nbsp;&nbsp;España</a></div></td>
+			    <td><div align="left"><a href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=sp" target="_self" class="standardSchrift">&nbsp;&nbsp;EspaÃ±a</a></div></td>
 				  </tr>
 				  <?php
 						}

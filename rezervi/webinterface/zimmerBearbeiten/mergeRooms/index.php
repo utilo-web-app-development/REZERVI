@@ -3,7 +3,7 @@
  * Created on 19.01.2007
  *
  * @author coster
- * preise hinzuf�gen l�schen �ndern
+ * preise hinzufügen löschen ändern
  */
 
 session_start();
@@ -44,7 +44,7 @@ include_once($root."/webinterface/templates/headerA.php");
 include_once($root."/webinterface/templates/headerB.php"); 
 include_once($root."/webinterface/templates/bodyA.php"); 
 
-//wurde irgend eine zuweisung gel�scht?
+//wurde irgend eine zuweisung gelöscht?
 $res = getAllRoomsWithChilds($unterkunft_id);
 while ( $d = mysql_fetch_array($res) ){
 	$zimmer_id = $d['Parent_ID'];
@@ -56,7 +56,7 @@ while ( $d = mysql_fetch_array($res) ){
 		}
 }
 
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 ?>
@@ -221,21 +221,21 @@ if (hasParentRooms($unterkunft_id)){
     	
     	<!-- <form action="../index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-		 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
+		 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
  		</form> -->
  
 <!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
   </form></td>
   </tr>
 </table> -->
 <?php
 }
 else {
-	echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
 ?>   
 </body>

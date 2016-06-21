@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	  
 	  //uebersetzer einfuegen:
 	  include_once("../../include/uebersetzer.php");
-	  //datenbank öffnen:
+	  //datenbank Ã¶ffnen:
 	  include_once("../../conf/rdbmsConfig.php");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -509,7 +509,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     </table></td>
   </tr>
 </table>
-<p><font face="Verdana, Helvetica, Sans-serif" size=1><a href="#" onClick="javascript:self.close()"><?php echo(getUebersetzung("Fenster schließen",$sprache,$link)); ?></a></font></p>
+<p><font face="Verdana, Helvetica, Sans-serif" size=1><a href="#" onClick="javascript:self.close()"><?php echo(getUebersetzung("Fenster schlieÃŸen",$sprache,$link)); ?></a></font></p>
 <p>&nbsp;</p>
 </body>
 </html>

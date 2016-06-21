@@ -11,7 +11,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			date: 18.8.05
 */
 
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -31,7 +31,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$standardsprache = getStandardSprache($unterkunft_id,$link);
 	
 	if (!is_writable($root."/upload")){
-		$nachricht = "Achtung! Das Verzeichnis 'upload' ist nicht beschreibbar, Sie können erst Bilder hochladen wenn Sie diesem Verzeichnis Schreibrechte zuweisen!";
+		$nachricht = "Achtung! Das Verzeichnis 'upload' ist nicht beschreibbar, Sie kÃ¶nnen erst Bilder hochladen wenn Sie diesem Verzeichnis Schreibrechte zuweisen!";
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		$fehler = true;
 	}	
@@ -45,16 +45,16 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 
-<?php //passwortprüfung:	
+<?php //passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
 ?>
 
 <form action="./bilderHochladenDurchfuehren.php" method="post" name="zimmerEintragen" target="_self" enctype="multipart/form-data">
   <table border="0" cellpadding="0" cellspacing="3" class="table">
     <tr class="table"> 
-      <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. hochladen",$sprache,$link)); ?><br/>
-          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
-          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!</span></p>
+      <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder fÃ¼r Zimmer/Appartement/Wohnung/etc. hochladen",$sprache,$link)); ?><br/>
+          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte fÃ¼llen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
+          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden",$sprache,$link)); ?>!</span></p>
       </td>
     </tr>
 	<?php
@@ -141,19 +141,19 @@ include_once($root."/include/sessionFunctions.inc.php");
 </form>
 <br/>
 <?php 
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zu gelangen: 
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <p></td> </tr> </table> </p>  
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprÃ¼fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>   
  <?php include_once("../templates/end.php"); ?>

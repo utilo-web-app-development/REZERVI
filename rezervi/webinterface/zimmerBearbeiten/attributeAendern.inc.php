@@ -40,13 +40,13 @@ define( '_JEXEC', 1 );
  	
  	setAttribute($bezeichnung,$beschreibung);
  	
- 	$nachricht = "Das Attribut wurde erfolgreich hinzugef�gt.";
+ 	$nachricht = "Das Attribut wurde erfolgreich hinzugefügt.";
  	$nachricht = getUebersetzung($nachricht,$sprache,$link);
  	include_once("./attributeHinzufuegen.php");
  	exit;
  }
 
- //2. wurde l�schen geklickt?
+ //2. wurde löschen geklickt?
  $res = getAttributes();
  while ($d = mysql_fetch_array($res)){	
 	$att_id 	= $d["PK_ID"];
@@ -95,7 +95,7 @@ define( '_JEXEC', 1 );
 		setAttribute($bezeichnung,$beschreibung);
 	}
 	
-	//in der gesamt�bersicht anzeigen?
+	//in der gesamtübersicht anzeigen?
 	$showInGesamtuebersicht = "false";
 	if (isset($_POST["showInGesamtuebersicht"]) && $_POST["showInGesamtuebersicht"] == "true"){
 		$showInGesamtuebersicht = "true";

@@ -3,7 +3,7 @@ $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//�ndern der angezeigten sprachen:
+//Ändern der angezeigten sprachen:
 
 //variablen initialisieren:
 $standardsprache = $_POST["standardsprache"];
@@ -14,7 +14,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $jetztWechseln = $_POST["jetztWechseln"];
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/uebersetzer.php");
@@ -22,7 +22,7 @@ include_once("../../../include/benutzerFunctions.php");
 include_once("../../../include/unterkunftFunctions.php");
 include_once("../../templates/components.php");
 
-//kontrolle ob �berhaupt eine sprache ausgew�hlt wurde:
+//kontrolle ob überhaupt eine sprache ausgewählt wurde:
 if (!isset($standardsprache) || $standardsprache == "" || !isset($standardspracheBelegungsplan) || $standardspracheBelegungsplan == ""){
 	$nachricht = "Sie müssen mindestens eine Sprache auswählen!";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
@@ -50,7 +50,7 @@ else{
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <h1><?php echo(getUebersetzung("Ändern der angezeigten Sprachen",$sprache,$link)); ?>.</h1>
@@ -77,16 +77,16 @@ if (isset($nachricht) && $nachricht != ""){
 ?>
 </div>
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

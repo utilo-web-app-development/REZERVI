@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	//uebersetzer einfuegen:
 	include_once("../../include/uebersetzer.php");
@@ -20,7 +20,7 @@ function chkFormular()
 	   return false;
 	 }
 	 if(document.benutzer.pass.value != document.benutzer.pass2.value){
-	   alert("<?php echo(getUebersetzung("Die beiden Passwörter stimmen nicht überein!",$sprache,$link)); ?>");
+	   alert("<?php echo(getUebersetzung("Die beiden PasswÃ¶rter stimmen nicht Ã¼berein!",$sprache,$link)); ?>");
 	   document.benutzer.pass.focus();
 	   return false;
 	 }

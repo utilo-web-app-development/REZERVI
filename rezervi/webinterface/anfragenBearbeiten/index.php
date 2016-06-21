@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			startseite zur wartung der reservierung f�r den benutzer
+			startseite zur wartung der reservierung für den benutzer
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Benutzer PK_ID $benutzer_id
 */
 
@@ -18,7 +18,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -46,7 +46,7 @@ include_once("../../include/uebersetzer.php");
 	//-->
 </script>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortpr�fung:	
+<?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <div class="panel panel-default">
@@ -197,12 +197,12 @@ include_once("../../include/uebersetzer.php");
           <tr>
             <td><input name="gast_id" type="hidden" value="<?php echo($gast_id); ?>">
               <input name="reservierungs_id" type="hidden" value="<?php echo($reservierungen); ?>">
-              <input name="entfernen" type="submit" id="entfernen" value="<?php echo(getUebersetzung("Anfrage l�schen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+              <input name="entfernen" type="submit" id="entfernen" value="<?php echo(getUebersetzung("Anfrage löschen",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
               <input name="gastEntfernen" type="checkbox" id="gastEntfernen" value="true">
-              <?php echo(getUebersetzung("Gast aus Datenbank l�schen",$sprache,$link)); ?>
+              <?php echo(getUebersetzung("Gast aus Datenbank löschen",$sprache,$link)); ?>
               <?php
-			  //automatische absage mu� hier nochmals best�tigt werden,
+			  //automatische absage muss hier nochmals bestätigt werden,
 			  //allerdings nur wenn sie auch aktiv ist:
 			  if (isMessageActive($unterkunft_id,"ablehnung",$link)){
 			  ?>
@@ -251,13 +251,13 @@ if ($leer == true){  ?>
   </tr>
 
 <?php } 
-	else { //zur�ck-button anzeigen: 
+	else { //zurück-button anzeigen: 
 ?>
 <br/>
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
       </form></td>
   </tr>
@@ -265,9 +265,9 @@ if ($leer == true){  ?>
 <?php } //ende else
  ?>
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
 ?>
 </body>

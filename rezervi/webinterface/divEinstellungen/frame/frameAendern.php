@@ -3,7 +3,7 @@ $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//ändern der angezeigten sprachen:
+//Ã„ndern der angezeigten sprachen:
 
 //variablen initialisieren:
 $artRightWI = $_POST["artRightWI"];
@@ -47,7 +47,7 @@ $sprache = getSessionWert(SPRACHE);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/uebersetzer.php");
@@ -61,7 +61,7 @@ include_once($root."/include/propertiesFunctions.php");
 	setFramesizeRightWI($unterkunft_id,$wertRightWI,$artRightWI,$link);
 	setFramesizeLeftWI($unterkunft_id,$wertLeftWI,$artLeftWI,$link);	
 	
-	$nachricht = "Die Framegrößen wurden erfolgreich geändert";
+	$nachricht = "Die FramegrÃ¶ÃŸen wurden erfolgreich geÃ¤ndert";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
 	$nachricht.=".";
 	$fehler = false;
@@ -81,11 +81,11 @@ include_once($root."/include/propertiesFunctions.php");
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen",$sprache,$link)); ?>.</p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("Ã„ndern der angezeigten Sprachen",$sprache,$link)); ?>.</p>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
@@ -100,18 +100,18 @@ if (isset($nachricht) && $nachricht != ""){
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprÃ¼fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); 

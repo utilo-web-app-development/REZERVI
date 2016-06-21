@@ -8,7 +8,7 @@
  
 $zimmer = $_POST['zimmer'];
 if (empty($zimmer)){
-	$nachricht = "Bitte w‰hlen Sie die Zimmer zum ausgew‰hlten Haus.";
+	$nachricht = "Bitte w√§hlen Sie die Zimmer zum ausgew√§hlten Haus.";
 	$fehler = true;
 }
 else{

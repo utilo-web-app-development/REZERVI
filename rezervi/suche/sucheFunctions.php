@@ -59,11 +59,11 @@ function getAnzahlKinder($unterkunftId,$link){
 	
 }
 
-//liefert die freien zimmer_id in einem array zurück:
+//liefert die freien zimmer_id in einem array zurÃ¼ck:
 //wenn $freieZimmer[0] = -1 dann sind nicht genug freie zimmer fuer erwachsene
 //                       -2 wenn nicht genug fuer kinder
 //                       -3 wenn nicht genug zimmer
-//                       -4 wenn buchungseinschraenkung für alle zimmer besteht
+//                       -4 wenn buchungseinschraenkung fÃ¼r alle zimmer besteht
 function getFreieZimmer($unterkunft_id, $anzahlErwachsene, $anzahlKinder, $anzahlZimmer,$haustiere,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$link){
 	
 	 //leeres array erzeugen zum speichern der freien zimmer:
@@ -75,12 +75,12 @@ function getFreieZimmer($unterkunft_id, $anzahlErwachsene, $anzahlKinder, $anzah
 	 
 	 //reservierungs-funktionen einbinden:
 	 include_once("../include/reservierungFunctions.php");
-	 //zimmer-funktionen hinzufügen:
+	 //zimmer-funktionen hinzufÃ¼gen:
 	 include_once("../include/zimmerFunctions.php");
-	 //properties hinzufügen:
+	 //properties hinzufÃ¼gen:
 	 include_once("../include/propertiesFunctions.php");
 	
-	 //alle zimmer der unterkunft auslesen und prüfen ob es im angegebenen zeitraum noch frei ist:
+	 //alle zimmer der unterkunft auslesen und prÃ¼fen ob es im angegebenen zeitraum noch frei ist:
 	 $query="
 			SELECT 
 			PK_ID		
@@ -97,7 +97,7 @@ function getFreieZimmer($unterkunft_id, $anzahlErwachsene, $anzahlKinder, $anzah
 			$zi_id = $d["PK_ID"];
 
 			//wenn die suche nach erwachsenen oder kindern nach zimmern gefiltert
-			//werden soll (z. b. ferienhäuser nur mit bestimmter personenanzahl):
+			//werden soll (z. b. ferienhÃ¤user nur mit bestimmter personenanzahl):
 			//dont check it if the accomodation has rooms and subrooms:
 			if (!hasParentRooms($unterkunft_id)){
 				if (getPropertyValue(SUCHFILTER_ZIMMER,$unterkunft_id,$link) == "true"){
@@ -116,7 +116,7 @@ function getFreieZimmer($unterkunft_id, $anzahlErwachsene, $anzahlKinder, $anzah
 			
 			if(!isRoomTaken($zi_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$link))
 			{
-				  //zimmer ist noch frei - dem array hinzufügen:
+				  //zimmer ist noch frei - dem array hinzufÃ¼gen:
 				  $freieZimmer[] = $zi_id;	
 				  $freieZi++;			
 				  //zaehlen wie viele erwachsene und kinder platz haben:

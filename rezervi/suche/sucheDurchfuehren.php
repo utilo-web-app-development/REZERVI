@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 
 	include_once($root."/include/sessionFunctions.inc.php");
 		
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once($root."/conf/rdbmsConfig.php");
 	//spezielle funktionen fuer suche:
 	include_once("./sucheFunctions.php");	
@@ -70,24 +70,24 @@ define( '_JEXEC', 1 );
 	if (!isset($unterkunft_id) || $unterkunft_id == ""){
 	   $unterkunft_id = "1";
 	 }
-	//übergebene sprache in session speichern:
-	//wenn keine sprache übergeben, deutsch nehmen:	
+	//Ãœbergebene sprache in session speichern:
+	//wenn keine sprache Ã¼bergeben, deutsch nehmen:	
 	if (!isset($sprache) || $sprache == ""){
 		$sprache = "de";						
 	}
 
-//headerA einfügen:
+//headerA einfÃ¼gen:
 include_once("../templates/headerA.php");
-//stylesheets einfügen:
+//stylesheets einfÃ¼gen:
 ?>
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <?php
-//headerB einfügen:
+//headerB einfÃ¼gen:
 include_once("../templates/headerB.php");
 
-//prüfen ob datum korrekt:
+//prÃ¼fen ob datum korrekt:
 if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {				
 ?>
 <table border="0" cellpadding="0" cellspacing="3" class="table">
@@ -129,14 +129,14 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
   </tr>
 </table>
 <?php
-	} //ende if is datum früher
+	} //ende if is datum frÃ¼her
 	else if (isDatumAbgelaufen($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)){
 	?>
 	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	  <tr>
 		<td>
 			<p class="standardSchriftBold">
-				<?php echo(getUebersetzung("Das gewählte Datum ist bereits abgelaufen.",$sprache,$link)); ?>
+				<?php echo(getUebersetzung("Das gewÃ¤hlte Datum ist bereits abgelaufen.",$sprache,$link)); ?>
 			</p>
 		    <p class="standardSchriftBold">
 		    	<?php echo(getUebersetzung("Bitte korrigieren Sie das Datum Ihrer Anfrage!",$sprache,$link)); ?>
@@ -178,7 +178,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 	  <tr>
 		<td>
 			<p class="standardSchriftBold">
-				<?php echo(getUebersetzung("Es ist mindestens eine Übernachtung erforderlich",$sprache,$link)); ?>!
+				<?php echo(getUebersetzung("Es ist mindestens eine Ãœbernachtung erforderlich",$sprache,$link)); ?>!
 			</p>
 		  	<p class="standardSchriftBold">
 		  		<?php echo(getUebersetzung("Bitte korrigieren Sie das Datum Ihrer Anfrage!",$sprache,$link)); ?>
@@ -220,7 +220,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
   <tr>
     <td>
     	<span class="standardSchriftBold">
-    		<?php echo(getUebersetzung("Suchanfrage für:",$sprache,$link)); ?>
+    		<?php echo(getUebersetzung("Suchanfrage fÃ¼r:",$sprache,$link)); ?>
     	</span>
     </td>
   </tr>
@@ -273,7 +273,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
   <tr>
     <td>
     	<?php 
-		  //Neu für die Option HAUSTIERE
+		  //Neu fÃ¼r die Option HAUSTIERE
 		  if ($haustiere == 'true')
 		  { ?>
 	        <span class="standardSchrift"><?php echo(getUebersetzung("Haustiere",$sprache,$link)); ?></span>
@@ -307,9 +307,9 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
     <td class="standardSchriftBold">
     	<?php echo( getUebersetzung("Leider haben wir nicht mehr genug ",$sprache,$link) );
 			  echo(getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
-			  echo(getUebersetzung("für",$sprache,$link)." ");
+			  echo(getUebersetzung("fÃ¼r",$sprache,$link)." ");
 			  echo($anzahlErwachsene);
-			  echo(getUebersetzung(" Erwachsene im gewünschten Zeitraum frei.",$sprache,$link)); ?>
+			  echo(getUebersetzung(" Erwachsene im gewÃ¼nschten Zeitraum frei.",$sprache,$link)); ?>
 	</td>
   </tr>
 </table>
@@ -323,9 +323,9 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
     <td class="standardSchriftBold">
     	<?php echo( getUebersetzung("Leider haben wir nicht mehr genug ",$sprache,$link));
 			  echo( getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
-			  echo( getUebersetzung("für",$sprache,$link)." ");
+			  echo( getUebersetzung("fÃ¼r",$sprache,$link)." ");
 			  echo( $anzahlKinder);
-			  echo( getUebersetzung(" Kinder im gewünschten Zeitraum frei.",$sprache,$link));
+			  echo( getUebersetzung(" Kinder im gewÃ¼nschten Zeitraum frei.",$sprache,$link));
 		?>
 	</td>
   </tr>
@@ -340,7 +340,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
     <td class="standardSchriftBold">
     	<?php echo( getUebersetzung("Leider haben wir nicht mehr genug ",$sprache,$link));
 			  echo( getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
-			  echo( "&nbsp;".getUebersetzung("im gewünschten Zeitraum frei.",$sprache,$link) );
+			  echo( "&nbsp;".getUebersetzung("im gewÃ¼nschten Zeitraum frei.",$sprache,$link) );
 	    ?>
 	</td>
   </tr>
@@ -362,7 +362,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 		$zaehle++;
 	}	
 	if ($zaehle > 0){	
-	//es sind zimmer zur verfügung:
+	//es sind zimmer zur verfÃ¼gung:
 ?>
 <form action="../anfrage/index.php" method="post" name="reservierung" target="_self" id="reservierung">
   <input name="anzahlErwachsene" type="hidden" value="<?php echo($anzahlErwachsene); ?>"/>
@@ -378,19 +378,19 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
       	<span class="standardSchriftBold">
       		<?php echo(getUebersetzung("Freie",$sprache,$link)." "); 
 	  			  echo(getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
-				  echo(" ".getUebersetzung("im gewünschten Zeitraum",$sprache,$link).":" );
+				  echo(" ".getUebersetzung("im gewÃ¼nschten Zeitraum",$sprache,$link).":" );
 	  		 ?>
 	  	<br/>
         </span>
         <span class="standardSchrift">
         	<?php 
 				if (count($freieZimmer) > 1){
-					echo(getUebersetzung("Bitte wählen Sie die gewünschten",$sprache,$link)." ");
+					echo(getUebersetzung("Bitte wÃ¤hlen Sie die gewÃ¼nschten",$sprache,$link)." ");
 					echo(getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 					echo(" ".getUebersetzung("aus",$sprache,$link)."."); 
 				}
 				else{
-					echo(getUebersetzung("Bitte wählen Sie das gewünschte",$sprache,$link)." ");
+					echo(getUebersetzung("Bitte wÃ¤hlen Sie das gewÃ¼nschte",$sprache,$link)." ");
 					echo(getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 					echo(" ".getUebersetzung("aus",$sprache,$link)."."); 
 				}
@@ -417,7 +417,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 	 	<table>
 	 		<tr>
 	  <?php
-	  //bilder anzeigen, falls vorhanden und gewünscht:
+	  //bilder anzeigen, falls vorhanden und gewÃ¼nscht:
 	  if (isPropertyShown($unterkunft_id,ZIMMER_THUMBS_ACTIV,$link)){	  	
 		  ?>
 			  <td>
@@ -467,7 +467,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 	  	      if($d["Name"] == LINK_SUCHE)
 			  {
 			    $name = $d["Name"];
-	            //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmöglichkeiten "angehackelt"
+	            //falls Option schon aktiviert ist, ist die Checkbox bereits bei den AuswahlmÃ¶glichkeiten "angehackelt"
 	            $aktiviert = isPropertyShown($unterkunft_id,$name,$link); //Methode in einstellungenFunctions.php definiert               
 	            if($aktiviert == 'true')
 	            {
@@ -564,10 +564,10 @@ if ($freieZimmer[0] == -1 || $freieZimmer[0] == -2 || $freieZimmer[0] == -3){
    		<span class="standardSchriftBold">
    			<?php echo( getUebersetzung("Leider haben wir nicht mehr genug ",$sprache,$link));
 			  echo( getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
-			  echo( "&nbsp;".getUebersetzung("im gewünschten Zeitraum frei.",$sprache,$link) );
+			  echo( "&nbsp;".getUebersetzung("im gewÃ¼nschten Zeitraum frei.",$sprache,$link) );
 	   	    ?>
 	   	    <br/><br/>
-    		<?php echo(getUebersetzung("Bitte wiederholen sie die Suche mit geänderten Anforderungen <br/>	oder wählen Sie aus dem Belegungsplan den gewünschten Zeitraum aus.",$sprache,$link)); ?>
+    		<?php echo(getUebersetzung("Bitte wiederholen sie die Suche mit geÃ¤nderten Anforderungen <br/>	oder wÃ¤hlen Sie aus dem Belegungsplan den gewÃ¼nschten Zeitraum aus.",$sprache,$link)); ?>
     	</span>
     </td>
   </tr>
@@ -614,7 +614,7 @@ if ($freieZimmer[0] == -1 || $freieZimmer[0] == -2 || $freieZimmer[0] == -3){
 </table>
 <?php
 	}
-} //ende datum ist nicht früher
+} //ende datum ist nicht frÃ¼her
 ?>
 </body>
 </html>

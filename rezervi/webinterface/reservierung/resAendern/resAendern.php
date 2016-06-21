@@ -8,13 +8,13 @@ include_once($root."/include/sessionFunctions.inc.php");
 			daten des gastes aufnehmen
 			author: christian osterrieder utilo.eu					
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 			Zimmer PK_ID ($zimmer_id)
 			Datum: $vonTag,$vonMonat,$vonJahr
 				   $bisTag,$bisMonat,$bisJahr			
 			
-			die seite verwendet anfrage/send.php um das ausgef�llte
+			die seite verwendet anfrage/send.php um das ausgefüllte
 			formular zu versenden
 */ 	
 
@@ -34,7 +34,7 @@ if (isset($_POST["gast_id"])){
 }
 $sprache = getSessionWert(SPRACHE);
         
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 //Unterkunft-funktionen einbeziehen:
 include_once("../../../include/unterkunftFunctions.php");
@@ -61,20 +61,20 @@ if (empty($gast_id) || $gast_id == ""){
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <?php include_once("../../templates/headerB.php"); ?>
-<!-- checken ob formular korrekt ausgef�llt wurde: -->
+<!-- checken ob formular korrekt ausgefüllt wurde: -->
 <script src="./checkForm.php" type="text/javascript">
 </script>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php		
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <?php
- 	//zuerst mal pr�fen ob datum und so passt:
+ 	//zuerst mal prüfen ob datum und so passt:
 	//variableninitialisierungen:
 	$datumVon = parseDateFormular($vonTag,$vonMonat,$vonJahr);
 	$datumBis = parseDateFormular($bisTag,$bisMonat,$bisJahr);
 
-	//das datum ist nicht korrekt, das von-datum "h�her" als bis-datum
+	//das datum ist nicht korrekt, das von-datum "höher" als bis-datum
 	if (isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr) == FALSE) {
 				
 ?>
@@ -162,7 +162,7 @@ if ($status != 0) { ?>
   <table border="0" cellspacing="0" cellpadding="3" class="table">
     <tr>
   		<td>
-  			<?php echo(getUebersetzung("Wenn sie keinen Gast eingeben wird die Reservierung f�r einen anonymen Gast gespeichert",$sprache,$link)); ?>.
+  			<?php echo(getUebersetzung("Wenn sie keinen Gast eingeben wird die Reservierung für einen anonymen Gast gespeichert",$sprache,$link)); ?>.
   		</td>
   	</tr>
   	<tr>
@@ -187,14 +187,14 @@ if ($status != 0) { ?>
   <br/>
 <table border="0" cellspacing="0" cellpadding="0" class="table">
   <tr>
-    <td><p class="standardSchrift"><?php echo(getUebersetzung("Bitte geben Sie hier den Gast ein, oder w�hlen Sie einen bereits vorhanden Gast aus der Liste aus",$sprache,$link)); ?>:</p>
+    <td><p class="standardSchrift"><?php echo(getUebersetzung("Bitte geben Sie hier den Gast ein, oder wählen Sie einen bereits vorhanden Gast aus der Liste aus",$sprache,$link)); ?>:</p>
       <form action="./resAendern.php" method="post" name="gastWaehlen" target="_self">
         <table border="0" cellspacing="0" cellpadding="0">
           <tr class="standardSchrift"> 
-            <td><?php echo(getUebersetzung("Gast ausw�hlen",$sprache,$link)); ?></td>
+            <td><?php echo(getUebersetzung("Gast auswählen",$sprache,$link)); ?></td>
             <td><select name="gast_id" id="select" onChange="submit()">
                 <option value="-1" selected><?php echo(getUebersetzung("neuer Gast",$sprache,$link)); ?></option>
-                <?php //alle g�ste dieser unterkunft vorschlagen:
+                <?php //alle gäste dieser unterkunft vorschlagen:
 		  	$query = ("SELECT 
 					   PK_ID,Vorname,Nachname,Ort
 					   FROM
@@ -237,7 +237,7 @@ if ($status != 0) { ?>
      
 	    <table border="0" cellspacing="0" cellpadding="3">
           <tr class="standardSchrift"> 
-            <td><?php echo(getUebersetzung("neuer Gast/Gast �ndern",$sprache,$link)); ?>:</td>
+            <td><?php echo(getUebersetzung("neuer Gast/Gast ändern",$sprache,$link)); ?>:</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
           </tr>
@@ -268,7 +268,7 @@ if ($status != 0) { ?>
             <td>&nbsp;</td>
           </tr>
           <tr class="standardSchrift"> 
-            <td><?php echo(getUebersetzung("Stra�e/Hausnummer",$sprache,$link)); ?>*</td>
+            <td><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?>*</td>
             <td><input name="strasse" type="text" id="strasse2" <?php if (!(empty($gast_id))){
 																echo("value=\"".getGuestStrasse($gast_id,$link)."\"");	
 															  } ?>></td>
@@ -360,7 +360,7 @@ if ($status != 0) { ?>
             <td>&nbsp;</td>
           </tr>
           <tr class="standardSchrift"> 
-            <td colspan="3"><?php echo(getUebersetzung("Bitte geben Sie hier die Anzahl der G�ste f�r die Reservierung/Belegung ein",$sprache,$link)); ?>:</td>
+            <td colspan="3"><?php echo(getUebersetzung("Bitte geben Sie hier die Anzahl der Gäste für die Reservierung/Belegung ein",$sprache,$link)); ?>:</td>
           </tr>
           <tr class="standardSchrift"> 
             <td><?php echo(getUebersetzung("Anzahl Erwachsene",$sprache,$link)); ?></td>
@@ -401,7 +401,7 @@ if ($status != 0) { ?>
               <tr class="standardSchrift">
                 <td>
                   <?php
-                  	echo(getUebersetzung("�bernachtung",$sprache,$link));
+                  	echo(getUebersetzung("Übernachtung",$sprache,$link));
                   ?>
                 </td>
 			    <td>
@@ -415,7 +415,7 @@ if ($status != 0) { ?>
 			  <tr class="standardSchrift">
                 <td>
                   <?php
-                  	echo(getUebersetzung("Fr�hst�ck",$sprache,$link));
+                  	echo(getUebersetzung("Frühstück",$sprache,$link));
                   ?>
                 </td>
 			    <td>
@@ -454,7 +454,7 @@ if ($status != 0) { ?>
   			  }
   			  ?>
         </table>
-        <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder m�ssen ausgef�llt werden",$sprache,$link)); ?>!) 
+        <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!) 
          
 		  <input name="gast_id" type="hidden" id="gast_id" value="<?php echo $gast_id ?>">
         </p>        
@@ -476,12 +476,12 @@ if ($status != 0) { ?>
 	    </p>
 	  </form>
           <?php } //ende if status != frei
-	  		else { //wenn nur frei dann daten l�schen und nur ok-button anzeigen:
+	  		else { //wenn nur frei dann daten löschen und nur ok-button anzeigen:
 			?>
 			<br/>
 			<table cellspacing="0" cellpadding="0" class="belegt">
 			<?php
-			//alle Reservierungen ausgeben die gel�scht werden, wenn auf ok gedrueckt wird:
+			//alle Reservierungen ausgeben die gelöscht werden, wenn auf ok gedrueckt wird:
 			$vonDatum = parseDateFormular($vonTag,$vonMonat,$vonJahr);
 			$bisDatum = parseDateFormular($bisTag,$bisMonat,$bisJahr);
 			$result = getReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link);
@@ -489,7 +489,7 @@ if ($status != 0) { ?>
 			while($d = mysql_fetch_array($result)){
 				if ($first){ ?>					
 					  <tr><td class="standardSchrift">
-					  <?php echo(getUebersetzung("Folgende Reservierungen werden gel�scht",$sprache,$link)); ?>:
+					  <?php echo(getUebersetzung("Folgende Reservierungen werden gelöscht",$sprache,$link)); ?>:
 					  </td></tr>						 
 				<?php }
 				$first = false;
@@ -536,9 +536,9 @@ if ($status != 0) { ?>
     </td>
   </tr>
 </table>
-<?php } //ende passwortpr�fung 
+<?php } //ende passwortprüfung 
 	else{
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

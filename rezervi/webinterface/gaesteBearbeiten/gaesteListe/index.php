@@ -7,7 +7,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	reservierungsplan			
 	author: christian osterrieder utilo.eu		
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
  
@@ -28,7 +28,7 @@ $sprache_val = $_POST["anmerkung_val"];
 $anmerkung_val = $_POST["anmerkung_val"];
 $sprache = getSessionWert(SPRACHE);
 
-define("LIMIT","6"); //limit der angezeigten g�ste pro seite
+define("LIMIT","6"); //limit der angezeigten gäste pro seite
 if (isset($_POST["index"]) && $_POST["index"] != ""){
 	$index = $_POST["index"];
 }
@@ -36,7 +36,7 @@ else{
 	$index = 0;
 }
  
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/unterkunftFunctions.php");
 include_once("../../../include/benutzerFunctions.php");	
@@ -63,7 +63,7 @@ include_once("../../templates/components.php");
 <div class="panel panel-default">
   <div class="panel-body">
 <?php		
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 
   
@@ -355,7 +355,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
       <br/>
    
 
-<?php } //ende passwortpr�fung 
+<?php } //ende passwortprüfung 
 	else{
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}

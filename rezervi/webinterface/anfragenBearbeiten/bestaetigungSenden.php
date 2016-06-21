@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			eine angefragte reservierung bestätigen - als belegt im plan eintragen
+			eine angefragte reservierung bestÃ¤tigen - als belegt im plan eintragen
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss Ã¼bergeben werden:
 			Benutzer PK_ID $benutzer_id
 			Reservierung PK_ID $reservierungs_id
 			Unterkunft PK_ID $unterkunft_id
@@ -25,7 +25,7 @@ $subject = $_POST["subject"];
 $message = $_POST["message"];
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -42,14 +42,14 @@ include_once("../../include/uebersetzer.php");
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortprüfung:	
+<?php //passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <table border="0" cellpadding="0" cellspacing="3">
   <tr>
     <td><p class="frei"><?php
 	
-	  echo(getUebersetzung("Der Gast wurde per E-Mail verständigt",$sprache,$link)); ?>.</p><?php
+	  echo(getUebersetzung("Der Gast wurde per E-Mail verstÃ¤ndigt",$sprache,$link)); ?>.</p><?php
 	  
 	  //mail($an, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
   	  sendMail($von,$an,$subject,$message);	
@@ -58,25 +58,25 @@ include_once("../../include/uebersetzer.php");
 			//mail($von, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
 			sendMail($von,$von,$subject,$message);	
 		}
-	  //-----buttons um zurück zum menue zu gelangen: 
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
       include_once("../templates/components.php"); 
 
 		?>
       <br/>
       <?php 
-	 	 showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+	 	 showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 		?>
       <br/>
       <?php 
-	  	showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  	showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 		?>
     </td>
   </tr>
 </table>
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprÃ¼fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
 ?>
 </body>

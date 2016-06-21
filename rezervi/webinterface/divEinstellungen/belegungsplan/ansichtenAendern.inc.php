@@ -3,7 +3,7 @@ $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/propertiesFunctions.php");
@@ -42,7 +42,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
   setProperty(SHOW_GESAMTANSICHT,$showGesamtansicht,$unterkunft_id,$link);
 
   
-    //Dieser Satz muss noch in die Sprachtabellen eingef�gt werden.
+    //Dieser Satz muss noch in die Sprachtabellen eingefügt werden.
 	$nachricht = "Die Änderungen wurden erfolgreich durchgeführt!";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
 	$fehler = false;
@@ -56,7 +56,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
 <?php include_once("../../templates/headerB.php");?>
 <?php include_once("../../templates/bodyA.php");?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link))
 {
 ?>
@@ -80,16 +80,16 @@ if (isset($nachricht) && $nachricht != "")
 ?>
 <br/>
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zur�ck",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmen�",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

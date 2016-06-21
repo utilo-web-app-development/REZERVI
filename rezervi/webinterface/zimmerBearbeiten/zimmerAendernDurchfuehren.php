@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			reservierungsplan
 			ein neues zimmer anlegen.
 */
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -120,7 +120,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	include_once("../templates/headerB.php"); 
 	include_once("../templates/bodyA.php"); 
 	
-		//prüfung ob alle pflicht-felder eingegeben wurden:
+		//prÃ¼fung ob alle pflicht-felder eingegeben wurden:
 	if ( ( ($standardsprache == "de") && ($zimmernr == false || !isset($zimmernr)) ) ||
 		 ( ($standardsprache == "en") && ($zimmernr_en == false || !isset($zimmernr_en)) ) ||
 		 ( ($standardsprache == "fr") && ($zimmernr_fr == false || !isset($zimmernr_fr)) ) ||
@@ -237,7 +237,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			
 ?>
 
-<?php //passwortprüfung:	
+<?php //passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){	
 
 	if(updateZimmer($zimmer_id,$unterkunft_id,$zimmernr,$betten,$bettenKinder,$zimmerart,$linkName,$haustiere,$link)){
@@ -257,7 +257,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	?>
 		<table border="0" cellspacing="0" cellpadding="0" class="frei">
 		  <tr>
-			<td><?php echo(getUebersetzung("Die Änderung wurde erfolgreich durchgeführt",$sprache,$link)); ?>.</td>
+			<td><?php echo(getUebersetzung("Die Ã„nderung wurde erfolgreich durchgefÃ¼hrt",$sprache,$link)); ?>.</td>
 		  </tr>
 	   </table>
 	   <br/>
@@ -267,7 +267,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	?>
 		<table border="0" cellspacing="0" cellpadding="0" class="table">
 		  <tr>
-			<td><?php echo(getUebersetzung("Die Änderung konnte nicht erfolgreich durchgeführt werden, versuchen sie es bitte nochmals",$sprache,$link)); ?>.</td>
+			<td><?php echo(getUebersetzung("Die Ã„nderung konnte nicht erfolgreich durchgefÃ¼hrt werden, versuchen sie es bitte nochmals",$sprache,$link)); ?>.</td>
 		  </tr>
 	   </table>
 	   <br/>
@@ -295,7 +295,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
   </form></td>
   </tr>
 </table><br/>
@@ -305,15 +305,15 @@ include_once($root."/include/sessionFunctions.inc.php");
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>">
   </form></td>
   </tr>
 </table>
 <p></td> </tr> </table> </p>  
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprÃ¼fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>   
     </body>

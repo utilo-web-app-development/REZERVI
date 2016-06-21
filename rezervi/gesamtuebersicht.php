@@ -47,23 +47,23 @@ include_once($root."/leftHelper.php");
 $saAktiviert = getPropertyValue(SHOW_OTHER_COLOR_FOR_SA,$unterkunft_id,$link);	
 $zimmer_id = getFirstRoom($unterkunft_id,$link);
 	
-//falls kein jahr ausgew�hlt wurde, das aktuelle jahr verwenden:
+//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
 if ($jahr == false){	
 	$jahr = getTodayYear();	
-	//ich brauche f�r jahr einen integer:
+	//ich brauche für jahr einen integer:
 	$jahr+=1;$jahr-=1;
 }
-//falls kein monat ausgew�hlt wurde, das aktuelle monat verwenden:
+//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
 if ($monat == false){
 	$monat = parseMonthNumber(getTodayMonth());
 }
-//und f�rs monat einen integer
+//und fürs monat einen integer
 $monat-=1;$monat+=1;
 
 //seitenheader:	
 include_once("./templates/headerA.php");
 
-//stylesheets einf�gen:
+//stylesheets einfügen:
 ?>
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
@@ -137,7 +137,7 @@ include_once("./templates/headerB.php");
           <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
           <input name="zurueck" type="submit" class="btn btn-primary"
        onMouseOut="this.className='button200pxA';" onClick="updateLeft(<?php echo(($mon).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" 
-	   value="<?php echo(getUebersetzung("einen Monat zur�ck",$sprache,$link)); ?>">
+	   value="<?php echo(getUebersetzung("einen Monat zurück",$sprache,$link)); ?>">
         </div>
       </form>
       <?php }

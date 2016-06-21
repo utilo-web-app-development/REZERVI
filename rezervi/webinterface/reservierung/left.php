@@ -5,15 +5,15 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	steuerung des kalenders und reservierung f�r den gast
+	steuerung des kalenders und reservierung für den gast
 	author: christian osterrieder utilo.eu
 	
-	dieser seite kann optional �bergeben werden:
+	dieser seite kann optional übergeben werden:
 	Zimmer PK_ID ($zimmer_id)
 	Jahr ($jahr)
 	Monat ($monat)
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
@@ -23,7 +23,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 //datums-funktionen einbinden:
 include_once("../../include/datumFunctions.php");
@@ -34,7 +34,7 @@ include_once("../../include/unterkunftFunctions.php");
 include_once("../../include/propertiesFunctions.php");
 include_once("../../include/reseller/reseller.php");
 	
-	//falls keine zimmer_id ausgew�hlt wurde, das erste gefundene zimmer nehmen:
+	//falls keine zimmer_id ausgewählt wurde, das erste gefundene zimmer nehmen:
 	if (!isset($zimmer_id) || $zimmer_id == "" || empty($zimmer_id)) {
 		$query = "
 			select 
@@ -55,12 +55,12 @@ include_once("../../include/reseller/reseller.php");
 		$zimmer_id = $d["PK_ID"];
 	}
 	
-	//falls kein jahr ausgew�hlt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
 	if (!isset($jahr) || $jahr == "" || empty($jahr)){
 		$jahr = getTodayYear();
 	}
 	
-	//falls kein monat ausgew�hlt wurde, das aktuelle monat verwenden:
+	//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
 	if (!isset($monat) || $monat == "" || empty($monat)){
 		$monat = getTodayMonth();
 	}	
@@ -81,7 +81,7 @@ include_once("../../include/reseller/reseller.php");
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<!-- dynamisches update der anzahl der tage f�r ein gewisses monat mit java-script: -->
+<!-- dynamisches update der anzahl der tage für ein gewisses monat mit java-script: -->
 <script language="JavaScript" type="text/javascript" src="../../templates/changeForms.js">
 </script>
 <script language="JavaScript" type="text/javascript" src="./leftJS.js">
@@ -93,7 +93,7 @@ include_once("../../include/reseller/reseller.php");
   	
 <!-- <body class="backgroundColor"> -->
 <?php		
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 		
 <div class="panel panel-default">
@@ -245,7 +245,7 @@ include_once("../../include/reseller/reseller.php");
           <select name="vonMonat" class="tableColor" id="vonMonat" onChange="chkDays(0)">
             <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
             <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-            <option value="3"<?php if (getTodayMonth() == "M�rz") echo " selected"; ?>><?php echo(getUebersetzung("M�rz",$sprache,$link)); ?></option>
+            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
             <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
             <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
             <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -274,7 +274,7 @@ include_once("../../include/reseller/reseller.php");
           <select name="bisMonat" class="tableColor" id="bisMonat" onChange="chkDays(1)">
             <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
             <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-            <option value="3"<?php if (getTodayMonth() == "M�rz") echo " selected"; ?>><?php echo(getUebersetzung("M�rz",$sprache,$link)); ?></option>
+            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
             <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
             <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
             <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -320,9 +320,9 @@ include_once("../../include/reseller/reseller.php");
     </td>
   </tr>
 </table>
-<?php } //ende passwortpr�fung 
+<?php } //ende passwortprüfung 
 	else{
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

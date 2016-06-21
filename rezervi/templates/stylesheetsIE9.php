@@ -1,12 +1,12 @@
 <?php session_start();
 
 include_once($root."/include/sessionFunctions.inc.php");
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../conf/rdbmsConfig.php");
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 
-//alle werte f&uuml;r unterkunft auslesen:
+//alle werte für unterkunft auslesen:
 $query = "select * from Rezervi_CSS where FK_Unterkunft_ID = '$unterkunft_id'";
 
 $res = mysql_query($query, $link);

@@ -48,7 +48,7 @@ var fr = '<?= getUebersetzung("FR") ?>';
 var sa = '<?= getUebersetzung("SA") ?>';
 var januar = '<?= getUebersetzung("Januar") ?>';
 var februar= '<?= getUebersetzung("Februar") ?>';
-var maerz= '<?= getUebersetzung("März") ?>';
+var maerz= '<?= getUebersetzung("MÃ¤rz") ?>';
 var april= '<?= getUebersetzung("April") ?>';
 var mai= '<?= getUebersetzung("Mai") ?>';
 var juni= '<?= getUebersetzung("Juni") ?>';

@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			best�tigung zum l�schen von zimmern von benutzer einholen!
+			bestätigung zum löschen von zimmern von benutzer einholen!
 */
 
 	//variablen intitialisieren:
@@ -15,7 +15,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$zimmer_pk_id = $_POST["zimmer_pk_id"];
 	$sprache = getSessionWert(SPRACHE);
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -34,7 +34,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <h3><?php echo(getUebersetzung("Löschung durchführen",$sprache,$link)); ?></h3>
- <?php //passwortpr�fung:	
+ <?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <div class="panel panel-default">
@@ -52,7 +52,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			    	<div class="alert alert-danger" role="alert">
 		  <?php 		
 	 			
-		//Reservierungen und Zimmer l�schen:
+		//Reservierungen und Zimmer löschen:
 		$anzahl = count($zimmer_pk_id);
 		$demoNotPossible = false;
 		if (DEMO == true && $anzahl > 1){
@@ -133,7 +133,7 @@ include_once($root."/include/sessionFunctions.inc.php");
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
@@ -143,13 +143,13 @@ include_once($root."/include/sessionFunctions.inc.php");
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table> -->
 
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

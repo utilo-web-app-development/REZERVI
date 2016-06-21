@@ -5,15 +5,15 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 	/*   
 			reservierungsplan
-			gast-infos anzeigen und evt. ändern:
+			gast-infos anzeigen und evt. Ã¤ndern:
 			author: christian osterrieder utilo.eu
 					
-			dieser seite muss übergeben werden:
+			dieser seite mussÃ¼bergeben werden:
 			Gast PK_ID $gast_id
 			$unterkunft_id
 		*/
 
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../../../conf/rdbmsConfig.php");
 	
 	//funktions einbinden:
@@ -31,7 +31,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php include_once("../../../templates/headerB.php"); ?>
 <?php include_once("../../../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 
 <p class="ueberschrift"><? echo (getUnterkunftName($unterkunft_id,$link)) ?></p>
@@ -65,7 +65,7 @@ include_once($root."/include/sessionFunctions.inc.php");
             <td></td>
           </tr>
           <tr> 
-            <td class="standardSchrift">Straße/Hausnummer</td>
+            <td class="standardSchrift">StraÃŸe/Hausnummer</td>
             <td><input name="strasse" type="text" id="strasse" value="<?php echo(getGuestStrasse($gast_id,$link)); ?>" ></td>
             <td></td>
           </tr>
@@ -129,7 +129,7 @@ include_once($root."/include/sessionFunctions.inc.php");
   <tr><form action="../../../../webinterface/inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue"> 
     <td width="1"> <input name="benutzername" type="hidden" value="<?php echo($benutzername); ?>"> 
       <input name="passwort" type="hidden" value="<?php echo($passwort); ?>"> 
-      <input type="submit" name="Submit3" value="Hauptmenü" class="button200pxA" onMouseOver="this.className='button200pxB';"
+      <input type="submit" name="Submit3" value="HauptmenÃ¼" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"></td></form><form action="../../../../webinterface/gaesteBearbeiten/suche/index.php" method="post" name="zurueck" target="_self" id="zurueck">
     <td> <input name="unterkunft_id" type="hidden" id="unterkunft_id" value="<? echo $unterkunft_id ?>">
 	<input name="benutzer_id" type="hidden" id="benutzer_id" value="<? echo($benutzer_id); ?>"> 
@@ -147,9 +147,9 @@ include_once($root."/include/sessionFunctions.inc.php");
         <input name="anmerkung_val" type="hidden" id="anrede_val" value="<? echo($anmerkung_val); ?>"></td></form>
   </tr>
 </table>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprÃ¼fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

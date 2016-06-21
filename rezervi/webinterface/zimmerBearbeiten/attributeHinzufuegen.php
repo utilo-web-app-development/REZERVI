@@ -34,7 +34,7 @@ include_once("../templates/headerA.php");
 include_once("../templates/headerB.php"); 
 include_once("../templates/bodyA.php"); 
 
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 ?>

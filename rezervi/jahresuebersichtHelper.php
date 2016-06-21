@@ -1,7 +1,7 @@
 <?php
 
 /*
-Hilfsfunktionen für die Jahresübersicht
+Hilfsfunktionen fÃ¼r die JahresÃ¼bersicht
 10. Aug. 2004
 Christian Osterrieder
 */
@@ -77,7 +77,7 @@ Christian Osterrieder
 			}
 				
 			if (sizeof($nStatus) == 0){				
-				//am nächsten tag ist es frei:							
+				//am nÃ¤chsten tag ist es frei:							
 				?>
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
@@ -86,7 +86,7 @@ Christian Osterrieder
 						</tr>
 					</table>
 				<?php
-			} //ende if nächster tag frei
+			} //ende if nÃ¤chster tag frei
 			else {	
 				
 				//schauen ob der tag vorher frei ist:
@@ -172,7 +172,7 @@ function showYear($month,$year,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$spr
 			 <td class="tableColor">&nbsp;</td>
 	  </tr>
 	  <tr> 
-		<td class="tableColor"><?php echo(getUebersetzung("März",$sprache,$link)); ?></td>
+		<td class="tableColor"><?php echo(getUebersetzung("MÃ¤rz",$sprache,$link)); ?></td>
 		<?php for ($i=1; $i<=31; $i++){ ?>
 		<td <?php $statusString = getStatusString($zimmer_id,$i,3,$year,$saAktiviert,$link);?> class="<?php echo($statusString); ?>"><?php printResAdmin($zimmer_id,$i,3,$year,$saAktiviert,$link); ?></td>
 		<?php } ?>

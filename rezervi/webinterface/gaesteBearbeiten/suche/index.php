@@ -7,11 +7,11 @@ include_once($root."/include/sessionFunctions.inc.php");
 			reservierungsplan			
 			author: christian osterrieder utilo.eu		
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss Ã¼bergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 		*/
  
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../../conf/rdbmsConfig.php");
 	include_once("../../../include/unterkunftFunctions.php");
 	include_once("../../../include/benutzerFunctions.php");	
@@ -24,13 +24,13 @@ include_once($root."/include/sessionFunctions.inc.php");
 <script language="JavaScript">
 	<!--
 	    function sicher(){
-	    return confirm("Gast wirklich löschen?"); 	    
+	    return confirm("Gast wirklich lÃ¶schen?"); 	    
 	    }
 	    //-->
 </script>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
@@ -41,7 +41,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <table width="100%" border="0" cellspacing="3" cellpadding="0">
   <tr> 
     <td><?php 
-	//gästeliste ausgeben:	
+	//gÃ¤steliste ausgeben:	
 	$query = ("SELECT 
 				PK_ID, Anrede, Vorname, Nachname, Strasse, PLZ, Ort, Land, EMail, Tel, Fax, Anmerkung
 				FROM
@@ -199,7 +199,7 @@ include_once($root."/include/sessionFunctions.inc.php");
               
                 <input name="benutzername" type="hidden" value="<?php echo($benutzername); ?>">
                 <input name="passwort" type="hidden" value="<?php echo($passwort); ?>">
-                <input type="submit" name="Submit3" value="Hauptmenü" class="button200pxA" onMouseOver="this.className='button200pxB';"
+                <input type="submit" name="Submit3" value="HauptmenÃ¼" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
              
         </form>
@@ -216,9 +216,9 @@ include_once($root."/include/sessionFunctions.inc.php");
       </td>
   </tr>
 </table>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprÃ¼fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>
