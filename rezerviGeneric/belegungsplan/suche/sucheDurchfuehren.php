@@ -36,11 +36,11 @@ include_once($root."/include/sucheFunctions.inc.php");
 						$bisTag, $bisMonat, $bisJahr, $bisMinute, $bisStunde); 
 	if (count($freieMo) <= 0){ 
 		$fehler = true;
-		$nachricht = getUebersetzung("Leider konnte innerhalb des gewählten Zeitraumes kein")." ";
+		$nachricht = getUebersetzung("Leider konnte innerhalb des gewÃ¤hlten Zeitraumes kein")." ";
 		$mietobjekt_einzahl = getMietobjekt_EZ($vermieter_id);
 		$nachricht.= getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$vermieter_id)." ";
 		$nachricht.= getUebersetzung("gefunden werden.<br/>");
-		$nachricht.= getUebersetzung("Bitte wiederholen sie ihre Suche mit veränderten Suchparametern");
+		$nachricht.= getUebersetzung("Bitte wiederholen sie ihre Suche mit verÃ¤nderten Suchparametern");
 	}
 
 	if ($fehler){
@@ -52,7 +52,7 @@ include_once($root."/templates/bodyStart.inc.php");
 ?>
 <table border="0" class="<?= TABLE_STANDARD ?>">
   <tr>
-    <td><?= getUebersetzung("Suchanfrage für") ?>:</td>
+    <td><?= getUebersetzung("Suchanfrage fÃ¼r") ?>:</td>
   </tr>
   <tr>
     <td><?php 
@@ -86,7 +86,7 @@ include_once($root."/templates/bodyStart.inc.php");
       		<?php echo(getUebersetzung("Freie")." "); 
       			  $mietobjekt_mehrzahl = getMietobjekt_MZ($vermieter_id);
 	  			  echo(getUebersetzungVermieter($mietobjekt_mehrzahl,$sprache,$vermieter_id));
-				  echo(" ".getUebersetzung("im gewünschten Zeitraum").":" );
+				  echo(" ".getUebersetzung("im gewÃ¼nschten Zeitraum").":" );
 	  		?><br/>
         </span>
 	  </td>

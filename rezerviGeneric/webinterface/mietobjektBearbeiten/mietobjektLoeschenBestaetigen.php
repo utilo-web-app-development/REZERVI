@@ -19,13 +19,13 @@ if (isset($_POST["mietobjekt_id"])){
 }
 if ($anzahl < 1){
 	$fehler = true;
-	$nachricht = getUebersetzung("Bitte wählen sie mindestens ein Mietobjekt aus!");
+	$nachricht = getUebersetzung("Bitte wÃ¤hlen sie mindestens ein Mietobjekt aus!");
 	include_once("./index.php");	
 	exit;	
 }
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Löschung bestätigen")); ?></p>
+<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("LÃ¶schung bestÃ¤tigen")); ?></p>
 <form action="./mietobjektLoeschen.php" method="post" name="mietobjektLoeschen" target="_self" id="mietobjektLoeschen">	
 <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
   <tr>
@@ -43,7 +43,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 				} //ende for
 			    ?>  
 	  </p>
-       <?php echo(getUebersetzung("Nur die hier selektierten Mietobjekte werden gelöscht.")); ?> 	
+       <?php echo(getUebersetzung("Nur die hier selektierten Mietobjekte werden gelÃ¶scht.")); ?> 	
        <br/>	         
        <input name="weiter" type="submit" class="<?= BUTTON ?>" id="weiter" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
        onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("weiter")); ?>">        		

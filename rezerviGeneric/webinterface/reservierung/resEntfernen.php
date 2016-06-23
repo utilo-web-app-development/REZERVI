@@ -50,7 +50,7 @@ deleteReservationWithDate($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMonat
   <table  border="0" cellspacing="3" cellpadding="0">
     <tr>
       <td><input type="submit" name="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>"> </td>
+       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>"> </td>
     </tr>
   </table> 
   </form> 

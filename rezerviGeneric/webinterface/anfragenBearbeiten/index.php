@@ -24,24 +24,24 @@ if (hasVermieterReservations($vermieter_id,STATUS_RESERVIERT)){
 <script language="JavaScript">
 	<!--
 	    function sicher(){
-	    return confirm("<?php echo(getUebersetzung("Anfrage wirklich löschen?")); ?>"); 	    
+	    return confirm("<?php echo(getUebersetzung("Anfrage wirklich lÃ¶schen?")); ?>"); 	    
 	    }
 	    //-->
 </script>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Reservierungsanfragen bestätigen oder löschen")); ?></p>
+<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Reservierungsanfragen bestÃ¤tigen oder lÃ¶schen")); ?></p>
 <table width="100%" border="0" cellpadding="0" cellspacing="3">
   <tr>
     <td><p class="<?= STANDARD_SCHRIFT ?>">
-    	<?= getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestätigten Reservierungsanfragen.") ?><br/>
+    	<?= getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestÃ¤tigten Reservierungsanfragen.") ?><br/>
 	        <ul class="<?= STANDARD_SCHRIFT ?>">
-	        	<li><?= getUebersetzung("Falls Sie eine Reservierungsanfrage bestätigen wird " .
+	        	<li><?= getUebersetzung("Falls Sie eine Reservierungsanfrage bestÃ¤tigen wird " .
 	        			"diese als \"belegt\" im Reservierungsplan eingetragen, " .
-	        			"der Mieter wird darüber nur informiert wenn die automatischen " .
+	        			"der Mieter wird darÃ¼ber nur informiert wenn die automatischen " .
 	        			"E-Mails aktiviert wurden.") ?></li>
-	        	<li><?= getUebersetzung("Ein Mieter kann nur gelöscht werden, falls es keine " .
-	        		"anderen Reservierungen für diesen Mieter gibt.") ?></li>
+	        	<li><?= getUebersetzung("Ein Mieter kann nur gelÃ¶scht werden, falls es keine " .
+	        		"anderen Reservierungen fÃ¼r diesen Mieter gibt.") ?></li>
 	        	<li><?= getUebersetzung("Falls ein Mieter in einer Buchung mehrere" .
-	        			" Mietobjekte reserviert hat, ist für jedes Mietobjekt einzeln" .
+	        			" Mietobjekte reserviert hat, ist fÃ¼r jedes Mietobjekt einzeln" .
 	        			" die Anfrage zu bearbeiten.") ?></li>
 	        </ul>
         </p>
@@ -84,13 +84,13 @@ if (hasVermieterReservations($vermieter_id,STATUS_RESERVIERT)){
             <td><input name="mieter_id" type="hidden" value="<?= $mieter_id ?>">
               <input name="reservierungs_id" type="hidden" value="<?= $reservierungs_id ?>"/>
               <input name="entfernen" type="submit" id="entfernen" 
-              	value="<?php echo(getUebersetzung("Anfrage löschen")); ?>" 
+              	value="<?php echo(getUebersetzung("Anfrage lÃ¶schen")); ?>" 
               	class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
        			onMouseOut="this.className='<?= BUTTON ?>';"/>
               <input name="mieterEntfernen" type="checkbox" id="mieterEntfernen" value="true">
-              <?php echo(getUebersetzung("Mieter aus Datenbank löschen")); ?>
+              <?php echo(getUebersetzung("Mieter aus Datenbank lÃ¶schen")); ?>
               <?php
-			  //automatische absage muß hier nochmals bestätigt werden,
+			  //automatische absage muss hier nochmals bestÃ¤tigt werden,
 			  //allerdings nur wenn sie auch aktiv ist:
 			  if (isMessageActive($vermieter_id,BUCHUNGS_ABLEHNUNG)){
 			  ?>
@@ -107,7 +107,7 @@ if (hasVermieterReservations($vermieter_id,STATUS_RESERVIERT)){
           <tr>
             <td><input name="reservierungs_id" type="hidden" value="<?php echo($reservierungs_id); ?>"/>
               <input type="submit" name="submit" 
-              	     value="<?php echo(getUebersetzung("Anfrage bestätigen")); ?>" 
+              	     value="<?php echo(getUebersetzung("Anfrage bestÃ¤tigen")); ?>" 
               	     class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
       				 onMouseOut="this.className='<?= BUTTON ?>';">
               <?php
@@ -115,7 +115,7 @@ if (hasVermieterReservations($vermieter_id,STATUS_RESERVIERT)){
 			  ?>
 				  <input name="antwort" type="checkbox" id="antwort" value="true" checked="checked" />
 				  
-				  <?php echo(getUebersetzung("automatische Bestätigung senden")); ?>
+				  <?php echo(getUebersetzung("automatische BestÃ¤tigung senden")); ?>
               <?php
 			  }
 			  ?>

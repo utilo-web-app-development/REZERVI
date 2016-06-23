@@ -17,19 +17,19 @@ $index = $_POST["index"];
 
 if(!hasMieterReservations($mieter_id)){
 	$fehler = true;
-	$nachricht = "Es liegen noch keine Reservierungen für den gewählten Mieter vor.";
+	$nachricht = "Es liegen noch keine Reservierungen fÃ¼r den gewÃ¤hlten Mieter vor.";
 }
 
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 if(hasMieterReservations($mieter_id)){
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen für den Mieter vor")); ?>:
+<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen fÃ¼r den Mieter vor")); ?>:
 </p>
 <table  border="1" cellpadding="0" cellspacing="3">
   <tr class="<?= TABLE_COLOR ?>">
 	<td><?php echo(getUebersetzung("Reservierung von")); ?></td>
 	<td><?php echo(getUebersetzung("bis")); ?></td>
-	<td><?php echo(getUebersetzung("für")); ?></td>
+	<td><?php echo(getUebersetzung("fÃ¼r")); ?></td>
   </tr>
 	<!-- ausgeben der reservierungen: -->
 	<?php
@@ -59,7 +59,7 @@ if(hasMieterReservations($mieter_id)){
     <td>
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
         <input type="submit" name="Submit" class="<?= BUTTON ?>" id="zurueck" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
 		<input name="index" type="hidden" value="<?php echo($index); ?>"/>
       </form>      
     </td>

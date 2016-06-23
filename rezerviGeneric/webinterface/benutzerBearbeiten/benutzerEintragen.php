@@ -29,7 +29,7 @@ else if($pass == "" || $pass2 == ""){
 }
 else if($pass != $pass2){
 	$fehler = true;
-	$nachricht = getUebersetzung("Die beiden Passwörter stimmen nicht überein!");
+	$nachricht = getUebersetzung("Die beiden PasswÃ¶rter stimmen nicht Ã¼berein!");
 	include_once("./benutzerAnlegen.php");	
 	exit;
 }
@@ -50,7 +50,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 ?>
 <table border="0" cellpadding="0" cellspacing="0" class="<?= FREI ?>">
   <tr>
-	<td><?php echo(getUebersetzung("Der Benutzer wurde erfolgreich hinzugefügt.")); ?></td>
+	<td><?php echo(getUebersetzung("Der Benutzer wurde erfolgreich hinzugefÃ¼gt.")); ?></td>
   </tr>
 </table>	
 <br/><br/>
@@ -67,7 +67,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
   <tr> 
     <td><form action="./index.php" method="post" name="back" target="_self" id="back">
         <input name="retour2" type="submit" class="<?= BUTTON ?>" id="retour2" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+	 		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
       </form></td>
   </tr>
 </table>

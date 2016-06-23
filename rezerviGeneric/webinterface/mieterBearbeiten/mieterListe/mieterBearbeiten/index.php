@@ -23,8 +23,8 @@ $index = $_POST["index"];
       	<table border="0" cellspacing="3" cellpadding="0">
       	   <tr>
 		      <td colspan="2">
-		          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.")); ?> 
-		          	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden!")); ?>
+		          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte fÃ¼llen Sie die untenstehenden Felder aus.")); ?> 
+		          	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden!")); ?>
 		          </span>
 		      </td>
 		    </tr>
@@ -46,7 +46,7 @@ $index = $_POST["index"];
             <td><input name="firma" type="text" id="firma" value="<?php echo(getMieterFirma($mieter_id)); ?>" ></td>
           </tr>          
           <tr>
-            <td class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Straße/Hausnummer")); ?></td>
+            <td class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("StraÃŸe/Hausnummer")); ?></td>
             <td><input name="strasse" type="text" id="strasse" value="<?php echo(getMieterStrasse($mieter_id)); ?>" ></td>
           </tr>
           <tr>
@@ -100,7 +100,7 @@ $index = $_POST["index"];
         </table>
         <br/>
         <input name="gastAendern" type="submit" id="gastAendern" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mieter ändern")); ?>">
+       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mieter Ã¤ndern")); ?>">
         <input name="mieter_id" type="hidden" id="gast_id" value="<? echo($mieter_id); ?>">
 		<input name="index" type="hidden" value="<?php echo($index); ?>"/>
 </form>
@@ -109,7 +109,7 @@ $index = $_POST["index"];
     	<input name="index" type="hidden" value="<?= $index ?>"/>
         <input name="zurueck" type="submit" class="<?= BUTTON ?>" id="zurueck" 
 			onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>"/>
+       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>"/>
 </form>
 <?php	  
 include_once($root."/webinterface/templates/footer.inc.php");

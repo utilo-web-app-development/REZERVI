@@ -2,7 +2,7 @@
 | Rezervi Generic Reservierungssystem by UTILO
 +----------------------------------------------------------------------------
 |               Firma:  UTILO, Christian Osterrieder
-|                       Wilhelm-Erben-Str. 19/5, 5020 Salzburg, Österreich
+|                       Wilhelm-Erben-Str. 19/5, 5020 Salzburg, Ã–sterreich
 |                 URL:  http://www.utilo.eu | http://www.rezervi.com 
 |               Autor:  Christian Osterrieder osterrieder@directbox.com
 |  
@@ -15,7 +15,7 @@
 
 
 Rezervi - Lizenzvereinbarung 
-UTILO, Christian Osterrieder, Wilhelm-Erben-Str. 19/5, 5020 Salzburg, Österreich
+UTILO, Christian Osterrieder, Wilhelm-Erben-Str. 19/5, 5020 Salzburg, Ã–sterreich
 
 1. Vorbemerkung:
 
@@ -28,7 +28,7 @@ aufbauenden Arbeiten.
 
 Rezervi Generic ist eine urheberrechtlich geschuetzte Arbeit. Das Urheberrecht
 liegt bei Dipl.-Ing. Christian Osterrieder, Firma UTILO, Wilhelm-Erben-Str. 19/5, 
-5020 Salzburg, Österreich.
+5020 Salzburg, Ã–sterreich.
 
 Bitte lesen Sie die folgenden Bestimmungen sorgfaeltig durch, bevor Sie
 Rezervi Generic verwenden. Hinsichtlich des Einsatzes von Rezervi Generic wird
@@ -64,7 +64,7 @@ Wird Rezervi Generic nach einer Test- und Anpassungsphase als Ganzes oder
 in Teilen fuer kommerzielle Zwecke eingesetzt oder gegen ein Honorar fuer
 Dritte angepasst, muss vom Lizenznehmer eine "Lizenz zum kommerziellen
 Einsatz" erworben werden. Dies gilt auch bei einer Verlinkung mit einer
-Website für kommerzielle Zwecke.
+Website fÃ¼r kommerzielle Zwecke.
 
 Eine "Lizenz zum kommerziellen Einsatz" ist ueber die UTILO-Website
 http://www.rezervi.com/www/german/registrierung/index.php zu beziehen oder
@@ -84,7 +84,7 @@ oder zu vermieten, als Grundlage fuer eigene Softwareprogramme zu
 verwenden oder weiterzulizensieren, es sei denn unter ausdruecklicher
 schriftlicher Genehmigung des Lizenzgebers.
 
-Mit der Installation erklärt sich der Lizenznehmer damit
+Mit der Installation erklÃ¤rt sich der Lizenznehmer damit
 einverstanden, dass die URL die durch die Konfigurationsdatei
 definiert wird an UTILO gesendet wird. 
 
@@ -121,7 +121,7 @@ andere Partei auf die Moeglichkeit solcher Schaeden hingewiesen wurde.
 Fuer Streitigkeiten aus diesem Lizenzvertrag gilt der Gerichtsstand
 Salzburg.
 
-Auf die vorliegende Vereinbarung findet ausschliesslich österreichisches
+Auf die vorliegende Vereinbarung findet ausschliesslich Ã¶sterreichisches
 materielles Recht Anwendung. Die Anwendung des Abkommens ueber den
 internationalen Kauf von Waren (CISG) wird ausdruecklich ausgeschlossen.
 Diese Vereinbarung stellt den vollstaendigen Vertrag zwischen den beiden
@@ -131,6 +131,6 @@ Lizenznehmer hat eine anderslautende schriftliche Vereinbarung mit dem
 Lizenzgeber getroffen. 
 
 
-Copyright © 2006 
+Copyright Â©  2006 
 UTILO Christian Osterrieder
 Alle Rechte vorbehalten.

@@ -17,7 +17,7 @@ include_once($root."/conf/conf.inc.php");
 	function checkConf(mail,url){	
 	
 		 if (mail == "myEMail@test.com" || url == "http://belegungsplan.utilo.net/"){
-		 	alert("Please change the file rdbmsConfig.inc.php in the folder conf! The e-mail address or the url are not correct! \n Bitte ändern sie die Datei rdbmsConfig.inc.php im Ordner conf! Die E-Mail-Adresse oder die URL sind nicht korrekt!");
+		 	alert("Please change the file rdbmsConfig.inc.php in the folder conf! The e-mail address or the url are not correct! \n Bitte Ã¤ndern sie die Datei rdbmsConfig.inc.php im Ordner conf! Die E-Mail-Adresse oder die URL sind nicht korrekt!");
 		 	return false;	
 		 }
 		 
@@ -25,7 +25,7 @@ include_once($root."/conf/conf.inc.php");
 	       return true;
 	     }
 	     else{
-			alert("Please change the file rdbmsConfig.inc.php in the folder conf! \n Bitte ändern sie die Datei rdbmsConfig.inc.php im Ordner conf!");
+			alert("Please change the file rdbmsConfig.inc.php in the folder conf! \n Bitte Ã¤ndern sie die Datei rdbmsConfig.inc.php im Ordner conf!");
 	     	return false;
 	     }
 	}
@@ -39,7 +39,7 @@ include_once($root."/conf/conf.inc.php");
 
 <!-- ist die conf datei richtig? -->					    
 <p class="standardSchrift">Please check your changings in the 'conf/rdbmsConfig.inc.php' file:<br/>
-Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.inc.php' Datei.</p>
+Bitte prÃ¼fen sie ihre Eingaben in der 'conf/rdbmsConfig.inc.php' Datei.</p>
 <form action="lizenz.php" method="post" id="form1" name="form1" target="_self" onSubmit="return checkConf('<?=$EMAIL ?>','<?=$URL ?>');">
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
 		<tr>
@@ -109,7 +109,7 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.inc.php' Datei.</p>
 					    
 <!-- sprache waehlen -->
 <p class="standardSchrift">Please select your language.<br/>
-Bitte wählen sie ihre Sprache.</p>
+Bitte wÃ¤hlen sie ihre Sprache.</p>
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
 		<tr>
 	          <td><select name="sprache">

@@ -28,7 +28,7 @@ function getBilderOfMietobjekt($mietobjekt_id){
 /**
  * author:coster
  * date: 26.9.05
- * löscht alle bilder eines mietobjektes von der Datenbank
+ * lÃ¶scht alle bilder eines mietobjektes von der Datenbank
  * die bilder werden nicht vom filesystem entfernt
  * */
 function deleteBilderOfMietobjekt($mietobjekt_id){
@@ -84,7 +84,7 @@ function getAnzahlBilderOfVermieter($vermieter_id){
 
 }
 
-/**´
+/**ï¿½
  * author: coster
    date: 4.10.2005
    liefert alle bilder eines vermieters mit limit und index
@@ -179,8 +179,8 @@ function getBild($bilder_id){
 /**
 	author: coster
 	date: 4. okt. 2005
-	löscht ein bild aus der Datenbank
-	Bild wird aber nicht von Festplatte gelöscht!
+	lÃ¶scht ein bild aus der Datenbank
+	Bild wird aber nicht von Festplatte gelÃ¶scht!
 */
 function deleteBild($id){	
 	
@@ -265,7 +265,7 @@ function getBildBreite($bilder_id){
 
 }
 /**
-	liest die Höhe eines Bildes
+	liest die HÃ¶he eines Bildes
 	author: coster
 	date: 4. Okt. 2005
 */

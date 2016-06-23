@@ -25,7 +25,7 @@ include_once($root."/templates/constants.inc.php");
       <td><form action="./bilderLoeschen.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">
 			<input name="index" type="hidden" value="<?php echo($index); ?>"/>
 			<?php 
-				showSubmitButton(getUebersetzung("weitere Bilder löschen"));
+				showSubmitButton(getUebersetzung("weitere Bilder lÃ¶schen"));
 			?>
 		  </form>
       </td>
@@ -34,8 +34,8 @@ include_once($root."/templates/constants.inc.php");
   <br/>
 <?php 
 	}
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zu gelangen: 
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck"));
 
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

@@ -31,7 +31,7 @@ else if($pass == "" || $pass2 == ""){
 }
 else if($pass != $pass2){
 	$fehler = true;
-	$nachricht = getUebersetzung("Die beiden Passwörter stimmen nicht überein!");
+	$nachricht = getUebersetzung("Die beiden PasswÃ¶rter stimmen nicht Ã¼berein!");
 	include_once("./benutzerAendern.php");	
 	exit;
 }
@@ -41,10 +41,10 @@ else if(isBenutzerVorhanden($name,$pass,$vermieter_id) && getSessionWert(BENUTZE
 	include_once("./benutzerAendern.php");	
 	exit;
 }
-//wenn im testmodus, dann nicht den test-benutzer ändern:
+//wenn im testmodus, dann nicht den test-benutzer Ã¤ndern:
 if(DEMO == true && $testuser == true){
 	$fehler = true;
-	$nachricht = getUebersetzung("Der Testbenutzer kann im Demo Modus nicht verändert werden!");
+	$nachricht = getUebersetzung("Der Testbenutzer kann im Demo Modus nicht verÃ¤ndert werden!");
 	include_once("./benutzerAendern.php");	
 	exit;
 }	
@@ -56,7 +56,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	?>
 <table border="0" cellspacing="0" cellpadding="0" class="<?= FREI ?>">
   <tr>
-    <td><?php echo(getUebersetzung("Die Änderung wurde erfolgreich durchgeführt")); ?>.</td>
+    <td><?php echo(getUebersetzung("Die Ã„nderung wurde erfolgreich durchgefÃ¼hrt")); ?>.</td>
   </tr>
 </table>
 <br/>
@@ -64,7 +64,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
   <tr>
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
         <input name="retour" type="submit" class="<?= BUTTON ?>" id="retour" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
       </form></td>
   </tr>
 </table>

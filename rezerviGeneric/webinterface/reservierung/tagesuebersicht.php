@@ -35,7 +35,7 @@
           <input name="jahr" type="hidden" id="jahr" value="<?= $jah ?>">
           <input name="zurueck" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
        		onMouseOut="this.className='<?= BUTTON ?>';" 
-       		id="zurueck" value="<?php echo(getUebersetzung("einen Tag zurück")); ?>">
+       		id="zurueck" value="<?php echo(getUebersetzung("einen Tag zurÃ¼ck")); ?>">
         </div>
       </form></td>
     <td> 

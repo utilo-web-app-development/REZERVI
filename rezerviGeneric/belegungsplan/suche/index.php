@@ -13,9 +13,9 @@
 		 header('P3P: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"');
 	 }
  
-	 //datenbank öffnen:
+	 //datenbank Ã¶ffnen:
  include_once($root."/conf/rdbmsConfig.inc.php");
- //conf file öffnen:
+ //conf file Ã¶ffnen:
  include_once($root."/conf/conf.inc.php");
  include_once($root."/include/uebersetzer.inc.php");
  include_once($root."/include/sessionFunctions.inc.php");
@@ -34,7 +34,7 @@ else{
 	$vermieter_id = 1;
 }
 
- //ist die suchfunktion überhaupt aktiv?
+ //ist die suchfunktion Ã¼berhaupt aktiv?
  $sucheAktiv = getVermieterEigenschaftenWert(SUCHFUNKTION_AKTIV,$vermieter_id);
 	if ($sucheAktiv == "true"){
 		$sucheAktiv = true;
@@ -81,7 +81,7 @@ include_once($root."/templates/bodyStart.inc.php");
 <table border="0">
   <tr>
     <td><p class="<?= STANDARD_SCHRIFT ?>">
-        <?= getUebersetzung("Sie können den Belegungsplan" .
+        <?= getUebersetzung("Sie kÃ¶nnen den Belegungsplan" .
 	 				"betrachten,<br/>indem Sie eine Auswahl treffen " .
 	 				"und auf [Belegungsplan anzeigen] klicken...")
 	 	?>
@@ -93,7 +93,7 @@ include_once($root."/templates/bodyStart.inc.php");
   <table border="0" class="<?= TABLE_STANDARD ?>">
     <tr>
       <td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-      	<?= getUebersetzung("Belegungsplan für:") ?>
+      	<?= getUebersetzung("Belegungsplan fÃ¼r:") ?>
       </td>
     </tr>
     <tr>
@@ -131,7 +131,7 @@ include_once($root."/templates/bodyStart.inc.php");
 <table border="0">
   <tr>
     <td><span class="<?= STANDARD_SCHRIFT ?>">
-      <?= getUebersetzung("...oder eine automatische Suche durchführen, " .
+      <?= getUebersetzung("...oder eine automatische Suche durchfÃ¼hren, " .
       		"<br/>indem sie unterstehende Daten angeben und [Suche starten] klicken.") 
 	  ?>
       </span></td>

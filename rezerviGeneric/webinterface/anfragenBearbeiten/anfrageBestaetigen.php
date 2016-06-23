@@ -20,7 +20,7 @@ $vonDatum = getDatumVonOfReservierung($reservierungs_id);
 $bisDatum = getDatumBisOfReservierung($reservierungs_id);
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Reservierungsanfrage bestätigen")); ?></p>
+<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Reservierungsanfrage bestÃ¤tigen")); ?></p>
 <?php
 
 	//belegung eintragen:
@@ -54,7 +54,7 @@ $bisDatum = getDatumBisOfReservierung($reservierungs_id);
         <?php echo(getUebersetzung("wurde erfolgreich als")); ?> <span class="<?= BELEGT ?>">&quot;
         <?php echo(getUebersetzung("belegt")); ?>&quot;</span> <?php echo(getUebersetzung("in den Belegungsplan aufgenommen")); ?>.</p>
       <?php if ($antwort == "true"){ ?>
-      <p><?php echo(getUebersetzung("Die folgende Mitteilung wird per E-Mail an Ihren Mieter gesendet. Sie haben hier die Möglichkeiten noch Korrekturen vorzunehmen")); ?>:</p>
+      <p><?php echo(getUebersetzung("Die folgende Mitteilung wird per E-Mail an Ihren Mieter gesendet. Sie haben hier die MÃ¶glichkeiten noch Korrekturen vorzunehmen")); ?>:</p>
 	<form action="./bestaetigungSenden.php" method="post" name="bestaetigungSenden" target="_self">
 	<input name="an" type="hidden" value="<?php echo($an); ?>">
 	<input name="von" type="hidden" value="<?php echo($von); ?>">
@@ -72,7 +72,7 @@ $bisDatum = getDatumBisOfReservierung($reservierungs_id);
 	</table>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
   	  showSubmitButton(getUebersetzung("absenden"));
 	  } //ende if antwort true
 ?>
@@ -80,7 +80,7 @@ $bisDatum = getDatumBisOfReservierung($reservierungs_id);
 </form>
 <br/>
 <?php 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück"));
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck"));
 
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

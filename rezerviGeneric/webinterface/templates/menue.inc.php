@@ -17,7 +17,7 @@
 <table cellpadding="3" cellspacing="0" border="0" class="<?= TABLE_STANDARD ?>">
 	<tr>
 		<?php		
-		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+		//prÃ¼fen ob benutzer das recht hat den folgenden link auszufÃ¼hren:
 		if ($benutzerrechte >= 1 && $anzahlVorhandenerMietobjekte > 0) {
 		?>
 		  <form action="<?=$root ?>/webinterface/reservierung/index.php" method="post" name="resEingebenAendern" target="_self">    
@@ -45,7 +45,7 @@
 		  </form>
 		  <?php		
 		}
-		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+		//prÃ¼fen ob benutzer das recht hat den folgenden link auszufÃ¼hren:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form action="<?=$root ?>/webinterface/mietobjektBearbeiten/index.php" method="post" name="ZimmerBearbeiten" target="_self">
@@ -54,7 +54,7 @@
 		  </form>
 		  <?php		
 		} 
-		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+		//prÃ¼fen ob benutzer das recht hat den folgenden link auszufÃ¼hren:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form action="<?=$root ?>/webinterface/vermieter/index.php" method="post" name="UnterkunftBearbeiten" target="_self">
@@ -63,7 +63,7 @@
 		  </form>
 		  <?php		
 		} 
-		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+		//prÃ¼fen ob benutzer das recht hat den folgenden link auszufÃ¼hren:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form action="<?=$root ?>/webinterface/divEinstellungen/index.php" method="post" name="DiverseEinstellungen" target="_self">
@@ -72,7 +72,7 @@
 		  </form>
 		  <?php		
 		} 
-		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+		//prÃ¼fen ob benutzer das recht hat den folgenden link auszufÃ¼hren:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form name="designBearbeiten" method="post" action="<?=$root ?>/webinterface/designBearbeiten/index.php">
@@ -82,7 +82,7 @@
 		  </form>
 		  <?php		
 		} //ende if benutzerrechte <= 2
-		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
+		//prÃ¼fen ob benutzer das recht hat den folgenden link auszufÃ¼hren:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form name="antwortenBearbeiten" method="post" action="<?=$root ?>/webinterface/autoResponse/index.php">

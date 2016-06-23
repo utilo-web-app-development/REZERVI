@@ -33,8 +33,8 @@ if (!(isset($fehler) && $fehler == true)){
   <table border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td colspan="2">
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.")); ?> 
-          	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden!")); ?>
+          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte fÃ¼llen Sie die untenstehenden Felder aus.")); ?> 
+          	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden!")); ?>
           </span>
       </td>
     </tr>
@@ -58,7 +58,7 @@ if (!(isset($fehler) && $fehler == true)){
             <td><input name="firma" type="text" id="firma" value="<?= $firma ?>"></td>
           </tr>          
           <tr> 
-            <td><?php echo(getUebersetzung("Straße/Hausnummer")); ?></td>
+            <td><?php echo(getUebersetzung("StraÃŸe/Hausnummer")); ?></td>
             <td><input name="strasse" type="text" id="strasse" value="<?= $strasse ?>"></td>
           </tr>
           <tr> 
@@ -124,7 +124,7 @@ if (!(isset($fehler) && $fehler == true)){
     <td><form action="../index.php" method="post" name="form1" target="_self">
         <input name="zurueck" type="submit" class="<?= BUTTON ?>" id="zurueck" 
 			onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
     </form></td>
   </tr>
 </table>

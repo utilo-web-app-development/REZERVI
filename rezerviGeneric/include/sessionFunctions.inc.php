@@ -130,7 +130,7 @@ function setSessionWert($bezeichnung,$wert){
 /**
  * author:coster
  * date: 19.9.05
- * zerstört eine session
+ * zerstÃ¶rt eine session
  * */
 function destroySession(){
 	
@@ -161,7 +161,7 @@ function destroySession(){
 /**
  * author:coster
  * date: 19.9.05
- * zerstört alle session die älter als 1 tag sind
+ * zerstÃ¶rt alle session die Ã¤lter als 1 tag sind
  * 
  * */
 function destroyInactiveSessions(){

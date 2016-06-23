@@ -14,12 +14,12 @@ $id = $_POST["id"];
 
 ?>
 <?php include_once($root."/webinterface/templates/bodyStart.inc.php"); ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Löschung bestätigen")); ?></p>
+<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("LÃ¶schung bestÃ¤tigen")); ?></p>
 <form action="./benutzerLoeschen.php" method="post" name="benutzerLoeschen" target="_self" id="benutzerLoeschen">
   <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
     <tr>
-      <td><?php echo(getUebersetzung("Sind sie sicher, dass sie folgende Benutzer löschen wollen")); ?>?<br/>
-          (<?php echo(getUebersetzung("Nur die hier selektierten Benutzer werden gelöscht")); ?>.)<br/>  
+      <td><?php echo(getUebersetzung("Sind sie sicher, dass sie folgende Benutzer lÃ¶schen wollen")); ?>?<br/>
+          (<?php echo(getUebersetzung("Nur die hier selektierten Benutzer werden gelÃ¶scht")); ?>.)<br/>  
             <?php 
 				$anzahl = count($id);				
 	  			for($i = 0; $i < $anzahl; $i++){ ?> 
@@ -29,7 +29,7 @@ $id = $_POST["id"];
 				} //ende for
 			?>         
 		<input name="loeschen" type="submit" class="<?= BUTTON ?>" id="loeschen" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("löschen")); ?>">
+       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("lÃ¶schen")); ?>">
       </td>
     </tr>
   </table>
@@ -39,7 +39,7 @@ $id = $_POST["id"];
   <tr>
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
         <input name="zurueck" type="submit" class="<?= BUTTON ?>" id="zurueck" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
       </form></td>
   </tr>
 </table>

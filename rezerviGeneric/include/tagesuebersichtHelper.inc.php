@@ -131,7 +131,7 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 							</td>
 							<td>
 								<?php
-								//button für mieter infos  ausgeben:
+								//button fÃ¼r mieter infos  ausgeben:
 								if ($mieter_id != ANONYMER_MIETER_ID && $modus == MODUS_WEBINTERFACE){
 								?>
 								<input type="submit" name="Submit" class="<?= BUTTON ?>" 

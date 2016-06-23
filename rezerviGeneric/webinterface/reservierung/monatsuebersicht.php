@@ -39,7 +39,7 @@
 		  <input name="ansicht" type="hidden" id="monat" value="<?= MONATSUEBERSICHT ?>">
           <input name="zurueck" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
        		onMouseOut="this.className='<?= BUTTON ?>';" 
-       		id="zurueck" value="<?php echo(getUebersetzung("ein Monat zurück")); ?>">
+       		id="zurueck" value="<?php echo(getUebersetzung("ein Monat zurÃ¼ck")); ?>">
         </div>
       </form></td>
     <td> 

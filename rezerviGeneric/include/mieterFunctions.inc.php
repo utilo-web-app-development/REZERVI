@@ -1,13 +1,13 @@
 <?php
 
-define("LIMIT_MIETERLISTE","6"); //limit der angezeigten gäste pro seite
+define("LIMIT_MIETERLISTE","6"); //limit der angezeigten gÃ¤ste pro seite
 define("ANONYMER_MIETER_ID","1"); //anonymer mieter - sollte nirgends aufscheinen
 define("NEUER_MIETER","neuerMieter"); //konstante fuer form felder mit neuem mieter
 
 /**
  * author:coster
  * date: 17.10.05
- * löscht einen mieter
+ * lÃ¶scht einen mieter
  * */
 function deleteMieter($mieter_id){
 	global $link;
@@ -127,7 +127,7 @@ function insertMieter($vermieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$or
 /**
  * author:coster
  * date:17.10.05
- * ändert einen bereits vorhandenen mieter
+ * Ã¤ndert einen bereits vorhandenen mieter
  * */
 function updateMieter($mieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$tel2,$fax,$url,$firma,$sprache){
 	
@@ -183,7 +183,7 @@ function updateMieter($mieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$
 /**
  * @author: coster
  * Datum: 8.Apr.2006
- * fügt einen text eines mieters ein
+ * fÃ¼gt einen text eines mieters ein
  * @param $text der zu speichernde text
  * @param $mieter_id die id des mieters
  */
@@ -220,10 +220,10 @@ function updateMieter($mieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$
 /**
  * author:coster
  * date:17.10.05 
- * funktion prüft, ob ein mieter bereits vorhanden ist.
+ * funktion prÃ¼ft, ob ein mieter bereits vorhanden ist.
   ich checke mal nach vornamen, nachnamen und e-mail,
-  das dürfte wohl eindeutig sein
-  dann id des mieters zurückgeben:
+  das dÃ¼rfte wohl eindeutig sein
+  dann id des mieters zurÃ¼ckgeben:
  * */
 function getMieterId($vermieter_id,$vorname,$nachname,$email){
 	

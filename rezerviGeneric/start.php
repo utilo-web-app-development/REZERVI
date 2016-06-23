@@ -12,11 +12,11 @@
 		 header('P3P: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"');
 	 }
  
-	 //datenbank öffnen:
+	 //datenbank Ã¶ffnen:
  include_once($root."/conf/rdbmsConfig.inc.php");
- //conf file öffnen:
+ //conf file Ã¶ffnen:
  include_once($root."/conf/conf.inc.php");
- //uebersetzer öffnen:
+ //uebersetzer Ã¶ffnen:
  include_once($root."/include/uebersetzer.inc.php");
  include_once($root."/include/sessionFunctions.inc.php");
  include_once($root."/include/cssFunctions.inc.php"); 
@@ -65,7 +65,7 @@ else if (isset($_POST["mietobjekt_id"])){
 else{
 	$mietobjekt_id = getFirstMietobjektId($vermieter_id);	
 }
-//alte session werte löschen:
+//alte session werte lÃ¶schen:
 destroyInactiveSessions();
 //werte in session speichern:
 setSessionWert(VERMIETER_ID,$vermieter_id);
@@ -92,7 +92,7 @@ setSessionWert(SPRACHE,$sprache);
 <?php
 include_once($root."/templates/bodyStart.inc.php"); 
 	
-	//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgewÃ¤hlt wurde, das aktuelle jahr verwenden:
 	if (isset($_POST["datumAnsicht"])){
 		$jahr = getJahrFromDatePicker($_POST["datumAnsicht"]);
 	}
@@ -224,7 +224,7 @@ include_once($root."/templates/bodyStart.inc.php");
 		        	<tr>
 			        	<td colspan="2">
 			        		<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
-			        			<?= getUebersetzung("Ansicht für Datum") ?>:
+			        			<?= getUebersetzung("Ansicht fÃ¼r Datum") ?>:
 			          		</span>
 			          	</td>
 			        </tr>
@@ -260,7 +260,7 @@ include_once($root."/templates/bodyStart.inc.php");
 		      </td>
 		  </tr>
 		  <tr>
-		    <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ansicht wählen")); ?>:</span></td>
+		    <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ansicht wÃ¤hlen")); ?>:</span></td>
 		  </tr>
 		  <tr>
 		    <td>
@@ -326,7 +326,7 @@ include_once($root."/templates/bodyStart.inc.php");
 			    <td>		      
 			        <input name="keineSprache" type="hidden" value="true">
 			        <div align="center">
-			          <input name="suche" type="submit" id="suche" value="<?= getUebersetzung("Suchformular öffnen") ?>" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
+			          <input name="suche" type="submit" id="suche" value="<?= getUebersetzung("Suchformular Ã¶ffnen") ?>" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
 					   onMouseOut="this.className='<?= BUTTON ?>';">  
 			        </div>		     
 			     </td>
@@ -413,14 +413,14 @@ include_once($root."/templates/bodyStart.inc.php");
 				  <tr> 
 				    <td>
 				    	<? $temp = "Es wurden noch keine Mietobjekte angelegt. " .
-				    			"Bitte öffnen sie das Webinterface \"/webinterface/index.php\" und " .
+				    			"Bitte Ã¶ffnen sie das Webinterface \"/webinterface/index.php\" und " .
 				    			"geben sie ihre Mietobjekte ein."; 
 				    	   echo(getUebersetzung($temp));
 				    	   ?>
 				    	   <br/><br/>
 				    	   <form action="<?= $root ?>/webinterface/index.php" method="post" name="wi">
 					    	   <input name="webinterface" type="submit" id="webinterface" 
-					          		value="<?php echo(getUebersetzung("Webinterface öffnen")); ?>" 
+					          		value="<?php echo(getUebersetzung("Webinterface Ã¶ffnen")); ?>" 
 					          		class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
 								    onMouseOut="this.className='<?= BUTTON ?>';">
 						   </form>

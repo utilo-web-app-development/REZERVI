@@ -82,7 +82,7 @@ function isLastDayOfReservation($reservierungs_id,$tag,$monat,$jahr){
 /**
  * author:coster
  * date:17.10.05
- * prueft ob eine reservierung für den mieter vorhanden ist
+ * prueft ob eine reservierung fÃ¼r den mieter vorhanden ist
  * */
 function hasMieterReservations($mieter_id){
 	global $link;
@@ -227,7 +227,7 @@ function changeReservationState($res_id,$status){
 /**
  * author:coster
  * date:4.11.05
- * löscht eine reservierung eines mieters
+ * lÃ¶scht eine reservierung eines mieters
  * */
 function deleteReservationWithDate($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr){
 	
@@ -310,7 +310,7 @@ function getReservationWithDate($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vo
 //funktion legt eine neue reservierung an:
 function insertReservationWithDate($mietobjekt_id,$gast_id,$vonDatum,$bisDatum,$status,$anzahlErwachsene,$anzahlKinder){
 	global $link;
-	//zuerst alle eintraege in diesem zeitraum löschen:
+	//zuerst alle eintraege in diesem zeitraum lÃ¶schen:
 	deleteReservationWithDate($mietobjekt_id,$vonDatum,$bisDatum);
 	
 	//daten eintragen:
@@ -419,7 +419,7 @@ function getReservierungIDs($mietobjekt_id,$minuteVon,$stundeVon,$tagVon,$monatV
 /**
  * author:coster
  * date: 27.12.05
- * funktion zählt die RESERVIERUNGS-ids, die in diesem
+ * funktion zÃ¤hlt die RESERVIERUNGS-ids, die in diesem
  * zeitraum als reserviert oder belegt eingetragen ist:
  * @return anzahl der reservierungen
  */
@@ -536,7 +536,7 @@ function getMieterIdOfReservierung($reservierungs_id){
 /**
  * author:coster
  * date:26.10.05
- * gibt den status als css klasse zurück
+ * gibt den status als css klasse zurÃ¼ck
  * */
 function parseStatus($stat){
 	
@@ -560,7 +560,7 @@ function parseStatus($stat){
  * author:coster
  * date:26.10.05
  * funktion gibt den status dieses zimmers an
- * diesem tag als string für die css-class zurück
+ * diesem tag als string fÃ¼r die css-class zurÃ¼ck
  *  
  */
 function getStatusString($mietobjekt_id,$minute=0,$stunde=0,$tag,$monat,$jahr){
@@ -592,7 +592,7 @@ function getStatusString($mietobjekt_id,$minute=0,$stunde=0,$tag,$monat,$jahr){
 	$stat = $d["STATUS"];
 	
 	//wenn kein eintrag vorhanden ist,
-	//frei zurückgeben:
+	//frei zurÃ¼ckgeben:
 	if (mysql_num_fields($res) < 1 || $stat == ""){
 		return parseStatus(STATUS_FREI);
 	}
@@ -604,7 +604,7 @@ function getStatusString($mietobjekt_id,$minute=0,$stunde=0,$tag,$monat,$jahr){
  * author:coster
  * date:26.10.05
  * funktion gibt ein array mit den status-nummern
- * zurück
+ * zurÃ¼ck
  *  
  */
 function getStatus($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr){	
@@ -656,7 +656,7 @@ function getStatus($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJa
 /**
  * author:coster
  * date:1.11.05
- * funktion prüft, ob im angegebenen zeitraum das mietobjekt belegt ist:
+ * funktion prÃ¼ft, ob im angegebenen zeitraum das mietobjekt belegt ist:
  * @param $mietobjekt_id id of the object to rent
  * @param $vonMinute
  * @param $vonStunde
@@ -720,7 +720,7 @@ function isMietobjektTaken($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMona
 /**
  * author:coster
  * date:30.1.06
- * funktion prüft, ob der gesamte tag frei ist
+ * funktion prÃ¼ft, ob der gesamte tag frei ist
  * */
 function isFullDayFree($mietobjekt_id,$tag,$monat,$jahr){
 	
@@ -767,7 +767,7 @@ function isFullDayFree($mietobjekt_id,$tag,$monat,$jahr){
 /**
  * author:coster
  * date:30.1.06
- * funktion prüft, ob der gesamte tag ausgebucht ist
+ * funktion prÃ¼ft, ob der gesamte tag ausgebucht ist
  * */
 function isFullDayBooked($mietobjekt_id,$tag,$monat,$jahr){
 	
@@ -809,7 +809,7 @@ function isFullDayBooked($mietobjekt_id,$tag,$monat,$jahr){
 /**
  * author:coster
  * date:4.11.05
- * fügt eine neue reservierung ein
+ * fÃ¼gt eine neue reservierung ein
  * */
 function insertReservation($mietobjekt_id,$mieter_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr,$status){
 	
@@ -840,7 +840,7 @@ function insertReservation($mietobjekt_id,$mieter_id,$vonMinute,$vonStunde,$vonT
 /**
  * author:coster
  * date:20.10.05
- * löscht eine reservierung
+ * lÃ¶scht eine reservierung
  * */
 function deleteReservation($id){	
 	global $link;

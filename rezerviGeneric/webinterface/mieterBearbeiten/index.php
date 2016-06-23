@@ -24,7 +24,7 @@ include_once($root."/include/mieterFunctions.inc.php");
 	  <form action="./mieterListe/index.php" method="post" target="_self">
 		  <tr>
 		    <td><?php showSubmitButton(getUebersetzung("Mieter Liste anzeigen")); ?></td>
-		    <td><?php echo(getUebersetzung("Anzeigen und Ändern von Mietern")); ?>.</td>
+		    <td><?php echo(getUebersetzung("Anzeigen und Ã¤ndern von Mietern")); ?>.</td>
 		  </tr>
 	  </form>
   <?php } ?>

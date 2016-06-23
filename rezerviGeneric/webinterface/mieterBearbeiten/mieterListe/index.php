@@ -23,7 +23,7 @@ include_once($root."/webinterface/templates/components.inc.php");
 <script language="JavaScript">
 	<!--
 	    function sicher(){
-	    return confirm('<?php echo(getUebersetzung("Mieter wirklich löschen?")); ?>'); 	    
+	    return confirm('<?php echo(getUebersetzung("Mieter wirklich lÃ¶schen?")); ?>'); 	    
 	    }
 	//-->
 </script>
@@ -37,7 +37,7 @@ include_once($root."/webinterface/templates/components.inc.php");
           <th nowrap="nowrap"><div align="left">| <?= getUebersetzung("Vorname") ?></div></th>
           <th nowrap="nowrap"><div align="left">| <?= getUebersetzung("Nachname") ?></div></th>
           <th nowrap="nowrap"><div align="left">| <?= getUebersetzung("Firma") ?></div></th>
-          <th nowrap="nowrap"><div align="left">| <?= getUebersetzung("Straße/Hausnummer") ?></div></th>
+          <th nowrap="nowrap"><div align="left">| <?= getUebersetzung("StraÃŸe/Hausnummer") ?></div></th>
           <th nowrap="nowrap"><div align="left">| <?= getUebersetzung("PLZ") ?></div></th>
           <th nowrap="nowrap"><div align="left">| <?= getUebersetzung("Ort") ?></div></th>
           <th nowrap="nowrap"><div align="left">| <?= getUebersetzung("Land") ?></div></th>
@@ -117,7 +117,7 @@ include_once($root."/webinterface/templates/components.inc.php");
                 <td><form action="./mieterLoeschen/index.php" method="post" name="gastLoeschen" target="_self" onSubmit="return sicher()">
                     <div align="right">
                       <input name="gastLoeschen" type="submit" id="gastLoeschen" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       					onMouseOut="this.className='<?= BUTTON ?>';" value="<?= getUebersetzung("Mieter löschen") ?>">
+       					onMouseOut="this.className='<?= BUTTON ?>';" value="<?= getUebersetzung("Mieter lÃ¶schen") ?>">
                       <input name="mieter_id" type="hidden" id="gast_id" value="<?= $mieter_id ?>">
 					  <input name="index" type="hidden" value="<?= $index ?>"/>
                     </div>
@@ -142,7 +142,7 @@ include_once($root."/webinterface/templates/components.inc.php");
 					<form action="./index.php" method="post" name="zurueck" target="_self" enctype="multipart/form-data">
 					<input name="index" type="hidden" value="<?= $index-LIMIT_MIETERLISTE ?>"/>
 					<?php 
-	  					showSubmitButton(getUebersetzung("zurückblättern"));
+	  					showSubmitButton(getUebersetzung("zurÃ¼ckblÃ¤ttern"));
 					?>
 					</form>
 				</td>
@@ -153,7 +153,7 @@ include_once($root."/webinterface/templates/components.inc.php");
 				<td><form action="./index.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">
 					<input name="index" type="hidden" value="<?= $index+LIMIT_MIETERLISTE ?>"/>
 					<?php 
-	  					showSubmitButton(getUebersetzung("weiterblättern"));
+	  					showSubmitButton(getUebersetzung("weiterblÃ¤ttern"));
 					?>
 					</form>
 				</td>
@@ -185,7 +185,7 @@ include_once($root."/webinterface/templates/components.inc.php");
         <tr>
           <td><form action="../../mieterBearbeiten/index.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
               <input name="zurueck" type="submit" class="<?= BUTTON ?>" id="zurueck" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       			onMouseOut="this.className='<?= BUTTON ?>';" value="<?= getUebersetzung("zurück") ?>">
+       			onMouseOut="this.className='<?= BUTTON ?>';" value="<?= getUebersetzung("zurÃ¼ck") ?>">
             </form></td>
         </tr>
       </table>
