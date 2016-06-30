@@ -13,11 +13,11 @@ include_once("../include/propertiesFunctions.php");
 include_once("../include/reseller/reseller.php");
 	
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <title>Unterkunft in DB eintragen</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
 </head>
 
 <body class="backgroundColor">

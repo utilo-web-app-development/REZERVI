@@ -33,7 +33,8 @@ include_once("../include/uebersetzer.php");
 <html>
 <head>
 <title>Reservierungssystem Mail versenden</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html;"> 
+<meta charset="utf-8">
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>

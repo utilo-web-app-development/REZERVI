@@ -8,11 +8,11 @@
  	$antwort = "";
  }
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html">
+<meta charset="UTF-8">
 <title>Installation Bookline Lizenz</title>
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" type="text/JavaScript">

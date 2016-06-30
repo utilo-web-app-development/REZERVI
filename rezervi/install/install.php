@@ -13,17 +13,23 @@ $ZIMMERART_MZ = $_POST["mietobjekt_mz"];
 include_once("../include/uebersetzer.php");
 	
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Installation Rezervi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
+<title>Installation Rezervi</title
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Bootstrap ende -->
 </head>
 
-<body>
-<p class="ueberschrift"><?php 
+
+<body class="backgroundColor" data-pinterest-extension-installed="cr1.39.1">
+<div class="container" style="margin-top:70px;">	
+
+
+  	<h2><?php 
 	//sprache ist erst ab installation-schritt 3 verfügbar!
 	if ($sprache == "en"){
 		?>
@@ -36,8 +42,12 @@ include_once("../include/uebersetzer.php");
 	<?php 
 	}	
 	?>
-</p>
-<br/>
+</h2>
+
+	<div class="panel panel-default">
+  <div class="panel-body">
+
+
 <p class="standardSchriftBold"><?php 
 	if ($sprache == "en"){
 		?>
@@ -120,7 +130,7 @@ include_once("../include/uebersetzer.php");
 <!-- webinterface öffnen -->
 <form action="../webinterface/index.php" method="post" id="formLizenz" name="formLizenz" target="_self" onSubmit="return checkLicence();">
 	<p class="standardSchrift"><?php echo(getUebersetzung("Bitte ändern sie nun ihre Einstellungen im Webinterface",$sprache,$link)); ?></p>
-	<input name="Submit" type="submit" class="button200pxA" value="<?= getUebersetzung("Webinterface öffnen",$sprache,$link) ?>">
+	<input name="Submit" type="submit" class="btn btn-primary" value="<?= getUebersetzung("Webinterface öffnen",$sprache,$link) ?>">
 </form>
 <!-- ende webinterface öffnen -->
 
