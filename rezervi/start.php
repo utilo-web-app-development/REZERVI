@@ -124,6 +124,18 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	  <frame src="left.php" name="reservierung" frameborder="yes" id="reservierung"/>
 	  <frame src="ansichtWaehlen.php?vonStart=true" name="kalender" frameborder="no" id="kalender"/>
 	<noframes>	
+		
+		<div class="row">
+			
+			<div class="col-md-4">
+				left.php
+			</div>
+			<div>
+				ansichten
+			</div>
+			
+		</div>
+		
 	<body class="backgroundColor">
 	<p>Rezervi Belegungsplan und Kundendatenbank von utilo.eu</p>
 	<p><a href="http://www.utilo.eu" target="_parent">http://www.utilo.eu</a></p>
