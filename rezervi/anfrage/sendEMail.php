@@ -33,7 +33,8 @@ include_once("../include/uebersetzer.php");
 <html>
 <head>
 <title>Reservierungssystem Mail versenden</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html;"> 
+<meta charset="utf-8">
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
@@ -60,7 +61,7 @@ include_once("../include/uebersetzer.php");
 		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in englischer Sprache gestellt",$sprache,$link).".";
 		 }
 		 else if ($sprache == "fr"){
-			$message = $message."\n".getUebersetzung("Die Anfrage wurde in französischer Sprache gestellt",$sprache,$link).".";
+			$message = $message."\n".getUebersetzung("Die Anfrage wurde in franzÃ¶sischer Sprache gestellt",$sprache,$link).".";
 		 }
 		 else if ($sprache == "it"){
 		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in italienischer Sprache gestellt",$sprache,$link).".";
@@ -72,7 +73,7 @@ include_once("../include/uebersetzer.php");
 		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in estonischer Sprache gestellt",$sprache,$link).".";
 		 }
 		 else if ($sprache == "nl"){
-		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in holländischer Sprache gestellt",$sprache,$link).".";
+		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in hollÃ¤ndischer Sprache gestellt",$sprache,$link).".";
 		 }
 		 else{
 			$message = $message."\n".getUebersetzung("Die Anfrage wurde in deutscher Sprache gestellt",$sprache,$link).".";
@@ -95,7 +96,7 @@ include_once("../include/uebersetzer.php");
    ?>
 <table border="0" cellspacing="3" cellpadding="0" class="tableColor">
   <tr>
-    <td><?php echo(getUebersetzung("Danke für Ihre Anfrage!",$sprache,$link)); ?></td>
+    <td><?php echo(getUebersetzung("Danke fÃ¼r Ihre Anfrage!",$sprache,$link)); ?></td>
   </tr>
 </table>
 <br/>
@@ -105,7 +106,7 @@ include_once("../include/uebersetzer.php");
 			<input name="zimmer_id" type="hidden" value="<?php echo($zimmer_id); ?>">
 			<input name="jahr" type="hidden" value="<?php echo($jahr); ?>">
 			<input name="monat" type="hidden" value="<?php echo($monat); ?>">			
-        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
       </form></td>
   </tr>

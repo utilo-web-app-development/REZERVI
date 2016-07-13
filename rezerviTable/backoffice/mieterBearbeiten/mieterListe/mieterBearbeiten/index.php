@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../../..";
 $ueberschrift = "Gäste bearbeiten";
 $unterschrift = "Gästeliste";
@@ -115,12 +115,12 @@ $index = $_POST["index"];
 			$bezeichnung = getMieterBezeichnung($mieter_id);
    			while ($d = $res->FetchNextObject()){
    				$temp = $d->GRUPPENBEZEICHNUNG; ?>
-		    	<option value="<?= $temp ?>" <?php 
+		    	<option value="<?php echo $temp ?>" <?php 
 			    	foreach ($bezeichnung as $jede){
 		    			if($jede == $temp) { 
 		    				echo("selected='selected'"); 
 		    			} 
-		    		} ?> > <?= $temp ?>
+		    		} ?> > <?php echo $temp ?>
 	    		</option>    <?php
 		    }    ?>
 		  </select>  
@@ -129,12 +129,12 @@ $index = $_POST["index"];
 	</tr>
 	<tr>
            <td><?php echo(getUebersetzung("Beschreibung")); ?></td>
-           <td><textarea name="beschreibung"><?= getMieterBeschreibung($mieter_id) ?></textarea></td>
+           <td><textarea name="beschreibung"><?php echo getMieterBeschreibung($mieter_id) ?></textarea></td>
 	</tr>
 </table>
 <br/>
 <input name="gastAendern" type="submit" id="gastAendern" class="button" value="<?php echo(getUebersetzung("ändern")); ?>">
-<input name="mieter_id" type="hidden" id="gast_id" value="<? echo($mieter_id); ?>">
+<input name="mieter_id" type="hidden" id="gast_id" value="<?php echo($mieter_id); ?>">
 <input name="index" type="hidden" value="<?php echo($index); ?>"/>
 </form>
 <?php	  

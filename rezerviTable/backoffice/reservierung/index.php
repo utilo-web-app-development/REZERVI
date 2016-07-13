@@ -185,15 +185,15 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 
 ?>
 
-<script src="<?=$root?>/backoffice/templates/prototype.js"></script>
+<script src="<?php echo$root?>/backoffice/templates/prototype.js"></script>
 <script language="javascript">
 	function newload(id, gastro_id, raum_id, tag, monate, jahr){
 		if(id == "0"){
-			$('panel1_hd').innerHTML = "<?= getUebersetzung("Reservierung bearbeiten") ?>";				
+			$('panel1_hd').innerHTML = "<?php echo getUebersetzung("Reservierung bearbeiten") ?>";				
 			$('panel1_bd').innerHTML = "<iframe src=\"./dispInfo.php\" width=\"100%\" height=\"100%\" frameborder=0 scrolling=auto></iframe>";
 			$('panel1_bd').style.height = "80px"
 		}else if(id == "2"){
-			$('panel1_hd').innerHTML = "<?= getUebersetzung("Reservierung bearbeiten") ?>";				
+			$('panel1_hd').innerHTML = "<?php echo getUebersetzung("Reservierung bearbeiten") ?>";				
 			$('panel1_bd').innerHTML = "<iframe src=\"./dispBlock.php\" width=\"100%\" height=\"100%\" frameborder=0 scrolling=auto></iframe>";
 			$('panel1_bd').style.height = "80px"
 		}else{
@@ -203,29 +203,29 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 			var vonMinute = id.substring(4+id.length-6,6+id.length-6);
 			var inhalt = "";
 			if(status == "1"){
-				$('panel1_hd').innerHTML = "<?= getUebersetzung("Reservierung ändern für Tisch") ?>"+" "+tisch_id;				
-				$('panel1_bd').innerHTML = "<iframe src=\"./dispAendern.php?root=<?= $root ?>&gastro_id="+gastro_id+"&sprache=<?= $sprache ?>&raum_id="+raum_id+"&tisch_id="+tisch_id+"&vonStunde="+vonStunde+"&vonMinute="+vonMinute+"&tag="+tag+"&monate="+monate+"&jahr="+jahr+"\" width=\"100%\" height=\"100%\" frameborder=0 scrolling=auto></iframe>";
+				$('panel1_hd').innerHTML = "<?php echo getUebersetzung("Reservierung ändern für Tisch") ?>"+" "+tisch_id;				
+				$('panel1_bd').innerHTML = "<iframe src=\"./dispAendern.php?root=<?php echo $root ?>&gastro_id="+gastro_id+"&sprache=<?php echo $sprache ?>&raum_id="+raum_id+"&tisch_id="+tisch_id+"&vonStunde="+vonStunde+"&vonMinute="+vonMinute+"&tag="+tag+"&monate="+monate+"&jahr="+jahr+"\" width=\"100%\" height=\"100%\" frameborder=0 scrolling=auto></iframe>";
 				$('panel1_bd').style.height = "220px";
 			}else if (status == "0"){	
-				$('panel1_hd').innerHTML = "<?= getUebersetzung("Reservierung hinzufügen für Tisch") ?>"+" "+tisch_id;
-				$('panel1_bd').innerHTML = "<iframe src=\"./dispHinfuegen.php?root=<?= $root ?>&gastro_id="+gastro_id+"&sprache=<?= $sprache ?>&raum_id="+raum_id+"&tisch_id="+tisch_id+"&vonStunde="+vonStunde+"&vonMinute="+vonMinute+"&tag="+tag+"&monate="+monate+"&jahr="+jahr+"\" width=\"100%\" height=\"100%\" frameborder=0 scrolling=auto></iframe>";
+				$('panel1_hd').innerHTML = "<?php echo getUebersetzung("Reservierung hinzufügen für Tisch") ?>"+" "+tisch_id;
+				$('panel1_bd').innerHTML = "<iframe src=\"./dispHinfuegen.php?root=<?php echo $root ?>&gastro_id="+gastro_id+"&sprache=<?php echo $sprache ?>&raum_id="+raum_id+"&tisch_id="+tisch_id+"&vonStunde="+vonStunde+"&vonMinute="+vonMinute+"&tag="+tag+"&monate="+monate+"&jahr="+jahr+"\" width=\"100%\" height=\"100%\" frameborder=0 scrolling=auto></iframe>";
 				$('panel1_bd').style.height = "400px";
 			}
 		}	
 	}
 </script>
 
-<script language="JavaScript" type="text/javascript" src="<?= $root ?>/backoffice/reservierung/leftJS.js"></script>
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<script language="JavaScript" type="text/javascript" src="<?php echo $root ?>/backoffice/reservierung/leftJS.js"></script>
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
 	* Keep this notice intact for use.
 	***********************************************/	
 </script>
-<script type="text/javascript" src="<?= $root ?>/yui/build/dragdrop/dragdrop.js" ></script>
-<script type="text/javascript" src="<?= $root ?>/yui/build/container/container.js"></script>
-<link href="<?= $root ?>/yui/build/container/assets/container_bookline.css" rel="stylesheet" type="text/css">	
+<script type="text/javascript" src="<?php echo $root ?>/yui/build/dragdrop/dragdrop.js" ></script>
+<script type="text/javascript" src="<?php echo $root ?>/yui/build/container/container.js"></script>
+<link href="<?php echo $root ?>/yui/build/container/assets/container_bookline.css" rel="stylesheet" type="text/css">	
 
 <script>
 	YAHOO.namespace("example.container");
@@ -328,37 +328,37 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 <?php
 if ($ansicht == TAGESANSICHT){
 	?>
-	<p><?= getUebersetzung("Klicken Sie auf ein Feld in der Reservierungsübersicht um eine Reservierung zu ändern, zu löschen oder neu anzulegen.") ?></p>
+	<p><?php echo getUebersetzung("Klicken Sie auf ein Feld in der Reservierungsübersicht um eine Reservierung zu ändern, zu löschen oder neu anzulegen.") ?></p>
 <?php
 }
 ?>
 <table>
 	<form action="./index.php" method="post" name="reservierung">
 	<tr>
-		<td valign="center"><?= getUebersetzung("Raum") ?>: 
+		<td valign="center"><?php echo getUebersetzung("Raum") ?>: 
 		</td>
 		<td>
-			<select name="raum_id"  id="raum_id" onchange="submit()"> <?
+			<select name="raum_id"  id="raum_id" onchange="submit()"> <?php
 				$rooms = getRaeume($gastro_id);
 				while($room = $rooms->FetchNextObject()){?>
-					<option value="<? echo $room->RAUM_ID ?>"<? if ($raum_id == $room->RAUM_ID) {echo(" selected=\"selected\"");} ?>>
+					<option value="<?php echo $room->RAUM_ID ?>"<?php if ($raum_id == $room->RAUM_ID) {echo(" selected=\"selected\"");} ?>>
 					<?php echo($room->BEZEICHNUNG); ?>
-					</option> <?  
+					</option> <?php  
 				} ?>
 			</select>
 		</td>
-		<td><?= getUebersetzung("Datum") ?>:
+		<td><?php echo getUebersetzung("Datum") ?>:
 		</td>
 		<td>
-			<script>DateInput('datumAnsicht', true, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script>
+			<script>DateInput('datumAnsicht', true, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script>
 		</td>
 		<td>
-			<input type="hidden" name="ansicht" value="<?= $ansicht ?>"/>
+			<input type="hidden" name="ansicht" value="<?php echo $ansicht ?>"/>
 		  	<input name="ansichtWechseln" type="submit" id="ansichtWechseln" class="button"
 		      value="<?php echo(getUebersetzung("anzeigen")); ?>">
 		</td>
 		<td>
-			<input type="hidden" name="ansicht" value="<?= $ansicht ?>"/>
+			<input type="hidden" name="ansicht" value="<?php echo $ansicht ?>"/>
 		  	<input name="block" type="submit" id="block" class="button"
 		      value="<?php echo(getUebersetzung("blockieren")); ?>">
 		</td>			

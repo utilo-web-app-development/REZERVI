@@ -3,7 +3,7 @@
 	include_once($root."/templates/constants.inc.php");
 	$ansicht = WOCHENANSICHT;
 ?>
-<table border="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" class="<?php echo TABLE_STANDARD ?>">
   <tr> 
     <td colspan="2"> 
       <?php
@@ -28,14 +28,14 @@
 		?>
       <form action="./index.php" method="post" name="tagZurueck" target="_self" id="monatZurueck">
         <div align="right">           
-          <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?= $mietobjekt_id ?>">
-          <input name="tag" type="hidden" id="tag" value="<?= $newTag1 ?>">
-          <input name="monat" type="hidden" id="monat" value="<?= $mon ?>">
-          <input name="ansicht" type="hidden" id="monat" value="<?= WOCHENANSICHT ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<?= $jah ?>">
-          <input name="zurueck" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';" 
-       		id="zurueck" value="<?php echo(getUebersetzung("eine Woche zurück")); ?>">
+          <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo $mietobjekt_id ?>">
+          <input name="tag" type="hidden" id="tag" value="<?php echo $newTag1 ?>">
+          <input name="monat" type="hidden" id="monat" value="<?php echo $mon ?>">
+          <input name="ansicht" type="hidden" id="monat" value="<?php echo WOCHENANSICHT ?>">
+          <input name="jahr" type="hidden" id="jahr" value="<?php echo $jah ?>">
+          <input name="zurueck" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       		onMouseOut="this.className='<?php echo BUTTON ?>';" 
+       		id="zurueck" value="<?php echo(getUebersetzung("eine Woche zurÃ¼ck")); ?>">
         </div>
       </form></td>
     <td> 
@@ -53,13 +53,13 @@
 		}																													
 		?>
       <form action="./index.php" method="post" name="tagWeiter" target="_self" id="monatWeiter">
-        <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?= $mietobjekt_id ?>">
-        <input name="tag" type="hidden" id="tag" value="<?= $newTag2 ?>">
-        <input name="monat" type="hidden" id="monat" value="<?= $mon ?>">
-        <input name="ansicht" type="hidden" id="monat" value="<?= WOCHENANSICHT ?>">
-        <input name="jahr" type="hidden" id="jahr" value="<?= $jah ?>">
-        <input name="weiter" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';" 
+        <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo $mietobjekt_id ?>">
+        <input name="tag" type="hidden" id="tag" value="<?php echo $newTag2 ?>">
+        <input name="monat" type="hidden" id="monat" value="<?php echo $mon ?>">
+        <input name="ansicht" type="hidden" id="monat" value="<?php echo WOCHENANSICHT ?>">
+        <input name="jahr" type="hidden" id="jahr" value="<?php echo $jah ?>">
+        <input name="weiter" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       		onMouseOut="this.className='<?php echo BUTTON ?>';" 
        		id="weiter" value="<?php echo(getUebersetzung("eine Woche weiter")); ?>">
       </form></td>
   </tr> 

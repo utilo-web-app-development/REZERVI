@@ -4,7 +4,7 @@
  *
  * author: coster
  * 
- * definition von konstanten für das webinterface
+ * definition von konstanten fï¿½r das webinterface
  * 
  */
  

@@ -4,7 +4,7 @@
 defined( '_JEXEC' ) or die( 'Restricted access' ); 
 
 /*
- * funktionen für preise von zimmern 
+ * funktionen fÃ¼r preise von zimmern 
  * 
  * */
  
@@ -90,7 +90,7 @@ function setPrice($zimmer_id,$valid_from,$valid_to,$price,$waehrung,$standard,$l
 	}
 	else{
 	
-		//entferne alle alten einträge:
+		//entferne alle alten eintrÃ¤ge:
 		$query = "
 			DELETE FROM
 			Rezervi_Zimmer_Preise
@@ -124,9 +124,9 @@ function setPrice($zimmer_id,$valid_from,$valid_to,$price,$waehrung,$standard,$l
 	}
 	return $preis_id;
 
-} //ende preis ändern
+} //ende preis Ã¤ndern
 /**
- * liefert alle preise als result set zurück
+ * liefert alle preise als result set zurÃ¼ck
  */
 function getPrices($unterkunft_id,$link){
 
@@ -192,9 +192,9 @@ function getPrices($unterkunft_id,$link){
 			
 } //ende getStandardPrices
 /**
- * liefert den Standardpreis für ein Zimmer falls dieser
+ * liefert den Standardpreis fÃ¼r ein Zimmer falls dieser
  * eingegeben wurde <br/>
- * Achtung es wird der 1. Preis zurückgegeben der gefunden wird
+ * Achtung es wird der 1. Preis zurÃ¼ckgegeben der gefunden wird
  */
  function getStandardPrice($zimmer_id,$link){
 
@@ -258,7 +258,7 @@ function getPrices($unterkunft_id,$link){
  }
 
 /**
- * löscht einen preis aus der datenbank
+ * lÃ¶scht einen preis aus der datenbank
  */
 function deletePreis($preis_id){
 		
@@ -293,8 +293,8 @@ function deletePreis($preis_id){
   		return true;
 }
 /**
- * liefert den preis der zu einem bestimmten datum gültig ist <br/>
- * es wird der erste gefundene preis zurückgeliefert.
+ * liefert den preis der zu einem bestimmten datum gÃ¼ltig ist <br/>
+ * es wird der erste gefundene preis zurÃ¼ckgeliefert.
  */
 function getPriceOfDate($zimmer_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$link){
 	
@@ -350,7 +350,7 @@ function getPriceOfDate($zimmer_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,
 } 
 
 /**
- * berechnet einen preis eines zimmers über einen bestimmten zeitraum
+ * berechnet einen preis eines zimmers Ã¼ber einen bestimmten zeitraum
  */
 function calculatePrice($zimmer_id,$from,$to){
 	

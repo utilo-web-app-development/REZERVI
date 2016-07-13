@@ -9,13 +9,13 @@ include_once($root."/include/sessionFunctions.inc.php");
 			daten des gastes aufnehmen
 			author: christian osterrieder utilo.eu					
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss Ã¼bergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 			Zimmer PK_ID ($zimmer_id)
 			Datum: $vonTag,$vonMonat,$vonJahr
 				   $bisTag,$bisMonat,$bisJahr			
 			
-			die seite verwendet anfrage/send.php um das ausgefüllte
+			die seite verwendet anfrage/send.php um das ausgefÃ¼llte
 			formular zu versenden
 */ 	 
 
@@ -79,7 +79,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 		$anzahlErwachsene = false;
 		$vonSuche = false;
 	}
-	//trotzdem array mit zimmer-ids mitführen, auch wenns nur eines:
+	//trotzdem array mit zimmer-ids mitfÃ¼hren, auch wenns nur eines:
 	$zi_ids = array();
 	if (isset($zimmer_ids) && count($zimmer_ids)>0){
 		$zi_ids = $zimmer_ids;
@@ -95,22 +95,22 @@ include_once($root."/include/sessionFunctions.inc.php");
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<!-- checken ob formular korrekt ausgefüllt wurde: -->
+<!-- checken ob formular korrekt ausgefÃ¼llt wurde: -->
 <script language="JavaScript" type="text/javascript" src="./indexJS.php">
 </script>
 <?php include_once("../templates/headerB.php"); 
 
-//wenn anfrage über suche kommt, prüfen ob genug zimmer angeklickt wurden:
+//wenn anfrage Ã¼ber suche kommt, prÃ¼fen ob genug zimmer angeklickt wurden:
 //if ($vonSuche == true && ($anzahlZimmer > count($zimmer_ids))){
 if(false){
 	?>
 	<table border="0" class="table">
   		<tr>
-    		<td><?php echo(getUebersetzung("Sie haben eine Anfrage für ",$sprache,$link));
+    		<td><?php echo(getUebersetzung("Sie haben eine Anfrage fÃ¼r ",$sprache,$link));
 					  echo($anzahlZimmer);
 					  echo(getUebersetzung(" Zimmer gestellt, jedoch nur ",$sprache,$link));
 					  echo(count($zimmer_ids));
-					  echo(getUebersetzung(" Zimmer ausgewählt. Bitte korrigieren Sie Ihre Anfrage!",$sprache,$link)); ?>
+					  echo(getUebersetzung(" Zimmer ausgewÃ¤hlt. Bitte korrigieren Sie Ihre Anfrage!",$sprache,$link)); ?>
 			</td>
   		</tr>
 		<tr>
@@ -119,7 +119,7 @@ if(false){
 				onMouseOver="this.className='button200pxB';"
 				onMouseOut="this.className='button200pxA';" 
 				onClick="history.back()"
-				value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+				value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
 			</td>
 		</tr>
 	</table>
@@ -128,7 +128,7 @@ if(false){
 else {
 ?>
 <?php
- 	//zuerst mal prüfen ob datum und so passt:
+ 	//zuerst mal prÃ¼fen ob datum und so passt:
 	//variableninitialisierungen:
 	$datumVon = parseDateFormular($vonTag,$vonMonat,$vonJahr);
 	$datumBis = parseDateFormular($bisTag,$bisMonat,$bisJahr);
@@ -166,14 +166,14 @@ else {
 			<input name="zimmer_id" type="hidden" value="<?php echo($zimmer_id); ?>">
 			<input name="jahr" type="hidden" value="<?php echo($vonJahr); ?>">
 			<input name="monat" type="hidden" value="<?php echo($vonMonat); ?>">			
-        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
     </form>  
 
 <?php
 	}
-	//2. das datum ist nicht korrekt, das von-datum "höher" als bis-datum
-	//mit einem schmäh eine typkonvertierung mit dem +_operator durchführen:
+	//2. das datum ist nicht korrekt, das von-datum "hÃ¶her" als bis-datum
+	//mit einem schmÃ¤h eine typkonvertierung mit dem +_operator durchfÃ¼hren:
 	elseif (isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr) == FALSE) {				
 ?>
 	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
@@ -189,7 +189,7 @@ else {
 	?>
 	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	  <tr>
-		<td><p class="standardSchriftBold"><?php echo(getUebersetzung("Es ist mindestens eine Übernachtung erforderlich",$sprache,$link)); ?>!</p>
+		<td><p class="standardSchriftBold"><?php echo(getUebersetzung("Es ist mindestens eine Ãœbernachtung erforderlich",$sprache,$link)); ?>!</p>
 		  <p class="standardSchriftBold"><?php echo(getUebersetzung("Bitte korrigieren Sie das Datum Ihrer Anfrage!",$sprache,$link)); ?></p>
 		</td>
 	  </tr>
@@ -200,7 +200,7 @@ else {
 	?>
 	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	  <tr>
-		<td><p class="standardSchriftBold"><?php echo(getUebersetzung("Das gewählte Datum ist bereits abgelaufen.",$sprache,$link)); ?></p>
+		<td><p class="standardSchriftBold"><?php echo(getUebersetzung("Das gewÃ¤hlte Datum ist bereits abgelaufen.",$sprache,$link)); ?></p>
 		  <p class="standardSchriftBold"><?php echo(getUebersetzung("Bitte korrigieren Sie das Datum Ihrer Anfrage!",$sprache,$link)); ?></p>
 		</td>
 	  </tr>
@@ -212,7 +212,7 @@ else {
 	?>
 	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	  <tr>
-		<td><p class="standardSchriftBold"><?= getBuchungseinschraenkungText($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zi_ids); ?></p>
+		<td><p class="standardSchriftBold"><?php echo getBuchungseinschraenkungText($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zi_ids); ?></p>
 		  <p class="standardSchriftBold"><?php echo(getUebersetzung("Bitte korrigieren Sie das Datum Ihrer Anfrage!",$sprache,$link)); ?></p>
 		</td>
 	  </tr>
@@ -222,7 +222,7 @@ else {
 	//wenn datum ok:
 	else{
 		
-	//berechne den preis falls überhaupt welche definiert wurden:
+	//berechne den preis falls Ãœberhaupt welche definiert wurden:
 	$preis = 0;
 	if(isset($zimmer_ids)){
 		foreach($zimmer_ids as $zi_id){
@@ -268,7 +268,7 @@ else {
 			//wenn aus suche aufgerufen:
 			if(isset($zimmer_ids)){ 
 
-				echo(getUebersetzung("Reservierungs-Anfrage für ",$sprache,$link));
+				echo(getUebersetzung("Reservierungs-Anfrage fÃ¼r ",$sprache,$link));
 				
 				foreach($zimmer_ids as $zi_id){
 				?>
@@ -280,7 +280,7 @@ else {
 			}
 			else{			
 				//aus belegungsplan aufgerufen: 
-				echo(getUebersetzung("Reservierungs-Anfrage für ",$sprache,$link)." "); 
+				echo(getUebersetzung("Reservierungs-Anfrage fÃ¼r ",$sprache,$link)." "); 
 				$ziA = getZimmerArt($unterkunft_id,$zimmer_id,$link);
 				echo(getUebersetzungUnterkunft($ziA,$sprache,$unterkunft_id,$link));
 				
@@ -295,7 +295,7 @@ else {
 <br/>
 <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
-    <td><p><?php echo(getUebersetzung("Wir benötigen noch folgende Daten von Ihnen",$sprache,$link)); ?>:</p>
+    <td><p><?php echo(getUebersetzung("Wir benÃ¶tigen noch folgende Daten von Ihnen",$sprache,$link)); ?>:</p>
          <table border="0" cellspacing="0" cellpadding="3">
           <tr class="standardSchrift"> 
             <td><?php echo(getUebersetzung("Anrede",$sprache,$link)); ?></td>
@@ -315,7 +315,7 @@ else {
             <td><input name="nachname" type="text" id="nachname"></td>
           </tr>
           <tr class="standardSchrift"> 
-            <td><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?>*</td>
+            <td><?php echo(getUebersetzung("StraÃŸe/Hausnummer",$sprache,$link)); ?>*</td>
             <td><input name="strasse" type="text" id="strasse"></td>
           </tr>
           <tr class="standardSchrift"> 
@@ -365,7 +365,7 @@ else {
 					<td>
 					<select name="anzahlErwachsene" id="anzahlErwachsene">
 						<?php 
-							//es können nur soviele ausgewählt werden wie betten im zimmer
+							//es kÃ¶nnen nur soviele ausgewÃ¤hlt werden wie betten im zimmer
 							//vorhanden sind:
 							$anzahlBetten = getBetten($unterkunft_id,$zimmer_id,$link);
 							$anzahlBetten+=1;$anzahlBetten-=1; //integer!
@@ -391,7 +391,7 @@ else {
   	            if($d["Name"] == 'Kinder')
 				{
 				  $name = $d["Name"];
-	              //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmöglichkeiten "angehackelt"
+	              //falls Option schon aktiviert ist, ist die Checkbox bereits bei den AuswahlmÃ¶glichkeiten "angehackelt"
   	              $aktiviert = isPropertyShown($unterkunft_id,$name,$link); //Methode in einstellungenFunctions.php definiert               
                  
 				  if($aktiviert == 'true')			
@@ -447,7 +447,7 @@ else {
   	            if($d["Name"] == 'Haustiere')
 				{
 				  $name = $d["Name"];
-	              //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmöglichkeiten "angehackelt"
+	              //falls Option schon aktiviert ist, ist die Checkbox bereits bei den AuswahlmÃ¶glichkeiten "angehackelt"
   	              $aktiviert = isPropertyShown($unterkunft_id,$name,$link); //Methode in einstellungenFunctions.php definiert               
                  
 				  if($aktiviert)
@@ -493,28 +493,28 @@ else {
               <tr class="standardSchrift">
                 <td>
                   <?php
-                  	echo(getUebersetzung("Übernachtung",$sprache,$link));
+                  	echo(getUebersetzung("Ãœbernachtung",$sprache,$link));
                   ?>
                 </td>
 			    <td>
 			      <input name="zusatz" type="radio" value="Uebernachtung" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_FRUEHSTUECK,$unterkunft_id,$link) == "true"){
               ?>
 			  <tr class="standardSchrift">
                 <td>
                   <?php
-                  	echo(getUebersetzung("Frühstück",$sprache,$link));
+                  	echo(getUebersetzung("FrÃ¼hstÃ¼ck",$sprache,$link));
                   ?>
                 </td>
 			    <td>
 			      <input name="zusatz" type="radio" value="Fruehstueck" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_HALB,$unterkunft_id,$link) == "true"){
               ?>
@@ -528,7 +528,7 @@ else {
 			      <input name="zusatz" type="radio" value="Halbpension" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_VOLL,$unterkunft_id,$link) == "true"){
               ?>                      
@@ -554,29 +554,29 @@ else {
                   ?>
                 </td>
 			    <td>
-			      <?= $preis ?> <?= getWaehrung($unterkunft_id) ?>
-			      <input type="hidden" name="preis" value="<?= $preis ?>"/>
+			      <?php echo $preis ?> <?php echo getWaehrung($unterkunft_id) ?>
+			      <input type="hidden" name="preis" value="<?php echo $preis ?>"/>
                 </td>
               </tr>
 			  <?php
   			  }
   			  ?>  			  
         </table>
-        <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder müssen ausgefüllt werden!",$sprache,$link)); ?>) 
+        <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden!",$sprache,$link)); ?>) 
 		  <?php if(!isset($zimmer_ids)){ 
 		  ?>
-          	<input name="zimmer_id" type="hidden" id="zimmer_id" value="<?= $zimmer_id ?>">
+          	<input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
 		  <?php }
 		  ?>
-          <input name="vonTag" type="hidden" id="vonTag" value="<?= $vonTag ?>">
-          <input name="bisTag" type="hidden" id="bisTag" value="<?= $bisTag ?>">
-          <input name="vonMonat" type="hidden" id="vonMonat" value="<?= $vonMonat ?>">
-          <input name="bisMonat" type="hidden" id="bisMonat" value="<?= $bisMonat ?>">
-          <input name="vonJahr" type="hidden" id="vonJahr" value="<?= $vonJahr ?>">
-          <input name="bisJahr" type="hidden" id="bisJahr" value="<?= $bisJahr ?>">
+          <input name="vonTag" type="hidden" id="vonTag" value="<?php echo $vonTag ?>">
+          <input name="bisTag" type="hidden" id="bisTag" value="<?php echo $bisTag ?>">
+          <input name="vonMonat" type="hidden" id="vonMonat" value="<?php echo $vonMonat ?>">
+          <input name="bisMonat" type="hidden" id="bisMonat" value="<?php echo $bisMonat ?>">
+          <input name="vonJahr" type="hidden" id="vonJahr" value="<?php echo $vonJahr ?>">
+          <input name="bisJahr" type="hidden" id="bisJahr" value="<?php echo $bisJahr ?>">
         </p>
         <p><?php echo(getUebersetzung("Hinweis: Es handelt sich hierbei um eine Reservierungs-Anfrage.",$sprache,$link));
-			     echo(getUebersetzung("Der Vermieter wird sich mit Ihnen in Verbindung setzen um gegebenenfalls die Reservierung zu bestätigen.",$sprache,$link)); ?></p>
+			     echo(getUebersetzung("Der Vermieter wird sich mit Ihnen in Verbindung setzen um gegebenenfalls die Reservierung zu bestÃ¤tigen.",$sprache,$link)); ?></p>
         </td>
   </tr>
 </table>

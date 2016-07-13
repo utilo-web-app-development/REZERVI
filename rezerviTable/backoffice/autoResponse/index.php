@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Automatische e-Mails";
 
@@ -26,22 +26,22 @@ include_once($root."/include/autoResponseFunctions.inc.php");
 <form action="./texteAnzeigen.php" method="post" target="_self">
 <table>
   <tr height="30">
-    <td><a href="<?=$root ?>/backoffice/autoResponse/texteAnzeigen.php?<?=BUCHUNGS_BESTAETIGUNG?>=true"><?php echo(getUebersetzung("Reservierungsbestätigung")); ?></a> </td>
+    <td><a href="<?php echo$root ?>/backoffice/autoResponse/texteAnzeigen.php?<?php echoBUCHUNGS_BESTAETIGUNG?>=true"><?php echo(getUebersetzung("Reservierungsbestätigung")); ?></a> </td>
     	<td> - </td>
     <td><?php echo(getUebersetzung("Ändern der E-Mail-Reservierungsbestätigung wenn Sie die Reservierung akzeptieren")); ?>.</td>
   </tr>
   <tr height="30">
-    <td><a href="<?=$root ?>/backoffice/autoResponse/texteAnzeigen.php?<?=BUCHUNGS_ABLEHNUNG?>=true"><?php echo(getUebersetzung("Reservierungs-Absage")); ?></a> </td>
+    <td><a href="<?php echo$root ?>/backoffice/autoResponse/texteAnzeigen.php?<?php echoBUCHUNGS_ABLEHNUNG?>=true"><?php echo(getUebersetzung("Reservierungs-Absage")); ?></a> </td>
     	<td> - </td>
     <td><?php echo(getUebersetzung("Ändern des Absagetextes einer Anfrage wenn Sie die Reservierung ablehnen")); ?>.</td>
   </tr>
     <tr height="30">
-    <td><a href="<?=$root ?>/backoffice/autoResponse/texteAnzeigen.php?<?=ANFRAGE_BESTAETIGUNG?>=true"><?php echo(getUebersetzung("Buchungs-Anfrage")); ?></a></td>
+    <td><a href="<?php echo$root ?>/backoffice/autoResponse/texteAnzeigen.php?<?php echoANFRAGE_BESTAETIGUNG?>=true"><?php echo(getUebersetzung("Buchungs-Anfrage")); ?></a></td>
     	<td> - </td>
     <td><?php echo(getUebersetzung("Ändern des Bestätigungstextes einer Reservierungssanfrage wenn eine Anfrage gestellt wird")); ?>.</td>
   </tr>
     <tr height="30">
-      <td><a href="<?=$root ?>/backoffice/autoResponse/texteAnzeigen.php?<?=NEWSLETTER?>=true"><?php echo(getUebersetzung("E-Mails senden")); ?></a></td>
+      <td><a href="<?php echo$root ?>/backoffice/autoResponse/texteAnzeigen.php?<?php echoNEWSLETTER?>=true"><?php echo(getUebersetzung("E-Mails senden")); ?></a></td>
     	<td> - </td>
       <td><?php echo(getUebersetzung("Newsletter an ihre Gäste senden")); ?>.</td>
     </tr>

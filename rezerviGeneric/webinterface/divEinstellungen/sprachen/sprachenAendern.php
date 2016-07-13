@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -19,7 +19,7 @@ include_once($root."/webinterface/templates/components.inc.php");
 $res = getSprachen();
 $zaehle = 0; //zur kontrolle ob ueberhaupt eine sprache ausgewaehlt wurde
 $standard = $_POST["standard"];
-//zuerst alte sprachen rauslöschen, dann neu setzen:
+//zuerst alte sprachen rauslÃ¶schen, dann neu setzen:
 deleteAllActivtedSprachenOfVermieter($vermieter_id);
 
 while($d = mysql_fetch_array($res)){
@@ -33,7 +33,7 @@ while($d = mysql_fetch_array($res)){
 	}	
 
 	if (($standard == $spracheID && $cur_sprache_id == false)){
-		$nachricht = "Die Standardsprache muss auch ausgewählt werden!";
+		$nachricht = "Die Standardsprache muss auch ausgewÃ¤hlt werden!";
 		$nachricht = getUebersetzung($nachricht);
 		$fehler = true;
 		include_once("./sprachen.php");
@@ -48,9 +48,9 @@ while($d = mysql_fetch_array($res)){
 
 }
 
-//kontrolle ob überhaupt eine sprache ausgewählt wurde:
+//kontrolle ob Ã¼berhaupt eine sprache ausgewÃ¤hlt wurde:
 if ($zaehle <= 0){
-	$nachricht = "Sie müssen mindestens eine Sprache auswählen!";
+	$nachricht = "Sie mÃ¼ssen mindestens eine Sprache auswÃ¤hlen!";
 	$nachricht = getUebersetzung($nachricht);
 	$fehler = true;
 	include_once("./sprachen.php");
@@ -63,18 +63,18 @@ setVermieterEigenschaftenWert(STANDARDSPRACHE,$standard,$vermieter_id);
 
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen")); ?>.</p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ã„ndern der angezeigten Sprachen")); ?>.</p>
 
-	<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+	<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
 	  <tr>
-		<td><?=  getUebersetzung("Die angezeigten Sprachen wurden erfolgreich geändert!"); ?></td>
+		<td><?php echo  getUebersetzung("Die angezeigten Sprachen wurden erfolgreich geÃ¤ndert!"); ?></td>
 	  </tr>
 	</table>
 
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

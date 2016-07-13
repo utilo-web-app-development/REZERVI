@@ -100,7 +100,7 @@ function changeAttribut($id,$bezeichnung,$beschreibung){
 /**
  * @author coster
  * @date 31.8.06
- * löscht ein attribut 
+ * lÃ¶scht ein attribut 
 */
 function deleteAttribut($pk_id){
 	

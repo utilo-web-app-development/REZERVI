@@ -15,13 +15,13 @@
 	     	alert(<?php
 				  if ($_POST["sprache"] == "de"){
 						?>
-						"Sie müssen die Lizenz lesen und akzeptieren!"
-						<?
+						"Sie mÃ¼ssen die Lizenz lesen und akzeptieren!"
+						<?php
 				  }
 				  else{
 						?>
 						"Please read and accept the agreement!"
-						<?
+						<?php
 				  }
 				  ?>);
 	     	return false;
@@ -37,18 +37,18 @@
   if ($_POST["sprache"] == "de"){
 		?>
 		Rezervi Generic Buchungssystem
-		<?
+		<?php
   }
   else{
 		?>
 		Rezervi Generic booking system
-		<?
+		<?php
   }
 ?>		
 </p>
 <p <?php if ($fehler == true) echo("class=\"belegt\""); else echo("class=\"frei\""); ?>><?php echo($antwort); ?></p>
 <form action="config.php" method="post" id="formLizenz" name="formLizenz" target="_self" onSubmit="return checkLicence();">
-	<input type="hidden" name="sprache" value="<?= $_POST["sprache"] ?>" />
+	<input type="hidden" name="sprache" value="<?php echo $_POST["sprache"] ?>" />
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
 		<tr>
 	          <td>
@@ -74,12 +74,12 @@
 				  if ($_POST["sprache"] == "de"){
 						?>
 						Lizenz gelesen und akzeptiert
-						<?
+						<?php
 				  }
 				  else{
 						?>
 						I accept the agreement
-						<?
+						<?php
 				  }
 				  ?></td><td>
 						<input type="radio" name="lizenz" value="true"></td>
@@ -89,12 +89,12 @@
 				  if ($_POST["sprache"] == "de"){
 						?>
 						Lizenz nicht akzeptiert
-						<?
+						<?php
 				  }
 				  else{
 						?>
 						I do not accept the agreement
-						<?
+						<?php
 				  }
 				  ?></td><td>
 						<input name="lizenz" type="radio" value="false" checked></td>

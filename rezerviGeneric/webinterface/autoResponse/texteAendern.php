@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 7.10.05
@@ -48,7 +48,7 @@ $art = $_POST["art"];
 			 $text == "" || 
 			 $unterschrift == "") ){
 			$fehler = true;
-			$nachricht = getUebersetzung("Es wurden nicht alle Felder der Standardsprache korrekt ausgefüllt!");	
+			$nachricht = getUebersetzung("Es wurden nicht alle Felder der Standardsprache korrekt ausgefÃ¼llt!");	
 			include_once("./texteAnzeigen.php");
 			exit;	
 		}
@@ -58,7 +58,7 @@ $art = $_POST["art"];
 				$anredeStandard = $anrede;
 				$textStandard = $text;
 				$unterschriftStandard = $unterschrift;	
-				//änderungen durchführen:
+				//Ã„nderungen durchfÃ¼hren:
 				changeMessage($vermieter_id,$art,$subjectStandard,$textStandard,$unterschriftStandard,$anredeStandard);	
 			}
 					
@@ -110,7 +110,7 @@ if ($art == NEWSLETTER){
 	if (empty($mieter) || count($mieter)<1){
 			
 		$fehler = true;
-		$nachricht = getUebersetzung("Es wurden keine Mieter ausgewählt!");	
+		$nachricht = getUebersetzung("Es wurden keine Mieter ausgewÃ¤hlt!");	
 		include_once("./texteAnzeigen.php");
 		exit;	
 	
@@ -121,9 +121,9 @@ if ($art == NEWSLETTER){
 	
 if ($art != NEWSLETTER){
 ?>
-<table border="0" cellpadding="0" cellspacing="2" class="<?= FREI ?>">
+<table border="0" cellpadding="0" cellspacing="2" class="<?php echo FREI ?>">
   <tr>
-    <td><?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.")); ?></td>
+    <td><?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verÃ¤ndert.")); ?></td>
   </tr>
 </table>
 <br/>
@@ -132,7 +132,7 @@ if ($art != NEWSLETTER){
 else{
 		
 ?>
-	<table class="<?= TABLE_STANDARD ?>" border="0" cellspacing="2" cellpadding="0">
+	<table class="<?php echo TABLE_STANDARD ?>" border="0" cellspacing="2" cellpadding="0">
 	   <tr>
   		<td><select name="mieter[]" size="10">
 		<?php
@@ -174,7 +174,7 @@ else{
     </tr>
   </table>
   <br/>
-	<table border="0" cellpadding="0" cellspacing="2" class="<?= FREI ?>">
+	<table border="0" cellpadding="0" cellspacing="2" class="<?php echo FREI ?>">
 	  <tr>
 		<td><?php echo(getUebersetzung("Die E-Mails wurden erfolgreich versendet")); ?>!</td>
 	  </tr>
@@ -182,7 +182,7 @@ else{
 <br/>
 <?php
 	}	
-	showSubmitButtonWithForm("./index.php",getUebersetzung("zurück"));
+	showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck"));
 	
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -11,7 +11,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			date: 18.8.05
 */
 
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -46,17 +46,17 @@ include_once($root."/include/sessionFunctions.inc.php");
 <script language="JavaScript">
 	<!--
 	    function sicher(){
-	    	return confirm('<?php echo(getUebersetzung("Bild wirklich löschen?",$sprache,$link)); ?>'); 	    
+	    	return confirm('<?php echo(getUebersetzung("Bild wirklich lÃ¶schen?",$sprache,$link)); ?>'); 	    
 	    }
 	    //-->
 </script>
-<?php //passwortprüfung:	
+<?php //passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
 ?>
   <table border="0" cellpadding="0" cellspacing="3" class="table">
     <tr class="table"> 
       <td>
-	  	<p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. löschen",$sprache,$link)); ?><br/>
+	  	<p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder fÃ¼r Zimmer/Appartement/Wohnung/etc. lÃ¶schen",$sprache,$link)); ?><br/>
           </p>
       </td>
     </tr>
@@ -90,7 +90,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 					<td><?php echo(getUebersetzung("Bild",$sprache,$link)); ?></td>
 					<td><?php echo(getUebersetzung("Zimmer",$sprache,$link)); ?></td>
 					<td><?php echo(getUebersetzung("Beschreibung",$sprache,$link)); ?></td>
-					<td><div align="center"><?php echo(getUebersetzung("löschen",$sprache,$link)); ?></div></td>
+					<td><div align="center"><?php echo(getUebersetzung("lÃ¶schen",$sprache,$link)); ?></div></td>
 				</tr>
 			<?php 
 				$res = getAllPicturesFromUnterkunftWithLimit($unterkunft_id,$limit,$index,$link);
@@ -112,7 +112,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			  				<input name="Submit" type="submit" id="Submit" class="button200pxA" 
 								onMouseOver="this.className='button200pxB';"
        							onMouseOut="this.className='button200pxA';"
-								value="<?php echo(getUebersetzung("Bild löschen",$sprache,$link)); ?>">
+								value="<?php echo(getUebersetzung("Bild lÃ¶schen",$sprache,$link)); ?>">
 						 </form>
 					  </td>
 				  </tr>			
@@ -133,7 +133,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 					<form action="./bilderLoeschen.php" method="post" name="zurueck" target="_self" enctype="multipart/form-data">
 					<input name="index" type="hidden" value="<?php echo($index-$limit); ?>"/>
 					<?php 
-	  					showSubmitButton(getUebersetzung("zurückblättern",$sprache,$link));
+	  					showSubmitButton(getUebersetzung("zurÃ¼ckblÃ¤ttern",$sprache,$link));
 					?>
 					</form>
 				</td>
@@ -144,7 +144,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 				<td><form action="./bilderLoeschen.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">
 					<input name="index" type="hidden" value="<?php echo($index+$limit); ?>"/>
 					<?php 
-	  					showSubmitButton(getUebersetzung("weiterblättern",$sprache,$link));
+	  					showSubmitButton(getUebersetzung("weiterblÃ¤ttern",$sprache,$link));
 					?>
 					</form>
 				</td>
@@ -158,19 +158,19 @@ include_once($root."/include/sessionFunctions.inc.php");
   </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zu gelangen: 
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <p></td> </tr> </table> </p>  
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprÃ¼fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>   
  <?php include_once("../templates/end.php"); ?>

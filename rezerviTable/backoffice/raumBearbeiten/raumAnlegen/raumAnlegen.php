@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 
 $standardsprache = getGastroProperty(STANDARDSPRACHE,$gastro_id);
@@ -31,7 +31,7 @@ if ($standardsprache == false || $standardsprache == ""){
 	      	}
 	      ?>
 	      </td>
-	   <td><input name="bezeichnung_<?= $sprache_id ?>" type="text" value="<?php
+	   <td><input name="bezeichnung_<?php echo $sprache_id ?>" type="text" value="<?php
 	   		if ( isset( $_POST["bezeichnung_".$sprache_id] ) ){
 	   			echo( $_POST["bezeichnung_".$sprache_id] );
 	   		}
@@ -56,7 +56,7 @@ if ($standardsprache == false || $standardsprache == ""){
 	      <?php
 	      	}
 	      ?></td>
-	      <td><textarea name="beschreibung_<?= $sprache_id ?>"><?php
+	      <td><textarea name="beschreibung_<?php echo $sprache_id ?>"><?php
 	   		if ( isset( $_POST["beschreibung_".$sprache_id] ) ){
 	   			echo( $_POST["beschreibung_".$sprache_id] );
 	   		}
@@ -73,9 +73,9 @@ if ($standardsprache == false || $standardsprache == ""){
       		$width_pic = getBildBreite($bild_id);
       		$height_pic= getBildHoehe($bild_id);
       	?>
-      	<img src="<?= $root."/templates/picture.php?bilder_id=".$bild_id ?>" 
-      		width="<?= $width_pic/$height_pic*200 ?>" 
-      		height="<?= 200 ?>"/>
+      	<img src="<?php echo $root."/templates/picture.php?bilder_id=".$bild_id ?>" 
+      		width="<?php echo $width_pic/$height_pic*200 ?>" 
+      		height="<?php echo 200 ?>"/>
       </td>
     </tr>
     <?php
@@ -84,7 +84,7 @@ if ($standardsprache == false || $standardsprache == ""){
     <tr>
     	<td colspan="2">
 	    	<table><tr>
-	    	<td><?= getUebersetzung("Bild des Raumes") ?></td>
+	    	<td><?php echo getUebersetzung("Bild des Raumes") ?></td>
 	    	<td><input name="bild" type="file"/></td>
 	    	</tr></table>
     	</td>

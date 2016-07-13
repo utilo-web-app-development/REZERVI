@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -17,13 +17,13 @@ if ($standardsprache == false || $standardsprache == ""){
 include_once($root."/webinterface/templates/components.inc.php"); 		
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>">
-	<?php echo(getUebersetzung("Ändern der angezeigten Übersetzungen")); ?>.
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+	<?php echo(getUebersetzung("Ã¤ndern der angezeigten Ã¼bersetzungen")); ?>.
 </p>
 <form action="./uebersetzungAendern.php" method="post" target="_self">
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <tr>
-    <td><?php echo(getUebersetzung("Wählen sie die Sprache die sie ändern wollen")); ?>:</td>
+    <td><?php echo(getUebersetzung("WÃ¤hlen sie die Sprache die sie Ã¤ndern wollen")); ?>:</td>
   </tr>
   <tr>
 	  <td>
@@ -35,7 +35,7 @@ include_once($root."/webinterface/templates/components.inc.php");
 		  		$bezeichnung = $d["BEZEICHNUNG"];
 		  		$spracheID   = $d["SPRACHE_ID"];       
 		    ?>  
-			<option value="<?= $spracheID ?>"><?= getUebersetzung($bezeichnung); ?></option>
+			<option value="<?php echo $spracheID ?>"><?php echo getUebersetzung($bezeichnung); ?></option>
 			<?php
 		  	}
 		  	?> 
@@ -46,7 +46,7 @@ include_once($root."/webinterface/templates/components.inc.php");
     <td>
     <br/>
  	 <?php 
-	  showSubmitButton(getUebersetzung("ändern"));
+	  showSubmitButton(getUebersetzung("Ã¤ndern"));
 	?>
 	</td>
   </tr>
@@ -54,8 +54,8 @@ include_once($root."/webinterface/templates/components.inc.php");
 </form>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

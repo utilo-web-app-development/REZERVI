@@ -120,8 +120,8 @@ function getBildPfad($bilder_id,$link){
 
 }
 /**
-	löscht ein bild
-	Bild wird aber nicht von Festplatte gelöscht!
+	lÃ¶scht ein bild
+	Bild wird aber nicht von Festplatte gelÃ¶scht!
 	author: coster
 	date: 4. aug. 2005
 */
@@ -202,7 +202,7 @@ function getBildBreite($bilder_id,$link){
 
 }
 /**
-	liest die Höhe eines Bildes
+	liest die HÃ¶he eines Bildes
 	author: coster
 	date: 4. aug. 2005
 */

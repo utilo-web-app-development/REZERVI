@@ -49,9 +49,9 @@ else{
 	$pension = "";
 }
 	
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../../conf/rdbmsConfig.php");
-//andere "include_onces" einfügen:
+//andere "include_onces" einfÃ¼gen:
 include_once("../../../include/gastFunctions.php");
 include_once("../../../include/reservierungFunctions.php");			
 include_once("../../../include/unterkunftFunctions.php");
@@ -66,7 +66,7 @@ include_once("../../../include/uebersetzer.php");
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <?php 
 
@@ -78,7 +78,7 @@ include_once("../../../include/uebersetzer.php");
 	else if ($gast_id == -1) {
 		$gast_id = insertGuest($unterkunft_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$fax,$anmerkung,$speech,$link);	
 	}
-	else{//3. gast ist bereits vorhanden und wurde gändert
+	else{//3. gast ist bereits vorhanden und wurde gÃ¤ndert
 		updateGuest($gast_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$fax,$anmerkung,$speech,$link);	
 	}	
 	
@@ -92,7 +92,7 @@ include_once("../../../include/uebersetzer.php");
 ?>
 <table  border="0" cellpadding="0" cellspacing="3" class="table">
   <tr>
-    <td><p class="frei"><?php echo(getUebersetzung("Die Reservierung/Belegung wurde erfolgreich geändert",$sprache,$link)); ?>!</p>
+    <td><p class="frei"><?php echo(getUebersetzung("Die Reservierung/Belegung wurde erfolgreich geÃ¤ndert",$sprache,$link)); ?>!</p>
       <table border="0" cellpadding="0" cellspacing="0" class="tableColor">
         <tr> 
           <td><?php echo(getUebersetzung("eingetragenes Datum",$sprache,$link)); ?>:</td>
@@ -136,14 +136,14 @@ include_once("../../../include/uebersetzer.php");
         <input name="jahr" type="hidden" id="jahr" value="<?php echo($vonJahr) ?>">
 		<input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>"> 
         <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>"> </td>
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>"> </td>
     </tr>
   </table>
   <p>&nbsp; </p>
   </form>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprÃ¼fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </BODY>

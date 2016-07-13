@@ -80,21 +80,17 @@ include_once("../templates/headerA.php");
 //headerB einfügen:
 include_once("../templates/headerB.php");
 ?>
-
-
-<div class="panel panel-default">
-  <div class="panel-body">
-
-
-   	<p>
+<table border="0">
+  <tr>
+    <td><p class="standardSchrift">
         <?php 
 		 //$zimmerart = getUebersetzungUnterkunft(getZimmerArten($unterkunft_id,$link),$sprache,$unterkunft_id,$link);
 		 $zimmerart_mz = getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link);
 		 echo(getUebersetzung("Sie können den Belegungsplan betrachten, indem Sie eine Auswahl treffen und auf [Belegungsplan anzeigen] klicken...",$sprache,$link));
 		 ?>
-  	</p>
-  
-
+      </p></td>
+  </tr>
+</table>
 <?php
 	if (isset($keineSprache) && ($keineSprache == "true")){ ?>
 <form action="../start.php" method="post" name="form1" target="_parent">
@@ -104,20 +100,18 @@ include_once("../templates/headerB.php");
   <input name="keineSprache" type="hidden" value="true">
   <input name="monat" type="hidden" value="<?php echo(parseMonthNumber(getTodayMonth())); ?>">
   <input name="jahr" type="hidden" value="<?php echo(getTodayYear()); ?>">
-
-   <!--Belegungsplan-->
-      <b><?php	echo(getUebersetzung("Belegungsplan für:",$sprache,$link)); ?></b>
-     </br>
-    </br>
-  
-   <!-- Select Box  -->
-     
-      <?php   
+  <table border="0" class="table">
+    <tr>
+      <td class="standardSchriftBold"><?php	echo(getUebersetzung("Belegungsplan für:",$sprache,$link)); ?></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><?php   
       
         //es sollte die liste auf keinen fall groesser als 10 werden:
 	    $zimmeranzahl = getAnzahlVorhandeneZimmer($unterkunft_id,$link);
 		if ($zimmeranzahl > 10) $zimmeranzahl = 10; ?>
-        <select  class="form-control" name="zimmer_id" size="<?php echo($zimmeranzahl); ?>>
+        <select name="zimmer_id" size="<?php echo($zimmeranzahl); ?>" class="tableColor">
           <?php 
 			$res = getZimmer($unterkunft_id,$link);
 			$zaehler = 0;
@@ -152,47 +146,42 @@ include_once("../templates/headerB.php");
 		  }//end while-loop
 		?>
         </select>
-		<!-- Button -->
-     
-   </br>
-   </br>
-   
-      <input type="submit" name="Submit" class="btn btn-default" value="<?php echo(getUebersetzung("Belegungsplan anzeigen",$sprache,$link)); ?>">
-  
+		
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Belegungsplan anzeigen",$sprache,$link)); ?>">
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
 </form>
-
-<!-- Ende Button -->
-</br>
-</br>
-
-  
-   <p>
+<table border="0">
+  <tr>
+    <td><span class="standardSchrift">
       <?php 
 		echo(getUebersetzung("...oder eine automatische Suche durchführen, indem sie unterstehende Daten angeben und [Suche starten] klicken.",$sprache,$link)); 
 	  ?>
-   </p>
-  
-</br>
-
+      </span></td>
+  </tr>
+</table>
 <form action="../suche/sucheDurchfuehren.php" method="post" name="suchen" target="_self" id="suchen">
- 
-  <!-- Kalender  --> 
-      <b>
+  <table border="0" class="table">
+    <tr>
+      <td><p class="standardSchriftBold">
           <?php echo(getUebersetzung("Freie",$sprache,$link)." "); 
 		  		echo($zimmerart_mz); 
 				echo(" ".getUebersetzung("suchen",$sprache,$link));
 			?>
-          <b><?php echo(getUebersetzung("von",$sprache,$link)); ?>: <br/>
-          </b>
+          <span class="standardSchriftBold"><?php echo(getUebersetzung("von",$sprache,$link)); ?>: <br/>
+          </span>
           <script>DateInput('datumVon', true, 'DD/MM/YYYY','<?php echo($startdatumDP); ?>')</script>
-          <b><?php echo(getUebersetzung("bis",$sprache,$link)); ?>:</b><br/>
+          <span class="standardSchriftBold"><?php echo(getUebersetzung("bis",$sprache,$link)); ?>:</span><br/>
           <script>DateInput('datumBis', true, 'DD/MM/YYYY','<?php echo($enddatumDP); ?>')</script>
-        </b>
-       
-     
-        <!-- Ende Kalender -->
-        
-    
+        </p></td>
+    </tr>
     <?php
   //wenn die anzahl der zimmer mehr als 1 ist, nur dann anzeigen:
   if ($zimmeranzahl > 1) {
@@ -205,11 +194,11 @@ include_once("../templates/headerB.php");
 				$temp4 = getUebersetzungUnterkunft($temp2,$sprache,$unterkunft_id,$link);
 				$zimmerbezeichnung = ($temp3).("&nbsp;").($temp4);
   ?>
-  	
-  		<b>
+  	<tr>
+  		<td class="standardSchriftBold">
   			<?php echo $zimmerbezeichnung ?>
-  		</b>
-  		
+  		</td>
+  		<td>
   			<input type="checkbox" name="parent_room_<?php echo $p["PK_ID"] ?>" value="true" 
   				<?php
   					if (isset($_POST['zimmerIdsParents']) && !empty($_POST['zimmerIdsParents'])){
@@ -223,21 +212,17 @@ include_once("../templates/headerB.php");
   						}
   					}
   				?>
-  			
-  		
-
+  			/>
+  		</td>
+  	</tr>
   	<?php
   		} //end while parents
   	} //end if parents 
   	?>
-  	
-  </br>
-  </br>
-  <!-- Anzahl Zimmer -->
-  
-      <b><?php echo(getUebersetzung("Anzahl der ",$sprache,$link).getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
-   ?></b>
-      <select name="anzahlZimmer">
+    <tr>
+      <td class="standardSchriftBold"><?php echo(getUebersetzung("Anzahl der ",$sprache,$link).getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
+   ?></td>
+      <td><select name="anzahlZimmer" class="tableColor">
           <?php 
 		  $anz_zi = getAnzahlVorhandeneZimmer($unterkunft_id,$link);
 		  //without parent rooms (eg. houses)
@@ -254,8 +239,8 @@ include_once("../templates/headerB.php");
           <?php
 	}
 	?>
-        </select>
-    
+        </select></td>
+    </tr>
     <?php
   }
   else{
@@ -266,14 +251,9 @@ include_once("../templates/headerB.php");
   $erwachseneAnzahl = getAnzahlErwachsene($unterkunft_id,$link);
   if ($erwachseneAnzahl > 0){
   ?>
-  </br>
-  
-  <!-- Ende Anzahl Zimmer -->
-   
-   <!-- Anzahl Erwachsene -->
-   
-      <b><?php echo(getUebersetzung("Anzahl Erwachsene ",$sprache,$link)); ?></b>
-        </br><select  class="form-control" name="anzahlErwachsene">
+    <tr>
+      <td class="standardSchriftBold"><?php echo(getUebersetzung("Anzahl Erwachsene ",$sprache,$link)); ?></td>
+      <td><select name="anzahlErwachsene" class="tableColor">
           <?php
 		for ($i = 1; $i <= $erwachseneAnzahl; $i++){
 		?>
@@ -292,13 +272,12 @@ include_once("../templates/headerB.php");
           <?php
 		}
 		?>
-        </select>
-  
+        </select></td>
+    </tr>
     <?php
   }
     else{
   ?>
-
     <input name="anzahlErwachsene" type="hidden" value="-1">
     <?php
   }
@@ -310,13 +289,9 @@ include_once("../templates/headerB.php");
     if ($kinderAnzahl > 0)
     {
       ?>
-      
-      <!-- Ende Anzahl Erwachsene -->
-      <!-- Anzahl Kinder -->
-     </br>
-    </br>
-	    <b><?php echo(getUebersetzung("Anzahl Kinder unter",$sprache,$link)); ?> <?php echo(getKindesalter($unterkunft_id,$link)); ?> <?php echo(getUebersetzung("Jahren",$sprache,$link)); ?></b>
-        <select  class="form-control" name="anzahlKinder">
+      <tr>
+	    <td class="standardSchriftBold"><?php echo(getUebersetzung("Anzahl Kinder unter",$sprache,$link)); ?> <?php echo(getKindesalter($unterkunft_id,$link)); ?> <?php echo(getUebersetzung("Jahren",$sprache,$link)); ?></td>
+        <td><select name="anzahlKinder" class="tableColor">
         <?php
 		for ($i = 0; $i <= $kinderAnzahl; $i++)
 		{
@@ -336,8 +311,8 @@ include_once("../templates/headerB.php");
           <?php
 		}
 		?>
-        </select>
-      
+        </select></td>
+      </tr>
       <?php
     }
     else
@@ -359,18 +334,14 @@ include_once("../templates/headerB.php");
   //if(getInformationHaustiere($unterkunft_id,$link)=='true')
   if (getPropertyValue(HAUSTIERE_ALLOWED,$unterkunft_id,$link) == "true")
   {?>
-  	
-  <!-- Ende Anzahl Kinder -->
-  
-  <!-- Haustiere -->
-  </br>
-  </br>  
-	  <b>
+    <tr>
+	  <td class="standardSchriftBold">
         <?php echo(getUebersetzung("Haustiere",$sprache,$link)); ?>
-	  </b>
-      
+	  </td>
+      <td>
 	    <input name="haustiere" type="checkbox" value="true">	
-	
+	  </td>
+    </tr>
   <?php
      //echo("<td><h3>getInformationHaustiere() ist 'true'</h3></td>");
   }//end if-loop Haustiere
@@ -382,19 +353,13 @@ include_once("../templates/headerB.php");
  <?php
    }
  ?>
- <!-- Ende Haustiere -->
- 
- <!-- Button Suche starten -->
- </br>
-</br>
-      <b><input name="sucheStarten" type="submit" class="btn btn-default" id="sucheStarten" value="<?php echo(getUebersetzung("Suche starten...",$sprache,$link)); ?>"></b>
-
-<!-- Ende Button -->
-  
+    <tr>
+      <td class="standardSchriftBold"><input name="sucheStarten" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+       onMouseOut="this.className='button200pxA';" id="sucheStarten" value="<?php echo(getUebersetzung("Suche starten...",$sprache,$link)); ?>"></td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
 </form>
- <!-- Flaggen Sprachen -->
-</br>
-
 	<?php 
 	if (isset($keineSprache) && ($keineSprache == "true")){
 		//es soll die sprachauswahl nicht angezeigt werden, wenn
@@ -466,7 +431,5 @@ include_once("../templates/headerB.php");
   <?php
 } //ende sprache soll angezeigt werden
 ?>
-</div>
-</div>
 </body>
 </html>

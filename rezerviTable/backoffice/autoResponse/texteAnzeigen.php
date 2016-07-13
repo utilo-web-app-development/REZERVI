@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Automatische e-Mails";
 
@@ -65,7 +65,7 @@ include_once($root."/backoffice/templates/components.inc.php");
 ?>	
 <h2><?php echo(getUebersetzung($unterschrift)); ?></h2>
 
-<form action="./texteAendern.php?art=<?=$art?>" method="post" target="_self">
+<form action="./texteAendern.php?art=<?php echo$art?>" method="post" target="_self">
   <input name="art" type="hidden" value="<?php echo($art); ?>"/>
   <p class="standardschrift">
   	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden")); ?>!
@@ -101,7 +101,7 @@ include_once($root."/backoffice/templates/components.inc.php");
   <table>
     <tr valign="top">
       <td><?php echo(getUebersetzung("Betreff")); ?></td>
-      <td><input name="subject_<?= $sprache_id ?>" type="text"  value="<?php echo($subject); ?>" size="50" maxlength="255"/>
+      <td><input name="subject_<?php echo $sprache_id ?>" type="text"  value="<?php echo($subject); ?>" size="50" maxlength="255"/>
       <?php  	
       	if  ($standardsprache == $sprache_id){
 	  	  echo("*"); 
@@ -111,7 +111,7 @@ include_once($root."/backoffice/templates/components.inc.php");
     </tr>
     <tr valign="top">
       <td><?php echo(getUebersetzung("Anrede")); ?></td>
-      <td><input name="anrede_<?= $sprache_id ?>" type="text"  value="<?php echo($anrede); ?>" size="50" maxlength="255"/><?php  	
+      <td><input name="anrede_<?php echo $sprache_id ?>" type="text"  value="<?php echo($anrede); ?>" size="50" maxlength="255"/><?php  	
       	if  ($standardsprache == $sprache_id){
 	  	  echo("*"); 
 	  	}
@@ -122,7 +122,7 @@ include_once($root."/backoffice/templates/components.inc.php");
     <tr valign="top">
       <td><?php echo(getUebersetzung("Text")); ?></td>
       <td>
-      	<textarea name="text_<?= $sprache_id ?>" cols="50" rows="5"  ><?php echo($text); ?></textarea><?php  	
+      	<textarea name="text_<?php echo $sprache_id ?>" cols="50" rows="5"  ><?php echo($text); ?></textarea><?php  	
       		if  ($standardsprache == $sprache_id){
 	  	 	 echo("*"); 
 		  	}
@@ -132,7 +132,7 @@ include_once($root."/backoffice/templates/components.inc.php");
     <tr valign="top">
       <td><?php echo(getUebersetzung("Unterschrift")); ?></td>
       <td>
-	      <textarea name="unterschrift_<?= $sprache_id ?>" cols="50" rows="5" ><?php echo($unterschrift); ?></textarea>
+	      <textarea name="unterschrift_<?php echo $sprache_id ?>" cols="50" rows="5" ><?php echo($unterschrift); ?></textarea>
 	      <?php  	
 	      	if  ($standardsprache == $sprache_id){
 		  	  echo("*"); 

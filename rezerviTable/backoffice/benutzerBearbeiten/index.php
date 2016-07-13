@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../.."; 
 $ueberschrift = "Benutzerdaten bearbeiten";
 
@@ -16,19 +16,19 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 ?>
 <table>
 	<tr height="30">
-    	<td><a href="<?=$root ?>/backoffice/benutzerBearbeiten/benutzerAendern/index.php"><?= getUebersetzung("Benutzer ändern") ?></a></td>
+    	<td><a href="<?php echo$root ?>/backoffice/benutzerBearbeiten/benutzerAendern/index.php"><?php echo getUebersetzung("Benutzer ändern") ?></a></td>
     	<td> - </td>
-    	<td><?= getUebersetzung("Anzeigen und Ändern von Benutzer") ?>.</td>
+    	<td><?php echo getUebersetzung("Anzeigen und Ändern von Benutzer") ?>.</td>
 	</tr>
 	<tr height="30">
-	    <td><a href="<?=$root ?>/backoffice/benutzerBearbeiten/benutzerLoeschen/index.php"><?= getUebersetzung("Benutzer löschen") ?></a></td>
+	    <td><a href="<?php echo$root ?>/backoffice/benutzerBearbeiten/benutzerLoeschen/index.php"><?php echo getUebersetzung("Benutzer löschen") ?></a></td>
     	<td> - </td>
-	    <td><?= getUebersetzung("Löschen von den vorhanden Benutzer") ?>.</td>
+	    <td><?php echo getUebersetzung("Löschen von den vorhanden Benutzer") ?>.</td>
 	</tr>
 	<tr height="30">
-	    <td><a href="<?=$root ?>/backoffice/benutzerBearbeiten/benutzerAnlegen_2/index.php"><?= getUebersetzung("Benutzer anlegen") ?></a></td>
+	    <td><a href="<?php echo$root ?>/backoffice/benutzerBearbeiten/benutzerAnlegen_2/index.php"><?php echo getUebersetzung("Benutzer anlegen") ?></a></td>
     	<td> - </td>
-	    <td><?= getUebersetzung("Einen neuen Benutzer in der Datenbank speichern") ?>.</td>
+	    <td><?php echo getUebersetzung("Einen neuen Benutzer in der Datenbank speichern") ?>.</td>
 	</tr>
 </table>
 <?php

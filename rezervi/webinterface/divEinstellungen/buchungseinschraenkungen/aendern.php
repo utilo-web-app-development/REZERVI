@@ -4,7 +4,7 @@ $root = "../../..";
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once($root."/conf/rdbmsConfig.php");
 include_once($root."/include/buchungseinschraenkung.php");
 include_once($root."/include/uebersetzer.php");
@@ -23,7 +23,7 @@ else{
 	$res = getBuchungseinschraenkungen($unterkunft_id);
 	while ($d=mysql_fetch_array($res)){
 		$id = $d["PK_ID"];
-		//welche id soll gel�scht werden?
+		//welche id soll gelöscht werden?
 		if (isset($_POST["loeschen#".$id]) 
 			&& $_POST["loeschen#".$id] == getUebersetzung("löschen",$sprache,$link)){
 			$bu_id = $id;
@@ -47,10 +47,10 @@ $benutzername = getSessionWert(BENUTZERNAME);
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		
-		//l�schen oder hinzufuegen:
+		//löschen oder hinzufuegen:
 		if ($loeschen && !$hinzufuegen){
 			removeBuchungseinschraenkung($bu_id);
 			$nachricht = "Der Datensatz wurde erfolgreich entfernt";
@@ -66,8 +66,8 @@ $benutzername = getSessionWert(BENUTZERNAME);
 			$bisMonat=$_POST["bisMonat"];
 			$vonJahr =$_POST["vonJahr"];
 			$bisJahr =$_POST["bisJahr"];
-			//pruefen ob sich die buchungseinschr�nkung eh
-			//nicht mit einer bereits bestehenden �berschneidet:
+			//pruefen ob sich die buchungseinschränkung eh
+			//nicht mit einer bereits bestehenden überschneidet:
 			if(hasBuchungseinschraenkung($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zimmer_id)){
 				$fehler = true;
 				$nachricht = "Die Buchungseinschränkung überschneidet sich mit einer bereits existierenden!";
@@ -95,7 +95,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
- <div class="alert alert-info" role="alert" <? if (isset($fehler) && $fehler == true) { ?> class="belegt" <? } else { ?> class="frei" <? } ?>>
+ <div class="alert alert-info" role="alert" <?php if (isset($fehler) && $fehler == true) { ?> class="belegt" <?php } else { ?> class="frei" <?php } ?>>
 	  
 		<?php echo($nachricht) ?>
 	  

@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -11,7 +11,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			date: 18.8.05
 */
 
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -34,10 +34,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$standardsprache = getStandardSprache($unterkunft_id,$link);
 	$fehler = false;
 	
-	//wurden die felder zimmer_id und bild ausgefüllt?	
+	//wurden die felder zimmer_id und bild ausgefÃ¼llt?	
 	$zimmer_id = $_POST["zimmer_id"];
 	if ($zimmer_id == ""){
-		$nachricht = "Bitte wählen sie ein Zimmer!";
+		$nachricht = "Bitte wÃ¤hlen sie ein Zimmer!";
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		$fehler = true;
 		include_once("./bilderHochladen.php");
@@ -64,7 +64,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 		}
 	}
 	if ($anyDescription && !$standardLang){
-		$nachricht = "Bitte geben Sie die Beschreibung für Ihre Standardsprache ein!";
+		$nachricht = "Bitte geben Sie die Beschreibung fÃ¼r Ihre Standardsprache ein!";
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		$fehler = true;
 		include_once("./bilderHochladen.php");
@@ -72,7 +72,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	}
 	$bild = $_FILES['bild']['tmp_name'];
 	if ($bild == ""){
-		$nachricht = "Bitte wählen sie ein Bild!";
+		$nachricht = "Bitte wÃ¤hlen sie ein Bild!";
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		$fehler = true;
 		include_once("./bilderHochladen.php");
@@ -132,14 +132,14 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 
-<?php //passwortprüfung:	
+<?php //passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
 ?>
 
 <form action="./index.php" method="post" name="zimmerEintragen" target="_self" enctype="multipart/form-data">
   <table border="0" cellpadding="0" cellspacing="3" class="table">
     <tr class="table"> 
-      <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. hochladen",$sprache,$link)); ?><br/>
+      <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder fÃ¼r Zimmer/Appartement/Wohnung/etc. hochladen",$sprache,$link)); ?><br/>
       </td>
     </tr>
     <tr> 
@@ -148,20 +148,20 @@ include_once($root."/include/sessionFunctions.inc.php");
     <tr class="table"> 
       <td colspan="2"><input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
         <input name="Submit" type="submit" id="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>"></td>
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>"></td>
     </tr>
   </table>
 </form>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <p></td> </tr> </table> </p>  
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprÃ¼fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>   
  <?php include_once("../templates/end.php"); ?>

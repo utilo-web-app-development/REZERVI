@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 20.10.05
@@ -15,7 +15,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 $mieter_id = $_POST["mieter_id"]; 
 ?>
 
-<p class="ueberschrift"><?php echo(getUebersetzung("Informationen über den Mieter")); ?>:</p>
+<p class="ueberschrift"><?php echo(getUebersetzung("Informationen Ã¼ber den Mieter")); ?>:</p>
 <form action="../index.php" method="post" name="form1" target="_self" >
   <table border="0" cellpadding="0" cellspacing="0">
     <tr>
@@ -38,7 +38,7 @@ $mieter_id = $_POST["mieter_id"];
             <td><input name="firma" type="text" id="firma" value="<?php echo(getMieterFirma($mieter_id)); ?>" readonly="readonly"></td>
           </tr>          
           <tr> 
-            <td class="standardSchrift"><?php echo(getUebersetzung("Straße/Hausnummer")); ?></td>
+            <td class="standardSchrift"><?php echo(getUebersetzung("StraÃŸe/Hausnummer")); ?></td>
             <td><input name="strasse" type="text" id="strasse" value="<?php echo(getMieterStrasse($mieter_id)); ?>" readonly="readonly"></td>
           </tr>
           <tr> 
@@ -81,13 +81,13 @@ $mieter_id = $_POST["mieter_id"];
     	<?php
     	if(hasMieterReservations($mieter_id)){
 		?>
-		<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen für den Mieter vor")); ?>:
+		<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen fÃ¼r den Mieter vor")); ?>:
 		</p>
 		<table  border="1" cellpadding="0" cellspacing="3">
-		  <tr class="<?= TABLE_COLOR ?>">
+		  <tr class="<?php echo TABLE_COLOR ?>">
 			<td><?php echo(getUebersetzung("Reservierung von")); ?></td>
 			<td><?php echo(getUebersetzung("bis")); ?></td>
-			<td><?php echo(getUebersetzung("für")); ?></td>
+			<td><?php echo(getUebersetzung("fÃ¼r")); ?></td>
 		  </tr>
 			<!-- ausgeben der reservierungen: -->
 			<?php
@@ -99,7 +99,7 @@ $mieter_id = $_POST["mieter_id"];
 					$datumVon = $d["VON"];
 					$datumBis = $d["BIS"];
 			 ?>
-		              <tr class="<?= TABLE_STANDARD ?>">
+		              <tr class="<?php echo TABLE_STANDARD ?>">
 		                <td><?php echo($datumVon); ?></td>
 		                <td><?php echo($datumBis); ?></td>
 		                <td><?php echo($bezeichnung); ?></td>
@@ -108,7 +108,7 @@ $mieter_id = $_POST["mieter_id"];
 					} //ende while
 				?>
 		</table>
-		<?
+		<?php
 		}
 		?>
     	</td>
@@ -116,7 +116,7 @@ $mieter_id = $_POST["mieter_id"];
   </table>
    <p>
     <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück")); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
   </p>
 </form>
 <?php	

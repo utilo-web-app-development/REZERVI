@@ -29,9 +29,9 @@ var FontSize = 11; // In pixels
 var FontFamily = 'Tahoma';
 var CellWidth = 18;
 var CellHeight = 16;
-var ImageURL = '<?= $rootScript ?>/templates/calendar.jpg';
-var NextURL = '<?= $rootScript ?>/templates/next.gif';
-var PrevURL = '<?= $rootScript ?>/templates/prev.gif';
+var ImageURL = '<?php echo $rootScript ?>/templates/calendar.jpg';
+var NextURL = '<?php echo $rootScript ?>/templates/next.gif';
+var PrevURL = '<?php echo $rootScript ?>/templates/prev.gif';
 var CalBGColor = 'white';
 var TopRowBGColor = 'buttonface';
 var DayBGColor = 'lightgrey';
@@ -39,25 +39,25 @@ var DayBGColor = 'lightgrey';
 // Global variables
 var ZCounter = 100;
 var Today = new Date();
-var so = '<?= getUebersetzung("SO") ?>';
-var mo = '<?= getUebersetzung("MO") ?>';
-var di = '<?= getUebersetzung("DI") ?>';
-var mi = '<?= getUebersetzung("MI") ?>';
-var don = '<?= getUebersetzung("DO") ?>';
-var fr = '<?= getUebersetzung("FR") ?>';
-var sa = '<?= getUebersetzung("SA") ?>';
-var januar = '<?= getUebersetzung("Januar") ?>';
-var februar= '<?= getUebersetzung("Februar") ?>';
-var maerz= '<?= getUebersetzung("März") ?>';
-var april= '<?= getUebersetzung("April") ?>';
-var mai= '<?= getUebersetzung("Mai") ?>';
-var juni= '<?= getUebersetzung("Juni") ?>';
-var juli= '<?= getUebersetzung("Juli") ?>';
-var august= '<?= getUebersetzung("August") ?>';
-var september= '<?= getUebersetzung("September") ?>';
-var oktober= '<?= getUebersetzung("Oktober") ?>';
-var november= '<?= getUebersetzung("November") ?>';
-var dezember= '<?= getUebersetzung("Dezember") ?>';
+var so = '<?php echo getUebersetzung("SO") ?>';
+var mo = '<?php echo getUebersetzung("MO") ?>';
+var di = '<?php echo getUebersetzung("DI") ?>';
+var mi = '<?php echo getUebersetzung("MI") ?>';
+var don = '<?php echo getUebersetzung("DO") ?>';
+var fr = '<?php echo getUebersetzung("FR") ?>';
+var sa = '<?php echo getUebersetzung("SA") ?>';
+var januar = '<?php echo getUebersetzung("Januar") ?>';
+var februar= '<?php echo getUebersetzung("Februar") ?>';
+var maerz= '<?php echo getUebersetzung("MÃ¤rz") ?>';
+var april= '<?php echo getUebersetzung("April") ?>';
+var mai= '<?php echo getUebersetzung("Mai") ?>';
+var juni= '<?php echo getUebersetzung("Juni") ?>';
+var juli= '<?php echo getUebersetzung("Juli") ?>';
+var august= '<?php echo getUebersetzung("August") ?>';
+var september= '<?php echo getUebersetzung("September") ?>';
+var oktober= '<?php echo getUebersetzung("Oktober") ?>';
+var november= '<?php echo getUebersetzung("November") ?>';
+var dezember= '<?php echo getUebersetzung("Dezember") ?>';
 
 var WeekDays = new Array(so,mo,di,mi,don,fr,sa);
 var MonthDays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
@@ -574,7 +574,7 @@ function DateInput(DateName, Required, DateFormat, DefaultDate) {
           write(String.fromCharCode(13) + '<a' + InitialStatus + ' id="' + DateName + '_ID_Link" href="javascript:' + DateName + '_Object.show()" onMouseOver="return ' + DateName + '_Object.iconHover(true)" onMouseOut="return ' + DateName + '_Object.iconHover(false)"><img src="' + ImageURL + '" align="baseline" title="Calendar" width="16" height="15" border="0"></a>&nbsp;');
         
          //tag:
-         writeln('<select' + InitialStatus + '  id="' + DateName + '_Day_ID" name="' + DateName + '_Day_ID" onChange="' + DateName + '_Object.changeDay(this)">');
+         writeln('</td><td><select  class="form-control" ' + InitialStatus + '  id="' + DateName + '_Day_ID" name="' + DateName + '_Day_ID" onChange="' + DateName + '_Object.changeDay(this)">');
          for (var j=1;j<=eval(DateName + '_Object.picked.dayCount');j++) {
             DaySelected = ((DefaultDate != undefined) && eval(DateName + '_Object.picked.day=='+j)) ? ' selected' : '';
             writeln('<option' + DaySelected + '>' + j + '</option>');
@@ -582,7 +582,7 @@ function DateInput(DateName, Required, DateFormat, DefaultDate) {
          writeln('</select>' + String.fromCharCode(13) + '</td>' + String.fromCharCode(13) + '<td valign="middle">');
              
          //monat:
-         writeln('<select name="' + DateName + '_Month"  onChange="' + DateName + '_Object.changeMonth(this)">');
+         writeln('<select  class="form-control" name="' + DateName + '_Month"  onChange="' + DateName + '_Object.changeMonth(this)">');
          if (!Required) {
             var NoneSelected = (DefaultDate == undefined) ? ' selected' : '';
             writeln('<option value=""' + NoneSelected + '></option>');
@@ -593,7 +593,7 @@ function DateInput(DateName, Required, DateFormat, DefaultDate) {
          }
          writeln('</select>' + String.fromCharCode(13) + '</td>' + String.fromCharCode(13) + '<td valign="middle">');
           
-         writeln('<input' + InitialStatus + '  type="text" id="' + DateName + '_Year_ID" name="' + DateName + '_Year_ID" size="' + eval(DateName + '_Object.picked.yearPad.length') + '" maxlength="' + eval(DateName + '_Object.picked.yearPad.length') + '" title="Year" value="' + eval(DateName + '_Object.picked.yearPad') + '" onKeyPress="return NumOnly(event)" onKeyUp="' + DateName + '_Object.checkYear(this)" onBlur="' + DateName + '_Object.fixYear(this)">');
+         writeln('<input class="form-control" ' + InitialStatus + ' type="text" id="' + DateName + '_Year_ID" name="' + DateName + '_Year_ID" size="' + eval(DateName + '_Object.picked.yearPad.length') + '" maxlength="' + eval(DateName + '_Object.picked.yearPad.length') + '" title="Year" value="' + eval(DateName + '_Object.picked.yearPad') + '" onKeyPress="return NumOnly(event)" onKeyUp="' + DateName + '_Object.checkYear(this)" onBlur="' + DateName + '_Object.fixYear(this)">');
         
          //ausgabe des kalenders: 
 		 writeln('</td></tr><tr><td colspan="3">')

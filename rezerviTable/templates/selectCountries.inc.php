@@ -233,7 +233,7 @@ $countrylist = array(
 <?php
 foreach ($countrylist as $coun){
 ?>
-	<option value="<?= $coun ?>" <?php if (isset($country) && $country == $coun){ ?> selected="selected"<?}?>><?= getUebersetzung($coun) ?></option>
+	<option value="<?php echo $coun ?>" <?php if (isset($country) && $country == $coun){ ?> selected="selected"<?php}?>><?php echo getUebersetzung($coun) ?></option>
 <?php
 }
 ?>

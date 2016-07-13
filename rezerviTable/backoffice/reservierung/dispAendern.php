@@ -89,7 +89,7 @@ if ($gast_id != ANONYMER_GAST_ID){
 } 	
 ?>
 
-<link href="<?= $root ?>/backoffice/templates/yui_panel.css" rel="stylesheet" type="text/css"><?php
+<link href="<?php echo $root ?>/backoffice/templates/yui_panel.css" rel="stylesheet" type="text/css"><?php
 if (isset($nachricht) && $nachricht != ""){ ?>
 
 	<table>
@@ -111,28 +111,28 @@ if (isset($nachricht) && $nachricht != ""){ ?>
 ?>
 <table>
 	<tr>
-		<td><?= getUebersetzung("Gastname: ") ?></td>
-		<td><?= $gastName ?></td>
+		<td><?php echo getUebersetzung("Gastname: ") ?></td>
+		<td><?php echo $gastName ?></td>
 	</tr>
 </table>
 <hr/>
 <table>
 	<form action="index.php" method="post" name="zeitAendern" target="_parent">
-		<input name="root" type="hidden" id="root" value="<?= $root  ?>"/>
-		<input name="gastro_id" type="hidden" id="gastro_id" value="<?= $gastro_id ?>"/>
-		<input name="sprache" type="hidden" id="sprache" value="<?= $sprache ?>"/>
+		<input name="root" type="hidden" id="root" value="<?php echo $root  ?>"/>
+		<input name="gastro_id" type="hidden" id="gastro_id" value="<?php echo $gastro_id ?>"/>
+		<input name="sprache" type="hidden" id="sprache" value="<?php echo $sprache ?>"/>
 		<input name="doChangeReservation" type="hidden" value="true"/>
 		<tr>
-			<td align="left"><?= getUebersetzung("Tisch") ?>:</td>
-			<td><select name="table_id"  id="table_id"> <?
+			<td align="left"><?php echo getUebersetzung("Tisch") ?>:</td>
+			<td><select name="table_id"  id="table_id"> <?php
 				$rooms = getRaeume($gastro_id);
 				while($room = $rooms->FetchNextObject()){
 					$tables = getTische($room->RAUM_ID);
 					while($table = $tables->FetchNextObject()) { ?>
-					<option value="<? echo $table->TISCHNUMMER  ?>"<? if ($tisch_id == $table->TISCHNUMMER) {echo(" selected=\"selected\"");} ?>>
+					<option value="<?php echo $table->TISCHNUMMER  ?>"<?php if ($tisch_id == $table->TISCHNUMMER) {echo(" selected=\"selected\"");} ?>>
 							<?php echo($table->TISCHNUMMER); ?>
 					</option> 
-					<?  
+					<?php  
 					}
 				} ?>
 				</select>
@@ -214,13 +214,13 @@ if (isset($nachricht) && $nachricht != ""){ ?>
 	<table>
 		<tr>
 			<td>
-				<input name="reservierung_id" type="hidden" value="<?= $reservierung_id ?>"/>	
-				<input name="raum_id" type="hidden" value="<?= $raum_id ?>"/>
-				<input name="tisch_id" type="hidden" value="<?= $tisch_id ?>"/>
-				<input name="tag" type="hidden" id="tag" value="<?= $tag ?>"/>
-				<input name="monate" type="hidden" id="tonat" value="<?= $monate ?>"/>
-				<input name="jahr" type="hidden" id="jahr" value="<?= $jahr ?>"/>
-				<input name="datumVon" type="hidden" value="<?= $tag."/".$monate."/".$jahr ?>"/>
+				<input name="reservierung_id" type="hidden" value="<?php echo $reservierung_id ?>"/>	
+				<input name="raum_id" type="hidden" value="<?php echo $raum_id ?>"/>
+				<input name="tisch_id" type="hidden" value="<?php echo $tisch_id ?>"/>
+				<input name="tag" type="hidden" id="tag" value="<?php echo $tag ?>"/>
+				<input name="monate" type="hidden" id="tonat" value="<?php echo $monate ?>"/>
+				<input name="jahr" type="hidden" id="jahr" value="<?php echo $jahr ?>"/>
+				<input name="datumVon" type="hidden" value="<?php echo $tag."/".$monate."/".$jahr ?>"/>
 				<input type="submit" name="Submit"  class="button"
 						value="<?php echo(getUebersetzung("speichern")); ?>"/>						
 			</td>
@@ -229,7 +229,7 @@ if (isset($nachricht) && $nachricht != ""){ ?>
 	<form action="./index.php" method="post" name="entf<?php echo($tag); ?>" target="_parent">
 		<tr>
 			<td>
-				<input name="reservierung_id" type="hidden" value="<?= $reservierung_id ?>"/>
+				<input name="reservierung_id" type="hidden" value="<?php echo $reservierung_id ?>"/>
 				<input name="doDeleteReservierung" type="hidden" value="true"/>	
 				<input type="submit" name="Submit" class="button"
 						value="<?php echo(getUebersetzung("Entfernen")); ?>"/>						

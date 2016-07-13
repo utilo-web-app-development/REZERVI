@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -15,7 +15,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -32,7 +32,7 @@ include_once("../../include/uebersetzer.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <div class="panel panel-default">
@@ -66,14 +66,14 @@ include_once("../../include/uebersetzer.php");
 </form>
 <br/>
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
       include_once("../templates/components.php"); 
 	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../templates/end.php"); ?>

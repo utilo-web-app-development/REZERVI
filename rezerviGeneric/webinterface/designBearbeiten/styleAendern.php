@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 26.9.05
@@ -68,9 +68,9 @@ if (isset($_POST["stylesheet"])){
 include_once("./stylesHelper.php");
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Design bearbeiten")); ?></p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Design bearbeiten")); ?></p>
 
-	<table border="0" cellspacing="2" cellpadding="0" class="<?= FREI ?>">         
+	<table border="0" cellspacing="2" cellpadding="0" class="<?php echo FREI ?>">         
           <tr>            
             <td><?php 
 				//string fuer das style zusammenstellen:
@@ -130,7 +130,7 @@ include_once("./stylesHelper.php");
 				setStyle($stylesheet,trim($style),$vermieter_id);
 					
 			?>
-			<?php echo(getUebersetzung("Das Design des ausgewählen Elementes wurde erfolgreich geändert")); ?>!
+			<?php echo(getUebersetzung("Das Design des ausgewï¿½hlen Elementes wurde erfolgreich geï¿½ndert")); ?>!
 			</td>
 			</tr>
 		 </table>
@@ -138,9 +138,9 @@ include_once("./stylesHelper.php");
 <table border="0" cellspacing="3" cellpadding="0">
   <tr>
     <td><form action="./index.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurück")); ?>" class="<?= BUTTON ?>" 
-			onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';">
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurï¿½ck")); ?>" class="<?php echo BUTTON ?>" 
+			onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       		onMouseOut="this.className='<?php echo BUTTON ?>';">
       </form></td>
   </tr>
 </table>

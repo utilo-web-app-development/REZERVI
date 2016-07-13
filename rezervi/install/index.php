@@ -51,25 +51,25 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</h4>
 	  <div class="form-group">
 		<div class="col-sm-8">URL for your MySQL database e.g. "localhost" <br/>
 				  URL zur MySQL Datenbank, z. B. "localhost"</div>
-				  <div class="col-sm-4"><?=$DBMS_URL ?></div>
+				  <div class="col-sm-4"><?php echo$DBMS_URL ?></div>
 		
 		</div>
 		<div class="form-group">
 		<div class="col-sm-8">Name of the MySQL database <br/>
 				  Name der MySQL Datenbank"</div>
-				  <div class="col-sm-4"><?=$DB_NAME ?></div>
+				  <div class="col-sm-4"><?php echo$DB_NAME ?></div>
 		
 		</div>
 		<div class="form-group">
 		<div class="col-sm-8">Username of the MySQL database<br/>
 				  Benutzername der MySQL Datenbank</div>
-				  <div class="col-sm-4"><?=$USERNAME ?></div>
+				  <div class="col-sm-4"><?php echo$USERNAME ?></div>
 		
 		</div>
 		<div class="form-group">
 		<div class="col-sm-8">Password of the MySQL database<br/>
 				  Passwort der MySQL Datenbank</div>
-				  <div class="col-sm-4"><?=$PASS ?></div>
+				  <div class="col-sm-4"><?php echo$PASS ?></div>
 		
 		</div>
 		<div class="form-group">
@@ -80,13 +80,13 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.php' Datei.</h4>
 				  falls Rezervi in einem speziellen Verzeichnis ihres Webservers installiert wurde, geben sie bitte auch diesen Pfad mit in der URL an.<br/>
 				  z. B. $URL = "http://www.mein-domainname.com/rezerviStable/"<br/>
 				 </div>
-				  <div class="col-sm-4"><?=$URL ?></div>
+				  <div class="col-sm-4"><?php echo$URL ?></div>
 		
 		</div>
 		<div class="form-group">
 		<div class="col-sm-8">E-mail address<br/>
 				  E-Mail-Adresse</div>
-				  <div class="col-sm-4"><?=$EMAIL ?></div>
+				  <div class="col-sm-4"><?php echo$EMAIL ?></div>
 				
 		</div>
 		</div>
@@ -138,25 +138,25 @@ Bitte wählen sie ihre Sprache.</p>
 	          <td>URL for your MySQL database e.g. "localhost" <br/>
 				  URL zur MySQL Datenbank, z. B. "localhost"
 			  </td>
-			  <td valign="bottom"><?=$DBMS_URL ?></td>
+			  <td valign="bottom"><?php echo$DBMS_URL ?></td>
 	    </tr>
 		 <tr>
 	          <td>Name of the MySQL database <br/>
 				  Name der MySQL Datenbank
 			  </td>
-			  <td valign="bottom"><?=$DB_NAME ?></td>
+			  <td valign="bottom"><?php echo$DB_NAME ?></td>
 	    </tr> 
 		 <tr>
 	          <td>Username of the MySQL database<br/>
 				  Benutzername der MySQL Datenbank
 			  </td>
-			  <td valign="bottom"><?=$USERNAME ?></td>
+			  <td valign="bottom"><?php echo$USERNAME ?></td>
 	    </tr>	
 	 <tr>
 	          <td>Password of the MySQL database<br/>
 				  Passwort der MySQL Datenbank
 			  </td>
-			  <td valign="bottom"><?=$PASS ?></td>
+			  <td valign="bottom"><?php echo$PASS ?></td>
 	    </tr> 
 		<tr>
 	          <td>URL of your homepage/your availibilty overview<br/>
@@ -171,13 +171,13 @@ Bitte wählen sie ihre Sprache.</p>
 					installiert wurde, geben sie bitte auch diesen Pfad mit in der URL an.<br/>
 					z. B. $URL = "http://www.mein-domainname.com/rezerviStable/"<br/>
 			  </td>
-			  <td valign="bottom"><?=$URL ?></td>
+			  <td valign="bottom"><?php echo$URL ?></td>
 	    </tr>	
 		 <tr>
 	          <td>E-mail address<br/>
 				  E-Mail-Adresse
 			  </td>
-			  <td valign="bottom"><?=$EMAIL ?></td>
+			  <td valign="bottom"><?php echo$EMAIL ?></td>
 	    </tr>	      	 	        
 	</table> 
 	<br/>

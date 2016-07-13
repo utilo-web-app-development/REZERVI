@@ -59,7 +59,7 @@ if (!isInstalled($unterkunft_id)){
 	Please install Rezervi first! <br/>
 	Bitte insallieren sie Rezervi zuerst! <br/>
 	<a href="../install/index.php">--> Install</a>
-<?
+<?php
 }
 else{
 ?>
@@ -77,7 +77,7 @@ else{
           <?php
           if ($isReseller){
           ?>
-           from <a href="<?= $resellerUrl ?>" target="_blank" class="ueberschrift"><?= $resellerName ?></a>
+           from <a href="<?php echo $resellerUrl ?>" target="_blank" class="ueberschrift"><?php echo $resellerName ?></a>
           <?php
           }
           else{
@@ -94,8 +94,8 @@ else{
           <?php
           if ($isReseller){
           ?>
-        	<a href="<?= $resellerUrl ?>" target="_blank">
-        		<img src="<?= $root.$resellerLogo ?>" border="1" hspace="10"/>
+        	<a href="<?php echo $resellerUrl ?>" target="_blank">
+        		<img src="<?php echo $root.$resellerLogo ?>" border="1" hspace="10"/>
         	</a>
           <?php
 		  }
@@ -114,7 +114,7 @@ else{
           <?php
           	if ($isReseller){
           ?>
-           von <a href="<?= $resellerUrl ?>" target="_blank" class="ueberschrift"><?= $resellerName ?></a>
+           von <a href="<?php echo $resellerUrl ?>" target="_blank" class="ueberschrift"><?php echo $resellerName ?></a>
           <?php
           	}
           else{
@@ -239,7 +239,7 @@ else{
   <tr> 
     <td align="center" valign="middle">
         <?php if ($isReseller) { ?>
-        	<font size="1">Rezervi by <?= $resellerName ?> 2008</font>
+        	<font size="1">Rezervi by <?php echo $resellerName ?> 2008</font>
         <?php } else { ?>
     		<font size="1">&copy; UTILO, 2002 - 2008</font>
     	<?php } ?>

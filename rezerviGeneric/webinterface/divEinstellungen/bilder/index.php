@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -11,9 +11,9 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 include_once($root."/webinterface/templates/components.inc.php"); 
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Einstellungen für Bilder der Mietobjekte")); ?>.</p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Einstellungen fÃ¼r Bilder der Mietobjekte")); ?>.</p>
 
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <form action="./bilderAendern.php" method="post" target="_self">
   <?php
   
@@ -50,7 +50,7 @@ include_once($root."/webinterface/templates/components.inc.php");
   </tr>
   -->
   <tr>
-    <td><?php echo(getUebersetzung("Maximale Höhe bei upload")); ?>
+    <td><?php echo(getUebersetzung("Maximale HÃ¶he bei upload")); ?>
     </td>
     <td>  
       <input name="width" type="text" id="width" value="<?php echo($width); ?>" size="5" maxlength="5"/>&nbsp;<?php echo(getUebersetzung("Pixel")); ?>
@@ -66,7 +66,7 @@ include_once($root."/webinterface/templates/components.inc.php");
   <tr>
     <td colspan="2">
  	 <?php 
-	  showSubmitButton(getUebersetzung("ändern"));
+	  showSubmitButton(getUebersetzung("Ã¤ndern"));
 	?>
 	</td>
   </tr>
@@ -74,8 +74,8 @@ include_once($root."/webinterface/templates/components.inc.php");
 </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Tisch bearbeiten";
 $unterschrift = "Löschen";
@@ -47,7 +47,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 	  			$temp = $tisch_id[$i];
 	  		?> 
   				<input type="checkbox" name="tisch_id[]" value="<?php echo($tisch_id[$i]); ?>" checked="checked">
-          			<?= getUebersetzungGastro($temp,$sprache,$gastro_id) ?><br/>       
+          			<?php echo getUebersetzungGastro($temp,$sprache,$gastro_id) ?><br/>       
                <?php 
 			} //ende for
 		    ?>

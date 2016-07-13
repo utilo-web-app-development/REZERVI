@@ -1,4 +1,4 @@
-<?  session_start();
+<?php  session_start();
 $root = ".";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -22,15 +22,15 @@ include_once($root."/templates/headerA.php");
 		
 /*   
 			reservierungsplan
-			steuerung des kalenders und reservierung f�r den gast
+			steuerung des kalenders und reservierung für den gast
 			author: christian osterrieder utilo.eu
 			
-			dieser seite kann optional �bergeben werden:
+			dieser seite kann optional übergeben werden:
 			Zimmer PK_ID ($zimmer_id)
 			Jahr ($jahr)
 			Monat ($monat)
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 		*/
 
@@ -39,7 +39,7 @@ include_once($root."/templates/headerA.php");
 	include_once("./include/datumFunctions.php");
 	//uebersetzer einfuegen:
 	include_once("./include/uebersetzer.php");
-	//helper-datei eing�en:
+	//helper-datei einfügen:
 	include_once("./include/einstellungenFunctions.php");
 
 
@@ -157,14 +157,14 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	if (!isset($jahr) || $jahr == "" || empty($jahr)){
 		$jahr = getTodayYear();
 	}
-	//ich brauche f�r jahr einen integer:
+	//ich brauche für jahr einen integer:
 	$jahr+=1;$jahr-=1;
 	
 	//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
 	if (!isset($monat) || $monat == "" || empty($monat)){
 		$monat = parseMonthNumber(getTodayMonth());
 	}
-	//und f�rs monat einen integer
+	//und fürs monat einen integer
 	$monat-=1;$monat+=1;
 	
     ?>
@@ -225,15 +225,15 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 	/*   
 			reservierungsplan
-			steuerung des kalenders und reservierung f�r den gast
+			steuerung des kalenders und reservierung für den gast
 			author: christian osterrieder utilo.eu
 			
-			dieser seite kann optional �bergeben werden:
+			dieser seite kann optional übergeben werden:
 			Zimmer PK_ID ($zimmer_id)
 			Jahr ($jahr)
 			Monat ($monat)
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 		*/
 
@@ -289,7 +289,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<!-- dynamisches update der anzahl der tage f�r ein gewisses monat mit java-script: -->
+<!-- dynamisches update der anzahl der tage für ein gewisses monat mit java-script: -->
 
 <script language="JavaScript" type="text/javascript" src="./templates/changeForms.js">
 </script>
@@ -506,7 +506,7 @@ linke splate /ende
 					  ?>
 					  <img src="<?php echo($pfad); ?>"/>&nbsp;
 					  
-					  	<?= $description ?>
+					  	<?php echo $description ?>
 					  
 					  <?php
 					}
@@ -619,9 +619,9 @@ linke splate /ende
 		
       <form action="./startNoFrame2.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
         <div align="right">          
-          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
-          <input name="monat" type="hidden" id="monat" value="<? echo($mon); ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
+          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
+          <input name="monat" type="hidden" id="monat" value="<?php echo($mon); ?>">
+          <input name="jahr" type="hidden" id="jahr" value="<?php echo($jah); ?>">
           <input name="zurueck" type="submit" class="btn btn-primary" ;" onClick="updateLeft(<?php echo(($mon).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" 
 	   value="<?php echo(getUebersetzung("einen Monat zurück",$sprache,$link)); ?>">
         </div>
@@ -640,15 +640,15 @@ linke splate /ende
 		else { 																													
 		?>
       <form action="./startNoFrame2.php" method="post" name="monatWeiter" target="_self" id="monatWeiter"> 
-        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
-        <input name="monat" type="hidden" id="monat" value="<? 
+        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
+        <input name="monat" type="hidden" id="monat" value="<?php 
 		  														if ($mo > 12){
 																	$mo = 1;
 																	$ja +=1;
 																} 
 																echo($mo); 
 																?>">
-        <input name="jahr" type="hidden" id="jahr" value="<? echo ($ja); ?>">
+        <input name="jahr" type="hidden" id="jahr" value="<?php echo ($ja); ?>">
         <input name="weiter" type="submit" class="btn btn-primary" onClick="updateLeft(<?php echo(($mo).",".($ja)).",".($zimmer_id); ?>,1);" id="weiter" 
 	   value="<?php echo(getUebersetzung("einen Monat weiter",$sprache,$link)); ?>">
 	  

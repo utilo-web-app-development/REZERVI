@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -17,9 +17,9 @@ if ($standardsprache == false || $standardsprache == ""){
 include_once($root."/webinterface/templates/components.inc.php"); 		
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen")); ?>.</p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ã„ndern der angezeigten Sprachen")); ?>.</p>
 <br/>
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <form action="./sprachenAendern.php" method="post" target="_self">
     <tr>
     	<td colspan="3"><?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrem Belegungsplan zur Auswahl angeboten werden sollen")); ?>:</td>
@@ -58,7 +58,7 @@ include_once($root."/webinterface/templates/components.inc.php");
   <tr>
     <td colspan="3">
  	 <?php 
-	  showSubmitButton(getUebersetzung("ändern"));
+	  showSubmitButton(getUebersetzung("Ã„ndern"));
 	?>
 	</td>
   </tr>
@@ -66,8 +66,8 @@ include_once($root."/webinterface/templates/components.inc.php");
 </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

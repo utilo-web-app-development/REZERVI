@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Tisch bearbeiten";
 $unterschrift = "Positionieren";
@@ -56,8 +56,8 @@ $height=getHeightOfTisch($tisch_id);
 <style type="text/css">
     #panelDiv {
         position:relative; 
-        height: <?= $height ?>px; 
-        width: <?= $width ?>px; 
+        height: <?php echo $height ?>px; 
+        width: <?php echo $width ?>px; 
         border:1px solid #333333;
         background-color: #f7f7f7;
         text-align: center;
@@ -74,13 +74,13 @@ $height=getHeightOfTisch($tisch_id);
     }
 
 </style>
-<? //insert YUI drag'n drop tool with resize: ?>
+<?php //insert YUI drag'n drop tool with resize: ?>
 <!-- Namespace source file -->  
 <!-- Drag and Drop source file -->  
-<script src = '<?= $root ?>/yui/build/dragdrop/dragdrop.js' ></script>
+<script src = '<?php echo $root ?>/yui/build/dragdrop/dragdrop.js' ></script>
 <script type="text/javascript" src="./DDResize.js" ></script>
 <!-- transparenz für objekte -->
-<script type="text/javascript" src='<?= $root ?>/templates/transobj.js' ></script>
+<script type="text/javascript" src='<?php echo $root ?>/templates/transobj.js' ></script>
 <script type="text/javascript">
 
 	var dd, dd2, dd3;
@@ -113,8 +113,8 @@ $height=getHeightOfTisch($tisch_id);
 				//setzen der richtigen position der bilder und tische:
 				//raumbild setzen:
 				DOM.setXY(raumbild,positionierenPos);
-				DOM.setX(panelDiv,<?= $left ?>+DOM.getX("positionieren"));
-				DOM.setY(panelDiv,<?= $top ?>+DOM.getY("positionieren"));
+				DOM.setX(panelDiv,<?php echo $left ?>+DOM.getX("positionieren"));
+				DOM.setY(panelDiv,<?php echo $top ?>+DOM.getY("positionieren"));
 	        }
 	    }
 	} ();
@@ -136,7 +136,7 @@ $breadcrumps = erzeugenBC($root, "Tisch", "tischBearbeiten/index.php",
 								getRaumBezeichnung($raum_id), "");
 include_once($root."/backoffice/templates/bodyStart.inc.php");
 ?>
-<div name="positionieren" id="positionieren" style="height:<?= ($bildhoehe) ?>;">	<?php
+<div name="positionieren" id="positionieren" style="height:<?php echo ($bildhoehe) ?>;">	<?php
 //dann die tische anzeigen die bereits gesetzt sind oder noch zu setzen sind:
 	$res  = getTische($raum_id);
 	$zindex=7;
@@ -148,23 +148,23 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 			$wi    = getWidthOfTisch($id);
 			$hi    = getHeightOfTisch($id);
 			$bild = getBildOfTisch($id);	?>
-			<div id="tisch<?= $id ?>" 
+			<div id="tisch<?php echo $id ?>" 
 				onmouseover="transparency(this,0)" 
-				onMouseOut="transparency(this,<?= TRANSPARENZ ?>);"
-				style="z-index:<?= $zindex++ ?>; background-color: red;
+				onMouseOut="transparency(this,<?php echo TRANSPARENZ ?>);"
+				style="z-index:<?php echo $zindex++ ?>; background-color: red;
 					border:1px solid; text-align: center;
-					width:<?= $wi ?>px;height:<?= $hi ?>px;">
-				Tisch <?= $id ?>
+					width:<?php echo $wi ?>px;height:<?php echo $hi ?>px;">
+				Tisch <?php echo $id ?>
 				<?php if ($bild) { ?>
-					<img src="<?= $root."/templates/picture.php?bilder_id=".$bild ?>" 
-						width="<?= $wi ?>" height="<?= $hi ?>" style="z-index:<?= $zindex ?>">
+					<img src="<?php echo $root."/templates/picture.php?bilder_id=".$bild ?>" 
+						width="<?php echo $wi ?>" height="<?php echo $hi ?>" style="z-index:<?php echo $zindex ?>">
 					</img>
 				<?php } ?>
 			</div>
 			<!-- tisch positionieren: -->
-			<script>tischPos(<?= $lefts ?>, <?= $tops ?>, 'tisch<?= $id ?>')</script>
+			<script>tischPos(<?php echo $lefts ?>, <?php echo $tops ?>, 'tisch<?php echo $id ?>')</script>
 			<!-- transparenz setzen: -->
-			<script>transparency('tisch<?= $id ?>',<?= TRANSPARENZ ?>)</script>	<?php
+			<script>transparency('tisch<?php echo $id ?>',<?php echo TRANSPARENZ ?>)</script>	<?php
 		}
 	} 		
 	//fuer jeden tisch einen layer in anderer farbe:
@@ -179,80 +179,80 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 			$left = getLeftPosOfTisch($id);
 			$top  = getTopPosOfTisch($id); 
 			$bild = getBildOfTisch($id);	?>
-		    <div id="panelDiv" style="z-index:<?= $zindex ?>;">
-		    	Tisch <?= $id ?>
-		       	<div id="handleDiv" style="z-index:<?= $zindex ?>;"></div>
+		    <div id="panelDiv" style="z-index:<?php echo $zindex ?>;">
+		    	Tisch <?php echo $id ?>
+		       	<div id="handleDiv" style="z-index:<?php echo $zindex ?>;"></div>
 		       	<?php if ($bild) { ?>
-				<img id="tischbild" src="<?= $root."/templates/picture.php?bilder_id=".$bild ?>" 
-					width="<?= $width ?>" height="<?= $height ?>" style="z-index:<?= $zindex ?>">
+				<img id="tischbild" src="<?php echo $root."/templates/picture.php?bilder_id=".$bild ?>" 
+					width="<?php echo $width ?>" height="<?php echo $height ?>" style="z-index:<?php echo $zindex ?>">
 				</img>
 				<?php } else { ?>
-				<img id="tischbild" src="<?= $root."/backoffice/templates/dummy.gif" ?>" 
-					width="<?= $width ?>" height="<?= $height ?>" style="z-index:<?= $zindex ?>">
+				<img id="tischbild" src="<?php echo $root."/backoffice/templates/dummy.gif" ?>" 
+					width="<?php echo $width ?>" height="<?php echo $height ?>" style="z-index:<?php echo $zindex ?>">
 				</img>
 				<?php } ?>	
 			</div>
-		    <script>transparency(panelDiv,<?= TRANSPARENZ ?>)</script>  <?php
+		    <script>transparency(panelDiv,<?php echo TRANSPARENZ ?>)</script>  <?php
 			break;
 		}
 	}	?>			
-	<img id="raumbild" src="<?= $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
-		width="<?= $bildbreite ?>" height="<?= $bildhoehe ?>" style="z-index:0">
+	<img id="raumbild" src="<?php echo $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
+		width="<?php echo $bildbreite ?>" height="<?php echo $bildhoehe ?>" style="z-index:0">
 	</img>
 </div><!-- ende position des tisches und auswahl tisch -->	
 <table>
 	<tr>
 		<td>
-		<div name="tischPosition" style="width:<?= ($bildbreite) ?>;">
+		<div name="tischPosition" style="width:<?php echo ($bildbreite) ?>;">
 		<form action="./position.php" method="post" name="breiteHoehe" target="_self">
-		<input type="hidden"  name="tisch_id_prev" value="<?= $tisch_id ?>"/>
-		<div name="tischWaehlen" id="tischWaehlen" 	style="float:left;width:<?= $bildbreite/5 ?>;">
-			<p>	<?= getUebersetzung("Tisch wählen") ?>:	</p>					
+		<input type="hidden"  name="tisch_id_prev" value="<?php echo $tisch_id ?>"/>
+		<div name="tischWaehlen" id="tischWaehlen" 	style="float:left;width:<?php echo $bildbreite/5 ?>;">
+			<p>	<?php echo getUebersetzung("Tisch wählen") ?>:	</p>					
 			<select name="tisch_id" id="tisch_id" onchange="this.form.submit()"><?php	
 			while($d = $tische->FetchNextObject()) {
 				$ziArt = getUebersetzungGastro($d->TISCHNUMMER,$sprache,$gastro_id);
 				$temp = getUebersetzung("Tisch").": ".$ziArt; ?>
-				<option value="<?= $d->TISCHNUMMER ?>" <?
+				<option value="<?php echo $d->TISCHNUMMER ?>" <?php
 				if($d->TISCHNUMMER == $tisch_id){?>
 					selected="selected" <?php
 					$first = false;
-				} ?> ><?= $temp ?>
+				} ?> ><?php echo $temp ?>
 				</option><?php
 			} //ende while
 			?>
 			</select>
 		</div>
 		<!-- aendern der groesse eines tisches: -->
-		<div name="goesseanzeige" id="groesseanzeige" style="float:left;padding-left:10px;width:<?= $bildbreite/5 ?>;">	
-			<p><?= getUebersetzung("Größe") ?>:</p>
+		<div name="goesseanzeige" id="groesseanzeige" style="float:left;padding-left:10px;width:<?php echo $bildbreite/5 ?>;">	
+			<p><?php echo getUebersetzung("Größe") ?>:</p>
 			<table>
 				<tr>
-					<td><?= getUebersetzung("Höhe") ?></td>
+					<td><?php echo getUebersetzung("Höhe") ?></td>
 					<td>
-						<input type="text" name="hoehe" value="<?= $height ?>" size="3"/> px  
+						<input type="text" name="hoehe" value="<?php echo $height ?>" size="3"/> px  
 					</td>
 				</tr>
 			    <tr>
-			    	<td><?= getUebersetzung("Breite") ?></td>
+			    	<td><?php echo getUebersetzung("Breite") ?></td>
 			    	<td>
-			    		<input type="text" name="breite" value="<?= $width ?>" size="3"/> px  
+			    		<input type="text" name="breite" value="<?php echo $width ?>" size="3"/> px  
 			    	</td>
 			    </tr>    
 			</table> 								  			
 		</div><!-- ende aendern der groesse eines tisches -->				
-		<div name="positionsanzeige" id="positionsanzeige" 	style="float:left;padding-left:10px;width:<?= $bildbreite/5 ?>;">
-			<p><?= getUebersetzung("Position") ?>:</p>	
+		<div name="positionsanzeige" id="positionsanzeige" 	style="float:left;padding-left:10px;width:<?php echo $bildbreite/5 ?>;">
+			<p><?php echo getUebersetzung("Position") ?>:</p>	
 			<table>
 			    <tr>
-			      <td><?= getUebersetzung("Links") ?></td>
+			      <td><?php echo getUebersetzung("Links") ?></td>
 			      <td>
-					<input type="text" name="left" value="<?= $left ?>" size="3"/> px  
+					<input type="text" name="left" value="<?php echo $left ?>" size="3"/> px  
 				  </td>
 			    </tr>
 			    <tr>
-			      <td><?= getUebersetzung("Oben") ?></td>
+			      <td><?php echo getUebersetzung("Oben") ?></td>
 			      <td>
-					<input type="text" name="top" value="<?= $top ?>" size="3"/> px  
+					<input type="text" name="top" value="<?php echo $top ?>" size="3"/> px  
 				  </td>
 			    	</tr>    
 				</table> 														  			
@@ -263,7 +263,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 	<tr>
 		<td>	
 		<input type="submit" name="speichern" class="button" 
-			value="<?= getUebersetzung("speichern") ?>"/> 
+			value="<?php echo getUebersetzung("speichern") ?>"/> 
 		</form>
 		</td>
 	</tr>

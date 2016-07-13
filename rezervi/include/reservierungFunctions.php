@@ -194,7 +194,7 @@ function changeReservationState($res_id,$status,$link){
 
 }
 
-//reservierung eines zimmer löschen:
+//reservierung eines zimmer lÃ¶schen:
 function deleteReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link){
 
 	$query = ("DELETE FROM	
@@ -260,7 +260,7 @@ function getReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link){
 function insertReservationWithDate($zimmer_id,$gast_id,$vonDatum,$bisDatum,$status,
 	$anzahlErwachsene,$anzahlKinder,$pension,$link){
 		
-	//zuerst alle eintraege in diesem zeitraum löschen:
+	//zuerst alle eintraege in diesem zeitraum lÃ¶schen:
 	deleteReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link);
 	
 	//get the current timestamp in mysql format:
@@ -404,7 +404,7 @@ function getReservierungGastID($zimmer_id,$tag,$monat,$jahr,$link){
 
 //--------------------------------------------
 //funktion gibt den status dieses zimmers 
-// als string für die css-class zurück:
+// als string fÃ¼r die css-class zurÃ¼ck:
 function parseStatus($id,$isSaturday = false){	
 
 	global $root;
@@ -450,7 +450,7 @@ function parseStatus($id,$isSaturday = false){
 		$statString = "samstagBelegt";
 	}	
 	else {
-		//gewöhnliche farbe der tabelle ausgeben:
+		//gewÃ¶hnliche farbe der tabelle ausgeben:
 		//$statString = "tableColor";
 		//oder doch besser, dass diese frei sind?
 		$statString = "frei";
@@ -462,7 +462,7 @@ function parseStatus($id,$isSaturday = false){
 
 //--------------------------------------------
 //funktion gibt den status dieses zimmers an
-//diesem tag als string für die css-class zurück:
+//diesem tag als string fÃ¼r die css-class zurÃ¼ck:
 function getStatusString($zimmer_id,$tag,$monat,$jahr,$saAktiviert,$link){
 
 	global $root;
@@ -553,7 +553,7 @@ function getStatusString($zimmer_id,$tag,$monat,$jahr,$saAktiviert,$link){
 	}
 	else
 	{
-      //gewöhnliche farbe der tabelle ausgeben:
+      //gewÃ¶hnliche farbe der tabelle ausgeben:
       //$statString = "tableColor";
       //oder doch besser, dass diese frei sind?
       if($day == "SA" && $saAktiviert)
@@ -870,7 +870,7 @@ function getStatus($zimmer_id,$tag,$monat,$jahr,$link){
 	
 }
 //--------------------------------------------
-//funktion prüft, ob im angegebenen zeitraum
+//funktion prÃ¼ft, ob im angegebenen zeitraum
 //das zimmer belegt ist:
 function isRoomTaken($zimmer_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$link){
 	
@@ -945,7 +945,7 @@ function insertReservation($zimmer_id,$gast_id,$vonTag,$vonMonat,$vonJahr,$bisTa
 	$vonDatum = ($vonJahr)."-".($vonMonat)."-".($vonTag);
 	$bisDatum = ($bisJahr)."-".($bisMonat)."-".($bisTag);
 	
-	//zuerst alle eintraege in diesem zeitraum löschen:
+	//zuerst alle eintraege in diesem zeitraum lÃ¶schen:
 	deleteReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link);
 	
 	//get the current timestamp in mysql format:
@@ -1022,7 +1022,7 @@ function insertAnfrage($zimmer_id,$gast_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$b
 }
 
 //-----------------------------------------------------
-//reservierung aus der datenbank löschen:
+//reservierung aus der datenbank lÃ¶schen:
 function deleteReservation($id,$link){	
 		
 	$query = ("DELETE FROM	 

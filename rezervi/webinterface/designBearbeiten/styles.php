@@ -1,14 +1,14 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			startseite zur wartung der reservierung f�r den benutzer
+			startseite zur wartung der reservierung für den benutzer
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Benutzer PK_ID $benutzer_id
 */
 
@@ -90,7 +90,7 @@ else{
 $stylesheet = $_POST["stylesheet"];
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -108,7 +108,7 @@ include_once("./stylesHelper.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php
-	//stylesheets f�r farben erzeugen:
+	//stylesheets für farben erzeugen:
 	echo("<style type=\"text/css\"> \n");
 	echo("<!-- \n");
 				$hex = array("00", "33", "66", "99", "CC", "FF");
@@ -136,7 +136,7 @@ include_once("./stylesHelper.php");
 	//ueberschrift erzeugen:
 	$designFuer = "";
 	if ($stylesheet == "ueberschrift"){
-		$designFuer = "�berschrift";
+		$designFuer = "Überschrift";
 		$auslesen = "ueberschrift";
 	}
 	else if ($stylesheet == "standardSchrift"){
@@ -164,7 +164,7 @@ include_once("./stylesHelper.php");
 		$auslesen = "tableStandard";
 	}
 	else if ($stylesheet == "tabelleColor"){
-		$designFuer = "f�rbige Tabelle";
+		$designFuer = "färbige Tabelle";
 		$auslesen = "tableColor";
 	}
 	else if ($stylesheet == "belegt"){
@@ -213,7 +213,7 @@ include_once("./stylesHelper.php");
 		$d = mysql_fetch_array($res);
 		$style = $d[$auslesen];
 	
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <p class="standardSchriftBold"><?php echo(getUebersetzung("Design für",$sprache,$link)); ?> "<?php echo($designFuer); ?>" <?php echo(getUebersetzung("bearbeiten",$sprache,$link)); ?></p>
 <br/>
@@ -252,7 +252,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           <?php } ?>
           <?php if ($font_size == "1"){ ?>
           <tr>
-            <td><?php echo(getUebersetzung("Schriftgr�sse",$sprache,$link)); ?></td>
+            <td><?php echo(getUebersetzung("Schriftgrösse",$sprache,$link)); ?></td>
             <td><select name="font_size">
                 <?php for ($i = 4; $i<=30; $i++){ ?>
                 <option value="<?php echo(($i).("px")); ?>" <?php if (($i).("px") == getFontSize($style)) echo(" selected"); ?>><?php echo(($i).(" px")); ?></option>
@@ -275,7 +275,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           <?php } ?>
           <?php if ($font_weight == "1"){ ?>
           <tr>
-            <td><?php echo(getUebersetzung("Schriftst�rke",$sprache,$link)); ?></td>
+            <td><?php echo(getUebersetzung("Schriftstärke",$sprache,$link)); ?></td>
             <td><select name="font_weight">
                 <option value="normal" <?php if (getFontWeight($style) == "normal") echo(" selected"); ?>><?php echo(getUebersetzung("standard",$sprache,$link)); ?></option>
                 <option value="bold" <?php if (getFontWeight($style) == "bold") echo(" selected"); ?>><?php echo(getUebersetzung("fett",$sprache,$link)); ?></option>
@@ -317,7 +317,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           <?php } ?>
           <?php if ($border == "1"){ ?>
           <tr>
-            <td><?php echo(getUebersetzung("Rahmenst�rke",$sprache,$link)); ?></td>
+            <td><?php echo(getUebersetzung("Rahmenstärke",$sprache,$link)); ?></td>
             <td><select name="border">
                 <?php for ($i = 0; $i<=10; $i++){ ?>
                 <option value="<?php echo(($i).("px")); ?>" <?php if (($i).("px") == getBorder($style)) echo(" selected"); ?>><?php echo(($i).(" px")); ?></option>
@@ -350,7 +350,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
           <?php } ?>
           <?php if ($height == "1"){ ?>
           <tr>
-            <td><?php echo(getUebersetzung("H�he",$sprache,$link)); ?></td>
+            <td><?php echo(getUebersetzung("Höhe",$sprache,$link)); ?></td>
             <td><select name="height">
                 <?php for ($i = 10; $i<=40; $i++){ ?>
                 <option value="<?php echo(($i).("px")); ?>" <?php if (($i).("px") == getHeight($style)) echo(" selected"); ?>><?php echo(($i).(" px")); ?></option>
@@ -388,7 +388,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
     <td>
     	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
 	<!-- <form action="./index.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>" class="button200pxA" 
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" 
 			onMouseOver="this.className='button200pxB';"
        		onMouseOut="this.className='button200pxA';">
       </form> -->
@@ -399,7 +399,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>" class="button200pxA" 
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" 
 			onMouseOver="this.className='button200pxB';"
        		onMouseOut="this.className='button200pxA';">
       </form></td>

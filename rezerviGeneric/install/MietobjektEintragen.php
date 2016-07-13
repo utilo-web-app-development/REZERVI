@@ -68,7 +68,7 @@ if (!$res) {
 }
 
 	
-//...und die CSS f�r die unterkunft:
+//...und die CSS für die unterkunft:
 setStandardCSS($vermieter_id);	
 
 setVermieterEigenschaftenWert(JAHRESUEBERSICHT_ANZEIGEN,"true",$vermieter_id);
@@ -90,8 +90,8 @@ $fahne="fahneEN.gif";
 $bilder_id = setBild($fahne,"Fahne Thumbnail zu Sprache englisch.",-1,25,16,"gif");
 setSprache("en",$bilder_id,"englisch");
 $fahne="fahneFR.gif";
-$bilder_id = setBild($fahne,"Fahne Thumbnail zu Sprache franz�sisch.",-1,25,16,"gif");
-setSprache("fr",$bilder_id,"franz�sisch");
+$bilder_id = setBild($fahne,"Fahne Thumbnail zu Sprache französisch.",-1,25,16,"gif");
+setSprache("fr",$bilder_id,"französisch");
 $fahne="fahneIT.gif";
 $bilder_id = setBild($fahne,"Fahne Thumbnail zu Sprache italienisch.",-1,25,16,"gif");
 setSprache("it",$bilder_id,"italienisch");
@@ -154,13 +154,13 @@ setActivtedSpracheOfVermieter($vermieter_id,"en");
 if (!$fail){
 	$fehler = false;
 	$unterkunft = true;
-	$antwort = $antwort."Anlegen von Rezervi Generic erfolgreich durchgef�hrt.";
+	$antwort = $antwort."Anlegen von Rezervi Generic erfolgreich durchgeführt.";
 }
 else{
 	$fehler = true;
 	$unterkunft = false;
 	$antwort.=getUebersetzung("Installationsfehler.")."<br/>";
-	$antwort.=getUebersetzung("�berpr�fen Sie die Zugangsdaten in conf/rdbmsConfig.inc.php und die Version Ihrer MySQL Datenbank.")."<br/>";  
+	$antwort.=getUebersetzung("Überprüfen Sie die Zugangsdaten in conf/rdbmsConfig.inc.php und die Version Ihrer MySQL Datenbank.")."<br/>";  
 	$antwort.=getUebersetzung("Ansonsten wenden sie sich bitte per E-Mail an utilo.net - wir helfen ihnen gerne weiter!")."<br/>";
 }
 

@@ -8,11 +8,11 @@
  	$antwort = "";
  }
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html">
+<meta charset="UTF-8">
 <title>Installation Bookline Lizenz</title>
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" type="text/JavaScript">
@@ -26,12 +26,12 @@
 				  if ($_POST["sprache"] == "de"){
 						?>
 						"Sie müssen die Lizenz lesen und akzeptieren!"
-						<?
+						<?php
 				  }
 				  else{
 						?>
 						"Please read and accept the agreement!"
-						<?
+						<?php
 				  }
 				  ?>);
 	     	return false;
@@ -47,12 +47,12 @@
   if ($_POST["sprache"] == "de"){
 		?>
 		Installation Bookline
-		<?
+		<?php
   }
   else{
 		?>
 		Bookline installation
-		<?
+		<?php
   }
 ?>		
 </p>
@@ -65,7 +65,7 @@ if ($antwort != ""){
 }
 ?>
 <form action="config.php" method="post" id="formLizenz" name="formLizenz" target="_self" onSubmit="return checkLicence();">
-	<input type="hidden" name="sprache" value="<?= $_POST["sprache"] ?>" />
+	<input type="hidden" name="sprache" value="<?php echo $_POST["sprache"] ?>" />
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
 		<tr>
 	          <td>
@@ -91,12 +91,12 @@ if ($antwort != ""){
 				  if ($_POST["sprache"] == "de"){
 						?>
 						Lizenz gelesen und akzeptiert
-						<?
+						<?php
 				  }
 				  else{
 						?>
 						I accept the agreement
-						<?
+						<?php
 				  }
 				  ?></td><td>
 						<input type="radio" name="lizenz" value="true"></td>
@@ -106,12 +106,12 @@ if ($antwort != ""){
 				  if ($_POST["sprache"] == "de"){
 						?>
 						Lizenz nicht akzeptiert
-						<?
+						<?php
 				  }
 				  else{
 						?>
 						I do not accept the agreement
-						<?
+						<?php
 				  }
 				  ?></td><td>
 						<input name="lizenz" type="radio" value="false" checked></td>

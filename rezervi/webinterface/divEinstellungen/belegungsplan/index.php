@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			author: christian osterrieder utilo.eu						
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -41,7 +41,7 @@ $showGesamtansicht = getPropertyValue(SHOW_GESAMTANSICHT,$unterkunft_id,$link);
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <h1><?php echo(getUebersetzung("Einstellungen für den Belegungsplan",$sprache,$link)); ?>.</h1>
@@ -83,7 +83,7 @@ if (isset($nachricht) && $nachricht != ""){
 <br/>
 
   <form action="./ansichtenAendern.inc.php" method="post" target="_self">
-	 	 <h4><?= getUebersetzung("Ansichten anzeigen",$sprache,$link) ?></h4>
+	 	 <h4><?php echo getUebersetzung("Ansichten anzeigen",$sprache,$link) ?></h4>
 
 
   <!-- Monatsübersicht   -->
@@ -92,7 +92,7 @@ if (isset($nachricht) && $nachricht != ""){
 			  if($showMonatsansicht){ echo(" checked=\"checked\""); }
 			?>
 			/>
-			<?= getUebersetzung("Monatsübersicht",$sprache,$link) ?>
+			<?php echo getUebersetzung("Monatsübersicht",$sprache,$link) ?>
 </br>			
       
  <!-- Jahresübersicht -->
@@ -101,7 +101,7 @@ if (isset($nachricht) && $nachricht != ""){
 			  if($showJahresansicht){ echo(" checked=\"checked\""); }
 			?>
 			/>
-			<?= getUebersetzung("Jahresübersicht",$sprache,$link) ?> 
+			<?php echo getUebersetzung("Jahresübersicht",$sprache,$link) ?> 
 </br>
    <!-- Gesammtübersicht -->
         	<input name="showGesamtansicht" type="checkbox" id="showGesamtansicht" value="true" 
@@ -110,7 +110,7 @@ if (isset($nachricht) && $nachricht != ""){
 			?>
 			/>
 		
-			<?= getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
+			<?php echo getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
 </br>
 </br>	         
  	 <?php 
@@ -121,18 +121,18 @@ if (isset($nachricht) && $nachricht != ""){
 
 <br/>
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

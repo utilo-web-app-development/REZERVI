@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 $unterschrift = "Sprachen";

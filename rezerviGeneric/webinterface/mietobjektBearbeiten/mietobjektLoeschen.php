@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 23.9.05
@@ -18,25 +18,25 @@ if (isset($_POST["mietobjekt_id"])){
 }
 if ($anzahl < 1){
 	$fehler = true;
-	$nachricht = getUebersetzung("Es wurde kein Mietobjekt zum Löschen ausgewählt.");
+	$nachricht = getUebersetzung("Es wurde kein Mietobjekt zum LÃ¶schen ausgewÃ¤hlt.");
 	include_once("./index.php");	
 	exit;	
 }
 if (DEMO == true){
-	//im demo modus darf nicht das letzte mo gelöscht werden:
+	//im demo modus darf nicht das letzte mo gelÃ¶scht werden:
 	$anzahl = getAnzahlVorhandeneMietobjekte($vermieter_id);
 	if ($anzahl <= 1){
 		$fehler = true;
-		$nachricht = getUebersetzung("Im Demo-Modus kann das letzte Mietobjekt nicht gelöscht werden.");
+		$nachricht = getUebersetzung("Im Demo-Modus kann das letzte Mietobjekt nicht gelÃ¶scht werden.");
 		include_once("./index.php");	
 		exit;	
 	}
 }
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 ?>	
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Löschung durchführen")); ?></p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("LÃ¶schung durchfÃ¼hren")); ?></p>
 <form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">	
-<table border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+<table border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
   <tr>
     <td>
 	<?php 		
@@ -46,10 +46,10 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	?>
 	<?php 
 		if ($anzahl > 1){
-			echo(getUebersetzung("Die Mietobjekte wurden samt seinen Reservierungen aus der Datenbank gelöscht")); 
+			echo(getUebersetzung("Die Mietobjekte wurden samt seinen Reservierungen aus der Datenbank gelÃ¶scht")); 
 		}	
 		else{
-			echo(getUebersetzung("Das Mietobjekt wurde samt seinen Reservierungen aus der Datenbank gelöscht")); 
+			echo(getUebersetzung("Das Mietobjekt wurde samt seinen Reservierungen aus der Datenbank gelÃ¶scht")); 
 		}		
 	?>!
       </td>
@@ -57,14 +57,14 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 </table>
 </form>
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="0" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
   <tr> 
     <td>
     	<form action="./index.php" method="post" name="retour" target="_self" id="retour">
-	        <input name="retour2" type="submit" class="<?= BUTTON ?>" id="retour2" 
-	        	onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		 		onMouseOut="this.className='<?= BUTTON ?>';" 
-		 		value="<?php echo(getUebersetzung("zurück")); ?>">
+	        <input name="retour2" type="submit" class="<?php echo BUTTON ?>" id="retour2" 
+	        	onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+		 		onMouseOut="this.className='<?php echo BUTTON ?>';" 
+		 		value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
         </form>
     </td>
   </tr>

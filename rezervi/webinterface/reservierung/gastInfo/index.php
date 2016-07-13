@@ -35,15 +35,15 @@ $sprache = getSessionWert(SPRACHE);
 
 	/*   
 			reservierungsplan
-			gast-infos anzeigen und evt. ändern:
+			gast-infos anzeigen und evt. Ã¤ndern:
 			author: christian osterrieder utilo.eu
 					
-			dieser seite muss übergeben werden:
+			dieser seite muss Ã¼bergeben werden:
 			Gast PK_ID $gast_id
 			$unterkunft_id
 		*/
 
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../../conf/rdbmsConfig.php");
 	
 	//funktions einbinden:
@@ -60,7 +60,7 @@ $sprache = getSessionWert(SPRACHE);
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <?php include_once("../../templates/headerB.php"); ?>
-<!-- dynamisches update der anzahl der tage für ein gewisses monat mit java-script: -->
+<!-- dynamisches update der anzahl der tage fÃ¼r ein gewisses monat mit java-script: -->
 <script language="JavaScript">
 	<!--
 	    function zurueck(){
@@ -70,9 +70,9 @@ $sprache = getSessionWert(SPRACHE);
 	</script>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
-<p class="ueberschrift"><?php echo(getUebersetzung("Gäste-Information",$sprache,$link)); ?>:</p>
+<p class="ueberschrift"><?php echo(getUebersetzung("GÃ¤ste-Information",$sprache,$link)); ?>:</p>
 <form action="../ansichtWaehlen.php" method="post" name="form1" target="_self" >
   <table border="0" cellpadding="0" cellspacing="0" class="table">
     <tr>
@@ -94,7 +94,7 @@ $sprache = getSessionWert(SPRACHE);
             <td></td>
           </tr>
           <tr> 
-            <td class="standardSchrift"><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?></td>
+            <td class="standardSchrift"><?php echo(getUebersetzung("StraÃŸe/Hausnummer",$sprache,$link)); ?></td>
             <td><input name="strasse" type="text" id="strasse" value="<?php echo(getGuestStrasse($gast_id,$link)); ?>" readonly></td>
             <td></td>
           </tr>
@@ -133,13 +133,13 @@ $sprache = getSessionWert(SPRACHE);
             <td><input name="spr" type="text" id="spr" value="<?php             
             	$speech = getGuestSprache($gast_id,$link); 
 				if ($speech == "fr")
-						echo(getUebersetzung("Französisch",$sprache,$link));
+						echo(getUebersetzung("FranzÃ¶sisch",$sprache,$link));
 					else if ($speech == "en")
 						echo(getUebersetzung("Englisch",$sprache,$link));
 					else if ($speech == "it")
 						echo(getUebersetzung("Italienisch",$sprache,$link));
 					else if ($speech == "nl")
-						echo(getUebersetzung("Holländisch",$sprache,$link));	
+						echo(getUebersetzung("HollÃ¤ndisch",$sprache,$link));	
 					else if ($speech == "sp")
 						echo(getUebersetzung("Spanisch",$sprache,$link));
 					else if ($speech == "es")
@@ -158,17 +158,17 @@ $sprache = getSessionWert(SPRACHE);
     </tr>
   </table>
  
-  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
-  <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
-  <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">
+  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
+  <input name="jahr" type="hidden" id="jahr" value="<?php echo($jahr); ?>">
+  <input name="monat" type="hidden" id="monat" value="<?php echo($monat); ?>">
   <p>
     <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
   </p>
 </form>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprÃ¼fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

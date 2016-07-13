@@ -19,7 +19,7 @@ function chkFormular() {
 	       return false;
 	     }
 		 else if( (document.adresseForm.strasse.value == "")){
-	       alert("<?php echo(getUebersetzung("Bitte geben Sie die Straße und Hausnummer ein!",$sprache,$link)); ?>");
+	       alert("<?php echo(getUebersetzung("Bitte geben Sie die StraÃŸe und Hausnummer ein!",$sprache,$link)); ?>");
 	       document.adresseForm.strasse.focus();
 	       return false;
 	     }

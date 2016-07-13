@@ -1,49 +1,57 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html"> 
+<meta charset="UTF-8">
 <title>Installation von Rezervi</title>
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Bootstrap ende -->
 </head>
 
-<body class="standardSchrift">
-<p class="standardSchrift"><a href="./install_de.html">deutsch</a> | <a href="./install_en.html">english</a></p>
-<p class="ueberschrift">Rezervi availability overview and guest database</p>
-<p class="standardSchriftBold">Author: Christian Osterrieder UTILO</p>
-<p class="ueberschrift">Installation of Rezervi</p>
+<body>
+	<div class="container" style="margin-top:70px;">	
+ 
+	<div class="panel panel-default">
+  <div class="panel-body">
+  	
+<p><a href="./install_de.html">deutsch</a> | <a href="./install_en.html">english</a></p>
+<h3>Rezervi availability overview and guest database</h3>
+<b>Author: Christian Osterrieder UTILO</b>
+<h4>Installation of Rezervi</h4>
 <ol>
   <li>    <strong>Accept licence</strong><br>
-  At first you have to accept the licence of Rezervi (see file &quot;LICENCE.txt&quot;). After that you can install and test the software. <br>
+  At first you have to accept the licence of Rezervi (see file "LICENCE.txt"). After that you can install and test the software. <br>
   </li>
-  <li><span class="standardSchriftBold"> System requirements</span><br>
-    MYSQL datebase management system: MySQL &gt;= 4.0.20-standard<br>
-  PHP version &gt;= <span class="standardSchrift"> 4.2.3<br>
+  <li><b> System requirements</b><br>
+    MYSQL datebase management system: MySQL >= 4.0.20-standard<br>
+  PHP version >= <span> 4.2.3<br>
   To check your PHP version you can execute the file 
-  </span>&quot;<a href="phpVersion.php">doc/phpVersion.php</a>&quot; on your webserver.<br>
+  </span>"<a href="phpVersion.php">doc/phpVersion.php</a>" on your webserver.<br>
   If your webserver is not implementing the system requirements,  you can rent Rezervi. Please visit the site: <a href="http://www.rezervi.com" target="_blank">http://www.rezervi.com/</a><br>
   </li>
-  <li><span class="standardSchriftBold">Unzip files</span><br>
+  <li><b>Unzip files</b><br>
 Unzip the zip-archive resp. tar-archive on your webserver.
 <br>
   </li>
-  <li><span class="standardSchriftBold">Access to your MySQL database</span>    <br>
-    There is a folder &quot;conf&quot; in the unziped files. Inside you can find a file named &quot;rdbmsConfig.php&quot; (/conf/rdbmsConfig.php), edit this file. Therefore you have to use your username, your password and the name of your database. If you don't know this data contact your provider. <br>
+  <li><b>Access to your MySQL database</b>    <br>
+    There is a folder "conf" in the unziped files. Inside you can find a file named "rdbmsConfig.php" (/conf/rdbmsConfig.php), edit this file. Therefore you have to use your username, your password and the name of your database. If you don't know this data contact your provider. <br>
   </li>
-  <li><span class="standardSchriftBold">Install and config the database</span><br>
-    In the folder &quot;install&quot; you can find the file &quot;index.php&quot;. Execute this file to install Rezervi. Follow the instructions of this page. If there are any error messages, please check the access data to your database or contact UTILO.<br>
+  <li><b>Install and config the database</b><br>
+    In the folder "install" you can find the file "index.php". Execute this file to install Rezervi. Follow the instructions of this page. If there are any error messages, please check the access data to your database or contact UTILO.<br>
 </li>
-  <li class="standardSchriftBold">URLs</li>
-<ul class="standardSchrift">
+  <li> <b>URLs</b></li>
+<ul>
   <li>The main page of your availibility overview: <br>
     http://your-domain/your-install-folder/<a href="../start.php" target="_blank">start.php</a></li>
   <li>You can add your favourite language to this page:<br>
     http://your-domain/your-install-folder/<a href="../start.php" target="_blank"></a><a href="../start.php?sprache=de" target="_blank">start.php?sprache=de</a><br>
     http://your-domain/your-install-folder/<a href="../start.php" target="_blank"></a><a href="../start.php?sprache=en" target="_blank">start.php?sprache=en</a><br>
-  http://your-domain/your-install-folder/<a href="../start.php" target="_blank"></a><a href="../start.php?sprache=fr" target="_blank">start.php?sprache=fr</a></li>
+ 	http://your-domain/your-install-folder/<a href="../start.php" target="_blank"></a><a href="../start.php?sprache=fr" target="_blank">start.php?sprache=fr</a></li>
   <li>You can execute directly the search page:<br>
     http://your-domain/your-install-folder/<a href="../start.php" target="_blank"></a><a href="../suche/index.php" target="_blank">suche/index.php</a></li>
-  <li class="standardSchrift">You can also add your favourite language to this page:<br>
+  <li>You can also add your favourite language to this page:<br>
       http://your-domain/your-install-folder/<a href="../start.php" target="_blank"></a><a href="../suche/index.php?sprache=de" target="_blank">suche/index.php?sprache=de</a><br>
       http://your-domain/your-install-folder/<a href="../start.php" target="_blank"></a><a href="../suche/index.php?sprache=en" target="_blank">suche/index.php</a><a href="../suche/index.php" target="_blank">?sprache=en</a><br>
     http://your-domain/your-install-folder/<a href="../start.php" target="_blank"></a><a href="../suche/index.php?sprache=fr" target="_blank">suche/index.php</a><a href="../suche/index.php" target="_blank">?sprache=fr</a> </li>
@@ -63,19 +71,22 @@ Unzip the zip-archive resp. tar-archive on your webserver.
     </li>
   </ol>
   You can use Rezervi for your guests now.
-  <p></p>
+  
 </li>
-<li><span class="standardSchriftBold">Test and registration</span><br>
+<li><b>Test and registration</b><br>
     You can test Rezervi at will. If you use it for your accommodation commercial your have to register you Rezervi version. After the registration you will get a bill. If you have paid you can use Rezervi.<br>
     For the registration, see: <a href="www.rezervi.com" target="_blank">www.rezervi.com</a><br>
     <br>
 </li>
-<li><span class="standardSchriftBold">Contact</span> <br>
+<li><b>Contact</b> <br>
     If you have problems with the installation or if you have found errors send us an email:<br>
     <a href="mailto:office@utilo.eu">office@utilo.eu</a><br>
     We are looking forward to get your messages! </li>
 </ol>
 <p>&copy; 2002-2005, UTILO Christian Osterrieder-Schick </p>
 <p>&nbsp; </p>
+</div>
+</div>
+</div>
 </body>
 </html>

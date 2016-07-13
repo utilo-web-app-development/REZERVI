@@ -6,7 +6,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 /**
 author:coster
 date:5.11.05
-prueft ob eine buchungseinschraenkung zu dem übergebenen
+prueft ob eine buchungseinschraenkung zu dem Ã¼bergebenen
 datum existiert
 */
 function hasBuchungseinschraenkung($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zimmer_id){
@@ -54,7 +54,7 @@ function hasBuchungseinschraenkung($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,
 /**
 author:coster
 date:5.11.05
-prueft ob eine buchungseinschraenkung zu dem übergebenen
+prueft ob eine buchungseinschraenkung zu dem Ã¼bergebenen
 datum existiert
 */
 function checkBuchungseinschraenkung($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zimmer_ids){
@@ -119,7 +119,7 @@ function checkBuchungseinschraenkung($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMona
 /**
 author:coster
 date:5.11.05
-liefert den grund einer buchungseinschränkung
+liefert den grund einer buchungseinschrÃ¤nkung
 */
 function getBuchungseinschraenkungText($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zimmer_ids){
 	
@@ -179,7 +179,7 @@ function getBuchungseinschraenkungText($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMo
 	$text = "Buchungen sind nur von";
 	$text = getUebersetzung($text,$sprache,$link);
 	$text.= " ".$wo_von." ".getUebersetzung("bis",$sprache,$link)." ".$wo_bis." ".getUebersetzung("erlaubt",$sprache,$link).".";
-	$text.= " ".getUebersetzung("Das gewählte Datum ist von",$sprache,$link)." ";
+	$text.= " ".getUebersetzung("Das gewÃ¤hlte Datum ist von",$sprache,$link)." ";
 	$text.= $wochentag_von." ".getUebersetzung("bis",$sprache,$link)." ".$wochentag_bis;
 	
 	return $text;
@@ -187,7 +187,7 @@ function getBuchungseinschraenkungText($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMo
 /**
 author:coster
 date:5.11.05
-liefert alle buchungseinschränkungen einer unterkunft
+liefert alle buchungseinschrÃ¤nkungen einer unterkunft
 */
 function getBuchungseinschraenkungen($unterkunft_id){
 		
@@ -217,7 +217,7 @@ function getBuchungseinschraenkungen($unterkunft_id){
 /**
 author:coster
 date:5.11.05
-liefert alle buchungseinschränkungen einer unterkunft ab heutigem Datum
+liefert alle buchungseinschrÃ¤nkungen einer unterkunft ab heutigem Datum
 */
 function getActualBuchungseinschraenkungen($unterkunft_id){
 		
@@ -252,7 +252,7 @@ function getActualBuchungseinschraenkungen($unterkunft_id){
 /**
  * author:coster
  * date:5.11.05
- * prüft ob buchungseinschränkungen ab dem heutigen Datum vorhanden sind
+ * prÃ¼ft ob buchungseinschrÃ¤nkungen ab dem heutigen Datum vorhanden sind
  * */
  function hasActualBuchungsbeschraenkungen($unterkunft_id){
  		
@@ -293,7 +293,7 @@ function getActualBuchungseinschraenkungen($unterkunft_id){
 /**
  * author:coster
  * date:7.11.05
- * löscht eine buchungseinschränkung
+ * lÃ¶scht eine buchungseinschrÃ¤nkung
  * */
 function removeBuchungseinschraenkung($bu_id){
 	
@@ -318,7 +318,7 @@ function removeBuchungseinschraenkung($bu_id){
 /**
  * author:coster
  * date:7.11.05
- * fügt eine neue buchungseinschränkung hinzu
+ * fÃ¼gt eine neue buchungseinschrÃ¤nkung hinzu
  * */
  function setBuchungseinschraenkung($zimmer_id,$von_wochentag,$bis_wochentag,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr){
  

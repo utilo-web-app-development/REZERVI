@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -10,7 +10,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	date: 3. aug. 2005					
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -29,7 +29,7 @@ $sprache = getSessionWert(SPRACHE);
 
 //check if the upload dir is writeable:
 if (!is_writable($root."/upload")){
-	$nachricht = "Achtung! Das Verzeichnis 'upload' ist nicht beschreibbar, Sie k�nnen erst Bilder hochladen wenn Sie diesem Verzeichnis Schreibrechte zuweisen!";
+	$nachricht = "Achtung! Das Verzeichnis 'upload' ist nicht beschreibbar, Sie können erst Bilder hochladen wenn Sie diesem Verzeichnis Schreibrechte zuweisen!";
 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
 	$fehler = true;
 }
@@ -42,7 +42,7 @@ if (!is_writable($root."/upload")){
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <div class="panel panel-default">
@@ -102,18 +102,18 @@ if (isset($nachricht) && $nachricht != ""){
 
 <br/>
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

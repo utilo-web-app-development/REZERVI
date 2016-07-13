@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	anzeige des kalenders
 	author: christian osterrieder utilo.eu		
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
@@ -23,7 +23,7 @@ $jahr = $_POST["jahr"];
 setSessionWert(ZIMMER_ID,$zimmer_id);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -35,7 +35,7 @@ include_once("../../include/reservierungFunctions.php");
 include_once("../../include/gastFunctions.php");
 include_once("../../include/benutzerFunctions.php");
 include_once("../../include/uebersetzer.php");
-//helper-funktionen einf�gen:
+//helper-funktionen einfügen:
 include_once("./jahresuebersichtHelper.php");
 
 	include_once("../../include/propertiesFunctions.php");
@@ -52,14 +52,14 @@ include_once("./jahresuebersichtHelper.php");
 <script language="JavaScript" type="text/javascript" src="./rightJS.js">
 </script>
 <?php		
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <div class="panel panel-default">
   <div class="panel-body">
   	
 
 
-    <h4><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <? echo($jahr); ?>, 
+    <h4><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <?php echo($jahr); ?>, 
       <?php echo(getUebersetzung("für",$sprache,$link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?> 
       <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?></h4>
 
@@ -81,9 +81,9 @@ include_once("./jahresuebersichtHelper.php");
 		<br>
       <form action="./jahresuebersicht.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
         <div align="right">
-          <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">
-          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
+          <input name="monat" type="hidden" id="monat" value="<?php echo($monat); ?>">
+          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
+          <input name="jahr" type="hidden" id="jahr" value="<?php echo($jah); ?>">
           <input name="zurueck" type="submit" class="btn btn-primary"  onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" value="<?php echo(getUebersetzung("ein Jahr zurück",$sprache,$link)); ?>">
         </div>
         <br>
@@ -95,9 +95,9 @@ include_once("./jahresuebersichtHelper.php");
 		if (!($jah >= getTodayYear()+4)){																															
 		?>
       <form action="./jahresuebersicht.php" method="post" name="monatWeiter" target="_self" id="monatWeiter">
-        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
-        <input name="jahr" type="hidden" id="jahr" value="<? echo ($jah); ?>">
-        <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">
+        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
+        <input name="jahr" type="hidden" id="jahr" value="<?php echo ($jah); ?>">
+        <input name="monat" type="hidden" id="monat" value="<?php echo($monat); ?>">
         <input name="weiter" type="submit" class="btn btn-primary"  onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,1);" id="weiter" value="<?php echo(getUebersetzung("ein Jahr weiter",$sprache,$link)); ?>">
       </form>
       <?php } //ende if jahr 
@@ -108,7 +108,7 @@ include_once("./jahresuebersichtHelper.php");
     <td>&nbsp;</td>
   </tr>
 </table>
-<?php } //ende passwortpr�fung 
+<?php } //ende passwortprüfung 
 	else{
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}

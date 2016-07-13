@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -18,13 +18,13 @@ if ($standardansicht == false || $standardansicht == ""){
 
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ändern der angezeigten Ansichten")); ?>.</p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ã¤ndern der angezeigten Ansichten")); ?>.</p>
 
 <br/>
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <form action="./standardAendern.php" method="post" target="_self">
   <tr>
-    <td colspan="3"><?php echo(getUebersetzung("Wählen sie die Ansichten, die in ihrem Belegungsplan verfügbar sein sollen")); ?>:</td>
+    <td colspan="3"><?php echo(getUebersetzung("WÃ¤hlen sie die Ansichten, die in ihrem Belegungsplan verfÃ¼gbar sein sollen")); ?>:</td>
   </tr>
   <tr>
   	<th><div align="left">Ansicht</div></th>
@@ -70,7 +70,7 @@ if ($standardansicht == false || $standardansicht == ""){
   <tr>
     <td colspan="3"><br/>
  	 <?php 
-	  showSubmitButton(getUebersetzung("ändern"));
+	  showSubmitButton(getUebersetzung("Ã¤ndern"));
 	?>
 	</td>
   </tr>
@@ -78,8 +78,8 @@ if ($standardansicht == false || $standardansicht == ""){
 </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

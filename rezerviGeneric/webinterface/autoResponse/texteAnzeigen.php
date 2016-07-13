@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 7.10.05
@@ -18,25 +18,25 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
 	if (isset($_POST[BUCHUNGS_BESTAETIGUNG])){
 		$art = BUCHUNGS_BESTAETIGUNG;
 	?>
-		<p class="<?= UEBERSCHRIFT ?>"><?php echo(getUebersetzung("Ändern der Buchungsbestätigung")); ?></p>
+		<p class="<?php echo UEBERSCHRIFT ?>"><?php echo(getUebersetzung("Ã„ndern der BuchungsbestÃ¤tigung")); ?></p>
 	<?php
 	}
 	else if (isset($_POST[BUCHUNGS_ABLEHNUNG])){
 		$art = BUCHUNGS_ABLEHNUNG;
 	?>
-		<p class="<?= UEBERSCHRIFT ?>"><?php echo(getUebersetzung("Ändern des Absagetextes einer Anfrage")); ?></p>
+		<p class="<?php echo UEBERSCHRIFT ?>"><?php echo(getUebersetzung("Ã„ndern des Absagetextes einer Anfrage")); ?></p>
 	<?php
 	}
 	else if (isset($_POST[ANFRAGE_BESTAETIGUNG])){
 		$art = ANFRAGE_BESTAETIGUNG;
 	?>
-		<p class="<?= UEBERSCHRIFT ?>"><?php echo(getUebersetzung("Ändern des Bestätigungstextes einer Buchungsanfrage")); ?></p>
+		<p class="<?php echo UEBERSCHRIFT ?>"><?php echo(getUebersetzung("Ã„ndern des BestÃ¤tigungstextes einer Buchungsanfrage")); ?></p>
 	<?php
 	}
 	else if (isset($_POST[NEWSLETTER])){
 		$art = NEWSLETTER;
 	?>
-		<p class="<?= UEBERSCHRIFT ?>"><?php echo(getUebersetzung("Senden von E-Mails an Ihre Mieter")); ?></p>
+		<p class="<?php echo UEBERSCHRIFT ?>"><?php echo(getUebersetzung("Senden von E-Mails an Ihre Mieter")); ?></p>
 	<?php
 	}
 	if ($art != NEWSLETTER){		
@@ -58,8 +58,8 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
 ?>
 <form action="./texteAendern.php" method="post" target="_self">
   <input name="art" type="hidden" value="<?php echo($art); ?>">
-  <p class="<?= STANDARD_SCHRIFT ?>">
-  	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden")); ?>!
+  <p class="<?php echo STANDARD_SCHRIFT ?>">
+  	<?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden")); ?>!
   </p>
     <?php
 
@@ -78,7 +78,7 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
 			$unterschrift = $_POST["unterschrift_".$sprache_id];
 		}
     ?>
-  <p class="<?= STANDARD_SCHRIFT_BOLD ?>">
+  <p class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
   	<?php echo(getUebersetzung("Texte in")." ".$bezeichnung); 
   	if ($standardsprache != $sprache_id){
   	?>
@@ -88,10 +88,10 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
   	}
   	?>
   </p>
-  <table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+  <table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
     <tr valign="top">
       <td><?php echo(getUebersetzung("Betreff")); ?></td>
-      <td><input name="subject_<?= $sprache_id ?>" type="text"  value="<?php echo($subject); ?>" size="50" maxlength="255">
+      <td><input name="subject_<?php echo $sprache_id ?>" type="text"  value="<?php echo($subject); ?>" size="50" maxlength="255">
       <?php  	
       	if  ($standardsprache == $sprache_id){
 	  	  echo("*"); 
@@ -101,7 +101,7 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
     </tr>
     <tr valign="top">
       <td><?php echo(getUebersetzung("Anrede")); ?></td>
-      <td><input name="anrede_<?= $sprache_id ?>" type="text"  value="<?php echo($anrede); ?>" size="50" maxlength="255">      <?php  	
+      <td><input name="anrede_<?php echo $sprache_id ?>" type="text"  value="<?php echo($anrede); ?>" size="50" maxlength="255">      <?php  	
       	if  ($standardsprache == $sprache_id){
 	  	  echo("*"); 
 	  	}
@@ -111,7 +111,7 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
     </tr>
     <tr valign="top">
       <td><?php echo(getUebersetzung("Text")); ?></td>
-      <td><textarea name="text_<?= $sprache_id ?>" cols="50" rows="5"  ><?php echo($text); ?></textarea>      <?php  	
+      <td><textarea name="text_<?php echo $sprache_id ?>" cols="50" rows="5"  ><?php echo($text); ?></textarea>      <?php  	
       	if  ($standardsprache == $sprache_id){
 	  	  echo("*"); 
 	  	}
@@ -119,7 +119,7 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
     </tr>
     <tr valign="top">
       <td><?php echo(getUebersetzung("Unterschrift")); ?></td>
-      <td><textarea name="unterschrift_<?= $sprache_id ?>" cols="50" rows="5" ><?php echo($unterschrift); ?></textarea>
+      <td><textarea name="unterschrift_<?php echo $sprache_id ?>" cols="50" rows="5" ><?php echo($unterschrift); ?></textarea>
       <?php  	
       	if  ($standardsprache == $sprache_id){
 	  	  echo("*"); 
@@ -132,7 +132,7 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
   if ($art != NEWSLETTER){ 
   ?>
   <br/>
-  <table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+  <table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
     <tr valign="top">
       <td><?php echo(getUebersetzung("Automatische Antwort aktiviert")); ?> </td>
       <td><p>
@@ -147,26 +147,26 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
     </tr>
     <tr valign="top">
       <td>&nbsp;</td>
-      <td><?php echo(getUebersetzung("Falls sie bei dieser Option nein gewählt haben, werden keine automatischen Antworten gesendet.")); ?> 
+      <td><?php echo(getUebersetzung("Falls sie bei dieser Option nein gewÃ¤hlt haben, werden keine automatischen Antworten gesendet.")); ?> 
     </tr>
   </table>
   <br/>
   <?php 
-	  //-----buttons um zurück zum menue zu gelangen:
-  	  showSubmitButton(getUebersetzung("Texte ändern"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen:
+  	  showSubmitButton(getUebersetzung("Texte Ã¤ndern"));
   }
   if ($art == NEWSLETTER){
   ?>
   <br/>
-  <table class="<?= TABLE_STANDARD ?>" border="0" cellspacing="2" cellpadding="0">
+  <table class="<?php echo TABLE_STANDARD ?>" border="0" cellspacing="2" cellpadding="0">
     <tr>
-      <td><?php echo(getUebersetzung("Bitte wählen Sie die Mieter aus, an denen das E-Mail gesendet werden soll.")); ?><br/>
-          <?php echo(getUebersetzung("Wenn Sie mehrere auswählen wollen müssen Sie die [Strg] Taste gedrückt halten.")); ?></td>
+      <td><?php echo(getUebersetzung("Bitte wÃ¤hlen Sie die Mieter aus, an denen das E-Mail gesendet werden soll.")); ?><br/>
+          <?php echo(getUebersetzung("Wenn Sie mehrere auswÃ¤hlen wollen mÃ¼ssen Sie die [Strg] Taste gedrÃ¼ckt halten.")); ?></td>
     </tr>
     <tr>
       <td><select name="mieter[]" size="10" multiple>
           <?php
-		//alle gäste der unterkunft auslesen:
+		//alle gÃ¤ste der unterkunft auslesen:
 		$res = getAllMieterFromVermieter($vermieter_id);
 		while ($d = mysql_fetch_array($res)){
 			$mieter_id = $d["MIETER_ID"];
@@ -195,7 +195,7 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
 </form>
 <br/>
 <?php 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück"));
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Design bearbeiten";
 $unterschrift = "Ändern der Symbole für freie und belegte Tische";
@@ -34,30 +34,30 @@ $height_pic_occu= getBildHoehe($belegtPic);
   <form action="./freiBelegtAendern.php" method="post" target="_self" enctype="multipart/form-data">
     <tr>
     	<td></td>
-    	<td><?= getUebersetzung("Maximale Breite für Symbole") ?>*:</td>
-    	<td><input name="breite" type="text" value="<?= $breite ?>" /> Pixel</td>
+    	<td><?php echo getUebersetzung("Maximale Breite für Symbole") ?>*:</td>
+    	<td><input name="breite" type="text" value="<?php echo $breite ?>" /> Pixel</td>
     </tr>
      <tr>
     	<td></td>
-    	<td><?= getUebersetzung("Maximale Höhe für Symbole") ?>*:</td>
-    	<td><input name="hoehe" type="text" value="<?= $hoehe ?>"/> Pixel</td>
+    	<td><?php echo getUebersetzung("Maximale Höhe für Symbole") ?>*:</td>
+    	<td><input name="hoehe" type="text" value="<?php echo $hoehe ?>"/> Pixel</td>
     </tr>     
     <tr>
     	<td>
-    		<img src="<?= $root."/templates/picture.php?bilder_id=".$freiPic ?>" 
-      			width="<?= $width_pic_frei ?>" 
-      			height="<?= $height_pic_frei ?>"/>
+    		<img src="<?php echo $root."/templates/picture.php?bilder_id=".$freiPic ?>" 
+      			width="<?php echo $width_pic_frei ?>" 
+      			height="<?php echo $height_pic_frei ?>"/>
       	</td>
-    	<td><?= getUebersetzung("Symbol für \"Tisch frei\"") ?>:</td>
+    	<td><?php echo getUebersetzung("Symbol für \"Tisch frei\"") ?>:</td>
     	<td><input name="frei" type="file"/></td>
     </tr>
     <tr>
     	<td>
-    		<img src="<?= $root."/templates/picture.php?bilder_id=".$belegtPic ?>" 
-      			width="<?= $width_pic_occu ?>" 
-      			height="<?= $height_pic_occu ?>"/>
+    		<img src="<?php echo $root."/templates/picture.php?bilder_id=".$belegtPic ?>" 
+      			width="<?php echo $width_pic_occu ?>" 
+      			height="<?php echo $height_pic_occu ?>"/>
       	</td>
-    	<td><?= getUebersetzung("Symbol für \"Tisch belegt\"") ?>:</td>
+    	<td><?php echo getUebersetzung("Symbol für \"Tisch belegt\"") ?>:</td>
     	<td><input name="belegt" type="file"/></td>
     </tr> 
     <tr>

@@ -12,7 +12,7 @@ define("BE_TYP_DATUM_VON_BIS","buchungsein datum vonBis");
 /**
  * @author coster
  * date: 24.4.06
- * löscht eine buchungseinschränkung
+ * lÃ¶scht eine buchungseinschrÃ¤nkung
  */
  function deleteBuchungseinschraenkung($einschraenkungs_id){
 	global $link;	
@@ -32,7 +32,7 @@ define("BE_TYP_DATUM_VON_BIS","buchungsein datum vonBis");
 	}
  }
  /**
-  * löscht alle buchungseinschränkungen eines mietobjektes eines bestimmten typs
+  * lÃ¶scht alle buchungseinschrÃ¤nkungen eines mietobjektes eines bestimmten typs
   * @author coster
   * datum: 25.4.06
   * @param $mietobjekt_id id des mietobjektes
@@ -62,7 +62,7 @@ define("BE_TYP_DATUM_VON_BIS","buchungsein datum vonBis");
   * @author:coster
   * datum: 25.4.06
   * @param $mietobjekt_id id des mietobjektes
-  * @param $tag die konstante für die kurzbezeichnung des tages aus datumFuntions.inc.php
+  * @param $tag die konstante fÃ¼r die kurzbezeichnung des tages aus datumFuntions.inc.php
   */
  function insertBuchungseinschraenkungTag($mietobjekt_id,$tag){
  	
@@ -119,7 +119,7 @@ define("BE_TYP_DATUM_VON_BIS","buchungsein datum vonBis");
 		}		
 	}
 	else{
-		echo("fehlerhafte übergabe des tages! insertBuchungunseinschraenkungTag tag=".$tag);
+		echo("fehlerhafte Ã¼bergabe des tages! insertBuchungunseinschraenkungTag tag=".$tag);
 		exit;
 	}
 	$timestampVon = constructMySqlTimestamp($minute,$stunde,$tag,$monat,$jahr);
@@ -352,7 +352,7 @@ function getMietobjekteWithBuchungseinschraenkungen($vermieter_id,$typ){
  * @author coster
  * @param mietobject_id
  * @param $typ typ der buchungseinschraenkung
- * liefert alle buchungseinschränkungen eines gewissen typs
+ * liefert alle buchungseinschrÃ¤nkungen eines gewissen typs
  */
 function getBuchungseinschraenkungen($vermieter_id,$typ){
 	
@@ -387,7 +387,7 @@ function getBuchungseinschraenkungen($vermieter_id,$typ){
  * @author coster
  * @param mietobject_id
  * @param $typ typ der buchungseinschraenkung
- * liefert alle buchungseinschränkungen eines gewissen typs und mietobjektes
+ * liefert alle buchungseinschrÃ¤nkungen eines gewissen typs und mietobjektes
  */
 function getBuchungseinschraenkungenOfMietobjekt($mietobjekt_id,$typ){
 	
@@ -640,7 +640,7 @@ function getBuchungseinschraenkungZeitBisMinute($mietobjekt_id){
  * @author coster
  * @param mietobject_id
  * @param $tag Kurzform aus datumFunctions.inc.php
- * prueft ob an einem tag eine buchungseinschränkung existiert
+ * prueft ob an einem tag eine buchungseinschrÃ¤nkung existiert
  */
 function hasBuchungseinschraenkungOnDay($mietobjekt_id,$tag){
 	

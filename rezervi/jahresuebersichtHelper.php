@@ -1,7 +1,7 @@
 <?php
 
 /*
-Hilfsfunktionen für die Jahresübersicht
+Hilfsfunktionen fÃ¼r die JahresÃ¼bersicht
 10. Aug. 2004
 Christian Osterrieder
 */
@@ -40,9 +40,9 @@ Christian Osterrieder
 		?>
 			<table border="0" cellspacing="0" cellpadding="0" width="100%">
 				<tr>
-					<td class="<?= parseStatus($status[0],$isSamstag) ?>" 
-						align="right" width="50%"><? echo $i; ?></td>
-					<td class="<?= parseStatus($status[1],$isSamstag) ?>" 
+					<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" 
+						align="right" width="50%"><?php echo $i; ?></td>
+					<td class="<?php echo parseStatus($status[1],$isSamstag) ?>" 
 						align="right" width="50%">&nbsp;</td>
 				</tr>
 			</table>
@@ -77,16 +77,16 @@ Christian Osterrieder
 			}
 				
 			if (sizeof($nStatus) == 0){				
-				//am nächsten tag ist es frei:							
+				//am nÃ¤chsten tag ist es frei:							
 				?>
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
-							<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
-							<td class="<?= parseStatus(0,$isSamstag) ?>" align="right" width="50%"><? echo $i; ?></td>
+							<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+							<td class="<?php echo parseStatus(0,$isSamstag) ?>" align="right" width="50%"><?php echo $i; ?></td>
 						</tr>
 					</table>
 				<?php
-			} //ende if nächster tag frei
+			} //ende if nÃ¤chster tag frei
 			else {	
 				
 				//schauen ob der tag vorher frei ist:
@@ -122,8 +122,8 @@ Christian Osterrieder
 					?>
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr>
-								<td class="<?= parseStatus(0,$isSamstag) ?>" align="right" width="50%"><? echo $i; ?></td>
-								<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+								<td class="<?php echo parseStatus(0,$isSamstag) ?>" align="right" width="50%"><?php echo $i; ?></td>
+								<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
 							</tr>
 						</table>
 					<?php
@@ -172,7 +172,7 @@ function showYear($month,$year,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$spr
 			 <td class="tableColor">&nbsp;</td>
 	  </tr>
 	  <tr> 
-		<td class="tableColor"><?php echo(getUebersetzung("März",$sprache,$link)); ?></td>
+		<td class="tableColor"><?php echo(getUebersetzung("MÃ¤rz",$sprache,$link)); ?></td>
 		<?php for ($i=1; $i<=31; $i++){ ?>
 		<td <?php $statusString = getStatusString($zimmer_id,$i,3,$year,$saAktiviert,$link);?> class="<?php echo($statusString); ?>"><?php printResAdmin($zimmer_id,$i,3,$year,$saAktiviert,$link); ?></td>
 		<?php } ?>

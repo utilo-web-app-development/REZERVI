@@ -1,4 +1,4 @@
-<? 
+<?php 
 /**
  * author: coster
  * date: 30.8.06
@@ -47,23 +47,23 @@ include_once($root."/leftHelper.php");
 $saAktiviert = getPropertyValue(SHOW_OTHER_COLOR_FOR_SA,$unterkunft_id,$link);	
 $zimmer_id = getFirstRoom($unterkunft_id,$link);
 	
-//falls kein jahr ausgew�hlt wurde, das aktuelle jahr verwenden:
+//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
 if ($jahr == false){	
 	$jahr = getTodayYear();	
-	//ich brauche f�r jahr einen integer:
+	//ich brauche für jahr einen integer:
 	$jahr+=1;$jahr-=1;
 }
-//falls kein monat ausgew�hlt wurde, das aktuelle monat verwenden:
+//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
 if ($monat == false){
 	$monat = parseMonthNumber(getTodayMonth());
 }
-//und f�rs monat einen integer
+//und fürs monat einen integer
 $monat-=1;$monat+=1;
 
 //seitenheader:	
 include_once("./templates/headerA.php");
 
-//stylesheets einf�gen:
+//stylesheets einfügen:
 ?>
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
@@ -76,7 +76,7 @@ include_once("./templates/headerB.php");
 <table width="100%" border="0" class="tableColor">
   <tr>
     <td class="standardSchriftBold">
-    	<?= getUebersetzung("Belegungsplan",$sprache,$link) ?> 
+    	<?php echo getUebersetzung("Belegungsplan",$sprache,$link) ?> 
     	<?php echo((getUebersetzung(parseMonthName($monat),$sprache,$link))." ".($jahr)); ?>
     </td>
   </tr>
@@ -133,11 +133,11 @@ include_once("./templates/headerB.php");
 		?>
       <form action="./gesamtuebersicht.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
         <div align="right">          
-          <input name="monat" type="hidden" id="monat" value="<? echo($mon); ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
+          <input name="monat" type="hidden" id="monat" value="<?php echo($mon); ?>">
+          <input name="jahr" type="hidden" id="jahr" value="<?php echo($jah); ?>">
           <input name="zurueck" type="submit" class="btn btn-primary"
        onMouseOut="this.className='button200pxA';" onClick="updateLeft(<?php echo(($mon).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" 
-	   value="<?php echo(getUebersetzung("einen Monat zur�ck",$sprache,$link)); ?>">
+	   value="<?php echo(getUebersetzung("einen Monat zurück",$sprache,$link)); ?>">
         </div>
       </form>
       <?php }
@@ -154,14 +154,14 @@ include_once("./templates/headerB.php");
 		else { 																													
 		?>
       <form action="./gesamtuebersicht.php" method="post" name="monatWeiter" target="_self" id="monatWeiter">        
-        <input name="monat" type="hidden" id="monat" value="<? 
+        <input name="monat" type="hidden" id="monat" value="<?php 
 		  														if ($mo > 12){
 																	$mo = 1;
 																	$ja +=1;
 																} 
 																echo($mo); 
 																?>">
-        <input name="jahr" type="hidden" id="jahr" value="<? echo ($ja); ?>">
+        <input name="jahr" type="hidden" id="jahr" value="<?php echo ($ja); ?>">
         <input name="weiter" type="submit" class="btn btn-primary" onClick="updateLeft(<?php echo(($mo).",".($ja)).",".($zimmer_id); ?>,1);" id="weiter" 
 	   value="<?php echo(getUebersetzung("einen Monat weiter",$sprache,$link)); ?>">
       </form>

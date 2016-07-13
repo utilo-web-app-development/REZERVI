@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -15,7 +15,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -32,7 +32,7 @@ $sprache = getSessionWert(SPRACHE);
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortpr�fung:	
+<?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 
@@ -87,10 +87,10 @@ $sprache = getSessionWert(SPRACHE);
 <input name="benutzerAendern" type="submit" id="benutzerAendern" class="btn btn-primary" value="<?php echo(getUebersetzung("Benutzer Ändern",$sprache,$link)); ?>">      
 </form>
 <?php
-//-------------ende benutzer �ndern
+//-------------ende benutzer ändern
 /*
-//-------------benutzer l�schen
-pr�fen ob benutzer �berhaupt vorhanden sind 
+//-------------benutzer löschen
+prüfen ob benutzer überhaupt vorhanden sind 
 */
 if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
 ?>
@@ -170,15 +170,15 @@ if (getAnzahlVorhandeneBenutzer($unterkunft_id,$link) > 1){
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
 <p> </p>
 <p> -->  <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

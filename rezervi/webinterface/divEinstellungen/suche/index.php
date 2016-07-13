@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			author: christian osterrieder utilo.eu						
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -35,7 +35,7 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
  <div class="panel panel-default">
@@ -76,12 +76,12 @@ if (isset($nachricht) && $nachricht != ""){
   </tr>		  
   <?php
   //sprachen anzeigen die aktiviert sind: 
-  	//liefert alle M�glichkeiten, die durch den Benutzer ausgesucht werden k�nnen
+  	//liefert alle Möglichkeiten, die durch den Benutzer ausgesucht werden können
 	$res = getPropertiesSuche($unterkunft_id, $link); //Methode in einstellungenFunctions.php definiert
   	while($d = mysql_fetch_array($res))
 	{
   	  $name = $d["Name"];
-	  //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlm�glichkeiten "angehackelt"
+	  //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmöglichkeiten "angehackelt"
   	  $aktiviert = isPropertyShown($unterkunft_id,$name,$link); //Methode in einstellungenFunctions.php definiert     
     ?>  
       <tr>
@@ -147,18 +147,18 @@ if (isset($nachricht) && $nachricht != ""){
 </form>
 <br/>
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zur�ck",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmen�",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

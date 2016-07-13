@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 26.9.05
@@ -11,13 +11,13 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 include_once($root."/include/cssFunctions.inc.php"); 
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Design auf Standardwerte zurücksetzen")); ?></p>
-<table border="0" cellspacing="2" cellpadding="0" class="<?= FREI ?>">         
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Design auf Standardwerte zurï¿½cksetzen")); ?></p>
+<table border="0" cellspacing="2" cellpadding="0" class="<?php echo FREI ?>">         
           <tr>            
             <td><?php 
 					setStandardCSS($vermieter_id);
 				?>
-				<?php echo(getUebersetzung("Das Design wurde erfolgreich auf die Standardwerte zurückgesetzt")); ?>!
+				<?php echo(getUebersetzung("Das Design wurde erfolgreich auf die Standardwerte zurï¿½ckgesetzt")); ?>!
 			</td>
 			</tr>
 </table>
@@ -25,9 +25,9 @@ include_once($root."/include/cssFunctions.inc.php");
 <table border="0" cellspacing="3" cellpadding="0">
   <tr>
     <td><form action="./index.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurück")); ?>" class="<?= BUTTON ?>" 
-			onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';">
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurï¿½ck")); ?>" class="<?php echo BUTTON ?>" 
+			onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       		onMouseOut="this.className='<?php echo BUTTON ?>';">
       </form></td>
   </tr>
 </table>

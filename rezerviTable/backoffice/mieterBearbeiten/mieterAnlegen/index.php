@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Gäste bearbeiten";
 $unterschrift = "Anlegen";
@@ -64,32 +64,32 @@ if(isset($mieter_id)){
 	<form action="./anlegen.php" method="post" name="adresseForm" target="_self">
 	<tr> 
            <td><?php echo(getUebersetzung("Anrede")); ?></td>
-           <td><input name="anrede" type="text" id="anrede" value="<?= $anrede ?>" /> 
+           <td><input name="anrede" type="text" id="anrede" value="<?php echo $anrede ?>" /> 
            </td>
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("Vorname")); ?></td>
-           <td><input name="vorname" type="text" id="vorname" value="<?= $vorname ?>"></td>
+           <td><input name="vorname" type="text" id="vorname" value="<?php echo $vorname ?>"></td>
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("Nachname")); ?></td>
-           <td><input name="nachname" type="text" id="nachname" value="<?= $nachname ?>">*</td>
+           <td><input name="nachname" type="text" id="nachname" value="<?php echo $nachname ?>">*</td>
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("Firma")); ?></td>
-           <td><input name="firma" type="text" id="firma" value="<?= $firma ?>"></td>
+           <td><input name="firma" type="text" id="firma" value="<?php echo $firma ?>"></td>
 	</tr>          
 	<tr> 
            <td><?php echo(getUebersetzung("Strasse/Hausnummer")); ?></td>
-           <td><input name="strasse" type="text" id="strasse" value="<?= $strasse ?>"></td>
+           <td><input name="strasse" type="text" id="strasse" value="<?php echo $strasse ?>"></td>
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("PLZ")); ?></td>
-           <td><input name="plz" type="text" id="plz" value="<?= $plz ?>"></td>
+           <td><input name="plz" type="text" id="plz" value="<?php echo $plz ?>"></td>
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("Ort")); ?></td>
-           <td><input name="ort" type="text" id="ort" value="<?= $ort ?>"></td>
+           <td><input name="ort" type="text" id="ort" value="<?php echo $ort ?>"></td>
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("Land")); ?></td>
@@ -97,23 +97,23 @@ if(isset($mieter_id)){
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("E-Mail-Adresse")); ?></td>
-           <td><input name="email" type="text" id="email" value="<?= $email ?>"></td>
+           <td><input name="email" type="text" id="email" value="<?php echo $email ?>"></td>
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("Telefonnummer")); ?></td>
-           <td><input name="tel" type="text" id="tel" value="<?= $tel ?>"></td>
+           <td><input name="tel" type="text" id="tel" value="<?php echo $tel ?>"></td>
 	</tr>
  	<tr> 
 	<td><?php echo(getUebersetzung("2. Telefonnummer")); ?></td>
-           <td><input name="tel2" type="text" id="tel" value="<?= $tel2 ?>"></td>
+           <td><input name="tel2" type="text" id="tel" value="<?php echo $tel2 ?>"></td>
 	</tr>
 	<tr>
            <td><?php echo(getUebersetzung("Faxnummer")); ?></td>
-           <td><input name="fax" type="text" id="fax" value="<?= $fax ?>"></td>
+           <td><input name="fax" type="text" id="fax" value="<?php echo $fax ?>"></td>
 	</tr>
 	<tr>
            <td><?php echo(getUebersetzung("Homepage")); ?></td>
-           <td><input name="url" type="text" id="url" value="<?= $url ?>"></td>
+           <td><input name="url" type="text" id="url" value="<?php echo $url ?>"></td>
 	</tr>
 	<tr> 
            <td><?php echo(getUebersetzung("Bevorzugte Sprache")); ?></td>
@@ -140,12 +140,12 @@ if(isset($mieter_id)){
 			$res = getGaesteGruppen($gastro_id);
    			while ($d = $res->FetchNextObject()){
    				$temp = $d->GRUPPENBEZEICHNUNG;   ?>
-		    	<option value="<?= $temp ?>" <?php 
+		    	<option value="<?php echo $temp ?>" <?php 
 		    		foreach ($bezeichnung as $jede){
 		    			if($jede == $temp) { 
 		    				echo("selected='selected'"); 
 		    			} 
-		    		} ?> > <?= $temp ?>
+		    		} ?> > <?php echo $temp ?>
 		    	</option>    <?php
 		    }    ?>
 		  </select>  
@@ -155,7 +155,7 @@ if(isset($mieter_id)){
 	?>
 	<tr>
            <td><?php echo(getUebersetzung("Beschreibung")); ?></td>
-           <td><textarea name="beschreibung"><?= $beschreibung ?></textarea></td>
+           <td><textarea name="beschreibung"><?php echo $beschreibung ?></textarea></td>
 	</tr>
     <tr>
     	<td>

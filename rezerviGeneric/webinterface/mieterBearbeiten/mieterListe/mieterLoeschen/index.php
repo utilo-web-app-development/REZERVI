@@ -1,4 +1,4 @@
-<? $root = "../../../..";
+<?php $root = "../../../..";
 
 /*   
 	date: 17.10.05
@@ -8,13 +8,13 @@
 //header einfuegen:
 include_once($root."/webinterface/templates/header.inc.php");
 
-//prüfen ob noch reservierungen oder sowas für diesen gast vorhanden sind:
+//prÃ¼fen ob noch reservierungen oder sowas fÃ¼r diesen gast vorhanden sind:
 include_once($root."/include/mieterFunctions.inc.php");
 include_once($root."/include/reservierungFunctions.inc.php");
 $mieter_id = $_POST["mieter_id"];
 if(hasMieterReservations($mieter_id)){
 	$fehler = true;
-	$nachricht = getUebersetzung("Der Mieter kann nicht gelöscht werden, da noch Reservierungen oder offene Reservierungsanfragen für diesen Mieter eingetragen sind!");
+	$nachricht = getUebersetzung("Der Mieter kann nicht gelÃ¶scht werden, da noch Reservierungen oder offene Reservierungsanfragen fÃ¼r diesen Mieter eingetragen sind!");
 	include_once("./index.php");
 	exit;
 }
@@ -27,16 +27,16 @@ deleteMieter($mieter_id);
 
 ?>
 
-<table width="100%" border="0" cellspacing="3" cellpadding="0" class="<?= FREI ?>">
+<table width="100%" border="0" cellspacing="3" cellpadding="0" class="<?php echo FREI ?>">
   <tr>
-    <td><?php echo(getUebersetzung("Der Mieter wurde erfolgreich gelöscht")); ?>!    
+    <td><?php echo(getUebersetzung("Der Mieter wurde erfolgreich gelÃ¶scht")); ?>!    
     </td>
   </tr>
 </table>
 <br/>
   <form action="../index.php" method="post" name="ok" target="_self" id="ok">
-    <input type="submit" name="Submit" class="<?= BUTTON ?>" id="zurueck" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-   onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+    <input type="submit" name="Submit" class="<?php echo BUTTON ?>" id="zurueck" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+   onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
 	<input name="index" type="hidden" value="<?php echo($index); ?>"/>
   </form>  
 <?php	  

@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	anzeige des kalenders
 	author: christian osterrieder utilo.eu		
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
@@ -48,9 +48,9 @@ if (isset($_POST["jahr"])){
 else{
 	$jahr = getTodayYear();	
 }	
-//ich brauche f�r jahr einen integer:
+//ich brauche für jahr einen integer:
 $jahr+=1;$jahr-=1;
-//und f�rs monat einen integer
+//und fürs monat einen integer
 $monat-=1;$monat+=1;
 	
 $sprache = getSessionWert(SPRACHE);
@@ -71,13 +71,13 @@ include_once("../templates/headerA.php");
 </script>
 <?php include_once("../templates/bodyA.php"); 
 	
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 
 ?>
 
 <table border="0" class="tableColor">
   <tr>  
-    <td class="standardSchriftBold"><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <? echo($monat."-".$jahr); ?>, 
+    <td class="standardSchriftBold"><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <?php echo($monat."-".$jahr); ?>, 
       <?php echo(getUebersetzung("für",$sprache,$link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link)); ?> 
       <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link)); ?></td>
   </tr>
@@ -109,9 +109,9 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		?>
       <form action="./right.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
         <div align="right">           
-          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
-          <input name="monat" type="hidden" id="monat" value="<? echo($mon); ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
+          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
+          <input name="monat" type="hidden" id="monat" value="<?php echo($mon); ?>">
+          <input name="jahr" type="hidden" id="jahr" value="<?php echo($jah); ?>">
           <input name="zurueck" type="submit" class="btn btn-primary" onClick="updateLeft(<?php echo(($mon).",".($jah)).",".($zimmer_id); ?>,0);" id="zurueck" value="<?php echo(getUebersetzung("einen Monat zurück",$sprache,$link)); ?>">
         </div>
       </form></td>
@@ -125,18 +125,18 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		}																														
 		?>
       <form action="./right.php" method="post" name="monatWeiter" target="_self" id="monatWeiter">
-        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
-        <input name="monat" type="hidden" id="monat" value="<? echo($mon); ?>">
-        <input name="jahr" type="hidden" id="jahr" value="<? echo ($jah); ?>">
+        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
+        <input name="monat" type="hidden" id="monat" value="<?php echo($mon); ?>">
+        <input name="jahr" type="hidden" id="jahr" value="<?php echo ($jah); ?>">
         <input name="weiter" type="submit" class="btn btn-primary" onClick="updateLeft(<?php echo(($mon).",".($jah).",".($zimmer_id)); ?>,1);" id="weiter" value="<?php echo(getUebersetzung("einen Monat weiter",$sprache,$link)); ?>">
       </form></td>
   </tr>
  
 </table>
 <?php 
-} //ende passwortpr�fung 
+} //ende passwortprüfung 
 else{
- echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+ echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
 ?>
 </body>

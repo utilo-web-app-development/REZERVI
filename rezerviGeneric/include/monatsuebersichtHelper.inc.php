@@ -3,7 +3,7 @@
 /**
  * author:coster
  * date:21.10.05
- * zeigt ein einzelnes monat für das webinterface in einer tabelle
+ * zeigt ein einzelnes monat fÃ¼r das webinterface in einer tabelle
  * */
 function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 	
@@ -16,7 +16,7 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 		//anzahl der tage des monats:
 		$anzahlTage = getNumberOfDaysOfMonth($month,$year);
 		?>
-		<table border="0" cellspacing="1" cellpadding="0" class="<?= TABLE_COLOR ?>">
+		<table border="0" cellspacing="1" cellpadding="0" class="<?php echo TABLE_COLOR ?>">
 		<?php 
 		for ($i = 1; $i <= $anzahlTage; $i++) { 
 			$status = getStatus($mietobjekt_id,0,0,$i,$month,$year,59,23,$i,$month,$year);
@@ -30,15 +30,15 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 			?>
 			<tr> 
 				<!-- wochentag anzeigen -->
-				<td valign="middle" class="<?= TABLE_STANDARD ?>">
-					<?= getUebersetzung(getDayName($i,$month,$year)) ?>
+				<td valign="middle" class="<?php echo TABLE_STANDARD ?>">
+					<?php echo getUebersetzung(getDayName($i,$month,$year)) ?>
 		 		</td>
 				<!-- datum anzeigen -->
-				<td valign="middle" class="<?= TABLE_STANDARD ?>">
+				<td valign="middle" class="<?php echo TABLE_STANDARD ?>">
 					<?php echo($i.".");echo($month.".");echo($year); ?>
 				</td>	
 				<!-- grafische reservierung anzeigen -->
-				<td class="<?= TABLE_STANDARD ?>">
+				<td class="<?php echo TABLE_STANDARD ?>">
 					<?php
 						//wie viele reservierungen sind an diesem tag?
 						$resIds = getReservierungIDs($mietobjekt_id,0,0,$i,$month,$year,59,23,$i,$month,$year);
@@ -46,11 +46,11 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 					?>					
 				  <table cellpadding="0" cellspacing="0" border="0">
 				    <tr>
-				    	<td width="5" class="<?= FREI ?>">&nbsp;</td>
+				    	<td width="5" class="<?php echo FREI ?>">&nbsp;</td>
 					    <?php 
 					    	for ($l=0;$l<$anzahlRes;$l++){
 					    ?>
-					      <td width="5" class="<?= BELEGT ?>">&nbsp;</td>
+					      <td width="5" class="<?php echo BELEGT ?>">&nbsp;</td>
 					    <?php
 					    	}
 					    ?>
@@ -58,11 +58,11 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 				  </table>
 				</td>			
 				<!-- mieter anzeigen -->
-				<td valign="middle" class="<?= TABLE_STANDARD ?>">
+				<td valign="middle" class="<?php echo TABLE_STANDARD ?>">
 					<?php if ($statusString != FREI) {
 						//gast-id auslesen:
 					?>
-					<table cellpadding="3" cellspacing="0" border="0" class="<?= STANDARD_SCHRIFT ?>">
+					<table cellpadding="3" cellspacing="0" border="0" class="<?php echo STANDARD_SCHRIFT ?>">
 						<?php
 						while ($d=mysql_fetch_array($resIds)){
 							$reservierungs_id = $d["RESERVIERUNG_ID"];
@@ -74,11 +74,11 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 							$timeBis = getTimeBisOfReservierung($reservierungs_id);
 						?>
 						<form action="./mieterInfos/index.php" method="post" name="form<?php echo($i); ?>" target="_self">
-						<input type="hidden" name="mietobjekt_id" value="<?= $mietobjekt_id ?>" />
-						<input type="hidden" name="monat" value="<?= $month ?>" />
-						<input type="hidden" name="jahr" value="<?= $year ?>" />
-						<input type="hidden" name="tag" value="<?= $i ?>" />
-						<input type="hidden" name="ansicht" value="<?= $ansicht ?>" />
+						<input type="hidden" name="mietobjekt_id" value="<?php echo $mietobjekt_id ?>" />
+						<input type="hidden" name="monat" value="<?php echo $month ?>" />
+						<input type="hidden" name="jahr" value="<?php echo $year ?>" />
+						<input type="hidden" name="tag" value="<?php echo $i ?>" />
+						<input type="hidden" name="ansicht" value="<?php echo $ansicht ?>" />
 						<tr>
 							<td>
 								<input name="mieter_id" type="hidden" value="<?php echo($mieter_id); ?>">						  
@@ -110,7 +110,7 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 									}	
 									else{
 										?>
-										00:00 - 24:00 <?= getUebersetzung("Uhr") ?>
+										00:00 - 24:00 <?php echo getUebersetzung("Uhr") ?>
 										<?php
 									}								
 								}
@@ -121,12 +121,12 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 							</td>
 							<td>
 								<?php
-								//button für mieter infos  ausgeben:
+								//button fÃ¼r mieter infos  ausgeben:
 								if ($mieter_id != ANONYMER_MIETER_ID && $modus == MODUS_WEBINTERFACE){
 								?>
-								<input type="submit" name="Submit" class="<?= BUTTON ?>" 
-									onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			   						onMouseOut="this.className='<?= BUTTON ?>';" 
+								<input type="submit" name="Submit" class="<?php echo BUTTON ?>" 
+									onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+			   						onMouseOut="this.className='<?php echo BUTTON ?>';" 
 			   						value="<?php echo(getUebersetzung("Mieter-Info")); ?>"/>
 		   						<?php
 								}

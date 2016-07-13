@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Anfragen bearbeiten";
 $unterschrift = "Bestätigen";
@@ -62,14 +62,14 @@ $vonDatum = getFormatedDateFromBooklineDate($vonDatum);
         <?php echo(getMieterVorname($mieter_id)." ".getNachnameOfMieter($mieter_id)); ?>
         <br/>
         <?php echo(getUebersetzung("am")); ?> <?php echo($vonDatum); ?>  <?php echo(getUebersetzung("Uhr")); ?><br/>
-        <?php echo(getUebersetzung("wurde erfolgreich als")); ?> <span class="<?= BELEGT ?>">&quot;<?php echo(getUebersetzung("belegt")); ?>&quot;</span>
+        <?php echo(getUebersetzung("wurde erfolgreich als")); ?> <span class="<?php echo BELEGT ?>">&quot;<?php echo(getUebersetzung("belegt")); ?>&quot;</span>
         <?php echo(getUebersetzung("gespeichert")); ?>.</p>
       <?php if ($antwort == "true"){ ?>
       <p><?php echo(getUebersetzung("Die folgende Mitteilung wird per E-Mail an Ihren Gast gesendet. Sie haben hier die Möglichkeiten noch Korrekturen vorzunehmen")); ?>:</p>
 	<form action="./bestaetigungSenden.php" method="post" name="bestaetigungSenden" target="_self">
 	<input name="an" type="hidden" value="<?php echo($an); ?>">
 	<input name="von" type="hidden" value="<?php echo($von); ?>">
-	<input name="mieter_id" type="hidden" value="<?= $mieter_id ?>">	
+	<input name="mieter_id" type="hidden" value="<?php echo $mieter_id ?>">	
 	<table  border="0" cellpadding="0" cellspacing="3" >
 		  <tr valign="top">
 			<td><?php echo(getUebersetzung("Betreff")); ?></td>

@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 26.9.05
@@ -12,8 +12,8 @@ include_once($root."/webinterface/templates/components.inc.php");
 include_once($root."/include/mieterFunctions.inc.php");
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mieter bearbeiten")); ?></p>
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE ?>">
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mieter bearbeiten")); ?></p>
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE ?>">
   <form action="./mieterAnlegen/index.php" method="post" target="_self">
   <tr>
     <td><?php showSubmitButton(getUebersetzung("Mieter anlegen")); ?></td>
@@ -24,7 +24,7 @@ include_once($root."/include/mieterFunctions.inc.php");
 	  <form action="./mieterListe/index.php" method="post" target="_self">
 		  <tr>
 		    <td><?php showSubmitButton(getUebersetzung("Mieter Liste anzeigen")); ?></td>
-		    <td><?php echo(getUebersetzung("Anzeigen und Ändern von Mietern")); ?>.</td>
+		    <td><?php echo(getUebersetzung("Anzeigen und Ã¤ndern von Mietern")); ?>.</td>
 		  </tr>
 	  </form>
   <?php } ?>

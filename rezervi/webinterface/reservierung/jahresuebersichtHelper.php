@@ -24,7 +24,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 			?>
 				<table border="0" cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-						<td class="<?php echo(parseStatus($status[0])); ?>" align="right" width="50%"><? echo $i; ?></td>
+						<td class="<?php echo(parseStatus($status[0])); ?>" align="right" width="50%"><?php echo $i; ?></td>
 						<td class="<?php echo(parseStatus($status[1])); ?>" align="right" width="50%">&nbsp;</td>
 					</tr>
 				</table>
@@ -35,7 +35,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 			?>
 				<table border="0" cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-						<td class="<?php echo("samstagBelegt"); ?>" align="right" width="50%"><? echo $i; ?></td>
+						<td class="<?php echo("samstagBelegt"); ?>" align="right" width="50%"><?php echo $i; ?></td>
 						<td class="<?php echo("samstagBelegt"); ?>" align="right" width="50%">&nbsp;</td>
 					</tr>
 				</table>
@@ -70,13 +70,13 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 			}			
 
 			if (sizeof($nStatus) == 0){				
-				//am n‰chsten tag ist es frei:		
+				//am n√§chsten tag ist es frei:		
 				if(getDayName($i,$month,$year) == "SA" && $saAktiviert){						
 				?>
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
 							<td class="samstagBelegt" align="right" width="50%">&nbsp;</td>
-							<td class="samstagFrei" align="right" width="50%"><? echo $i; ?></td>
+							<td class="samstagFrei" align="right" width="50%"><?php echo $i; ?></td>
 						</tr>
 					</table>
 				<?php
@@ -87,12 +87,12 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
 							<td class="<?php echo(parseStatus($status[0])); ?>" align="right" width="50%">&nbsp;</td>
-							<td class="frei" align="right" width="50%"><? echo $i; ?></td>
+							<td class="frei" align="right" width="50%"><?php echo $i; ?></td>
 						</tr>
 					</table>
 				<?php
 				}
-			} //ende if n‰chster tag frei
+			} //ende if n√§chster tag frei
 			else {				
 
 				//schauen ob der tag vorher frei ist:
@@ -125,7 +125,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					?>
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr>
-								<td class="samstagFrei" align="right" width="50%"><? echo $i; ?></td>
+								<td class="samstagFrei" align="right" width="50%"><?php echo $i; ?></td>
 								<td class="samstagBelegt" align="right" width="50%">&nbsp;</td>
 							</tr>
 						</table>
@@ -135,7 +135,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					?>
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr>
-								<td class="frei" align="right" width="50%"><? echo $i; ?></td>
+								<td class="frei" align="right" width="50%"><?php echo $i; ?></td>
 								<td class="<?php echo(parseStatus($status[0])); ?>" align="right" width="50%">&nbsp;</td>
 							</tr>
 						</table>
@@ -156,7 +156,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 	
 	
 	
-	//falls keine zimmer_id ausgew‰hlt wurde, das erste gefundene zimmer anzeigen:
+	//falls keine zimmer_id ausgew√§hlt wurde, das erste gefundene zimmer anzeigen:
 	if (empty($zimmer_id) || $zimmer_id == "") {	
 	$query = "
 			select 
@@ -179,10 +179,10 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 	}
 	
 	
-	//falls kein jahr ausgew‰hlt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgew√§hlt wurde, das aktuelle jahr verwenden:
 	if ($jahr == "" || empty($jahr)){	
 		$jahr = getTodayYear();	
-		//ich brauche f¸r jahr einen integer:
+		//ich brauche f√ºr jahr einen integer:
 		$jahr+=1;$jahr-=1;
 	}
 	
@@ -217,7 +217,7 @@ function showYear($month,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,$
 				 <td class="tableColor">&nbsp;</td>
 		  </tr>		  
 		  <tr>
-			<td class="tableColor"><?php echo(getUebersetzung("M‰rz",$sprache,$link)); ?></td>
+			<td class="tableColor"><?php echo(getUebersetzung("M√§rz",$sprache,$link)); ?></td>
 			<?php for ($i=1; $i<=31; $i++){ ?>
 			<td <?php $statusString = getStatusString($zimmer_id,$i,3,$year,$saAktiviert,$link);?> class="<?php echo($statusString); ?>"><?php printResAdmin($zimmer_id,$i,3,$year,$saAktiviert,$link); ?></td>
 			<?php } ?>

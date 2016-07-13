@@ -121,7 +121,7 @@ else if (empty($nachname)){
 }
 else if (empty($strasse)){
 	$fehler = true;
-	$nachricht = "Bitte geben sie ihre Straﬂe und Hausnummer ein.";
+	$nachricht = "Bitte geben sie ihre Stra√üe und Hausnummer ein.";
 }
 else if (empty($plz)){
 	$fehler = true;
@@ -137,7 +137,7 @@ else if (empty($email)){
 }
 else if (checkMailAdress($email) === false){
 	$fehler = true;
-	$nachricht = "Bitte pr¸fen sie ihre E-Mail-Adresse, es handelt sich um eine ung¸ltige Adresse.";
+	$nachricht = "Bitte pr√ºfen sie ihre E-Mail-Adresse, es handelt sich um eine ung√ºltige Adresse.";
 }
 
 if ($fehler === true){
@@ -166,11 +166,11 @@ if (!empty($anmerkung)){
 
 include_once($root."/templates/bodyStart.inc.php"); 
 ?>
-<table border="0" cellspacing="3" cellpadding="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellspacing="3" cellpadding="0" class="<?php echo TABLE_STANDARD ?>">
   <tr> 
-    <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Danke f¸r Ihre Anfrage!")); ?></span> <p>
-	<?php echo(getUebersetzung("Der Vermieter wurde ¸ber Ihre Reservierungs-Anfrage verst‰ndigt, und wird sich mit Ihnen in Verbindung setzen.")); ?> <br/>
-        <?php echo(getUebersetzung("Bitte beachten Sie, dass die Reservierung nur mit Best‰tigung des Vermieters g¸ltig ist.")); ?> <br/>
+    <td><span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Danke f√ºr Ihre Anfrage!")); ?></span> <p>
+	<?php echo(getUebersetzung("Der Vermieter wurde √ºber Ihre Reservierungs-Anfrage verst√§ndigt, und wird sich mit Ihnen in Verbindung setzen.")); ?> <br/>
+        <?php echo(getUebersetzung("Bitte beachten Sie, dass die Reservierung nur mit Best√§tigung des Vermieters g√ºltig ist.")); ?> <br/>
       </p>
       </td>
   </tr>
@@ -191,7 +191,7 @@ include_once($root."/templates/bodyStart.inc.php");
 		 $moArt    = getMietobjekt_EZ($vermieter_id);
 		 
 		 $message=$message.getUebersetzungVermieter($moArt,$standardsprache,$vermieter_id).": ".getUebersetzungVermieter($moNummer,$standardsprache,$vermieter_id);
-         $message=$message.getUebersetzungFromSprache("Sie kˆnnen diese Anfrage im Webinterface best‰tigen oder ablehnen",$standardsprache)."\n"; 
+         $message=$message.getUebersetzungFromSprache("Sie k√∂nnen diese Anfrage im Webinterface best√§tigen oder ablehnen",$standardsprache)."\n"; 
 
 		 $bezSprache = getBezeichnungOfSpracheID($sprache);
 	     $message = $message."\n".getUebersetzungFromSprache("Die Anfrage wurde in $bezSprache Sprache gestellt",$standardsprache).".";
@@ -217,7 +217,7 @@ include_once($root."/templates/bodyStart.inc.php");
 			 $message .= $unterschrift;
 			 sendMail($von,$an,$subject,$message);
 			 //save mail in mieter Texte:
-			 $text = "Automatisch generierte Best‰tigung zu einer Anfrage.\n";
+			 $text = "Automatisch generierte Best√§tigung zu einer Anfrage.\n";
 			 $text .="Betreff: ".$subject."\n";
 			 $text .="Nachricht: ".$message;
 			 insertMieterText($text,$mieter_id);
@@ -227,23 +227,23 @@ include_once($root."/templates/bodyStart.inc.php");
 <table border="0" cellspacing="3" cellpadding="0">
   <tr>
     <td>
-    	<form action="<?= $root."/start.php" ?>" method="post" name="form1" target="_self">	
-          <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?= $mietobjekt_id ?>"/>
-		  <input name="ansicht" type="hidden" id="ansicht" value="<?= $ansicht ?>"/>          
-          <input name="vonTag" type="hidden" id="vonTag" value="<?= $vonTag ?>"/>
-          <input name="bisTag" type="hidden" id="bisTag" value="<?= $bisTag ?>"/>
-          <input name="vonMonat" type="hidden" id="vonMonat" value="<?= $vonMonat ?>"/>
-          <input name="bisMonat" type="hidden" id="bisMonat" value="<?= $bisMonat ?>"/>
-          <input name="vonJahr" type="hidden" id="vonJahr" value="<?= $vonJahr ?>"/>
-          <input name="bisJahr" type="hidden" id="bisJahr" value="<?= $bisJahr ?>"/>
-          <input name="vonMinute" type="hidden" id="vonMinute" value="<?= $vonMinute ?>"/>
-          <input name="bisMinute" type="hidden" id="bisMinute" value="<?= $bisMinute ?>"/>
-          <input name="vonStunde" type="hidden" id="vonStunde" value="<?= $vonStunde ?>"/>
-          <input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>"/>
-          <input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>"/>		
-          <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zur¸ck")); ?>" 
-          		class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-      			onMouseOut="this.className='<?= BUTTON ?>';">
+    	<form action="<?php echo $root."/start.php" ?>" method="post" name="form1" target="_self">	
+          <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo $mietobjekt_id ?>"/>
+		  <input name="ansicht" type="hidden" id="ansicht" value="<?php echo $ansicht ?>"/>          
+          <input name="vonTag" type="hidden" id="vonTag" value="<?php echo $vonTag ?>"/>
+          <input name="bisTag" type="hidden" id="bisTag" value="<?php echo $bisTag ?>"/>
+          <input name="vonMonat" type="hidden" id="vonMonat" value="<?php echo $vonMonat ?>"/>
+          <input name="bisMonat" type="hidden" id="bisMonat" value="<?php echo $bisMonat ?>"/>
+          <input name="vonJahr" type="hidden" id="vonJahr" value="<?php echo $vonJahr ?>"/>
+          <input name="bisJahr" type="hidden" id="bisJahr" value="<?php echo $bisJahr ?>"/>
+          <input name="vonMinute" type="hidden" id="vonMinute" value="<?php echo $vonMinute ?>"/>
+          <input name="bisMinute" type="hidden" id="bisMinute" value="<?php echo $bisMinute ?>"/>
+          <input name="vonStunde" type="hidden" id="vonStunde" value="<?php echo $vonStunde ?>"/>
+          <input name="bisStunde" type="hidden" id="bisStunde" value="<?php echo $bisStunde ?>"/>
+          <input name="bisStunde" type="hidden" id="bisStunde" value="<?php echo $bisStunde ?>"/>		
+          <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zur√ºck")); ?>" 
+          		class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+      			onMouseOut="this.className='<?php echo BUTTON ?>';">
         </form>
     </td>
   </tr>

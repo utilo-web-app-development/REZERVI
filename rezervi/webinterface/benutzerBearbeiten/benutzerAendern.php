@@ -1,6 +1,6 @@
 <html>
 	<head>
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -67,7 +67,7 @@ $sprache = getSessionWert(SPRACHE);
 		
 <!-- <form action="./benutzerAendernDurchfuehren.php" method="post" name="benutzer" id="benutzer" target="_self" onSubmit="return chkFormular()"> -->
   <input name="id" type="hidden" value="<?php echo($id); ?>">
-  <input name="testuser" type="hidden" value="<?= $testuser ?>">
+  <input name="testuser" type="hidden" value="<?php echo $testuser ?>">
 
   	<?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden!",$sprache,$link)); ?>
   

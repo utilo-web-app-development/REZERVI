@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -15,39 +15,39 @@ include_once($root."/include/datumFunctions.inc.php");
 $mietobjekt_einzahl = getMietobjekt_EZ($vermieter_id);
 $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$vermieter_id); 
 ?>
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
 	* Keep this notice intact for use.
 	***********************************************/	
 </script>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?= getUebersetzung("Buchungen nur zu bestimmten Zeiten erlauben") ?>.</p>
-<table class="<?= TABLE_STANDARD ?>">	  	
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo getUebersetzung("Buchungen nur zu bestimmten Zeiten erlauben") ?>.</p>
+<table class="<?php echo TABLE_STANDARD ?>">	  	
   <tr>
-  	<td class="<?= STANDARD_SCHRIFT_BOLD ?>" colspan="2">
-  		<?= getUebersetzung("Keine Buchungen möglich in der Uhrzeit"); ?>:
+  	<td class="<?php echo STANDARD_SCHRIFT_BOLD ?>" colspan="2">
+  		<?php echo getUebersetzung("Keine Buchungen mÃ¶glich in der Uhrzeit"); ?>:
   	<td>
   <tr>
   <tr>
 	<th>
 		<div align="left">
-			<?= $mietobjekt_einzahl ?> 
+			<?php echo $mietobjekt_einzahl ?> 
 		</div>
 	</th>		  		
 	<th>
 		<div align="left">
-			<?= getUebersetzung("von") ?> 
+			<?php echo getUebersetzung("von") ?> 
 		</div>
 	</th>
 	<th>
 		<div align="left">
-			<?= getUebersetzung("bis") ?> 
+			<?php echo getUebersetzung("bis") ?> 
 		</div>
 	</th>	
 	<th>
 		<div align="left">
-			<?= getUebersetzung("löschen/hinzufügen") ?> 
+			<?php echo getUebersetzung("lÃ¶schen/hinzufÃ¼gen") ?> 
 		</div>
 	</th> 			
   </tr>
@@ -70,18 +70,18 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
   	$bisMinute = getBisMinuteOfBuchungseinschraenkung($einschraenkungs_id);
   ?>
   <form action="./buchungseinschraenkungLoeschen.inc.php" method="post" target="_self">
-  <input type="hidden" name="einschraenkungs_id" value="<?= $einschraenkungs_id ?>" />
+  <input type="hidden" name="einschraenkungs_id" value="<?php echo $einschraenkungs_id ?>" />
   <tr>
   	<td>
-		<?= $moBez ?>
+		<?php echo $moBez ?>
   	</td>
   	<td>
-		<?= $vonStunde ?>:<?= $vonMinute ?> <?= getUebersetzung("Uhr"); ?> 
+		<?php echo $vonStunde ?>:<?php echo $vonMinute ?> <?php echo getUebersetzung("Uhr"); ?> 
 	</td>
 	<td>
-	    <?= $bisStunde ?>:<?= $bisMinute ?> <?= getUebersetzung("Uhr"); ?>
+	    <?php echo $bisStunde ?>:<?php echo $bisMinute ?> <?php echo getUebersetzung("Uhr"); ?>
   	</td>
-  	<td><?php showSubmitButton(getUebersetzung("löschen")); ?></td>
+  	<td><?php showSubmitButton(getUebersetzung("lÃ¶schen")); ?></td>
   </tr>  
   </form>
   <tr>
@@ -97,7 +97,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
   $bisStunde = 1;
   ?>
   <form action="./buchungseinschraenkungHinzufuegen.inc.php" method="post" target="_self">
-  <input type="hidden" name="typ" value="<?= BE_TYP_ZEIT ?>"/>
+  <input type="hidden" name="typ" value="<?php echo BE_TYP_ZEIT ?>"/>
   <tr>
   	<td>
 		<select name="moId" id="moId">
@@ -109,7 +109,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 					$moBez = getUebersetzungVermieter($moBez,$sprache,$vermieter_id);
 					$mietobjekt_id = $l["MIETOBJEKT_ID"];
 					?>
-					<option value="<?= $mietobjekt_id ?>"><?= $moBez ?></option>			  						
+					<option value="<?php echo $mietobjekt_id ?>"><?php echo $moBez ?></option>			  						
 					<?php		
 				}
 				?>
@@ -124,7 +124,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 							$str="0".$l;
 						} 
 				?>
-	            <option value="<?php echo $l ?>"<?php if ($str == $vonStunde) echo(" selected=\"selected\""); ?>><?= $str ?></option>
+	            <option value="<?php echo $l ?>"<?php if ($str == $vonStunde) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 	            <?php } ?>
 	          </select>:
 	          <select name="vonMinute"  id="vonMinute">
@@ -135,11 +135,11 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 							$str="0".$l;
 						} 
 				?>
-	            <option value="<?= $l ?>"<?php if ($str == $vonMinute) echo(" selected=\"selected\""); ?>><?= $str ?></option>
+	            <option value="<?php echo $l ?>"<?php if ($str == $vonMinute) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 	            <?php } ?>
 	          </select> 
-	          <span class="<?= STANDARD_SCHRIFT ?>">
-	          	<?= getUebersetzung("Uhr"); ?></span> 
+	          <span class="<?php echo STANDARD_SCHRIFT ?>">
+	          	<?php echo getUebersetzung("Uhr"); ?></span> 
 	  </td>
 	  <td>
 	          <select name="bisStunde"  id="bisStunde">
@@ -150,7 +150,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 							$str="0".$l;
 						}						
 				?>
-	            <option value="<?= $l ?>"<?php if ($str == $bisStunde) echo(" selected=\"selected\""); ?>><?= $str ?></option>
+	            <option value="<?php echo $l ?>"<?php if ($str == $bisStunde) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 	            <?php } ?>
 	          </select>:
 	          <select name="bisMinute"  id="bisMinute">
@@ -161,72 +161,72 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 							$str="0".$l;
 						} 
 				?>
-	            <option value="<?= $l ?>"<?php if ($str == $bisMinute) echo(" selected=\"selected\""); ?>><?= $str ?></option>
+	            <option value="<?php echo $l ?>"<?php if ($str == $bisMinute) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 	            <?php } ?>
 	          </select> 
-	          <span class="<?= STANDARD_SCHRIFT ?>">
-	          	<?= getUebersetzung("Uhr"); ?></span>
+	          <span class="<?php echo STANDARD_SCHRIFT ?>">
+	          	<?php echo getUebersetzung("Uhr"); ?></span>
   	</td>
-  	<td><?php showSubmitButton(getUebersetzung("hinzufügen")); ?></td>
+  	<td><?php showSubmitButton(getUebersetzung("hinzufÃ¼gen")); ?></td>
   </tr>   
   </form> 
 <!-- ende uhrzeit -->
 </table>
 <br/>
-<table class="<?= TABLE_STANDARD ?>">	 
+<table class="<?php echo TABLE_STANDARD ?>">	 
 <!-- start tage   -->
 	<tr>
-		<td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-			<?= getUebersetzung("Keine Buchungen möglich an folgenden Tagen"); ?>:
+		<td class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+			<?php echo getUebersetzung("Keine Buchungen mÃ¶glich an folgenden Tagen"); ?>:
 		<td>
 		  <tr>
 		  <tr>
 		<td>
-			<table class="<?= STANDARD_SCHRIFT ?>">	 	
+			<table class="<?php echo STANDARD_SCHRIFT ?>">	 	
 				<tr>
 					<th>
 						<div align="left">
-							<?= $mietobjekt_einzahl ?> 
+							<?php echo $mietobjekt_einzahl ?> 
 						</div>
 					</th>
 			  		<th>
 			  			<div align="left">
-		  				 <?= getUebersetzung("Montag") ?> 
+		  				 <?php echo getUebersetzung("Montag") ?> 
 		  				</div>
 		  			</th>
 			  		<th>
 			  			<div align="left">
-		  				 <?= getUebersetzung("Dienstag") ?> 
+		  				 <?php echo getUebersetzung("Dienstag") ?> 
 		  				</div>
 		  			</th>
 		  			<th>
 		  				<div align="left">
-		  				 <?= getUebersetzung("Mittwoch") ?> 
+		  				 <?php echo getUebersetzung("Mittwoch") ?> 
 		  				</div>
 		  			</th>
 			  		<th>
 			  			<div align="left">
-		  				 <?= getUebersetzung("Donnerstag") ?> 
+		  				 <?php echo getUebersetzung("Donnerstag") ?> 
 		  				</div>
 		  			</th>
 			  		<th>
 			  			<div align="left">
-		  				 <?= getUebersetzung("Freitag") ?> 
+		  				 <?php echo getUebersetzung("Freitag") ?> 
 		  				</div>
 		  			</th>
 			  		<th>
 			  			<div align="left">
-		  				 <?= getUebersetzung("Samstag") ?>
+		  				 <?php echo getUebersetzung("Samstag") ?>
 		  				</div>
 		  			</th>
 			  		<th>
 			  			<div align="left">
-		  				 <?= getUebersetzung("Sonntag") ?> 
+		  				 <?php echo getUebersetzung("Sonntag") ?> 
 		  				</div>
 		  			</th>	
 					<th>
 						<div align="left">
-							<?= getUebersetzung("löschen/hinzufügen") ?> 
+							<?php echo getUebersetzung("lÃ¶schen/hinzufÃ¼gen") ?> 
 						</div>
 					</th> 
 				</tr>
@@ -257,7 +257,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 			  	$sunday = isSundayEingeschraenkt($mietobjekt_id);
 			  ?>
 			  <form action="./buchungseinschraenkungLoeschen.inc.php" method="post" target="_self">
-			  <input type="hidden" name="mietobjekt_id" value="<?= $mietobjekt_id ?>" /> 
+			  <input type="hidden" name="mietobjekt_id" value="<?php echo $mietobjekt_id ?>" /> 
 		  		<tr>
 		  			<td>
 		  				<?php
@@ -305,7 +305,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		  				</div>
 		  			</td>	
 		  			<td>
-		  				<?php showSubmitButton(getUebersetzung("löschen")); ?>	  
+		  				<?php showSubmitButton(getUebersetzung("lÃ¶schen")); ?>	  
 		  			</td>					  					  					  			
 				</tr>
 		  		<tr>
@@ -322,7 +322,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 			    ?>
 			    
 			    <form action="./buchungseinschraenkungHinzufuegen.inc.php" method="post" target="_self">
-			  	<input type="hidden" name="typ" value="<?= BE_TYP_TAG ?>"/>
+			  	<input type="hidden" name="typ" value="<?php echo BE_TYP_TAG ?>"/>
 			  	<tr>
 		  			<td>
   						<select name="moId" id="moId">
@@ -334,7 +334,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 									$moBez = getUebersetzungVermieter($moBez,$sprach,$vermieter_id);
 									$mietobjekt_id = $l["MIETOBJEKT_ID"];
 									?>
-									<option value="<?= $mietobjekt_id ?>"><?= $moBez ?></option>			  						
+									<option value="<?php echo $mietobjekt_id ?>"><?php echo $moBez ?></option>			  						
 									<?php		
 								}
 								?>
@@ -342,40 +342,40 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_MONTAG ?>"/>  
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_MONTAG ?>"/>  
 		  				</div>
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_DIENSTAG ?>"/> 
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_DIENSTAG ?>"/> 
 		  				</div>
 		  			</td>
 		  			<td>
 		  				<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_MITTWOCH ?>"/> 
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_MITTWOCH ?>"/> 
 		  				</div>
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_DONNERSTAG ?>"/>  
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_DONNERSTAG ?>"/>  
 		  				</div>
 		  			</td>
 			  		<td><div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_FREITAG ?>"/> 
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_FREITAG ?>"/> 
 		  				</div>
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_SAMSTAG ?>"/>  
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_SAMSTAG ?>"/>  
 		  				</div>
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_SONNTAG ?>"/>  
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_SONNTAG ?>"/>  
 		  				</div>
 		  			</td>	
 		  			<td>
-		  				<?php showSubmitButton(getUebersetzung("hinzufügen")); ?>	  
+		  				<?php showSubmitButton(getUebersetzung("hinzufÃ¼gen")); ?>	  
 		  			</td>					  					  					  			
 				</tr>
 				</form>
@@ -385,35 +385,35 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 </table>
 <!-- ende tage -->
 <br/>
-<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <!-- start datum -->
   <tr>
-  	<td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-  		<?= getUebersetzung("Keine Buchungen möglich zu folgendem Datum"); ?>:
+  	<td class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+  		<?php echo getUebersetzung("Keine Buchungen mÃ¶glich zu folgendem Datum"); ?>:
   	<td>
   <tr>
   <tr>
   	<td>
-  		<table class="<?= STANDARD_SCHRIFT ?>">	  	
+  		<table class="<?php echo STANDARD_SCHRIFT ?>">	  	
 		  		<tr>
 			  		<th>
 			  			<div align="left">
-		  					<?= $mietobjekt_einzahl ?> 
+		  					<?php echo $mietobjekt_einzahl ?> 
 		  				</div>
 		  			</th>		  		
 			  		<th>
 			  			<div align="left">
-		  					<?= getUebersetzung("Datum von") ?> 
+		  					<?php echo getUebersetzung("Datum von") ?> 
 		  				</div>
 		  			</th>
 			  		<th>
 			  			<div align="left">
-		  					<?= getUebersetzung("Datum bis") ?> 
+		  					<?php echo getUebersetzung("Datum bis") ?> 
 		  				</div>
 		  			</th>
 		  			<th>
 		  				<div align="left">
-		  					<?= getUebersetzung("löschen/hinzufügen") ?> 
+		  					<?php echo getUebersetzung("lÃ¶schen/hinzufÃ¼gen") ?> 
 		  				</div>
 		  			</th>
 		  		</tr>
@@ -438,19 +438,19 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 					  	$einschr_id = $r["EINSCHRAENKUNGS_ID"];
 					?>
 			  			<form action="./buchungseinschraenkungLoeschen.inc.php" method="post" target="_self">
-			  			<input type="hidden" name="einschraenkungs_id" value="<?= $einschr_id ?>" />	
+			  			<input type="hidden" name="einschraenkungs_id" value="<?php echo $einschr_id ?>" />	
 				  		<tr>
 				  			<td>
-				  				<?= $moBez ?> 
+				  				<?php echo $moBez ?> 
 				  			</td>
 					  		<td>
-				  				<?= $einschrVon ?> <?= getUebersetzung("Uhr"); ?>
+				  				<?php echo $einschrVon ?> <?php echo getUebersetzung("Uhr"); ?>
 				  			</td>
 					  		<td>
-				  				<?= $einschrBis ?> <?= getUebersetzung("Uhr"); ?> 
+				  				<?php echo $einschrBis ?> <?php echo getUebersetzung("Uhr"); ?> 
 				  			</td>
 					  		<td>
-				  				<?php showSubmitButton(getUebersetzung("löschen")); ?> 
+				  				<?php showSubmitButton(getUebersetzung("lÃ¶schen")); ?> 
 				  			</td>	  					  					  					  			
 			  			</tr>
 				  		<tr>
@@ -509,7 +509,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
  
 				?>
 			<form action="./buchungseinschraenkungHinzufuegen.inc.php" method="post" target="_self">
-	  		<input type="hidden" name="typ" value="<?= $typ ?>" />
+	  		<input type="hidden" name="typ" value="<?php echo $typ ?>" />
   			<tr>
   				<td valign="top">
   					<select name="moId" id="moId">
@@ -521,7 +521,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		  						$moBez = getUebersetzungVermieter($moBez,$sprach,$vermieter_id);
 		  						$mietobjekt_id = $l["MIETOBJEKT_ID"];
 		  						?>
-		  						<option value="<?= $mietobjekt_id ?>"><?= $moBez ?></option>			  						
+		  						<option value="<?php echo $mietobjekt_id ?>"><?php echo $moBez ?></option>			  						
 		  						<?php		
 		  					}
 		  					?>
@@ -531,7 +531,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		        <table cellpadding="0" cellspacing="0" border="0">
 			        <tr>
 			        	<td colspan = "2">
-							<script>DateInput('datumVon', true, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script>
+							<script>DateInput('datumVon', true, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script>
 			          	</td>
 			        </tr>
 			        <tr>
@@ -550,8 +550,8 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 									if ($l<10){$l="0".$l;} ?>
 				            <option value="<?php echo $l ?>"<?php if ($l == $vonMinute) echo(" selected=\"selected\""); ?>><?php echo $l ?></option>
 				            <?php } ?>
-				          </select> <span class="<?= STANDARD_SCHRIFT ?>">
-				          	<?= getUebersetzung("Uhr"); ?></span></td>
+				          </select> <span class="<?php echo STANDARD_SCHRIFT ?>">
+				          	<?php echo getUebersetzung("Uhr"); ?></span></td>
 			        </tr>
 		        </table>
 		    </td>
@@ -559,7 +559,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		        <table cellpadding="0" cellspacing="0" border="0">
 			        <tr>
 			        	<td colspan = "2">
-							<script>DateInput('datumBis', true, 'DD/MM/YYYY','<?= $enddatumDP  ?>')</script>
+							<script>DateInput('datumBis', true, 'DD/MM/YYYY','<?php echo $enddatumDP  ?>')</script>
 			          	</td>
 			        </tr>
 			        <tr>
@@ -580,13 +580,13 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 							?>
 				            <option value="<?php echo $l ?>"<?php if ($l == $bisMinute) echo(" selected=\"selected\""); ?>><?php echo $l ?></option>
 				            <?php } ?>
-				          </select> <span class="<?= STANDARD_SCHRIFT ?>">
-				          	<?= getUebersetzung("Uhr"); ?></span></td>
+				          </select> <span class="<?php echo STANDARD_SCHRIFT ?>">
+				          	<?php echo getUebersetzung("Uhr"); ?></span></td>
 			        </tr>
 		        </table>
   			  </td>
 		  		<td valign="top">
-	  				<?php showSubmitButton(getUebersetzung("hinzufügen")); ?> 
+	  				<?php showSubmitButton(getUebersetzung("hinzufÃ¼gen")); ?> 
 	  			</td>	  					  					  					  			
   			</tr>
   			</form>
@@ -597,7 +597,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 </form>
 <br/>
 <?php 
-//-----buttons um zurück zum menue zu gelangen: 
-showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+//-----buttons um zurÃ¼ck zum menue zu gelangen: 
+showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

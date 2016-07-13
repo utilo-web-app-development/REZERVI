@@ -10,63 +10,63 @@
 <!-- tabs fuer raeume anzeigen -->
 <div name="raumplan" id="raumplan" style="float:left;" class="yui-content">
 	<form action="./index.php" method="post" name="reservationForm" target="_self">
-	<input type="hidden" name="raum_id" value="<?= $raum_id ?>"/>
+	<input type="hidden" name="raum_id" value="<?php echo $raum_id ?>"/>
 	<table cellspacing="0" border="0" cellpadding="0">
 		<tr valign="top">
-			<td width="<?= BREITE_KALENDER ?>">
+			<td width="<?php echo BREITE_KALENDER ?>">
 			<!-- linke seite menue mit kalender -->
-				<table cellspacing="0" border="0" cellpadding="3" class="<?= STANDARD_SCHRIFT ?>">
+				<table cellspacing="0" border="0" cellpadding="3" class="<?php echo STANDARD_SCHRIFT ?>">
 				<tr>
 					<td>						
-						<?= getUebersetzung("Bitte wählen sie das Datum, die Uhrzeit und die " .
+						<?php echo getUebersetzung("Bitte wählen sie das Datum, die Uhrzeit und die " .
 								"gewünschte Anzahl der Personen für ihre Tischreservierung.") ?>						
 					</td>
 				</tr>				
 				<tr>
 					<td>
 						<script>
-							DateInput('datum', true, 'DD/MM/YYYY','<?= $startdatumDP  ?>')
+							DateInput('datum', true, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')
 						</script>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<select name="stunde"  id="stunde" class="<?= SELECT ?>">
+						<select name="stunde"  id="stunde" class="<?php echo SELECT ?>">
 							<?php				
 							for ($l=0; $l < 24; $l++){ 
 									if ($l<10){$l="0".$l;} ?>
-								<option value="<?= $l ?>"<?php if ($l == $stunde) 
+								<option value="<?php echo $l ?>"<?php if ($l == $stunde) 
 									echo(" selected=\"selected\""); ?>>
-										<?= $l ?>
+										<?php echo $l ?>
 								</option>
 							<?php } ?>
 					  	</select>:
-					  	<select name="minute"  id="minute" class="<?= SELECT ?>">
+					  	<select name="minute"  id="minute" class="<?php echo SELECT ?>">
 							<?php				
 							for ($l=0; $l < 60; $l++){ 
 									if ($l<10){$l="0".$l;} ?>
-								<option value="<?= $l ?>"<?php if ($l == $minute) 
+								<option value="<?php echo $l ?>"<?php if ($l == $minute) 
 									echo(" selected=\"selected\""); ?>>
-									<?= $l ?>
+									<?php echo $l ?>
 								</option>
 							<?php } ?>
 					  	</select> 
-					  	<span class="<?= STANDARD_SCHRIFT ?>">
-							<?= getUebersetzung("Uhr"); ?>
+					  	<span class="<?php echo STANDARD_SCHRIFT ?>">
+							<?php echo getUebersetzung("Uhr"); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<select name="personen"  id="personen" class="<?= SELECT ?>">
+						<select name="personen"  id="personen" class="<?php echo SELECT ?>">
 							<?php				
 							for ($l=$minAnzahlPersonen; $l <= $maxAnzahlPersonen; $l++){ 
 								if ($l<10){$l="0".$l;} ?>
-								<option value="<?= $l ?>"<?php if ($l == 2) 
-									echo(" selected=\"selected\""); ?>><?= $l ?>
+								<option value="<?php echo $l ?>"<?php if ($l == 2) 
+									echo(" selected=\"selected\""); ?>><?php echo $l ?>
 								</option>
 							<?php } ?>
-					  	</select> <?= getUebersetzung("Personen") ?>
+					  	</select> <?php echo getUebersetzung("Personen") ?>
 					 </td>
 				</tr>
 				<tr>
@@ -74,11 +74,11 @@
 						<input 
 							type="button" 
 							name="changeReservations" 
-							class="<?= BUTTON ?>" 
-		  					onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       						onMouseOut="this.className='<?= BUTTON ?>';"
+							class="<?php echo BUTTON ?>" 
+		  					onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       						onMouseOut="this.className='<?php echo BUTTON ?>';"
        						onClick="showReservations()"
-							value="<?= getUebersetzung("Reservierungen anzeigen") ?>"
+							value="<?php echo getUebersetzung("Reservierungen anzeigen") ?>"
 							/>
 					 </td>
 				</tr>	
@@ -90,34 +90,34 @@
 				<tr>
 					<td>
 						<div align="left" style="position:relative;float:left">
-							<img src="<?= $root."/templates/picture.php?bilder_id=".getBildWithMarker(SYMBOL_TABLE_OCCUPIED) ?>" 
-      							width="<?= getBildBreite(getBildWithMarker(SYMBOL_TABLE_OCCUPIED)) ?>" 
-      							height="<?= getBildHoehe(getBildWithMarker(SYMBOL_TABLE_OCCUPIED)) ?>"/>
+							<img src="<?php echo $root."/templates/picture.php?bilder_id=".getBildWithMarker(SYMBOL_TABLE_OCCUPIED) ?>" 
+      							width="<?php echo getBildBreite(getBildWithMarker(SYMBOL_TABLE_OCCUPIED)) ?>" 
+      							height="<?php echo getBildHoehe(getBildWithMarker(SYMBOL_TABLE_OCCUPIED)) ?>"/>
 						</div>
 						<div align="left" 
-							class="<?= STANDARD_SCHRIFT ?>">
-							<?= getUebersetzung("Tisch belegt") ?>
+							class="<?php echo STANDARD_SCHRIFT ?>">
+							<?php echo getUebersetzung("Tisch belegt") ?>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div align="left" style="position:relative;float:left">
-							<img src="<?= $root."/templates/picture.php?bilder_id=".getBildWithMarker(SYMBOL_TABLE_FREE) ?>" 
-      							width="<?= getBildBreite(getBildWithMarker(SYMBOL_TABLE_FREE)) ?>" 
-      							height="<?= getBildHoehe(getBildWithMarker(SYMBOL_TABLE_FREE)) ?>"/>
+							<img src="<?php echo $root."/templates/picture.php?bilder_id=".getBildWithMarker(SYMBOL_TABLE_FREE) ?>" 
+      							width="<?php echo getBildBreite(getBildWithMarker(SYMBOL_TABLE_FREE)) ?>" 
+      							height="<?php echo getBildHoehe(getBildWithMarker(SYMBOL_TABLE_FREE)) ?>"/>
 						</div>
 						<div align="left" 
-							class="<?= STANDARD_SCHRIFT ?>">
-							<?= getUebersetzung("Tisch verfügbar") ?>
+							class="<?php echo STANDARD_SCHRIFT ?>">
+							<?php echo getUebersetzung("Tisch verfügbar") ?>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div align="left" 
-							class="<?= STANDARD_SCHRIFT ?>">
-							<?= getUebersetzung("Ausgewählte Tische:") ?>
+							class="<?php echo STANDARD_SCHRIFT ?>">
+							<?php echo getUebersetzung("Ausgewählte Tische:") ?>
 						</div>
 					</td>
 				</tr>					
@@ -136,11 +136,11 @@
 						<input 
 							type="reset" 
 							name="reset" 
-							class="<?= BUTTON ?>" 
-		  					onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       						onMouseOut="this.className='<?= BUTTON ?>';"
+							class="<?php echo BUTTON ?>" 
+		  					onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       						onMouseOut="this.className='<?php echo BUTTON ?>';"
        						onClick="removeAllTische();"
-							value="<?= getUebersetzung("Auswahl löschen") ?>"
+							value="<?php echo getUebersetzung("Auswahl löschen") ?>"
 							/>
 					 </td>
 				</tr>	
@@ -149,11 +149,11 @@
 						<input 
 							type="button" 
 							name="reservierungsButton" 
-							class="<?= BUTTON ?>" 
-		  					onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       						onMouseOut="this.className='<?= BUTTON ?>';"
+							class="<?php echo BUTTON ?>" 
+		  					onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       						onMouseOut="this.className='<?php echo BUTTON ?>';"
        						onClick="submitReservierung()"
-							value="<?= getUebersetzung("Reservierung starten") ?>"
+							value="<?php echo getUebersetzung("Reservierung starten") ?>"
 							/>
 					 </td>
 				</tr>				
@@ -162,7 +162,7 @@
 			<td>
 			<!-- rechte seite mit bild von raum -->
 			<!-- bild ausgeben -->
-			<div name="raum" id="raum" style="height:<?= $bildhoehe ?> px;overflow:hidden;">
+			<div name="raum" id="raum" style="height:<?php echo $bildhoehe ?> px;overflow:hidden;">
 				<?php
 				//dann die tische anzeigen die bereits gesetzt sind oder noch zu setzen sind:
 				$res  = getTische($raum_id);
@@ -220,27 +220,27 @@
 						$hi    = getHeightOfTisch($id);
 				?>
 					
-						<div id="tisch<?= $id ?>" style="z-index:<?= $zindex++ ?>;
+						<div id="tisch<?php echo $id ?>" style="z-index:<?php echo $zindex++ ?>;
 							text-align: center; background-position:center center;
-							width:<?= $wi ?>px;height:<?= $hi ?>px;">
+							width:<?php echo $wi ?>px;height:<?php echo $hi ?>px;">
 							<a href="#">
-								<? //wenn tisch frei
+								<?php //wenn tisch frei
 								   //dann zeige paralleles besteck
 								   //sonst gekreuztes besteck:
 								   $belegt = isMietobjektTaken($id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr);
 								   if ($belegt == false){
 								   	?>
-									<img onClick="tischInfo('<?= $id ?>');" src="<?= $root."/templates/picture.php?bilder_id=".getBildWithMarker(SYMBOL_TABLE_FREE) ?>" 
-	      								width="<?= getBildBreite(getBildWithMarker(SYMBOL_TABLE_FREE)) ?>" 
-	      								height="<?= getBildHoehe(getBildWithMarker(SYMBOL_TABLE_FREE)) ?>"
+									<img onClick="tischInfo('<?php echo $id ?>');" src="<?php echo $root."/templates/picture.php?bilder_id=".getBildWithMarker(SYMBOL_TABLE_FREE) ?>" 
+	      								width="<?php echo getBildBreite(getBildWithMarker(SYMBOL_TABLE_FREE)) ?>" 
+	      								height="<?php echo getBildHoehe(getBildWithMarker(SYMBOL_TABLE_FREE)) ?>"
 										border="0"/>											
 								   	<?php
 								   }
 								   else{
 								   	?>
-									<img onClick="tischInfo('<?= $id ?>');" src="<?= $root."/templates/picture.php?bilder_id=".getBildWithMarker(SYMBOL_TABLE_OCCUPIED) ?>" 
-	      								width="<?= getBildBreite(getBildWithMarker(SYMBOL_TABLE_OCCUPIED)) ?>" 
-	      								height="<?= getBildHoehe(getBildWithMarker(SYMBOL_TABLE_OCCUPIED)) ?>"
+									<img onClick="tischInfo('<?php echo $id ?>');" src="<?php echo $root."/templates/picture.php?bilder_id=".getBildWithMarker(SYMBOL_TABLE_OCCUPIED) ?>" 
+	      								width="<?php echo getBildBreite(getBildWithMarker(SYMBOL_TABLE_OCCUPIED)) ?>" 
+	      								height="<?php echo getBildHoehe(getBildWithMarker(SYMBOL_TABLE_OCCUPIED)) ?>"
 										border="0"/>																		
 								   	<?php
 								   }
@@ -252,9 +252,9 @@
 				} 
 				?>
 				<img id="raumbild" 
-					src="<?= $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
-					width="<?= $bildbreite ?>" 
-					height="<?= $bildhoehe ?>" 
+					src="<?php echo $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
+					width="<?php echo $bildbreite ?>" 
+					height="<?php echo $bildhoehe ?>" 
 					style="z-index:6" 
 					border="0" />				
 					

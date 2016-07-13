@@ -40,9 +40,9 @@ foreach ($files as $filename){
 		$fehler = true;
 		$antwort=mysql_error($link)."<br/>";
 		$antwort.=getUebersetzung("Anlegen der Tabellen scheiterte!",$sprache,$link)."<br/>";
-	    $antwort.=getUebersetzung("Eine mögliche Ursache ist, dass die Zugangsdaten in ihrer Konfigurationsdatei nicht korrekt sind oder die Tabellen bereits angelegt wurden.",$sprache,$link)."<br/>";
-		$antwort.=getUebersetzung("Überprüfen Sie die Zugangsdaten in conf/rdbmsConfig.php und die Version Ihrer MySQL Datenbank.",$sprache,$link)."<br/>";  
-		$antwort.=getUebersetzung("Wenn die Tabellen bereits angelegt wurden, können sie diesen Schritt überspringen.",$sprache,$link)."<br/>";  
+	    $antwort.=getUebersetzung("Eine mÃ¶gliche Ursache ist, dass die Zugangsdaten in ihrer Konfigurationsdatei nicht korrekt sind oder die Tabellen bereits angelegt wurden.",$sprache,$link)."<br/>";
+		$antwort.=getUebersetzung("ÃœberprÃ¼fen Sie die Zugangsdaten in conf/rdbmsConfig.php und die Version Ihrer MySQL Datenbank.",$sprache,$link)."<br/>";  
+		$antwort.=getUebersetzung("Wenn die Tabellen bereits angelegt wurden, kÃ¶nnen sie diesen Schritt Ã¼berspringen.",$sprache,$link)."<br/>";  
 		$antwort.=getUebersetzung("Ansonsten wenden sie sich bitte per E-Mail an utilo.eu - wir helfen ihnen gerne weiter!",$sprache,$link)."<br/>";
 	}
 	else{
@@ -83,7 +83,7 @@ $query = "REPLACE INTO
 		Rezervi_Sprachen_Neu 
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
-		('fr','französisch','$fahne','2')";
+		('fr','franzÃ¶sisch','$fahne','2')";
 $res = mysql_query($query, $link);
 if (!$res){
     $antwort=$antwort.(mysql_error($link));
@@ -127,7 +127,7 @@ $query = "REPLACE INTO
 		Rezervi_Sprachen_Neu 
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
-		('nl','Niederländisch','$fahne','3')";
+		('nl','NiederlÃ¤ndisch','$fahne','3')";
 $res = mysql_query($query, $link);
 if (!$res){
     $antwort=$antwort.(mysql_error($link));

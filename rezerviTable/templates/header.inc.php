@@ -29,7 +29,7 @@
 	 $sprache = getSessionWert(SPRACHE);
 	
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <title>Bookline Booking System - Bookline Buchungssystem - alpstein-austria</title>
@@ -37,5 +37,5 @@
 <style type="text/css">
   <?php include_once($root."/templates/stylesheets.php"); ?>
 </style>  
-<link rel="stylesheet" type="text/css" href="<?= $root ?>/templates/rezerviTable.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $root ?>/templates/rezerviTable.css"/>
 </head>

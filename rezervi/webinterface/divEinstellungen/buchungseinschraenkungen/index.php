@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	author: christian osterrieder utilo.eu						
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once($root."/conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -39,7 +39,7 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 <?php include_once($root."/webinterface/templates/headerB.php"); ?>
 <?php include_once($root."/webinterface/templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <!-- <div class="panel panel-default">
@@ -73,7 +73,7 @@ if (isset($nachricht) && $nachricht != ""){
   <form action="./aendern.php" method="post" target="_self" name="reservierung">
 
 
- 	<h3> <?= 
+ 	<h3> <?php echo 
 	  getUebersetzung("Zeitraum (z. B. Saison):",$sprache,$link);
 	 ?></h3>
 	 
@@ -84,12 +84,12 @@ if (isset($nachricht) && $nachricht != ""){
     <td colspan="2">
 		<table class="table" >
 			<tr>
-				<td><?= getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link); ?></td>
-				<td><?= getUebersetzung("Tag von",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("Tag bis",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("Datum von",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("Datum bis",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("löschen/hinzufügen",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link); ?></td>
+				<td><?php echo getUebersetzung("Tag von",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzung("Tag bis",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzung("Datum von",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzung("Datum bis",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzung("löschen/hinzufügen",$sprache,$link); ?></td>
 			</tr>
 			<?php			
 			
@@ -106,16 +106,16 @@ if (isset($nachricht) && $nachricht != ""){
 					 
 				?>
 				<tr>
-					<td><?= $zimmerart . " " . $zimmer ?></td>
-					<td><?= $von ?></td>
-					<td><?= $bis ?></td>
-					<td><?= $datum_von ?></td>
-					<td><?= $datum_bis ?></td>
+					<td><?php echo $zimmerart . " " . $zimmer ?></td>
+					<td><?php echo $von ?></td>
+					<td><?php echo $bis ?></td>
+					<td><?php echo $datum_von ?></td>
+					<td><?php echo $datum_bis ?></td>
 					<td>
-						<input name="loeschen#<?= $id ?>" 
+						<input name="loeschen#<?php echo $id ?>" 
 							   type="submit" 
 							   class="btn btn-danger" 
-							   value="<?= getUebersetzung("löschen",$sprache,$link); ?>"/>
+							   value="<?php echo getUebersetzung("löschen",$sprache,$link); ?>"/>
 							   <!-- onMouseOver="this.className='button200pxB';"
        						   onMouseOut="this.className='button200pxA';"  -->
 							 
@@ -128,36 +128,36 @@ if (isset($nachricht) && $nachricht != ""){
 				<tr>
 					<td>
 						<select name="zimmer_id">
-							<?
+							<?php
 							$res = getZimmer($unterkunft_id,$link);
 							while ($d = mysql_fetch_array($res)){
 								$zimmer_id = $d["PK_ID"];
 								$zimmer = getZimmerNr($unterkunft_id,$zimmer_id,$link);
 								$zimmerart = getZimmerArt($unterkunft_id,$zimmer_id,$link);
 							?>
-							<option value="<?= $zimmer_id ?>"><?= $zimmerart . " " . $zimmer ?></option>
-							<?
+							<option value="<?php echo $zimmer_id ?>"><?php echo $zimmerart . " " . $zimmer ?></option>
+							<?php
 							} //ende while
 							?>
 						</select>
 					</td>
 					<td><select name="von_wochentag">
-							<?
+							<?php
 							$res = getWochentage();
 							foreach ($res as $wochentag){
 							?>
-							<option value="<?= $wochentag ?>"><?= $wochentag ?></option>
-							<?
+							<option value="<?php echo $wochentag ?>"><?php echo $wochentag ?></option>
+							<?php
 							} //ende while
 							?>
 						</select></td>
 					<td><select name="bis_wochentag">
-							<?
+							<?php
 							$res = getWochentage();
 							foreach ($res as $wochentag){
 							?>
-							<option value="<?= $wochentag ?>"><?= $wochentag ?></option>
-							<?
+							<option value="<?php echo $wochentag ?>"><?php echo $wochentag ?></option>
+							<?php
 							} //ende while
 							?>
 						</select></td>
@@ -171,7 +171,7 @@ if (isset($nachricht) && $nachricht != ""){
 				          <select name="vonMonat" class="tableColor" id="vonMonat" onChange="chkDays(0)">
 				            <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
 				            <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-				            <option value="3"<?php if (getTodayMonth() == "M�rz") echo " selected"; ?>><?php echo(getUebersetzung("M�rz",$sprache,$link)); ?></option>
+				            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
 				            <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
 				            <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
 				            <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -202,7 +202,7 @@ if (isset($nachricht) && $nachricht != ""){
 			          <select name="bisMonat" class="tableColor" id="bisMonat" onChange="chkDays(1)">
 			            <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
 			            <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-			            <option value="3"<?php if (getTodayMonth() == "M�rz") echo " selected"; ?>><?php echo(getUebersetzung("M�rz",$sprache,$link)); ?></option>
+			            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
 			            <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
 			            <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
 			            <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -225,7 +225,7 @@ if (isset($nachricht) && $nachricht != ""){
 						<input name="add" 
 							   type="submit" 
 							   class="btn btn-success" 
-							   value="<?= getUebersetzung("hinzufügen",$sprache,$link); ?>"/>
+							   value="<?php echo getUebersetzung("hinzufügen",$sprache,$link); ?>"/>
 							   <!-- onMouseOver="this.className='button200pxB';"
        						   onMouseOut="this.className='button200pxA';"  -->
 							
@@ -239,16 +239,16 @@ if (isset($nachricht) && $nachricht != ""){
 </table>
 <!-- <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/> -->
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmen�",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

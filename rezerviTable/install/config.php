@@ -8,11 +8,12 @@
  	$antwort = "";
  }
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html">
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html">
+ <meta charset="UTF-8">
 <title>Installation Bookline Konfiguration</title>
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" type="text/JavaScript">
@@ -25,12 +26,12 @@
 				  if ($_POST["sprache"] == "de"){
 						?>
 						"Bitte geben sie den Namen ihres Gastronomiebetriebes ein!"
-						<?
+						<?php
 				  }
 				  else{
 						?>
 						"Please fill in the name of your gastronomy!"
-						<?
+						<?php
 				  }
 				  ?>);
 				  
@@ -49,30 +50,30 @@
   if ($_POST["sprache"] == "de"){
 		?>
 		Installation Bookline
-		<?
+		<?php
   }
   else{
 		?>
 		Bookline installation
-		<?
+		<?php
   }
 ?>		
 </p>			    
 <p <?php if ($fehler == true) echo("class=\"belegt\""); else echo("class=\"frei\""); ?>><?php echo($antwort); ?></p>
 <form action="install.php" method="post" id="formConfig" name="formConfig" target="_self" onSubmit="return checkForm();">
-	<input type="hidden" name="sprache" value="<?= $_POST["sprache"] ?>" />
+	<input type="hidden" name="sprache" value="<?php echo $_POST["sprache"] ?>" />
 	<table  border="0" cellpadding="0" cellspacing="3" class="table"> 	
 			<tr>
 				  <td><?php
 				  if ($_POST["sprache"] == "de"){
 						?>
 						Name ihres Gastronomiebetriebes
-						<?
+						<?php
 				  }
 				  else{
 						?>
 						Name of your gastronomy
-						<?
+						<?php
 				  }
 				  ?></td>
 				  	<td>

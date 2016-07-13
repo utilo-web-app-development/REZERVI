@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -30,7 +30,7 @@ $height  = $_POST["height"];
 	if (!hasDirectory($path)){
 		if (!phpMkDir($path)){
 			//file erzeugen war nicht erfolgreich
-				$nachricht = "Das Upload Verzeichnis für die Bilder konnte nicht erstellt werden.";
+				$nachricht = "Das Upload Verzeichnis fÃ¼r die Bilder konnte nicht erstellt werden.";
 				$nachricht = getUebersetzung($nachricht);
 				$fehler = true;
 				include_once("./index.php");
@@ -44,7 +44,7 @@ $height = 1 + $height - 1;
 
 	if ($width == "" || $height == "" || $height <=0 || $width <= 0){
 		
-		$nachricht = "Die Bildgrössen wurden nicht korrekt eingegeben.";
+		$nachricht = "Die BildgrÃ¶ssen wurden nicht korrekt eingegeben.";
 		$nachricht = getUebersetzung($nachricht);
 		$fehler = true;
 		include_once("./index.php");
@@ -74,17 +74,17 @@ include_once($root."/webinterface/templates/components.inc.php");
 	setVermieterEigenschaftenWert(BILDER_HEIGHT,$height,$vermieter_id);
 		
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+	<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
 	  <tr>
-		<td><?php $nachricht = "Die Einstellungen der Bilder wurden erfolgreich geändert.";
+		<td><?php $nachricht = "Die Einstellungen der Bilder wurden erfolgreich geÃ¤ndert.";
 				  $nachricht = getUebersetzung($nachricht);				
 				  echo($nachricht) ?></td>
 	  </tr>
 	</table>
 	<br/><br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

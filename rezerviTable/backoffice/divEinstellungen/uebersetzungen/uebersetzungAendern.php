@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 $unterschrift = "Übersetzungen";
@@ -89,9 +89,9 @@ $res = getAllUebersetzungenWithIndex($index,$standardsprache);
 <input name="changeSprache" type="hidden" value="<?php echo($changeSprache); ?>"/>
 <table width="90%" class="moduletable_line ">
   <tr>
-	<th width="45%"><?= getUebersetzung("Standardtext in ")." ".getBezeichnungOfSpracheID($standardsprache); ?></th>
+	<th width="45%"><?php echo getUebersetzung("Standardtext in ")." ".getBezeichnungOfSpracheID($standardsprache); ?></th>
 	<th width="45%">
-		<?= getUebersetzung("Uebersetzung in")." ".getBezeichnungOfSpracheID($changeSprache); ?>
+		<?php echo getUebersetzung("Uebersetzung in")." ".getBezeichnungOfSpracheID($changeSprache); ?>
 	</th>
   </tr>
   <?php
@@ -110,8 +110,8 @@ $res = getAllUebersetzungenWithIndex($index,$standardsprache);
   	$uebersetzungs_ids.=($uebersetzungs_id."#");
   ?>
 	  <tr>
-		<td><?= $standardtext ?></td>
-		<td><textarea style="width:100%;" name="uebersetzung_id_<?= $uebersetzungs_id ?>"><?= $text ?></textarea></td>
+		<td><?php echo $standardtext ?></td>
+		<td><textarea style="width:100%;" name="uebersetzung_id_<?php echo $uebersetzungs_id ?>"><?php echo $text ?></textarea></td>
 	  </tr>
   <?php
   }
@@ -120,32 +120,32 @@ $res = getAllUebersetzungenWithIndex($index,$standardsprache);
 <table width="90%">
 	<tr>
 		<td>
-			<div  align="right"><?
+			<div  align="right"><?php
 		if (($index - LIMIT_UEBERSETZUNGEN) > -1){
 			?>
 			<input name="indexVorherigeSeite" type="hidden" value="<?php echo($index - LIMIT_UEBERSETZUNGEN); ?>"/>
 			<input type="submit" name="vorherige" value="<?php echo(getUebersetzung("speichern und vorherige Seite")); ?>" class="button">
-			<?
+			<?php
 		}else{
 			?>
 			<input type="submit" name="vorherige" value="<?php echo(getUebersetzung("speichern und vorherige Seite")); ?>" class="button_nolink">
-			<?
+			<?php
 		}
 		?>
 			</div>
 		</td>
 		<td>
 			<div  align="left">
-		<?
+		<?php
 		if (($index + LIMIT_UEBERSETZUNGEN) < getAnzahlUebersetzungen($standardsprache)){
 			?>
 			<input name="indexNaechsteSeite" type="hidden" value="<?php echo($index + LIMIT_UEBERSETZUNGEN); ?>"/>
 			<input type="submit" name="naechste" value="<?php echo(getUebersetzung("speichern und nächste Seite")); ?>" class="button">
-			<?	
+			<?php	
 		}else{
 			?>
 			<input type="submit" name="naechste" value="<?php echo(getUebersetzung("speichern und nächste Seite")); ?>" class="button_nolink">
-			<?
+			<?php
 		}	?>
 			</div>
 		</td>

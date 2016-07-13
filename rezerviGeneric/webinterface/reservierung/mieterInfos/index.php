@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 4.11.05
@@ -28,9 +28,9 @@ else{
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mieter Informationen")); ?>:
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mieter Informationen")); ?>:
 </p>
-<table border="0" cellspacing="3" cellpadding="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellspacing="3" cellpadding="0" class="<?php echo TABLE_STANDARD ?>">
   <tr>
     <td><?php echo(getUebersetzung("Anrede")); ?></td>
     <td><?php echo(getMieterAnrede($mieter_id)); ?></td>
@@ -44,7 +44,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
     <td><?php echo(getNachnameOfMieter($mieter_id)); ?></td>
   </tr>
   <tr>
-    <td><?php echo(getUebersetzung("Straße/Hausnummer")); ?></td>
+    <td><?php echo(getUebersetzung("StraÃŸe/Hausnummer")); ?></td>
     <td><?php echo(getMieterStrasse($mieter_id)); ?></td>
   </tr>
   <tr>
@@ -91,13 +91,13 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
   </tr>
 </table>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen für den Mieter vor")); ?>:
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen fÃ¼r den Mieter vor")); ?>:
 </p>
 <table  border="1" cellpadding="0" cellspacing="3">
-  <tr class="<?= TABLE_COLOR ?>">
+  <tr class="<?php echo TABLE_COLOR ?>">
 	<td><?php echo(getUebersetzung("Reservierung von")); ?></td>
 	<td><?php echo(getUebersetzung("bis")); ?></td>
-	<td><?php echo(getUebersetzung("für")); ?></td>
+	<td><?php echo(getUebersetzung("fï¿½r")); ?></td>
   </tr>
 	<!-- ausgeben der reservierungen: -->
 	<?php
@@ -111,7 +111,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 			$datumBis = $d["BIS"];
 			$datumBis = parseMySqlTimestamp($datumBis,true,true,true,true,true);
 	 ?>
-              <tr class="<?= TABLE_STANDARD ?>">
+              <tr class="<?php echo TABLE_STANDARD ?>">
                 <td><?php echo($datumVon); ?></td>
                 <td><?php echo($datumBis); ?></td>
                 <td><?php echo($bezeichnung); ?></td>
@@ -125,13 +125,13 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
   <tr>
     <td>
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
-	    <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?= $mietobjekt_id ?>">
-	    <input name="jahr" type="hidden" id="jahr" value="<?= $jahr ?>">
-	    <input name="monat" type="hidden" id="monat" value="<?= $monat ?>">
-	    <input name="tag" type="hidden" id="tag" value="<?= $tag ?>">
-	    <input name="ansicht" type="hidden" value="<?= $ansicht ?>" />
-        <input type="submit" name="Submit" class="<?= BUTTON ?>" id="zurueck" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+	    <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo $mietobjekt_id ?>">
+	    <input name="jahr" type="hidden" id="jahr" value="<?php echo $jahr ?>">
+	    <input name="monat" type="hidden" id="monat" value="<?php echo $monat ?>">
+	    <input name="tag" type="hidden" id="tag" value="<?php echo $tag ?>">
+	    <input name="ansicht" type="hidden" value="<?php echo $ansicht ?>" />
+        <input type="submit" name="Submit" class="<?php echo BUTTON ?>" id="zurueck" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
 		<input name="index" type="hidden" value="<?php echo($index); ?>"/>
       </form>      
     </td>

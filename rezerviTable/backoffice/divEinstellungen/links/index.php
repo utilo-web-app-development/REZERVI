@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 $unterschrift = "Links";
@@ -59,7 +59,7 @@ $url = str_replace("\\","/",$url);
   ?>
 	  <tr>
 	  	<td>
-	  		<?= $bezeichnung ?>
+	  		<?php echo $bezeichnung ?>
 	  	</td>
 	  <tr>
 	  <tr>
@@ -74,10 +74,10 @@ $url = str_replace("\\","/",$url);
 	  		?>
 	  			<tr>
 	  				<td>
-	  					<?= $spr_bezeichnung ?>: 
+	  					<?php echo $spr_bezeichnung ?>: 
 	  				</td>	  			
 	  				<td>
-	  					<?= $url ?>index.php?gastro_id=<?= $gastro_id ?>&mietobjekt_id=<?= $mietobjekt_id ?>&sprache=<?= $sprache_id ?>
+	  					<?php echo $url ?>index.php?gastro_id=<?php echo $gastro_id ?>&mietobjekt_id=<?php echo $mietobjekt_id ?>&sprache=<?php echo $sprache_id ?>
 	  				</td>
 	  			</tr>
 	  		<?php
@@ -92,7 +92,7 @@ $url = str_replace("\\","/",$url);
 	  ?>
 	  <tr>
 	  	<td>
-	  		<?= getUebersetzung("Suchfunktion: ") ?>
+	  		<?php echo getUebersetzung("Suchfunktion: ") ?>
 	  	</td>
 	  <tr>	
 	  <tr>
@@ -107,10 +107,10 @@ $url = str_replace("\\","/",$url);
 	  		?>
 	  			<tr>
 	  				<td>
-	  					<?= $spr_bezeichnung ?>: 
+	  					<?php echo $spr_bezeichnung ?>: 
 	  				</td>	  			
 	  				<td>
-	  					<?= $url ?>belegungsplan/suche.php?vermieter_id=<?= $gastro_id ?>&sprache=<?= $sprache_id ?>
+	  					<?php echo $url ?>belegungsplan/suche.php?vermieter_id=<?php echo $gastro_id ?>&sprache=<?php echo $sprache_id ?>
 	  				</td>
 	  			</tr>
 	  		<?php
@@ -125,7 +125,7 @@ $url = str_replace("\\","/",$url);
 	  <tr><td>&nbsp;</td></tr>
 	  <tr>
 	  	<td>
-	  		<?= getUebersetzung("Backoffice: ") ?>
+	  		<?php echo getUebersetzung("Backoffice: ") ?>
 	  	</td>
 	  </tr>	
 	  <tr>
@@ -133,7 +133,7 @@ $url = str_replace("\\","/",$url);
 	  		<table>
 	  			<tr>  			
 	  				<td>
-	  					<?= $url ?>backoffice/index.php
+	  					<?php echo $url ?>backoffice/index.php
 	  				</td>
 	  			</tr>
 	  		</table>

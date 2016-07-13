@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 	$ERR["UNABLE_TO_OUTPUT"]		= "Unable to output: ";
 	$ERR["FILE_DOESNOT_EXSIT"]		= "This file does not exist: ";

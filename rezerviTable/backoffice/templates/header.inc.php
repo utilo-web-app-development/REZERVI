@@ -55,15 +55,15 @@
 	<meta name="audience" content="Alle"/>
 	<meta name="geo.region" content="AUT"/>
 	<meta name="geo.placename" content="Salzburg, Austria"/>
-	<link href="<?= $root ?>/backoffice/templates/template_css.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo $root ?>/backoffice/templates/template_css.css" rel="stylesheet" type="text/css">
 	<!-- Namespace source file -->
-	<script type="text/javascript" src="<?= $root ?>/yui/build/yahoo/yahoo.js"></script>
+	<script type="text/javascript" src="<?php echo $root ?>/yui/build/yahoo/yahoo.js"></script>
 	<!-- Dependency source files -->
-	<script type="text/javascript" src="<?= $root ?>/yui/build/event/event.js"></script>
-	<script type="text/javascript" src="<?= $root ?>/yui/build/dom/dom.js"></script>
-	<script type="text/javascript" src="<?= $root ?>/yui/build/animation/animation.js"></script>
+	<script type="text/javascript" src="<?php echo $root ?>/yui/build/event/event.js"></script>
+	<script type="text/javascript" src="<?php echo $root ?>/yui/build/dom/dom.js"></script>
+	<script type="text/javascript" src="<?php echo $root ?>/yui/build/animation/animation.js"></script>
 	<!-- Container source file -->
-	<script type="text/javascript" src="<?= $root ?>/yui/build/container/container_core.js"></script>
+	<script type="text/javascript" src="<?php echo $root ?>/yui/build/container/container_core.js"></script>
 	<script language=javascript>
 		var url = "<?php echo $_SERVER["PHP_SELF"]."?".$_SERVER["QUERY_STRING"]?>";
 		function refresh(){ 

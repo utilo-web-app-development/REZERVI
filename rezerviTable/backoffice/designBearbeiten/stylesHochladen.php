@@ -20,7 +20,7 @@ include_once($root."/backoffice/templates/components.inc.php");
 <table>
 	<form action="./stylesHochladenHelper.php" method="post" target="_self" enctype="multipart/form-data">
     <tr>
-    	<td><?= getUebersetzung("Stylesheet Datei") ?>:</td>
+    	<td><?php echo getUebersetzung("Stylesheet Datei") ?>:</td>
     	<td><input name="stylesheet" type="file"/></td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@ include_once($root."/backoffice/templates/components.inc.php");
 			</td>
 		</tr>
 		<tr>
-    		<td><?= getUebersetzung("Beispiel: ") ?>
+    		<td><?php echo getUebersetzung("Beispiel: ") ?>
 			</td>
 		</tr> <?php
 		$res = getAllStylesFromVermieter($gastro_id);

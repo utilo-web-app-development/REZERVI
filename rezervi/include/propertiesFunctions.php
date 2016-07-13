@@ -4,12 +4,12 @@
 defined( '_JEXEC' ) or die( 'Restricted access' ); 
 
 /**
-	Konstanten für Properties
+	Konstanten fÃ¼r Properties
 */
 define("ZIMMER_THUMBS_ACTIV", "zimmerThumbsActiv"); //zeigt, dass der benutzer in der suchfunktion thumbnails der zimmer anzeigen will
 define("ZIMMER_THUMBS_AV_OV", "zimmerThumbsinBelegungsplan"); //zeigt, dass der benutzer im belegungsplan bilder anzeigen will
 define("BILDER_SUCHE_WIDTH", "sucheWidth"); //die breite der bilder in den suchergebnissen, standard breite
-define("BILDER_SUCHE_HEIGHT", "sucheHeight"); //die höhe der bilder in den suchergebnisssen, standard
+define("BILDER_SUCHE_HEIGHT", "sucheHeight"); //die hÃ¶he der bilder in den suchergebnisssen, standard
 define("KINDER_SUCHE", "Kinder");
 define("HAUSTIERE_ALLOWED","Haustiere");
 define("LINK_SUCHE","Link");
@@ -35,7 +35,7 @@ define("SEARCH_SHOW_PARENT_ROOM","showParentRoomInSearchForm"); //show the paren
 define("RES_HOUSE","reservationForCompleteHouse"); //set to true if a house should be reserved if a room of the house is reserved
 
 /**
-	prüft ob ein property bereits vorhanden ist
+	prÃ¼ft ob ein property bereits vorhanden ist
 	author: coster
 	date: 4. aug. 2005
 */
@@ -172,7 +172,7 @@ function getPropertyValue($name,$unterkunft_id,$link){
 }
 
 /**
-liefert alle Auswahlmöglichkeiten bei der Suche
+liefert alle AuswahlmÃ¶glichkeiten bei der Suche
 */
 function getPropertiesSuche($unterkunft_id, $link){
 		$prop1 = KINDER_SUCHE;
@@ -203,7 +203,7 @@ function getPropertiesSuche($unterkunft_id, $link){
 }
    
 /**
-zeigt bereits aktivierte Suchmöglichkeiten an
+zeigt bereits aktivierte SuchmÃ¶glichkeiten an
 */
 function isPropertyShown($unterkunft_id,$name,$link)
 {

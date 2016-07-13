@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 7.10.05
@@ -20,18 +20,18 @@ $mieter_id = $_POST["mieter_id"];
 sendMail($von,$an,$subject,$message); 
 
  //save mail in mieter Texte:
- $text = "Automatisch generierte Bestätigung zu einer Anfrage.\n";
+ $text = "Automatisch generierte BestÃ¤tigung zu einer Anfrage.\n";
  $text .="Betreff: ".$subject."\n";
  $text .="Nachricht: ".$message;
  insertMieterText($text,$mieter_id);
 			 
 ?>
-<p class="<?= FREI ?>"><?php echo(getUebersetzung("Der Mieter wurde per E-Mail verständigt")); ?>.</p>
+<p class="<?php echo FREI ?>"><?php echo(getUebersetzung("Der Mieter wurde per E-Mail verstÃ¤ndigt")); ?>.</p>
 <table border="0" cellpadding="0" cellspacing="3">
   <tr>
     <td>
       <?php 
-	 	 showSubmitButtonWithForm("./index.php",getUebersetzung("zurück"));
+	 	 showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck"));
 		?>
     </td>
   </tr>

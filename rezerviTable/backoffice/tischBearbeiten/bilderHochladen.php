@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Tisch bearbeiten";
 
@@ -42,15 +42,15 @@ if (!(isset ($fehler) && $fehler != true)){
 				$bezeichnung = getUebersetzungGastro($d->BEZEICHNUNG,$sprache,$gastro_id);
 				$id = $d->MIETOBJEKT_ID
 				?>
-					<option value="<?= $id ?>"
+					<option value="<?php echo $id ?>"
 					<?php
 					if (isset($mietobjekt_id) && $mietobjekt_id == $id){
 					?>
 						selected="selected"
-					<?
+					<?php
 					}
 					?>
-					><?= $bezeichnung; ?></option>
+					><?php echo $bezeichnung; ?></option>
 				<?php 
 			  } //ende while 
 			 ?>
@@ -66,16 +66,16 @@ if (!(isset ($fehler) && $fehler != true)){
 	</tr>
 	<tr>
 		<td><span"><?php echo(getUebersetzung("Maximale Bildh�he")); ?></span></td>
-		<td><input type="text" name="maxHoehe" value="<?= $maxHoehe ?>"/>*</td>
+		<td><input type="text" name="maxHoehe" value="<?php echo $maxHoehe ?>"/>*</td>
 	</tr>
 	<tr>
 		<td><span><?php echo(getUebersetzung("Maximale Bildbreite")); ?></span></td>
-		<td><input type="text" name="maxBreite" value="<?= $maxBreite ?>"/>*</td>
+		<td><input type="text" name="maxBreite" value="<?php echo $maxBreite ?>"/>*</td>
 	</tr>
-    <tr class="<?= TABLE_STANDARD ?>"> 
+    <tr class="<?php echo TABLE_STANDARD ?>"> 
       <td colspan="2">
-        <input name="Submit" type="submit" id="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Bild hochladen")); ?>"></td>
+        <input name="Submit" type="submit" id="Submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Bild hochladen")); ?>"></td>
     </tr>
   </table>
 </form>

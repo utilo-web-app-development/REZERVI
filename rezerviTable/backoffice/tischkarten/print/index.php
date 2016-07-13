@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 $ueberschrift = "Tischkarten drucken";
 $unterschrift = "Drucken";
@@ -37,7 +37,7 @@ if (isset($_POST["jahr"])){
 }
 $startdatumDP = $tag."/".$monate."/".$jahr;
 ?>
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
@@ -47,9 +47,9 @@ $startdatumDP = $tag."/".$monate."/".$jahr;
 <table>	  	
   <tr>
 	<form action="./kartenDrucken.php" method="post" target="_self"> 	
-	    <td><script>DateInput('date1', false, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script></td>
+	    <td><script>DateInput('date1', false, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script></td>
 	  	<td><?php showSubmitButton(getUebersetzung("drucken")); ?></td>	  	
-	  	<td><?= getUebersetzung("Tischkarten für das ausgewählte Datum drucken") ?>	</td> 
+	  	<td><?php echo getUebersetzung("Tischkarten für das ausgewählte Datum drucken") ?>	</td> 
   	</form> 	
   </tr> 
 </table>

@@ -36,7 +36,7 @@ define( '_JEXEC', 1 );
  	
  	$preis =  $_POST["preis_neu"];
  	$preis = str_replace(",",".",$preis);
-	//pr�fe ob preis ein float oder integer:
+	//prüfe ob preis ein float oder integer:
 	if (!is_numeric($preis)){
 		$fehler = true;
  		$nachricht = "Der Preis ist kein gültiger Wert.";
@@ -45,7 +45,7 @@ define( '_JEXEC', 1 );
  		exit;
 	}
 	
-	//wurde ein zimmer ausgew�hlt:
+	//wurde ein zimmer ausgewählt:
 	if (!isset($_POST["zimmer_id_neu"]) || empty($_POST["zimmer_id_neu"])
 		|| count($_POST["zimmer_id_neu"])<1){
 		$fehler = true;
@@ -64,7 +64,7 @@ define( '_JEXEC', 1 );
  	exit;
  }
 
- //2. wurde l�schen geklickt?
+ //2. wurde löschen geklickt?
  $res = getStandardPrices($unterkunft_id,$link);
  while ($d = mysql_fetch_array($res)){	
 	$preis_id 	= $d["PK_ID"];
@@ -81,7 +81,7 @@ define( '_JEXEC', 1 );
  if (isset($_POST["aendern"])){
  	
  	 $res = getStandardPrices($unterkunft_id,$link);
- 	 //gehe alle preise durch ob sie evt. ver�ndert wurden:
+ 	 //gehe alle preise durch ob sie evt. verändert wurden:
 	 while ($d = mysql_fetch_array($res)){	
 	 		
 	 		$preis_id = $d["PK_ID"];
@@ -97,7 +97,7 @@ define( '_JEXEC', 1 );
 		 	
 		 	$preis =  $_POST["preis_".$preis_id];
 		 	$preis = str_replace(",",".",$preis);
-			//pr�fe ob preis ein float oder integer:
+			//prüfe ob preis ein float oder integer:
 			if (!is_numeric($preis)){
 				$fehler = true;
 		 		$nachricht = "Der Preis ist kein gültiger Wert.";
@@ -106,7 +106,7 @@ define( '_JEXEC', 1 );
 		 		exit;
 			}			
 			
-			//wurde ein zimmer ausgew�hlt:
+			//wurde ein zimmer ausgewählt:
 			if (!isset($_POST["zimmer_".$preis_id]) || empty($_POST["zimmer_".$preis_id])
 				|| count($_POST["zimmer_".$preis_id])<1){
 				$fehler = true;
@@ -119,7 +119,7 @@ define( '_JEXEC', 1 );
 		 	//preis speichern:
 		 	changePrice($preis_id,$zimmer_id_neu,null,null,$preis,"Euro",true,$link); 	
 		
-	 }//ende alle m�glichen preise durchlaufen
+	 }//ende alle möglichen preise durchlaufen
 	$nachricht = "Die Preise wurden erfolgreich geändert.";
  	$nachricht = getUebersetzung($nachricht,$sprache,$link);
  	include_once("./standardpreis.php");

@@ -40,7 +40,7 @@ function showDayDetail($ansicht,$tag,$monate,$jahr,$raum_id,$gastro_id,$modus){
     			$vonMinute = ($i-$vonStunde)*60;
     			$isFree = true;
     			if(isBlock($raum_id, $tisch_id,$vonMinute,$vonStunde,$tag,$monate,$jahr,$vonMinute+29,$vonStunde,$tag,$monate,$jahr)){
-			 		?><td id="<?php echo getID("2", $tisch_id, $vonStunde, $vonMinute);?>" scope="col" colspan="<?= $colspan ?>" class="block"
+			 		?><td id="<?php echo getID("2", $tisch_id, $vonStunde, $vonMinute);?>" scope="col" colspan="<?php echo $colspan ?>" class="block"
 			 				onclick="javascript:newload(2, 0, 0, 0, 0, 0)" >
 					</td> <?php	
 					$isFree = false;						
@@ -53,8 +53,8 @@ function showDayDetail($ansicht,$tag,$monate,$jahr,$raum_id,$gastro_id,$modus){
 						if ($colspan > 0){	
 							$isFree = false;					
 							$i = $i+$colspan/2-0.5;
-				 			?><td id="<?php echo getID("1", $tisch_id, $vonStunde, $vonMinute+15);?>" title="<?php echo showInfo($resId)?>" scope="col" colspan="<?= $colspan ?>" class="<?= $statusString ?>"
-				 				onclick="javascript:newload(this.id, <?=$gastro_id?>, <?=$raum_id?>, <?=$tag?>, <?=$monate?>, <?=$jahr?>)" >
+				 			?><td id="<?php echo getID("1", $tisch_id, $vonStunde, $vonMinute+15);?>" title="<?php echo showInfo($resId)?>" scope="col" colspan="<?php echo $colspan ?>" class="<?php echo $statusString ?>"
+				 				onclick="javascript:newload(this.id, <?php echo$gastro_id?>, <?php echo$raum_id?>, <?php echo$tag?>, <?php echo$monate?>, <?php echo$jahr?>)" >
 							</td> <?php				
 						}
 						else{
@@ -64,8 +64,8 @@ function showDayDetail($ansicht,$tag,$monate,$jahr,$raum_id,$gastro_id,$modus){
 					
 				if ($isFree){
 						$statusString = FREI;
-						?><td id="<?php echo getID("0", $tisch_id, $vonStunde, $vonMinute);?>" scope="col" colspan="<?= $colspan ?>" class="<?= $statusString ?>"
-								onclick="javascript:newload(this.id, <?=$gastro_id?>, <?=$raum_id?>, <?=$tag?>, <?=$monate?>, <?=$jahr?>)" >
+						?><td id="<?php echo getID("0", $tisch_id, $vonStunde, $vonMinute);?>" scope="col" colspan="<?php echo $colspan ?>" class="<?php echo $statusString ?>"
+								onclick="javascript:newload(this.id, <?php echo$gastro_id?>, <?php echo$raum_id?>, <?php echo$tag?>, <?php echo$monate?>, <?php echo$jahr?>)" >
 							
 						</td><?php
 					}?>	<?php
@@ -99,11 +99,11 @@ function showDayDetail($ansicht,$tag,$monate,$jahr,$raum_id,$gastro_id,$modus){
 		?>
       <form action="./index.php" method="post" name="tagZurueck" target="_self" id="monatZurueck">
         <div align="right">           
-          <input name="raum_id" type="hidden" id="raum_id" value="<?= $raum_id ?>">
-          <input name="tag" type="hidden" id="tag" value="<?= $newTag1 ?>">
-          <input name="monat" type="hidden" id="monat" value="<?= $mon ?>">
-          <input name="ansicht" type="hidden" id="monat" value="<?= TAGESANSICHT ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<?= $jah ?>">
+          <input name="raum_id" type="hidden" id="raum_id" value="<?php echo $raum_id ?>">
+          <input name="tag" type="hidden" id="tag" value="<?php echo $newTag1 ?>">
+          <input name="monat" type="hidden" id="monat" value="<?php echo $mon ?>">
+          <input name="ansicht" type="hidden" id="monat" value="<?php echo TAGESANSICHT ?>">
+          <input name="jahr" type="hidden" id="jahr" value="<?php echo $jah ?>">
           <input name="zurueck" type="submit"  class="button"
        		id="zurueck" value="<?php echo(getUebersetzung("einen Tag zurück")); ?>">
         </div>
@@ -129,11 +129,11 @@ function showDayDetail($ansicht,$tag,$monate,$jahr,$raum_id,$gastro_id,$modus){
 		}																													
 		?>
       <form action="./index.php" method="post" name="tagWeiter" target="_self" id="monatWeiter">
-        <input name="raum_id" type="hidden" id="raum_id" value="<?= $raum_id ?>">
-        <input name="tag" type="hidden" id="tag" value="<?= $newTag2 ?>">
-        <input name="monat" type="hidden" id="monat" value="<?= $mon ?>">
-        <input name="ansicht" type="hidden" id="monat" value="<?= TAGESANSICHT ?>">
-        <input name="jahr" type="hidden" id="jahr" value="<?= $jah ?>">
+        <input name="raum_id" type="hidden" id="raum_id" value="<?php echo $raum_id ?>">
+        <input name="tag" type="hidden" id="tag" value="<?php echo $newTag2 ?>">
+        <input name="monat" type="hidden" id="monat" value="<?php echo $mon ?>">
+        <input name="ansicht" type="hidden" id="monat" value="<?php echo TAGESANSICHT ?>">
+        <input name="jahr" type="hidden" id="jahr" value="<?php echo $jah ?>">
         <input name="weiter" type="submit"  class="button"
        		id="weiter" value="<?php echo(getUebersetzung("einen Tag weiter")); ?>">
       </form></td>
@@ -194,7 +194,7 @@ function showReservierungen($vonMinute, $bisMinute, $vonStunde, $bisStunde, $tag
 				}else if( $isLastDay ){
 					echo("00:00 - ".$timeBis." ".getUebersetzung("Uhr"));
 				}else{?>
-					00:00 - 24:00 <?= getUebersetzung("Uhr") ?>	<?php
+					00:00 - 24:00 <?php echo getUebersetzung("Uhr") ?>	<?php
 				}								
 			}else{
 				echo(getTimeVonOfReservierung($reservierungs_id)." - ".getTimeBisOfReservierung($reservierungs_id));
@@ -203,11 +203,11 @@ function showReservierungen($vonMinute, $bisMinute, $vonStunde, $bisStunde, $tag
 			</td>
 			
 			<td align="right">
-				<input type="hidden" name="reservierung_id" value="<?= $d->RESERVIERUNG_ID ?>" />
+				<input type="hidden" name="reservierung_id" value="<?php echo $d->RESERVIERUNG_ID ?>" />
 				<input name="gast_id" type="hidden" value="<?php echo($gast_id); ?>">		
-				<input type="hidden" name="monat" value="<?= $monate ?>" />
-				<input type="hidden" name="jahr" value="<?= $jahr ?>" />
-				<input type="hidden" name="tag" value="<?= $tag ?>" />
+				<input type="hidden" name="monat" value="<?php echo $monate ?>" />
+				<input type="hidden" name="jahr" value="<?php echo $jahr ?>" />
+				<input type="hidden" name="tag" value="<?php echo $tag ?>" />
 				<?php //button für Gast infos ausgeben:
 				if ($gast_id != ANONYMER_GAST_ID){
 				?>
@@ -220,15 +220,15 @@ function showReservierungen($vonMinute, $bisMinute, $vonStunde, $bisStunde, $tag
 				<form action="./resEntfernen_Einzel.php" method="post" name="form<?php echo($tag); ?>" target="_self">
 				<td align="left">
 					<input name="reservierung_id" type="hidden" value="<?php echo($d->RESERVIERUNG_ID) ?>">	
-					<input name="bisMinute" type="hidden" value="<?= $bisMinute ?>">
-					<input name="vonMinute" type="hidden" value="<?= $vonMinute ?>">
-					<input name="vonStunde" type="hidden" value="<?= $vonStunde ?>">
-					<input name="bisStunde" type="hidden" value="<?= $bisStunde ?>">
-					<input name="table_id" type="hidden" value="<?= $tisch_id ?>">
-					<input name="raum_id" type="hidden" value="<?= $raum_id ?>">
-					<input name="datumVon" type="hidden" value="<?= $datumVon ?>">
-					<input name="ansicht" type="hidden" value="<?=  $ansicht ?>">					
-					<input name="url" type="hidden" value="<?=  $url ?>">
+					<input name="bisMinute" type="hidden" value="<?php echo $bisMinute ?>">
+					<input name="vonMinute" type="hidden" value="<?php echo $vonMinute ?>">
+					<input name="vonStunde" type="hidden" value="<?php echo $vonStunde ?>">
+					<input name="bisStunde" type="hidden" value="<?php echo $bisStunde ?>">
+					<input name="table_id" type="hidden" value="<?php echo $tisch_id ?>">
+					<input name="raum_id" type="hidden" value="<?php echo $raum_id ?>">
+					<input name="datumVon" type="hidden" value="<?php echo $datumVon ?>">
+					<input name="ansicht" type="hidden" value="<?php echo  $ansicht ?>">					
+					<input name="url" type="hidden" value="<?php echo  $url ?>">
 					<input type="submit" name="Submit"  class="button"
 							value="<?php echo(getUebersetzung("Löschen")); ?>"/>						
 				</td></form>

@@ -13,8 +13,8 @@
     <input name="keineSprache" type="hidden" value="true">
     <div align="left">
       <input name="suche" type="submit" id="suche" value="<?php echo(getUebersetzung("Suchformular öffnen",$sprache,$link)); ?>" class="btn btn-primary">
-      <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
-      <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">		  
+      <input name="jahr" type="hidden" id="jahr" value="<?php echo($jahr); ?>">
+      <input name="monat" type="hidden" id="monat" value="<?php echo($monat); ?>">		  
     </div>
   </form>
   

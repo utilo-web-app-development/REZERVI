@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Tischkarten bearbeiten";
 $unterschrift = "Design";
@@ -40,14 +40,14 @@ if (empty($tableCardId)){
 		var font_text = document.tableCard.font_text.value;
 		var font_heading_style = "";
 		<?php foreach($available_font_styles as $key => $value){ ?>
-			if(document.tableCard.font_heading_<?= $value ?>.checked){
-				font_heading_style=font_heading_style+document.tableCard.font_heading_<?= $value ?>.value;
+			if(document.tableCard.font_heading_<?php echo $value ?>.checked){
+				font_heading_style=font_heading_style+document.tableCard.font_heading_<?php echo $value ?>.value;
 			}
 	  	<?php } ?>
 		var font_text_style = "";
 		<?php foreach($available_font_styles as $key => $value){ ?>
-		    if(document.tableCard.font_text_<?= $value ?>.checked){
-				font_text_style=font_text_style+document.tableCard.font_text_<?= $value ?>.value;
+		    if(document.tableCard.font_text_<?php echo $value ?>.checked){
+				font_text_style=font_text_style+document.tableCard.font_text_<?php echo $value ?>.value;
 			}
 	  	<?php } ?>
 	  	var font_size_text   = document.tableCard.font_size_text.value;
@@ -76,22 +76,22 @@ if (empty($tableCardId)){
 
 </script> 
 	<form action="./save.php" method="post" target="_self" name="tableCard" enctype="multipart/form-data"> 
-	<input type="hidden" name="tableCardId" value="<?= $tableCardId ?>"/>
+	<input type="hidden" name="tableCardId" value="<?php echo $tableCardId ?>"/>
 		<table>
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Breite") ?>
+		  		<?php echo getUebersetzung("Breite") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<select name="x">
 		  			<?php for ($i=50;$i<=300;$i++){ ?>
-		  				<option value="<?= $i ?>" <?php 
+		  				<option value="<?php echo $i ?>" <?php 
 		  				if ($i == getTableCardProperty(TC_CUSTOM_FORMAT_X,$tableCardId)){
 			  				?>
 			  				selected="selected"
 			  				<?php
 		  				}		  				
-		  				?>><?= $i ?></option>
+		  				?>><?php echo $i ?></option>
 		  			<?php } ?>
 		  		</select>
 		  		mm
@@ -99,18 +99,18 @@ if (empty($tableCardId)){
 		  </tr>  
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Höhe") ?>
+		  		<?php echo getUebersetzung("Höhe") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<select name="y">
 		  			<?php for ($i=50;$i<=300;$i++){ ?>
-		  				<option value="<?= $i ?>" <?php 
+		  				<option value="<?php echo $i ?>" <?php 
 		  				if ($i == getTableCardProperty(TC_CUSTOM_FORMAT_Y,$tableCardId)){
 			  				?>
 			  				selected="selected"
 			  				<?php
 		  				}		  				
-		  				?>><?= $i ?></option>
+		  				?>><?php echo $i ?></option>
 		  			<?php } ?>
 		  		</select> mm
 		  	</td>  	
@@ -120,34 +120,34 @@ if (empty($tableCardId)){
 		  </tr>
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Text Überschrift") ?>
+		  		<?php echo getUebersetzung("Text Überschrift") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<input type="text" name="textHeading" 
-		  			value="<?= getTableCardProperty(TC_HEADING_TEXT,$tableCardId) ?>"/>
+		  			value="<?php echo getTableCardProperty(TC_HEADING_TEXT,$tableCardId) ?>"/>
 		  	</td>  	
 		  </tr> 		  
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Schriftart Überschrift") ?>
+		  		<?php echo getUebersetzung("Schriftart Überschrift") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<select name="font_heading">
 		  			<?php foreach($available_fonts as $fo){ ?>
-		  				<option value="<?= $fo ?>"  <?php 
+		  				<option value="<?php echo $fo ?>"  <?php 
 		  				if ($fo == getTableCardProperty(TC_FONT_HEADING,$tableCardId)){
 			  				?>
 			  				selected="selected"
 			  				<?php
 		  				}		  				
-		  				?>><?= $fo ?></option>
+		  				?>><?php echo $fo ?></option>
 		  			<?php } ?>
 		  		</select>
 		  	</td>  	
 		  </tr> 
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Schriftstil Überschrift") ?>
+		  		<?php echo getUebersetzung("Schriftstil Überschrift") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  	<table>
@@ -155,8 +155,8 @@ if (empty($tableCardId)){
 	  			<?php 
 	  			 $fontHeadingStyle = getTableCardProperty(TC_FONT_HEADING_STYLE,$tableCardId);
 	  				foreach($available_font_styles as $key => $value){ ?>
-		  			<td><label for="font_heading_<?= $value ?>"><?= getUebersetzung($key) ?></label></td>
-		  			<td><input type="checkbox" name="font_heading_<?= $value ?>" value="<?= $value ?>"
+		  			<td><label for="font_heading_<?php echo $value ?>"><?php echo getUebersetzung($key) ?></label></td>
+		  			<td><input type="checkbox" name="font_heading_<?php echo $value ?>" value="<?php echo $value ?>"
 		  			<?php
 		  				if (!(strpos($fontHeadingStyle,$value) === FALSE)){
 		  				?>
@@ -172,18 +172,18 @@ if (empty($tableCardId)){
 		  </tr> 
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Schriftgröße Überschrift") ?>
+		  		<?php echo getUebersetzung("Schriftgröße Überschrift") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<select name="font_size_heading">
 		  			<?php for ($i=6;$i<=36;$i++){ ?>
-		  			<option value="<?= $i ?>" <?php 
+		  			<option value="<?php echo $i ?>" <?php 
 		  				if ($i == getTableCardProperty(TC_FONT_HEADING_SIZE,$tableCardId)){
 			  				?>
 			  				selected="selected"
 			  				<?php
 		  				}		  				
-		  				?>><?= $i ?></option>
+		  				?>><?php echo $i ?></option>
 		  			<?php } ?>
 		  		</select> Punkt
 		  	</td>  	
@@ -193,7 +193,7 @@ if (empty($tableCardId)){
 		  </tr>
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Zeit anzeigen") ?>
+		  		<?php echo getUebersetzung("Zeit anzeigen") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<input type="checkbox" name="show_time" value="true" 
@@ -209,7 +209,7 @@ if (empty($tableCardId)){
 		  </tr>
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Name anzeigen") ?>
+		  		<?php echo getUebersetzung("Name anzeigen") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<input type="checkbox" name="show_name" value="true" 
@@ -225,25 +225,25 @@ if (empty($tableCardId)){
 		  </tr> 			   		  		  	  		  
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Schriftart Text") ?>
+		  		<?php echo getUebersetzung("Schriftart Text") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<select name="font_text">
 		  			<?php foreach($available_fonts as $fo){ ?>
-		  				<option value="<?= $fo ?>" <?php 
+		  				<option value="<?php echo $fo ?>" <?php 
 		  				if ($fo == getTableCardProperty(TC_FONT_TEXT,$tableCardId)){
 			  				?>
 			  				selected="selected"
 			  				<?php
 		  				}		  				
-		  				?>><?= $fo ?></option>
+		  				?>><?php echo $fo ?></option>
 		  			<?php } ?>
 		  		</select>
 		  	</td>  	
 		  </tr> 	
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Schriftstil Text") ?>
+		  		<?php echo getUebersetzung("Schriftstil Text") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  	<table>
@@ -251,8 +251,8 @@ if (empty($tableCardId)){
 	  			<?php 
 	  			 $fontTextStyle = getTableCardProperty(TC_FONT_TEXT_STYLE,$tableCardId);
 	  				foreach($available_font_styles as $key => $value){ ?>
-		  			<td><label for="font_text_<?= $value ?>"><?= getUebersetzung($key) ?></label></td>  	
-		  			<td><input type="checkbox" name="font_text_<?= $value ?>" value="<?= $value ?>"
+		  			<td><label for="font_text_<?php echo $value ?>"><?php echo getUebersetzung($key) ?></label></td>  	
+		  			<td><input type="checkbox" name="font_text_<?php echo $value ?>" value="<?php echo $value ?>"
 		  			<?php
 		  				if (!(strpos($fontTextStyle,$value) === FALSE)){
 		  				?>
@@ -268,18 +268,18 @@ if (empty($tableCardId)){
 		  </tr> 
 		  <tr>
 		  	<td>
-		  		<?= getUebersetzung("Schriftgröße Text") ?>
+		  		<?php echo getUebersetzung("Schriftgröße Text") ?>
 		  	</td> 	  	  		  	
 		  	<td>
 		  		<select name="font_size_text">
 		  			<?php for ($i=6;$i<=36;$i++){ ?>
-		  			<option value="<?= $i ?>" <?php 
+		  			<option value="<?php echo $i ?>" <?php 
 		  				if ($i == getTableCardProperty(TC_FONT_TEXT_SIZE,$tableCardId)){
 			  				?>
 			  				selected="selected"
 			  				<?php
 		  				}		  				
-		  				?>><?= $i ?></option>
+		  				?>><?php echo $i ?></option>
 		  			<?php } ?>
 		  		</select> Punkt
 		  	</td>  	
@@ -299,15 +299,15 @@ if (empty($tableCardId)){
 				      			$height_pic= getBildHoehe($bilder_id);
 				      	?>
 				    			<td>		
-							      	<img src="<?= $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
-							      		width="<?= $width_pic ?>" 
-							      		height="<?= $height_pic ?>"/>
+							      	<img src="<?php echo $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
+							      		width="<?php echo $width_pic ?>" 
+							      		height="<?php echo $height_pic ?>"/>
 						        </td>
 				      <?php
 							}
 						?>
 		    			<td>
-		    				<?= getUebersetzung("Bild") ?>
+		    				<?php echo getUebersetzung("Bild") ?>
 		    			</td>
 		    			<td>
 		    				<input name="bild" type="file"/>
@@ -321,11 +321,11 @@ if (empty($tableCardId)){
 		  </tr>			  			  		  		  		  		   		  	
 		  <tr>
 		  	<td>
-		  		<input type="button" class="button" onClick="showPreview(<?= $tableCardId ?>)" 
-		  			value="<?= getUebersetzung("Vorschau") ?>"/>
+		  		<input type="button" class="button" onClick="showPreview(<?php echo $tableCardId ?>)" 
+		  			value="<?php echo getUebersetzung("Vorschau") ?>"/>
 		  	</td> 	  	  		  	
 		  	<td>
-		  		<?= getUebersetzung("PDF erzeugen und Testdruck starten.") ?>
+		  		<?php echo getUebersetzung("PDF erzeugen und Testdruck starten.") ?>
 		  	</td>  	
 		  </tr>  
 		  <tr>
@@ -333,7 +333,7 @@ if (empty($tableCardId)){
 		  		<?php showSubmitButton(getUebersetzung("Speichern")); ?>
 		  	</td> 	  	  		  	
 		  	<td>
-		  		<?= getUebersetzung("Tischkartendesign speichern.") ?>
+		  		<?php echo getUebersetzung("Tischkartendesign speichern.") ?>
 		  	</td>  	
 		  <tr> 
 	</form>	

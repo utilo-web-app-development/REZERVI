@@ -3,7 +3,7 @@
  * Created on 19.01.2007
  *
  * @author coster
- * preise hinzuf�gen l�schen �ndern
+ * preise hinzufügen löschen ändern
  */
 
 session_start();
@@ -44,7 +44,7 @@ include_once($root."/webinterface/templates/headerA.php");
 include_once($root."/webinterface/templates/headerB.php"); 
 include_once($root."/webinterface/templates/bodyA.php"); 
 
-//wurde irgend eine zuweisung gel�scht?
+//wurde irgend eine zuweisung gelöscht?
 $res = getAllRoomsWithChilds($unterkunft_id);
 while ( $d = mysql_fetch_array($res) ){
 	$zimmer_id = $d['Parent_ID'];
@@ -56,7 +56,7 @@ while ( $d = mysql_fetch_array($res) ){
 		}
 }
 
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 ?>
@@ -69,7 +69,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
   <div class="panel-body">
   	
 <h1>
-	<?= getUebersetzung("Zimmer zusammenfassen",$sprache,$link) ?>.
+	<?php echo getUebersetzung("Zimmer zusammenfassen",$sprache,$link) ?>.
 </h1>
 <h4>
 	<?php
@@ -77,7 +77,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
                        "Hauses und das Haus selbst vermieten wollen, können Sie hier die Zimmer zum Haus ".
                        "festlegen. Das Haus und die Zimmer müssen vorher angelegt worden sein."
 	?>
-	<?= getUebersetzung($text,$sprache,$link) ?>
+	<?php echo getUebersetzung($text,$sprache,$link) ?>
 </h4>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
@@ -85,7 +85,7 @@ if (isset($nachricht) && $nachricht != ""){
  <div class="alert alert-info" role="alert"
 	<?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
 			else {echo("class=\"belegt\"");} ?>>
-				<?= $nachricht ?>
+				<?php echo $nachricht ?>
 </div>
 	  
 	
@@ -101,7 +101,7 @@ if (hasParentRooms($unterkunft_id)){
 	<tr>
 		<td colspan="2">
 			<?php $text = "Bestehende Zuweisungen:"; ?>
-			<?= getUebersetzung($text,$sprache,$link) ?>
+			<?php echo getUebersetzung($text,$sprache,$link) ?>
 		</td>	
 		<td>
 		</td>
@@ -115,7 +115,7 @@ if (hasParentRooms($unterkunft_id)){
 	?>
 		<tr>
 			<td>
-				<?= $ziArt." ".$ziNr ?>
+				<?php echo $ziArt." ".$ziNr ?>
 			</td>
 			<td>
 				<?php
@@ -124,7 +124,7 @@ if (hasParentRooms($unterkunft_id)){
 						$ziArt = getUebersetzungUnterkunft($r["Zimmerart"],$sprache,$unterkunft_id,$link);
 						$ziNr  = getUebersetzungUnterkunft($r["Zimmernr"],$sprache,$unterkunft_id,$link);
 					?>
-						<?= $ziArt." ".$ziNr ?>
+						<?php echo $ziArt." ".$ziNr ?>
 						<br/>
 					<?php					
 					}
@@ -132,7 +132,7 @@ if (hasParentRooms($unterkunft_id)){
 			</td>		
 			<td>
 				<input 
-	  				name="loeschen_<?= $zimmer_id ?>" type="submit" id="aendern" 
+	  				name="loeschen_<?php echo $zimmer_id ?>" type="submit" id="aendern" 
 	  				class="btn btn-danger"
 	   				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
 			</td>
@@ -149,14 +149,14 @@ if (hasParentRooms($unterkunft_id)){
 	<tr>
 		<td colspan="2">
 			<?php $text = "Neue Zuweisungen:"; ?>
-			<?= getUebersetzung($text,$sprache,$link) ?>
+			<?php echo getUebersetzung($text,$sprache,$link) ?>
 		</td>	
 		<td>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<?= getUebersetzung("Haus",$sprache,$link) ?>
+			<?php echo getUebersetzung("Haus",$sprache,$link) ?>
 		</td>
 		<td>
 			<select name="house" onChange="submit()">
@@ -166,7 +166,7 @@ if (hasParentRooms($unterkunft_id)){
 				  	$ziArt = getUebersetzungUnterkunft($g["Zimmerart"],$sprache,$unterkunft_id,$link);
 					$ziNr  = getUebersetzungUnterkunft($g["Zimmernr"],$sprache,$unterkunft_id,$link);
 				  ?>
-					<option value="<?= $g['PK_ID'] ?>"
+					<option value="<?php echo $g['PK_ID'] ?>"
 						<?php
 							if ($house == $g['PK_ID']){
 							?>
@@ -174,7 +174,7 @@ if (hasParentRooms($unterkunft_id)){
 							<?php
 							}
 						?>
-					><?= $ziArt." ".$ziNr ?></option>
+					><?php echo $ziArt." ".$ziNr ?></option>
 				  <?php
 				  }
 				  ?>
@@ -186,7 +186,7 @@ if (hasParentRooms($unterkunft_id)){
 	<tr>
 		<td colspan = "2"><?php	$text = "Folgende Zimmer gehören zum ausgewählten Haus"
 	?>
-	<?= getUebersetzung($text,$sprache,$link) ?>:</td>
+	<?php echo getUebersetzung($text,$sprache,$link) ?>:</td>
 		<td></td>
 	</tr>
 	<tr>
@@ -200,7 +200,7 @@ if (hasParentRooms($unterkunft_id)){
 						continue;
 					}
 				  ?>
-				  	<?= $ziArt." ".$ziNr ?> <input type="checkbox" value="<?= $g['PK_ID'] ?>" name="zimmer[]"/> <br/>
+				  	<?php echo $ziArt." ".$ziNr ?> <input type="checkbox" value="<?php echo $g['PK_ID'] ?>" name="zimmer[]"/> <br/>
 				  <?php
 				  }
 			?></td>
@@ -221,21 +221,21 @@ if (hasParentRooms($unterkunft_id)){
     	
     	<!-- <form action="../index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-		 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
+		 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
  		</form> -->
  
 <!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <td><form action="../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 	<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
   </form></td>
   </tr>
 </table> -->
 <?php
 }
 else {
-	echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
 ?>   
 </body>

@@ -19,8 +19,8 @@
 				$id =  $o->RAUM_ID;
 			?>
 			    <li <?php if ($mietobjekt_id == $id) { ?>class="selected"<?php } ?>>
-			    	<a href="<?= $root ?>/index.php?mietobjekt_id=<?= $id ?>">
-			    		<em><?= $bezeichnung ?></em>
+			    	<a href="<?php echo $root ?>/index.php?mietobjekt_id=<?php echo $id ?>">
+			    		<em><?php echo $bezeichnung ?></em>
 			    	</a>
 			    </li>
 	      <?php

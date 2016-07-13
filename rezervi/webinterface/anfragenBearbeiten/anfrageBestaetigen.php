@@ -1,14 +1,14 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			eine angefragte reservierung best�tigen - als belegt im plan eintragen
+			eine angefragte reservierung bestätigen - als belegt im plan eintragen
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Benutzer PK_ID $benutzer_id
 			Reservierung PK_ID $reservierungs_id
 			Unterkunft PK_ID $unterkunft_id
@@ -31,7 +31,7 @@ else{
 
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -55,7 +55,7 @@ $sprache = getSessionWert(SPRACHE);
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortpr�fung:	
+<?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <div class="panel panel-default">
@@ -71,7 +71,7 @@ $sprache = getSessionWert(SPRACHE);
 
 	foreach ($reservierungen as $res_id){
 		
-		//zuerst pr�fen ob nicht mitlerweile eine andere buchung eingetragen wurde:
+		//zuerst prüfen ob nicht mitlerweile eine andere buchung eingetragen wurde:
 		$vonDatum = getDatumVon($res_id,$link);
 		$bisDatum = getDatumBis($res_id,$link);
 		
@@ -185,7 +185,7 @@ $sprache = getSessionWert(SPRACHE);
 		</table> -->
 	
 	<?php 
-		  //-----buttons um zur�ck zum menue zu gelangen: 
+		  //-----buttons um zurück zum menue zu gelangen: 
 	  	  showSubmitButton(getUebersetzung("absenden",$sprache,$link));
 		  //} //ende if
 	?>
@@ -195,17 +195,17 @@ $sprache = getSessionWert(SPRACHE);
 </div>
 	
 	<!-- <?php 
-		  showSubmitButtonWithForm("./index.php",getUebersetzung("zur�ck",$sprache,$link));
+		  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
 	?>
 	<br/>
 	<?php 
-		  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmen�",$sprache,$link));
+		  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 	?>	 -->
 			      
 
 	<?php 
 		//} //ende wenn noch keine buchung vorhanden
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

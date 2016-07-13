@@ -1,11 +1,11 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			best�tigung zum l�schen von zimmern von benutzer einholen!
+			bestätigung zum löschen von zimmern von benutzer einholen!
 */
 
 	//variablen intitialisieren:
@@ -15,7 +15,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$zimmer_id = $_POST["zimmer_id"];
 	$sprache = getSessionWert(SPRACHE);
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -26,10 +26,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 	include_once("../../include/zimmerFunctions.php");
 	include_once("../../include/uebersetzer.php");
 	
-		//wurde auch ein zimmer ausgew�hlt?
+		//wurde auch ein zimmer ausgewählt?
 	if (!isset($zimmer_id) || $zimmer_id == ""){
 		$fehler = true;
-		$nachricht = "Bitte w�hlen sie ein Zimmer aus!";
+		$nachricht = "Bitte wählen sie ein Zimmer aus!";
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
 		include_once("./index.php");
 		exit;
@@ -64,7 +64,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	  			for($i = 0; $i < $anzahl; $i++){ 
 				$temp = $zimmer_id[$i];
 				?>
-            <option value="<? echo($temp); ?>" selected><?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$temp,$link),$sprache,$unterkunft_id,$link)); 
+            <option value="<?php echo($temp); ?>" selected><?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$temp,$link),$sprache,$unterkunft_id,$link)); 
             ?></option>
 			<?php 
 				} //ende for
@@ -76,7 +76,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	  			for($i = 0; $i < $anzahl; $i++){ 
 				$temp = $zimmer_id[$i];
 				?>
-            <option value="<? echo($temp); ?>" selected><?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$temp,$link),$sprache,$unterkunft_id,$link)); 
+            <option value="<?php echo($temp); ?>" selected><?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$temp,$link),$sprache,$unterkunft_id,$link)); 
             ?></option>
 			<?php 
 				} //ende for
@@ -107,7 +107,7 @@ include_once($root."/include/sessionFunctions.inc.php");
  <!-- <form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td> -->
   
 

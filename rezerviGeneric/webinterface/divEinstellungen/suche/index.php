@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -19,12 +19,12 @@ else{
 }
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Einstellungen zur Suche nach Mietobjekten")); ?>.</p>
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Einstellungen zur Suche nach Mietobjekten")); ?>.</p>
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <form action="./aendern.php" method="post" target="_self">
   <tr>
   	<td>
-  		<?= getUebersetzung("Suchfunktion aktivieren") ?>
+  		<?php echo getUebersetzung("Suchfunktion aktivieren") ?>
   	<td>
   	<td>
   		<input type="checkbox" value="true" <?php if ($sucheAktiv) { 
@@ -35,7 +35,7 @@ else{
    <tr>
     <td colspan="2">
  	 <?php 
-	  showSubmitButton(getUebersetzung("ändern"));
+	  showSubmitButton(getUebersetzung("Ã¤ndern"));
 	 ?>
 	</td>
   </tr>
@@ -43,7 +43,7 @@ else{
 </table>
 <br/>
 <?php 
-//-----buttons um zurück zum menue zu gelangen: 
-showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+//-----buttons um zurÃ¼ck zum menue zu gelangen: 
+showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

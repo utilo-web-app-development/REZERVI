@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 23.9.05
@@ -19,15 +19,15 @@ if (isset($_POST["mietobjekt_id"])){
 }
 if ($anzahl < 1){
 	$fehler = true;
-	$nachricht = getUebersetzung("Bitte wählen sie mindestens ein Mietobjekt aus!");
+	$nachricht = getUebersetzung("Bitte wÃ¤hlen sie mindestens ein Mietobjekt aus!");
 	include_once("./index.php");	
 	exit;	
 }
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Löschung bestätigen")); ?></p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("LÃ¶schung bestÃ¤tigen")); ?></p>
 <form action="./mietobjektLoeschen.php" method="post" name="mietobjektLoeschen" target="_self" id="mietobjektLoeschen">	
-<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <tr>
     <td><p><?php echo(getUebersetzung("Folgende Mietobjekte werden aus der Datenbank entfernt")); ?>.<br/>
         <?php echo(getUebersetzung("Bitte beachten Sie, dass damit auch alle Reservierungen die diese(s) Mietobjekte betreffen ebenfalls entfernt werden")); ?>!</p>
@@ -38,15 +38,15 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	  				$temp = $mietobjekt_id[$i];
 	  			?> 
   					<input type="checkbox" name="mietobjekt_id[]" value="<?php echo($mietobjekt_id[$i]); ?>" checked="checked">
-           			<?= getUebersetzungVermieter(getMietobjektBezeichnung($temp),$sprache,$vermieter_id) ?><br/>       
+           			<?php echo getUebersetzungVermieter(getMietobjektBezeichnung($temp),$sprache,$vermieter_id) ?><br/>       
                 <?php 
 				} //ende for
 			    ?>  
 	  </p>
-       <?php echo(getUebersetzung("Nur die hier selektierten Mietobjekte werden gelöscht.")); ?> 	
+       <?php echo(getUebersetzung("Nur die hier selektierten Mietobjekte werden gelÃ¶scht.")); ?> 	
        <br/>	         
-       <input name="weiter" type="submit" class="<?= BUTTON ?>" id="weiter" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("weiter")); ?>">        		
+       <input name="weiter" type="submit" class="<?php echo BUTTON ?>" id="weiter" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("weiter")); ?>">        		
     </td>
   </tr>
 </table>
@@ -55,8 +55,8 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 <table border="0" cellpadding="0" cellspacing="0">
   <tr> 
     <td><form action="./index.php" method="post" name="zurueck" target="_self" id="zurueck">
-        <input name="retour2" type="submit" class="<?= BUTTON ?>" id="retour2" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("abbrechen")); ?>">
+        <input name="retour2" type="submit" class="<?php echo BUTTON ?>" id="retour2" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+	 onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("abbrechen")); ?>">
       </form></td>
   </tr>
 </table>

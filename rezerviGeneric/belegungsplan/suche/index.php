@@ -13,9 +13,9 @@
 		 header('P3P: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"');
 	 }
  
-	 //datenbank öffnen:
+	 //datenbank Ã¶ffnen:
  include_once($root."/conf/rdbmsConfig.inc.php");
- //conf file öffnen:
+ //conf file Ã¶ffnen:
  include_once($root."/conf/conf.inc.php");
  include_once($root."/include/uebersetzer.inc.php");
  include_once($root."/include/sessionFunctions.inc.php");
@@ -34,7 +34,7 @@ else{
 	$vermieter_id = 1;
 }
 
- //ist die suchfunktion überhaupt aktiv?
+ //ist die suchfunktion Ã¼berhaupt aktiv?
  $sucheAktiv = getVermieterEigenschaftenWert(SUCHFUNKTION_AKTIV,$vermieter_id);
 	if ($sucheAktiv == "true"){
 		$sucheAktiv = true;
@@ -80,8 +80,8 @@ include_once($root."/templates/bodyStart.inc.php");
 ?>
 <table border="0">
   <tr>
-    <td><p class="<?= STANDARD_SCHRIFT ?>">
-        <?= getUebersetzung("Sie können den Belegungsplan" .
+    <td><p class="<?php echo STANDARD_SCHRIFT ?>">
+        <?php echo getUebersetzung("Sie kÃ¶nnen den Belegungsplan" .
 	 				"betrachten,<br/>indem Sie eine Auswahl treffen " .
 	 				"und auf [Belegungsplan anzeigen] klicken...")
 	 	?>
@@ -89,11 +89,11 @@ include_once($root."/templates/bodyStart.inc.php");
     </td>
   </tr>
 </table>
-<form action="<?= $root ?>/start.php" method="post" name="form1" target="_self">
-  <table border="0" class="<?= TABLE_STANDARD ?>">
+<form action="<?php echo $root ?>/start.php" method="post" name="form1" target="_self">
+  <table border="0" class="<?php echo TABLE_STANDARD ?>">
     <tr>
-      <td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-      	<?= getUebersetzung("Belegungsplan für:") ?>
+      <td class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+      	<?php echo getUebersetzung("Belegungsplan fÃ¼r:") ?>
       </td>
     </tr>
     <tr>
@@ -103,7 +103,7 @@ include_once($root."/templates/bodyStart.inc.php");
 		  			$selectSize = 10; 
 		  		} 
 		  ?>
-        <select name="mietobjekt_id" size="<?= $selectSize ?>" class="<?= STANDARD_SCHRIFT ?>">
+        <select name="mietobjekt_id" size="<?php echo $selectSize ?>" class="<?php echo STANDARD_SCHRIFT ?>">
             <?php 
 			$res = getMietobjekte($vermieter_id);
 			$zaehler = 0;
@@ -112,9 +112,9 @@ include_once($root."/templates/bodyStart.inc.php");
 				$bezeichnung = getUebersetzungVermieter($mietobjekt_ez,$sprache,$vermieter_id);
 				$bezeichnung .= " ".$d["BEZEICHNUNG"];
 				?>
-	          	<option value="<?= $d["MIETOBJEKT_ID"] ?>" <?php if ($zaehler++ == 0) { 
+	          	<option value="<?php echo $d["MIETOBJEKT_ID"] ?>" <?php if ($zaehler++ == 0) { 
 	          			echo("selected=\"selected\""); 
-	          			} ?>><?= $bezeichnung ?>
+	          			} ?>><?php echo $bezeichnung ?>
 	          	</option>
             <?php } //ende while mietobjekte
 		    ?>
@@ -122,32 +122,32 @@ include_once($root."/templates/bodyStart.inc.php");
       </td>
     </tr>
     <tr>
-      <td><input type="submit" name="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Belegungsplan anzeigen")); ?>">
+      <td><input type="submit" name="Submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Belegungsplan anzeigen")); ?>">
       </td>
     </tr>
   </table>
 </form>
 <table border="0">
   <tr>
-    <td><span class="<?= STANDARD_SCHRIFT ?>">
-      <?= getUebersetzung("...oder eine automatische Suche durchführen, " .
+    <td><span class="<?php echo STANDARD_SCHRIFT ?>">
+      <?php echo getUebersetzung("...oder eine automatische Suche durchfÃ¼hren, " .
       		"<br/>indem sie unterstehende Daten angeben und [Suche starten] klicken.") 
 	  ?>
       </span></td>
   </tr>
 </table>
 <form action="./sucheDurchfuehren.php" method="post" name="suchen" target="_self" id="suchen">
-  <table border="0" class="<?= TABLE_STANDARD ?>">
+  <table border="0" class="<?php echo TABLE_STANDARD ?>">
     <tr>
-      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>">
+      <td><p class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
 			<?php include_once($root."/templates/datumVonDatumBis.inc.php"); ?>
           </p>
       </td>
     </tr>
     <tr>
-      <td class="<?= STANDARD_SCHRIFT_BOLD ?>"><input name="sucheStarten" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       	onMouseOut="this.className='<?= BUTTON ?>';" id="sucheStarten" value="<?php echo(getUebersetzung("Suche starten...")); ?>">
+      <td class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><input name="sucheStarten" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       	onMouseOut="this.className='<?php echo BUTTON ?>';" id="sucheStarten" value="<?php echo(getUebersetzung("Suche starten...")); ?>">
       </td>
     </tr>
   </table>

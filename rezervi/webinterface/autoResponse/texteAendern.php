@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -269,7 +269,7 @@ if (
       ) 
    ){
 	$fehler = true;
-	$message = getUebersetzung("Es wurden nicht alle Felder korrekt ausgef�llt!",$sprache,$link);
+	$message = getUebersetzung("Es wurden nicht alle Felder korrekt ausgefüllt!",$sprache,$link);
 }
 if($fehler == true){
 	//zurueck zur eingabeseite:
@@ -327,7 +327,7 @@ else if ($standardsprache == "es"){
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
 	if ($art != "emails"){
@@ -365,7 +365,7 @@ else if ($standardsprache == "es"){
 			}
 		}	
 	
-	//�nderungen durchf�hren:
+	//Änderungen durchführen:
 	changeMessage($unterkunft_id,$art,$subjectStandard,$textStandard,$unterschriftStandard,$anredeStandard,$link);
 	//auch die anderen sprachen:
 	setUebersetzungUnterkunft($subject_de,$subjectStandard,"de",$standardsprache,$unterkunft_id,$link);
@@ -502,9 +502,9 @@ else if ($standardsprache == "es"){
 	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../templates/end.php"); ?>

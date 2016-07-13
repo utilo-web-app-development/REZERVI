@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	gast-infos anzeigen und evt. ändern:
+	gast-infos anzeigen und evt. Ã¤ndern:
 	author: christian osterrieder utilo.eu
 			
-	dieser seite muss übergeben werden:
+	dieser seite muss Ã¼bergeben werden:
 	Gast PK_ID $gast_id
 	$unterkunft_id
 */
@@ -32,7 +32,7 @@ $gast_id = $_POST["gast_id"];
 $sprache = getSessionWert(SPRACHE);
 $index = $_POST["index"];
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -50,10 +50,10 @@ include_once("../../../../include/benutzerFunctions.php");
 <?php include_once("../../../templates/headerB.php"); ?>
 <?php include_once("../../../templates/bodyA.php"); ?>
 <?php		
-//passwortprüfung:	
+//passwortprÃ¼fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 	
 ?>
-<?php //prüfen ob noch reservierungen oder sowas für diesen gast vorhanden sind:
+<?php //prÃ¼fen ob noch reservierungen oder sowas fÃ¼r diesen gast vorhanden sind:
 		$query = ("SELECT		 
 				   PK_ID
 				   FROM
@@ -70,41 +70,41 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		 ?>
 		<table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
-    <td><p><?php echo(getUebersetzung("Der Gast kann nicht gelöscht werden, da Reservierungen oder offene Reservierungsanfragen für diesen Gast eingetragen sind",$sprache,$link)); ?>!</p>
+    <td><p><?php echo(getUebersetzung("Der Gast kann nicht gelÃ¶scht werden, da Reservierungen oder offene Reservierungsanfragen fÃ¼r diesen Gast eingetragen sind",$sprache,$link)); ?>!</p>
      <form action="../gastInfos/index.php" method="post" name="gastInfos" target="_self">
 		  <input name="gastInfos" type="submit" id="gastInfos" class="button200pxA" onMouseOver="this.className='button200pxB';"
 			onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Reservierungs-Informationen",$sprache,$link)); ?>">
-		  <input name="anrede_val" type="hidden" id="anrede_var10" value="<? echo($anrede_val); ?>">
-		  <input name="vorname_val" type="hidden" id="vorname_var" value="<? echo($vorname_val); ?>">
-		  <input name="nachname_val" type="hidden" id="nachname_var" value="<? echo($nachname_val); ?>">
-		  <input name="strasse_val" type="hidden" id="strasse_var" value="<? echo($strasse_val); ?>">
-		  <input name="ort_val" type="hidden" id="ort_var" value="<? echo($ort_val); ?>">
-		  <input name="land_val" type="hidden" id="land_var" value="<? echo($land_val); ?>">
-		  <input name="email_val" type="hidden" id="email_var" value="<? echo($email_val); ?>">
-		  <input name="tel_val" type="hidden" id="tel_var" value="<? echo($tel_val); ?>">
-		  <input name="fax_val" type="hidden" id="anrede_var10" value="<? echo($fax_val); ?>">
-		  <input name="anmerkung_val" type="hidden" id="anrede_var10" value="<? echo($anmerkung_val); ?>">
-		  <input name="plz_val" type="hidden" id="plz_val" value="<? echo($plz_val); ?>">
-		  <input name="sprache_val" type="hidden" id="plz_val" value="<? echo($sprache_val); ?>">
-		  <input name="gast_id" type="hidden" id="gast_id" value="<? echo ($gast_id); ?>">
+		  <input name="anrede_val" type="hidden" id="anrede_var10" value="<?php echo($anrede_val); ?>">
+		  <input name="vorname_val" type="hidden" id="vorname_var" value="<?php echo($vorname_val); ?>">
+		  <input name="nachname_val" type="hidden" id="nachname_var" value="<?php echo($nachname_val); ?>">
+		  <input name="strasse_val" type="hidden" id="strasse_var" value="<?php echo($strasse_val); ?>">
+		  <input name="ort_val" type="hidden" id="ort_var" value="<?php echo($ort_val); ?>">
+		  <input name="land_val" type="hidden" id="land_var" value="<?php echo($land_val); ?>">
+		  <input name="email_val" type="hidden" id="email_var" value="<?php echo($email_val); ?>">
+		  <input name="tel_val" type="hidden" id="tel_var" value="<?php echo($tel_val); ?>">
+		  <input name="fax_val" type="hidden" id="anrede_var10" value="<?php echo($fax_val); ?>">
+		  <input name="anmerkung_val" type="hidden" id="anrede_var10" value="<?php echo($anmerkung_val); ?>">
+		  <input name="plz_val" type="hidden" id="plz_val" value="<?php echo($plz_val); ?>">
+		  <input name="sprache_val" type="hidden" id="plz_val" value="<?php echo($sprache_val); ?>">
+		  <input name="gast_id" type="hidden" id="gast_id" value="<?php echo ($gast_id); ?>">
 		  <input name="index" type="hidden" value="<?php echo($index); ?>"/>
       </form>
 
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
         <input type="submit" name="Submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-        <input name="anrede_val" type="hidden" id="anrede_val2" value="<? echo($anrede_val); ?>">
-        <input name="vorname_val" type="hidden" id="vorname_val2" value="<? echo($vorname_val); ?>">
-        <input name="nachname_val" type="hidden" id="nachname_val2" value="<? echo($nachname_val); ?>">
-        <input name="strasse_val" type="hidden" id="strasse_val2" value="<? echo($strasse_val); ?>">
-        <input name="ort_val" type="hidden" id="ort_val2" value="<? echo($ort_val); ?>">
-        <input name="land_val" type="hidden" id="land_val2" value="<? echo($land_val); ?>">
-        <input name="email_val" type="hidden" id="email_val2" value="<? echo($email_val); ?>">
-        <input name="tel_val" type="hidden" id="tel_val2" value="<? echo($tel_val); ?>">
-        <input name="fax_val" type="hidden" id="anrede_val2" value="<? echo($fax_val); ?>">
-        <input name="anmerkung_val" type="hidden" id="anrede_val2" value="<? echo($anmerkung_val); ?>">
-		<input name="sprache_val" type="hidden" id="anrede_var" value="<? echo($sprache_val); ?>"> 
-        <input name="plz_val" type="hidden" id="plz_val" value="<? echo($plz_val); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
+        <input name="anrede_val" type="hidden" id="anrede_val2" value="<?php echo($anrede_val); ?>">
+        <input name="vorname_val" type="hidden" id="vorname_val2" value="<?php echo($vorname_val); ?>">
+        <input name="nachname_val" type="hidden" id="nachname_val2" value="<?php echo($nachname_val); ?>">
+        <input name="strasse_val" type="hidden" id="strasse_val2" value="<?php echo($strasse_val); ?>">
+        <input name="ort_val" type="hidden" id="ort_val2" value="<?php echo($ort_val); ?>">
+        <input name="land_val" type="hidden" id="land_val2" value="<?php echo($land_val); ?>">
+        <input name="email_val" type="hidden" id="email_val2" value="<?php echo($email_val); ?>">
+        <input name="tel_val" type="hidden" id="tel_val2" value="<?php echo($tel_val); ?>">
+        <input name="fax_val" type="hidden" id="anrede_val2" value="<?php echo($fax_val); ?>">
+        <input name="anmerkung_val" type="hidden" id="anrede_val2" value="<?php echo($anmerkung_val); ?>">
+		<input name="sprache_val" type="hidden" id="anrede_var" value="<?php echo($sprache_val); ?>"> 
+        <input name="plz_val" type="hidden" id="plz_val" value="<?php echo($plz_val); ?>">
 		<input name="index" type="hidden" value="<?php echo($index); ?>"/>
       </form>  
    
@@ -127,22 +127,22 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		?>
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
-    <td><p><?php echo(getUebersetzung("Der Gast wurde erfolgreich aus der Gästeliste entfernt",$sprache,$link)); ?>!</p>
+    <td><p><?php echo(getUebersetzung("Der Gast wurde erfolgreich aus der GÃ¤steliste entfernt",$sprache,$link)); ?>!</p>
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
         <input type="submit" name="Submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-        <input name="anrede_val" type="hidden" id="anrede_val" value="<? echo($anrede_val); ?>">
-        <input name="vorname_val" type="hidden" id="vorname_val" value="<? echo($vorname_val); ?>">
-        <input name="nachname_val" type="hidden" id="nachname_val" value="<? echo($nachname_val); ?>">
-        <input name="strasse_val" type="hidden" id="strasse_val" value="<? echo($strasse_val); ?>">
-        <input name="ort_val" type="hidden" id="ort_val" value="<? echo($ort_val); ?>">
-        <input name="land_val" type="hidden" id="land_val" value="<? echo($land_val); ?>">
-        <input name="email_val" type="hidden" id="email_val" value="<? echo($email_val); ?>">
-        <input name="tel_val" type="hidden" id="tel_val" value="<? echo($tel_val); ?>">
-        <input name="fax_val" type="hidden" id="anrede_val" value="<? echo($fax_val); ?>">
-        <input name="anmerkung_val" type="hidden" id="anrede_val" value="<? echo($anmerkung_val); ?>">
-		<input name="sprache_val" type="hidden" id="anrede_var" value="<? echo($sprache_val); ?>"> 
-        <input name="plz_val" type="hidden" id="plz_val" value="<? echo($plz_val); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
+        <input name="anrede_val" type="hidden" id="anrede_val" value="<?php echo($anrede_val); ?>">
+        <input name="vorname_val" type="hidden" id="vorname_val" value="<?php echo($vorname_val); ?>">
+        <input name="nachname_val" type="hidden" id="nachname_val" value="<?php echo($nachname_val); ?>">
+        <input name="strasse_val" type="hidden" id="strasse_val" value="<?php echo($strasse_val); ?>">
+        <input name="ort_val" type="hidden" id="ort_val" value="<?php echo($ort_val); ?>">
+        <input name="land_val" type="hidden" id="land_val" value="<?php echo($land_val); ?>">
+        <input name="email_val" type="hidden" id="email_val" value="<?php echo($email_val); ?>">
+        <input name="tel_val" type="hidden" id="tel_val" value="<?php echo($tel_val); ?>">
+        <input name="fax_val" type="hidden" id="anrede_val" value="<?php echo($fax_val); ?>">
+        <input name="anmerkung_val" type="hidden" id="anrede_val" value="<?php echo($anmerkung_val); ?>">
+		<input name="sprache_val" type="hidden" id="anrede_var" value="<?php echo($sprache_val); ?>"> 
+        <input name="plz_val" type="hidden" id="plz_val" value="<?php echo($plz_val); ?>">
       </form>      
     </td>
   </tr>
@@ -151,16 +151,16 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <form action="../../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
-      <td width="1"><input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+      <td width="1"><input type="submit" name="Submit3" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"></td>
     </form>
   </tr>
 </table>
 <?php 			} //ende else	
 			} //ende else
-		} //ende passwortprüfung 
+		} //ende passwortprÃ¼fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

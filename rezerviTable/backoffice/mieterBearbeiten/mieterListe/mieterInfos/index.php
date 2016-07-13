@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../../..";
 $ueberschrift = "Gäste bearbeiten";
 $unterschrift = "Gästeliste";
@@ -67,7 +67,7 @@ if(hasMieterReservations($gast_id)){
 			} //ende while
 		?>
 </table>
-<?
+<?php
 }
 include_once($root."/backoffice/templates/footer.inc.php");
 ?>

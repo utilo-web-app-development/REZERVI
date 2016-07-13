@@ -30,7 +30,7 @@ else if (empty($email)){
 }
 else if (checkMailAdress($email) === false){
 	$fehler = true;
-	$nachricht = "Bitte prüfen sie ihre E-Mail-Adresse, es handelt sich um eine ungültige Adresse.";
+	$nachricht = "Bitte prÃ¼fen sie ihre E-Mail-Adresse, es handelt sich um eine ungÃ¼ltige Adresse.";
 }	
 
 if ($fehler === true){
@@ -60,24 +60,24 @@ if ($fehler === true){
 		
  include_once($root."/templates/bodyStart.inc.php"); 		
 ?>
-<table border="0" cellspacing="3" cellpadding="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellspacing="3" cellpadding="0" class="<?php echo TABLE_STANDARD ?>">
   <tr>
-    <td><?php echo(getUebersetzung("Die Nachricht wurde versendet. <br/> Danke für Ihre Anfrage!")); ?></td>
+    <td><?php echo(getUebersetzung("Die Nachricht wurde versendet. <br/> Danke fÃ¼r Ihre Anfrage!")); ?></td>
   </tr>
 </table>
 <br/>
 <table width="100%" border="0" cellspacing="3" cellpadding="0">
   <tr>
     <td>
-    	<form action="<?= $root ?>/start.php" method="post" name="form1">	
+    	<form action="<?php echo $root ?>/start.php" method="post" name="form1">	
 			<input name="jahr" type="hidden" value="<?php echo($jahr); ?>"/>
 			<input name="monat" type="hidden" value="<?php echo($monat); ?>"/>
-			<input name="tag" type="hidden" id="monat" value="<? echo($tag); ?>"/>
-			<input name="ansicht" type="hidden" id="ansicht" value="<? echo($ansicht); ?>"/>
-			<input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<? echo($mietobjekt_id); ?>"/>			
-        	<input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück")); ?>" 
-        		class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-      			onMouseOut="this.className='<?= BUTTON ?>';">
+			<input name="tag" type="hidden" id="monat" value="<?php echo($tag); ?>"/>
+			<input name="ansicht" type="hidden" id="ansicht" value="<?php echo($ansicht); ?>"/>
+			<input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo($mietobjekt_id); ?>"/>			
+        	<input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>" 
+        		class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+      			onMouseOut="this.className='<?php echo BUTTON ?>';">
       	</form>
       </td>
   </tr>

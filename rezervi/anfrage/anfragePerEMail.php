@@ -4,10 +4,10 @@
 			nachricht an den vermieter senden
 			author: christian osterrieder utilo.eu					
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss Ãœbergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 			
-			die seite verwendet anfrage/sendEMail.php um das ausgefüllte
+			die seite verwendet anfrage/sendEMail.php um das ausgefÃ¼llte
 			formular zu versenden
 */ 
 session_start(); 
@@ -33,7 +33,7 @@ include_once("../include/uebersetzer.php");
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<!-- checken ob formular korrekt ausgefüllt wurde: -->
+<!-- checken ob formular korrekt ausgefÃ¼llt wurde: -->
 <script language="JavaScript" type="text/javascript" src="./anfragePerEmailJS.php">
 </script>
 <?php include_once("../templates/headerB.php"); ?>
@@ -61,7 +61,7 @@ include_once("../include/uebersetzer.php");
       <td><textarea name="nachricht" cols="40" rows="10"  id="nachricht"></textarea></td>
     </tr>
   </table>
-  <p class="standardSchrift">(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder müssen ausgefüllt werden!",$sprache,$link)); ?>)
+  <p class="standardSchrift">(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden!",$sprache,$link)); ?>)
   </p>
   <p>
     <input name="send" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"

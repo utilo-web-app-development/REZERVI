@@ -1,7 +1,7 @@
 <?php
 
 //gibt alle reservierungen eines gastes aus:
-//gibt das array der datenbankabfrage zurück.
+//gibt das array der datenbankabfrage zurÃ¼ck.
 function getReservationsOfGuest($gast_id,$link){
 
 		$query = "select 

@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Gäste bearbeiten";
 
@@ -18,14 +18,14 @@ include_once($root."/include/mieterFunctions.inc.php");
 ?>
 <table>
 	<tr height="30">
-    	<td><a href="<?=$root ?>/backoffice/mieterBearbeiten/mieterAnlegen/index.php"><?= getUebersetzung("Gast anlegen") ?></a></td>
+    	<td><a href="<?php echo$root ?>/backoffice/mieterBearbeiten/mieterAnlegen/index.php"><?php echo getUebersetzung("Gast anlegen") ?></a></td>
     	<td> - </td>
-    	<td><?= getUebersetzung("Einen neuen Gast in der Datenbank speichern") ?>.</td>
+    	<td><?php echo getUebersetzung("Einen neuen Gast in der Datenbank speichern") ?>.</td>
 	</tr>
 	<tr height="30">
-	    <td><a href="<?=$root ?>/backoffice/mieterBearbeiten/mieterListe/index.php"><?= getUebersetzung("Gästeliste anzeigen") ?></a></td>
+	    <td><a href="<?php echo$root ?>/backoffice/mieterBearbeiten/mieterListe/index.php"><?php echo getUebersetzung("Gästeliste anzeigen") ?></a></td>
     	<td> - </td>
-	    <td><?= getUebersetzung("Anzeigen und Ändern von Gästen") ?>.</td>
+	    <td><?php echo getUebersetzung("Anzeigen und Ändern von Gästen") ?>.</td>
 	</tr>
 </table>
 

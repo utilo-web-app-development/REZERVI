@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 
@@ -26,7 +26,7 @@ else{
   <form action="./aendern.php" method="post" target="_self">
   <tr>
   	<td>
-  		<?= getUebersetzung("Suchfunktion aktivieren") ?>
+  		<?php echo getUebersetzung("Suchfunktion aktivieren") ?>
   	<td>
   	<td>
   		<input type="checkbox" value="true" <?php if ($sucheAktiv) { 

@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 20.9.05
@@ -11,7 +11,7 @@ include_once($root."/webinterface/templates/header.inc.php");
 //andere funktionen importieren:
 include_once($root."/include/vermieterFunctions.inc.php");
 
-//sprachunabh�ngige variablen:
+//sprachunabhängige variablen:
 $strasse = $_POST["strasse"];
 $plz = $_POST["plz"];
 $ort = $_POST["ort"];
@@ -90,7 +90,7 @@ while ($d = mysql_fetch_array($res)){
 	  
 }	
 	
-	//unterkunft �nderung durchf�hren:	
+	//unterkunft Änderung durchführen:	
 	setVermieterStrasse($vermieter_id,$strasse);
 	setVermieterPlz($vermieter_id,$plz);
 	setVermieterOrt($vermieter_id,$ort);	
@@ -117,18 +117,18 @@ while ($d = mysql_fetch_array($res)){
 		setUebersetzungVermieter($mo_mz,$defaultMoMz,$sprache_id,$standardsprache,$vermieter_id);
 	}	
 	
-	$nachricht = "Ihre Daten wurden erfolgreich ver�ndert.";
+	$nachricht = "Ihre Daten wurden erfolgreich verändert.";
 	$info = true;
 	
 	include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 
 ?>
-<table  border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
   <tr>
     <td>
       <form action="./index.php" method="post" name="Vermieter aendern" target="_self" id="Vermieter aendern">
-        <input name="retour" type="submit" class="<?= BUTTON ?>" id="retour" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zur�ck")); ?>">
+        <input name="retour" type="submit" class="<?php echo BUTTON ?>" id="retour" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+			 onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
       </form>
     </td>
   </tr>

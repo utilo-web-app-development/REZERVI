@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			author: christian osterrieder utilo.eu						
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -49,7 +49,7 @@ if (empty($xDays) || $xDays == 0 || $xDays == "0"){
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
   <div class="panel panel-default">
@@ -79,15 +79,15 @@ if (isset($nachricht) && $nachricht != ""){
 			  if($resAnzeigen == "true"){ echo(" checked=\"checked\""); }
 			?>
 			/>
-			<?= getUebersetzung("Eingehende Anfragen als reserviert anzeigen.",$sprache,$link) ?>
+			<?php echo getUebersetzung("Eingehende Anfragen als reserviert anzeigen.",$sprache,$link) ?>
 		</td>
     </tr>
   	<tr>
 	    <td>
-	 	 <?= getUebersetzung("Eingehende Anfragen nach",$sprache,$link) ?>&nbsp; 	 	 
-  			<input type="text" name="xDays" value="<?= $xDays ?>" size="3" maxlength="3"/>&nbsp;  
-	 	 <?= getUebersetzung("Tagen löschen falls unbestätigt.",$sprache,$link) ?>&nbsp;  
-	 	 <?= getUebersetzung("(Bitte lassen sie dieses Feld leer falls dies nicht erwünscht ist.)",$sprache,$link) ?>  
+	 	 <?php echo getUebersetzung("Eingehende Anfragen nach",$sprache,$link) ?>&nbsp; 	 	 
+  			<input type="text" name="xDays" value="<?php echo $xDays ?>" size="3" maxlength="3"/>&nbsp;  
+	 	 <?php echo getUebersetzung("Tagen löschen falls unbestätigt.",$sprache,$link) ?>&nbsp;  
+	 	 <?php echo getUebersetzung("(Bitte lassen sie dieses Feld leer falls dies nicht erwünscht ist.)",$sprache,$link) ?>  
 		</td>
     </tr>  
     <tr>
@@ -97,7 +97,7 @@ if (isset($nachricht) && $nachricht != ""){
 			  if($resHouse == "true"){ echo(" checked=\"checked\""); }
 			?>
 			/>
-			<?= getUebersetzung("Wenn ein Zimmer eines Hauses reserviert oder belegt ist, das gesamte Haus als belegt anzeigen.",$sprache,$link) ?>
+			<?php echo getUebersetzung("Wenn ein Zimmer eines Hauses reserviert oder belegt ist, das gesamte Haus als belegt anzeigen.",$sprache,$link) ?>
 		</td>
     </tr>      
   	<tr>
@@ -112,16 +112,16 @@ if (isset($nachricht) && $nachricht != ""){
 </table>
 <!-- <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

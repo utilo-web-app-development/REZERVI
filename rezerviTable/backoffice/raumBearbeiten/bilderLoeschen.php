@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../.."; 
 $ueberschrift = "Raum bearbeiten";
 
@@ -44,9 +44,9 @@ include_once($root."/templates/constants.inc.php");
 		<td>
 			<table cellpadding="0" cellspacing="2" border="0">
 			  <tr>
-					<th><div align="left"><?= getUebersetzung("Bild") ?></div></th>
-					<th><div align="left"><?= getUebersetzung("Mietobjekt") ?></div></th>
-					<th><div align="center"><?= getUebersetzung("löschen") ?></div></th>
+					<th><div align="left"><?php echo getUebersetzung("Bild") ?></div></th>
+					<th><div align="left"><?php echo getUebersetzung("Mietobjekt") ?></div></th>
+					<th><div align="center"><?php echo getUebersetzung("löschen") ?></div></th>
 				</tr>
 			<?php 
 				$res = getAllPicturesFromVermieterWithLimit($gastro_id,$limit,$index);
@@ -55,17 +55,17 @@ include_once($root."/templates/constants.inc.php");
 					$bezeichnung = $d->BEZEICHNUNG;
 			?>
 			  	  <tr>
-					  <td><img src="<?= $root."/templates/picture.php?bilder_id=".$bilder_id ?>" /></td>
+					  <td><img src="<?php echo $root."/templates/picture.php?bilder_id=".$bilder_id ?>" /></td>
 					  <td><?php echo($bezeichnung); ?></td> 
 					  <td><form action="./bilderLoeschenDurchf.php" 
-					  			method="post" name="zimmerloeschen<?= $bilder_id ?>" 
+					  			method="post" name="zimmerloeschen<?php echo $bilder_id ?>" 
 								target="_self" onSubmit="return sicher()" 
 								enctype="multipart/form-data">
-			  				<input type="hidden" name="bilder_id" value="<?= $bilder_id ?>"/>
+			  				<input type="hidden" name="bilder_id" value="<?php echo $bilder_id ?>"/>
 			  				<input type="hidden" name="index" value="<?php echo($index); ?>"/>
-			  				<input name="Submit" type="submit" id="Submit" class="<?= BUTTON ?>" 
-								onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       							onMouseOut="this.className='<?= BUTTON ?>';"
+			  				<input name="Submit" type="submit" id="Submit" class="<?php echo BUTTON ?>" 
+								onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       							onMouseOut="this.className='<?php echo BUTTON ?>';"
 								value="<?php echo(getUebersetzung("Bild löschen")); ?>">
 						 </form>
 					  </td>

@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../.."; 
 $ueberschrift = "Räume bearbeiten";
 
@@ -16,20 +16,20 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 <table>
 	<?php if (getAnzahlVorhandeneRaeume($gastro_id) > 0){ ?>
 	<tr height="30">
-    	<td><a href="<?=$root ?>/backoffice/raumBearbeiten/raumAendern/index.php"><?= getUebersetzung("Räume ändern") ?></a></td>
+    	<td><a href="<?php echo$root ?>/backoffice/raumBearbeiten/raumAendern/index.php"><?php echo getUebersetzung("Räume ändern") ?></a></td>
     	<td> - </td>
-    	<td><?= getUebersetzung("Anzeigen und Ändern von Räumen") ?>.</td>
+    	<td><?php echo getUebersetzung("Anzeigen und Ändern von Räumen") ?>.</td>
 	</tr>
 	<tr height="30">
-	    <td><a href="<?=$root ?>/backoffice/raumBearbeiten/raumLoeschen/index.php"><?= getUebersetzung("Räume löschen") ?></a></td>
+	    <td><a href="<?php echo$root ?>/backoffice/raumBearbeiten/raumLoeschen/index.php"><?php echo getUebersetzung("Räume löschen") ?></a></td>
     	<td> - </td>
-	    <td><?= getUebersetzung("Löschen von vorhandenen Räumen") ?>.</td>
+	    <td><?php echo getUebersetzung("Löschen von vorhandenen Räumen") ?>.</td>
 	</tr>
 	<?php } ?>
 	<tr height="30">
-	    <td><a href="<?=$root ?>/backoffice/raumBearbeiten/raumAnlegen/index.php"><?= getUebersetzung("Raum anlegen") ?></a></td>
+	    <td><a href="<?php echo$root ?>/backoffice/raumBearbeiten/raumAnlegen/index.php"><?php echo getUebersetzung("Raum anlegen") ?></a></td>
     	<td> - </td>
-	    <td><?= getUebersetzung("Einen neuen Raum anlegen") ?>.</td>
+	    <td><?php echo getUebersetzung("Einen neuen Raum anlegen") ?>.</td>
 	</tr>
 </table>
 <?php 

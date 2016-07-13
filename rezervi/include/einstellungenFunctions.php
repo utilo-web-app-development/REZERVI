@@ -301,7 +301,7 @@ function getFramesizeRightWI($unterkunft_id,$link){
 
 /**
 gibt das sql-result mit den gespeicherten sprachen
-zurück
+zurÃ¼ck
 */
 function getSprachen($unterkunft_id,$link){
 	
@@ -327,7 +327,7 @@ function getSprachen($unterkunft_id,$link){
 
 /**
 gibt das sql-result mit den gespeicherten sprachen
-zurück
+zurÃ¼ck
 */
 function getStandardSprachePKID($unterkunft_id,$sprache,$modul,$link){
 		
@@ -439,7 +439,7 @@ function isSpracheShown($unterkunft_id,$spracheID,$link){
 
 /**
 gibt die standard-sprache
-zurück
+zurÃ¼ck
 */
 function getStandardSprache($unterkunft_id,$link){
 		
@@ -467,7 +467,7 @@ function getStandardSprache($unterkunft_id,$link){
 
 /**
 gibt die standard-sprache des belegungsplanes 
-zurück
+zurÃ¼ck
 */
 function getStandardSpracheBelegungsplan($unterkunft_id,$link){
 		
@@ -592,7 +592,7 @@ function isEnglishShown($unterkunft_id,$link){
 }
 
 /**
-prueft ob französisch angezeigt werden soll
+prueft ob franzÃ¶sisch angezeigt werden soll
 */
 function isFrenchShown($unterkunft_id,$link){
 	

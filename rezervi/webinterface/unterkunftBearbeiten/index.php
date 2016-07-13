@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -15,7 +15,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -1274,7 +1274,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
 	</div>
   
     <!-- alter button <input type="submit" name="Submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Unterkunft �ndern",$sprache,$link)); ?>"> -->
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Unterkunft ändern",$sprache,$link)); ?>"> -->
 	 <input type="submit" name="Submit" class="btn btn-primary" id="retour" value="<?php echo(getUebersetzung("Unterkunft ändern",$sprache,$link)); ?>">
 	</td>
     <td>&nbsp;</td>
@@ -1282,7 +1282,7 @@ if (isEstoniaShown($unterkunft_id,$link)){
 </table>
 </form>
 <?php
-//-----buttons um zur�ck zum menue zu gelangen: 
+//-----buttons um zurück zum menue zu gelangen: 
 ?>
 <!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
@@ -1294,9 +1294,9 @@ if (isEstoniaShown($unterkunft_id,$link)){
   </tr>
 </table> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

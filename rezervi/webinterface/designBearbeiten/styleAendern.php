@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -83,12 +83,12 @@ include_once("./stylesHelper.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 
 	
 	$designFuer = "";
 	if ($stylesheet == "ueberschrift"){
-		$designFuer = "Überschrift";
+		$designFuer = "Ãœberschrift";
 	}
 	else if ($stylesheet == "standardSchrift"){
 		$designFuer = "Standard-Schrift";
@@ -109,7 +109,7 @@ include_once("./stylesHelper.php");
 		$designFuer = "Tabelle";
 	}
 	else if ($stylesheet == "tabelleColor"){
-		$designFuer = "färbige Tabelle";
+		$designFuer = "fÃ¤rbige Tabelle";
 	}
 	else if ($stylesheet == "belegt"){
 		$designFuer = "belegt";
@@ -254,7 +254,7 @@ include_once("./stylesHelper.php");
 	}
 	else{		
 			?>
-			<?php echo(getUebersetzung("Das Design des ausgewählen Elementes wurde erfolgreich geändert",$sprache,$link)); ?>!
+			<?php echo(getUebersetzung("Das Design des ausgewÃ¤hlen Elementes wurde erfolgreich geÃ¤ndert",$sprache,$link)); ?>!
 			</td>
           <?php } ?></tr>
 		 </table>
@@ -262,7 +262,7 @@ include_once("./stylesHelper.php");
 <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><form action="./index.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" 
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurck",$sprache,$link)); ?>" class="button200pxA" 
 			onMouseOver="this.className='button200pxB';"
        		onMouseOut="this.className='button200pxA';">
       </form></td>
@@ -272,7 +272,7 @@ include_once("./stylesHelper.php");
 <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" 
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>" class="button200pxA" 
 			onMouseOver="this.className='button200pxB';"
        		onMouseOut="this.className='button200pxA';">
       </form></td>

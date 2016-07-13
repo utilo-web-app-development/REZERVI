@@ -80,17 +80,9 @@ define( '_JEXEC', 1 );
 include_once("../templates/headerA.php");
 //stylesheets einfügen:
 ?>
-
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<!-- Bootstrap ende -->
-<div class="container" style="margin-top:70px;">
-	<div class="panel panel-default">
-  <div class="panel-body">
-
 <?php
 //headerB einfügen:
 include_once("../templates/headerB.php");
@@ -98,12 +90,6 @@ include_once("../templates/headerB.php");
 //prüfen ob datum korrekt:
 if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {				
 ?>
-
-
-
-
-
-	
 <table border="0" cellpadding="0" cellspacing="3" class="table">
   <tr>
     <td>
@@ -136,7 +122,8 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 			    		<?php
 			    	}
 			    ?>
-        		<input type="submit" name="Submit" class="btn btn-default" value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>">
+        		<input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+			   		onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>">
       	</form>
       </td>
   </tr>
@@ -148,12 +135,12 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	  <tr>
 		<td>
-			<b>
+			<p class="standardSchriftBold">
 				<?php echo(getUebersetzung("Das gewählte Datum ist bereits abgelaufen.",$sprache,$link)); ?>
-			</b>
-		    <b>
+			</p>
+		    <p class="standardSchriftBold">
 		    	<?php echo(getUebersetzung("Bitte korrigieren Sie das Datum Ihrer Anfrage!",$sprache,$link)); ?>
-		    </b>
+		    </p>
 		</td>
 	  </tr>
 	    <tr>
@@ -177,7 +164,8 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 				    		<?php
 				    	}
 				    ?>
-	        		<input type="submit" name="Submit" class="btn btn-default" value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>"/>
+	        		<input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+				       	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>"/>
       			</form>
       		</td>
   		</tr>
@@ -189,12 +177,12 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	  <tr>
 		<td>
-			<b>
+			<p class="standardSchriftBold">
 				<?php echo(getUebersetzung("Es ist mindestens eine Übernachtung erforderlich",$sprache,$link)); ?>!
-			</b>
-		  	<b>
+			</p>
+		  	<p class="standardSchriftBold">
 		  		<?php echo(getUebersetzung("Bitte korrigieren Sie das Datum Ihrer Anfrage!",$sprache,$link)); ?>
-		  	</b>
+		  	</p>
 		</td>
 	  </tr>
 	    <tr>
@@ -218,7 +206,8 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 				    		<?php
 				    	}
 				    ?>
-	        		<input type="submit" name="Submit" class="btn btn-default" value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>"/>
+	        		<input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+				       	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>"/>
       			</form>
       		</td>
   		</tr>
@@ -230,17 +219,17 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 <table border="0" class="table">
   <tr>
     <td>
-    	<p>
+    	<span class="standardSchriftBold">
     		<?php echo(getUebersetzung("Suchanfrage für:",$sprache,$link)); ?>
-    	</p>
+    	</span>
     </td>
   </tr>
   <tr>
     <td>
     	<?php if ($anzahlErwachsene > -1) {  ?>
-     	 <p>
+     	 <span class="standardSchrift">
      	 	<?php echo($anzahlErwachsene); ?>&nbsp;<?php echo(getUebersetzung("Erwachsene",$sprache,$link)); ?>
-     	 </p> 
+     	 </span> 
     </td>
   </tr>
   <tr>
@@ -248,9 +237,9 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
     	<?php 
 		} 
 		if ($anzahlKinder > -1) { ?>
-      		<p>
+      		<span class="standardSchrift">
       			<?php echo($anzahlKinder); ?>&nbsp;<?php echo(getUebersetzung("Kinder",$sprache,$link)); ?>
-      		</p>
+      		</span>
      </td>
   </tr>
   <tr>
@@ -258,7 +247,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 	    <?php 
 		}
 		if ($anzahlZimmer > -1){ ?>
-	      <p><?php 
+	      <span class="standardSchrift"><?php 
 	        if (isset($zimmerIdsParents) && count($zimmerIdsParents)>0){
 	        	foreach ($zimmerIdsParents as $par){
 	  				$temp  = getZimmerArt($unterkunft_id,$par,$link);
@@ -277,7 +266,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 					echo($anzahlZimmer); ?> <?php echo(getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 				}			
 	        }?>
-	       </p>
+	       </span>
 	      <?php } ?>
       </td>
   </tr>
@@ -287,23 +276,23 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 		  //Neu für die Option HAUSTIERE
 		  if ($haustiere == 'true')
 		  { ?>
-	        <p><?php echo(getUebersetzung("Haustiere",$sprache,$link)); ?></p>
+	        <span class="standardSchrift"><?php echo(getUebersetzung("Haustiere",$sprache,$link)); ?></span>
 		    <?php }
 		 ?>
 	</td>
   </tr>
   <tr>
     <td>
-    	<p>
+    	<span class="standardSchrift">
     		<?php echo(getUebersetzung("von",$sprache,$link)); ?>: <?php echo($vonTag); ?>.<?php echo($vonMonat); ?>.<?php echo($vonJahr); ?>
-    	</p>
+    	</span>
     </td>
   </tr>
   <tr>
     <td>
-    	<p>
+    	<span class="standardSchrift">
     		<?php echo(getUebersetzung("bis",$sprache,$link)); ?>: <?php echo($bisTag); ?>.<?php echo($bisMonat); ?>.<?php echo($bisJahr); ?>
-    	</p>
+    	</span>
     </td>
   </tr>
 </table>
@@ -315,13 +304,13 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 ?>
 <table border="0" class="tableColor">
   <tr>
-    <b>
+    <td class="standardSchriftBold">
     	<?php echo( getUebersetzung("Leider haben wir nicht mehr genug ",$sprache,$link) );
 			  echo(getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 			  echo(getUebersetzung("für",$sprache,$link)." ");
 			  echo($anzahlErwachsene);
 			  echo(getUebersetzung(" Erwachsene im gewünschten Zeitraum frei.",$sprache,$link)); ?>
-	</b>
+	</td>
   </tr>
 </table>
 <?php
@@ -331,14 +320,14 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 ?>
 <table border="0" class="tableColor">
   <tr>
-    <b>
+    <td class="standardSchriftBold">
     	<?php echo( getUebersetzung("Leider haben wir nicht mehr genug ",$sprache,$link));
 			  echo( getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 			  echo( getUebersetzung("für",$sprache,$link)." ");
 			  echo( $anzahlKinder);
 			  echo( getUebersetzung(" Kinder im gewünschten Zeitraum frei.",$sprache,$link));
 		?>
-	</b>
+	</td>
   </tr>
 </table>
 <?php
@@ -348,12 +337,12 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 ?>
 <table border="0" class="tableColor">
   <tr>
-    <b>
+    <td class="standardSchriftBold">
     	<?php echo( getUebersetzung("Leider haben wir nicht mehr genug ",$sprache,$link));
 			  echo( getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 			  echo( "&nbsp;".getUebersetzung("im gewünschten Zeitraum frei.",$sprache,$link) );
 	    ?>
-	</b>
+	</td>
   </tr>
 </table>
 <?php
@@ -386,14 +375,14 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
   <table border="0" class="table">
     <tr>
       <td>
-      	<b>
+      	<span class="standardSchriftBold">
       		<?php echo(getUebersetzung("Freie",$sprache,$link)." "); 
 	  			  echo(getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 				  echo(" ".getUebersetzung("im gewünschten Zeitraum",$sprache,$link).":" );
 	  		 ?>
 	  	<br/>
-        </b>
-        <p>
+        </span>
+        <span class="standardSchrift">
         	<?php 
 				if (count($freieZimmer) > 1){
 					echo(getUebersetzung("Bitte wählen Sie die gewünschten",$sprache,$link)." ");
@@ -406,7 +395,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 					echo(" ".getUebersetzung("aus",$sprache,$link)."."); 
 				}
 			?>
-		<p>
+		</span>
 	  </td>
     </tr>
     <?php
@@ -450,7 +439,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 		  <?php		 
 	  }
 	  ?>
-      <p>
+      <td class="standardSchrift">
       		    <?php
       		    //pruefe ob fuer das zimmer eine buchungseinschraenkung besteht.
 				//wenn ja dann kann es nicht ausgewaehlt werden
@@ -498,7 +487,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 				  <?php
 				  }
 				  ?>
-			   </p>
+			   </td>
 			   <?php
 	            }
 	            else
@@ -519,7 +508,8 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 	if ($zaehleEinschraenkungen < $zaehle){
 	?>		
     <tr>
-      <td><input name="reservierungAbsenden" type="submit" class="btn btn-default" id="reservierungAbsenden" value="<?php echo(getUebersetzung("Reservierung starten...",$sprache,$link)); ?>"></td>
+      <td><input name="reservierungAbsenden" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+		   onMouseOut="this.className='button200pxA';" id="reservierungAbsenden" value="<?php echo(getUebersetzung("Reservierung starten...",$sprache,$link)); ?>"></td>
     </tr>
     <?php
 	}
@@ -551,7 +541,9 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 			    		<?php
 			    	}
 			    ?>
-	       	 	<input type="submit" name="Submit" class="btn btn-default"
+	       	 	<input type="submit" name="Submit" class="button200pxA" 
+	       	 		onMouseOver="this.className='button200pxB';"
+			   		onMouseOut="this.className='button200pxA';" 
 			   		value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>"/>
 	      	</form>
 	     </td>
@@ -569,14 +561,14 @@ if ($freieZimmer[0] == -1 || $freieZimmer[0] == -2 || $freieZimmer[0] == -3){
 <table border="0" class="table">
   <tr>
     <td>
-   		<b>
+   		<span class="standardSchriftBold">
    			<?php echo( getUebersetzung("Leider haben wir nicht mehr genug ",$sprache,$link));
 			  echo( getUebersetzungUnterkunft(getZimmerart_MZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link));
 			  echo( "&nbsp;".getUebersetzung("im gewünschten Zeitraum frei.",$sprache,$link) );
 	   	    ?>
 	   	    <br/><br/>
     		<?php echo(getUebersetzung("Bitte wiederholen sie die Suche mit geänderten Anforderungen <br/>	oder wählen Sie aus dem Belegungsplan den gewünschten Zeitraum aus.",$sprache,$link)); ?>
-    	</b>
+    	</span>
     </td>
   </tr>
   <tr>
@@ -591,7 +583,8 @@ if ($freieZimmer[0] == -1 || $freieZimmer[0] == -2 || $freieZimmer[0] == -3){
           <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
           <input name="monat" type="hidden" value="<?php echo($vonMonat); ?>">
   		  <input name="jahr" type="hidden" value="<?php echo($vonJahr); ?>">
-          <input type="submit" name="Submit" class="btn btn-default"  value="<?php echo(getUebersetzung("Belegungsplan anzeigen",$sprache,$link)); ?>">
+          <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+		   onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Belegungsplan anzeigen",$sprache,$link)); ?>">
       </form></td>
   </tr>
   <tr>
@@ -614,7 +607,8 @@ if ($freieZimmer[0] == -1 || $freieZimmer[0] == -2 || $freieZimmer[0] == -3){
 			    		<?php
 			    	}
 			    ?>
-        <input type="submit" name="Submit" class="btn btn-default"  value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>">
+        <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
+		   onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Suche wiederholen",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>

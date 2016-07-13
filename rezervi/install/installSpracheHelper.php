@@ -1,6 +1,6 @@
 <?php
 /**
-Fügt eine Zeile aus dem csv in die Datenbank
+FÃ¼gt eine Zeile aus dem csv in die Datenbank
 ein:
 */
 function insertSpracheNeu($zeile,$link){
@@ -8,7 +8,7 @@ function insertSpracheNeu($zeile,$link){
 	//leerzeichen am anfang und ende und zeilenumbruch entfernen:
 	$zeile = rtrim($zeile);
 	
-	//entferne das erste und das letzte anführungszeichen:
+	//entferne das erste und das letzte anfï¿½hrungszeichen:
 	$zeile = "#".$zeile."#";
 	$zeile = str_replace ( "#\"", "", $zeile);
 	$zeile = str_replace ( "\"#", "", $zeile);

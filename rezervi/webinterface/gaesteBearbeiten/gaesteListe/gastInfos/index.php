@@ -6,10 +6,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 
 /*   
 	reservierungsplan
-	gast-infos anzeigen und evt. ändern:
+	gast-infos anzeigen und evt. Ã¤ndern:
 	author: christian osterrieder utilo.eu
 			
-	dieser seite muss übergeben werden:
+	dieser seite muss Ã¼bergeben werden:
 	Gast PK_ID $gast_id
 	$unterkunft_id
 */
@@ -33,7 +33,7 @@ $gast_id = $_POST["gast_id"];
 $sprache = getSessionWert(SPRACHE);
 $index = $_POST["index"];
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../../../conf/rdbmsConfig.php");	
 //funktions einbinden:
 include_once("../../../../include/unterkunftFunctions.php");
@@ -55,10 +55,10 @@ include_once($root."/include/reservierungFunctions.php");
 <?php include_once("../../../templates/headerB.php"); ?>
 <?php include_once("../../../templates/bodyA.php"); ?>
 <?php		
-//passwortprüfung:	
+//passwortprÃ¼fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 	
 ?>
-<span class="standardSchriftBold"><?php echo(getUebersetzung("Es liegen	folgende Reservierungen für den Gast vor (aufsteigend sortiert)",$sprache,$link)); ?>:<br/>
+<span class="standardSchriftBold"><?php echo(getUebersetzung("Es liegen	folgende Reservierungen fÃ¼r den Gast vor (aufsteigend sortiert)",$sprache,$link)); ?>:<br/>
 <br/>
 </span>
 <?php
@@ -69,11 +69,11 @@ if (!empty($res) && mysql_affected_rows($link)>0){
 		  <tr class="tableColor">
 			<td><?php echo(getUebersetzung("Reservierung von",$sprache,$link)); ?></td>
 			<td><?php echo(getUebersetzung("bis",$sprache,$link)); ?></td>
-			<td><?php echo(getUebersetzung("für",$sprache,$link)); ?></td>
+			<td><?php echo(getUebersetzung("fÃ¼r",$sprache,$link)); ?></td>
 			<?php 
   			if (getPropertyValue(PENSION_UEBERNACHTUNG,$unterkunft_id,$link) == "true"){
   			?>
-				<td><?= getUebersetzung("Pension",$sprache,$link) ?></td>
+				<td><?php echo getUebersetzung("Pension",$sprache,$link) ?></td>
 			<?php
   			}
   			?>
@@ -100,7 +100,7 @@ if (!empty($res) && mysql_affected_rows($link)>0){
                 <?php 
 	  			if (getPropertyValue(PENSION_UEBERNACHTUNG,$unterkunft_id,$link) == "true"){
 	  			?>
-					<td><?= $pension ?></td>
+					<td><?php echo $pension ?></td>
 				<?php
 	  			}
 	  			?>
@@ -113,7 +113,7 @@ if (!empty($res) && mysql_affected_rows($link)>0){
 } //ende if reservations
 else {
 ?>
-<span class="standardSchriftBold"><?php echo(getUebersetzung("Keine Reservierungen für diesen Gast vorhanden.",$sprache,$link)); ?></span>
+<span class="standardSchriftBold"><?php echo(getUebersetzung("Keine Reservierungen fÃ¼r diesen Gast vorhanden.",$sprache,$link)); ?></span>
 <br/>
 <?php
 }
@@ -124,19 +124,19 @@ else {
     <td>
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
         <input type="submit" name="Submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-        <input name="anrede_val" type="hidden" id="anrede_val" value="<? echo($anrede_val); ?>">
-        <input name="vorname_val" type="hidden" id="vorname_val" value="<? echo($vorname_val); ?>">
-        <input name="nachname_val" type="hidden" id="nachname_val" value="<? echo($nachname_val); ?>">
-        <input name="strasse_val" type="hidden" id="strasse_val" value="<? echo($strasse_val); ?>">
-        <input name="ort_val" type="hidden" id="ort_val" value="<? echo($ort_val); ?>">
-        <input name="land_val" type="hidden" id="land_val" value="<? echo($land_val); ?>">
-        <input name="email_val" type="hidden" id="email_val" value="<? echo($email_val); ?>">
-        <input name="tel_val" type="hidden" id="tel_val" value="<? echo($tel_val); ?>">
-        <input name="fax_val" type="hidden" id="anrede_val" value="<? echo($fax_val); ?>">
-        <input name="anmerkung_val" type="hidden" id="anrede_val" value="<? echo($anmerkung_val); ?>">
-		<input name="sprache_val" type="hidden" id="anrede_var" value="<? echo($sprache_val); ?>"> 
-        <input name="plz_val" type="hidden" id="plz_val" value="<? echo($plz_val); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
+        <input name="anrede_val" type="hidden" id="anrede_val" value="<?php echo($anrede_val); ?>">
+        <input name="vorname_val" type="hidden" id="vorname_val" value="<?php echo($vorname_val); ?>">
+        <input name="nachname_val" type="hidden" id="nachname_val" value="<?php echo($nachname_val); ?>">
+        <input name="strasse_val" type="hidden" id="strasse_val" value="<?php echo($strasse_val); ?>">
+        <input name="ort_val" type="hidden" id="ort_val" value="<?php echo($ort_val); ?>">
+        <input name="land_val" type="hidden" id="land_val" value="<?php echo($land_val); ?>">
+        <input name="email_val" type="hidden" id="email_val" value="<?php echo($email_val); ?>">
+        <input name="tel_val" type="hidden" id="tel_val" value="<?php echo($tel_val); ?>">
+        <input name="fax_val" type="hidden" id="anrede_val" value="<?php echo($fax_val); ?>">
+        <input name="anmerkung_val" type="hidden" id="anrede_val" value="<?php echo($anmerkung_val); ?>">
+		<input name="sprache_val" type="hidden" id="anrede_var" value="<?php echo($sprache_val); ?>"> 
+        <input name="plz_val" type="hidden" id="plz_val" value="<?php echo($plz_val); ?>">
 		<input name="index" type="hidden" value="<?php echo($index); ?>"/>
       </form>      
     </td>
@@ -145,15 +145,15 @@ else {
 <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <form action="../../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
-      <td width="1"><input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+      <td width="1"><input type="submit" name="Submit3" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"></td>
     </form>
   </tr>
 </table>
 <?php
-} //ende passwortprüfung 
+} //ende passwortprÃ¼fung 
 else{ 
-	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link)); 
+	echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link)); 
 } ?>
 </body>
 </html>

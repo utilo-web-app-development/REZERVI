@@ -41,8 +41,8 @@ function check_version($currentversion, $requiredversion)
    return true;
 }
 /**
-	html_entity_decode für benutzer der php version < 4.3.0
-	bzw. wird in der funktion geprüft, welche php funktion 
+	html_entity_decode fï¿½r benutzer der php version < 4.3.0
+	bzw. wird in der funktion geprï¿½ft, welche php funktion 
 	verwendet wird.
 	author: http://at.php.net/html_entity_decode
 	changes: coster

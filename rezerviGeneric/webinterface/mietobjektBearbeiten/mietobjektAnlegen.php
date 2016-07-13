@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 23.9.05
@@ -22,11 +22,11 @@ if (!(isset($fehler) && $fehler == true)){
 }
 ?>
 <form action="./mietobjektEintragen.php" method="post" name="mietobjektEintragen" target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+  <table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
     <tr> 
-      <td colspan="2"><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ein neues Mietobjekt anlegen")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.")); ?> 
-		  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden")); ?>!
+      <td colspan="2"><p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ein neues Mietobjekt anlegen")); ?><br/>
+          <span class="<?php echo STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte fÃ¼llen Sie die untenstehenden Felder aus.")); ?> 
+		  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden")); ?>!
 		  </span></p></td>
     </tr>
     <tr> 
@@ -48,7 +48,7 @@ if (!(isset($fehler) && $fehler == true)){
 	      	}
 	      ?>
 	      </td>
-	   <td><input name="bezeichnung_<?= $sprache_id ?>" type="text" value="" maxlength="255">
+	   <td><input name="bezeichnung_<?php echo $sprache_id ?>" type="text" value="" maxlength="255">
 	   	  <?php if ($standardsprache == $sprache_id){ ?>
 	      	*
 	      <?php } ?>
@@ -74,7 +74,7 @@ if (!(isset($fehler) && $fehler == true)){
 	      <?php
 	      	}
 	      ?></td>
-	      <td><textarea name="beschreibung_<?= $sprache_id ?>"></textarea></td>
+	      <td><textarea name="beschreibung_<?php echo $sprache_id ?>"></textarea></td>
 	    </tr>
 	<?php
     }
@@ -91,18 +91,18 @@ if (!(isset($fehler) && $fehler == true)){
       <td height="30" colspan="2">&nbsp;</td>
     </tr>
      <tr> 
-      <td colspan="2"><input name="Submit" type="submit" id="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt speichern")); ?>"></td>
+      <td colspan="2"><input name="Submit" type="submit" id="Submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt speichern")); ?>"></td>
     </tr>
   </table>
 </form>
 
-<table border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="0" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
   <tr>
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 
-	<input name="retour" type="submit" class="<?= BUTTON ?>" id="retour" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+	<input name="retour" type="submit" class="<?php echo BUTTON ?>" id="retour" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+	 onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
   </form></td>
   </tr>
 </table>

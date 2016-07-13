@@ -2,11 +2,11 @@
 
 /****************************************************************************
 	Config file for your database.
-	Konfigurationsdatei für die Datenbank.
+	Konfigurationsdatei fÃ¼r die Datenbank.
 	
 	You must fill in the URL, the name of the database, the username and
 	the password of your MySQL database!
-	Hier muß die URL, der Datenbankname, der Benutzername und das Passwort 
+	Hier muss die URL, der Datenbankname, der Benutzername und das Passwort 
 	der MySQL Datenbank	eingegeben werden!	
 *****************************************************************************/
 
@@ -69,9 +69,9 @@
 			  	 "If you need help for the installation, " .
 			  	 "please contact <a href=\"mailto:office@utilo.net\">office@utilo.net</a><br/><br/>");
     		echo("Die Datenbank $DB_NAME existiert nicht, der benutzername das passwort oder der host sind nicht korrekt.<br/>
-				  Sie benötigen eine MySQL Datenbank um Rezervi Generic installieren zu können.<br/>" .
+				  Sie benÃ¶tigen eine MySQL Datenbank um Rezervi Generic installieren zu kÃ¶nnen.<br/>" .
 				 "Bitte editieren sie dazu den File '\\conf\\rdbmsConfig.inc.php'<br/><br/>" .
-			  	 "Wenn sie Hilfe bei der Installation benötigen können sie sich gerne an " .
+			  	 "Wenn sie Hilfe bei der Installation benÃ¤tigen kÃ¶nnen sie sich gerne an " .
 			  	 "<a href=\"mailto:office@utilo.net\">office@utilo.net</a> wenden.<br/><br/>");
   			exit;
     }
@@ -86,9 +86,9 @@
 			  	 "If you need help for the installation, " .
 			  	 "please contact <a href=\"mailto:office@utilo.net\">office@utilo.net</a><br/><br/>");
     		echo("Die Datenbank $DB_NAME existiert nicht.<br/>
-				  Sie benötigen eine MySQL Datenbank um Rezervi Generic installieren zu können.<br/>" .
+				  Sie benÃ¶tigen eine MySQL Datenbank um Rezervi Generic installieren zu kÃ¶nnen.<br/>" .
 				 "Bitte editieren sie dazu den File '\\conf\\rdbmsConfig.inc.php'<br/><br/>" .
-			  	 "Wenn sie Hilfe bei der Installation benötigen können sie sich gerne an " .
+			  	 "Wenn sie Hilfe bei der Installation benÃ¤tigen kÃ¶nnen sie sich gerne an " .
 			  	 "<a href=\"mailto:office@utilo.net\">office@utilo.net</a> wenden.<br/><br/>");
   			exit;
   		}
@@ -110,7 +110,7 @@
 				  	 "If you need help for the installation, " .
 				  	 "please contact <a href=\"mailto:office@utilo.net\">office@utilo.net</a><br/><br/>");
 	    		echo("Rezervi Generic wurde noch nicht korrekt installiert. Bitte rufen sie die Seite '\\install\\index.php' auf und installieren sie Rezervi Generic<br/><br/>" .
-				  	 "Wenn sie Hilfe bei der Installation benötigen können sie sich gerne an " .
+				  	 "Wenn sie Hilfe bei der Installation benÃ¶tigen kÃ¶nnen sie sich gerne an " .
 				  	 "<a href=\"mailto:office@utilo.net\">office@utilo.net</a> wenden.<br/><br/>");
 	  			exit;
 		}

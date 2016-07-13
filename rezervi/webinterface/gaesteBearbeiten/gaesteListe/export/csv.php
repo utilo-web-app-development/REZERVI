@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -9,7 +9,7 @@ header("Content-Disposition: attachment; filename=rezerviGuestList.csv");
 	reservierungsplan			
 	author: christian osterrieder utilo.eu		
 	
-	dieser seite muss übergeben werden:
+	dieser seite muss Ã¼bergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
@@ -31,7 +31,7 @@ $anmerkung_val = $_POST["anmerkung_val"];
 $format = $_POST["format"];
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../../../conf/rdbmsConfig.php");
 include_once("../../../../include/unterkunftFunctions.php");
 include_once("../../../../include/benutzerFunctions.php");
@@ -39,11 +39,11 @@ include_once("../../../../include/gastFunctions.php");
 //uebersetzer einfuegen:
 include_once("../../../../include/uebersetzer.php");
 	
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 
 
 
-	//gästeliste ausgeben:	
+	//gÃ¤steliste ausgeben:	
 	$res = getGuestList($unterkunft_id,$link);
 		
 	while ($d = mysql_fetch_array($res)){
@@ -75,8 +75,8 @@ include_once("../../../../include/uebersetzer.php");
 		 echo("\n");
 	} //ende while
 
-} //ende passwortprüfung 
+} //ende passwortprÃ¼fung 
 else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
 ?>

@@ -31,7 +31,7 @@ function setUser($benutzername,$pass,$rechte){
 }
 
 /**
-ändern eines benutzers
+Ã„ndern eines benutzers
 author: coster
 */
 function changeBenutzer($id,$name,$pass,$rechte,$unterkunft_id,$link){
@@ -59,10 +59,10 @@ function changeBenutzer($id,$name,$pass,$rechte,$unterkunft_id,$link){
 }
 
 //--------------------------------------------
-//funktion prüft ein eingegebenes passwort
-//und gibt id des benutzers zurück
-//bei erfolgloser passwortprüfung wird
-//-1 zurückgegeben
+//funktion prÃ¼ft ein eingegebenes passwort
+//und gibt id des benutzers zurÃ¼ck
+//bei erfolgloser passwortprÃ¼fung wird
+//-1 zurÃ¼ckgegeben
 function checkPassword($name,$password,$link){
 
 		//sha verschluesselung:
@@ -94,7 +94,7 @@ function checkPassword($name,$password,$link){
 } //ende checkPassword
 
 //--------------------------------------------
-//funktion prüft ein eingegebenes passwort
+//funktion prÃ¼ft ein eingegebenes passwort
 function checkPass($name,$password,$unterkunft_id,$link){
 
 		$password = sha1($password);
@@ -159,7 +159,7 @@ function getUserId($username,$password,$link){
 
 //--------------------------------------------
 //funktion gibt benutzernamen retour
-//übergeben wird die id des benutzers
+//Ãœbergeben wird die id des benutzers
 function getUserName($id,$link){
 	
 		$name = "";
@@ -185,7 +185,7 @@ function getUserName($id,$link){
 } //ende getUserName
 
 //--------------------------------------------
-//funktion gibt passwort zurück
+//funktion gibt passwort zurÃ¼ck
 function getPassword($id,$link){
 	
 		$name = "";
@@ -212,7 +212,7 @@ function getPassword($id,$link){
 
 //--------------------------------------------
 //funktion gibt benutzerrechte retour
-//übergeben wird die id des benutzers
+//Ãœbergeben wird die id des benutzers
 function getUserRights($id,$link){
 	
 		$rechte = "";
@@ -239,7 +239,7 @@ function getUserRights($id,$link){
 
 //--------------------------------------------
 //funktion gibt unterkunft-id retour
-//übergeben wird die id des benutzers
+//Ã¼bergeben wird die id des benutzers
 function getUnterkunftID($id,$link){
 	
 		$uk = "";
@@ -264,7 +264,7 @@ function getUnterkunftID($id,$link){
 		
 } //ende getUnterkunftID
 
-//zählt die anzahl der bereits angelegten zimmer:
+//zÃ¤hlt die anzahl der bereits angelegten zimmer:
 function getAnzahlVorhandeneBenutzer($unterkunft_id,$link){
 
 	$num_rows = 0;

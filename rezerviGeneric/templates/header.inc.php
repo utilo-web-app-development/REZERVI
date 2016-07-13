@@ -14,11 +14,11 @@
 		 // @see http://de.php.net/session
 		 header('P3P: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"');
 	 }
-	 //datenbank öffnen:
+	 //datenbank Ã¶ffnen:
 	 include_once($root."/conf/rdbmsConfig.inc.php");
-	 //conf file öffnen:
+	 //conf file Ã¶ffnen:
 	 include_once($root."/conf/conf.inc.php");
-	 //uebersetzer öffnen:
+	 //uebersetzer Ã¶ffnen:
 	 include_once($root."/include/uebersetzer.inc.php");
 	 include_once($root."/include/sessionFunctions.inc.php");
 	 include_once($root."/include/cssFunctions.inc.php"); 

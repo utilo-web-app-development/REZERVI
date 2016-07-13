@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 15.4.06
@@ -26,9 +26,9 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 include_once($root."/webinterface/templates/components.inc.php"); 
 
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+	<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
 	  <tr>
-		<td><?php 	$temp = "Die Einstellungen zur Suchfunktion wurden erfolgreich geändert.";
+		<td><?php 	$temp = "Die Einstellungen zur Suchfunktion wurden erfolgreich geÃ¤ndert.";
 					$temp = getUebersetzung($temp);
 					echo($temp); ?>
 		</td>
@@ -36,8 +36,8 @@ include_once($root."/webinterface/templates/components.inc.php");
 	</table>
 	<br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

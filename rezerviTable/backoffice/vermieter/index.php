@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Stammdaten bearbeiten";
 
@@ -75,7 +75,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");  ?>
 	        ?>
 	    </td>
 	    <td nowrap="nowrap">
-	      <input name="firma_<?= $sprache_id ?>" type="text" value="<?php echo($firma) ?>" size="50">
+	      <input name="firma_<?php echo $sprache_id ?>" type="text" value="<?php echo($firma) ?>" size="50">
 	      <?php if ($standardsprache == $sprache_id){ ?>
 	      	*
 	      <?php } ?>

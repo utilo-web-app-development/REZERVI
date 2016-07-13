@@ -40,11 +40,12 @@
 
 <body class="backgroundColor" data-pinterest-extension-installed="cr1.39.1">
 <div class="container" style="margin-top:70px;">
+	<h1>Rezervi availability overview and guest database<br/>
+					    Rezervi Belegungsplan und Kundendatenbank</h1>
 <div class="panel panel-default">
   <div class="panel-body">
   	
-<h1>Rezervi availability overview and guest database<br/>
-					    Rezervi Belegungsplan und Kundendatenbank</h1>
+
 					    
 					    <!-- Neues Design -->
 <p<?php if (isset($fehler) && $fehler == true) echo("class=\"belegt\""); else echo("class=\"frei\""); ?>>

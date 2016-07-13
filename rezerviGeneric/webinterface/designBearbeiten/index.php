@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 26.9.05
@@ -13,7 +13,7 @@ include_once($root."/include/cssFunctions.inc.php");
 <script language="JavaScript">
 	<!--
 	    function sicher(){
-	    	return confirm("<?php echo(getUebersetzung("Alle Änderungen verwerfen und auf Standardwerte zurücksetzen?")); ?>"); 	    
+	    	return confirm("<?php echo(getUebersetzung("Alle ï¿½nderungen verwerfen und auf Standardwerte zurï¿½cksetzen?")); ?>"); 	    
 	    }
 	    //-->
 </script>
@@ -22,12 +22,12 @@ include_once($root."/include/cssFunctions.inc.php");
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 ?>
 
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <tr valign="top">
     <td width="1">
     <form action="./styles.php" method="post" target="_self">
-	   <input name="hintergrund" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Hintergrund")); ?>">
+	   <input name="hintergrund" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       		onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Hintergrund")); ?>">
 	   <input name="font_family" type="hidden" value="0">
 	   <input name="font_size" type="hidden" value="0">
 	   <input name="font_style" type="hidden" value="0">
@@ -39,14 +39,14 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= BACKGROUND_COLOR ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo BACKGROUND_COLOR ?>">
     </form></td>
-    <td><?php echo(getUebersetzung("Ändern der Hintergrundfarbe")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern der Hintergrundfarbe")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-	<input name="resEingebenAendern" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Schrift")); ?>">
+	<input name="resEingebenAendern" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Schrift")); ?>">
 	   <input name="font_family" type="hidden" value="1">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
@@ -58,14 +58,14 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="0">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= STANDARD_SCHRIFT ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo STANDARD_SCHRIFT ?>">
     </form></td>
-    <td><?php echo(getUebersetzung("Ändern der Standard-Schrift")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern der Standard-Schrift")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-	<input name="ueberschrift" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Überschrift")); ?>">
+	<input name="ueberschrift" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("ï¿½berschrift")); ?>">
 	   <input name="font_family" type="hidden" value="1">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
@@ -77,14 +77,14 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="0">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= UEBERSCHRIFT ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo UEBERSCHRIFT ?>">
     </form></td>
-    <td><?php echo(getUebersetzung("Ändern der Überschriften")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern der ï¿½berschriften")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-	<input name="markierteSchrift" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("markierte Schrift")); ?>">
+	<input name="markierteSchrift" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("markierte Schrift")); ?>">
 	   <input name="font_family" type="hidden" value="1">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
@@ -96,14 +96,14 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="0">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= STANDARD_SCHRIFT_BOLD ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo STANDARD_SCHRIFT_BOLD ?>">
     </form></td>
-    <td><?php echo(getUebersetzung("Ändern der markierten Schrift")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern der markierten Schrift")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-	<input name="buttonA" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Button")); ?>">
+	<input name="buttonA" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Button")); ?>">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
 	   <input name="font_weight" type="hidden" value="1">
@@ -114,14 +114,14 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="1">
 	   <input name="width" type="hidden" value="1">
-	   <input name="stylesheet" type="hidden" value="<?= BUTTON ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo BUTTON ?>">
     </form></td>
-    <td><?php echo(getUebersetzung("Ändern des Buttons")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern des Buttons")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-		<input name="buttonB" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Button rollover")); ?>">
+		<input name="buttonB" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Button rollover")); ?>">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
 	   <input name="font_weight" type="hidden" value="1">
@@ -132,15 +132,15 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="1">
 	   <input name="width" type="hidden" value="1">
-	   <input name="stylesheet" type="hidden" value="<?= BUTTON_HOVER ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo BUTTON_HOVER ?>">
 	   </form>
     </td>
-    <td><?php echo(getUebersetzung("Ändern des Buttons der angezeigt wird, wenn die Maus darüber bewegt wird")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern des Buttons der angezeigt wird, wenn die Maus darï¿½ber bewegt wird")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-		<input name="tabelle" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Tabelle")); ?>">
+		<input name="tabelle" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Tabelle")); ?>">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
 	   <input name="font_weight" type="hidden" value="1">
@@ -151,15 +151,15 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= TABLE_STANDARD ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo TABLE_STANDARD ?>">
 	   </form>
     </td>
-    <td><?php echo(getUebersetzung("Ändern der Tabellen")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern der Tabellen")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-	<input name="tabelleColor" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("färbige Tabelle")); ?>">
+	<input name="tabelleColor" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("fï¿½rbige Tabelle")); ?>">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
 	   <input name="font_weight" type="hidden" value="1">
@@ -170,15 +170,15 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= TABLE_COLOR ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo TABLE_COLOR ?>">
 	   </form>
     </td>
-    <td><?php echo(getUebersetzung("Ändern der färbigen Tabellen")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern der fï¿½rbigen Tabellen")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-	<input name="belegt" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("belegt")); ?>">
+	<input name="belegt" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("belegt")); ?>">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
 	   <input name="font_weight" type="hidden" value="1">
@@ -189,15 +189,15 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= BELEGT ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo BELEGT ?>">
 	   </form>
     </td>
-    <td><?php echo(getUebersetzung("Ändern der Farbe der belegt-Anzeige")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern der Farbe der belegt-Anzeige")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./styles.php" method="post" target="_self">
-	<input name="frei" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("frei")); ?>">
+	<input name="frei" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("frei")); ?>">
 	   <input name="font_size" type="hidden" value="1">
 	   <input name="font_style" type="hidden" value="1">
 	   <input name="font_weight" type="hidden" value="1">
@@ -208,24 +208,24 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= FREI ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo FREI ?>">
 	   </form>
     </td>
-    <td><?php echo(getUebersetzung("Ändern der Farbe der frei-Anzeige")); ?></td>
+    <td><?php echo(getUebersetzung("ï¿½ndern der Farbe der frei-Anzeige")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./standardWerte.php" method="post" target="_self" onSubmit="return sicher()">
-        <input name="standardwerte" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Standardwerte setzen")); ?>">
+        <input name="standardwerte" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" id="resEingebenAendern" value="<?php echo(getUebersetzung("Standardwerte setzen")); ?>">
         </form></td>
-    <td><?php echo(getUebersetzung("Alle Änderungen werden auf die Rezervi-Standard-Werte zurückgesetzt.")); ?></td>
+    <td><?php echo(getUebersetzung("Alle ï¿½nderungen werden auf die Rezervi-Standard-Werte zurï¿½ckgesetzt.")); ?></td>
   </tr>
   <tr valign="top">
     <td><form action="./farbtabelle.php" method="post" target="_self">
-	<input name="farbtabelle" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" 
+	<input name="farbtabelle" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" 
 	   id="farbtabelle" value="<?php echo(getUebersetzung("Farbtabelle anzeigen")); ?>"></td>
-    </form><td><?php echo(getUebersetzung("Zeigt eine Tabelle mit Farbcodes an, die im Design verwendet werden können")); ?></td>
+    </form><td><?php echo(getUebersetzung("Zeigt eine Tabelle mit Farbcodes an, die im Design verwendet werden kï¿½nnen")); ?></td>
   </tr>
 </table>
 <?php 

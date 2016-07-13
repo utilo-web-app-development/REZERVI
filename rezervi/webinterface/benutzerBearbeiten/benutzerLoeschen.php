@@ -1,11 +1,11 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			best�tigung zum l�schen von zimmern von benutzer einholen!
+			bestätigung zum löschen von zimmern von benutzer einholen!
 */
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
@@ -14,7 +14,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
 //$id = $_POST["id"];
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -34,7 +34,7 @@ $sprache = getSessionWert(SPRACHE);
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <h3><?php echo(getUebersetzung("Löschung bestätigen",$sprache,$link)); ?></h3>
- <?php //passwortpr�fung:	
+ <?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		$benutzer_id = getUserId($benutzername,$passwort,$link);
 ?>
@@ -99,7 +99,7 @@ $sprache = getSessionWert(SPRACHE);
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
@@ -109,12 +109,12 @@ $sprache = getSessionWert(SPRACHE);
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 	?>
 		<div class="alert alert-danger" role="alert">

@@ -1,4 +1,4 @@
-<?  session_start();
+<?php  session_start();
 $root = ".";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -196,7 +196,7 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 
 <!-- Ansichtwählen.php -->
 			
-<?
+<?php
 
 //script waehlt die korrekte ansicht aus:
 //die letzte ansicht wird in der session-veriable ansicht gespeichert
@@ -252,7 +252,7 @@ else{
 	<p><a href="http://www.rezervi.com" target="_parent">http://www.rezervi.com</a></p>
 	</body>
 	</noframes>
-<?
+<?php
 } 
 else{
 ?>
@@ -269,14 +269,14 @@ else{
 		echo(getUebersetzung("Es wurden noch keine Mietobjekte (z. B. Zimmer) eingegeben. Bitte rufen sie das Webinterface auf und geben sie ihre Mietobjekte ein.",$sprache,$link));
 		?>
 			<a href="webinterface/index.php">--> Webinterface</a>
-		<?
+		<?php
 	}
 	else{
 	?>
 		Please install Rezervi first! <br/>
 		Bitte insallieren sie Rezervi zuerst! <br/>
 		<a href="install/index.php">--> Install</a>
-	<?
+	<?php
 	}
 	?>
 	</body>

@@ -29,11 +29,11 @@
 			?>
 				<table border="0" cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-						<td class="<?= parseStatus($status[0],$isSamstag) ?>" 
+						<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" 
 							align="right" width="50%">
-								<?= $i ?>
+								<?php echo $i ?>
 						</td>
-						<td class="<?= parseStatus($status[1],$isSamstag) ?>" 
+						<td class="<?php echo parseStatus($status[1],$isSamstag) ?>" 
 							align="right" width="50%">&nbsp;
 						</td>
 					</tr>
@@ -55,7 +55,7 @@
 			} //ende if monat zu gross
 			
 			$nStatus = getStatus($zimmer_id,$nTag,$nMonat,$nJahr,$link);	
-			//echo("n‰chster Tag: ");var_dump($nStatus);
+			//echo("n√§chster Tag: ");var_dump($nStatus);
 			if (sizeof($nStatus) < 1 && getPropertyValue(RES_HOUSE,$unterkunft_id,$link) == "true" && hasChildRooms($zimmer_id)){
 				//if room is a parent, check if the child has another status:
 				$childs = getChildRooms($zimmer_id);
@@ -72,12 +72,12 @@
 				?>
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
-							<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
-							<td class="frei" align="right" width="50%"><? echo $i; ?></td>
+							<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+							<td class="frei" align="right" width="50%"><?php echo $i; ?></td>
 						</tr>
 					</table>
 				<?php
-			} //ende if n‰chster tag frei
+			} //ende if n√§chster tag frei
 			else {				
 				//schauen ob der tag vorher frei ist:
 				$vTag = $i-1;$vMonat = $month;$vJahr = $year;
@@ -108,7 +108,7 @@
 					?>
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr>
-								<td class="frei" align="right" width="50%"><?= $i; ?></td>
+								<td class="frei" align="right" width="50%"><?php echo $i; ?></td>
 								<td class="<?php echo(parseStatus($status[0],$isSamstag)); ?>" 
 									align="right" width="50%">&nbsp;</td>
 							</tr>
@@ -147,7 +147,7 @@ function showMonth($month,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,
 						echo(getUebersetzung(getDayName($i,$month,$year),$sprache,$link));																																		
 		 			?></td>
 				<!-- datum anzeigen -->
-				<td class="<? echo($statusString); ?>" width="40" valign="middle"><?php printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>				
+				<td class="<?php echo($statusString); ?>" width="40" valign="middle"><?php printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>				
 				<!-- gast anzeigen -->
 				<td class="table" valign="middle">
 					<?php if ($statusString != "frei") { ?>
@@ -172,7 +172,7 @@ function showMonth($month,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,
 								//gast-namen ausgeben:
 								if ($gast_id != 1 && $gast_id != ""){							
 									?>
-									  <a href="./gastInfo/index.php?gast_id=<?= $gast_id ?>&zimmer_id=<?= $zimmer_id ?>&jahr=<?= $year ?>&monat=<?= $month ?>"><?php 
+									  <a href="./gastInfo/index.php?gast_id=<?php echo $gast_id ?>&zimmer_id=<?php echo $zimmer_id ?>&jahr=<?php echo $year ?>&monat=<?php echo $month ?>"><?php 
 										echo(getGuestNachname($gast_id,$link));?></a><?php echo(", ");echo(getGuestOrt($gast_id,$link));echo(", EW ".getErwachsene($res_id,$link).", K ".getKinder($res_id,$link)).", ".getPension($res_id,$link);					
 								}
 								else if($gast_id == ""){
@@ -194,7 +194,7 @@ function showMonth($month,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,
 					<?php 
 						if (!(empty($gast_id)) && $gast_id != -1 && $gast_id != 1) { ?>
 					<input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-		   				onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("G‰ste-Info",$sprache,$link)); ?>">
+		   				onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("G√§ste-Info",$sprache,$link)); ?>">
 						<?php } //ende if 						
 						else {
 							echo("&nbsp;");					

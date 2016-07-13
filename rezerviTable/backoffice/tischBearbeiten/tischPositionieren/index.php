@@ -34,15 +34,15 @@ function fensterOeffnen (Adresse) {
    	$bilder_id  = getBildOfRaum($raum_id); 
    	$breite = getBildBreite($bilder_id);
    	$hoehe  = getBildHoehe($bilder_id);
-   	?>raeume[<?= $i ?>][0]=<?= $raum_id ?>;
-   	  raeume[<?= $i ?>][1]=<?= $breite ?>;
-   	  raeume[<?= $i ?>][2]=<?= $hoehe ?>;
+   	?>raeume[<?php echo $i ?>][0]=<?php echo $raum_id ?>;
+   	  raeume[<?php echo $i ?>][1]=<?php echo $breite ?>;
+   	  raeume[<?php echo $i ?>][2]=<?php echo $hoehe ?>;
    	<?php $i++;
    }
   ?>
   var raum = document.position.raum_id.value;
-  var breite = <?= getGastroProperty(MAX_BILDBREITE_RAUM,$gastro_id) ?>;
-  var hoehe  = <?= getGastroProperty(MAX_BILDHOEHE_RAUM,$gastro_id) ?>;
+  var breite = <?php echo getGastroProperty(MAX_BILDBREITE_RAUM,$gastro_id) ?>;
+  var hoehe  = <?php echo getGastroProperty(MAX_BILDHOEHE_RAUM,$gastro_id) ?>;
   for (var i =0; i<raeume.length; i++){
   	if (raeume[i][0] == raum){
   		breite = raeume[i][1];
@@ -74,7 +74,7 @@ if ($anzahlVorhandMietobjekte > 0){
 	      </td>
 	    </tr>	    
 	    <tr>
-	    	<td><?= getUebersetzung("Raum") ?>:&nbsp;
+	    	<td><?php echo getUebersetzung("Raum") ?>:&nbsp;
 		      	<select name="raum_id" id="raum_id">
 		          <?php	
 		          	 //es muss ein raum zum tisch ausgewählt werden:
@@ -88,7 +88,7 @@ if ($anzahlVorhandMietobjekte > 0){
 						}
 						$ziArt = getUebersetzungGastro($d->BEZEICHNUNG,$sprache,$gastro_id);
 						?>
-						<option value="<?= $curr_raum_id ?>" <?
+						<option value="<?php echo $curr_raum_id ?>" <?php
 							if($first){
 								?>
 								selected="selected"
@@ -96,7 +96,7 @@ if ($anzahlVorhandMietobjekte > 0){
 								$first = false;
 							}
 							?>
-							><?= $ziArt ?></option>
+							><?php echo $ziArt ?></option>
 						<?php
 					  } //ende while
 					 ?>
@@ -107,8 +107,8 @@ if ($anzahlVorhandMietobjekte > 0){
 	      <td>
 	      	<input name="zimmerAnlegenButton" type="submit" 
 	      		id="zimmerAnlegenButton" class="button" 
-	       		<? /*
-	       		onClick="fensterOeffnen('<?= $root ?>/backoffice/tischBearbeiten/position.php'); return false"
+	       		<?php /*
+	       		onClick="fensterOeffnen('<?php echo $root ?>/backoffice/tischBearbeiten/position.php'); return false"
 	        	*/
 	        	?>
 	        	value="<?php echo(getUebersetzung("Positionieren")); ?>">

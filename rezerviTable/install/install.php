@@ -9,11 +9,11 @@ $name = $_POST["firma_name"];
 include_once("../include/uebersetzer.inc.php");
 	
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html">
+ <meta charset="utf-8">
 <title>Installation Rezervi Table</title>
 <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
 </head>
@@ -129,7 +129,7 @@ include_once("../include/uebersetzer.inc.php");
 <!-- backoffice �ffnen -->
 <form action="../backoffice/index.php" method="post" id="formLizenz" name="formLizenz" target="_self" onSubmit="return checkLicence();">
 	<p class="standardSchrift"><?php echo(getUebersetzung("Bitte ändern sie nun ihre Einstellungen im Backoffice")); ?></p>
-	<input name="Submit" type="submit" class="button200pxA" value="<?= getUebersetzung("Backoffice öffnen") ?>">
+	<input name="Submit" type="submit" class="button200pxA" value="<?php echo getUebersetzung("Backoffice öffnen") ?>">
 </form>
 <!-- ende backoffice oeffnen -->
 
