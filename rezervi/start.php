@@ -106,11 +106,12 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	}	
 	
     ?>
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+	<!DOCTYPE html>
 	<html>
 	<head>
 	<title>Zimmerreservierungsplan Belegungsplan und Gästedatenbank Rezervi</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="UTF-8">
 	</head>
 	<frameset 
 		<?php if ($horizontal){ ?>
@@ -130,11 +131,11 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	<p><a href="http://www.rezervi.com" target="_parent">http://www.rezervi.com</a></p>
 	</body>
 	</noframes>
-<?
+<?php
 } 
 else{
 ?>
-	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+	<!DOCTYPE html>
 	<html>
 	<head>
 	<title>Zimmerreservierungsplan Belegungsplan und Gästedatenbank Rezervi</title>
