@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	anzeige des kalenders
 	author: christian osterrieder utilo.eu		
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
@@ -23,7 +23,7 @@ $jahr = $_POST["jahr"];
 setSessionWert(ZIMMER_ID,$zimmer_id);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -35,7 +35,7 @@ include_once("../../include/reservierungFunctions.php");
 include_once("../../include/gastFunctions.php");
 include_once("../../include/benutzerFunctions.php");
 include_once("../../include/uebersetzer.php");
-//helper-funktionen einf�gen:
+//helper-funktionen einfügen:
 include_once("./jahresuebersichtHelper.php");
 
 	include_once("../../include/propertiesFunctions.php");
@@ -52,7 +52,7 @@ include_once("./jahresuebersichtHelper.php");
 <script language="JavaScript" type="text/javascript" src="./rightJS.js">
 </script>
 <?php		
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <div class="panel panel-default">
   <div class="panel-body">
@@ -108,7 +108,7 @@ include_once("./jahresuebersichtHelper.php");
     <td>&nbsp;</td>
   </tr>
 </table>
-<?php } //ende passwortpr�fung 
+<?php } //ende passwortprüfung 
 	else{
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}

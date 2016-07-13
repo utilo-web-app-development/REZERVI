@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	gast-infos anzeigen und evt. �ndern:
+	gast-infos anzeigen und evt. ändern:
 	author: christian osterrieder utilo.eu
 			
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Gast PK_ID $gast_id
 	$unterkunft_id
 */
@@ -30,7 +30,7 @@ $speech = $_POST["speech"];
 $anmerkungen = $_POST["anmerkungen"];
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -48,7 +48,7 @@ include_once("../../../include/benutzerFunctions.php");
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php		
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 <?php 
 	//nachsehen ob der gast bereits existiert:
@@ -62,7 +62,7 @@ include_once("../../../include/benutzerFunctions.php");
 		<?php echo(getUebersetzung("Der Gast wurde neu angelegt und erfolgreich in der Datenbank gespeichert",$sprache,$link)); ?>!</div>
 		<?php
 	}
-	else{//2. gast ist bereits vorhanden und wurde g�ndert
+	else{//2. gast ist bereits vorhanden und wurde gändert
 		updateGuest($gast_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$fax,$anmerkungen,$speech,$link);	
 		?>
 		<div class="alert alert-info" role="alert">
@@ -86,9 +86,9 @@ include_once("../../../include/benutzerFunctions.php");
  </form>
   
   
-<?php } //ende passwortpr�fung 
+<?php } //ende passwortprüfung 
 	else{
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

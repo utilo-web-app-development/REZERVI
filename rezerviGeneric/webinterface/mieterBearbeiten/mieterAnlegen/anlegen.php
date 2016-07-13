@@ -60,7 +60,7 @@ insertMieter($vermieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$
     <td><form action="../index.php" method="post" name="form1" target="_self">
         <input name="zurueck" type="submit" class="<?= BUTTON ?>" id="zurueck" 
 			onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
     </form></td>
   </tr>
 </table>

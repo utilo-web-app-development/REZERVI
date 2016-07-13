@@ -10,7 +10,7 @@ define( '_JEXEC', 1 );
 			
 	*/
 	
-	//session zerstören:
+	//session zerstÃ¶ren:
 	destroySession();
 
 	include_once($root."/include/schliesseDB.php");

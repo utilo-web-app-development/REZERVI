@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	gast-infos anzeigen und evt. �ndern:
+	gast-infos anzeigen und evt. ändern:
 	author: christian osterrieder utilo.eu
 			
 	dieser seite muss Übergeben werden:
@@ -185,7 +185,7 @@ include_once("../../../include/einstellungenFunctions.php");
 		    <input type="submit" name="anlegen" class="btn btn-success" value="<?php echo(getUebersetzung("Gast anlegen",$sprache,$link)); ?>">
 		  </p> -->
 	
-<?php } //ende passwortpr�fung 
+<?php } //ende passwortprüfung 
 	else{
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}

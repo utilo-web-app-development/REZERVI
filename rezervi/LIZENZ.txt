@@ -3,7 +3,7 @@
 | Rezervi - Belegungsplan und Kundendatenbank by UTILO
 +----------------------------------------------------------------------------
 |               Firma:  UTILO, DI Christian Osterrieder-Schlick
-|                       Rosittengasse 22, 5020 Salzburg, Österreich
+|                       Rosittengasse 22, 5020 Salzburg, Ã–sterreich
 |                 URL:  http://www.utilo.eu | http://www.rezervi.com 
 |               Autor:  DI Christian Osterrieder-Schlick office@utilo.eu
 |  
@@ -16,7 +16,7 @@
 
 
 Rezervi - Lizenzvereinbarung 
-UTILO, Christian Osterrieder-Schlick, Rosittengasse 22, 5020 Salzburg, Österreich
+UTILO, Christian Osterrieder-Schlick, Rosittengasse 22, 5020 Salzburg, Ã–sterreich
 
 1. Vorbemerkung:
 
@@ -29,7 +29,7 @@ aufbauenden Arbeiten.
 
 Rezervi ist eine urheberrechtlich geschuetzte Arbeit. Das Urheberrecht
 liegt bei Christian Osterrieder-Schlick, UTILO, Rosittengasse 22, 
-5020 Salzburg, Österreich.
+5020 Salzburg, Ã–sterreich.
 
 Bitte lesen Sie die folgenden Bestimmungen sorgfaeltig durch, bevor Sie
 Rezervi verwenden. Hinsichtlich des Einsatzes von Rezervi wird
@@ -65,7 +65,7 @@ Wird Rezervi nach einer Test- und Anpassungsphase als Ganzes oder
 in Teilen fuer kommerzielle Zwecke eingesetzt oder gegen ein Honorar fuer
 Dritte angepasst, muss vom Lizenznehmer eine "Lizenz zum kommerziellen
 Einsatz" erworben werden. Dies gilt auch bei einer Verlinkung mit einer
-Website für kommerzielle Zwecke.
+Website fÃ¼r kommerzielle Zwecke.
 
 Eine "Lizenz zum kommerziellen Einsatz" ist ueber die UTILO-Website
 http://www.rezervi.com/www/german/registrierung/index.php zu beziehen.
@@ -75,9 +75,9 @@ http://www.rezervi.com/www/german/registrierung/index.php zu beziehen.
 
 Diese Kopie des Rezervi Belegungsplanes und der Kundendatenbank ist fuer die
 Installation auf einem Webserver und fuer die Verwaltung einer Unterkunft
-(Hotel/Pension/Ferienwohnung oder ähnliches) vorgesehen. Wird Rezervi 
+(Hotel/Pension/Ferienwohnung oder Ã¤hnliches) vorgesehen. Wird Rezervi 
 auf mehreren physischen Servern installiert oder werden auf einem physischen 
-Server mehrere Unterkünfte verwaltet, so wird eine entsprechende Anzahl an
+Server mehrere UnterkÃ¼nfte verwaltet, so wird eine entsprechende Anzahl an
 Lizenzen benoetigt.
 
 Es ist nicht erlaubt, Rezervi im Rahmen dieser Lizenz zu verleihen
@@ -85,7 +85,7 @@ oder zu vermieten, als Grundlage fuer eigene Softwareprogramme zu
 verwenden oder weiterzulizensieren, es sei denn unter ausdruecklicher
 schriftlicher Genehmigung des Lizenzgebers.
 
-Mit der Installation erklärt sich der Lizenznehmer damit
+Mit der Installation erklÃ¤rt sich der Lizenznehmer damit
 einverstanden, dass die URL die durch die Konfigurationsdatei
 definiert wird an UTILO gesendet wird. Dazu wird bei Installation 
 von Rezervi ein E-Mail an UTILO gesendet. 
@@ -123,7 +123,7 @@ andere Partei auf die Moeglichkeit solcher Schaeden hingewiesen wurde.
 Fuer Streitigkeiten aus diesem Lizenzvertrag gilt der Gerichtsstand
 Salzburg.
 
-Auf die vorliegende Vereinbarung findet ausschliesslich österreichisches
+Auf die vorliegende Vereinbarung findet ausschliesslich Ã¶sterreichisches
 materielles Recht Anwendung. Die Anwendung des Abkommens ueber den
 internationalen Kauf von Waren (CISG) wird ausdruecklich ausgeschlossen.
 Diese Vereinbarung stellt den vollstaendigen Vertrag zwischen den beiden
@@ -133,6 +133,6 @@ Lizenznehmer hat eine anderslautende schriftliche Vereinbarung mit dem
 Lizenzgeber getroffen. 
 
 
-Copyright © 2005 
+Copyright Â© 2005 
 UTILO DI Christian Osterrieder-Schlick
 Alle Rechte vorbehalten.

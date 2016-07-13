@@ -45,7 +45,7 @@ function setBuchungsformularAttribut($attribut,$art,$typ,$erforderlich){
 /**
 	author: coster
 	date: 10. 11. 2005
-	ändert ein attribut des buchungsformulars 
+	Ã¤ndert ein attribut des buchungsformulars 
 */
 function changeBuchungsformularAttribut($id,$attribut,$art,$typ,$erforderlich){
 		
@@ -76,7 +76,7 @@ function changeBuchungsformularAttribut($id,$attribut,$art,$typ,$erforderlich){
 /**
 	author: coster
 	date: 10. 11. 2005
-	löscht ein attribut des buchungsformulars 
+	lÃ¶scht ein attribut des buchungsformulars 
 */
 function deleteBuchungsformularAttribut($id){
 		
@@ -102,7 +102,7 @@ function deleteBuchungsformularAttribut($id){
 /**
 	author: coster
 	date: 10. 11. 2005
-	gibt alle attribute einer unterkunft zurück
+	gibt alle attribute einer unterkunft zurÃ¼ck
 */
 function getBuchungsformularAttribute(){
 		

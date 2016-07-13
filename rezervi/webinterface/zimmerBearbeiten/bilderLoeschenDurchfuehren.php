@@ -11,7 +11,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			date: 18.8.05
 */
 
-	//datenbank öffnen:
+	//datenbank ï¿½ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -38,17 +38,17 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 
-<?php //passwortprüfung:	
+<?php //passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
 		
 		$pfad = getBildPfad($bilder_id,$link);	
 		deleteBild($bilder_id,$link);
 		$fehler = true;
-		$nachricht = "Das Bild konnte nicht gelöscht werden.";
+		$nachricht = "Das Bild konnte nicht gelÃ¶scht werden.";
 		
 		if (file_exists ( $pfad )){
 			unlink($pfad);
-			$nachricht = "Das Bild wurde erfolgreich gelöscht.";
+			$nachricht = "Das Bild wurde erfolgreich gelÃ¶scht.";
 			$fehler = false;
 		}
 		
@@ -58,7 +58,7 @@ include_once($root."/include/sessionFunctions.inc.php");
   <table border="0" cellpadding="0" cellspacing="3" class="table">
     <tr class="table"> 
       <td>
-	  	<p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. löschen",$sprache,$link)); ?><br/>
+	  	<p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder fÃ¼r Zimmer/Appartement/Wohnung/etc. lÃ¶schen",$sprache,$link)); ?><br/>
           </p>
       </td>
     </tr>
@@ -89,7 +89,7 @@ include_once($root."/include/sessionFunctions.inc.php");
       <td><form action="./bilderLoeschen.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">
 			<input name="index" type="hidden" value="<?php echo($index); ?>"/>
 			<?php 
-				showSubmitButton(getUebersetzung("weitere Bilder löschen",$sprache,$link));
+				showSubmitButton(getUebersetzung("weitere Bilder lÃ¶schen",$sprache,$link));
 			?>
 		  </form>
       </td>
@@ -97,19 +97,19 @@ include_once($root."/include/sessionFunctions.inc.php");
   </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zu gelangen: 
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("HauptmenÃ¼",$sprache,$link));
 ?>
 <p></td> </tr> </table> </p>  
 <?php 
-	} //ende if passwortprüfung
+	} //ende if passwortprÃ¼fung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieï¿½en und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
  ?>   
  <?php include_once("../templates/end.php"); ?>

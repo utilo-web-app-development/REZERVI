@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	startseite zur wartung der zimmer
 	author: christian osterrieder utilo.eu						
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Benutzer PK_ID $benutzer_id
 */
 
@@ -19,7 +19,7 @@ $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -37,11 +37,11 @@ include_once("../templates/components.php");
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortpr�fung:	
+<?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <? 		/* 
-		zimmer �ndern:
+		zimmer Ändern:
 		nur wenn bereits zimmer angelegt wurden:
 		*/
 		$anzahlVorhandenerZimmer = getAnzahlVorhandeneZimmer($unterkunft_id,$link);
@@ -133,14 +133,14 @@ include_once("../templates/components.php");
    
   
       <!--alter button <td><input name="Submit" type="submit" id="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-		   onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Zimmer �ndern",$sprache,$link)); ?>"></td> -->
+		   onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Zimmer ändern",$sprache,$link)); ?>"></td> -->
 	</br><input name="Submit" type="submit" id="Submit" class="btn btn-primary"  value="<?php echo(getUebersetzung("Zimmer ändern",$sprache,$link)); ?>">
 </form>
 <?php
-//-------------ende zimmer �ndern
+//-------------ende zimmer ändern
 /*
-//-------------Zimmer l�schen
-pr�fen ob zimmer �berhaupt vorhanden sind �bernimmt pr�fung bei zimmer�ndern
+//-------------Zimmer löschen
+prüfen ob zimmer überhaupt vorhanden sind übernimmt prüfung bei zimmerändern
 */
 ?>
 
@@ -208,7 +208,7 @@ pr�fen ob zimmer �berhaupt vorhanden sind �bernimmt pr�fung bei zimmer�
 
 
       <!-- alter button <td><input name="Submit2" type="submit" id="Submit2" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Zimmer l�schen",$sprache,$link)); ?>"></td> -->
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Zimmer löschen",$sprache,$link)); ?>"></td> -->
         </br><input name="Submit2" type="submit" id="Submit2" class="btn btn-danger" value="<?php echo(getUebersetzung("Zimmer löschen",$sprache,$link)); ?>">
     
 
@@ -217,7 +217,7 @@ pr�fen ob zimmer �berhaupt vorhanden sind �bernimmt pr�fung bei zimmer�
 } //ende anzahlVorhandenerZimmer ist ok
 /*
 //---zimmer anlegen:
-pr�fen ob noch weitere zimmer angelegt werden k�nnen:
+prüfen ob noch weitere zimmer angelegt werden können:
 */
 $anzahlZimmer = getAnzahlZimmer($unterkunft_id,$link);
 if ( $anzahlVorhandenerZimmer < $anzahlZimmer ){
@@ -270,14 +270,14 @@ if ( $anzahlVorhandenerZimmer < $anzahlZimmer ){
 <form action="./bilderLoeschen.php" method="post" name="bilder" target="_self" id="bilder">
 	<table border="0" cellpadding="0" cellspacing="3" class="table">
 	    <tr>
-      <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Bilder f�r Zimmer/Appartement/Wohnung/etc. löschen",$sprache,$link)); ?></span><br/>
+      <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. löschen",$sprache,$link)); ?></span><br/>
         </td>
       <td>&nbsp;</td>
     </tr>
 	  <tr>
 		<td>	
 			<input name="hochladen" type="submit" class="button200pxA" id="hochladen" onMouseOver="this.className='button200pxB';"
-		 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Bilder l�schen",$sprache,$link)); ?>">
+		 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Bilder löschen",$sprache,$link)); ?>">
 		</td>
 	  </tr>
 	</table>
@@ -344,7 +344,7 @@ if ($anzahlVorhandenerZimmer > 0){
 </form>
 <!-- end zusammenfassen von zimmern zu haus -->
 <?php }//ende wenn zimmer vorhanden ?>
-<!-- hinzuf�gen von weiteren attributen f�r zimmer -->
+<!-- hinzufügen von weiteren attributen für zimmer -->
 
 <!-- <form action="./attributeHinzufuegen.php" method="post" name="attributeHinzufuegen" target="_self"> -->
 
@@ -358,18 +358,18 @@ if ($anzahlVorhandenerZimmer > 0){
       		name="addAttribut" type="submit" id="addAttribut" 
       		class="button200pxA" onMouseOver="this.className='button200pxB';"
        		onMouseOut="this.className='button200pxA';" 
-       		value="<?php echo(getUebersetzung("Attribute �ndern",$sprache,$link)); ?>" /> -->
+       		value="<?php echo(getUebersetzung("Attribute ändern",$sprache,$link)); ?>" /> -->
        		<a class="btn btn-primary" href="./attributeHinzufuegen.php"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("Attribute ändern",$sprache,$link)); ?></a>
     
 
 </form>
-<!-- end hinzuf�gen von weiteren attributen f�r zimmer -->
+<!-- end hinzufügen von weiteren attributen für zimmer -->
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  // showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?>
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

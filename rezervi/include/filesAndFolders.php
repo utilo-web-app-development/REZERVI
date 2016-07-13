@@ -9,14 +9,14 @@ author:coster
 date: 18.8.05
 */
 function hasDirectory($path){
-	//file_exists -- Prüft, ob eine Datei oder ein Verzeichnis existiert
+	//file_exists -- PrÃ¼ft, ob eine Datei oder ein Verzeichnis existiert
 	return file_exists($path);
 }
 /**
 	erzeugt ein directory mit permission 644 (rw,r,r)
-	gibt bei erfolg true zurück, sonst false
+	gibt bei erfolg true zurÃ¼ck, sonst false
 	der pfad zusammen mit dem directory muss
-	eine gültige uri ergeben
+	eine gÃ¼ltige uri ergeben
 */
 function phpMkDir($path){
 
@@ -24,7 +24,7 @@ function phpMkDir($path){
 	
 }
 /**
-	erzeugt ein directory über die ftp funktion.
+	erzeugt ein directory Ã¼ber die ftp funktion.
 	dies muss verwendet werden, falls die php
 	funktionen nicht erlaubt sind. 
 	Quelle: http://at.php.net/manual/de/function.mkdir.php
@@ -57,8 +57,8 @@ function ftpMkDir($path, $newDir, $ftpServer, $ftpUser, $ftpPass) {
 
 }
 /**
-   funktion zum löschen eines files.
-   bei erfolgreichem löschen wird true zurückgegeben
+   funktion zum lÃ¶schen eines files.
+   bei erfolgreichem lÃ¶schen wird true zurÃ¼ckgegeben
  */
 function rmFile($filename) {
 

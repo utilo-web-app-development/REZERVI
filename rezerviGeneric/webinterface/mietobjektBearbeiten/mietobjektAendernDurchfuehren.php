@@ -85,7 +85,7 @@ include_once($root."/include/mietobjektFunctions.inc.php");
 	?>
 	<table border="0" cellpadding="0" cellspacing="0" class="<?= FREI ?>">
 	  <tr>
-		<td><?php echo(getUebersetzung("Das Mietobjekt wurde erfolgreich verändert.")); ?></td>
+		<td><?php echo(getUebersetzung("Das Mietobjekt wurde erfolgreich verÃ¤ndert.")); ?></td>
 	  </tr>
 	</table>	
 	<br/>
@@ -94,7 +94,7 @@ include_once($root."/include/mietobjektFunctions.inc.php");
   <tr> 
     <td><form action="./index.php" method="post" name="zurueck" target="_self" id="zurueck">
         <input name="retour2" type="submit" class="<?= BUTTON ?>" id="retour2" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
       </form></td>
   </tr>
 </table>

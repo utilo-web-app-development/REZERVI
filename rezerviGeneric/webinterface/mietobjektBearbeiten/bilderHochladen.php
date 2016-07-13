@@ -22,9 +22,9 @@ if (!(isset ($fehler) && $fehler != true)){
 	target="_self" enctype="multipart/form-data">
   <table border="0" cellpadding="0" cellspacing="3">
     <tr> 
-      <td colspan="2"><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder für Mietobjekt hochladen")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.")); ?> 
-          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden")); ?>!</span></p>
+      <td colspan="2"><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder fÃ¼r Mietobjekt hochladen")); ?><br/>
+          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte fÃ¼llen Sie die untenstehenden Felder aus.")); ?> 
+          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden")); ?>!</span></p>
       </td>
     </tr>
 	<tr> 
@@ -63,7 +63,7 @@ if (!(isset ($fehler) && $fehler != true)){
 		<td><textarea name="beschreibung" cols="50" rows="3"><?php if (isset($beschreibung)) { echo($beschreibung); } ?></textarea></td>
 	</tr>
 	<tr>
-		<td><span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Maximale Bildhöhe")); ?></span></td>
+		<td><span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Maximale BildhÃ¶he")); ?></span></td>
 		<td><input type="text" name="maxHoehe" value="<?= $maxHoehe ?>"/>*</td>
 	</tr>
 	<tr>
@@ -79,8 +79,8 @@ if (!(isset ($fehler) && $fehler != true)){
 </form>
 <br/>
 <?php 
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zu gelangen: 
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

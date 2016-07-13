@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	gast-infos anzeigen und evt. ändern:
+	gast-infos anzeigen und evt. Ã¤ndern:
 	author: christian osterrieder utilo.eu
 			
-	dieser seite muss übergeben werden:
+	dieser seite muss Ã¼bergeben werden:
 	Gast PK_ID $gast_id
 	$unterkunft_id
 */
@@ -44,7 +44,7 @@ $gast_id = $_POST["gast_id"];
 $sprache = getSessionWert(SPRACHE);
 $index = $_POST["index"];
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -62,7 +62,7 @@ include_once("../../../../include/uebersetzer.php");
 <?php include_once("../../../templates/headerB.php"); ?>
 <?php include_once("../../../templates/bodyA.php"); ?>
 <?php		
-//passwortprüfung:	
+//passwortprÃ¼fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 
 	
 		if ($vorname == "") 
@@ -106,20 +106,20 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 
 <table  border="0" cellspacing="3" cellpadding="0" class="frei">
   <tr>
-    <td><?php echo(getUebersetzung("Die Daten des Gastes wurden erfolgreich geändert",$sprache,$link)); ?>!</td>
+    <td><?php echo(getUebersetzung("Die Daten des Gastes wurden erfolgreich geÃ¤ndert",$sprache,$link)); ?>!</td>
   </tr>
 </table>
 <br/>
 <table  border="0" cellspacing="3" cellpadding="0" class="table">
   <tr><form action="../../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue"> 
     <td width="1"> 
-      <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+      <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"></td></form>
 	   <form action="../index.php" method="post" name="zurueck" target="_self" id="zurueck">
     <td> 
        
         <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
         <input name="anrede_val" type="hidden" id="anrede_var" value="<? echo($anrede_val); ?>"> 
         <input name="vorname_val" type="hidden" id="vorname_var3" value="<? echo($vorname_val); ?>"> 
         <input name="nachname_val" type="hidden" id="anrede_var4" value="<? echo($nachname_val); ?>"> 
@@ -139,9 +139,9 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
   </tr>
 </table>
 <?php 		} //ende else
-		} //ende passwortprüfung 
+		} //ende passwortprÃ¼fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

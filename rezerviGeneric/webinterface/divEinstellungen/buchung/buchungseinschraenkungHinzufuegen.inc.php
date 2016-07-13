@@ -53,7 +53,7 @@ include_once($root."/include/datumFunctions.inc.php");
  		$tage = $_POST["tage"];
  	}
  	else{
- 		$nachricht = "Bitte w‰hlen sie einen oder mehrere Tage f¸r die Buchungseinschr‰nkung";
+ 		$nachricht = "Bitte w√§hlen sie einen oder mehrere Tage f√ºr die Buchungseinschr√§nkung";
  		$nachricht = getUebersetzung($nachricht);
  		$fehler = true;
  		include_once($root."/webinterface/divEinstellungen/buchung/index.php");

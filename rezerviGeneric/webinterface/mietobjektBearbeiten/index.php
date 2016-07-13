@@ -20,7 +20,7 @@ if ($anzahlVorhandMietobjekte > 0){
   <table border="0" cellpadding="0" cellspacing="3">
     <tr>
       <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt bearbeiten")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie das zu verändernde Mietobjekt aus")); ?>:</span></p></td>
+          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wÃ¤hlen Sie das zu verÃ¤ndernde Mietobjekt aus")); ?>:</span></p></td>
     </tr>
     <tr>
       <td>
@@ -48,7 +48,7 @@ if ($anzahlVorhandMietobjekte > 0){
     </tr>
     <tr>
       <td><input name="Submit" type="submit" id="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		   onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt ändern")); ?>"></td>
+		   onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt Ã¤ndern")); ?>"></td>
     </tr>
   </table>
 </form>
@@ -56,9 +56,9 @@ if ($anzahlVorhandMietobjekte > 0){
 <form action="./mietobjektLoeschenBestaetigen.php" method="post" name="mietobjektLoeschenBestaetigen" target="_self">
   <table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
     <tr>
-      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt löschen")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie die zu löschenden Mietobjekte aus")); ?>. 
-          <?php echo(getUebersetzung("Sie können mehrere Mietobjekte zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Bezeichnung klicken")); ?>.</span></p></td>
+      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt lÃ¶schen")); ?><br/>
+          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wÃ¤hlen Sie die zu lÃ¶schenden Mietobjekte aus")); ?>. 
+          <?php echo(getUebersetzung("Sie kÃ¶nnen mehrere Mietobjekte zugleich auswÃ¤hlen und lÃ¶schen indem Sie die [STRG]-Taste gedrÃ¼ckt halten und auf die Bezeichnung klicken")); ?>.</span></p></td>
     </tr>
     <tr>
       <td>      	
@@ -86,7 +86,7 @@ if ($anzahlVorhandMietobjekte > 0){
     </tr>
     <tr>
       <td><input name="Submit2" type="submit" id="Submit2" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt löschen")); ?>"></td>
+       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt lÃ¶schen")); ?>"></td>
     </tr>
   </table>
 </form>
@@ -113,7 +113,7 @@ if ($anzahlVorhandMietobjekte > 0){
 	<form action="./bilderHochladen.php" method="post" name="bilder" target="_self" id="bilder">
 		<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
 		    <tr>
-	      		<td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder für Mietobjekt hochladen")); ?></span><br/>
+	      		<td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder fÃ¼r Mietobjekt hochladen")); ?></span><br/>
 	        	</td>
 	    	</tr>
 		  	<tr>
@@ -131,13 +131,13 @@ if ($anzahlVorhandMietobjekte > 0){
 	<form action="./bilderLoeschen.php" method="post" name="bilder" target="_self" id="bilder">
 		<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
 		  <tr>
-	        <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder für Mietobjekt löschen")); ?></span><br/>
+	        <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder fÃ¼r Mietobjekt lÃ¶schen")); ?></span><br/>
 	        </td>
 	      </tr>
 		  <tr>
 			<td>	
 				<input name="hochladen" type="submit" class="<?= BUTTON ?>" id="hochladen" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			 	onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Bilder löschen")); ?>">
+			 	onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Bilder lÃ¶schen")); ?>">
 			</td>
 		  </tr>
 		</table>

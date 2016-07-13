@@ -44,7 +44,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortpr�fung:	
+<?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		
 	$betten = getBetten($unterkunft_id,$zimmer_id,$link);
@@ -447,7 +447,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php 
 	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>   
  

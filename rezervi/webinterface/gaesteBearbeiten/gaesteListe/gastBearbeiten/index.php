@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	gast-infos anzeigen und evt. ändern:
+	gast-infos anzeigen und evt. Ã¤ndern:
 	author: christian osterrieder utilo.eu
 			
-	dieser seite muss übergeben werden:
+	dieser seite muss Ã¼bergeben werden:
 	Gast PK_ID $gast_id
 	$unterkunft_id
 */
@@ -32,7 +32,7 @@ $gast_id = $_POST["gast_id"];
 $sprache = getSessionWert(SPRACHE);
 $index = $_POST["index"];
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -53,14 +53,14 @@ include_once("../../../../include/einstellungenFunctions.php");
 <?php include_once("../../../templates/headerB.php"); ?>
 <?php include_once("../../../templates/bodyA.php"); ?>
 <?php		
-//passwortprüfung:	
+//passwortprÃ¼fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 
 ?>
 
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><?php echo(getUebersetzung("Gast bearbeiten",$sprache,$link)); ?>:<br/>
-      <?php echo(getUebersetzung("Bitte überschreiben bzw. ergänzen Sie die Felder des Gastes den Sie ändern möchten",$sprache,$link)); ?>:</td>
+      <?php echo(getUebersetzung("Bitte Ã¼berschreiben bzw. ergÃ¤nzen Sie die Felder des Gastes den Sie Ã¤ndern mÃ¶chten",$sprache,$link)); ?>:</td>
   </tr>
 </table>
 <br/>
@@ -85,7 +85,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
             <td></td>
           </tr>
           <tr>
-            <td class="standardSchrift"><?php echo(getUebersetzung("Straße/Hausnummer",$sprache,$link)); ?></td>
+            <td class="standardSchrift"><?php echo(getUebersetzung("StraÃŸe/Hausnummer",$sprache,$link)); ?></td>
             <td><input name="strasse" type="text" id="strasse" value="<?php echo(getGuestStrasse($gast_id,$link)); ?>" ></td>
             <td></td>
           </tr>
@@ -144,7 +144,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
         </table>
         <br/>
         <input name="gastAendern" type="submit" id="gastAendern" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Gast ändern",$sprache,$link)); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Gast Ã¤ndern",$sprache,$link)); ?>">
         <input name="gast_id" type="hidden" id="gast_id" value="<? echo($gast_id); ?>">
         <input name="anrede_val" type="hidden" id="anrede_var" value="<? echo($anrede_val); ?>">
         <input name="plz_val" type="hidden" id="plz_val" value="<? echo($plz_val); ?>">
@@ -167,12 +167,12 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
   <tr>
     
       <td width="1"><form action="../../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
-	  	<input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+	  	<input type="submit" name="Submit3" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"> </form></td>
    
     <td><form action="../index.php" method="post" name="zurueck" target="_self" id="zurueck">
         <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
         <input name="anrede_val" type="hidden" id="anrede_val" value="<? echo($anrede_val); ?>">
         <input name="vorname_val" type="hidden" id="vorname_val" value="<? echo($vorname_val); ?>">
         <input name="nachname_val" type="hidden" id="nachname_val" value="<? echo($nachname_val); ?>">
@@ -188,9 +188,9 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
       </form></td>
   </tr>
 </table>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprÃ¼fung 
 else{
-	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
 ?>
 </body>

@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 
 	$sprache = getSessionWert(SPRACHE);        
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../../conf/rdbmsConfig.php");
 	include_once("../../../include/uebersetzer.php");
 ?>
@@ -22,7 +22,7 @@ function chkFormular()
 	       return false;
 	     }
 		 else if((document.gastWaehlen.gast_id.value == "-1") & (document.adresseForm.strasse.value == "")){
-	       alert("<?php echo(getUebersetzung("Bitte geben Sie die Straße und Hausnummer ein!",$sprache,$link)); ?>");
+	       alert("<?php echo(getUebersetzung("Bitte geben Sie die StraÃŸe und Hausnummer ein!",$sprache,$link)); ?>");
 	       document.adresseForm.strasse.focus();
 	       return false;
 	     }

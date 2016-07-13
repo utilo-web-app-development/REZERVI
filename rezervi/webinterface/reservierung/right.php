@@ -8,7 +8,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	anzeige des kalenders
 	author: christian osterrieder utilo.eu		
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
@@ -48,9 +48,9 @@ if (isset($_POST["jahr"])){
 else{
 	$jahr = getTodayYear();	
 }	
-//ich brauche f�r jahr einen integer:
+//ich brauche für jahr einen integer:
 $jahr+=1;$jahr-=1;
-//und f�rs monat einen integer
+//und fürs monat einen integer
 $monat-=1;$monat+=1;
 	
 $sprache = getSessionWert(SPRACHE);
@@ -71,7 +71,7 @@ include_once("../templates/headerA.php");
 </script>
 <?php include_once("../templates/bodyA.php"); 
 	
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 
 ?>
 
@@ -134,9 +134,9 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
  
 </table>
 <?php 
-} //ende passwortpr�fung 
+} //ende passwortprüfung 
 else{
- echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+ echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
 ?>
 </body>

@@ -20,7 +20,7 @@ else{
 $anzahl = count($id);
 if ($anzahl < 1){
 	$fehler = true;
-	$nachricht = getUebersetzung("Es wurde kein Benutzer zum Löschen ausgewählt.");
+	$nachricht = getUebersetzung("Es wurde kein Benutzer zum LÃ¶schen ausgewÃ¤hlt.");
 	include_once("./index.php");	
 	exit;	
 }
@@ -34,7 +34,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php"); ?>
 	 	for($i = 0; $i < $anzahl; $i++){			
 			deleteBenutzer($id[$i]);      
 		} //ende for
-	?><?php echo(getUebersetzung("Löschung erfolgreich durchgeführt!",$sprache)); ?></p>
+	?><?php echo(getUebersetzung("LÃ¶schung erfolgreich durchgefÃ¼hrt!",$sprache)); ?></p>
       </td>
   </tr>
 </table>
@@ -45,7 +45,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php"); ?>
         <input name="zurueck" type="submit" class="<?= BUTTON ?>" id="zurueck" 
         	onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
 	 		onMouseOut="this.className='<?= BUTTON ?>';" 
-	 		value="<?php echo(getUebersetzung("zurück",$sprache)); ?>">
+	 		value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache)); ?>">
       </form></td>
   </tr>
 </table>

@@ -9,10 +9,11 @@ include_once($root."/include/rdbmsConfig.inc.php"); //datenbank oeffnen
 include_once($root."/include/vermieterFunctions.inc.php"); //infos ueber gastro betrieb
 if (getNumberOfGastros() < 1){
 ?>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<!DOCTYPE html>
 	<html>
 	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html;">
+	<meta charset="UTF-8">
 	<title>Bookline - Fehlerhafte Installation</title>
 	</head>
 	<body>
@@ -28,10 +29,11 @@ if (getNumberOfGastros() < 1){
 //2. ist ein raum vorhanden?
 if (getAnzahlVorhandeneRaeume($gastro_id) < 1){
 ?>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 	<html>
 	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html;">
+	<meta charset="UTF-8">
 	<title>Bookline - Fehlerhafte Installation</title>
 	</head>
 	<body>

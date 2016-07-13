@@ -3,7 +3,7 @@ $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	include_once("../../include/einstellungenFunctions.php");
 	$unterkunft_id = getSessionWert(UNTERKUNFT_ID);

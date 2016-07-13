@@ -8,16 +8,16 @@ include_once($root."/include/sessionFunctions.inc.php");
 	anzeige des kalenders
 	author: christian osterrieder utilo.eu
 	
-	dieser seite kann optional �bergeben werden:
+	dieser seite kann optional übergeben werden:
 	Zimmer PK_ID ($zimmer_id)
 	Jahr ($jahr)
 	Monat ($monat)
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("./conf/rdbmsConfig.php");
 	
 	//funktions einbinden:
@@ -43,7 +43,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	else{
 		$zimmer_id = $_POST["zimmer_id"];
 	}
-	//falls keine zimmer_id ausgew�hlt wurde, das erste gefundene zimmer nehmen:
+	//falls keine zimmer_id ausgewählt wurde, das erste gefundene zimmer nehmen:
 	if (!isset($zimmer_id) || $zimmer_id == "" || empty($zimmer_id)) {
 		$zimmer_id = getFirstRoom($unterkunft_id,$link);		
 	}
@@ -90,7 +90,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <!-- <script language="JavaScript" type="text/javascript" src="./rightJS.js">
 </script> -->
 <?php include_once("./templates/headerB.php"); ?>
-<?php //kontrolle ob das monat noch g�ltig ist:
+<?php //kontrolle ob das monat noch ungültig ist:
 	if ($monat < parseMonthNumber(getTodayMonth()) && $jahr <= getTodayYear()){ ?>
 		
 			<h3><?php echo(getUebersetzung("<p>Das gewählte Monat ist bereits abgelaufen!</p><p>Bitte korrigieren Sie Ihre Anfrage!</p>",$sprache,$link)); ?></h3>
@@ -150,7 +150,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			}
 			//monat ausgeben:
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
-			//monat erh�hen f�r n�chste ausgabe:
+			//monat erhöhen für nächste ausgabe:
 			$monat+=1;
 		?>
    <?php
@@ -165,7 +165,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			}
 			//monat ausgeben:
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
-			//monat erh�hen f�r n�chste ausgabe:
+			//monat erhöhen für nächste ausgabe:
 			$monat+=1;
 		?>
   
@@ -181,7 +181,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 			}
 			//monat ausgeben:
 			showMonth($monat,$jahr,$unterkunft_id,$zimmer_id,$link,$saAktiviert,$sprache);
-			//monat erh�hen f�r n�chste ausgabe:
+			//monat erhöhen für nächste ausgabe:
 			$monat+=1;
 		?>
     <?php

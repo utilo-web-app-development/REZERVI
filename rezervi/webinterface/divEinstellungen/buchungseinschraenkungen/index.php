@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	author: christian osterrieder utilo.eu						
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once($root."/conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -39,7 +39,7 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 <?php include_once($root."/webinterface/templates/headerB.php"); ?>
 <?php include_once($root."/webinterface/templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <!-- <div class="panel panel-default">
@@ -171,7 +171,7 @@ if (isset($nachricht) && $nachricht != ""){
 				          <select name="vonMonat" class="tableColor" id="vonMonat" onChange="chkDays(0)">
 				            <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
 				            <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-				            <option value="3"<?php if (getTodayMonth() == "M�rz") echo " selected"; ?>><?php echo(getUebersetzung("M�rz",$sprache,$link)); ?></option>
+				            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
 				            <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
 				            <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
 				            <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -202,7 +202,7 @@ if (isset($nachricht) && $nachricht != ""){
 			          <select name="bisMonat" class="tableColor" id="bisMonat" onChange="chkDays(1)">
 			            <option value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></option>
 			            <option value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar",$sprache,$link)); ?></option>
-			            <option value="3"<?php if (getTodayMonth() == "M�rz") echo " selected"; ?>><?php echo(getUebersetzung("M�rz",$sprache,$link)); ?></option>
+			            <option value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März",$sprache,$link)); ?></option>
 			            <option value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April",$sprache,$link)); ?></option>
 			            <option value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai",$sprache,$link)); ?></option>
 			            <option value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni",$sprache,$link)); ?></option>
@@ -239,16 +239,16 @@ if (isset($nachricht) && $nachricht != ""){
 </table>
 <!-- <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
+	  //-----buttons um zurück zum menue zu gelangen: 
 	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/> -->
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmen�",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

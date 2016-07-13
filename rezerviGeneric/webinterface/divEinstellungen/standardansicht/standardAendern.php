@@ -48,7 +48,7 @@ foreach ($ansicht_array as $ans){
 }
 
 if ($countAnzeigen<=0){
-	$message = "Sie müssen mindestens eine Anzeige auswählen";
+	$message = "Sie mÃ¼ssen mindestens eine Anzeige auswÃ¤hlen";
 	$nachricht = getUebersetzung($message);
 	$fehler = true;
 	include_once("./index.php");
@@ -79,22 +79,22 @@ if ($standardFehler === true){
 
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 
-	//zuerst alle alten eintraege löschen:
+	//zuerst alle alten eintraege lÃ¶schen:
 	setVermieterEigenschaftenWert(STANDARDANSICHT,$standard,$vermieter_id);
 
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen")); ?>.</p>
+<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ã„ndern der angezeigten Sprachen")); ?>.</p>
 
 	<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
 	  <tr>
-		<td><?=  getUebersetzung("Die Standardansicht wurde erfolgreich geändert!"); ?></td>
+		<td><?=  getUebersetzung("Die Standardansicht wurde erfolgreich geÃ¤ndert!"); ?></td>
 	  </tr>
 	</table>
 	<br/><br/>
 <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 	  
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

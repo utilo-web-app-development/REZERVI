@@ -16,27 +16,27 @@ include_once($root."/webinterface/templates/components.inc.php");
   <form action="./sprachen/sprachen.php" method="post" target="_self">
   <tr>
     <td><?php showSubmitButton(getUebersetzung("Sprachen")); ?></td>
-    <td><?= getUebersetzung("Ändern der zur Auswahl stehenden Sprachen ihres Belegungsplanes") ?>.</td>
+    <td><?= getUebersetzung("Ã¤ndern der zur Auswahl stehenden Sprachen ihres Belegungsplanes") ?>.</td>
   </tr>
   </form>
   <?php if (MIETE == false){ ?>
 	  <form action="./uebersetzungen/index.php" method="post" target="_self">
 		  <tr>
-		    <td><?php showSubmitButton(getUebersetzung("Übersetzungen")); ?></td>
-		    <td><?= getUebersetzung("Ändern der verwendeten Übersetzungen") ?>.</td>
+		    <td><?php showSubmitButton(getUebersetzung("Ã¼bersetzungen")); ?></td>
+		    <td><?= getUebersetzung("Ã„ndern der verwendeten Ã¼bersetzungen") ?>.</td>
 		  </tr>
 	  </form>
   <?php } ?>
   <form action="./standardansicht/index.php" method="post" target="_self">
 	  <tr>
 	    <td><?php showSubmitButton(getUebersetzung("Ansicht")); ?></td>
-	    <td><?= getUebersetzung("Ändern der Ansichten ihres Belegungsplanes") ?>.</td>
+	    <td><?= getUebersetzung("Ã¤ndern der Ansichten ihres Belegungsplanes") ?>.</td>
 	  </tr>
    </form>
    <form action="./bilder/index.php" method="post" target="_self">
 	  <tr>
 	    <td><?php showSubmitButton(getUebersetzung("Bilder")); ?></td>
-	    <td><?= getUebersetzung("Einstellungen für Bilder der Mietobjekte") ?>.</td>
+	    <td><?= getUebersetzung("Einstellungen fÃ¼r Bilder der Mietobjekte") ?>.</td>
 	  </tr>
     </form>
     <form action="./suche/index.php" method="post" target="_self">
@@ -54,7 +54,7 @@ include_once($root."/webinterface/templates/components.inc.php");
     <!-- 
     <form action="./buchung/index.php" method="post" target="_self">
 	  <tr>
-	    <td><?php showSubmitButton(getUebersetzung("Buchungseinschränkungen")); ?></td>
+	    <td><?php showSubmitButton(getUebersetzung("BuchungseinschrÃ¤nkungen")); ?></td>
 	    <td><?= getUebersetzung("Buchungen nur zu bestimmten Zeiten erlauben") ?>.</td>
 	  </tr>
     </form>

@@ -27,7 +27,7 @@ function insertGuestWithID($guest_id,$unterkunft_id,$anrede,$vorname,$nachname,$
 }
 
 //funktion legt einen neuen gast an,
-//zurückgegeben wird die id des neu
+//zurÃ¼ckgegeben wird die id des neu
 //angelegten gastes:
 function insertGuest($unterkunft_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$fax,$anmerkung,$sprache,$link){
 	
@@ -42,12 +42,12 @@ function insertGuest($unterkunft_id,$anrede,$vorname,$nachname,$strasse,$plz,$or
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	//letzte eingetragene id zurückgeben:
+	//letzte eingetragene id zurÃ¼ckgeben:
 	return mysql_insert_id($link); 
 
 }
 
-//funktion ändert einen bereits vorhandenen gast:
+//funktion Ã¤ndert einen bereits vorhandenen gast:
 function updateGuest($gast_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$fax,$anmerkung,$sprache,$link){
 	
 	$query = ("UPDATE
@@ -74,10 +74,10 @@ function updateGuest($gast_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$lan
 		echo("die Anfrage scheitert");
 } //ende updateGuest
 
-//funktion prüft, ob ein gast bereits vorhanden ist.
+//funktion prÃ¼ft, ob ein gast bereits vorhanden ist.
 //ich checke mal nach vornamen, nachnamen und e-mail,
-//das dürfte wohl eindeutig sein
-//dann id des gastes zurückgeben:
+//das dÃ¼rfte wohl eindeutig sein
+//dann id des gastes zurÃ¼ckgeben:
 function getGuestID($unterkunft_id,$vorname,$nachname,$email,$link){
 	
 	$query = ("SELECT 
@@ -101,7 +101,7 @@ function getGuestID($unterkunft_id,$vorname,$nachname,$email,$link){
 
 }
 
-//funktion prüft, ob ein gast bereits vorhanden ist.
+//funktion prÃ¼ft, ob ein gast bereits vorhanden ist.
 //check mit vorname, nachname, strasse, ort
 function getGuestIDDetail($unterkunft_id,$vorname,$nachname,$strasse,$ort,$link){
 	
@@ -382,7 +382,7 @@ function getGuestAnrede($gast_id,$link){
 }
 
 function getGuestList($unterkunft_id,$link){	
-//gästeliste ausgeben:	
+//gÃ¤steliste ausgeben:	
 	$query = ("SELECT 
 				*
 				FROM
@@ -402,12 +402,12 @@ function getGuestList($unterkunft_id,$link){
 		return $res;
 }
 /**
-liefert eine gästeliste mit einem limit und einem index
+liefert eine gÃ¤steliste mit einem limit und einem index
 author: coster
 date: 28.8.05
 */
 function getGuestListWithLimitAndIndex($unterkunft_id,$limit,$index,$link){	
-//gästeliste ausgeben:	
+//gÃ¤steliste ausgeben:	
 	$query = ("SELECT 
 				*
 				FROM
@@ -429,7 +429,7 @@ function getGuestListWithLimitAndIndex($unterkunft_id,$limit,$index,$link){
 		return $res;
 }
 /**
-liefert die anzahl der gäste für eine unterkunft
+liefert die anzahl der gÃ¤ste fÃ¼r eine unterkunft
 author: coster
 date: 28.8.05
 */

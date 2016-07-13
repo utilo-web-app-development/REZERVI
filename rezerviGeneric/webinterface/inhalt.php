@@ -9,7 +9,7 @@ $root = "..";
 	
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once ($root."/conf/rdbmsConfig.inc.php");
 //andere funktionen einbeziehen:
 include_once ($root."/include/benutzerFunctions.inc.php");
@@ -18,7 +18,7 @@ include_once ($root."/include/mietobjektFunctions.inc.php");
 include_once ($root."/include/uebersetzer.inc.php");
 include_once ($root."/include/sessionFunctions.inc.php");
 
-//alte sessions l�schen:
+//alte sessions löschen:
 destroyInactiveSessions();
 
 $angemeldet = getSessionWert(ANGEMELDET);
@@ -31,11 +31,11 @@ if (isset($_POST["ben"])) {
 	$benutzer_id = checkPassword($ben, $pass);
 
 	if ($benutzer_id == -1) {
-		//passwortpr�fung fehlgeschlagen, auf index-seite zur�ck:
+		//passwortprüfung fehlgeschlagen, auf index-seite zurück:
 		$fehlgeschlagen = true;
 		include_once ("./index.php");
 	} else {
-		//passwortpr�fung erfolgreich:
+		//passwortprüfung erfolgreich:
 		setSessionWert(ANGEMELDET, "true");
 
 		//vermieter-id holen:
@@ -46,7 +46,7 @@ if (isset($_POST["ben"])) {
 }
 
 //sprache auslesen:
-//entweder aus �bergebener url oder aus session
+//entweder aus übergebener url oder aus session
 if (isset ($_POST["sprache"]) && $_POST["sprache"] != "") {
 	$sprache = $_POST["sprache"];
 	setSessionWert(SPRACHE, $sprache);
@@ -79,7 +79,7 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 		<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer")); ?>: <?php echo(getUserName($benutzer_id)); ?></p>
 		<table width="100%" border="0" cellspacing="3" cellpadding="0">
 		<?php		
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte >= 1 && $anzahlVorhandenerMietobjekte > 0) {
 		?>
 		  <form action="./reservierung/index.php" method="post" name="resEingebenAendern" target="_self">    
@@ -108,7 +108,7 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 		  </form>
 		  <?php		
 		} //ende benutzerrechte >= 1
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte == 1) {
 		?>
 		  
@@ -134,7 +134,7 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 		  <?php
 		
 		}
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form action="./mietobjektBearbeiten/index.php" method="post" name="ZimmerBearbeiten" target="_self">
@@ -153,12 +153,12 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 		      <td width="1"><input name="ZimmerBearbeiten" type="button" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
 				   onMouseOut="this.className='<?= BUTTON ?>';" id="ZimmerBearbeiten" value="<?php echo(getUebersetzung("Mietobjekt bearbeiten")); ?>"></td>
 		      <td class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Neue Mietobjekte anlegen, löschen, oder bereits bestehende ändern")); ?>. <strong><br/>
-		        <?php echo(getUebersetzung("Diese Funktion ist nur fü�r Administratoren verfügbar")); ?>!</strong></td>
+		        <?php echo(getUebersetzung("Diese Funktion ist nur für Administratoren verfügbar")); ?>!</strong></td>
 		    </tr>
 		  
 		  <?php		
 			}
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form action="./vermieter/index.php" method="post" name="UnterkunftBearbeiten" target="_self">
@@ -182,7 +182,7 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 		 
 		  <?php		
 			}
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form action="./divEinstellungen/index.php" method="post" name="DiverseEinstellungen" target="_self">
@@ -206,7 +206,7 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 		  
 		  <?php		
 			}
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form name="designBearbeiten" method="post" action="../webinterface/designBearbeiten/index.php">
@@ -219,7 +219,7 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 		  </form>
 		  <?php		
 		} //ende if benutzerrechte <= 2
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte == 1) {
 		?>
 		  
@@ -227,12 +227,12 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 		      <td width="1"><input name="designBearbeiten" type="button" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
 		       onMouseOut="this.className='<?= BUTTON ?>';" id="designBearbeiten2" value="<?php echo(getUebersetzung("Design bearbeiten")); ?>">
 		      </td>
-		      <td class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Das Design Ihres pers�nlichen Belegungsplanes ändern (z. B. Hintergrundfarbe)")); ?>.<strong><br/>
+		      <td class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Das Design Ihres persönlichen Belegungsplanes ändern (z. B. Hintergrundfarbe)")); ?>.<strong><br/>
 		        <?php echo(getUebersetzung("Diese Funktion ist nur für Administratoren verfügbar")); ?>!</strong></td>
 		    </tr>
 		  <?php		
 		}
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte >= 2) {
 		?>
 		  <form name="antwortenBearbeiten" method="post" action="./autoResponse/index.php">
@@ -245,7 +245,7 @@ $anzahlVorhandenerMietobjekte = getAnzahlVorhandeneMietobjekte($vermieter_id);
 			  </form>
 		  <?php		
 		} //ende if benutzerrechte <= 2
-		//pr�fen ob benutzer das recht hat den folgenden link auszuf�hren:
+		//prüfen ob benutzer das recht hat den folgenden link auszuführen:
 		if ($benutzerrechte == 1) {
 		?>
 		  

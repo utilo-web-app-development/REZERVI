@@ -133,7 +133,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 		$mieter_id = insertMieter($vermieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$tel2,$fax,$url,$firma,$speech);	
 
 	}
-	else{//3. gast ist bereits vorhanden und wurde g‰ndert
+	else{//3. gast ist bereits vorhanden und wurde ge√§ndert
 		updateMieter($mieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$land,$email,$tel,$tel2,$fax,$url,$firma,$speech);	
 	}	
 	
@@ -144,7 +144,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 <table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
   <tr>
     <td>
-      <?php echo(getUebersetzung("Die Reservierung wurde erfolgreich ge‰ndert")); ?>!
+      <?php echo(getUebersetzung("Die Reservierung wurde erfolgreich ge√§ndert")); ?>!
 	</td>
   </tr>
 </table>
@@ -163,7 +163,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
         <input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>">
         <input name="vonStunde" type="hidden" id="vonStunde" value="<?= $vonStunde ?>"> 
         <input type="submit" name="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zur¸ck")); ?>"> </td>
+       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zur√ºck")); ?>"> </td>
     </tr>
   </table>
   <p>&nbsp; </p>

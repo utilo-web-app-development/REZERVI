@@ -6,10 +6,10 @@ define( '_JEXEC', 1 );
 include_once ($root . "/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			startseite zur wartung der reservierung für den benutzer
+			startseite zur wartung der reservierung fÃ¼r den benutzer
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss übergeben werden:
+			dieser seite muss Ã¼bergeben werden:
 			Benutzer PK_ID $benutzer_id
 */
 //funktionen zum versenden von e-mails:
@@ -35,7 +35,7 @@ if (isset ($_POST["antwort"])) {
 $art = $_POST["art"];
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once ("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -58,10 +58,10 @@ include_once ("../../include/uebersetzer.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php
- //passwortprüfung:	
+ //passwortprÃ¼fung:	
 if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Reservierungsanfragen von Gästen löschen",$sprache,$link)); ?></p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("Reservierungsanfragen von GÃ¤sten lÃ¶schen",$sprache,$link)); ?></p>
 <?php
 
 
@@ -76,7 +76,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 		$gast_id = getGastID($res_id, $link);
 		$zimmer_id = getZimmerID($res_id, $link);
 		deleteReservation($res_id, $link);
-		//wenn room child rooms hat auch diese löschen:
+		//wenn room child rooms hat auch diese lÃ¶schen:
 		$resu = getChildRooms($zimmer_id);
 		if (!empty ($resu)) {
 			while ($d = mysql_fetch_array($resu)) {
@@ -88,7 +88,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 	}
 
 	if ($gastEntfernen == "true") {
-		//gast soll auch gelöscht werden:
+		//gast soll auch gelÃ¶scht werden:
 		$query = ("SELECT
 							FK_Gast_ID
 						    FROM	
@@ -106,7 +106,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 			$d = mysql_fetch_array($res);
 			$temp = $d["FK_Gast_ID"];
 			if ($temp == "") {
-				//gast kann gelöscht werden, es sind keine weiteren reservierungen vorhanden:
+				//gast kann gelÃ¶scht werden, es sind keine weiteren reservierungen vorhanden:
 				$query = ("DELETE FROM	
 							   				Rezervi_Gast
 							   				WHERE
@@ -133,7 +133,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 		?>
 		<table  border="0" cellpadding="0" cellspacing="3" class="belegt">
 		  <tr>
-		    <td><?php echo(getUebersetzung("Der Gast kann nicht entfernt werden, es sind weitere Belegungen/Reservierungen für diesen Gast eingetragen",$sprache,$link)); ?>!</td>
+		    <td><?php echo(getUebersetzung("Der Gast kann nicht entfernt werden, es sind weitere Belegungen/Reservierungen fÃ¼r diesen Gast eingetragen",$sprache,$link)); ?>!</td>
 		  </tr>
 		</table>
 		<p>
@@ -165,7 +165,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 		 $message .= $bod.("\n\n");
 		 
       ?>
-      <p><?php echo(getUebersetzung("Die folgende Mitteilung wird per E-Mail an Ihren Gast gesendet. Sie haben hier die Möglichkeiten noch Korrekturen vorzunehmen",$sprache,$link)); ?>:</p>
+      <p><?php echo(getUebersetzung("Die folgende Mitteilung wird per E-Mail an Ihren Gast gesendet. Sie haben hier die MÃ¶glichkeiten noch Korrekturen vorzunehmen",$sprache,$link)); ?>:</p>
       <form action="./bestaetigungSenden.php" method="post" name="bestaetigungSenden" target="_self">
         <input name="an" type="hidden" value="<?php echo($an); ?>">
         <input name="von" type="hidden" value="<?php echo($von); ?>">
@@ -182,7 +182,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         <br/>
         <?php
 
-	//-----buttons um zurück zum menue zu gelangen: 
+	//-----buttons um zurÃ¼ck zum menue zu gelangen: 
 	showSubmitButton(getUebersetzung("absenden", $sprache, $link));
 	} //ende if
 	?>
@@ -190,20 +190,20 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
       </p>
       <br/>
       <?php
-		showSubmitButtonWithForm("./index.php", getUebersetzung("zurück", $sprache, $link));
+		showSubmitButtonWithForm("./index.php", getUebersetzung("zurÃ¼ck", $sprache, $link));
 		?>
       <br/>
 	<?php	
-	showSubmitButtonWithForm("../inhalt.php", getUebersetzung("Hauptmenü", $sprache, $link));
+	showSubmitButtonWithForm("../inhalt.php", getUebersetzung("HauptmenÃ¼", $sprache, $link));
 	?>
     </td>
   </tr>
 </table>
 <?php
 
-} //ende if passwortprüfung
+} //ende if passwortprÃ¼fung
 else {
-	echo (getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
+	echo (getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!", $sprache, $link));
 }
 ?>
 </body>

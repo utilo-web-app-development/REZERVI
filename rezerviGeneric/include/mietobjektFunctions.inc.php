@@ -81,13 +81,13 @@ function setMietobjektEigenschaftenWert($bezeichnung,$wert,$mietobjekt_id){
 /**
  * author:coster
  * date: 24.9.05
- * löscht ein mietobjekt
+ * lÃ¶scht ein mietobjekt
  * */
 function deleteMietobjekt($mietobjekt_id){
 	
 	global $link;
 	
-	//einstellungen zum mo löschen:
+	//einstellungen zum mo lÃ¶schen:
 	$query = ("DELETE FROM 
 				REZ_GEN_MIE_EIGENSCHAFTEN
 				where
@@ -101,7 +101,7 @@ function deleteMietobjekt($mietobjekt_id){
 		return false;
 	}
 	
-	//reservierungen löschen:
+	//reservierungen lÃ¶schen:
 	$query = ("DELETE FROM 
 				REZ_GEN_RESERVIERUNG
 				where
@@ -115,7 +115,7 @@ function deleteMietobjekt($mietobjekt_id){
 		return false;
 	}
 	
-	//bilder löschen:
+	//bilder lÃ¶schen:
 	global $root;
 	include_once($root."/include/bildFunctions.inc.php");
 	include_once($root."/include/filesAndFolders.inc.php");
@@ -125,7 +125,7 @@ function deleteMietobjekt($mietobjekt_id){
 	}
 	deleteBilderOfMietobjekt($mietobjekt_id);
 	
-	//mietobjekt selbst löschen
+	//mietobjekt selbst lÃ¶schen
 	$query = ("DELETE FROM 
 				REZ_GEN_MIETOBJEKT
 				where

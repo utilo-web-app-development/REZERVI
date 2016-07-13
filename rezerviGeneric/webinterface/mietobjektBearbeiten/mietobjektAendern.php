@@ -37,8 +37,8 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
   <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
     <tr class="<?= TABLE_STANDARD ?>"> 
       <td colspan="2"><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt bearbeiten")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.")); ?> 
-          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden")); ?>!</span></p>
+          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte fÃ¼llen Sie die untenstehenden Felder aus.")); ?> 
+          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden")); ?>!</span></p>
       </td>
     </tr>
     <tr> 
@@ -108,7 +108,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
       <td colspan="2">
         <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo($mietobjekt_id); ?>">
         <input name="Submit" type="submit" id="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("ändern")); ?>"></td>
+       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Ã¤ndern")); ?>"></td>
     </tr>
   </table>
 </form>
@@ -117,7 +117,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
     <td>
     	<form action="./index.php" method="post" name="retour3" target="_self" id="retour3">
 			<input name="retour" type="submit" class="<?= BUTTON ?>" id="retour" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 			onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+	 			onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
   		</form>
   	</td>
   </tr>

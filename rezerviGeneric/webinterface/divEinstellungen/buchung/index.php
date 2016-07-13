@@ -26,7 +26,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 <table class="<?= TABLE_STANDARD ?>">	  	
   <tr>
   	<td class="<?= STANDARD_SCHRIFT_BOLD ?>" colspan="2">
-  		<?= getUebersetzung("Keine Buchungen möglich in der Uhrzeit"); ?>:
+  		<?= getUebersetzung("Keine Buchungen mÃ¶glich in der Uhrzeit"); ?>:
   	<td>
   <tr>
   <tr>
@@ -47,7 +47,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 	</th>	
 	<th>
 		<div align="left">
-			<?= getUebersetzung("löschen/hinzufügen") ?> 
+			<?= getUebersetzung("lÃ¶schen/hinzufÃ¼gen") ?> 
 		</div>
 	</th> 			
   </tr>
@@ -81,7 +81,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 	<td>
 	    <?= $bisStunde ?>:<?= $bisMinute ?> <?= getUebersetzung("Uhr"); ?>
   	</td>
-  	<td><?php showSubmitButton(getUebersetzung("löschen")); ?></td>
+  	<td><?php showSubmitButton(getUebersetzung("lÃ¶schen")); ?></td>
   </tr>  
   </form>
   <tr>
@@ -167,7 +167,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 	          <span class="<?= STANDARD_SCHRIFT ?>">
 	          	<?= getUebersetzung("Uhr"); ?></span>
   	</td>
-  	<td><?php showSubmitButton(getUebersetzung("hinzufügen")); ?></td>
+  	<td><?php showSubmitButton(getUebersetzung("hinzufÃ¼gen")); ?></td>
   </tr>   
   </form> 
 <!-- ende uhrzeit -->
@@ -177,7 +177,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 <!-- start tage   -->
 	<tr>
 		<td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-			<?= getUebersetzung("Keine Buchungen möglich an folgenden Tagen"); ?>:
+			<?= getUebersetzung("Keine Buchungen mÃ¶glich an folgenden Tagen"); ?>:
 		<td>
 		  <tr>
 		  <tr>
@@ -226,7 +226,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		  			</th>	
 					<th>
 						<div align="left">
-							<?= getUebersetzung("löschen/hinzufügen") ?> 
+							<?= getUebersetzung("lÃ¶schen/hinzufÃ¼gen") ?> 
 						</div>
 					</th> 
 				</tr>
@@ -305,7 +305,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		  				</div>
 		  			</td>	
 		  			<td>
-		  				<?php showSubmitButton(getUebersetzung("löschen")); ?>	  
+		  				<?php showSubmitButton(getUebersetzung("lÃ¶schen")); ?>	  
 		  			</td>					  					  					  			
 				</tr>
 		  		<tr>
@@ -375,7 +375,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		  				</div>
 		  			</td>	
 		  			<td>
-		  				<?php showSubmitButton(getUebersetzung("hinzufügen")); ?>	  
+		  				<?php showSubmitButton(getUebersetzung("hinzufÃ¼gen")); ?>	  
 		  			</td>					  					  					  			
 				</tr>
 				</form>
@@ -389,7 +389,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
   <!-- start datum -->
   <tr>
   	<td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-  		<?= getUebersetzung("Keine Buchungen möglich zu folgendem Datum"); ?>:
+  		<?= getUebersetzung("Keine Buchungen mÃ¶glich zu folgendem Datum"); ?>:
   	<td>
   <tr>
   <tr>
@@ -413,7 +413,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		  			</th>
 		  			<th>
 		  				<div align="left">
-		  					<?= getUebersetzung("löschen/hinzufügen") ?> 
+		  					<?= getUebersetzung("lÃ¶schen/hinzufÃ¼gen") ?> 
 		  				</div>
 		  			</th>
 		  		</tr>
@@ -450,7 +450,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 				  				<?= $einschrBis ?> <?= getUebersetzung("Uhr"); ?> 
 				  			</td>
 					  		<td>
-				  				<?php showSubmitButton(getUebersetzung("löschen")); ?> 
+				  				<?php showSubmitButton(getUebersetzung("lÃ¶schen")); ?> 
 				  			</td>	  					  					  					  			
 			  			</tr>
 				  		<tr>
@@ -586,7 +586,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 		        </table>
   			  </td>
 		  		<td valign="top">
-	  				<?php showSubmitButton(getUebersetzung("hinzufügen")); ?> 
+	  				<?php showSubmitButton(getUebersetzung("hinzufÃ¼gen")); ?> 
 	  			</td>	  					  					  					  			
   			</tr>
   			</form>
@@ -597,7 +597,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 </form>
 <br/>
 <?php 
-//-----buttons um zurück zum menue zu gelangen: 
-showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+//-----buttons um zurÃ¼ck zum menue zu gelangen: 
+showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

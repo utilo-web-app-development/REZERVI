@@ -211,7 +211,7 @@ function getAnzahlMietobjekteOfVermieter($vermieter_id){
 /**
  * author: coster
  * date: 20.9.05
- * gibt die die bezeichnung des mietobjektes - einzahl zurück.
+ * gibt die die bezeichnung des mietobjektes - einzahl zurÃ¼ck.
  * z. B. Tennisplatz
  * @param $vermieter_id
  * @return string bezeichnung der mietobjekte einzahl
@@ -240,8 +240,8 @@ function getMietobjekt_EZ($vermieter_id){
 /**
  * author:coster
  * date: 20.9.05
- * gibt die bezeichnung des mietobjektes - mehrzahl - zurück
- * z. b. Tennisplätze
+ * gibt die bezeichnung des mietobjektes - mehrzahl - zurÃ¼ck
+ * z. b. TennisplÃ¤tze
  * */
 function getMietobjekt_MZ($vermieter_id){
 	global $link;
@@ -611,7 +611,7 @@ function getVermieterUrl($vermieter_id){
  * author:coster
  * date: 22.9.05
  * liefert die adress-id eines vermieters,
- * wenn noch keine vorhanden wird false zurückgegeben.
+ * wenn noch keine vorhanden wird false zurÃ¼ckgegeben.
  * */
  function getAdressIDfromVermieter($vermieter_id){
  		global $link;
@@ -1144,7 +1144,7 @@ function setMietobjekt_EZ($vermieter_id,$mietobjekt){
  * author: coster
  * date: 20.9.05
  * speichert die art des mietobjektes - mehrzahl
- * z. b. Tennisplätze
+ * z. b. TennisplÃ¤tze
  * */
 function setMietobjekt_MZ($vermieter_id,$mietobjekt){
 		global $link;

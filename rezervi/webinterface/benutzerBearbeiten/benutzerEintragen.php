@@ -18,7 +18,7 @@ $pass2 = $_POST["pass2"];
 $rechte = $_POST["rechte"];
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -35,7 +35,7 @@ $sprache = getSessionWert(SPRACHE);
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <h3><?php echo(getUebersetzung("Einen neuen Benutzer anlegen",$sprache,$link)); ?></h3>	
-<?php //passwortpr�fung:	
+<?php //passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
 		setUser($name,$pass,$rechte);
 ?>
@@ -65,7 +65,7 @@ $sprache = getSessionWert(SPRACHE);
     <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 
         <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zur�ck",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>
@@ -81,9 +81,9 @@ $sprache = getSessionWert(SPRACHE);
 </table> -->
 <p> </p>     
     <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
 </body>

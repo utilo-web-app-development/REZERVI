@@ -35,7 +35,7 @@ include_once($root."/templates/bodyStart.inc.php");
       <td><textarea name="ihreNachricht" cols="50" rows="10"  id="ihreNachricht"><? if (isset($ihreNachricht)) echo($ihreNachricht); ?></textarea>*</td>
     </tr>
   </table>
-  <p class="<?= STANDARD_SCHRIFT ?>">(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder müssen ausgefüllt werden!")); ?>)
+  <p class="<?= STANDARD_SCHRIFT ?>">(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden!")); ?>)
   </p>
   <p>
     <input name="send" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"

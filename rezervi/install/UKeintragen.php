@@ -13,11 +13,11 @@ include_once("../include/propertiesFunctions.php");
 include_once("../include/reseller/reseller.php");
 	
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <title>Unterkunft in DB eintragen</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
 </head>
 
 <body class="backgroundColor">
@@ -148,7 +148,7 @@ $samstagReserviert=$reserviert;
 	}
 
 	
-	//...und die CSS für die unterkunft:
+	//...und die CSS fÃ¼r die unterkunft:
 	$query = "
 		REPLACE INTO 
 		Rezervi_CSS
@@ -165,7 +165,7 @@ $samstagReserviert=$reserviert;
 	}
 	
 		
-	//fuer statistik - kann gelöscht werden!
+	//fuer statistik - kann gelÃ¶scht werden!
 	$von = $EMAIL;
 	$an = "office@utilo.eu";
 	$subject = "rezervi 2.9";
@@ -211,13 +211,13 @@ $samstagReserviert=$reserviert;
 if (!$fail){
 	$fehler = false;
 	$unterkunft = true;
-	$antwort = $antwort."Anlegen der Unterkunft erfolgreich durchgeführt.";
+	$antwort = $antwort."Anlegen der Unterkunft erfolgreich durchgefÃ¼hrt.";
 }
 else{
 	$fehler = true;
 	$unterkunft = false;
 	$antwort.=getUebersetzung("Installationsfehler.",$sprache,$link)."<br/>";
-	$antwort.=getUebersetzung("Überprüfen Sie die Zugangsdaten in conf/rdbmsConfig.php und die Version Ihrer MySQL Datenbank.",$sprache,$link)."<br/>";  
+	$antwort.=getUebersetzung("ÃœberprÃ¼fen Sie die Zugangsdaten in conf/rdbmsConfig.php und die Version Ihrer MySQL Datenbank.",$sprache,$link)."<br/>";  
 	$antwort.=getUebersetzung("Ansonsten wenden sie sich bitte per E-Mail an utilo.eu - wir helfen ihnen gerne weiter!",$sprache,$link)."<br/>";
 }
 

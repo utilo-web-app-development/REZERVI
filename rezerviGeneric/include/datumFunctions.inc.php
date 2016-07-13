@@ -1,5 +1,5 @@
 <?php
-//kurzform für tage:
+//kurzform fÃ¼r tage:
 define("KURZFORM_MONTAG","MO");
 define("KURZFORM_DIENSTAG","DI");
 define("KURZFORM_MITTWOCH","MI");
@@ -180,7 +180,7 @@ function constructMySqlTimestampFromDatePicker($datePickerDate,$minute,$stunde){
 /**
 author:coster
 date:1.11.05
-gibt ein formatiertes datum für html aus dem timestamp zurück
+gibt ein formatiertes datum fÃ¼r html aus dem timestamp zurÃ¼ck
 */
 function parseMySqlTimestamp($timestamp,$minute,$stunde,$tag,$monat,$jahr){
 	
@@ -217,7 +217,7 @@ function parseMySqlTimestamp($timestamp,$minute,$stunde,$tag,$monat,$jahr){
 /**
 author:coster
 date:29.9.05
-prüft ob das datum bereits abgelaufen ist
+prÃ¼ft ob das datum bereits abgelaufen ist
 */
 function isDatumAbgelaufen($tagVon,$monatVon,$jahrVon,$tagBis,$monatBis,$jahrBis){
 
@@ -260,7 +260,7 @@ function parseMonthNumber($monat){
 		$mon = 1;
 	elseif ($monat == "Februar")
 		$mon = 2;
-	elseif ($monat == "März")
+	elseif ($monat == "MÃ¤rz")
 		$mon = 3;
 	elseif ($monat == "April")
 		$mon = 4;
@@ -299,7 +299,7 @@ function parseMonthName($month){
 				$month = "Februar";
 			break;
 		case 3:
-				$month = "März";
+				$month = "MÃ¤rz";
 			break;
 		case 4:
 				$month = "April";
@@ -335,7 +335,7 @@ function parseMonthName($month){
 /**
  * author:coster
  * date:1.11.05
- * prüft ob das von-datum kleiner als das bis-datum
+ * prÃ¼ft ob das von-datum kleiner als das bis-datum
  */
 function isDatumEarlier($vonMinute,$vonStunde,$vonTag, $vonMonat, $vonJahr, $bisMinute,$bisStunde,$bisTag, $bisMonat, $bisJahr){	
 	
@@ -353,7 +353,7 @@ function isDatumEarlier($vonMinute,$vonStunde,$vonTag, $vonMonat, $vonJahr, $bis
 /**
  * author:coster
  * date:4.11.05
- * gibt den heutigen tag als 2-stelliger string zurück mit führender 0
+ * gibt den heutigen tag als 2-stelliger string zurÃ¼ck mit fÃ¼hrender 0
  * */
 function getTodayDay(){
 
@@ -377,7 +377,7 @@ function getTodayDay(){
 /**
  * author:coster
  * date:4.11.05
- * gibt die aktuelle minute als 2-stelliger string zurück mit führender 0
+ * gibt die aktuelle minute als 2-stelliger string zurÃ¼ck mit fÃ¼hrender 0
  * */
 function getTodayMinute(){
 
@@ -401,7 +401,7 @@ function getTodayMinute(){
 /**
  * author:coster
  * date:4.11.05
- * gibt die aktuelle stunde als 2-stelliger string zurück mit führender 0
+ * gibt die aktuelle stunde als 2-stelliger string zurÃ¼ck mit fÃ¼hrender 0
  * */
 function getTodayStunde(){
 
@@ -426,7 +426,7 @@ function getTodayStunde(){
  * author:coster
  * date:20.10.05
  * change: 4.11.05
- * liefert das heutige monat zurück (als int von 1-12) 2-stellig mit führender 0;
+ * liefert das heutige monat zurÃ¼ck (als int von 1-12) 2-stellig mit fÃ¼hrender 0;
  * */
 function getTodayMonth(){
 
@@ -463,7 +463,7 @@ function getTodayYear(){
 /**
  * author:coster
  * date:9.1.06
- * gibt anzahl der tage eines monats zurück
+ * gibt anzahl der tage eines monats zurÃ¼ck
  * */
 function getNumberOfDaysOfMonth($monat,$jahr){
 
@@ -497,7 +497,7 @@ function getNumberOfDaysOfTimestamp($from,$to){
 }
 
 //---------------------------------------------------
-//gibt zurück welcher tag der 1.im monat ist:
+//gibt zurÃ¼ck welcher tag der 1.im monat ist:
 function getFirstDayOfMonth($month,$year){	
 	
 	//int mktime (int Stunde, int Minute, int Sekunde, int Monat, int Tag, int Jahr [, int is_dst])

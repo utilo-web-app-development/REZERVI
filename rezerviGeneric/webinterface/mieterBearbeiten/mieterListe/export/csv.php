@@ -5,9 +5,9 @@
 	 
 	 $root = "../../../..";
 	 
-	 //datenbank öffnen:
+	 //datenbank Ã¶ffnen:
 	 include_once($root."/conf/rdbmsConfig.inc.php");
-	 //conf file öffnen:
+	 //conf file Ã¶ffnen:
 	 include_once($root."/conf/conf.inc.php");
 	 include_once($root."/include/sessionFunctions.inc.php");
 	 
@@ -23,7 +23,7 @@
 	include_once($root."/include/mieterFunctions.inc.php");	
 	include_once($root."/include/uebersetzer.inc.php");
 
-	//gästeliste ausgeben:	
+	//gÃ¤steliste ausgeben:	
 	$res = getAllMieterFromVermieter($vermieter_id);
 		
 	while ($d = mysql_fetch_array($res)){

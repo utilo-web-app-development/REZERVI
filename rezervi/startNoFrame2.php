@@ -22,15 +22,15 @@ include_once($root."/templates/headerA.php");
 		
 /*   
 			reservierungsplan
-			steuerung des kalenders und reservierung f�r den gast
+			steuerung des kalenders und reservierung für den gast
 			author: christian osterrieder utilo.eu
 			
-			dieser seite kann optional �bergeben werden:
+			dieser seite kann optional übergeben werden:
 			Zimmer PK_ID ($zimmer_id)
 			Jahr ($jahr)
 			Monat ($monat)
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 		*/
 
@@ -39,7 +39,7 @@ include_once($root."/templates/headerA.php");
 	include_once("./include/datumFunctions.php");
 	//uebersetzer einfuegen:
 	include_once("./include/uebersetzer.php");
-	//helper-datei eing�en:
+	//helper-datei einfügen:
 	include_once("./include/einstellungenFunctions.php");
 
 
@@ -157,14 +157,14 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	if (!isset($jahr) || $jahr == "" || empty($jahr)){
 		$jahr = getTodayYear();
 	}
-	//ich brauche f�r jahr einen integer:
+	//ich brauche für jahr einen integer:
 	$jahr+=1;$jahr-=1;
 	
 	//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
 	if (!isset($monat) || $monat == "" || empty($monat)){
 		$monat = parseMonthNumber(getTodayMonth());
 	}
-	//und f�rs monat einen integer
+	//und fürs monat einen integer
 	$monat-=1;$monat+=1;
 	
     ?>
@@ -225,15 +225,15 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 	/*   
 			reservierungsplan
-			steuerung des kalenders und reservierung f�r den gast
+			steuerung des kalenders und reservierung für den gast
 			author: christian osterrieder utilo.eu
 			
-			dieser seite kann optional �bergeben werden:
+			dieser seite kann optional übergeben werden:
 			Zimmer PK_ID ($zimmer_id)
 			Jahr ($jahr)
 			Monat ($monat)
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Unterkunft PK_ID ($unterkunft_id)
 		*/
 
@@ -289,7 +289,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<!-- dynamisches update der anzahl der tage f�r ein gewisses monat mit java-script: -->
+<!-- dynamisches update der anzahl der tage für ein gewisses monat mit java-script: -->
 
 <script language="JavaScript" type="text/javascript" src="./templates/changeForms.js">
 </script>

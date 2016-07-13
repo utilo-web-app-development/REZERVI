@@ -11,7 +11,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 */
 
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -124,10 +124,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 	
  	
 		<h1><?php echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen",$sprache,$link)); ?></h1>	
-		<?php //passwortpr�fung:	
+		<?php //passwortprüfung:	
 			if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 			
-			//pr�fung ob alle pflicht-felder eingegeben wurden:
+			//prüfung ob alle pflicht-felder eingegeben wurden:
 			if ( ( ($standardsprache == "de") && ($zimmernr == false    || !isset($zimmernr)) ) ||
 				 ( ($standardsprache == "en") && ($zimmernr_en == false || !isset($zimmernr_en)) ) ||
 				 ( ($standardsprache == "fr") && ($zimmernr_fr == false || !isset($zimmernr_fr)) ) ||
@@ -333,13 +333,13 @@ include_once($root."/include/sessionFunctions.inc.php");
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
 
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table>  -->   
     <?php 
 	 } //ende else alles korrekt eingeben.
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

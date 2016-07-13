@@ -18,7 +18,7 @@ include_once($root."/templates/constants.inc.php");
 	//variablen intitialisieren:
 	$fehler = false;
 	
-	//wurden die felder mietobjekt_id und bild ausgef�llt?	
+	//wurden die felder mietobjekt_id und bild ausgefüllt?	
 	$mietobjekt_id = $_POST["mietobjekt_id"];
 	if ($mietobjekt_id == ""){
 		$nachricht = "Bitte wählen sie ein Mietobjekt aus!";

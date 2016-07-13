@@ -51,8 +51,8 @@ include_once($root."/include/vermieterFunctions.inc.php");
 <table border="0" cellpadding="3" cellspacing="0" class="<?= TABLE_STANDARD ?>">
 	<tr>
 		<td colspan="2"><p class="<?= STANDARD_SCHRIFT_BOLD ?>">
-	      <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.")); ?> 
-		  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden")); ?>!
+	      <?php echo(getUebersetzung("Bitte fÃ¼llen Sie die untenstehenden Felder aus.")); ?> 
+		  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden")); ?>!
 		</p>
 		</td>
 	</tr>
@@ -64,7 +64,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
     	$firma= getUebersetzungVermieter($firmenname,$sprache_id,$vermieter_id); 
     ?>
     <tr>
-	    <td><?php echo(getUebersetzung("Firmenname - Seitenüberschrift")); ?> 
+	    <td><?php echo(getUebersetzung("Firmenname - SeitenÃ¼berschrift")); ?> 
 	        (<?php echo(getUebersetzung($bezeichnung)); ?>)<br/>	       
 	        <?php if ($standardsprache != $sprache_id){ ?>
 	        (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.")); ?>)
@@ -91,7 +91,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
     <td><input name="nachname" type="text" id="strasse" value="<?php echo($nachname) ?>" size="50"></td>
   </tr>
   <tr>
-    <td><?php echo(getUebersetzung("Straße/Hausnummer")); ?></td>
+    <td><?php echo(getUebersetzung("StraÃŸe/Hausnummer")); ?></td>
     <td><input name="strasse" type="text" id="strasse" value="<?php echo($strasse) ?>" size="50"></td>
   </tr>
   <tr>
@@ -166,7 +166,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
     	$mo= getUebersetzungVermieter($mietobjekt_mz,$sprache_id,$vermieter_id); 
     ?>
     <tr>
-	    <td><?php echo(getUebersetzung("Bezeichnung der Mietobjekte Mehrzahl (z. B. Tennisplätze) ")); ?> 
+	    <td><?php echo(getUebersetzung("Bezeichnung der Mietobjekte Mehrzahl (z. B. TennisplÃ¤tze) ")); ?> 
 	        (<?php echo(getUebersetzung($bezeichnung)); ?>)<br/>	       
 	        <?php if ($standardsprache != $sprache_id){ ?>
 	        (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.")); ?>)
@@ -190,7 +190,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
   </tr>
   <tr>
     <td><input type="submit" name="Submit" class="<?= BUTTON ?>" id="retour" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("ändern")); ?>"></td>
+	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Ã¤ndern")); ?>"></td>
     <td>&nbsp;</td>
   </tr>
 </table>

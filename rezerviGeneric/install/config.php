@@ -121,7 +121,7 @@
 				  <td><?php
 				  if ($_POST["sprache"] == "de"){
 						?>
-						Bezeichnung ihres Mietobjektes - Mehrzahl (z. B. Zimmer, Tennispl‰tze) 
+						Bezeichnung ihres Mietobjektes - Mehrzahl (z. B. Zimmer, Tennispl√§tze) 
 						<?
 				  }
 				  else{

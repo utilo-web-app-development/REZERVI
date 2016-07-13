@@ -15,7 +15,7 @@
 	     	alert(<?php
 				  if ($_POST["sprache"] == "de"){
 						?>
-						"Sie müssen die Lizenz lesen und akzeptieren!"
+						"Sie mÃ¼ssen die Lizenz lesen und akzeptieren!"
 						<?
 				  }
 				  else{

@@ -15,7 +15,7 @@ $changeSprache = $_POST["changeSprache"];
 if (isset($_POST["indexVorherigeSeite"]) && isset($_POST["vorherige"]) && $_POST["vorherige"]==getUebersetzung("speichern und vorherige Seite")){
 	$index = $_POST["indexVorherigeSeite"];
 }
-else if(isset($_POST["indexNaechsteSeite"]) && isset($_POST["naechste"]) && $_POST["naechste"]==getUebersetzung("speichern und nächste Seite")){
+else if(isset($_POST["indexNaechsteSeite"]) && isset($_POST["naechste"]) && $_POST["naechste"]==getUebersetzung("speichern und nÃ¤chste Seite")){
 	$index = $_POST["indexNaechsteSeite"];
 }
 else{
@@ -29,7 +29,7 @@ if (isset($_POST["uebersetzungs_ids"])){
 	
 	$ueb_id_array = explode("#", $_POST["uebersetzungs_ids"]);
 	//aenderungen durchfuehren:
-	//alle ids holen und schauen ob die verändert wurden:
+	//alle ids holen und schauen ob die verÃ¤ndert wurden:
 	foreach ($ueb_id_array as $ueb_id){
 		if (empty($ueb_id)){
 			continue;
@@ -46,7 +46,7 @@ if (isset($_POST["uebersetzungs_ids"])){
 
 }
 
-if (isset($_POST["zurueck"]) && $_POST["zurueck"] == getUebersetzung("speichern und zurück")){
+if (isset($_POST["zurueck"]) && $_POST["zurueck"] == getUebersetzung("speichern und zurÃ¼ck")){
 	include_once("index.php");
 	exit;
 }
@@ -62,7 +62,7 @@ if ($standardsprache == false || $standardsprache == ""){
 }
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ändern der angezeigten Übersetzungen")); ?>.</p>
+<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ã¤ndern der angezeigten Ã¼bersetzungen")); ?>.</p>
 <form action="./uebersetzungAendern.php" method="post" target="_self">
 <input name="changeSprache" type="hidden" value="<?php echo($changeSprache); ?>"/>
 <table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
@@ -105,7 +105,7 @@ if ($standardsprache == false || $standardsprache == ""){
 		if (($index + LIMIT_UEBERSETZUNGEN) < getAnzahlUebersetzungen($standardsprache)){
 			?>
 			<input name="indexNaechsteSeite" type="hidden" value="<?php echo($index + LIMIT_UEBERSETZUNGEN); ?>"/>
-			<input type="submit" name="naechste" value="<?php echo(getUebersetzung("speichern und nächste Seite")); ?>" class="<?= BUTTON ?>" 
+			<input type="submit" name="naechste" value="<?php echo(getUebersetzung("speichern und nÃ¤chste Seite")); ?>" class="<?= BUTTON ?>" 
 				onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
        			onMouseOut="this.className='<?= BUTTON ?>';">			
 			<?	
@@ -113,7 +113,7 @@ if ($standardsprache == false || $standardsprache == ""){
 	?>
 	<input name="uebersetzungs_ids" type="hidden" value="<?php echo($uebersetzungs_ids); ?>"/>
 	<br/><br/>
-	<input type="submit" name="zurueck" value="<?php echo(getUebersetzung("speichern und zurück")); ?>" class="<?= BUTTON ?>" 
+	<input type="submit" name="zurueck" value="<?php echo(getUebersetzung("speichern und zurÃ¼ck")); ?>" class="<?= BUTTON ?>" 
 				onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
        			onMouseOut="this.className='<?= BUTTON ?>';">
 </form>

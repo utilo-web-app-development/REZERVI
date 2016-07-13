@@ -20,7 +20,7 @@ include_once($root."/include/buchungseinschraenkung.inc.php");
 	 deleteBuchungseinschraenkungenOfMietobjekt($mietobjekt_id,$typ);
  }
 
- $nachricht = "Die Buchungseinschr‰nkung wurde entfernt";
+ $nachricht = "Die Buchungseinschr√§nkung wurde entfernt";
  $nachricht = getUebersetzung($nachricht);
  $erfolg = true;
  

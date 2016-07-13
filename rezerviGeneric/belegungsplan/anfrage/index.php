@@ -31,7 +31,7 @@ if (!isset($fehler) || $fehler != true){
 
 	if(! isDatumEarlier($vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr)){
 		$fehler = true;
-		$nachricht = "Das gewählte Datum ist nicht korrekt! Das \"von Datum\" liegt nach dem \"bis Datum\".";
+		$nachricht = "Das gewÃ¤hlte Datum ist nicht korrekt! Das \"von Datum\" liegt nach dem \"bis Datum\".";
 		$nachricht = getUebersetzung($nachricht);
 		include_once($root."/start.php");
 		exit;
@@ -39,7 +39,7 @@ if (!isset($fehler) || $fehler != true){
 	
 	if (isMietobjektTaken($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr)){
 		$fehler = true;
-		$nachricht = "Zu diesem Datum existiert bereits eine Reservierung oder die Reservierungen überschneiden sich. Bitte korrigieren Sie das Reservierungsdatum.";
+		$nachricht = "Zu diesem Datum existiert bereits eine Reservierung oder die Reservierungen Ã¼berschneiden sich. Bitte korrigieren Sie das Reservierungsdatum.";
 		$nachricht = getUebersetzung($nachricht);
 		include_once($root."/start.php");
 		exit;
@@ -56,7 +56,7 @@ include_once($root."/templates/bodyStart.inc.php");
 				//aus belegungsplan aufgerufen: 
 				$mietobjektBezeichnung = getMietobjektBezeichnung($mietobjekt_id);
 				$mietobjektVermieter   = getMietobjekt_EZ($vermieter_id);
-				echo(getUebersetzung("Reservierungs-Anfrage für")."<br/>");				
+				echo(getUebersetzung("Reservierungs-Anfrage fÃ¼r")."<br/>");				
 				echo(getUebersetzungVermieter($mietobjektVermieter  ,$sprache,$vermieter_id)." ");
 				echo(getUebersetzungVermieter($mietobjektBezeichnung,$sprache,$vermieter_id));
 		  ?>
@@ -77,7 +77,7 @@ include_once($root."/templates/bodyStart.inc.php");
 <br/>
 <table border="0" cellspacing="3" cellpadding="0" class="<?= TABLE_STANDARD ?>">
   <tr>
-    <td><p><?php echo(getUebersetzung("Wir benötigen noch folgende Daten von Ihnen")); ?>:</p>
+    <td><p><?php echo(getUebersetzung("Wir benÃ¶tigen noch folgende Daten von Ihnen")); ?>:</p>
          <table border="0" cellspacing="0" cellpadding="3">
           <tr class="<?= STANDARD_SCHRIFT ?>"> 
             <td><?php echo(getUebersetzung("Anrede")); ?></td>
@@ -103,7 +103,7 @@ include_once($root."/templates/bodyStart.inc.php");
             <td><input name="firma" type="text" id="firma" <? if (isset($firma)) echo("value=\"$firma\""); ?>/></td>
           </tr>          
           <tr class="<?= STANDARD_SCHRIFT ?>"> 
-            <td><?php echo(getUebersetzung("Straße/Hausnummer")); ?></td>
+            <td><?php echo(getUebersetzung("StraÃŸe/Hausnummer")); ?></td>
             <td><input name="strasse" type="text" id="strasse" <? if (isset($strasse)) echo("value=\"$strasse\""); ?>/>*</td>
           </tr>
           <tr class="<?= STANDARD_SCHRIFT ?>"> 
@@ -143,7 +143,7 @@ include_once($root."/templates/bodyStart.inc.php");
             <td><textarea name="anmerkung" id="anmerkung"><? if (isset($anmerkung)) echo($anmerkung); ?></textarea></td>
           </tr>
         </table>
-        <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder müssen ausgefüllt werden!")); ?>) 
+        <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden!")); ?>) 
 
           <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?= $mietobjekt_id ?>"/>
 		  <input name="ansicht" type="hidden" id="ansicht" value="<?= $ansicht ?>"/>          
@@ -160,7 +160,7 @@ include_once($root."/templates/bodyStart.inc.php");
           <input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>"/>
         </p>
         <p><?php echo(getUebersetzung("Hinweis: Es handelt sich hierbei um eine Reservierungs-Anfrage."));
-			?> <?php echo(getUebersetzung("Der Vermieter wird sich mit Ihnen in Verbindung setzen um gegebenenfalls die Reservierung zu bestätigen.")); ?></p>
+			?> <?php echo(getUebersetzung("Der Vermieter wird sich mit Ihnen in Verbindung setzen um gegebenenfalls die Reservierung zu bestÃ¤tigen.")); ?></p>
         </td>
   </tr>
 </table>

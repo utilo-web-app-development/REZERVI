@@ -26,7 +26,7 @@ include_once($root."/templates/constants.inc.php");
 <script language="JavaScript">
 	<!--
 	    function sicher(){
-	    	return confirm('<?php echo(getUebersetzung("Bild wirklich löschen?")); ?>'); 	    
+	    	return confirm('<?php echo(getUebersetzung("Bild wirklich lÃ¶schen?")); ?>'); 	    
 	    }
 	    //-->
 </script>
@@ -34,7 +34,7 @@ include_once($root."/templates/constants.inc.php");
   <table border="0" cellpadding="0" cellspacing="3">
     <tr> 
       <td>
-	  	<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder von Mietobjekten löschen")); ?><br/>
+	  	<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder von Mietobjekten lÃ¶schen")); ?><br/>
           </p>
       </td>
     </tr>
@@ -44,7 +44,7 @@ include_once($root."/templates/constants.inc.php");
 			  <tr>
 					<th><div align="left"><?= getUebersetzung("Bild") ?></div></th>
 					<th><div align="left"><?= getUebersetzung("Mietobjekt") ?></div></th>
-					<th><div align="center"><?= getUebersetzung("löschen") ?></div></th>
+					<th><div align="center"><?= getUebersetzung("lÃ¶schen") ?></div></th>
 				</tr>
 			<?php 
 				$res = getAllPicturesFromVermieterWithLimit($vermieter_id,$limit,$index);
@@ -64,7 +64,7 @@ include_once($root."/templates/constants.inc.php");
 			  				<input name="Submit" type="submit" id="Submit" class="<?= BUTTON ?>" 
 								onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
        							onMouseOut="this.className='<?= BUTTON ?>';"
-								value="<?php echo(getUebersetzung("Bild löschen")); ?>">
+								value="<?php echo(getUebersetzung("Bild lÃ¶schen")); ?>">
 						 </form>
 					  </td>
 				  </tr>			
@@ -85,7 +85,7 @@ include_once($root."/templates/constants.inc.php");
 					<form action="./bilderLoeschen.php" method="post" name="zurueck" target="_self" enctype="multipart/form-data">
 					<input name="index" type="hidden" value="<?php echo($index-$limit); ?>"/>
 					<?php 
-	  					showSubmitButton(getUebersetzung("zurückblättern"));
+	  					showSubmitButton(getUebersetzung("zurÃ¼ckblÃ¤ttern"));
 					?>
 					</form>
 				</td>
@@ -96,7 +96,7 @@ include_once($root."/templates/constants.inc.php");
 				<td><form action="./bilderLoeschen.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">
 					<input name="index" type="hidden" value="<?php echo($index+$limit); ?>"/>
 					<?php 
-	  					showSubmitButton(getUebersetzung("weiterblättern"));
+	  					showSubmitButton(getUebersetzung("weiterblÃ¤ttern"));
 					?>
 					</form>
 				</td>
@@ -110,7 +110,7 @@ include_once($root."/templates/constants.inc.php");
   </table>
 <br/>
 <?php 
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück"));
+	  //-----buttons um zurÃ¼ck zu gelangen: 
+	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck"));
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

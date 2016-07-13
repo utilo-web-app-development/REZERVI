@@ -346,7 +346,7 @@ function setSprache($sprache_id,$bilder_id,$bezeichnung){
   				}
   				else{
   					//die bersetzung existiert noch nicht in der datenbank
-  					//sie wird neu angelegt um sie sp�er bersetzen zu k�nen:
+  					//sie wird neu angelegt um sie später übersetzen zu könen:
   					setUebersetzung($text_standard,$text_standard,$sprache);
   				}
   			}

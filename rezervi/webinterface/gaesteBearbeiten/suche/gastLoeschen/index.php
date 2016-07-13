@@ -5,15 +5,15 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 	/*   
 			reservierungsplan
-			gast-infos anzeigen und evt. ändern:
+			gast-infos anzeigen und evt. Ã¤ndern:
 			author: christian osterrieder utilo.eu
 					
-			dieser seite muss übergeben werden:
+			dieser seite muss Ã¼bergeben werden:
 			Gast PK_ID $gast_id
 			$unterkunft_id
 		*/
 
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../../../conf/rdbmsConfig.php");
 	
 	//funktions einbinden:
@@ -31,12 +31,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php include_once("../../../templates/headerB.php"); ?>
 <?php include_once("../../../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 	
 	?>
 
 <p class="ueberschrift"><? echo (getUnterkunftName($unterkunft_id,$link)) ?></p>
-<?php //prüfen ob noch reservierungen oder sowas für diesen gast vorhanden sind:
+<?php //prÃ¼fen ob noch reservierungen oder sowas fÃ¼r diesen gast vorhanden sind:
 		$query = ("SELECT		 
 				   PK_ID
 				   FROM
@@ -112,9 +112,9 @@ include_once($root."/include/sessionFunctions.inc.php");
 </table>
 <?php 			} //ende else	
 			} //ende else
-		} //ende passwortprüfung 
+		} //ende passwortprÃ¼fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

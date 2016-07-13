@@ -30,7 +30,7 @@ else if (empty($email)){
 }
 else if (checkMailAdress($email) === false){
 	$fehler = true;
-	$nachricht = "Bitte prüfen sie ihre E-Mail-Adresse, es handelt sich um eine ungültige Adresse.";
+	$nachricht = "Bitte prÃ¼fen sie ihre E-Mail-Adresse, es handelt sich um eine ungÃ¼ltige Adresse.";
 }	
 
 if ($fehler === true){
@@ -62,7 +62,7 @@ if ($fehler === true){
 ?>
 <table border="0" cellspacing="3" cellpadding="0" class="<?= TABLE_STANDARD ?>">
   <tr>
-    <td><?php echo(getUebersetzung("Die Nachricht wurde versendet. <br/> Danke für Ihre Anfrage!")); ?></td>
+    <td><?php echo(getUebersetzung("Die Nachricht wurde versendet. <br/> Danke fÃ¼r Ihre Anfrage!")); ?></td>
   </tr>
 </table>
 <br/>
@@ -75,7 +75,7 @@ if ($fehler === true){
 			<input name="tag" type="hidden" id="monat" value="<? echo($tag); ?>"/>
 			<input name="ansicht" type="hidden" id="ansicht" value="<? echo($ansicht); ?>"/>
 			<input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<? echo($mietobjekt_id); ?>"/>			
-        	<input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück")); ?>" 
+        	<input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>" 
         		class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
       			onMouseOut="this.className='<?= BUTTON ?>';">
       	</form>

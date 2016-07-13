@@ -10,7 +10,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	anzeige des kalenders
 	author: christian osterrieder utilo.eu		
 	
-	dieser seite muss �bergeben werden:
+	dieser seite muss übergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 
 */
@@ -32,7 +32,7 @@ else{
 }
 setSessionWert(ZIMMER_ID,$zimmer_id);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("./conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -58,7 +58,7 @@ include_once("./include/uebersetzer.php");
 //hilfsfunktionen einbinden:
 include_once("./jahresuebersichtHelper.php");
 	
-	//falls keine zimmer_id ausgew�hlt wurde, das erste gefundene zimmer anzeigen:
+	//falls keine zimmer_id ausgewählt wurde, das erste gefundene zimmer anzeigen:
 	if (empty($zimmer_id) || $zimmer_id == "") {	
 
 			$query = "
@@ -82,15 +82,15 @@ include_once("./jahresuebersichtHelper.php");
 	}
 	
 	
-	//falls kein jahr ausgew�hlt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
 	if ($jahr == false){	
 		$jahr = getTodayYear();	
-		//ich brauche f�r jahr einen integer:
+		//ich brauche für jahr einen integer:
 		$jahr+=1;$jahr-=1;
 	}
 	
 include_once("./templates/headerA.php");
-//stylesheets einf�gen:
+//stylesheets einfügen:
 ?>
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>

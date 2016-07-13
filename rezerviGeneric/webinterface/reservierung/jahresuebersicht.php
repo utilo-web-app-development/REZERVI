@@ -1,5 +1,5 @@
 <?php
-//helper-funktionen einfügen:
+//helper-funktionen einfÃ¼gen:
 include_once($root."/include/jahresuebersichtHelper.inc.php");
 include_once($root."/templates/constants.inc.php");
 $ansicht = JAHRESUEBERSICHT;
@@ -23,7 +23,7 @@ $ansicht = JAHRESUEBERSICHT;
           <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
 		  <input name="ansicht" type="hidden" id="ansicht" value="<?= JAHRESUEBERSICHT ?>">
           <input name="zurueck" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" onClick="updateLeft(<?php echo(($monat).",".($jah).",".($mietobjekt_id)); ?>,0);" id="zurueck" value="<?php echo(getUebersetzung("ein Jahr zurück")); ?>">
+       onMouseOut="this.className='<?= BUTTON ?>';" onClick="updateLeft(<?php echo(($monat).",".($jah).",".($mietobjekt_id)); ?>,0);" id="zurueck" value="<?php echo(getUebersetzung("ein Jahr zurï¿½ck")); ?>">
         </div>
       </form>
       <?php } //ende if jahr 

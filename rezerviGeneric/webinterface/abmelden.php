@@ -4,19 +4,19 @@
 		author: coster
 		date: 19.9.05	
 		
-		zerstört die session und geht auf die login seite zurück	
+		zerstï¿½rt die session und geht auf die login seite zurï¿½ck	
 	*/
 	
 	$root = "..";
 	
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once ($root."/conf/rdbmsConfig.inc.php");	
 	
-	//alle session eintraege zerstören:
+	//alle session eintraege zerstÃ¶ren:
 	include_once($root."/include/sessionFunctions.inc.php");
 	destroySession();
 	
-	// 4. zurück zum login:
+	// 4. zurÃ¼ck zum login:
 	include_once($root."/webinterface/index.php");
 	
 ?>

@@ -71,7 +71,7 @@ include_once($root."/include/mail.inc.php");
 	$bisJahr = $_POST["bisJahr"];
 	$vonJahr = $_POST["vonJahr"];
 
-	//andere "include_onces" einfügen:
+	//andere "include_onces" einfÃ¼gen:
 	include_once("../include/gastFunctions.php");
 	include_once("../include/reservierungFunctions.php");
 	include_once("../include/zimmerFunctions.php");
@@ -98,9 +98,9 @@ include_once($root."/include/mail.inc.php");
 ?>
 <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr> 
-    <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Danke für Ihre Anfrage!",$sprache,$link)); ?></span> <p>
-	<?php echo(getUebersetzung("Der Vermieter wurde über Ihre Reservierungs-Anfrage verständigt, und wird sich mit Ihnen in Verbindung setzen.",$sprache,$link)); ?> <br/>
-        <?php echo(getUebersetzung("Bitte beachten Sie, dass die Reservierung nur mit Bestätigung des Vermieters gültig ist.",$sprache,$link)); ?> <br/>
+    <td><span class="standardSchriftBold"><?php echo(getUebersetzung("Danke fÃ¼r Ihre Anfrage!",$sprache,$link)); ?></span> <p>
+	<?php echo(getUebersetzung("Der Vermieter wurde Ã¼ber Ihre Reservierungs-Anfrage verstÃ¤ndigt, und wird sich mit Ihnen in Verbindung setzen.",$sprache,$link)); ?> <br/>
+        <?php echo(getUebersetzung("Bitte beachten Sie, dass die Reservierung nur mit BestÃ¤tigung des Vermieters gÃ¼ltig ist.",$sprache,$link)); ?> <br/>
       </p>
       </td>
   </tr>
@@ -143,13 +143,13 @@ include_once($root."/include/mail.inc.php");
 			$zimmerNummer = getZimmerNr($unterkunft_id,$zimmer_id,$link);
 							$message=$message.getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link).(": $zimmerNummer \n");
 		} //ende elso von suchformular
-		$message=$message.getUebersetzung("Sie können diese Anfrage im Webinterface des Reservierungssystems bestätigen oder ablehnen",$sprache,$link)."\n"; 
+		$message=$message.getUebersetzung("Sie kÃ¶nnen diese Anfrage im Webinterface des Reservierungssystems bestÃ¤tigen oder ablehnen",$sprache,$link)."\n"; 
 
 		 if ($sprache == "en"){
 		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in englischer Sprache gestellt",$sprache,$link).".";
 		 }
 		 else if ($sprache == "fr"){
-			$message = $message."\n".getUebersetzung("Die Anfrage wurde in französischer Sprache gestellt",$sprache,$link).".";
+			$message = $message."\n".getUebersetzung("Die Anfrage wurde in franzÃ¶sischer Sprache gestellt",$sprache,$link).".";
 		 }
 		 else if ($sprache == "it"){
 		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in italienischer Sprache gestellt",$sprache,$link).".";
@@ -161,7 +161,7 @@ include_once($root."/include/mail.inc.php");
 		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in estonischer Sprache gestellt",$sprache,$link).".";
 		 }
 		 else if ($sprache == "nl"){
-		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in holländische Sprache gestellt",$sprache,$link).".";
+		 	$message = $message."\n".getUebersetzung("Die Anfrage wurde in hollÃ¤ndische Sprache gestellt",$sprache,$link).".";
 		 }		 
 		 else{
 			$message = $message."\n".getUebersetzung("Die Anfrage wurde in deutscher Sprache gestellt",$sprache,$link).".";
@@ -214,7 +214,7 @@ include_once($root."/include/mail.inc.php");
 			<input name="zimmer_id" type="hidden" value="<?php echo($zimmer_id); ?>">
 			<input name="jahr" type="hidden" value="<?php echo($vonJahr); ?>">
 			<input name="monat" type="hidden" value="<?php echo($vonMonat); ?>">			
-        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+        <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';">
       </form></td>
   </tr>

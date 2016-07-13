@@ -2,7 +2,7 @@
 /**
  * author:coster
  * date: 24.9.05
- * loescht einen benutzer mit einer übergebenen id
+ * loescht einen benutzer mit einer Ã¼bergebenen id
  * */
 function deleteBenutzer($benutzer_id){
 	global $link;
@@ -60,7 +60,7 @@ function isBenutzerVorhanden($name,$pass,$vermieter_id){
 	
 }
 /**
-ändern eines benutzers
+Ã¤ndern eines benutzers
 author: coster
 date: 22.9.05
 */
@@ -89,7 +89,7 @@ function changeBenutzer($id,$name,$pass,$rechte){
  * author:coster
  * date:22.9.05
  * prueft das passwort eines benutzers und gibt bei erfolg dessen
- * benutzer id zurück, sonst -1;
+ * benutzer id zurÃ¼ck, sonst -1;
  * */
 function checkPassword($name,$password){
 	
@@ -154,7 +154,7 @@ function getUserName($id){
 /**
  * author:coster
  * date: 22.9.05
- * gibt das passwort eines benutzers zurück
+ * gibt das passwort eines benutzers zurÃ¼ck
  * */
 function getPassword($id){
 	
@@ -171,7 +171,7 @@ function getPassword($id){
 
   		$res = mysql_query($query, $link);
   		if (!$res) {
-  			//nicht aus sicherheitsgründen: echo("Anfrage $query scheitert.");
+  			//nicht aus sicherheitsgrÃ¼nden: echo("Anfrage $query scheitert.");
   			return false;
 		}
 		else {		
@@ -218,7 +218,7 @@ function getUserRights($id){
  * date: 19.9.05
 //--------------------------------------------
 //funktion gibt VERMIETER_ID retour
-//übergeben wird die id des benutzers
+//Ãœbergeben wird die id des benutzers
  */
 function getVermieterID($id){
 	

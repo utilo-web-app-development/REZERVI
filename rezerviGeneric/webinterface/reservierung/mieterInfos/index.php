@@ -44,7 +44,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
     <td><?php echo(getNachnameOfMieter($mieter_id)); ?></td>
   </tr>
   <tr>
-    <td><?php echo(getUebersetzung("Straße/Hausnummer")); ?></td>
+    <td><?php echo(getUebersetzung("StraÃŸe/Hausnummer")); ?></td>
     <td><?php echo(getMieterStrasse($mieter_id)); ?></td>
   </tr>
   <tr>
@@ -91,13 +91,13 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
   </tr>
 </table>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen für den Mieter vor")); ?>:
+<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen fÃ¼r den Mieter vor")); ?>:
 </p>
 <table  border="1" cellpadding="0" cellspacing="3">
   <tr class="<?= TABLE_COLOR ?>">
 	<td><?php echo(getUebersetzung("Reservierung von")); ?></td>
 	<td><?php echo(getUebersetzung("bis")); ?></td>
-	<td><?php echo(getUebersetzung("für")); ?></td>
+	<td><?php echo(getUebersetzung("fï¿½r")); ?></td>
   </tr>
 	<!-- ausgeben der reservierungen: -->
 	<?php
@@ -131,7 +131,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	    <input name="tag" type="hidden" id="tag" value="<?= $tag ?>">
 	    <input name="ansicht" type="hidden" value="<?= $ansicht ?>" />
         <input type="submit" name="Submit" class="<?= BUTTON ?>" id="zurueck" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurÃ¼ck")); ?>">
 		<input name="index" type="hidden" value="<?php echo($index); ?>"/>
       </form>      
     </td>

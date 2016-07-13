@@ -9,7 +9,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	author: christian osterrieder utilo.eu						
 */
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once($root."/conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -35,7 +35,7 @@ $sprache = getSessionWert(SPRACHE);
 <?php include_once($root."/webinterface/templates/headerB.php"); ?>
 <?php include_once($root."/webinterface/templates/bodyA.php"); ?>
 <?php 
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 <div class="panel panel-default">
@@ -136,7 +136,7 @@ if (isset($nachricht) && $nachricht != ""){
           </tr>
 		</table>
 		<tr><td colspan="2"><?php 
-	  	//-----buttons um zur�ck zum menue zu gelangen: 
+	  	//-----buttons um zurück zum menue zu gelangen: 
 	  	showSubmitButton(getUebersetzung("ändern",$sprache,$link));
 		?></td></tr>
 	</td>
@@ -145,18 +145,18 @@ if (isset($nachricht) && $nachricht != ""){
 </table>
 <br/>
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zur�ck",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmen�",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
-		echo(getUebersetzung("Bitte Browser schlie�en und neu anmelden - Passwortpr�fung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
  ?>
  <?php include_once("../../templates/end.php"); ?>

@@ -15,7 +15,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
     <tr>
       <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer bearbeiten")); ?>
 			<br />        
-        <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie den zu verändernden Benutzer aus")); ?>:</span></p></td>
+        <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wÃ¤hlen Sie den zu verÃ¤ndernden Benutzer aus")); ?>:</span></p></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -34,25 +34,25 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
     </tr>
     <tr>
       <td><input name="benutzerAendern" type="submit" id="benutzerAendern" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		   onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer ändern")); ?>"></td>
+		   onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer Ã¤ndern")); ?>"></td>
       <td>&nbsp;</td>
     </tr>
   </table>
 </form>
 <?php
-//-------------ende benutzer ändern
+//-------------ende benutzer Ã¤ndern
 /*
-//-------------benutzer löschen
-prüfen ob benutzer überhaupt vorhanden sind - sich selbst kann man nicht löschen!
+//-------------benutzer lÃ¶schen
+prÃ¼fen ob benutzer Ã¼berhaupt vorhanden sind - sich selbst kann man nicht lÃ¶schen!
 */
 if (getAnzahlVorhandeneBenutzer($vermieter_id) > 1){
 ?>
 <form action="./benutzerLoeschenBestaetigen.php" method="post" name="benutzerLoeschen" target="_self">
   <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
     <tr>
-      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer löschen")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus")); ?>. 
-		  <?php echo(getUebersetzung("Sie können mehrere Benutzer zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Benutzernamen klicken")); ?>.</span></p></td>
+      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer lÃ¶schen")); ?><br/>
+          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wÃ¤hlen Sie den zu lÃ¶schenden Benutzer aus")); ?>. 
+		  <?php echo(getUebersetzung("Sie kÃ¶nnen mehrere Benutzer zugleich auswÃ¤hlen und lÃ¶schen indem Sie die [STRG]-Taste gedrÃ¼ckt halten und auf die Benutzernamen klicken")); ?>.</span></p></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@ if (getAnzahlVorhandeneBenutzer($vermieter_id) > 1){
 		  $i = true;
 		  while($d = mysql_fetch_array($res)) {
 		  	if ($d["BENUTZER_ID"] == $benutzer_id){
-		  		continue; //man kann sich nicht selbst löschen!
+		  		continue; //man kann sich nicht selbst lÃ¶schen!
 		  	}
 		  	?>		  	
           	<option value="<?php echo($d["BENUTZER_ID"]); ?>" <?php if ($i) echo(" selected"); ?>> <?php echo($d["NAME"]); ?></option>
@@ -77,7 +77,7 @@ if (getAnzahlVorhandeneBenutzer($vermieter_id) > 1){
     </tr>
     <tr>
       <td><input name="benutzerLoeschen" type="submit" id="benutzerLoeschen" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer löschen")); ?>"></td>
+       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer lÃ¶schen")); ?>"></td>
       <td>&nbsp;</td>
     </tr>
   </table>
@@ -89,7 +89,7 @@ if (getAnzahlVorhandeneBenutzer($vermieter_id) > 1){
   <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
     <tr>
       <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer anlegen")); ?></span><br/>
-        <?php echo(getUebersetzung("Klicken Sie auf den Button [Benutzer anlegen] um einen neuen Benutzer hinzuzufügen")); ?>.</td>
+        <?php echo(getUebersetzung("Klicken Sie auf den Button [Benutzer anlegen] um einen neuen Benutzer hinzuzufÃ¼gen")); ?>.</td>
       <td>&nbsp;</td>
     </tr>
     <tr>

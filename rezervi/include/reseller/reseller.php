@@ -4,8 +4,8 @@
 	Config for reseller
 	Please don't change this file, it can destroy your Rezervi installation!
 	
-	Konfiguration für Reseller
-	Bitte lassen sie diese Datei unverändert. Änderungen können ihre
+	Konfiguration fÃ¼r Reseller
+	Bitte lassen sie diese Datei unverÃ¤ndert. Ã„nderungen kÃ¶nnen ihre
 	Rezervi Installation unbrauchbar machen!
 *****************************************************************************/
 

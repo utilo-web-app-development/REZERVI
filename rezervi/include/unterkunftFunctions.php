@@ -6,7 +6,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 /**
  * author:coster
  * date:10.1.06
- * prueft ob rezervi überhaupt schon isntalliert wurde
+ * prueft ob rezervi Ã¼berhaupt schon isntalliert wurde
  * fuer eine bestimmte unterkunft indem festgestellt wird ob eine emailadresse vorhanden ist
  * */
  function isInstalled($unterkunft_id){
@@ -39,7 +39,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  }
  
  /**
- * liefert die währung einer unterkunft
+ * liefert die wÃ¤hrung einer unterkunft
  */
  function getWaehrung($unterkunft_id){
  	global $link;
@@ -61,7 +61,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 		return $d["Waehrung"];
  }
  /**
- * speichert die währung einer unterkunft
+ * speichert die wÃ¤hrung einer unterkunft
  */
  function setWaehrung($unterkunft_id,$waehrung){
  		global $link;
@@ -79,7 +79,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  	
  }
 //--------------------------------------------
-//funktion gibt die anzahl der zimmer der unterkunft zurück
+//funktion gibt die anzahl der zimmer der unterkunft zurÃ¼ck
 function getAnzahlZimmer($unterkunft_id,$link){
 	
 		$query = "select 
@@ -101,7 +101,7 @@ function getAnzahlZimmer($unterkunft_id,$link){
 } //ende getAnzahlZimmer
 
 //--------------------------------------------
-//funktion gibt die zimmerart zurück
+//funktion gibt die zimmerart zurÃ¼ck
 function getZimmerart_EZ($unterkunft_id,$link){	
 
 		$query = "select 
@@ -123,7 +123,7 @@ function getZimmerart_EZ($unterkunft_id,$link){
 } //ende getZimmerart_EZ
 
 //--------------------------------------------
-//funktion gibt die zimmerart zurück
+//funktion gibt die zimmerart zurÃ¼ck
 function getZimmerart_MZ($unterkunft_id,$link){
 	
 		$query = "select 
@@ -165,7 +165,7 @@ function getAnzahlBenutzer($unterkunft_id,$link){
 } //ende getAnzahlBenutzer
 
 //--------------------------------------------
-//funktion gibt das kindesalter der unterkunft zurück
+//funktion gibt das kindesalter der unterkunft zurÃ¼ck
 function getKindesalter($unterkunft_id,$link){
 	
 		$query = "select 
@@ -187,10 +187,10 @@ function getKindesalter($unterkunft_id,$link){
 } //ende getUnterkunftName
 
 //--------------------------------------------
-//funktion gibt namen der unterkunft zurück, 
-//übergeben wird die id der unterkuft und der
+//funktion gibt namen der unterkunft zurÃ¼ck, 
+//Ã¼bergeben wird die id der unterkuft und der
 //link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getUnterkunftName($unterkunft_id,$link){
 
 	//unterkunft-name aus datenbank auslesen:
@@ -213,10 +213,10 @@ function getUnterkunftName($unterkunft_id,$link){
 } //ende getUnterkunftName
 
 //--------------------------------------------
-//funktion gibt namen der unterkunft zurück, 
-//übergeben wird die id der unterkuft und der
+//funktion gibt namen der unterkunft zurÃ¼ck, 
+//Ã¼bergeben wird die id der unterkuft und der
 //link zur datenbank
-//die datenbank muss dazu geöffnet sein.
+//die datenbank muss dazu geÃ¶ffnet sein.
 function getUnterkunftEmail($unterkunft_id,$link){
 
 	//unterkunft-email aus datenbank auslesen:

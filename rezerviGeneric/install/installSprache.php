@@ -17,7 +17,7 @@ $antwort="";
 $file = "insertSprache.csv";
 $fp = fopen($file,"r");
 
-//zeile für zeile auslesen und in db einfügen:
+//zeile fÃ¼r zeile auslesen und in db einfÃ¼gen:
 while ($query = fgets($fp, 1024)){
 	
 	//in die sprache_neu einfuegen:
@@ -26,7 +26,7 @@ while ($query = fgets($fp, 1024)){
 } //ende while  	
 
 if ($fail){
-	$antwort .= getUebersetzung("Anlegen der Übersetzungen scheiterte!")."<br/>";
+	$antwort .= getUebersetzung("Anlegen der Ãœbersetzungen scheiterte!")."<br/>";
 	$antwort = $antwort.(mysql_error($link));
 	$fehler = true;
 	$woerterbuch = false;
@@ -34,7 +34,7 @@ if ($fail){
 else{
 	$fehler = false;
 	$woerterbuch = true;
-	$antwort=getUebersetzung("Anlegen der Übersetzungen erfolgreich!");
+	$antwort=getUebersetzung("Anlegen der Ãœbersetzungen erfolgreich!");
 }
 
 

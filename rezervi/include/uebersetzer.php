@@ -223,7 +223,7 @@ function insertNewUebersetzungUnterkunft($sprache,$standardsprache,$unterkunft_i
 
 function changeUebersetzungUnterkunft($pk_Id,$text,$sprache,$link){
 	
-	//�ndern des textes in der datenbank:
+	//ändern des textes in der datenbank:
 	$query = "UPDATE 
 			Rezervi_Uebersetzungen 
 			SET 
@@ -318,13 +318,13 @@ function setUebersetzungUnterkunft($text,$text_standard,$sprache,$sprache_standa
 	}
 	else{
 	//2. es soll eine standard-sprache entweder neu 
-	//angelegt werden oder eine id einer standardsprache f�r einen
-	//neuen eintrag verwendet werden oder mit dieser ver�ndert werden#
+	//angelegt werden oder eine id einer standardsprache für einen
+	//neuen eintrag verwendet werden oder mit dieser verändert werden#
 		$pk_id = getPKIDfromUebersetzungUnterkunft($text_standard,$unterkunft_id,$link);
 		if ($pk_id == -1){
 //			echo("2.1"."<br/>");
 			//2.1 es existiert noch kein eintrag mit dem 
-			//standard-text --> es mu� ein neuer standard-text
+			//standard-text --> es muss ein neuer standard-text
 			//angelegt werden und dann mit dieser neuen id
 			//ein text angelgt werden:
 			$pk_id = insertNewUebersetzungUnterkunft($sprache_standard,-1,$unterkunft_id,$text_standard,$link);
@@ -334,7 +334,7 @@ function setUebersetzungUnterkunft($text,$text_standard,$sprache,$sprache_standa
 		else{
 //			echo("2.2"."<br/>");
 			//2.2 es existiert bereits ein eintrag mit
-			//dem standard-text --> dieser geh�rt jetzt 
+			//dem standard-text --> dieser gehört jetzt 
 			//entweder upgedated oder neu eingetragen wenn noch keiner
 			//vorhanden:
 			$standardsprachen_id = $pk_id;

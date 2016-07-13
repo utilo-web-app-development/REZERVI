@@ -1,7 +1,7 @@
 <?php
 
-	//gibt das 1. gefundene zimmer zurück das zu
-	//einer unterkunft gehört:
+	//gibt das 1. gefundene zimmer zurï¿½ck das zu
+	//einer unterkunft gehÃ¶rt:
 	function getFirstRoom($unterkunft_id,$link){
 	
 		$query = "

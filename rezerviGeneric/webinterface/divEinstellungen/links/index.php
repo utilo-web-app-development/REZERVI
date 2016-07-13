@@ -138,7 +138,7 @@ $url = str_replace("\\","/",$url);
 </table>
 <br/>
 <?php 
-//-----buttons um zurück zum menue zu gelangen: 
-showSubmitButtonWithForm("../index.php",getUebersetzung("zurück"));
+//-----buttons um zurÃ¼ck zum menue zu gelangen: 
+showSubmitButtonWithForm("../index.php",getUebersetzung("zurÃ¼ck"));
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

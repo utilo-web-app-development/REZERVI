@@ -14,7 +14,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -31,10 +31,10 @@ include_once("../../include/uebersetzer.php");
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php		
-	//passwortprüfung:	
+	//passwortprÃ¼fung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 	
 ?>
-<p class="standardSchriftBold"><?php echo(getUebersetzung("Design auf Standardwerte zurücksetzen",$sprache,$link)); ?></p>
+<p class="standardSchriftBold"><?php echo(getUebersetzung("Design auf Standardwerte zurÃ¼cksetzen",$sprache,$link)); ?></p>
 
   <table width="100%" border="0" cellpadding="0" cellspacing="3" class="table">
     <tr>
@@ -143,7 +143,7 @@ include_once("../../include/uebersetzer.php");
 		}
 	}
 	?>
-	<span class="frei"><?php echo(getUebersetzung("Das Design wurde erfolgreich geändert",$sprache,$link)); ?>!</span></td>
+	<span class="frei"><?php echo(getUebersetzung("Das Design wurde erfolgreich geÃ¤ndert",$sprache,$link)); ?>!</span></td>
 			</tr>
 		 </table></td>
     </tr>
@@ -152,7 +152,7 @@ include_once("../../include/uebersetzer.php");
 <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><form action="./index.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>" class="button200pxA" 
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>" class="button200pxA" 
 			onMouseOver="this.className='button200pxB';"
        		onMouseOut="this.className='button200pxA';">
       </form></td>
@@ -162,7 +162,7 @@ include_once("../../include/uebersetzer.php");
 <table border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <td><form action="../inhalt.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" 
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>" class="button200pxA" 
 			onMouseOver="this.className='button200pxB';"
        		onMouseOut="this.className='button200pxA';">
       </form></td>

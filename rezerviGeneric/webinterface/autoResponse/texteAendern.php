@@ -48,7 +48,7 @@ $art = $_POST["art"];
 			 $text == "" || 
 			 $unterschrift == "") ){
 			$fehler = true;
-			$nachricht = getUebersetzung("Es wurden nicht alle Felder der Standardsprache korrekt ausgefüllt!");	
+			$nachricht = getUebersetzung("Es wurden nicht alle Felder der Standardsprache korrekt ausgefÃ¼llt!");	
 			include_once("./texteAnzeigen.php");
 			exit;	
 		}
@@ -58,7 +58,7 @@ $art = $_POST["art"];
 				$anredeStandard = $anrede;
 				$textStandard = $text;
 				$unterschriftStandard = $unterschrift;	
-				//änderungen durchführen:
+				//Ã„nderungen durchfÃ¼hren:
 				changeMessage($vermieter_id,$art,$subjectStandard,$textStandard,$unterschriftStandard,$anredeStandard);	
 			}
 					
@@ -110,7 +110,7 @@ if ($art == NEWSLETTER){
 	if (empty($mieter) || count($mieter)<1){
 			
 		$fehler = true;
-		$nachricht = getUebersetzung("Es wurden keine Mieter ausgewählt!");	
+		$nachricht = getUebersetzung("Es wurden keine Mieter ausgewÃ¤hlt!");	
 		include_once("./texteAnzeigen.php");
 		exit;	
 	
@@ -123,7 +123,7 @@ if ($art != NEWSLETTER){
 ?>
 <table border="0" cellpadding="0" cellspacing="2" class="<?= FREI ?>">
   <tr>
-    <td><?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.")); ?></td>
+    <td><?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verÃ¤ndert.")); ?></td>
   </tr>
 </table>
 <br/>
@@ -182,7 +182,7 @@ else{
 <br/>
 <?php
 	}	
-	showSubmitButtonWithForm("./index.php",getUebersetzung("zurück"));
+	showSubmitButtonWithForm("./index.php",getUebersetzung("zurÃ¼ck"));
 	
 include_once($root."/webinterface/templates/footer.inc.php");
 ?>

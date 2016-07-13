@@ -52,7 +52,7 @@ define("SONNTAG","SO");
 /**
 author:coster
 date:29.9.05
-pr�ft ob das datum bereits abgelaufen ist
+prüft ob das datum bereits abgelaufen ist
 */
 function isDatumAbgelaufen($tagVon,$monatVon,$jahrVon,$tagBis,$monatBis,$jahrBis){
 
@@ -84,7 +84,7 @@ function numberOfDays($month,$day,$year,$month1,$day1,$year1){
 }
 
 //--------------------------------------------
-//funktion die das ausgew�hlte datum aus den
+//funktion die das ausgewählte datum aus den
 //formularfeldern in ein SQL-Datum parst
 function parseDateFormular($tag,$monat,$jahr){
 
@@ -188,12 +188,12 @@ function parseMonthName($month){
 
 
 //-----------------------------------------------
-//pr�ft ob das von-datum kleiner als das bis-datum
-//ist, �bergeben werden integer-werte:
+//prüft ob das von-datum kleiner als das bis-datum
+//ist, übergeben werden integer-werte:
 function isDatumEarlier($vonTag, $vonMonat, $vonJahr, $bisTag, $bisMonat, $bisJahr){	
 
-	//so jetzt mit einem schm�h, einen integer draus machen, falls dieser keiner
-	//sein sollte. der +_operator �bernimmt dies f�r mich...
+	//so jetzt mit einem schmäh, einen integer draus machen, falls dieser keiner
+	//sein sollte. der +_operator übernimmt dies für mich...
 	$vonJahr+=1;$bisJahr+=1;$vonMonat+=1;$bisMonat+=1;$vonTag+=1;$bisTag+=1;
 	$vonJahr-=1;$bisJahr-=1;$vonMonat-=1;$bisMonat-=1;$vonTag-=1;$bisTag-=1;
 	
@@ -222,7 +222,7 @@ function isDatumEarlier($vonTag, $vonMonat, $vonJahr, $bisTag, $bisMonat, $bisJa
 }//ende isDatumEarlier
 
 //-------------------------------------
-//gibt heutigen tag zur�ck:
+//gibt heutigen tag zurück:
 function getTodayDay(){
 
 	$today = getdate(); 	
@@ -244,7 +244,7 @@ function getTodayDay(){
 }
 
 //-------------------------------------
-//gibt heutiges monat zur�ck:
+//gibt heutiges monat zurück:
 function getTodayMonth(){
 
 	$today = getdate(); 
@@ -291,7 +291,7 @@ function getTodayMonth(){
 } //ende getTodayMonth
 
 //-------------------------------------
-//gibt aktuelles jahr zur�ck:
+//gibt aktuelles jahr zurück:
 function getTodayYear(){
 
 	$today = getdate(); 
@@ -301,7 +301,7 @@ function getTodayYear(){
 } //ende getTodayYear
 
 //------------------------------------
-//gibt anzahl der tage eines monats zur�ck
+//gibt anzahl der tage eines monats zurück
 function getNumberOfDays($monat,$jahr){
 
 	$days = 31;
@@ -319,7 +319,7 @@ function getNumberOfDays($monat,$jahr){
 } //ende getNumberOfDays
 
 //---------------------------------------------------
-//gibt zur�ck welcher tag der 1.im monat ist:
+//gibt zurück welcher tag der 1.im monat ist:
 function getFirstDayOfMonth($month,$year){	
 	
 	//int mktime (int Stunde, int Minute, int Sekunde, int Monat, int Tag, int Jahr [, int is_dst])
@@ -329,7 +329,7 @@ function getFirstDayOfMonth($month,$year){
 } //ende getFirstDayOfMonth
 
 /**----------------------------------------------------
-//gibt den wochentag zur�ck:
+//gibt den wochentag zurück:
 */
 function getDayName($tag,$monat,$jahr){	
 	
@@ -356,7 +356,7 @@ function getDayName($tag,$monat,$jahr){
 /**
  * author:coster
  * date:7.11.05
- * gibt ein array mit allen wochentagen in kurzform zur�ck
+ * gibt ein array mit allen wochentagen in kurzform zurück
  * */
  function getWochentage(){
  	$arr = array();
@@ -372,7 +372,7 @@ function getDayName($tag,$monat,$jahr){
  }
 
 /**----------------------------------------------------
-//gibt den wochentag zur�ck:
+//gibt den wochentag zurück:
 */
 function getFullDayName($tag,$monat,$jahr){	
 	

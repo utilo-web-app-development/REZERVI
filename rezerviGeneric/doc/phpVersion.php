@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<span class="<?= STANDARD_SCHRIFT ?>">Hier sehen Sie eine Ausgabe Ihres PHP-Servers. Die PHP Version mu&szlig; mindestens </span><span class="<?= STANDARD_SCHRIFT_BOLD ?>">PHP Version 4.2.3</span><span class="<?= STANDARD_SCHRIFT ?>"> sein und unter "Configuration - PHP Core" muﬂ "register_globals = ON" sein um Rezervi korrekt verwenden zu k&ouml;nnen. Ansonsten steht Ihnen auch die M&ouml;glichkeit der Miete zur Verf&uuml;gung - besuchen sie dazu die Website <a href="http://belegungsplan.utilo.net" target="_parent">http://belegungsplan.utilo.net </a></span>
+<span class="<?= STANDARD_SCHRIFT ?>">Hier sehen Sie eine Ausgabe Ihres PHP-Servers. Die PHP Version mu&szlig; mindestens </span><span class="<?= STANDARD_SCHRIFT_BOLD ?>">PHP Version 4.2.3</span><span class="<?= STANDARD_SCHRIFT ?>"> sein und unter "Configuration - PHP Core" muss "register_globals = ON" sein um Rezervi korrekt verwenden zu k&ouml;nnen. Ansonsten steht Ihnen auch die M&ouml;glichkeit der Miete zur Verf&uuml;gung - besuchen sie dazu die Website <a href="http://belegungsplan.utilo.net" target="_parent">http://belegungsplan.utilo.net </a></span>
 <p>
     <?php phpinfo(); ?>
  </p>

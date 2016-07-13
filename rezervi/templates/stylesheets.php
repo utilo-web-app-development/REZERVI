@@ -3,12 +3,12 @@ $root = "..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../conf/rdbmsConfig.php");
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 
-//alle werte f&uuml;r unterkunft auslesen:
+//alle werte für unterkunft auslesen:
 
 $query = "select * from Rezervi_CSS where FK_Unterkunft_ID = '$unterkunft_id'";
 

@@ -5,10 +5,10 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
-	gast-infos anzeigen und evt. ändern:
+	gast-infos anzeigen und evt. Ã¤ndern:
 	author: christian osterrieder utilo.eu
 			
-	dieser seite muss übergeben werden:
+	dieser seite muss Ã¼bergeben werden:
 	Gast PK_ID $gast_id
 	$unterkunft_id
 */
@@ -32,7 +32,7 @@ $gast_id = $_POST["gast_id"];
 $sprache = getSessionWert(SPRACHE);
 $index = $_POST["index"];
 
-//datenbank öffnen:
+//datenbank Ã¶ffnen:
 include_once("../../../../conf/rdbmsConfig.php");
 
 //funktions einbinden:
@@ -50,10 +50,10 @@ include_once("../../../../include/benutzerFunctions.php");
 <?php include_once("../../../templates/headerB.php"); ?>
 <?php include_once("../../../templates/bodyA.php"); ?>
 <?php		
-//passwortprüfung:	
+//passwortprÃ¼fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 	
 ?>
-<?php //prüfen ob noch reservierungen oder sowas für diesen gast vorhanden sind:
+<?php //prÃ¼fen ob noch reservierungen oder sowas fÃ¼r diesen gast vorhanden sind:
 		$query = ("SELECT		 
 				   PK_ID
 				   FROM
@@ -70,7 +70,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		 ?>
 		<table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
-    <td><p><?php echo(getUebersetzung("Der Gast kann nicht gelöscht werden, da Reservierungen oder offene Reservierungsanfragen für diesen Gast eingetragen sind",$sprache,$link)); ?>!</p>
+    <td><p><?php echo(getUebersetzung("Der Gast kann nicht gelÃ¶scht werden, da Reservierungen oder offene Reservierungsanfragen fÃ¼r diesen Gast eingetragen sind",$sprache,$link)); ?>!</p>
      <form action="../gastInfos/index.php" method="post" name="gastInfos" target="_self">
 		  <input name="gastInfos" type="submit" id="gastInfos" class="button200pxA" onMouseOver="this.className='button200pxB';"
 			onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Reservierungs-Informationen",$sprache,$link)); ?>">
@@ -92,7 +92,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
         <input type="submit" name="Submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
         <input name="anrede_val" type="hidden" id="anrede_val2" value="<? echo($anrede_val); ?>">
         <input name="vorname_val" type="hidden" id="vorname_val2" value="<? echo($vorname_val); ?>">
         <input name="nachname_val" type="hidden" id="nachname_val2" value="<? echo($nachname_val); ?>">
@@ -127,10 +127,10 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		?>
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
-    <td><p><?php echo(getUebersetzung("Der Gast wurde erfolgreich aus der Gästeliste entfernt",$sprache,$link)); ?>!</p>
+    <td><p><?php echo(getUebersetzung("Der Gast wurde erfolgreich aus der GÃ¤steliste entfernt",$sprache,$link)); ?>!</p>
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
         <input type="submit" name="Submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>">
         <input name="anrede_val" type="hidden" id="anrede_val" value="<? echo($anrede_val); ?>">
         <input name="vorname_val" type="hidden" id="vorname_val" value="<? echo($vorname_val); ?>">
         <input name="nachname_val" type="hidden" id="nachname_val" value="<? echo($nachname_val); ?>">
@@ -151,16 +151,16 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
   <tr>
     <form action="../../../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
-      <td width="1"><input type="submit" name="Submit3" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
+      <td width="1"><input type="submit" name="Submit3" value="<?php echo(getUebersetzung("HauptmenÃ¼",$sprache,$link)); ?>" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';"></td>
     </form>
   </tr>
 </table>
 <?php 			} //ende else	
 			} //ende else
-		} //ende passwortprüfung 
+		} //ende passwortprÃ¼fung 
 	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+		echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
 </body>

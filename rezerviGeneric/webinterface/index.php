@@ -1,6 +1,6 @@
 <?php
 	
-	//root nicht ver�ndern wenn von einer anderen seite aufgerufen!
+	//root nicht verändern wenn von einer anderen seite aufgerufen!
 	if (!isset ($fehler) || $fehler == true){
 		$root = "..";
 	}

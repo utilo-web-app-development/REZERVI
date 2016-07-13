@@ -3,7 +3,7 @@
 /**
  * @author coster
  * @date 30.9.06
- * Hilfsfunktionen für die Gesamtübersicht
+ * Hilfsfunktionen fÃ¼r die GesamtÃ¼bersicht
 */
 
 function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
@@ -73,7 +73,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					
 		//if (!(isset($nStatus)) && isset($status)){
 		if (sizeof($nStatus) == 0){				
-			//am nächsten tag ist es frei:							
+			//am nÃ¤chsten tag ist es frei:							
 			?>
 				<table border="0" cellspacing="0" cellpadding="0" width="100%">
 					<tr>
@@ -82,7 +82,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					</tr>
 				</table>
 			<?php
-		} //ende if nächster tag frei
+		} //ende if nÃ¤chster tag frei
 		else {				
 			//schauen ob der tag vorher frei ist:
 			$vTag = $i-1;$vMonat = $month;$vJahr = $year;
@@ -170,7 +170,7 @@ function showAllRooms($month,$year,$unterkunft_id,$link,$saAktiviert,$sprache){
 		<tr>
 			<td><?= $zimmerart ?>&nbsp;</td>
 			<?php
-			//ausgeben der spaltenüberschriften wenn zusaetzlich attribute da sind:
+			//ausgeben der spaltenÃ¼berschriften wenn zusaetzlich attribute da sind:
 			if ($attResult != false){
 				while ($d = mysql_fetch_array($attResult)){
 					$bezeichnung = $d["Bezeichnung"];

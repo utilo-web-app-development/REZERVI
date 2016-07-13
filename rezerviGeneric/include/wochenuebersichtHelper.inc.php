@@ -3,7 +3,7 @@
 /**
  * author:coster
  * date:21.10.05
- * zeigt ein einzelnes monat für das webinterface in einer tabelle
+ * zeigt ein einzelnes monat fÃ¼r das webinterface in einer tabelle
  * */
 function showWeek($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 		
@@ -231,7 +231,7 @@ function showWeek($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 							?>
 							<td class="<?= TABLE_STANDARD ?>">
 								<?php
-								//button für mieter infos  ausgeben:
+								//button fÃ¼r mieter infos  ausgeben:
 								if ($mieter_id != ANONYMER_MIETER_ID){
 								?>
 								<input type="submit" name="Submit" class="<?= BUTTON ?>" 

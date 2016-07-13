@@ -3,7 +3,7 @@ $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
-//�ndern der angezeigten sprachen:
+//ändern der angezeigten sprachen:
 
 //variablen initialisieren:
 if (isset($_POST["de"]))
@@ -40,7 +40,7 @@ $sprache = getSessionWert(SPRACHE);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/uebersetzer.php");
@@ -48,7 +48,7 @@ include_once("../../../include/benutzerFunctions.php");
 include_once("../../../include/unterkunftFunctions.php");
 include_once("../../templates/components.php");
 
-//kontrolle ob �berhaupt eine sprache ausgew�hlt wurde:
+//kontrolle ob überhaupt eine sprache ausgewählt wurde:
 if ($de != "true" && $en != "true" && $fr != "true" 
 	&& $it != "true" && $nl != "true" && $sp != "true" && $es != "true"){
 	$nachricht = "Sie müssen mindestens eine Sprache auswählen!";
@@ -58,7 +58,7 @@ if ($de != "true" && $en != "true" && $fr != "true"
 }
 else{
 	
-	//zuerst alle alten eintraege l�schen:
+	//zuerst alle alten eintraege löschen:
 	removeAllStandardSpracheFromModul($unterkunft_id,2,$link);
 	
 	if ($de == "true"){
@@ -96,7 +96,7 @@ else{
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
 <?php 
-	//passwortpr�fung:	
+	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
 
@@ -124,16 +124,16 @@ if (isset($nachricht) && $nachricht != ""){
 </div>
 </div>
 <!-- <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zur�ck",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
 ?>
 <br/>
 <?php 
-	  //-----buttons um zur�ck zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmen�",$sprache,$link));
+	  //-----buttons um zurück zum menue zu gelangen: 
+	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
 ?> -->
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}

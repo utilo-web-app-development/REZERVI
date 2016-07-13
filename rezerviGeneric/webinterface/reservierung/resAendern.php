@@ -38,7 +38,7 @@ else{
 
 if(! isDatumEarlier($vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr)){
 	$fehler = true;
-	$nachricht = "Das gewählte Datum ist nicht korrekt! Das von Datum liegt nach dem bis Datum.";
+	$nachricht = "Das gewÃ¤hlte Datum ist nicht korrekt! Das von Datum liegt nach dem bis Datum.";
 	$nachricht = getUebersetzung($nachricht);
 	include_once($root."/webinterface/reservierung/index.php");
 	exit;
@@ -47,7 +47,7 @@ if(! isDatumEarlier($vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,
 if (isMietobjektTaken($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr) 
 		&& ($status == STATUS_BELEGT)){
 	$fehler = true;
-	$nachricht = "Zu diesem Datum existiert bereits eine Reservierung oder die Reservierungen überschneiden sich. Bitte korrigieren Sie das Datum oder löschen Sie die bereits vorhandene Reservierung.";
+	$nachricht = "Zu diesem Datum existiert bereits eine Reservierung oder die Reservierungen Ã¼berschneiden sich. Bitte korrigieren Sie das Datum oder lÃ¶schen Sie die bereits vorhandene Reservierung.";
 	$nachricht = getUebersetzung($nachricht);
 	include_once($root."/webinterface/reservierung/index.php");
 	exit;
@@ -60,7 +60,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 <table border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_COLOR ?>">
   <tr>
     <td>
-    	<?php echo(getUebersetzung("Reservierungs-Änderung für")); ?> <?php echo(getUebersetzungVermieter(getMietobjektBezeichnung($mietobjekt_id),$sprache,$vermieter_id)); ?>
+    	<?php echo(getUebersetzung("Reservierungs-Ã„nderung fÃ¼r")); ?> <?php echo(getUebersetzungVermieter(getMietobjektBezeichnung($mietobjekt_id),$sprache,$vermieter_id)); ?>
     		<br/>
         <?php echo(getUebersetzung("von")); ?>:<span class="<?= STANDARD_SCHRIFT_BOLD ?>"> <?= $vonTag ?>. <?= $vonMonat ?>. <?= $vonJahr ?>, <?= $vonStunde ?>:<?= $vonMinute ?> <?= getUebersetzung("Uhr"); ?></span>
         	<br/>
@@ -80,7 +80,7 @@ if ($status != STATUS_FREI) { ?>
   <table border="0" cellspacing="0" cellpadding="3" class="<?= TABLE_STANDARD ?>">
     <tr>
   		<td>
-  			<?php echo(getUebersetzung("Wenn sie keinen Mieter klicken wird die Reservierung für einen anonymen Mieter gespeichert")); ?>.
+  			<?php echo(getUebersetzung("Wenn sie keinen Mieter klicken wird die Reservierung fÃ¼r einen anonymen Mieter gespeichert")); ?>.
   		</td>
   	</tr>
   	<tr>
@@ -111,15 +111,15 @@ if ($status != STATUS_FREI) { ?>
   <tr>
     <td>
     	<p class="<?= STANDARD_SCHRIFT ?>">
-    		<?php echo(getUebersetzung("Bitte geben Sie hier den Mieter ein, oder wählen Sie einen bereits vorhanden Mieter aus der Liste aus")); ?>:
+    		<?php echo(getUebersetzung("Bitte geben Sie hier den Mieter ein, oder wÃ¤hlen Sie einen bereits vorhanden Mieter aus der Liste aus")); ?>:
     	</p>
-    	<p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder müssen ausgefüllt werden")); ?>!)         
+    	<p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder mÃ¼ssen ausgefÃ¼llt werden")); ?>!)         
         </p>  
       <form action="./resAendern.php" method="post" name="gastWaehlen" target="_self">  
       <input type="hidden" name="ansicht" value="<?= $ansicht ?>"/>    	
         <table border="0" cellspacing="0" cellpadding="0">
           <tr class="<?= STANDARD_SCHRIFT ?>"> 
-            <td><?php echo(getUebersetzung("Mieter auswählen")); ?></td>
+            <td><?php echo(getUebersetzung("Mieter auswÃ¤hlen")); ?></td>
             <td>
             	<select name="mieter_id" id="select" onChange="submit()">
 	                <option value="<?= NEUER_MIETER ?>" selected><?php echo(getUebersetzung("neuer Mieter")); ?></option>
@@ -178,7 +178,7 @@ if ($status != STATUS_FREI) { ?>
             		value="<?php if ($mieter_id != -1) { echo(getMieterFirma($mieter_id)); } ?>" /></td>
           </tr>          
           <tr> 
-            <td><?php echo(getUebersetzung("Straße/Hausnummer")); ?></td>
+            <td><?php echo(getUebersetzung("StraÃŸe/Hausnummer")); ?></td>
             <td><input name="strasse" type="text" 
             		value="<?php if ($mieter_id != -1) { echo(getMieterStrasse($mieter_id)); } ?>" /></td>
           </tr>
@@ -284,19 +284,19 @@ if ($status != STATUS_FREI) { ?>
         </form>
 	    </p>
         <?php } //ende if status != frei
-	  	else { //wenn nur frei dann daten löschen und nur ok-button anzeigen:
+	  	else { //wenn nur frei dann daten lÃ¶schen und nur ok-button anzeigen:
 		?>
 			<br/>
 			<table cellspacing="0" cellpadding="0" class="<?= BELEGT ?>">
 			<?php
-			//alle Reservierungen ausgeben die gelöscht werden, wenn auf ok gedrueckt wird:
+			//alle Reservierungen ausgeben die gelÃ¶scht werden, wenn auf ok gedrueckt wird:
 			$result = getReservationWithDate($mietobjekt_id,0,0,$vonTag,$vonMonat,$vonJahr,0,0,$bisTag,$bisMonat,$bisJahr);
 			$first = true;
 			while($d = mysql_fetch_array($result)){
 				if ($first){ ?>					
 					  <tr>
 					  	<td>
-					  		<?php echo(getUebersetzung("Folgende Reservierungen werden gelöscht")); ?>:
+					  		<?php echo(getUebersetzung("Folgende Reservierungen werden gelÃ¶scht")); ?>:
 					  	</td>
 					  </tr>						 
 				<?php }

@@ -5,7 +5,7 @@ define( '_JEXEC', 1 );
 include_once($root."/include/sessionFunctions.inc.php");
 /*   
 			reservierungsplan
-			benutzer�nderung durchf�hren
+			benutzeränderung durchführen
 */
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
@@ -25,7 +25,7 @@ else{
 	$testuser = false;
 }
 
-	//datenbank �ffnen:
+	//datenbank öffnen:
 	include_once("../../conf/rdbmsConfig.php");
 	
 	//andere funktionen importieren:
@@ -41,7 +41,7 @@ else{
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortpr�fung:	
+<?php //passwortprüfung:	
 
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){	
 	
@@ -65,7 +65,7 @@ else{
 	}	
 	else if(changeBenutzer($id,$name,$pass,$rechte,$unterkunft_id,$link)){	
 		
-		//�nderungen in der session durchf�hren:
+		//Änderungen in der session durchführen:
 		if (getSessionWert(BENUTZER_ID) == $id){
 			setSessionWert(PASSWORT,$pass);
 			setSessionWert(BENUTZERNAME,$name);
@@ -87,7 +87,7 @@ else{
   <tr>
     <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
         <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmen�",$sprache,$link)); ?>">
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
       </form></td>
   </tr>
 </table> -->
@@ -95,7 +95,7 @@ else{
 
 </p>
 <?php 
-	} //ende if passwortpr�fung
+	} //ende if passwortprüfung
 	else {
 	
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));

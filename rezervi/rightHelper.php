@@ -81,7 +81,7 @@
 					</tr>
 				</table>
 			<?php
-			} //ende if nächster tag frei
+			} //ende if nÃ¤chster tag frei
 			else {	
 							
 				//schauen ob der tag vorher frei ist:

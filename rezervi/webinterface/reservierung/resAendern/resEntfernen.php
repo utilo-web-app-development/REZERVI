@@ -17,7 +17,7 @@ $bisJahr = $_POST["bisJahr"];
 $zimmer_id = $_POST["zimmer_id"];
 $sprache = getSessionWert(SPRACHE);
 
-	//datenbank öffnen:
+	//datenbank Ã¶ffnen:
 	include_once("../../../conf/rdbmsConfig.php");
 	//Unterkunft-funktionen einbeziehen:
 	include_once("../../../include/unterkunftFunctions.php");
@@ -28,7 +28,7 @@ $sprache = getSessionWert(SPRACHE);
 	include_once("../../../include/datumFunctions.php");
     include_once("../../../include/uebersetzer.php");
 
-//passwortprüfung:	
+//passwortprÃ¼fung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 
 	
 /*   
@@ -36,22 +36,22 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	daten des gastes aufnehmen
 	author: christian osterrieder utilo.eu					
 	
-	dieser seite muss übergeben werden:
+	dieser seite muss Ã¼bergeben werden:
 	Unterkunft PK_ID ($unterkunft_id)
 	Zimmer PK_ID ($zimmer_id)
 	Datum: $vonTag,$vonMonat,$vonJahr
 		   $bisTag,$bisMonat,$bisJahr			
 	
-	die seite verwendet anfrage/send.php um das ausgefüllte
+	die seite verwendet anfrage/send.php um das ausgefÃ¼llte
 	formular zu versenden
 */ 	 
 	
 	//alle reservierungen im angegebenen zeitraum entfernen,
-	//auch jene die diesen zeitraum "überschneiden":
+	//auch jene die diesen zeitraum "Ãœberschneiden":
 	$vonDatum = parseDateFormular($vonTag,$vonMonat,$vonJahr);
 	$bisDatum = parseDateFormular($bisTag,$bisMonat,$bisJahr);
 	
-	//alle eintraege in diesem zeitraum löschen:
+	//alle eintraege in diesem zeitraum lÃ¶schen:
 	deleteReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link);
 	$resu = getChildRooms($zimmer_id);
 	if (!empty($resu)){
@@ -114,15 +114,15 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
   <table  border="0" cellspacing="3" cellpadding="0" class="table">
     <tr>
       <td><input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>"> </td>
+       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurÃ¼ck",$sprache,$link)); ?>"> </td>
     </tr>
   </table>
  
   </form> 
 </body>
 </html>
-<?php } //ende passwortprüfung 
+<?php } //ende passwortprÃ¼fung 
 else {
-	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+	echo(getUebersetzung("Bitte Browser schlieÃŸen und neu anmelden - PasswortprÃ¼fung fehlgeschlagen!",$sprache,$link));
 	}
 ?>

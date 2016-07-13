@@ -6,10 +6,10 @@ include_once($root."/include/sessionFunctions.inc.php");
 
 /*   
 			reservierungsplan
-			startseite zur wartung der reservierung f�r den benutzer
+			startseite zur wartung der reservierung für den benutzer
 			author: christian osterrieder utilo.eu						
 			
-			dieser seite muss �bergeben werden:
+			dieser seite muss übergeben werden:
 			Benutzer PK_ID $benutzer_id
 */
 
@@ -19,7 +19,7 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
-//datenbank �ffnen:
+//datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
 //andere funktionen importieren:
@@ -76,7 +76,7 @@ include_once("../../include/uebersetzer.php");
 	    //-->
 </script>
 <?php		
-//passwortpr�fung:	
+//passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
 
 <!-- Alte überschrift & form action
