@@ -574,7 +574,7 @@ function DateInput(DateName, Required, DateFormat, DefaultDate) {
           write(String.fromCharCode(13) + '<a' + InitialStatus + ' id="' + DateName + '_ID_Link" href="javascript:' + DateName + '_Object.show()" onMouseOver="return ' + DateName + '_Object.iconHover(true)" onMouseOut="return ' + DateName + '_Object.iconHover(false)"><img src="' + ImageURL + '" align="baseline" title="Calendar" width="16" height="15" border="0"></a>&nbsp;');
         
          //tag:
-         writeln('<select' + InitialStatus + '  id="' + DateName + '_Day_ID" name="' + DateName + '_Day_ID" onChange="' + DateName + '_Object.changeDay(this)">');
+         writeln('</td><td><select  class="form-control" ' + InitialStatus + '  id="' + DateName + '_Day_ID" name="' + DateName + '_Day_ID" onChange="' + DateName + '_Object.changeDay(this)">');
          for (var j=1;j<=eval(DateName + '_Object.picked.dayCount');j++) {
             DaySelected = ((DefaultDate != undefined) && eval(DateName + '_Object.picked.day=='+j)) ? ' selected' : '';
             writeln('<option' + DaySelected + '>' + j + '</option>');
@@ -582,7 +582,7 @@ function DateInput(DateName, Required, DateFormat, DefaultDate) {
          writeln('</select>' + String.fromCharCode(13) + '</td>' + String.fromCharCode(13) + '<td valign="middle">');
              
          //monat:
-         writeln('<select name="' + DateName + '_Month"  onChange="' + DateName + '_Object.changeMonth(this)">');
+         writeln('<select  class="form-control" name="' + DateName + '_Month"  onChange="' + DateName + '_Object.changeMonth(this)">');
          if (!Required) {
             var NoneSelected = (DefaultDate == undefined) ? ' selected' : '';
             writeln('<option value=""' + NoneSelected + '></option>');
@@ -593,7 +593,7 @@ function DateInput(DateName, Required, DateFormat, DefaultDate) {
          }
          writeln('</select>' + String.fromCharCode(13) + '</td>' + String.fromCharCode(13) + '<td valign="middle">');
           
-         writeln('<input' + InitialStatus + '  type="text" id="' + DateName + '_Year_ID" name="' + DateName + '_Year_ID" size="' + eval(DateName + '_Object.picked.yearPad.length') + '" maxlength="' + eval(DateName + '_Object.picked.yearPad.length') + '" title="Year" value="' + eval(DateName + '_Object.picked.yearPad') + '" onKeyPress="return NumOnly(event)" onKeyUp="' + DateName + '_Object.checkYear(this)" onBlur="' + DateName + '_Object.fixYear(this)">');
+         writeln('<input class="form-control" ' + InitialStatus + ' type="text" id="' + DateName + '_Year_ID" name="' + DateName + '_Year_ID" size="' + eval(DateName + '_Object.picked.yearPad.length') + '" maxlength="' + eval(DateName + '_Object.picked.yearPad.length') + '" title="Year" value="' + eval(DateName + '_Object.picked.yearPad') + '" onKeyPress="return NumOnly(event)" onKeyUp="' + DateName + '_Object.checkYear(this)" onBlur="' + DateName + '_Object.fixYear(this)">');
         
          //ausgabe des kalenders: 
 		 writeln('</td></tr><tr><td colspan="3">')

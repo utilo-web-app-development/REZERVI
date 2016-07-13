@@ -1,6 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<body>
 <?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
@@ -72,8 +69,8 @@ if (isset($nachricht) && $nachricht != "") {
 <!-- <form action="./zimmerAendern.php" method="post" name="zimmerAendern" target="_self"> -->
 <div class="panel panel-default">
     <div class="panel-body">
-        <form action="./zimmerAnlegen.php" method="post" name="immerAnlegen" target="_self"
-              onSubmit="return chkFormular();" class="form-horizontal">
+<!--        <form action="./zimmerAnlegen.php" method="post" name="immerAnlegen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">-->
+            <form action="./zimmerAendern.php" method="post" name="immerAnlegen" target="_self" onSubmit="return chkFormular();" class="form-horizontal">
 
 
             <h4><?php echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten", $sprache, $link)); ?></h4>
@@ -399,5 +396,4 @@ if (isset($nachricht) && $nachricht != "") {
         ?>
     </div>
 </div>
-</body>
-</html>
+<?php include_once("../templates/end.php"); ?>
