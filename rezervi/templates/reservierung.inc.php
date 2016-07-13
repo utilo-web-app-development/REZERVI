@@ -65,15 +65,15 @@
             	
             	<div align="right">
                 <select name="zimmer_id" class="tableColor" id="zimmer_id">
-                  <?
+                  <?php
 					$res = getZimmer($unterkunft_id,$link);
 	 				while($d = mysql_fetch_array($res)) { ?>
-	                  	<option <? if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> value="<? echo $d["PK_ID"] ?>">
+	                  	<option <?php if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> value="<?php echo $d["PK_ID"] ?>">
 	                  	<?php
 					  		$temp = $d["Zimmernr"]; 
 					  		echo(getUebersetzungUnterkunft($temp,$sprache,$unterkunft_id,$link)); ?>
 	                  	</option>
-                  <? } ?>
+                  <?php } ?>
                 </select>
               </div>
             </td>
@@ -94,15 +94,15 @@
 
 				<div class="col-sm-10">
 					<select name="zimmer_id" class="form-control" id="zimmer_id">
-                  <?
+                  <?php
 					$res = getZimmer($unterkunft_id,$link);
 	 				while($d = mysql_fetch_array($res)) { ?>
-	                  	<option <? if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> value="<? echo $d["PK_ID"] ?>">
+	                  	<option <?php if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> value="<?php echo $d["PK_ID"] ?>">
 	                  	<?php
 					  		$temp = $d["Zimmernr"]; 
 					  		echo(getUebersetzungUnterkunft($temp,$sprache,$unterkunft_id,$link)); ?>
 	                  	</option>
-                  <? } ?>
+                  <?php } ?>
                 </select>
 				</div>
 				     </div>	

@@ -158,9 +158,9 @@ $sprache = getSessionWert(SPRACHE);
     </tr>
   </table>
  
-  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
-  <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
-  <input name="monat" type="hidden" id="monat" value="<? echo($monat); ?>">
+  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
+  <input name="jahr" type="hidden" id="jahr" value="<?php echo($jahr); ?>">
+  <input name="monat" type="hidden" id="monat" value="<?php echo($monat); ?>">
   <p>
     <input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">

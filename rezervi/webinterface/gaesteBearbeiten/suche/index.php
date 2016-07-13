@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -144,40 +144,40 @@ include_once($root."/include/sessionFunctions.inc.php");
                 <tr>
                   <td><form action="../../../webinterface/gaesteBearbeiten/suche/gastBearbeiten/index.php" method="post" name="gastBearbeiten" target="_self">
                     <div align="right">
-                      <input name="anrede_val" type="hidden" id="anrede_var" value="<? echo($anrede_val); ?>">
-                      <input name="vorname_val" type="hidden" id="vorname_var3" value="<? echo($vorname_val); ?>">
-                      <input name="nachname_val" type="hidden" id="anrede_var4" value="<? echo($nachname_val); ?>">
-                      <input name="strasse_val" type="hidden" id="anrede_var5" value="<? echo($strasse_val); ?>">
-                      <input name="ort_val" type="hidden" id="anrede_var6" value="<? echo($ort_val); ?>">
-                      <input name="land_val" type="hidden" id="anrede_var7" value="<? echo($land_val); ?>">
-                      <input name="email_val" type="hidden" id="anrede_var8" value="<? echo($email_val); ?>">
-                      <input name="tel_val" type="hidden" id="anrede_var9" value="<? echo($tel_val); ?>">
-                      <input name="fax_val" type="hidden" id="anrede_var" value="<? echo($fax_val); ?>">
-					  <input name="anmerkung_val" type="hidden" id="anrede_var" value="<? echo($anmerkung_val); ?>">
+                      <input name="anrede_val" type="hidden" id="anrede_var" value="<?php echo($anrede_val); ?>">
+                      <input name="vorname_val" type="hidden" id="vorname_var3" value="<?php echo($vorname_val); ?>">
+                      <input name="nachname_val" type="hidden" id="anrede_var4" value="<?php echo($nachname_val); ?>">
+                      <input name="strasse_val" type="hidden" id="anrede_var5" value="<?php echo($strasse_val); ?>">
+                      <input name="ort_val" type="hidden" id="anrede_var6" value="<?php echo($ort_val); ?>">
+                      <input name="land_val" type="hidden" id="anrede_var7" value="<?php echo($land_val); ?>">
+                      <input name="email_val" type="hidden" id="anrede_var8" value="<?php echo($email_val); ?>">
+                      <input name="tel_val" type="hidden" id="anrede_var9" value="<?php echo($tel_val); ?>">
+                      <input name="fax_val" type="hidden" id="anrede_var" value="<?php echo($fax_val); ?>">
+					  <input name="anmerkung_val" type="hidden" id="anrede_var" value="<?php echo($anmerkung_val); ?>">
                       <input name="gastBearbeiten" type="submit" id="gastBearbeiten" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" value="Gast bearbeiten">
-                      <input name="unterkunft_id" type="hidden" id="unterkunft_id" value="<? echo($unterkunft_id); ?>">
-                      <input name="benutzer_id" type="hidden" id="benutzer_id" value="<? echo($benutzer_id); ?>">
-                      <input name="gast_id" type="hidden" id="gast_id" value="<? echo($gast_id); ?>">
+                      <input name="unterkunft_id" type="hidden" id="unterkunft_id" value="<?php echo($unterkunft_id); ?>">
+                      <input name="benutzer_id" type="hidden" id="benutzer_id" value="<?php echo($benutzer_id); ?>">
+                      <input name="gast_id" type="hidden" id="gast_id" value="<?php echo($gast_id); ?>">
                     </div>
                   </form></td>
                   <td width="1"><form action="../../../webinterface/gaesteBearbeiten/suche/gastLoeschen/index.php" method="post" name="gastLoeschen" target="_self" onSubmit="return sicher()">
                     <div align="right">
                       <input name="gastLoeschen" type="submit" id="gastLoeschen" class="button200pxA" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" value="Gast l&ouml;schen">
-                      <input name="anrede_val" type="hidden" id="anrede_var10" value="<? echo($anrede_val); ?>">
-                      <input name="vorname_val" type="hidden" id="vorname_var" value="<? echo($vorname_val); ?>">
-                      <input name="nachname_val" type="hidden" id="nachname_var" value="<? echo($nachname_val); ?>">
-                      <input name="strasse_val" type="hidden" id="strasse_var" value="<? echo($strasse_val); ?>">
-                      <input name="ort_val" type="hidden" id="ort_var" value="<? echo($ort_val); ?>">
-                      <input name="land_val" type="hidden" id="land_var" value="<? echo($land_val); ?>">
-                      <input name="email_val" type="hidden" id="email_var" value="<? echo($email_val); ?>">
-                      <input name="tel_val" type="hidden" id="tel_var" value="<? echo($tel_val); ?>">
-                      <input name="fax_val" type="hidden" id="anrede_var10" value="<? echo($fax_val); ?>">
-                      <input name="anmerkung_val" type="hidden" id="anrede_var10" value="<? echo($anmerkung_val); ?>">
-                      <input name="benutzer_id" type="hidden" id="benutzer_id" value="<? echo($benutzer_id); ?>">
-                      <input name="unterkunft_id" type="hidden" id="unterkunft_id23" value="<? echo($unterkunft_id); ?>">
-                      <input name="gast_id" type="hidden" id="gast_id" value="<? echo ($gast_id); ?>">
+                      <input name="anrede_val" type="hidden" id="anrede_var10" value="<?php echo($anrede_val); ?>">
+                      <input name="vorname_val" type="hidden" id="vorname_var" value="<?php echo($vorname_val); ?>">
+                      <input name="nachname_val" type="hidden" id="nachname_var" value="<?php echo($nachname_val); ?>">
+                      <input name="strasse_val" type="hidden" id="strasse_var" value="<?php echo($strasse_val); ?>">
+                      <input name="ort_val" type="hidden" id="ort_var" value="<?php echo($ort_val); ?>">
+                      <input name="land_val" type="hidden" id="land_var" value="<?php echo($land_val); ?>">
+                      <input name="email_val" type="hidden" id="email_var" value="<?php echo($email_val); ?>">
+                      <input name="tel_val" type="hidden" id="tel_var" value="<?php echo($tel_val); ?>">
+                      <input name="fax_val" type="hidden" id="anrede_var10" value="<?php echo($fax_val); ?>">
+                      <input name="anmerkung_val" type="hidden" id="anrede_var10" value="<?php echo($anmerkung_val); ?>">
+                      <input name="benutzer_id" type="hidden" id="benutzer_id" value="<?php echo($benutzer_id); ?>">
+                      <input name="unterkunft_id" type="hidden" id="unterkunft_id23" value="<?php echo($unterkunft_id); ?>">
+                      <input name="gast_id" type="hidden" id="gast_id" value="<?php echo ($gast_id); ?>">
                     </div>
                   </form> </td>
                 </tr>
@@ -208,8 +208,8 @@ include_once($root."/include/sessionFunctions.inc.php");
              
                 <input name="zurueck" type="submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" value="zur&uuml;ck">
-                <input name="benutzer_id" type="hidden" id="benutzer_id" value="<? echo($benutzer_id); ?>">
-              <input name="unterkunft_id" type="hidden" id="unterkunft_id" value="<? echo($unterkunft_id); ?>">
+                <input name="benutzer_id" type="hidden" id="benutzer_id" value="<?php echo($benutzer_id); ?>">
+              <input name="unterkunft_id" type="hidden" id="unterkunft_id" value="<?php echo($unterkunft_id); ?>">
             </form></td>
         </tr>
       </table>

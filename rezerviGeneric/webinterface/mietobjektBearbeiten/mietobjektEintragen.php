@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 23.9.05
@@ -80,7 +80,7 @@ include_once($root."/include/mietobjektFunctions.inc.php");
 	include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 	
 	?>
-	<table border="0" cellpadding="0" cellspacing="0" class="<?= FREI ?>">
+	<table border="0" cellpadding="0" cellspacing="0" class="<?php echo FREI ?>">
 	  <tr>
 		<td><?php echo(getUebersetzung("Das Mietobjekt wurde erfolgreich hinzugefügt.")); ?></td>
 	  </tr>
@@ -91,11 +91,11 @@ include_once($root."/include/mietobjektFunctions.inc.php");
 	<?php
 	if ( $anzahlVorhandenerMietobjekte < $anzahlMietobjekte ){
 	?>
-		<table border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+		<table border="0" cellpadding="0" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
 		  <tr> 
 			<td><form action="./mietobjektAnlegen.php" method="post" name="anlegen" target="_self" id="anlegen">		
-				<input name="retour" type="submit" class="<?= BUTTON ?>" id="retour" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			 		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("ein weiteres Mietobjekt anlegen")); ?>">
+				<input name="retour" type="submit" class="<?php echo BUTTON ?>" id="retour" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+			 		onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("ein weiteres Mietobjekt anlegen")); ?>">
 			  </form></td>
 		  </tr>
 		</table>
@@ -104,11 +104,11 @@ include_once($root."/include/mietobjektFunctions.inc.php");
 	}
 	?>
 		
-<table border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="0" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
   <tr> 
     <td><form action="./index.php" method="post" name="zurueck" target="_self" id="zurueck">
-        <input name="retour2" type="submit" class="<?= BUTTON ?>" id="retour2" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+        <input name="retour2" type="submit" class="<?php echo BUTTON ?>" id="retour2" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+	 onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
       </form></td>
   </tr>
 </table>

@@ -142,19 +142,19 @@ include_once("../../include/reseller/reseller.php");
               <select name="monat" class="tableColor" id="monat" onChange="zimmerNrFormJahrChanged()">
                   <?php
 				for ($i=1; $i<=12; $i++) { ?>
-                  <option value="<? echo $i ?>"<? if ($i == parseMonthNumber(getTodayMonth())) echo(" selected"); ?>><? echo(getUebersetzung(parseMonthName($i,"de"),$sprache,$link)); ?></option>
-                  <? } ?>
+                  <option value="<?php echo $i ?>"<?php if ($i == parseMonthNumber(getTodayMonth())) echo(" selected"); ?>><?php echo(getUebersetzung(parseMonthName($i,"de"),$sprache,$link)); ?></option>
+                  <?php } ?>
                 </select>
             </div></td>
           </tr>
           <tr>
             <td><span class="standardSchriftBold">
-            		<?= getZimmerArten($unterkunft_id,$link) ?>            
+            		<?php echo getZimmerArten($unterkunft_id,$link) ?>            
             	</span>
             </td>
             <td><div align="right">
                 <select name="zimmer_id" class="tableColor" id="zimmer_id" onChange="zimmerNrFormJahrChanged()">
-                  <?
+                  <?php
 					$query = "
 						select
 						Zimmernr, PK_ID
@@ -169,8 +169,8 @@ include_once("../../include/reseller/reseller.php");
   					if (!$res)
   						echo("Anfrage $query scheitert.");	
 	 				while($d = mysql_fetch_array($res)) { ?>
-                  <option value="<? echo $d["PK_ID"] ?>"<? if ($zimmer_id == $d["PK_ID"]) {echo(" selected");} ?>><? echo (getUebersetzungUnterkunft($d["Zimmernr"],$sprache,$unterkunft_id,$link)); ?></option>
-                  <? } ?>
+                  <option value="<?php echo $d["PK_ID"] ?>"<?php if ($zimmer_id == $d["PK_ID"]) {echo(" selected");} ?>><?php echo (getUebersetzungUnterkunft($d["Zimmernr"],$sprache,$unterkunft_id,$link)); ?></option>
+                  <?php } ?>
                 </select>
               </div></td>
           </tr>
@@ -187,9 +187,9 @@ include_once("../../include/reseller/reseller.php");
             <option value="0"><?php echo(getUebersetzung("Monatsübersicht",$sprache,$link)); ?></option>
             <option value="1"><?php echo(getUebersetzung("Jahresübersicht",$sprache,$link)); ?></option>
           </select>
-          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
-          <input name="monat" type="hidden" id="monat" value="<? echo(parseMonthNumber($monat)); ?>">
+          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
+          <input name="jahr" type="hidden" id="jahr" value="<?php echo($jahr); ?>">
+          <input name="monat" type="hidden" id="monat" value="<?php echo(parseMonthNumber($monat)); ?>">
         </div>
       </form>
 </td>
@@ -294,7 +294,7 @@ include_once("../../include/reseller/reseller.php");
           </select>
         </p>
         <div align="left">
-          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo $zimmer_id ?>">
+          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
           <input name="reservierungAendern" type="submit" class="btn btn-primary" id="reservierungAbsenden2" value="<?php echo(getUebersetzung("Reservierung ändern",$sprache,$link)); ?>">
         </div>
       </form></td>
@@ -309,7 +309,7 @@ include_once("../../include/reseller/reseller.php");
     <td>
         <?php if ($isReseller) { ?>
         	<font size="2">&copy; 
-    			<a href="<?= $resellerUrl ?>" target="_parent"><?= $resellerName ?></a>
+    			<a href="<?php echo $resellerUrl ?>" target="_parent"><?php echo $resellerName ?></a>
     		</font>
 		<?php } else { ?>
 			<font size="2">&copy; 

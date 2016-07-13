@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 26.9.05
@@ -91,7 +91,7 @@ else{
 
 include_once("./stylesHelper.php");
 			
-	//stylesheets für farben erzeugen:
+	//stylesheets fï¿½r farben erzeugen:
 	echo("<style type=\"text/css\"> \n");
 	echo("<!-- \n");
 				$hex = array("00", "33", "66", "99", "CC", "FF");
@@ -115,7 +115,7 @@ include_once("./stylesHelper.php");
 	$designFuer = "";
 	
 	if ($stylesheet == UEBERSCHRIFT){
-		$designFuer = "Überschrift";
+		$designFuer = "ï¿½berschrift";
 	}
 	else if ($stylesheet == STANDARD_SCHRIFT){
 		$designFuer = "Standard-Schrift";
@@ -136,7 +136,7 @@ include_once("./stylesHelper.php");
 		$designFuer = "Tabelle";
 	}
 	else if ($stylesheet == TABLE_COLOR){
-		$designFuer = "färbige Tabelle";
+		$designFuer = "fï¿½rbige Tabelle";
 	}
 	else if ($stylesheet == BELEGT){
 		$designFuer = "belegt";
@@ -152,11 +152,11 @@ include_once("./stylesHelper.php");
 	$style = getStyle($stylesheet,$vermieter_id);
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Design für")); ?> "<?php echo($designFuer); ?>" <?php echo(getUebersetzung("bearbeiten")); ?></p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Design fï¿½r")); ?> "<?php echo($designFuer); ?>" <?php echo(getUebersetzung("bearbeiten")); ?></p>
 <br/>
 <form action="styleAendern.php" method="post" name="styles" target="_self" id="styles">
   <input name="stylesheet" type="hidden" value="<?php echo($stylesheet); ?>">
-	<table border="0" cellspacing="2" cellpadding="0" class="<?= TABLE_STANDARD ?>">
+	<table border="0" cellspacing="2" cellpadding="0" class="<?php echo TABLE_STANDARD ?>">
         <tr>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
@@ -187,7 +187,7 @@ include_once("./stylesHelper.php");
           <?php } ?>
           <?php if ($font_size == "1"){ ?>
           <tr>
-            <td><?php echo(getUebersetzung("Schriftgrösse")); ?></td>
+            <td><?php echo(getUebersetzung("Schriftgrï¿½sse")); ?></td>
             <td><select name="font_size">
                 <?php for ($i = 4; $i<=30; $i++){ ?>
                 <option value="<?php echo(($i).("px")); ?>" <?php if (($i).("px") == getFontSize($style)) echo(" selected"); ?>><?php echo(($i).(" px")); ?></option>
@@ -210,7 +210,7 @@ include_once("./stylesHelper.php");
           <?php } ?>
           <?php if ($font_weight == "1"){ ?>
           <tr>
-            <td><?php echo(getUebersetzung("Schriftstärke")); ?></td>
+            <td><?php echo(getUebersetzung("Schriftstï¿½rke")); ?></td>
             <td><select name="font_weight">
                 <option value="normal" <?php if (getFontWeight($style) == "normal") echo(" selected"); ?>><?php echo(getUebersetzung("standard")); ?></option>
                 <option value="bold" <?php if (getFontWeight($style) == "bold") echo(" selected"); ?>><?php echo(getUebersetzung("fett")); ?></option>
@@ -252,7 +252,7 @@ include_once("./stylesHelper.php");
           <?php } ?>
           <?php if ($border == "1"){ ?>
           <tr>
-            <td><?php echo(getUebersetzung("Rahmenstärke")); ?></td>
+            <td><?php echo(getUebersetzung("Rahmenstï¿½rke")); ?></td>
             <td><select name="border">
                 <?php for ($i = 0; $i<=10; $i++){ ?>
                 <option value="<?php echo(($i).("px")); ?>" <?php if (($i).("px") == getBorder($style)) echo(" selected"); ?>><?php echo(($i).(" px")); ?></option>
@@ -285,7 +285,7 @@ include_once("./stylesHelper.php");
           <?php } ?>
           <?php if ($height == "1"){ ?>
           <tr>
-            <td><?php echo(getUebersetzung("Höhe")); ?></td>
+            <td><?php echo(getUebersetzung("Hï¿½he")); ?></td>
             <td><select name="height">
                 <?php for ($i = 10; $i<=40; $i++){ ?>
                 <option value="<?php echo(($i).("px")); ?>" <?php if (($i).("px") == getHeight($style)) echo(" selected"); ?>><?php echo(($i).(" px")); ?></option>
@@ -310,9 +310,9 @@ include_once("./stylesHelper.php");
   <table border="0" cellspacing="3" cellpadding="0">
   <tr>
     <td>
-        <input type="submit" name="Submit4" value="<?php echo(getUebersetzung("Design ändern")); ?>" class="<?= BUTTON ?>" 
-			onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';">
+        <input type="submit" name="Submit4" value="<?php echo(getUebersetzung("Design ï¿½ndern")); ?>" class="<?php echo BUTTON ?>" 
+			onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       		onMouseOut="this.className='<?php echo BUTTON ?>';">
       </td>
   </tr>
 </table>
@@ -322,9 +322,9 @@ include_once("./stylesHelper.php");
   <tr>
     <td>
 	<form action="./index.php" method="post" name="form1" target="_self">
-        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurück")); ?>" class="<?= BUTTON ?>" 
-			onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';">
+        <input type="submit" name="Submit3" value="<?php echo(getUebersetzung("zurï¿½ck")); ?>" class="<?php echo BUTTON ?>" 
+			onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       		onMouseOut="this.className='<?php echo BUTTON ?>';">
       </form>
     </td>
   </tr>

@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-  	<? session_start();
+  	<?php session_start();
 $root = ".";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -130,7 +130,7 @@ include_once("./templates/headerA.php");
 					  <img src="<?php echo($pfad); ?>"/>&nbsp;
 					  
 					 
-					  	<?= $description ?>
+					  	<?php echo $description ?>
 					  <
 					  <?php
 					}
@@ -158,8 +158,8 @@ include_once("./templates/headerA.php");
       <form action="./jahresuebersicht.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
         <div align="right">
           <input name="monat" type="hidden" id="monat" value="1">
-          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<? echo($jah); ?>">
+          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
+          <input name="jahr" type="hidden" id="jahr" value="<?php echo($jah); ?>">
           <input name="zurueck" type="submit" class="btn btn-primary" onClick="updateLeft(<?php echo(($monat).",".($jah)).",".($zimmer_id); ?>,0);" id="zurueck" value="<?php 
 							echo(getUebersetzung("ein Jahr zurück",$sprache,$link)); ?>">
         </div>
@@ -171,8 +171,8 @@ include_once("./templates/headerA.php");
 		if (!($jah >= getTodayYear()+4)){																															
 		?>
       <form action="./jahresuebersicht.php" method="post" name="monatWeiter" target="_self" id="monatWeiter">
-        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
-        <input name="jahr" type="hidden" id="jahr" value="<? echo ($jah); ?>">
+        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
+        <input name="jahr" type="hidden" id="jahr" value="<?php echo ($jah); ?>">
         <input name="monat" type="hidden" id="monat" value="1">
         <input name="weiter" type="submit" class="btn btn-primary"
         onClick="updateLeft(<?php echo(($monat).",".($jah)).",".($zimmer_id); ?>,1);" id="weiter" value="<?php 

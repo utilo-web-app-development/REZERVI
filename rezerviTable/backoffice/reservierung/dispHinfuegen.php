@@ -72,7 +72,7 @@ $dauer_default = getGastroProperty(RESERVIERUNGSDAUER,$gastro_id);
 
 ?>
 
-<link href="<?= $root ?>/backoffice/templates/yui_panel.css" rel="stylesheet" type="text/css">
+<link href="<?php echo $root ?>/backoffice/templates/yui_panel.css" rel="stylesheet" type="text/css">
 
 <?php
 if (isset($nachricht) && $nachricht != ""){ 
@@ -200,21 +200,21 @@ if (isset($nachricht) && $nachricht != ""){
 	<form action="./index.php" method="post" onSubmit="getDateForAno();" name="anonyForm" target="_parent">
 		<tr>
 	  		<td>
-				<input name="speech" type="hidden" id="sprache" value="<?= $sprache  ?>">
-				<input name="mieter_id" type="hidden" id="mieter_id" value="<?= ANONYMER_GAST_ID ?>">
-				<input name="raum_id" type="hidden" id="vonJahr" value="<?= $raum_id  ?>">
-				<input name="table_id" type="hidden" id="status" value="<?= $tisch_id ?>">
-				<input name="vonTag" type="hidden" id="vonTag" value="<?= $tag ?>">
-				<input name="bisTag" type="hidden" id="bisTag" value="<?= $tag ?>">
-				<input name="vonMonat" type="hidden" id="vonMonat" value="<?= $monate ?>">
-		    	<input name="bisMonat" type="hidden" id="bisMonat" value="<?= $monate ?>">
-		     	<input name="vonJahr" type="hidden" id="vonJahr" value="<?= $jahr ?>">
-		      	<input name="bisJahr" type="hidden" id="bisJahr" value="<?= $jahr ?>">
-		      	<input name="vonMinute" type="hidden" id="vonMinute" value="<?= $vonMinute ?>">
-		       	<input name="bisMinute" type="hidden" id="bisMinute" value="<?= $bisMinute ?>">
-		      	<input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>">
-		      	<input name="vonStunde" type="hidden" id="vonStunde" value="<?= $vonStunde ?>">
-		  		<input name="anzahlRes" type="hidden" id="anzahlRes" value="<?= "0" ?>"/>
+				<input name="speech" type="hidden" id="sprache" value="<?php echo $sprache  ?>">
+				<input name="mieter_id" type="hidden" id="mieter_id" value="<?php echo ANONYMER_GAST_ID ?>">
+				<input name="raum_id" type="hidden" id="vonJahr" value="<?php echo $raum_id  ?>">
+				<input name="table_id" type="hidden" id="status" value="<?php echo $tisch_id ?>">
+				<input name="vonTag" type="hidden" id="vonTag" value="<?php echo $tag ?>">
+				<input name="bisTag" type="hidden" id="bisTag" value="<?php echo $tag ?>">
+				<input name="vonMonat" type="hidden" id="vonMonat" value="<?php echo $monate ?>">
+		    	<input name="bisMonat" type="hidden" id="bisMonat" value="<?php echo $monate ?>">
+		     	<input name="vonJahr" type="hidden" id="vonJahr" value="<?php echo $jahr ?>">
+		      	<input name="bisJahr" type="hidden" id="bisJahr" value="<?php echo $jahr ?>">
+		      	<input name="vonMinute" type="hidden" id="vonMinute" value="<?php echo $vonMinute ?>">
+		       	<input name="bisMinute" type="hidden" id="bisMinute" value="<?php echo $bisMinute ?>">
+		      	<input name="bisStunde" type="hidden" id="bisStunde" value="<?php echo $bisStunde ?>">
+		      	<input name="vonStunde" type="hidden" id="vonStunde" value="<?php echo $vonStunde ?>">
+		  		<input name="anzahlRes" type="hidden" id="anzahlRes" value="<?php echo "0" ?>"/>
 				<input name="doAddRes" type="hidden" value="true" />
 		      	<input name="send" type="submit" class="button" id="send" 
 					value="<?php echo(getUebersetzung("Anonymer Gast")); ?>">
@@ -226,9 +226,9 @@ if (isset($nachricht) && $nachricht != ""){
 <hr/>
 
 <!-- begin yui Autocompletition -->
-<link rel="stylesheet" type="text/css" href="<?= $root ?>/backoffice/templates/yui_autocomplete.css" />
-<script type="text/javascript" src="<?= $root ?>/yui/build/utilities/utilities.js"></script>
-<script type="text/javascript" src="<?= $root ?>/yui/build/autocomplete/autocomplete.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $root ?>/backoffice/templates/yui_autocomplete.css" />
+<script type="text/javascript" src="<?php echo $root ?>/yui/build/utilities/utilities.js"></script>
+<script type="text/javascript" src="<?php echo $root ?>/yui/build/autocomplete/autocomplete.js"></script>
 <!--CSS file (default YUI Sam Skin) -->
 <link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/autocomplete/assets/skins/sam/autocomplete.css">
 <!-- Dependencies -->
@@ -250,12 +250,12 @@ if (isset($nachricht) && $nachricht != ""){
 
 <div class="yui-skin-sam">
 	<div id="gaestelist" class="autocomplete">
-		<input name="eingabe" id="eingabe" type="text" value="<?= NEUER_MIETER ?>" onClick="clear()" onkeydown="if(event.keyCode==13)getGastID()"/>
+		<input name="eingabe" id="eingabe" type="text" value="<?php echo NEUER_MIETER ?>" onClick="clear()" onkeydown="if(event.keyCode==13)getGastID()"/>
 		<div id="gastSuche" onclick="getName()"></div>
 	</div>
 </div>
 
-<script src="<?=$root?>/backoffice/templates/prototype.js"></script>
+<script src="<?php echo$root?>/backoffice/templates/prototype.js"></script>
 
 <script type="text/javascript">
 YAHOO.example.ACFlatData = new function(){
@@ -278,7 +278,7 @@ YAHOO.example.ACFlatData = new function(){
     // Instantiate one XHR DataSource and define schema as an array:
     //     ["Record Delimiter",
     //     "Field Delimiter"]
-    this.oACDS = new YAHOO.widget.DS_XHR("<?= $root ?>/backoffice/reservierung/mieterInfos/gaesteListHelper", ["\n", "\t"]);
+    this.oACDS = new YAHOO.widget.DS_XHR("<?php echo $root ?>/backoffice/reservierung/mieterInfos/gaesteListHelper", ["\n", "\t"]);
     this.oACDS.responseType = YAHOO.widget.DS_XHR.TYPE_FLAT;
     this.oACDS.maxCacheEntries = 60;
     this.oACDS.queryMatchSubset = true;
@@ -290,7 +290,7 @@ YAHOO.example.ACFlatData = new function(){
     this.oAutoComp.queryDelay = 0;
     this.oAutoComp.autoHighlight = true;
     this.oAutoComp.formatResult = this.fnCustomFormatter;
-    //this.oAutoComp.setHeader("<?= getUebersetzung(" neuer Mieter") ?>");
+    //this.oAutoComp.setHeader("<?php echo getUebersetzung(" neuer Mieter") ?>");
 };
 </script>
 
@@ -319,7 +319,7 @@ YAHOO.example.ACFlatData = new function(){
   	updateInfos(id);
   }
   function updateInfos(gast_id){  
-  	var url="<?= $root ?>/backoffice/reservierung/mieterInfos/gaesteInfosHelper.php";
+  	var url="<?php echo $root ?>/backoffice/reservierung/mieterInfos/gaesteInfosHelper.php";
   	$('gast_id').value = gast_id;
 	new Ajax.Request(
   		url, {method: 'get', 
@@ -442,7 +442,7 @@ YAHOO.example.ACFlatData = new function(){
  	<form action="./index.php" method="post" name="adresseForm" 
 		target="_parent" id="adresseForm" onSubmit="return chkFormular();">   
 		 
-	<input name="gast_id" type="hidden" id="gast_id" value="<?= $mieter_id ?>">
+	<input name="gast_id" type="hidden" id="gast_id" value="<?php echo $mieter_id ?>">
 	<tr> 
 		<td><?php echo(getUebersetzung("Anrede")); ?></td>
 		<td><input name="anrede" type="text" id="anrede" 
@@ -502,20 +502,20 @@ YAHOO.example.ACFlatData = new function(){
 	</tr>  
 	<tr>
 		<td>
-			  <input name="speech" type="hidden" id="sprache" value="<?= $sprache  ?>"/>
+			  <input name="speech" type="hidden" id="sprache" value="<?php echo $sprache  ?>"/>
 			  <input name="anzahlRes" type="hidden" id="anzahlRes" value="0"/>
-	          <input name="table_id" type="hidden" id="table_id" value="<?= $tisch_id ?>"/>
-	          <input name="vonTag" type="hidden" id="vonTag" value="<?= $tag ?>"/>
-	          <input name="bisTag" type="hidden" id="bisTag" value="<?= $tag ?>"/>
-	          <input name="vonMonat" type="hidden" id="vonMonat" value="<?= $monate ?>"/>
-	          <input name="bisMonat" type="hidden" id="bisMonat" value="<?= $monate ?>"/>
-	          <input name="vonJahr" type="hidden" id="vonJahr" value="<?= $jahr ?>"/>
-	          <input name="bisJahr" type="hidden" id="bisJahr" value="<?= $jahr ?>"/>
-	          <input name="vonMinute" type="hidden" id="vonMinute" value="<?= $vonMinute ?>"/>
-	          <input name="bisMinute" type="hidden" id="bisMinute" value="<?= $bisMinute ?>"/>
-	          <input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>"/>
-	          <input name="vonStunde" type="hidden" id="vonStunde" value="<?= $vonStunde ?>"/>
-	          <input name="raum_id" type="hidden" id="raumid" value="<?= $raum_id  ?>"/>
+	          <input name="table_id" type="hidden" id="table_id" value="<?php echo $tisch_id ?>"/>
+	          <input name="vonTag" type="hidden" id="vonTag" value="<?php echo $tag ?>"/>
+	          <input name="bisTag" type="hidden" id="bisTag" value="<?php echo $tag ?>"/>
+	          <input name="vonMonat" type="hidden" id="vonMonat" value="<?php echo $monate ?>"/>
+	          <input name="bisMonat" type="hidden" id="bisMonat" value="<?php echo $monate ?>"/>
+	          <input name="vonJahr" type="hidden" id="vonJahr" value="<?php echo $jahr ?>"/>
+	          <input name="bisJahr" type="hidden" id="bisJahr" value="<?php echo $jahr ?>"/>
+	          <input name="vonMinute" type="hidden" id="vonMinute" value="<?php echo $vonMinute ?>"/>
+	          <input name="bisMinute" type="hidden" id="bisMinute" value="<?php echo $bisMinute ?>"/>
+	          <input name="bisStunde" type="hidden" id="bisStunde" value="<?php echo $bisStunde ?>"/>
+	          <input name="vonStunde" type="hidden" id="vonStunde" value="<?php echo $vonStunde ?>"/>
+	          <input name="raum_id" type="hidden" id="raumid" value="<?php echo $raum_id  ?>"/>
 			  <input name="doAddRes" type="hidden" value="true" />
 	          <input name="send" type="submit" class="button" id="send" value="<?php echo(getUebersetzung("speichern")); ?>">	          
 		</td>

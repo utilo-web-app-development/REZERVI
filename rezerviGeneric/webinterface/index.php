@@ -14,7 +14,7 @@
 <head>
 <title>Wartungsseite Reservierungsplan UTILO.eu Belegungsplan und Kundendatenbank Rezervi Generic</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link href="<?= $root ?>/templates/stylesheets.css" rel="stylesheet" type="text/css">
+<link href="<?php echo $root ?>/templates/stylesheets.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <table width="95%" height="90%" border="0" align="center" cellpadding="0" cellspacing="3" class="table">
@@ -25,7 +25,7 @@
           webinterface of 'Rezervi Generic'
            <a href="http://www.UTILO.eu/" target="_blank" class="ueberschrift">&copy; UTILO.eu</a>
         </td>
-        <td><a href="http://www.UTILO.eu" target="_blank"><img src="<?= $root ?>/webinterface/utilologo200px.gif" border="0"></a></td>
+        <td><a href="http://www.UTILO.eu" target="_blank"><img src="<?php echo $root ?>/webinterface/utilologo200px.gif" border="0"></a></td>
         <td class="ueberschrift">Willkommen auf der Wartungsseite 
           von
           'Rezervi Generic' 
@@ -57,7 +57,7 @@
 		Change the password after your first login!<br/>
 		Verwenden sie den Benutzernamen und das Password 'test', 
 		wenn sie sich das erste mal anmelden. Vergessen sie nicht diese Daten danach zu &auml;ndern!</p>
-        <form action="<?= $root ?>/webinterface/inhalt.php" method="post" name="passwortEingabe" target="_self" id="passwortEingabe">
+        <form action="<?php echo $root ?>/webinterface/inhalt.php" method="post" name="passwortEingabe" target="_self" id="passwortEingabe">
               <table width="10" border="0" align="center" cellpadding="0" cellspacing="5" class="table">
                 <tr>
                   <td valign="middle">Username/Benutzername</td>
@@ -101,7 +101,7 @@
   </tr>
   <tr> 
     <td align="center" valign="middle"><font size="1">&copy; UTILO.eu, 
-      2005 - <? $timestamp = time();  
+      2005 - <?php $timestamp = time();  
 			 	$datum = date("Y",$timestamp); 
 				 echo($datum); ?></font></td>
   </tr>

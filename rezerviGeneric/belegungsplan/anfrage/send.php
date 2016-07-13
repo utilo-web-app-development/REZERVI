@@ -166,9 +166,9 @@ if (!empty($anmerkung)){
 
 include_once($root."/templates/bodyStart.inc.php"); 
 ?>
-<table border="0" cellspacing="3" cellpadding="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellspacing="3" cellpadding="0" class="<?php echo TABLE_STANDARD ?>">
   <tr> 
-    <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Danke für Ihre Anfrage!")); ?></span> <p>
+    <td><span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Danke für Ihre Anfrage!")); ?></span> <p>
 	<?php echo(getUebersetzung("Der Vermieter wurde über Ihre Reservierungs-Anfrage verständigt, und wird sich mit Ihnen in Verbindung setzen.")); ?> <br/>
         <?php echo(getUebersetzung("Bitte beachten Sie, dass die Reservierung nur mit Bestätigung des Vermieters gültig ist.")); ?> <br/>
       </p>
@@ -227,23 +227,23 @@ include_once($root."/templates/bodyStart.inc.php");
 <table border="0" cellspacing="3" cellpadding="0">
   <tr>
     <td>
-    	<form action="<?= $root."/start.php" ?>" method="post" name="form1" target="_self">	
-          <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?= $mietobjekt_id ?>"/>
-		  <input name="ansicht" type="hidden" id="ansicht" value="<?= $ansicht ?>"/>          
-          <input name="vonTag" type="hidden" id="vonTag" value="<?= $vonTag ?>"/>
-          <input name="bisTag" type="hidden" id="bisTag" value="<?= $bisTag ?>"/>
-          <input name="vonMonat" type="hidden" id="vonMonat" value="<?= $vonMonat ?>"/>
-          <input name="bisMonat" type="hidden" id="bisMonat" value="<?= $bisMonat ?>"/>
-          <input name="vonJahr" type="hidden" id="vonJahr" value="<?= $vonJahr ?>"/>
-          <input name="bisJahr" type="hidden" id="bisJahr" value="<?= $bisJahr ?>"/>
-          <input name="vonMinute" type="hidden" id="vonMinute" value="<?= $vonMinute ?>"/>
-          <input name="bisMinute" type="hidden" id="bisMinute" value="<?= $bisMinute ?>"/>
-          <input name="vonStunde" type="hidden" id="vonStunde" value="<?= $vonStunde ?>"/>
-          <input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>"/>
-          <input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>"/>		
+    	<form action="<?php echo $root."/start.php" ?>" method="post" name="form1" target="_self">	
+          <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo $mietobjekt_id ?>"/>
+		  <input name="ansicht" type="hidden" id="ansicht" value="<?php echo $ansicht ?>"/>          
+          <input name="vonTag" type="hidden" id="vonTag" value="<?php echo $vonTag ?>"/>
+          <input name="bisTag" type="hidden" id="bisTag" value="<?php echo $bisTag ?>"/>
+          <input name="vonMonat" type="hidden" id="vonMonat" value="<?php echo $vonMonat ?>"/>
+          <input name="bisMonat" type="hidden" id="bisMonat" value="<?php echo $bisMonat ?>"/>
+          <input name="vonJahr" type="hidden" id="vonJahr" value="<?php echo $vonJahr ?>"/>
+          <input name="bisJahr" type="hidden" id="bisJahr" value="<?php echo $bisJahr ?>"/>
+          <input name="vonMinute" type="hidden" id="vonMinute" value="<?php echo $vonMinute ?>"/>
+          <input name="bisMinute" type="hidden" id="bisMinute" value="<?php echo $bisMinute ?>"/>
+          <input name="vonStunde" type="hidden" id="vonStunde" value="<?php echo $vonStunde ?>"/>
+          <input name="bisStunde" type="hidden" id="bisStunde" value="<?php echo $bisStunde ?>"/>
+          <input name="bisStunde" type="hidden" id="bisStunde" value="<?php echo $bisStunde ?>"/>		
           <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück")); ?>" 
-          		class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-      			onMouseOut="this.className='<?= BUTTON ?>';">
+          		class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+      			onMouseOut="this.className='<?php echo BUTTON ?>';">
         </form>
     </td>
   </tr>

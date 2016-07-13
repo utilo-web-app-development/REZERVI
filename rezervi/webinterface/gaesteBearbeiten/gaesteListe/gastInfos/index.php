@@ -73,7 +73,7 @@ if (!empty($res) && mysql_affected_rows($link)>0){
 			<?php 
   			if (getPropertyValue(PENSION_UEBERNACHTUNG,$unterkunft_id,$link) == "true"){
   			?>
-				<td><?= getUebersetzung("Pension",$sprache,$link) ?></td>
+				<td><?php echo getUebersetzung("Pension",$sprache,$link) ?></td>
 			<?php
   			}
   			?>
@@ -100,7 +100,7 @@ if (!empty($res) && mysql_affected_rows($link)>0){
                 <?php 
 	  			if (getPropertyValue(PENSION_UEBERNACHTUNG,$unterkunft_id,$link) == "true"){
 	  			?>
-					<td><?= $pension ?></td>
+					<td><?php echo $pension ?></td>
 				<?php
 	  			}
 	  			?>
@@ -125,18 +125,18 @@ else {
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
         <input type="submit" name="Submit" class="button200pxA" id="zurueck" onMouseOver="this.className='button200pxB';"
        onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-        <input name="anrede_val" type="hidden" id="anrede_val" value="<? echo($anrede_val); ?>">
-        <input name="vorname_val" type="hidden" id="vorname_val" value="<? echo($vorname_val); ?>">
-        <input name="nachname_val" type="hidden" id="nachname_val" value="<? echo($nachname_val); ?>">
-        <input name="strasse_val" type="hidden" id="strasse_val" value="<? echo($strasse_val); ?>">
-        <input name="ort_val" type="hidden" id="ort_val" value="<? echo($ort_val); ?>">
-        <input name="land_val" type="hidden" id="land_val" value="<? echo($land_val); ?>">
-        <input name="email_val" type="hidden" id="email_val" value="<? echo($email_val); ?>">
-        <input name="tel_val" type="hidden" id="tel_val" value="<? echo($tel_val); ?>">
-        <input name="fax_val" type="hidden" id="anrede_val" value="<? echo($fax_val); ?>">
-        <input name="anmerkung_val" type="hidden" id="anrede_val" value="<? echo($anmerkung_val); ?>">
-		<input name="sprache_val" type="hidden" id="anrede_var" value="<? echo($sprache_val); ?>"> 
-        <input name="plz_val" type="hidden" id="plz_val" value="<? echo($plz_val); ?>">
+        <input name="anrede_val" type="hidden" id="anrede_val" value="<?php echo($anrede_val); ?>">
+        <input name="vorname_val" type="hidden" id="vorname_val" value="<?php echo($vorname_val); ?>">
+        <input name="nachname_val" type="hidden" id="nachname_val" value="<?php echo($nachname_val); ?>">
+        <input name="strasse_val" type="hidden" id="strasse_val" value="<?php echo($strasse_val); ?>">
+        <input name="ort_val" type="hidden" id="ort_val" value="<?php echo($ort_val); ?>">
+        <input name="land_val" type="hidden" id="land_val" value="<?php echo($land_val); ?>">
+        <input name="email_val" type="hidden" id="email_val" value="<?php echo($email_val); ?>">
+        <input name="tel_val" type="hidden" id="tel_val" value="<?php echo($tel_val); ?>">
+        <input name="fax_val" type="hidden" id="anrede_val" value="<?php echo($fax_val); ?>">
+        <input name="anmerkung_val" type="hidden" id="anrede_val" value="<?php echo($anmerkung_val); ?>">
+		<input name="sprache_val" type="hidden" id="anrede_var" value="<?php echo($sprache_val); ?>"> 
+        <input name="plz_val" type="hidden" id="plz_val" value="<?php echo($plz_val); ?>">
 		<input name="index" type="hidden" value="<?php echo($index); ?>"/>
       </form>      
     </td>

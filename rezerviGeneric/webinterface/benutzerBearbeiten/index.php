@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 22.9.05
@@ -11,11 +11,11 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 
 ?>
 <form action="./benutzerAendern.php" method="post" name="benutzerAendern" target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+  <table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
     <tr>
-      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer bearbeiten")); ?>
+      <td><p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer bearbeiten")); ?>
 			<br />        
-        <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie den zu verändernden Benutzer aus")); ?>:</span></p></td>
+        <span class="<?php echo STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie den zu verändernden Benutzer aus")); ?>:</span></p></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
@@ -33,8 +33,8 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td><input name="benutzerAendern" type="submit" id="benutzerAendern" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		   onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer ändern")); ?>"></td>
+      <td><input name="benutzerAendern" type="submit" id="benutzerAendern" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+		   onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer ändern")); ?>"></td>
       <td>&nbsp;</td>
     </tr>
   </table>
@@ -48,10 +48,10 @@ prüfen ob benutzer überhaupt vorhanden sind - sich selbst kann man nicht lösc
 if (getAnzahlVorhandeneBenutzer($vermieter_id) > 1){
 ?>
 <form action="./benutzerLoeschenBestaetigen.php" method="post" name="benutzerLoeschen" target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+  <table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
     <tr>
-      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer löschen")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus")); ?>. 
+      <td><p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer löschen")); ?><br/>
+          <span class="<?php echo STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie den zu löschenden Benutzer aus")); ?>. 
 		  <?php echo(getUebersetzung("Sie können mehrere Benutzer zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Benutzernamen klicken")); ?>.</span></p></td>
       <td>&nbsp;</td>
     </tr>
@@ -76,8 +76,8 @@ if (getAnzahlVorhandeneBenutzer($vermieter_id) > 1){
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td><input name="benutzerLoeschen" type="submit" id="benutzerLoeschen" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer löschen")); ?>"></td>
+      <td><input name="benutzerLoeschen" type="submit" id="benutzerLoeschen" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer löschen")); ?>"></td>
       <td>&nbsp;</td>
     </tr>
   </table>
@@ -86,15 +86,15 @@ if (getAnzahlVorhandeneBenutzer($vermieter_id) > 1){
 } //ende anzahlBenutzer ist ok
 ?>
 <form action="./benutzerAnlegen.php" method="post" name="benutzerAnlegen" target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+  <table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
     <tr>
-      <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer anlegen")); ?></span><br/>
+      <td><span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Benutzer anlegen")); ?></span><br/>
         <?php echo(getUebersetzung("Klicken Sie auf den Button [Benutzer anlegen] um einen neuen Benutzer hinzuzufügen")); ?>.</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td><input name="benutzerAnlegenButton" type="submit" id="benutzerAnlegenButton" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer anlegen")); ?>"></td>
+      <td><input name="benutzerAnlegenButton" type="submit" id="benutzerAnlegenButton" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Benutzer anlegen")); ?>"></td>
       <td>&nbsp;</td>
     </tr>
   </table>

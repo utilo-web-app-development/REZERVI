@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 19.9.05
@@ -48,9 +48,9 @@ include_once($root."/include/vermieterFunctions.inc.php");
 <?php include_once($root."/webinterface/templates/bodyStart.inc.php"); ?>
 
 <form name="form" method="post" action="./aendern.php">
-<table border="0" cellpadding="3" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="3" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
 	<tr>
-		<td colspan="2"><p class="<?= STANDARD_SCHRIFT_BOLD ?>">
+		<td colspan="2"><p class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
 	      <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.")); ?> 
 		  <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden")); ?>!
 		</p>
@@ -73,7 +73,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
 	        ?>
 	    </td>
 	    <td nowrap="nowrap">
-	      <input name="firma_<?= $sprache_id ?>" type="text" value="<?php echo($firma) ?>" size="50">
+	      <input name="firma_<?php echo $sprache_id ?>" type="text" value="<?php echo($firma) ?>" size="50">
 	      <?php if ($standardsprache == $sprache_id){ ?>
 	      	*
 	      <?php } ?>
@@ -149,7 +149,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
 	        ?>
 	    </td>
 	    <td nowrap="nowrap">
-	      <input name="mietobjekt_ez_<?= $sprache_id ?>" type="text" value="<?php echo($mo) ?>" size="50">
+	      <input name="mietobjekt_ez_<?php echo $sprache_id ?>" type="text" value="<?php echo($mo) ?>" size="50">
 	      <?php if ($standardsprache == $sprache_id){ ?>
 	      	*
 	      <?php } ?>
@@ -175,7 +175,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
 	        ?>
 	    </td>
 	    <td nowrap="nowrap">
-	      <input name="mietobjekt_mz_<?= $sprache_id ?>" type="text" value="<?php echo($mo) ?>" size="50">
+	      <input name="mietobjekt_mz_<?php echo $sprache_id ?>" type="text" value="<?php echo($mo) ?>" size="50">
 	      <?php if ($standardsprache == $sprache_id){ ?>
 	      	*
 	      <?php } ?>
@@ -189,8 +189,8 @@ include_once($root."/include/vermieterFunctions.inc.php");
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><input type="submit" name="Submit" class="<?= BUTTON ?>" id="retour" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("ändern")); ?>"></td>
+    <td><input type="submit" name="Submit" class="<?php echo BUTTON ?>" id="retour" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+	 onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("ändern")); ?>"></td>
     <td>&nbsp;</td>
   </tr>
 </table>

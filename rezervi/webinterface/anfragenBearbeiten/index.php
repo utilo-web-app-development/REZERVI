@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -181,7 +181,7 @@ include_once("../../include/uebersetzer.php");
         ){
         ?>
         <tr>
-          <td><span class="standardSchriftBold">Pension: </span><?= getPension($reservierungs_id,$link) ?></td>
+          <td><span class="standardSchriftBold">Pension: </span><?php echo getPension($reservierungs_id,$link) ?></td>
         </tr>	
         <?php
 		}

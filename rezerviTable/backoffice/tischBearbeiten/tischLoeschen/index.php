@@ -43,7 +43,7 @@ if ($anzahlVorhandTische > 0){
 				$raum   =getUebersetzungGastro($raum,$sprache,$gastro_id);
 				$temp = getUebersetzung("Raum").": ".$raum."/".getUebersetzung("Tisch").": ".$ziArt;
 				?>
-				<option value="<?= $d->TISCHNUMMER ?>" <?
+				<option value="<?php echo $d->TISCHNUMMER ?>" <?php
 					if($first){
 						?>
 						selected="selected"
@@ -51,7 +51,7 @@ if ($anzahlVorhandTische > 0){
 						$first = false;
 					}
 					?>
-					><?= $temp ?></option>
+					><?php echo $temp ?></option>
 				<?php
 			  } //ende while
 			 ?>

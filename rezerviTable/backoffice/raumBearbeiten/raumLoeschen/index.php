@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 $ueberschrift = "Raum bearbeiten";
 $unterschrift = "Löschen";
@@ -39,7 +39,7 @@ if ($anzahlVorhandMietobjekte > 0){
 			  while($d = $res->FetchNextObject()) {
 				$ziArt = getUebersetzungGastro($d->BEZEICHNUNG,$sprache,$gastro_id);
 				?>
-				<option value="<?= $d->RAUM_ID ?>" <?
+				<option value="<?php echo $d->RAUM_ID ?>" <?php
 					if($first){
 						?>
 						selected="selected"
@@ -47,7 +47,7 @@ if ($anzahlVorhandMietobjekte > 0){
 						$first = false;
 					}
 					?>
-					><?= $ziArt ?></option>
+					><?php echo $ziArt ?></option>
 				<?php
 			  } //ende while
 			 ?>

@@ -36,11 +36,11 @@ include_once($root."/include/sucheFunctions.inc.php");
 						$bisTag, $bisMonat, $bisJahr, $bisMinute, $bisStunde); 
 	if (count($freieMo) <= 0){ 
 		$fehler = true;
-		$nachricht = getUebersetzung("Leider konnte innerhalb des gewählten Zeitraumes kein")." ";
+		$nachricht = getUebersetzung("Leider konnte innerhalb des gewï¿½hlten Zeitraumes kein")." ";
 		$mietobjekt_einzahl = getMietobjekt_EZ($gastro_id);
 		$nachricht.= getUebersetzungGastro($mietobjekt_einzahl,$sprache,$gastro_id)." ";
 		$nachricht.= getUebersetzung("gefunden werden.<br/>");
-		$nachricht.= getUebersetzung("Bitte wiederholen sie ihre Suche mit veränderten Suchparametern");
+		$nachricht.= getUebersetzung("Bitte wiederholen sie ihre Suche mit verï¿½nderten Suchparametern");
 	}
 
 	if ($fehler){
@@ -50,9 +50,9 @@ include_once($root."/include/sucheFunctions.inc.php");
 
 include_once($root."/templates/bodyStart.inc.php"); 
 ?>
-<table border="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" class="<?php echo TABLE_STANDARD ?>">
   <tr>
-    <td><?= getUebersetzung("Suchanfrage für") ?>:</td>
+    <td><?php echo getUebersetzung("Suchanfrage fï¿½r") ?>:</td>
   </tr>
   <tr>
     <td><?php 
@@ -62,31 +62,31 @@ include_once($root."/templates/bodyStart.inc.php");
 	</td>
   </tr>
   <tr>
-    <td><?= getUebersetzung("von") ?>: <?= $vonTag ?>.<?= $vonMonat ?>.<?= $vonJahr ?> 
-    	<?= $vonStunde ?>:<?= $vonMinute ?> <?= getUebersetzung("Uhr") ?></td>
+    <td><?php echo getUebersetzung("von") ?>: <?php echo $vonTag ?>.<?php echo $vonMonat ?>.<?php echo $vonJahr ?> 
+    	<?php echo $vonStunde ?>:<?php echo $vonMinute ?> <?php echo getUebersetzung("Uhr") ?></td>
   </tr>
   <tr>
-    <td><?= getUebersetzung("bis") ?>: <?= $bisTag ?>.<?= $bisMonat ?>.<?= $bisJahr ?> 
-    	<?= $bisStunde ?>:<?= $bisMinute ?> <?= getUebersetzung("Uhr") ?></td>
+    <td><?php echo getUebersetzung("bis") ?>: <?php echo $bisTag ?>.<?php echo $bisMonat ?>.<?php echo $bisJahr ?> 
+    	<?php echo $bisStunde ?>:<?php echo $bisMinute ?> <?php echo getUebersetzung("Uhr") ?></td>
   </tr>
 </table>
 <br/>
 <form action="../anfrage/index.php" method="post" name="reservierung" target="_self" id="reservierung">
-  <input name="datumVon" type="hidden"  value="<?= $datumVon ?>"/>
-  <input name="datumBis" type="hidden"  value="<?= $datumBis ?>"/>
-  <input name="bisMinute" type="hidden" value="<?= $bisMinute ?>"/>
-  <input name="bisStunde" type="hidden" value="<?= $bisStunde ?>"/>
-  <input name="vonMinute" type="hidden" value="<?= $vonMinute ?>"/>
-  <input name="vonStunde" type="hidden" value="<?= $vonStunde ?>"/>
+  <input name="datumVon" type="hidden"  value="<?php echo $datumVon ?>"/>
+  <input name="datumBis" type="hidden"  value="<?php echo $datumBis ?>"/>
+  <input name="bisMinute" type="hidden" value="<?php echo $bisMinute ?>"/>
+  <input name="bisStunde" type="hidden" value="<?php echo $bisStunde ?>"/>
+  <input name="vonMinute" type="hidden" value="<?php echo $vonMinute ?>"/>
+  <input name="vonStunde" type="hidden" value="<?php echo $vonStunde ?>"/>
   <br/>
-  <table border="0" class="<?= TABLE_STANDARD ?>">
+  <table border="0" class="<?php echo TABLE_STANDARD ?>">
     <tr>
       <td>
-      	<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
+      	<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
       		<?php echo(getUebersetzung("Freie")." "); 
       			  $mietobjekt_mehrzahl = getMietobjekt_MZ($gastro_id);
 	  			  echo(getUebersetzungGastro($mietobjekt_mehrzahl,$sprache,$gastro_id));
-				  echo(" ".getUebersetzung("im gewünschten Zeitraum").":" );
+				  echo(" ".getUebersetzung("im gewï¿½nschten Zeitraum").":" );
 	  		?><br/>
         </span>
 	  </td>
@@ -97,21 +97,21 @@ include_once($root."/templates/bodyStart.inc.php");
 	?>
     <tr>
 	 	<td>
-	 		<input type="radio" name="mietobjekt_id" value="<?= $mietobjekt_id ?>"
+	 		<input type="radio" name="mietobjekt_id" value="<?php echo $mietobjekt_id ?>"
 		      <?php
 		      	if ($zaehle++ == 0){
 		      		echo("checked=\"checked\"");
 		      	}
 		      ?>
-     		 /> <?= getMietobjektBezeichnung($mietobjekt_id) ?>
+     		 /> <?php echo getMietobjektBezeichnung($mietobjekt_id) ?>
 	 	</td>
 	</tr>
     <?php
 	}
 	?>
     <tr>
-      <td><input name="reservierungAbsenden" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		   onMouseOut="this.className='<?= BUTTON ?>';" id="reservierungAbsenden" value="<?php echo(getUebersetzung("Reservierung starten...")); ?>"></td>
+      <td><input name="reservierungAbsenden" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+		   onMouseOut="this.className='<?php echo BUTTON ?>';" id="reservierungAbsenden" value="<?php echo(getUebersetzung("Reservierung starten...")); ?>"></td>
     </tr>
   </table>
 </form>

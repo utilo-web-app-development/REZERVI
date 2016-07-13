@@ -49,29 +49,29 @@
 	$enddatumDP =   $startdatumDP;
  
 ?>
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
 	* Keep this notice intact for use.
 	***********************************************/	
 </script>
-<table border="0" class="<?= TABLE_STANDARD ?>">		  
+<table border="0" class="<?php echo TABLE_STANDARD ?>">		  
   <tr>
     <td>
-        <span class="<?= STANDARD_SCHRIFT_BOLD ?>">
-        	<?= getUebersetzung("Reservierungsanfrage") ?>:</span>
+        <span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+        	<?php echo getUebersetzung("Reservierungsanfrage") ?>:</span>
         <table>
 	        <tr>
 	        	<td colspan = "2">
-	        		<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
-	        			<?= getUebersetzung("von") ?>:
+	        		<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+	        			<?php echo getUebersetzung("von") ?>:
 	          		</span>
 	          	</td>
 	        </tr>
 	        <tr>
 	        	<td colspan = "2">
-					<script>DateInput('datumVon', true, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script>
+					<script>DateInput('datumVon', true, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script>
 	          	</td>
 	        </tr>
 	        <tr>
@@ -90,21 +90,21 @@
 							if ($l<10){$l="0".$l;} ?>
 		            <option value="<?php echo $l ?>"<?php if ($l == $vonMinute) echo(" selected=\"selected\""); ?>><?php echo $l ?></option>
 		            <?php } ?>
-		          </select> <span class="<?= STANDARD_SCHRIFT ?>">
-		          	<?= getUebersetzung("Uhr"); ?></span></td>
+		          </select> <span class="<?php echo STANDARD_SCHRIFT ?>">
+		          	<?php echo getUebersetzung("Uhr"); ?></span></td>
 	        </tr>
         </table>
         <table>
 	        <tr>
 	        	<td colspan = "2">
-	        		<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
+	        		<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
 	        			<?php echo(getUebersetzung("bis")); ?>:
 	          		</span>
 	          	</td>
 	        </tr>
 	        <tr>
 	        	<td colspan = "2">
-					<script>DateInput('datumBis', true, 'DD/MM/YYYY','<?= $enddatumDP  ?>')</script>
+					<script>DateInput('datumBis', true, 'DD/MM/YYYY','<?php echo $enddatumDP  ?>')</script>
 	          	</td>
 	        </tr>
 	        <tr>
@@ -125,8 +125,8 @@
 					?>
 		            <option value="<?php echo $l ?>"<?php if ($l == $bisMinute) echo(" selected=\"selected\""); ?>><?php echo $l ?></option>
 		            <?php } ?>
-		          </select> <span class="<?= STANDARD_SCHRIFT ?>">
-		          	<?= getUebersetzung("Uhr"); ?></span></td>
+		          </select> <span class="<?php echo STANDARD_SCHRIFT ?>">
+		          	<?php echo getUebersetzung("Uhr"); ?></span></td>
 	        </tr>
         </table>
 

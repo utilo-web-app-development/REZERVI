@@ -87,8 +87,8 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 			$res = getGaesteGruppen($gastro_id);
    			while ($d = $res->FetchNextObject()){
    				$temp = $d->GRUPPENBEZEICHNUNG;   ?>
-		    	<option value="<?= $temp ?>" <?php if($gruppenname == $temp) { 
-		    		echo("selected='selected'"); } ?>><?= $temp ?>
+		    	<option value="<?php echo $temp ?>" <?php if($gruppenname == $temp) { 
+		    		echo("selected='selected'"); } ?>><?php echo $temp ?>
 		    	</option>    <?php
 		    }    ?>
 		  </select>  
@@ -96,20 +96,20 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 	</tr>
 	<tr> 
 		<td><?php echo(getUebersetzung("Gruppenname")); ?></td>
-		<td><input name="name" type="text" value="<?= $name ?>" maxlength="20">
+		<td><input name="name" type="text" value="<?php echo $name ?>" maxlength="20">
 	   	</td>
 	</tr>
 	<tr> 
 		<td><?php echo(getUebersetzung("Beschreibung")); ?> </td>
-		<td><textarea name="beschreibung"><?= $beschreibung ?></textarea></td>
+		<td><textarea name="beschreibung"><?php echo $beschreibung ?></textarea></td>
 	</tr>
 	<tr> 
 		<td><?php echo(getUebersetzung("Recht")); ?></td>
 		<td>      	
 		  <select name="status">   <?php 
 		  	foreach ($gaeste_array as $stat){    ?>
-		    	<option value="<?= $stat ?>" <?php if($status == $stat) { 
-		    		echo("selected='selected'"); } ?>><?= $stat ?>
+		    	<option value="<?php echo $stat ?>" <?php if($status == $stat) { 
+		    		echo("selected='selected'"); } ?>><?php echo $stat ?>
 		    	</option>    <?php
 		    }   ?>
 		  </select>  

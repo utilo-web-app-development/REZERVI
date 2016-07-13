@@ -9,10 +9,10 @@ $conn_id = ftp_connect($host);
 // Einloggen mit Benutzername und Kennwort
 $login_result = ftp_login($conn_id, $user, $password); 
 
-// Verbindung überprüfen
+// Verbindung ï¿½berprï¿½fen
 if ((!$conn_id) || (!$login_result)) { 
         echo "Ftp-Verbindung nicht hergestellt!";
-        echo "Verbindung mit $host als Benutzer $user nicht möglich"; 
+        echo "Verbindung mit $host als Benutzer $user nicht mï¿½glich"; 
         die; 
     } else {
         echo "Verbunden mit $host als Benutzer $user";
@@ -41,10 +41,10 @@ foreach ($files as $file) {
 ///// Download
 // ftp_get($conn_id, $local_file_path, $remote_file_path, FTP_BINARY); 
 
-///// Löschen einer Datei
+///// Lï¿½schen einer Datei
 // ftp_delete ($conn_id, $remote_file_path); 
 
 
-// Schließen des FTP-Streams
+// Schlieï¿½en des FTP-Streams
 ftp_quit($conn_id); 
 ?>

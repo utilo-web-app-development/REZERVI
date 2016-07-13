@@ -1,4 +1,4 @@
-<? session_start(); 
+<?php session_start(); 
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -408,7 +408,7 @@ if ($status != 0) { ?>
 			      <input name="zusatz" type="radio" value="Uebernachtung" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_FRUEHSTUECK,$unterkunft_id,$link) == "true"){
               ?>
@@ -422,7 +422,7 @@ if ($status != 0) { ?>
 			      <input name="zusatz" type="radio" value="Fruehstueck" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_HALB,$unterkunft_id,$link) == "true"){
               ?>
@@ -436,7 +436,7 @@ if ($status != 0) { ?>
 			      <input name="zusatz" type="radio" value="Halbpension" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_VOLL,$unterkunft_id,$link) == "true"){
               ?>                      

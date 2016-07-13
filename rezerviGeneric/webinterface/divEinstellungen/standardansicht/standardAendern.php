@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -84,11 +84,11 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen")); ?>.</p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen")); ?>.</p>
 
-	<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+	<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
 	  <tr>
-		<td><?=  getUebersetzung("Die Standardansicht wurde erfolgreich geändert!"); ?></td>
+		<td><?php echo  getUebersetzung("Die Standardansicht wurde erfolgreich geändert!"); ?></td>
 	  </tr>
 	</table>
 	<br/><br/>

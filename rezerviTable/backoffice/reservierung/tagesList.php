@@ -25,7 +25,7 @@ while($tisch = $tischs->FetchNextObject()) {
 if($vorhanden == "false"){?>
 	<table class="frei">
 		<tr>
-			<td><?= getUebersetzung("Keine Reservierungen an diesem Tag vorhanden") ?>.</td>
+			<td><?php echo getUebersetzung("Keine Reservierungen an diesem Tag vorhanden") ?>.</td>
 		</tr>
 	</table><?php
 }

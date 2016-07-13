@@ -605,7 +605,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 					  ?>
 					  <img src="<?php echo($pfad); ?>"/>&nbsp;
 					  
-					  	<?= $description ?>
+					  	<?php echo $description ?>
 					  
 					  <?php
 					}

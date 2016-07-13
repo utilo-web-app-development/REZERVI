@@ -24,7 +24,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 			?>
 				<table border="0" cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-						<td class="<?php echo(parseStatus($status[0])); ?>" align="right" width="50%"><? echo $i; ?></td>
+						<td class="<?php echo(parseStatus($status[0])); ?>" align="right" width="50%"><?php echo $i; ?></td>
 						<td class="<?php echo(parseStatus($status[1])); ?>" align="right" width="50%">&nbsp;</td>
 					</tr>
 				</table>
@@ -35,7 +35,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 			?>
 				<table border="0" cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-						<td class="<?php echo("samstagBelegt"); ?>" align="right" width="50%"><? echo $i; ?></td>
+						<td class="<?php echo("samstagBelegt"); ?>" align="right" width="50%"><?php echo $i; ?></td>
 						<td class="<?php echo("samstagBelegt"); ?>" align="right" width="50%">&nbsp;</td>
 					</tr>
 				</table>
@@ -76,7 +76,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
 							<td class="samstagBelegt" align="right" width="50%">&nbsp;</td>
-							<td class="samstagFrei" align="right" width="50%"><? echo $i; ?></td>
+							<td class="samstagFrei" align="right" width="50%"><?php echo $i; ?></td>
 						</tr>
 					</table>
 				<?php
@@ -87,7 +87,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
 							<td class="<?php echo(parseStatus($status[0])); ?>" align="right" width="50%">&nbsp;</td>
-							<td class="frei" align="right" width="50%"><? echo $i; ?></td>
+							<td class="frei" align="right" width="50%"><?php echo $i; ?></td>
 						</tr>
 					</table>
 				<?php
@@ -125,7 +125,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					?>
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr>
-								<td class="samstagFrei" align="right" width="50%"><? echo $i; ?></td>
+								<td class="samstagFrei" align="right" width="50%"><?php echo $i; ?></td>
 								<td class="samstagBelegt" align="right" width="50%">&nbsp;</td>
 							</tr>
 						</table>
@@ -135,7 +135,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 					?>
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr>
-								<td class="frei" align="right" width="50%"><? echo $i; ?></td>
+								<td class="frei" align="right" width="50%"><?php echo $i; ?></td>
 								<td class="<?php echo(parseStatus($status[0])); ?>" align="right" width="50%">&nbsp;</td>
 							</tr>
 						</table>

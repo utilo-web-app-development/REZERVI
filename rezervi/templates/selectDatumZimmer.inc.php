@@ -55,8 +55,8 @@
 					<select name="monat" class="form-control" id="monat" onchange="zimmerNrFormJahrChanged()">
               <?php
 			for ($i=1; $i<=12; $i++) { ?>
-              <option value="<? echo($i); ?>" <? if ($i == parseMonthNumber(getTodayMonth())) echo("selected"); ?>><? echo(getUebersetzung(parseMonthName($i),$sprache,$link)); ?></option>
-              <? } ?>
+              <option value="<?php echo($i); ?>" <?php if ($i == parseMonthNumber(getTodayMonth())) echo("selected"); ?>><?php echo(getUebersetzung(parseMonthName($i),$sprache,$link)); ?></option>
+              <?php } ?>
             </select>
 				</div>
 			</div>		
@@ -66,8 +66,8 @@
             <select name="monat" class="tableColor" id="monat" onchange="zimmerNrFormJahrChanged()">
               <?php
 			for ($i=1; $i<=12; $i++) { ?>
-              <option value="<? echo($i); ?>" <? if ($i == parseMonthNumber(getTodayMonth())) echo("selected"); ?>><? echo(getUebersetzung(parseMonthName($i),$sprache,$link)); ?></option>
-              <? } ?>
+              <option value="<?php echo($i); ?>" <?php if ($i == parseMonthNumber(getTodayMonth())) echo("selected"); ?>><?php echo(getUebersetzung(parseMonthName($i),$sprache,$link)); ?></option>
+              <?php } ?>
             </select>
           </div></td>
       </tr> -->
@@ -90,16 +90,16 @@
           </h4></label>
 				<div class="col-sm-11">
 					<select name="zimmer_id" class="form-control" id="zimmer_id" onchange="zimmerNrFormJahrChanged()">
-              <?
+              <?php
 				$res = getZimmer($unterkunft_id,$link);
  				while($d = mysql_fetch_array($res)) { ?>
-              <option <? if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> 
-              	value="<? echo $d["PK_ID"] ?>">
+              <option <?php if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> 
+              	value="<?php echo $d["PK_ID"] ?>">
               <?php
 			  		$temp = $d["Zimmernr"]; 
 			  		echo(getUebersetzungUnterkunft($temp,$sprache,$unterkunft_id,$link)); ?>
               </option>
-              <? } ?>
+              <?php } ?>
             </select>
 				</div>
 			</div>		
@@ -108,16 +108,16 @@
         <td>
         	<div align="right">
             <select name="zimmer_id" class="tableColor" id="zimmer_id" onchange="zimmerNrFormJahrChanged()">
-              <?
+              <?php
 				$res = getZimmer($unterkunft_id,$link);
  				while($d = mysql_fetch_array($res)) { ?>
-              <option <? if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> 
-              	value="<? echo $d["PK_ID"] ?>">
+              <option <?php if ($zimmer_id == $d["PK_ID"]) {echo("selected");} ?> 
+              	value="<?php echo $d["PK_ID"] ?>">
               <?php
 			  		$temp = $d["Zimmernr"]; 
 			  		echo(getUebersetzungUnterkunft($temp,$sprache,$unterkunft_id,$link)); ?>
               </option>
-              <? } ?>
+              <?php } ?>
             </select>
           </div>
         </td>

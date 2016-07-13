@@ -33,11 +33,11 @@
 		?>
 			<table border="0" cellspacing="0" cellpadding="0" width="100%">
 				<tr>
-					<td class="<?= parseStatus($status[0],$isSamstag) ?>" 
+					<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" 
 						align="right" width="50%">
-							<?= $i ?>
+							<?php echo $i ?>
 					</td>
-					<td class="<?= parseStatus($status[1],$isSamstag) ?>" 
+					<td class="<?php echo parseStatus($status[1],$isSamstag) ?>" 
 						align="right" width="50%">&nbsp;
 					</td>
 				</tr>
@@ -76,8 +76,8 @@
 			?>		
 				<table border="0" cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-						<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
-						<td class="<?= parseStatus(0,$isSamstag) ?>" align="right" width="50%"><? echo $i; ?></td>
+						<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+						<td class="<?php echo parseStatus(0,$isSamstag) ?>" align="right" width="50%"><?php echo $i; ?></td>
 					</tr>
 				</table>
 			<?php
@@ -115,8 +115,8 @@
 					?>
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr>
-								<td class="<?= parseStatus(0,$isSamstag) ?>" align="right" width="50%"><? echo $i; ?></td>
-								<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+								<td class="<?php echo parseStatus(0,$isSamstag) ?>" align="right" width="50%"><?php echo $i; ?></td>
+								<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
 							</tr>
 						</table>
 					<?php
@@ -153,7 +153,7 @@
 	if ($firstDay == "Mon"){	
 	?><table width="100%" border="0" class="tableColor">
         <tr> 
-          <td colspan="7" class="standardSchriftBold"><? echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
+          <td colspan="7" class="standardSchriftBold"><?php echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
         </tr>
         <tr> 
           <td class="tableColor"><?php echo($MO); ?></td>
@@ -165,29 +165,29 @@
           <td class="tableColor"><?php echo($SO); ?></td>
         </tr>
         <tr> 
-		<? for ($i=1; $i<=7; $i++){ ?>
-          <td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		<? } ?>          
+		<?php for ($i=1; $i<=7; $i++){ ?>
+          <td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		<?php } ?>          
         </tr>
         <tr> 
-        <? for ($i=8; $i<=14; $i++){ ?>
-          <td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		<? } ?> 
+        <?php for ($i=8; $i<=14; $i++){ ?>
+          <td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		<?php } ?> 
         </tr>
         <tr> 
-        <? for ($i=15; $i<=21; $i++){ ?>
-          <td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		<? } ?> 
+        <?php for ($i=15; $i<=21; $i++){ ?>
+          <td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		<?php } ?> 
         </tr>
         <tr> 
-        <? for ($i=22; $i<=28; $i++){ ?>
-          <td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		<? } ?> 
+        <?php for ($i=22; $i<=28; $i++){ ?>
+          <td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		<?php } ?> 
         </tr>
         <tr>
-          <td class="<? if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
@@ -209,7 +209,7 @@
 	elseif ($firstDay == "Tue"){	
 	?><table width="100%" border="0" class="tableColor">
         <tr> 
-          <td colspan="7" class="standardSchriftBold"><? echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
+          <td colspan="7" class="standardSchriftBold"><?php echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
         </tr>
         <tr> 
           <td class="tableColor"><?php echo($MO); ?></td>
@@ -222,30 +222,30 @@
         </tr>
         <tr> 
           <td class="tableColor">&nbsp;</td>
-          <? for ($i=1; $i<=6; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=1; $i<=6; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=7; $i<=13; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=7; $i<=13; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=14; $i<=20; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=14; $i<=20; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=21; $i<=27; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=21; $i<=27; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr>
-          <td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-          <td class="<? if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+          <td class="<?php if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
@@ -266,7 +266,7 @@
 	elseif ($firstDay == "Wed"){	
 	?><table width="100%" border="0" class="tableColor">
         <tr> 
-          <td colspan="7" class="standardSchriftBold"><? echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
+          <td colspan="7" class="standardSchriftBold"><?php echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
         </tr>
         <tr> 
           <td class="tableColor"><?php echo($MO); ?></td>
@@ -280,32 +280,32 @@
         <tr> 
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
-          <? for ($i=1; $i<=5; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=1; $i<=5; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=6; $i<=12; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=6; $i<=12; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=13; $i<=19; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=13; $i<=19; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=20; $i<=26; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=20; $i<=26; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr>
-          <? for ($i=27; $i<=28; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>          
-          <td class="<? if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <?php for ($i=27; $i<=28; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>          
+          <td class="<?php if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
         </tr>
@@ -325,7 +325,7 @@
 	elseif ($firstDay == "Thu"){	
 	?><table width="100%" border="0" class="tableColor">
         <tr> 
-          <td colspan="7" class="standardSchriftBold"><? echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
+          <td colspan="7" class="standardSchriftBold"><?php echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
         </tr>
         <tr> 
           <td class="tableColor"><?php echo($MO); ?></td>
@@ -340,32 +340,32 @@
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
 		  <td class="tableColor">&nbsp;</td>
-          <? for ($i=1; $i<=4; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=1; $i<=4; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=5; $i<=11; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=5; $i<=11; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=12; $i<=18; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=12; $i<=18; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=19; $i<=25; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=19; $i<=25; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr>
-          <? for ($i=26; $i<=28; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>          
-          <td class="<? if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <?php for ($i=26; $i<=28; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>          
+          <td class="<?php if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
           <td class="tableColor">&nbsp;</td>          
         </tr>
 		<tr>
@@ -384,7 +384,7 @@
 	elseif ($firstDay == "Fri"){	
 	?><table width="100%" border="0" class="tableColor">
         <tr> 
-          <td colspan="7" class="standardSchriftBold"><? echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
+          <td colspan="7" class="standardSchriftBold"><?php echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
         </tr>
         <tr> 
           <td class="tableColor"><?php echo($MO); ?></td>
@@ -400,32 +400,32 @@
           <td class="tableColor">&nbsp;</td>
 		  <td class="tableColor">&nbsp;</td>
 		  <td class="tableColor">&nbsp;</td>
-          <? for ($i=1; $i<=3; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=1; $i<=3; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=4; $i<=10; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=4; $i<=10; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=11; $i<=17; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=11; $i<=17; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=18; $i<=24; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=18; $i<=24; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr>
-          <? for ($i=25; $i<=28; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>          
-          <td class="<? if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <?php for ($i=25; $i<=28; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>          
+          <td class="<?php if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
          </tr>
 		 <tr>
           <td class="tableColor">&nbsp;</td>
@@ -443,7 +443,7 @@
 	elseif ($firstDay == "Sat"){	
 	?><table width="100%" border="0" class="tableColor">
         <tr> 
-          <td colspan="7" class="standardSchriftBold"><? echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
+          <td colspan="7" class="standardSchriftBold"><?php echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
         </tr>
         <tr> 
           <td class="tableColor"><?php echo($MO); ?></td>
@@ -460,34 +460,34 @@
 		  <td class="tableColor">&nbsp;</td>
 		  <td class="tableColor">&nbsp;</td>
 		  <td class="tableColor">&nbsp;</td>
-          <? for ($i=1; $i<=2; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=1; $i<=2; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=3; $i<=9; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=3; $i<=9; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=10; $i<=16; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=10; $i<=16; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=17; $i<=23; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=17; $i<=23; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr>
-          <? for ($i=24; $i<=28; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>          
-          <td class="<? if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <?php for ($i=24; $i<=28; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>          
+          <td class="<?php if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
          </tr>
 		 <tr>
-          <td class="<? if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
@@ -502,7 +502,7 @@
 	elseif ($firstDay == "Sun"){	
 	?><table width="100%" border="0" class="tableColor">
         <tr> 
-          <td colspan="7" class="standardSchriftBold"><? echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
+          <td colspan="7" class="standardSchriftBold"><?php echo((getUebersetzung(parseMonthName($month),$sprache,$link))." ".($year)); ?></td>
         </tr>
        <tr> 
           <td class="tableColor"><?php echo($MO); ?></td>
@@ -520,32 +520,32 @@
 		  <td class="tableColor">&nbsp;</td>
 		  <td class="tableColor">&nbsp;</td>
 		  <td class="tableColor">&nbsp;</td>          
-          <td class="<? echo(getStatusString($zimmer_id,1,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,1,$month,$year,$saAktiviert,$link); ?></td>
+          <td class="<?php echo(getStatusString($zimmer_id,1,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,1,$month,$year,$saAktiviert,$link); ?></td>
         </tr>
         <tr> 
-          <? for ($i=2; $i<=8; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=2; $i<=8; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=9; $i<=15; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=9; $i<=15; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr> 
-          <? for ($i=16; $i<=22; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>
+          <?php for ($i=16; $i<=22; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>
         </tr>
         <tr>
-          <? for ($i=23; $i<=28; $i++){ ?>
-          	<td class="<? echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
-		  <? } ?>          
-          <td class="<? if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <?php for ($i=23; $i<=28; $i++){ ?>
+          	<td class="<?php echo(getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link)); ?>"><?php printRes($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>
+		  <?php } ?>          
+          <td class="<?php if ($anzahlTage >= 29) {echo(getStatusString($zimmer_id,29,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 29) {printRes($zimmer_id,29,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
          </tr>
 		 <tr>
-		  <td class="<? if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
-          <td class="<? if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+		  <td class="<?php if ($anzahlTage >= 30) {echo(getStatusString($zimmer_id,30,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 30) {printRes($zimmer_id,30,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
+          <td class="<?php if ($anzahlTage >= 31) {echo(getStatusString($zimmer_id,31,$month,$year,$saAktiviert,$link)); } else {echo"tableColor";} ?>"><?php if ($anzahlTage >= 31) {printRes($zimmer_id,31,$month,$year,$saAktiviert,$link);} else {echo("&nbsp;");} ?></td>
 		  <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>
           <td class="tableColor">&nbsp;</td>

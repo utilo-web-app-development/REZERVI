@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 $ueberschrift = "Raum bearbeiten";
 
@@ -22,7 +22,7 @@ if (!empty($bild)){
 	$fileExtension = getFileExtension($mimeType);
 	
 	if (!($fileExtension == ".png" || $fileExtension == ".gif" || $fileExtension == ".jpg")){
-		$nachricht = "Sie können nur .png, .gif oder .jpg hochladen. Sie versuchten ".$fileExtension." hochzuladen.";
+		$nachricht = "Sie kï¿½nnen nur .png, .gif oder .jpg hochladen. Sie versuchten ".$fileExtension." hochzuladen.";
 		$nachricht = getUebersetzung($nachricht);
 		$fehler = true;
 		include_once("./raumAendern.php");

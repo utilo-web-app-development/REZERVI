@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Anfragen bearbeiten";
 $unterschrift = "GastInfo";

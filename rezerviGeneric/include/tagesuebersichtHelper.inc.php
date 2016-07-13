@@ -16,7 +16,7 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 		$ansicht = TAGESANSICHT;
 		
 		?>
-			<table border="0" width="100%" cellspacing="1" cellpadding="0" class="<?= TABLE_COLOR ?>">
+			<table border="0" width="100%" cellspacing="1" cellpadding="0" class="<?php echo TABLE_COLOR ?>">
 			<?php 
 	
 				$status = getStatus($mietobjekt_id,0,0,$day,$month,$year,59,23,$day,$month,$year);
@@ -28,17 +28,17 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 				}
 				$mieter_id = -1;
 				?>
-					<tr class="<?= TABLE_COLOR ?>"> 
+					<tr class="<?php echo TABLE_COLOR ?>"> 
 						<!-- wochentag anzeigen -->
-						<td class="<?= TABLE_COLOR ?>" valign="middle">
-							<?= getUebersetzung(getDayName($day,$month,$year)) ?>
+						<td class="<?php echo TABLE_COLOR ?>" valign="middle">
+							<?php echo getUebersetzung(getDayName($day,$month,$year)) ?>
 				 		</td>
 						<!-- datum anzeigen -->
-						<td class="<?= TABLE_COLOR ?>" valign="middle">
+						<td class="<?php echo TABLE_COLOR ?>" valign="middle">
 							<?php echo($day.".");echo($month.".");echo($year); ?>
 						</td>	
 						<!-- grafische reservierung anzeigen -->
-						<td class="<?= TABLE_COLOR ?>">
+						<td class="<?php echo TABLE_COLOR ?>">
 							<?php
 								//wie viele reservierungen sind an diesem tag?
 								$resIds = getReservierungIDs($mietobjekt_id,0,0,$day,$month,$year,59,23,$day,$month,$year);
@@ -46,11 +46,11 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 							?>					
 						  <table cellpadding="0" cellspacing="0" border="0">
 						    <tr>
-						    	<td width="5" class="<?= FREI ?>">&nbsp;</td>
+						    	<td width="5" class="<?php echo FREI ?>">&nbsp;</td>
 							    <?php 
 							    	for ($l=0;$l<$anzahlRes;$l++){
 							    ?>
-							      <td width="5" class="<?= BELEGT ?>">&nbsp;</td>
+							      <td width="5" class="<?php echo BELEGT ?>">&nbsp;</td>
 							    <?php
 							    	}
 							    ?>
@@ -63,7 +63,7 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 			<?php 
 			if ($anzahlRes > 0) {
 			?>
-					<table cellpadding="3" cellspacing="0" border="0" class="<?= TABLE ?>">
+					<table cellpadding="3" cellspacing="0" border="0" class="<?php echo TABLE ?>">
 						<?php
 						while ($d=mysql_fetch_array($resIds)){
 							$reservierungs_id = $d["RESERVIERUNG_ID"];
@@ -75,11 +75,11 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 							$timeBis = getTimeBisOfReservierung($reservierungs_id);
 						?>
 						<form action="./mieterInfos/index.php" method="post" name="form<?php echo($day); ?>" target="_self">
-						<input type="hidden" name="mietobjekt_id" value="<?= $mietobjekt_id ?>" />
-						<input type="hidden" name="monat" value="<?= $month ?>" />
-						<input type="hidden" name="jahr" value="<?= $year ?>" />
-						<input type="hidden" name="tag" value="<?= $day ?>" />
-						<input type="hidden" name="ansicht" value="<?= $ansicht ?>" />
+						<input type="hidden" name="mietobjekt_id" value="<?php echo $mietobjekt_id ?>" />
+						<input type="hidden" name="monat" value="<?php echo $month ?>" />
+						<input type="hidden" name="jahr" value="<?php echo $year ?>" />
+						<input type="hidden" name="tag" value="<?php echo $day ?>" />
+						<input type="hidden" name="ansicht" value="<?php echo $ansicht ?>" />
 						<tr>
 							<?php
 							if ($modus == MODUS_WEBINTERFACE){
@@ -101,7 +101,7 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 							else if ($modus == MODUS_BELEGUNGSPLAN){
 							?>
 								<td>
-									<?= getUebersetzung("reserviert") ?>
+									<?php echo getUebersetzung("reserviert") ?>
 								</td>
 							<?php
 							}
@@ -120,7 +120,7 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 									}	
 									else{
 										?>
-										00:00 - 24:00 <?= getUebersetzung("Uhr") ?>
+										00:00 - 24:00 <?php echo getUebersetzung("Uhr") ?>
 										<?php
 									}								
 								}
@@ -134,9 +134,9 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 								//button für mieter infos  ausgeben:
 								if ($mieter_id != ANONYMER_MIETER_ID && $modus == MODUS_WEBINTERFACE){
 								?>
-								<input type="submit" name="Submit" class="<?= BUTTON ?>" 
-									onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			   						onMouseOut="this.className='<?= BUTTON ?>';" 
+								<input type="submit" name="Submit" class="<?php echo BUTTON ?>" 
+									onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+			   						onMouseOut="this.className='<?php echo BUTTON ?>';" 
 			   						value="<?php echo(getUebersetzung("Mieter-Info")); ?>"/>
 		   						<?php
 								}
@@ -152,9 +152,9 @@ function showDay($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 					} // ende anzahl res < 0
 					else{
 						?>
-						<table cellpadding="3" class="<?= TABLE_COLOR ?>">
+						<table cellpadding="3" class="<?php echo TABLE_COLOR ?>">
 							<tr>
-								<td><?= getUebersetzung("Keine Reservierung an diesem Tag vorhanden") ?>.</td>
+								<td><?php echo getUebersetzung("Keine Reservierung an diesem Tag vorhanden") ?>.</td>
 							</tr>
 						</table>
 						<?php

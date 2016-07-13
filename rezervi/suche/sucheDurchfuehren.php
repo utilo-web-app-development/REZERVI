@@ -223,7 +223,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
       		</td>
   		</tr>
 	</table>
-	<?
+	<?php
 	}
 	else{
 ?>
@@ -588,7 +588,7 @@ if ($freieZimmer[0] == -1 || $freieZimmer[0] == -2 || $freieZimmer[0] == -3){
 		<form action="../right.php" method="post" name="belegungsplanAnzeigen" target="_self">
 		<?php } 
 		?>
-          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
+          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
           <input name="monat" type="hidden" value="<?php echo($vonMonat); ?>">
   		  <input name="jahr" type="hidden" value="<?php echo($vonJahr); ?>">
           <input type="submit" name="Submit" class="btn btn-default"  value="<?php echo(getUebersetzung("Belegungsplan anzeigen",$sprache,$link)); ?>">

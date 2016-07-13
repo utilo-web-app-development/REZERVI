@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 $ueberschrift = "Raum bearbeiten";
 $unterschrift = "Ändern";
@@ -69,7 +69,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 	      	}
 	      ?>
 	      </td>
-	   <td><input name="bezeichnung_<?= $sprache_id ?>" type="text" value="<?= $bez ?>" maxlength="255">
+	   <td><input name="bezeichnung_<?php echo $sprache_id ?>" type="text" value="<?php echo $bez ?>" maxlength="255">
 	   	  <?php if ($standardsprache == $sprache_id){ ?>
 	      	*
 	      <?php } ?>
@@ -99,7 +99,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 	      <?php
 	      	}
 	      ?></td>
-	      <td><textarea name="beschreibung_<?= $sprache_id ?>"><?= $bes ?></textarea></td>
+	      <td><textarea name="beschreibung_<?php echo $sprache_id ?>"><?php echo $bes ?></textarea></td>
 	    </tr>
 	<?php
     }
@@ -115,13 +115,13 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
       		$width_pic = getBildBreite($bilder_id);
       		$height_pic= getBildHoehe($bilder_id);
       	?>
-      	<img src="<?= $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
-      		width="<?= $width_pic/$height_pic*200 ?>" 
-      		height="<?= 200 ?>"/>
+      	<img src="<?php echo $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
+      		width="<?php echo $width_pic/$height_pic*200 ?>" 
+      		height="<?php echo 200 ?>"/>
       </td>
     </tr>
     <tr>
-    	<td><?= getUebersetzung("Bild des Raumes") ?></td>
+    	<td><?php echo getUebersetzung("Bild des Raumes") ?></td>
     	<td><input name="bild" type="file"/></td>
     </tr>
     <tr> 

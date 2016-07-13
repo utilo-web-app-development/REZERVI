@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -413,14 +413,14 @@ include_once($root."/include/sessionFunctions.inc.php");
 			$wert = getAttributValue($att_id,$zimmer_id);
 			?>
 			<tr> 
-		      <td><?= $bezeichnung ?> 
+		      <td><?php echo $bezeichnung ?> 
 		      <?php if (!empty($beschreibung)){ ?>
-		      	(<?= $beschreibung ?>)</td>
+		      	(<?php echo $beschreibung ?>)</td>
 		      <?php } ?>
 		      <td>
-		      	<input name="attWert_<?= $att_id ?>" type="text" 
-		      		   id="attWert_<?= $att_id ?>"
-		      		   value="<?= $wert ?>" />
+		      	<input name="attWert_<?php echo $att_id ?>" type="text" 
+		      		   id="attWert_<?php echo $att_id ?>"
+		      		   value="<?php echo $wert ?>" />
 		      </td>
 		    </tr>
 			<?php

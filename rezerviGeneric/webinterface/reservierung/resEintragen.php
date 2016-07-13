@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 3.11.05
@@ -141,7 +141,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	insertReservation($mietobjekt_id,$mieter_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr,$status);
 
 ?>
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
   <tr>
     <td>
       <?php echo(getUebersetzung("Die Reservierung wurde erfolgreich geändert")); ?>!
@@ -153,17 +153,17 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
   <table border="0" cellspacing="3" cellpadding="0">
     <tr>
       <td>
-        <input type="hidden" name="ansicht" value="<?= $ansicht ?>"/>
-        <input name="monat" type="hidden" id="monat" value="<?= $vonMonat ?>"> 
-        <input name="jahr" type="hidden" id="jahr" value="<?= $vonJahr ?>">
-        <input name="tag" type="hidden" id="tag" value="<?= $vonTag ?>">
+        <input type="hidden" name="ansicht" value="<?php echo $ansicht ?>"/>
+        <input name="monat" type="hidden" id="monat" value="<?php echo $vonMonat ?>"> 
+        <input name="jahr" type="hidden" id="jahr" value="<?php echo $vonJahr ?>">
+        <input name="tag" type="hidden" id="tag" value="<?php echo $vonTag ?>">
 		<input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo($mietobjekt_id); ?>">
-	    <input name="vonMinute" type="hidden" id="vonMinute" value="<?= $vonMinute ?>">
-        <input name="bisMinute" type="hidden" id="bisMinute" value="<?= $bisMinute ?>">
-        <input name="bisStunde" type="hidden" id="bisStunde" value="<?= $bisStunde ?>">
-        <input name="vonStunde" type="hidden" id="vonStunde" value="<?= $vonStunde ?>"> 
-        <input type="submit" name="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>"> </td>
+	    <input name="vonMinute" type="hidden" id="vonMinute" value="<?php echo $vonMinute ?>">
+        <input name="bisMinute" type="hidden" id="bisMinute" value="<?php echo $bisMinute ?>">
+        <input name="bisStunde" type="hidden" id="bisStunde" value="<?php echo $bisStunde ?>">
+        <input name="vonStunde" type="hidden" id="vonStunde" value="<?php echo $vonStunde ?>"> 
+        <input type="submit" name="Submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>"> </td>
     </tr>
   </table>
   <p>&nbsp; </p>

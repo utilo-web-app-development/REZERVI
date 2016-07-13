@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -18,10 +18,10 @@ if ($standardansicht == false || $standardansicht == ""){
 
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("ändern der angezeigten Ansichten")); ?>.</p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("ändern der angezeigten Ansichten")); ?>.</p>
 
 <br/>
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <form action="./standardAendern.php" method="post" target="_self">
   <tr>
     <td colspan="3"><?php echo(getUebersetzung("Wählen sie die Ansichten, die in ihrem Belegungsplan verfügbar sein sollen")); ?>:</td>

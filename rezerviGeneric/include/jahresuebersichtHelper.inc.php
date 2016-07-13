@@ -9,23 +9,23 @@ function showYear($month,$year,$vermieter_id,$mietobjekt_id){
 	global $root;
 	include_once($root."/include/datumFunctions.inc.php");
 ?>
-		<table border="0" cellspacing="0" cellpadding="0" class="<?= TABLE_COLOR ?>">
+		<table border="0" cellspacing="0" cellpadding="0" class="<?php echo TABLE_COLOR ?>">
 		<?php
 		for ($month = 1; $month <= 12; $month++){
 		?>
 		  <tr>
-			<td><?= getUebersetzung(parseMonthName($month)) ?></td>
+			<td><?php echo getUebersetzung(parseMonthName($month)) ?></td>
 			<?php 
 			for ($i=1; $i<=getNumberOfDaysOfMonth($month,$year); $i++){ 
 				$fullDayBooked = isFullDayBooked($mietobjekt_id,$i,$month,$year);
 				$fullDayFree   = isFullDayFree($mietobjekt_id,$i,$month,$year);
 			?>
 			<td <?php if ($fullDayBooked === true){?> 
-						class="<?= BELEGT ?>"<?php 
+						class="<?php echo BELEGT ?>"<?php 
 					} 
 					else if ($fullDayFree === true){
 					?>
-						class="<?= FREI ?>"
+						class="<?php echo FREI ?>"
 					<?php
 					} ?>>
 						<?php
@@ -58,8 +58,8 @@ function showYear($month,$year,$vermieter_id,$mietobjekt_id){
 						?>					
 						  <table cellpadding="0" cellspacing="0" border="0">
 						    <tr>
-						    	<td  class="<?= FREI ?>">&nbsp;</td>
-							    <td  class="<?= BELEGT ?>"><?= $i ?></td>
+						    	<td  class="<?php echo FREI ?>">&nbsp;</td>
+							    <td  class="<?php echo BELEGT ?>"><?php echo $i ?></td>
 						    </tr>
 						  </table>
 						<?php
@@ -68,19 +68,19 @@ function showYear($month,$year,$vermieter_id,$mietobjekt_id){
 						?>
 						  <table cellpadding="0" cellspacing="0" border="0">
 						    <tr>
-						    	<td  class="<?= BELEGT ?>"><?= $i ?></td>
-						    	<td  class="<?= FREI ?>">&nbsp;</td>
+						    	<td  class="<?php echo BELEGT ?>"><?php echo $i ?></td>
+						    	<td  class="<?php echo FREI ?>">&nbsp;</td>
 						    </tr>
 						  </table>				  
-						<?
+						<?php
 						}
 						else{
 						?>
 						  <table cellpadding="0" cellspacing="0" border="0">
 						    <tr>
-						    	<td  class="<?= FREI ?>">&nbsp;</td>
-						    	<td  class="<?= BELEGT ?>"><?= $i ?></td>
-						    	<td  class="<?= FREI ?>">&nbsp;</td>
+						    	<td  class="<?php echo FREI ?>">&nbsp;</td>
+						    	<td  class="<?php echo BELEGT ?>"><?php echo $i ?></td>
+						    	<td  class="<?php echo FREI ?>">&nbsp;</td>
 						    </tr>
 						  </table>	
 						<?php

@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Anfragen bearbeiten";
 $unterschrift = "Löschen";
@@ -67,27 +67,27 @@ $mieter_id = getMieterIdFromReservierung($reservierungs_id);
 	if ($mieterEntfernen == "true" && !hasMieterReservations($mieter_id)){
 		deleteMieter($mieter_id);	
 		?>
-		<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+		<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
 		  <tr>
 		    <td><?php echo(getUebersetzung("Die Reservierungsanfrage und der Gast wurde aus der Datenbank entfernt")); ?>.</td>
 		  </tr>
 		</table>
 		<br/>
-		<?
+		<?php
 	}
 	else if ($mieterEntfernen == "true" && hasMieterReservations($mieter_id)){
 		$mieterEntfernen = "false";
 	?>
 		<table  border="0" cellpadding="0" cellspacing="3">
 		  <tr>
-		    <td><span class="<?= parseStatus($status)?>"><?php echo(getUebersetzung("Die Reservierungsanfrage wurde gelöscht, der Gast kann nicht entfernt werden, es sind weitere Reservierungen für diesen Gast eingetragen")); ?>!</span></td>
+		    <td><span class="<?php echo parseStatus($status)?>"><?php echo(getUebersetzung("Die Reservierungsanfrage wurde gelöscht, der Gast kann nicht entfernt werden, es sind weitere Reservierungen für diesen Gast eingetragen")); ?>!</span></td>
 		  </tr>
 		</table>
     <?php
 	} 			
 	?>
 
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <tr>
     <td>
     	<p class="frei">
@@ -101,9 +101,9 @@ $mieter_id = getMieterIdFromReservierung($reservierungs_id);
       	<form action="./bestaetigungSenden.php" method="post" name="bestaetigungSenden" target="_self">
 	        <input name="an" type="hidden" value="<?php echo($an); ?>">
 	        <input name="von" type="hidden" value="<?php echo($von); ?>">
-	        <input name="mieter_id" type="hidden" value="<?= $mieter_id ?>">
-	        <input name="mieter_deleted" type="hidden" value="<?= $mieterEntfernen ?>">
-	        <table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+	        <input name="mieter_id" type="hidden" value="<?php echo $mieter_id ?>">
+	        <input name="mieter_deleted" type="hidden" value="<?php echo $mieterEntfernen ?>">
+	        <table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 	          <tr valign="top">
 	            <td><?php echo(getUebersetzung("Betreff")); ?></td>
 	            <td><input name="subject" type="text"  id="subject_de" value="<?php echo($subject); ?>" size="50"></td>

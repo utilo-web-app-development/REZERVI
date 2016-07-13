@@ -48,7 +48,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
   <div class="panel-body">
   	
 <h1>
-	<?= getUebersetzung("Weitere Attribute für Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link) ?>.
+	<?php echo getUebersetzung("Weitere Attribute für Zimmer/Appartement/Wohnung/etc. bearbeiten",$sprache,$link) ?>.
 </h1>
 </br>
 
@@ -59,7 +59,7 @@ if (isset($nachricht) && $nachricht != ""){
 	
 	<?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
 			else {echo("class=\"belegt\"");} ?>>
-				<?= $nachricht ?>
+				<?php echo $nachricht ?>
 		
 	
 	<br/>
@@ -72,10 +72,10 @@ if (isset($nachricht) && $nachricht != ""){
 <table border="0" cellpadding="0" cellspacing="3" class="table">
 	<tr>
 		<td>
-			<?= getUebersetzung("Bezeichnung",$sprache,$link) ?>
+			<?php echo getUebersetzung("Bezeichnung",$sprache,$link) ?>
 		</td>
 		<td>
-			<?= getUebersetzung("Beschreibung",$sprache,$link) ?>
+			<?php echo getUebersetzung("Beschreibung",$sprache,$link) ?>
 		</td>
 		<td>
 		</td>
@@ -91,14 +91,14 @@ if (isset($nachricht) && $nachricht != ""){
 ?>
 		<tr>
 			<td>				
-				<input type="text" name="bezeichnung_<?= $att_id ?>" value="<?= $bezeichnung ?>">
+				<input type="text" name="bezeichnung_<?php echo $att_id ?>" value="<?php echo $bezeichnung ?>">
 			</td>
 			<td>				
-				<input type="text" name="beschreibung_<?= $att_id ?>" value="<?= $beschreibung ?>">
+				<input type="text" name="beschreibung_<?php echo $att_id ?>" value="<?php echo $beschreibung ?>">
 			</td>
 			<td>
 			    <input 
-      				name="loeschen_<?= $att_id ?>" type="submit" id="loeschen_<?= $att_id ?>" 
+      				name="loeschen_<?php echo $att_id ?>" type="submit" id="loeschen_<?php echo $att_id ?>" 
       				class="btn btn-danger"value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" /> <!-- onMouseOver="this.className='button200pxB';"
        				onMouseOut="this.className='button200pxA';" --> 
        				
@@ -122,14 +122,14 @@ if (isset($nachricht) && $nachricht != ""){
 		</td>
 	</tr>
 </table>
-<input type="hidden" name="att_id" value="<?= $att_id ?>" />
+<input type="hidden" name="att_id" value="<?php echo $att_id ?>" />
 <h4>
-	<?= getUebersetzung("Attribute anzeigen",$sprache,$link) ?>:
+	<?php echo getUebersetzung("Attribute anzeigen",$sprache,$link) ?>:
 </h4>
 <table border="0" cellpadding="0" cellspacing="3" class="table">
 	<tr>
 		<td>
-			<?= getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
+			<?php echo getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
 		</td>
 		<td>
 			<input type="checkbox" name="showInGesamtuebersicht" value="true"

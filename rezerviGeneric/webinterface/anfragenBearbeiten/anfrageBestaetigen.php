@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 7.10.05
@@ -20,7 +20,7 @@ $vonDatum = getDatumVonOfReservierung($reservierungs_id);
 $bisDatum = getDatumBisOfReservierung($reservierungs_id);
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Reservierungsanfrage bestätigen")); ?></p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Reservierungsanfrage bestätigen")); ?></p>
 <?php
 
 	//belegung eintragen:
@@ -44,22 +44,22 @@ $bisDatum = getDatumBisOfReservierung($reservierungs_id);
 	}
 		
 ?>
-<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <tr>
-    <td><p class="<?= FREI ?>"><?php echo(getUebersetzung("Die Reservierungsanfrage")); ?>
+    <td><p class="<?php echo FREI ?>"><?php echo(getUebersetzung("Die Reservierungsanfrage")); ?>
         <?php echo(getMieterVorname($mieter_id)." ".getNachnameOfMieter($mieter_id)); ?>
         <br/>
         <?php echo(getUebersetzung("von")); ?> <?php echo($vonDatum); ?><br/>
         <?php echo(getUebersetzung("bis")); ?> <?php echo($bisDatum); ?><br/>
-        <?php echo(getUebersetzung("wurde erfolgreich als")); ?> <span class="<?= BELEGT ?>">&quot;
+        <?php echo(getUebersetzung("wurde erfolgreich als")); ?> <span class="<?php echo BELEGT ?>">&quot;
         <?php echo(getUebersetzung("belegt")); ?>&quot;</span> <?php echo(getUebersetzung("in den Belegungsplan aufgenommen")); ?>.</p>
       <?php if ($antwort == "true"){ ?>
       <p><?php echo(getUebersetzung("Die folgende Mitteilung wird per E-Mail an Ihren Mieter gesendet. Sie haben hier die Möglichkeiten noch Korrekturen vorzunehmen")); ?>:</p>
 	<form action="./bestaetigungSenden.php" method="post" name="bestaetigungSenden" target="_self">
 	<input name="an" type="hidden" value="<?php echo($an); ?>">
 	<input name="von" type="hidden" value="<?php echo($von); ?>">
-	<input name="mieter_id" type="hidden" value="<?= $mieter_id ?>">	
-	<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+	<input name="mieter_id" type="hidden" value="<?php echo $mieter_id ?>">	
+	<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 		  <tr valign="top">
 			<td><?php echo(getUebersetzung("Betreff")); ?></td>
 			<td><input name="subject" type="text"  id="subject_de" value="<?php echo($subject); ?>" size="50"></td>

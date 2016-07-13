@@ -13,12 +13,12 @@ include_once($root."/include/uebersetzer.inc.php");
 <div id="container">
 	<div id="header">
 		<div id="topimage">
-			<img src="<?=$root ?>/backoffice/pic/new_Alpstein.jpg" alt="UTILO. Ihr Vorteil hat einen Namen."/>
+			<img src="<?php echo$root ?>/backoffice/pic/new_Alpstein.jpg" alt="UTILO. Ihr Vorteil hat einen Namen."/>
 			<div id="headertext">REZERVI TABLE</div>
 		</div>
 		<div id="logo">
 			<a href="http://www.utilo.eu/">
-				<img src="<?=$root ?>/backoffice/pic/new_Logo_Alpstein.jpg" alt="UTILO. Ihr Vorteil hat einen Namen."/>
+				<img src="<?php echo$root ?>/backoffice/pic/new_Logo_Alpstein.jpg" alt="UTILO. Ihr Vorteil hat einen Namen."/>
 			</a>
 		</div>
 		<div id="navigation">
@@ -44,14 +44,14 @@ include_once($root."/include/uebersetzer.inc.php");
 						<td>
 							<ul id="mainlevel-nav"> <?php		
 								if ($benutzerrechte >= 1) { ?>
-								<li><a href="<?=$root ?>/backoffice/abmelden.php" class="mainlevel-nav"><?php echo(getUebersetzung("Abmelden")); ?></a></li>
+								<li><a href="<?php echo$root ?>/backoffice/abmelden.php" class="mainlevel-nav"><?php echo(getUebersetzung("Abmelden")); ?></a></li>
 								<?php }	?>
 							</ul>
 						</td> 
 						<td>
 							<form action="" method="post" name="aendernSprache">
 							<ul id="mainlevel-nav">
-								<li><?= getUebersetzung("Sprache") ?><a class="mainlevel-nav">
+								<li><?php echo getUebersetzung("Sprache") ?><a class="mainlevel-nav">
 									<select name="standardSprache" onchange="javascript:refresh();"><?php
 										$res = getSprachen();
 										while($d = $res->FetchNextObject()){
@@ -80,11 +80,11 @@ include_once($root."/include/uebersetzer.inc.php");
 			include_once($root."/backoffice/templates/menue.inc.php"); ?>
 		</div> <!--left-->
 		<div id="breadcrumps">
-			<?= $breadcrumps ?>
+			<?php echo $breadcrumps ?>
 		</div> <!--breadcrumps-->	
 		<div id="content">		
 			<table width="97%">
-			   <tr><td align="left"><h1><?= getUebersetzung($ueberschrift) ?></h1></td></tr>
+			   <tr><td align="left"><h1><?php echo getUebersetzung($ueberschrift) ?></h1></td></tr>
 			   <tr hight=3><td>&nbsp;</td></tr>
 		   <?php
 		   //einfuegen von Fehlermeldung oder Info

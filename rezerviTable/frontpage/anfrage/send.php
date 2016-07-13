@@ -129,10 +129,10 @@ if (!empty($anmerkung)){
 
 include_once($root."/templates/bodyStart.inc.php"); 
 ?>
-<table border="0" cellspacing="3" cellpadding="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellspacing="3" cellpadding="0" class="<?php echo TABLE_STANDARD ?>">
   <tr> 
     <td>
-    	<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
+    	<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
     		<?php echo(getUebersetzung("Danke für Ihre Reservierungsanfrage!")); ?>
     	</span>
     	<p>
@@ -192,15 +192,15 @@ include_once($root."/templates/bodyStart.inc.php");
 <table border="0" cellspacing="3" cellpadding="0">
   <tr>
     <td>
-    	<form action="<?= $root."/index.php" ?>" method="post" name="form1" target="_self">	          
-          <input name="vonTag" type="hidden" id="vonTag" value="<?= $vonTag ?>"/>
-          <input name="vonMonat" type="hidden" id="vonMonat" value="<?= $vonMonat ?>"/>
-          <input name="vonJahr" type="hidden" id="vonJahr" value="<?= $vonJahr ?>"/>
-          <input name="vonMinute" type="hidden" id="vonMinute" value="<?= $vonMinute ?>"/>
-          <input name="vonStunde" type="hidden" id="vonStunde" value="<?= $vonStunde ?>"/>	
+    	<form action="<?php echo $root."/index.php" ?>" method="post" name="form1" target="_self">	          
+          <input name="vonTag" type="hidden" id="vonTag" value="<?php echo $vonTag ?>"/>
+          <input name="vonMonat" type="hidden" id="vonMonat" value="<?php echo $vonMonat ?>"/>
+          <input name="vonJahr" type="hidden" id="vonJahr" value="<?php echo $vonJahr ?>"/>
+          <input name="vonMinute" type="hidden" id="vonMinute" value="<?php echo $vonMinute ?>"/>
+          <input name="vonStunde" type="hidden" id="vonStunde" value="<?php echo $vonStunde ?>"/>	
           <input type="submit" name="Submit" value="<?php echo(getUebersetzung("zurück")); ?>" 
-          		class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-      			onMouseOut="this.className='<?= BUTTON ?>';">
+          		class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+      			onMouseOut="this.className='<?php echo BUTTON ?>';">
         </form>
     </td>
   </tr>

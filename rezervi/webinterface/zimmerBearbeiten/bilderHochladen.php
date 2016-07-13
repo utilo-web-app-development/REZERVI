@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -119,14 +119,14 @@ include_once($root."/include/sessionFunctions.inc.php");
 		<td>
 			<span class="standardSchrift">
 				<?php echo(getUebersetzung("Beschreibung",$sprache,$link)); ?>&nbsp;
-				<?= getUebersetzung($s['Bezeichnung'],$sprache,$link) ?>
+				<?php echo getUebersetzung($s['Bezeichnung'],$sprache,$link) ?>
 				<?php if ($s['Sprache_ID'] == $standardsprache) { ?> 
 					*
 				<?php } ?>
 			</span>
 		</td>
 		<td>
-			<textarea name="beschreibung_<?= $s['Sprache_ID'] ?>" cols="50" rows="3"></textarea>
+			<textarea name="beschreibung_<?php echo $s['Sprache_ID'] ?>" cols="50" rows="3"></textarea>
 		</td>
 	</tr>
 	<?php

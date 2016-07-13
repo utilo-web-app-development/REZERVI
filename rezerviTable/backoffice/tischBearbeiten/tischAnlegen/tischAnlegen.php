@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Tisch bearbeiten";
 $unterschrift = "Anlegen";
@@ -72,7 +72,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 	      	}
 	      ?>
 	      </td>
-	   <td><input name="bezeichnung_<?= $sprache_id ?>" type="text" value="" maxlength="255">
+	   <td><input name="bezeichnung_<?php echo $sprache_id ?>" type="text" value="" maxlength="255">
 	   	  <?php if ($standardsprache == $sprache_id){ ?>
 	      	*
 	      <?php } ?>
@@ -105,7 +105,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 	      <?php
 	      	}
 	      ?></td>
-	      <td><textarea name="beschreibung_<?= $sprache_id ?>"><?= $beschreibung ?></textarea></td>
+	      <td><textarea name="beschreibung_<?php echo $sprache_id ?>"><?php echo $beschreibung ?></textarea></td>
 	    </tr>
 	<?php
     }
@@ -116,7 +116,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 		  <select name="minimaleBelegung">
 		    <?php for ($i = 1; $i<=100; $i++){
 		    ?>
-		    	<option value="<?= $i ?>" <?php if($i == $minimaleBelegung) { echo("selected='selected'"); } ?>><?= $i ?></option>
+		    	<option value="<?php echo $i ?>" <?php if($i == $minimaleBelegung) { echo("selected='selected'"); } ?>><?php echo $i ?></option>
 		    <?php
 		    }
 		    ?>
@@ -129,7 +129,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 		  <select name="maximaleBelegung">
 		    <?php for ($i = 1; $i<=100; $i++){
 		    ?>
-		    	<option value="<?= $i ?>" <?php if($i == $maximaleBelegung) { echo("selected='selected'"); } ?>><?= $i ?></option>
+		    	<option value="<?php echo $i ?>" <?php if($i == $maximaleBelegung) { echo("selected='selected'"); } ?>><?php echo $i ?></option>
 		    <?php
 		    }
 		    ?>
@@ -141,8 +141,8 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
       <td>      	
 		  <select name="status">   <?php 
 		  	foreach ($status_array as $stat){    ?>
-		    	<option value="<?= $stat ?>" <?php if($status == $stat) { 
-		    		echo("selected='selected'"); } ?>><?= $stat ?>
+		    	<option value="<?php echo $stat ?>" <?php if($status == $stat) { 
+		    		echo("selected='selected'"); } ?>><?php echo $stat ?>
 		    	</option>    <?php
 		    }   ?>
 		  </select>  
@@ -156,8 +156,8 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 			$res = getGruppen($gastro_id);
    			while ($d = $res->FetchNextObject()){
    				$name = $d->GRUPPENBEZEICHNUNG;   ?>
-		    	<option value="<?= $name ?>" <?php if($gruppenname == $name) { 
-		    		echo("selected='selected'"); } ?>><?= $name ?>
+		    	<option value="<?php echo $name ?>" <?php if($gruppenname == $name) { 
+		    		echo("selected='selected'"); } ?>><?php echo $name ?>
 		    	</option>    <?php
 		    }    ?>
 		  </select>  
@@ -176,22 +176,22 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
       		$width_pic = getBildBreite($bild_id);
       		$height_pic= getBildHoehe($bild_id);
       	?>
-      	<img src="<?= $root."/templates/picture.php?bilder_id=".$bild_id ?>" 
-      		width="<?= $width_pic/$height_pic*200 ?>" 
-      		height="<?= 200 ?>"/>
+      	<img src="<?php echo $root."/templates/picture.php?bilder_id=".$bild_id ?>" 
+      		width="<?php echo $width_pic/$height_pic*200 ?>" 
+      		height="<?php echo 200 ?>"/>
       </td>
     </tr>
     <?php
     } 	   
     <tr>
-    	<td><?= getUebersetzung("Bild des Tisches") ?></td>
+    	<td><?php echo getUebersetzung("Bild des Tisches") ?></td>
 	    <td><input name="bild" type="file"/></td>
     </tr>  
  */ 
 	?> 
      <tr> 
       <td colspan="2">
-      	<input type="hidden" name="raum_id" value="<?= $raum_id ?>"/>
+      	<input type="hidden" name="raum_id" value="<?php echo $raum_id ?>"/>
   		<input name="Submit" type="submit" id="Submit" class="button" value="<?php echo(getUebersetzung("Speichern")); ?>"></td>
     </tr>
 	</form> 

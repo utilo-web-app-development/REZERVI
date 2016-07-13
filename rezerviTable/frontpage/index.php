@@ -146,9 +146,9 @@ include_once($root."/templates/bodyStart.inc.php");
 	<td valign="top">
 	<!-- linke seite - navigation: -->	
 		<!-- begin auswahl datum und uhrzeit -->
-	  	<form action="<?= $root ?>/belegungsplan/anfrage/index.php" method="post" name="resAendern">
-		  <input type="hidden" name="raum_id" value="<?= $raum_id ?>"/>
-		  <table border="0" class="<?= TABLE_STANDARD ?>">	  
+	  	<form action="<?php echo $root ?>/belegungsplan/anfrage/index.php" method="post" name="resAendern">
+		  <input type="hidden" name="raum_id" value="<?php echo $raum_id ?>"/>
+		  <table border="0" class="<?php echo TABLE_STANDARD ?>">	  
 			<?php 
 				include_once($root."/templates/datumVonDatumBis.inc.php"); 
 			 ?>			        
@@ -162,39 +162,39 @@ include_once($root."/templates/bodyStart.inc.php");
 					  	<?php
 							for ($i = $anzahlMinPersonen; $i<$anzahlMaxPersonen; $i++){
 						?>
-							<option value="<?= $i ?>"><?= $i ?></option>
+							<option value="<?php echo $i ?>"><?php echo $i ?></option>
 						<?php
 						} //ende schleife anzahl personen
 						?>
-	   		      	  </select><?= getUebersetzung("Personen") ?>
+	   		      	  </select><?php echo getUebersetzung("Personen") ?>
 		   		  </label>
 				 </td>
 			  </tr>					  
 			  <tr>
 			    <td colspan="2">
-			          <input name="reservierungAendern" type="submit" class="<?= BUTTON ?>" 
-			          	 onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			      		 onMouseOut="this.className='<?= BUTTON ?>';" id="reservierungAbsenden2" 
-			      		 value="<?= getUebersetzung("Tischreservierung starten") ?>"/>			        
+			          <input name="reservierungAendern" type="submit" class="<?php echo BUTTON ?>" 
+			          	 onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+			      		 onMouseOut="this.className='<?php echo BUTTON ?>';" id="reservierungAbsenden2" 
+			      		 value="<?php echo getUebersetzung("Tischreservierung starten") ?>"/>			        
 			     </td>
 			  </tr>
 			</table>
 		  </form>
 		  <!-- end auswahl anzahl der personen -->
 		  <!-- begin Anfrage per Mail --> 
-		  <form action="<?= $root ?>/belegungsplan/anfrage/anfragePerEMail.php" method="post" name="suche">
-			  <table border="0" class="<?= TABLE_STANDARD ?>">
+		  <form action="<?php echo $root ?>/belegungsplan/anfrage/anfragePerEMail.php" method="post" name="suche">
+			  <table border="0" class="<?php echo TABLE_STANDARD ?>">
 			    <tr>
 				    <td>		      
 				        <div align="center">
 				          <input name="suche" type="submit" id="suche" 
 				          	value="<?php echo(getUebersetzung("Anfrage per E-Mail")); ?>" 
-				          	class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-						    onMouseOut="this.className='<?= BUTTON ?>';">
-				          <input name="jahr" type="hidden" id="jahr" value="<?= $jahr ?>"/>
-				          <input name="monat" type="hidden" id="monat" value="<?= $monat ?>"/>	
-				          <input name="tag" type="hidden" id="monat" value="<?= $tag ?>"/>
-				          <input name="raum_id" type="hidden" id="raum_id" value="<?= $raum_id ?>"/>	  
+				          	class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+						    onMouseOut="this.className='<?php echo BUTTON ?>';">
+				          <input name="jahr" type="hidden" id="jahr" value="<?php echo $jahr ?>"/>
+				          <input name="monat" type="hidden" id="monat" value="<?php echo $monat ?>"/>	
+				          <input name="tag" type="hidden" id="monat" value="<?php echo $tag ?>"/>
+				          <input name="raum_id" type="hidden" id="raum_id" value="<?php echo $raum_id ?>"/>	  
 				        </div>		     
 				     </td>
 				  </tr>

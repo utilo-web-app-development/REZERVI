@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 $ueberschrift = "Benutzerdaten bearbeiten";
 $unterschrift = "Ändern";
@@ -33,8 +33,8 @@ include_once($root."/backoffice/templates/bodyStart.inc.php"); ?>
 <h2><?php echo(getUebersetzung("Benutzer ändern")); ?></h2>      	
 <form action="./benutzerAendernDurchfuehren.php" method="post" 
 	name="benutzer" id="benutzer" target="_self">
-  <input name="id" type="hidden" value="<?= $id ?>">
-  <input name="testuser" type="hidden" value="<?= $testuser ?>">  
+  <input name="id" type="hidden" value="<?php echo $id ?>">
+  <input name="testuser" type="hidden" value="<?php echo $testuser ?>">  
   <table border="0" cellpadding="0" cellspacing="3">
     <tr>
       <td colspan="2"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.")); ?> <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden!")); ?></td>

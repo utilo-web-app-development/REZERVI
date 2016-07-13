@@ -10,7 +10,7 @@ $root = "../..";
  
 include_once($root."/backoffice/templates/functions.php"); 
 ?>
-<link href="<?= $root ?>/backoffice/templates/yui_panel.css" rel="stylesheet" type="text/css">
+<link href="<?php echo $root ?>/backoffice/templates/yui_panel.css" rel="stylesheet" type="text/css">
 <p>
 	<?php echo(getUebersetzung("Bitte auf der Positon mit Blue oder Rot drücken")); ?>
 </p>

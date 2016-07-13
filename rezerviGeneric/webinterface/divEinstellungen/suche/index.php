@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -19,12 +19,12 @@ else{
 }
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Einstellungen zur Suche nach Mietobjekten")); ?>.</p>
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Einstellungen zur Suche nach Mietobjekten")); ?>.</p>
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <form action="./aendern.php" method="post" target="_self">
   <tr>
   	<td>
-  		<?= getUebersetzung("Suchfunktion aktivieren") ?>
+  		<?php echo getUebersetzung("Suchfunktion aktivieren") ?>
   	<td>
   	<td>
   		<input type="checkbox" value="true" <?php if ($sucheAktiv) { 

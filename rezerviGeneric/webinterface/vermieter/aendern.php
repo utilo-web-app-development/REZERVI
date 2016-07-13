@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 20.9.05
@@ -123,12 +123,12 @@ while ($d = mysql_fetch_array($res)){
 	include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 
 ?>
-<table  border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
   <tr>
     <td>
       <form action="./index.php" method="post" name="Vermieter aendern" target="_self" id="Vermieter aendern">
-        <input name="retour" type="submit" class="<?= BUTTON ?>" id="retour" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+        <input name="retour" type="submit" class="<?php echo BUTTON ?>" id="retour" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+			 onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
       </form>
     </td>
   </tr>

@@ -37,5 +37,5 @@
 <style type="text/css">
   <?php include_once($root."/templates/stylesheets.php"); ?>
 </style>  
-<link rel="stylesheet" type="text/css" href="<?= $root ?>/templates/rezerviTable.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $root ?>/templates/rezerviTable.css"/>
 </head>

@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Reservierungen bearbeiten";
 
@@ -133,7 +133,7 @@ if (trim($nachname) == "" && $gast_id != ANONYMER_GAST_ID){
 			$nachricht = "Wegen einer eingetragenen Blockierung wurde die Reservierung nicht erfolgreich eingetragen!";
 		}else if(hasReservierung(0, $tisch_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr)){
 			$fehler = true;
-			$nachricht = "Zum gewählten Zeitraum ist andere Reservierung vorhanden!";
+			$nachricht = "Zum gewï¿½hlten Zeitraum ist andere Reservierung vorhanden!";
 		}
 		//reservierung eintragen:	
 		$res = insertReservation1($tisch_id,$gast_id,$anzahlPersonen_default,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,$bisMinute,$bisStunde,$bisTag,$bisMonat,$bisJahr,$status);

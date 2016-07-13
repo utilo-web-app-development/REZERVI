@@ -120,7 +120,7 @@ include_once("../include/uebersetzer.php");
 <!-- webinterface �ffnen -->
 <form action="../webinterface/index.php" method="post" id="formLizenz" name="formLizenz" target="_self" onSubmit="return checkLicence();">
 	<p class="standardSchrift"><?php echo(getUebersetzung("Bitte �ndern sie nun ihre Einstellungen im Webinterface",$sprache,$link)); ?></p>
-	<input name="Submit" type="submit" class="button200pxA" value="<?= getUebersetzung("Webinterface �ffnen",$sprache,$link) ?>">
+	<input name="Submit" type="submit" class="button200pxA" value="<?php echo getUebersetzung("Webinterface �ffnen",$sprache,$link) ?>">
 </form>
 <!-- ende webinterface �ffnen -->
 

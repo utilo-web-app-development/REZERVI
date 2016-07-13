@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Design bearbeiten";
 $unterschrift = "Stile ändern";
@@ -33,7 +33,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= BACKGROUND_COLOR ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo BACKGROUND_COLOR ?>">
     </form></td>
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="resEingebenAendern" type="submit" class="button_nav"
@@ -49,7 +49,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="0">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= STANDARD_SCHRIFT ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo STANDARD_SCHRIFT ?>">
     </form></td>
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="ueberschrift" type="submit" class="button_nav" 
@@ -65,7 +65,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="0">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= UEBERSCHRIFT ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo UEBERSCHRIFT ?>">
     </form></td>
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="markierteSchrift" type="submit" class="button_nav" 
@@ -81,7 +81,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="0">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= STANDARD_SCHRIFT_BOLD ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo STANDARD_SCHRIFT_BOLD ?>">
     </form></td>
     <td><form action="./styles.php" method="post" target="_self">
 	<input name="buttonA" type="submit" class="button_nav" 
@@ -96,7 +96,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="1">
 	   <input name="width" type="hidden" value="1">
-	   <input name="stylesheet" type="hidden" value="<?= BUTTON ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo BUTTON ?>">
     </form></td>
   </tr> 
   <tr valign="middle">
@@ -113,7 +113,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="1">
 	   <input name="width" type="hidden" value="1">
-	   <input name="stylesheet" type="hidden" value="<?= BUTTON_HOVER ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo BUTTON_HOVER ?>">
 	   </form>
     </td>
     <td><form action="./styles.php" method="post" target="_self">
@@ -129,7 +129,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= TABLE_STANDARD ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo TABLE_STANDARD ?>">
 	   </form>
     </td>
     <td><form action="./styles.php" method="post" target="_self">
@@ -145,7 +145,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= TABLE_COLOR ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo TABLE_COLOR ?>">
 	   </form>
     </td>
     <td><form action="./styles.php" method="post" target="_self">
@@ -161,7 +161,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= BELEGT ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo BELEGT ?>">
 	   </form>
     </td>
     <td><form action="./styles.php" method="post" target="_self">
@@ -177,7 +177,7 @@ include_once("./stylesHelper.php");
 	   <input name="background_color" type="hidden" value="1">
 	   <input name="height" type="hidden" value="0">
 	   <input name="width" type="hidden" value="0">
-	   <input name="stylesheet" type="hidden" value="<?= FREI ?>">
+	   <input name="stylesheet" type="hidden" value="<?php echo FREI ?>">
 	   </form>
     </td>
   </tr>

@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -83,7 +83,7 @@ if (isset($nachricht) && $nachricht != ""){
 <br/>
 
   <form action="./ansichtenAendern.inc.php" method="post" target="_self">
-	 	 <h4><?= getUebersetzung("Ansichten anzeigen",$sprache,$link) ?></h4>
+	 	 <h4><?php echo getUebersetzung("Ansichten anzeigen",$sprache,$link) ?></h4>
 
 
   <!-- Monatsübersicht   -->
@@ -92,7 +92,7 @@ if (isset($nachricht) && $nachricht != ""){
 			  if($showMonatsansicht){ echo(" checked=\"checked\""); }
 			?>
 			/>
-			<?= getUebersetzung("Monatsübersicht",$sprache,$link) ?>
+			<?php echo getUebersetzung("Monatsübersicht",$sprache,$link) ?>
 </br>			
       
  <!-- Jahresübersicht -->
@@ -101,7 +101,7 @@ if (isset($nachricht) && $nachricht != ""){
 			  if($showJahresansicht){ echo(" checked=\"checked\""); }
 			?>
 			/>
-			<?= getUebersetzung("Jahresübersicht",$sprache,$link) ?> 
+			<?php echo getUebersetzung("Jahresübersicht",$sprache,$link) ?> 
 </br>
    <!-- Gesammtübersicht -->
         	<input name="showGesamtansicht" type="checkbox" id="showGesamtansicht" value="true" 
@@ -110,7 +110,7 @@ if (isset($nachricht) && $nachricht != ""){
 			?>
 			/>
 		
-			<?= getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
+			<?php echo getUebersetzung("Gesamtübersicht",$sprache,$link) ?>
 </br>
 </br>	         
  	 <?php 

@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 26.9.05
@@ -19,8 +19,8 @@ if ($anzahlVorhandMietobjekte > 0){
 <form action="./mietobjektAendern.php" method="post" name="mietobjektAendern" target="_self">
   <table border="0" cellpadding="0" cellspacing="3">
     <tr>
-      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt bearbeiten")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie das zu verändernde Mietobjekt aus")); ?>:</span></p></td>
+      <td><p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt bearbeiten")); ?><br/>
+          <span class="<?php echo STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie das zu verändernde Mietobjekt aus")); ?>:</span></p></td>
     </tr>
     <tr>
       <td>
@@ -31,7 +31,7 @@ if ($anzahlVorhandMietobjekte > 0){
 			  while($d = mysql_fetch_array($res)) {
 				$ziArt = getUebersetzungVermieter($d["BEZEICHNUNG"],$sprache,$vermieter_id);
 				?>
-				<option value="<?= $d["MIETOBJEKT_ID"] ?>" <?
+				<option value="<?php echo $d["MIETOBJEKT_ID"] ?>" <?php
 					if($first){
 						?>
 						selected="selected"
@@ -39,7 +39,7 @@ if ($anzahlVorhandMietobjekte > 0){
 						$first = false;
 					}
 					?>
-					><?= $ziArt ?></option>
+					><?php echo $ziArt ?></option>
 				<?php
 			  } //ende while
 			 ?>
@@ -47,17 +47,17 @@ if ($anzahlVorhandMietobjekte > 0){
       </td>
     </tr>
     <tr>
-      <td><input name="Submit" type="submit" id="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		   onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt ändern")); ?>"></td>
+      <td><input name="Submit" type="submit" id="Submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+		   onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt ändern")); ?>"></td>
     </tr>
   </table>
 </form>
 
 <form action="./mietobjektLoeschenBestaetigen.php" method="post" name="mietobjektLoeschenBestaetigen" target="_self">
-  <table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+  <table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
     <tr>
-      <td><p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt löschen")); ?><br/>
-          <span class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie die zu löschenden Mietobjekte aus")); ?>. 
+      <td><p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt löschen")); ?><br/>
+          <span class="<?php echo STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("Bitte wählen Sie die zu löschenden Mietobjekte aus")); ?>. 
           <?php echo(getUebersetzung("Sie können mehrere Mietobjekte zugleich auswählen und löschen indem Sie die [STRG]-Taste gedrückt halten und auf die Bezeichnung klicken")); ?>.</span></p></td>
     </tr>
     <tr>
@@ -69,7 +69,7 @@ if ($anzahlVorhandMietobjekte > 0){
 			  while($d = mysql_fetch_array($res)) {
 				$ziArt = getUebersetzungVermieter($d["BEZEICHNUNG"],$sprache,$vermieter_id);
 				?>
-				<option value="<?= $d["MIETOBJEKT_ID"] ?>" <?
+				<option value="<?php echo $d["MIETOBJEKT_ID"] ?>" <?php
 					if($first){
 						?>
 						selected="selected"
@@ -77,7 +77,7 @@ if ($anzahlVorhandMietobjekte > 0){
 						$first = false;
 					}
 					?>
-					><?= $ziArt ?></option>
+					><?php echo $ziArt ?></option>
 				<?php
 			  } //ende while
 			 ?>
@@ -85,8 +85,8 @@ if ($anzahlVorhandMietobjekte > 0){
       </td>
     </tr>
     <tr>
-      <td><input name="Submit2" type="submit" id="Submit2" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt löschen")); ?>"></td>
+      <td><input name="Submit2" type="submit" id="Submit2" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt löschen")); ?>"></td>
     </tr>
   </table>
 </form>
@@ -96,14 +96,14 @@ $anzahlMietobjekte = getAnzahlMietobjekteOfVermieter($vermieter_id);
 if ( $anzahlVorhandMietobjekte < $anzahlMietobjekte ){
 ?>
 	<form action="./mietobjektAnlegen.php" method="post" name="mietobjektAnlegen" target="_self">
-	  <table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+	  <table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 	    <tr>
-	      <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt anlegen")); ?></span><br/>
+	      <td><span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Mietobjekt anlegen")); ?></span><br/>
 	        </td>
 	    </tr>
 	    <tr>
-	      <td><input name="zimmerAnlegenButton" type="submit" id="zimmerAnlegenButton" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt anlegen")); ?>"></td>
+	      <td><input name="zimmerAnlegenButton" type="submit" id="zimmerAnlegenButton" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+	       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Mietobjekt anlegen")); ?>"></td>
 	    </tr>
 	  </table>
 	</form>
@@ -111,15 +111,15 @@ if ( $anzahlVorhandMietobjekte < $anzahlMietobjekte ){
 if ($anzahlVorhandMietobjekte > 0){
 ?>
 	<form action="./bilderHochladen.php" method="post" name="bilder" target="_self" id="bilder">
-		<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+		<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 		    <tr>
-	      		<td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder für Mietobjekt hochladen")); ?></span><br/>
+	      		<td><span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder für Mietobjekt hochladen")); ?></span><br/>
 	        	</td>
 	    	</tr>
 		  	<tr>
 				<td>	
-					<input name="hochladen" type="submit" class="<?= BUTTON ?>" id="hochladen" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-				 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Bilder hochladen")); ?>">
+					<input name="hochladen" type="submit" class="<?php echo BUTTON ?>" id="hochladen" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+				 onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Bilder hochladen")); ?>">
 				</td>
 		    </tr>
 		</table>
@@ -129,15 +129,15 @@ if ($anzahlVorhandMietobjekte > 0){
 	if ($anzahl > 0){
 	?>
 	<form action="./bilderLoeschen.php" method="post" name="bilder" target="_self" id="bilder">
-		<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+		<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 		  <tr>
-	        <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder für Mietobjekt löschen")); ?></span><br/>
+	        <td><span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Bilder für Mietobjekt löschen")); ?></span><br/>
 	        </td>
 	      </tr>
 		  <tr>
 			<td>	
-				<input name="hochladen" type="submit" class="<?= BUTTON ?>" id="hochladen" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			 	onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("Bilder löschen")); ?>">
+				<input name="hochladen" type="submit" class="<?php echo BUTTON ?>" id="hochladen" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+			 	onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("Bilder löschen")); ?>">
 			</td>
 		  </tr>
 		</table>

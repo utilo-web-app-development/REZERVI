@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -62,13 +62,13 @@ if ($standardsprache == false || $standardsprache == ""){
 }
 ?>
 
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("ändern der angezeigten übersetzungen")); ?>.</p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("ändern der angezeigten übersetzungen")); ?>.</p>
 <form action="./uebersetzungAendern.php" method="post" target="_self">
 <input name="changeSprache" type="hidden" value="<?php echo($changeSprache); ?>"/>
-<table  border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <tr>
-	<th><div align="left"><?= getUebersetzung("Standardtext"); ?></div></th>
-	<th><div align="left"><?= getUebersetzung("Uebersetzung in")." ".getBezeichnungOfSpracheID($changeSprache); ?></div></th>
+	<th><div align="left"><?php echo getUebersetzung("Standardtext"); ?></div></th>
+	<th><div align="left"><?php echo getUebersetzung("Uebersetzung in")." ".getBezeichnungOfSpracheID($changeSprache); ?></div></th>
   </tr>
   <?php
   while ($d=mysql_fetch_array($res)){
@@ -86,36 +86,36 @@ if ($standardsprache == false || $standardsprache == ""){
   	$uebersetzungs_ids.=($uebersetzungs_id."#");
   ?>
 	  <tr>
-		<td><?= $standardtext ?></td>
-		<td><textarea name="uebersetzung_id_<?= $uebersetzungs_id ?>"><?= $text ?></textarea></td>
+		<td><?php echo $standardtext ?></td>
+		<td><textarea name="uebersetzung_id_<?php echo $uebersetzungs_id ?>"><?php echo $text ?></textarea></td>
 	  </tr>
   <?php
   }
   ?>
 </table>
-	<?
+	<?php
 		if (($index - LIMIT_UEBERSETZUNGEN) > -1){
 			?>
 			<input name="indexVorherigeSeite" type="hidden" value="<?php echo($index - LIMIT_UEBERSETZUNGEN); ?>"/>
-			<input type="submit" name="vorherige" value="<?php echo(getUebersetzung("speichern und vorherige Seite")); ?>" class="<?= BUTTON ?>" 
-				onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       			onMouseOut="this.className='<?= BUTTON ?>';">
-			<?
+			<input type="submit" name="vorherige" value="<?php echo(getUebersetzung("speichern und vorherige Seite")); ?>" class="<?php echo BUTTON ?>" 
+				onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       			onMouseOut="this.className='<?php echo BUTTON ?>';">
+			<?php
 		}
 		if (($index + LIMIT_UEBERSETZUNGEN) < getAnzahlUebersetzungen($standardsprache)){
 			?>
 			<input name="indexNaechsteSeite" type="hidden" value="<?php echo($index + LIMIT_UEBERSETZUNGEN); ?>"/>
-			<input type="submit" name="naechste" value="<?php echo(getUebersetzung("speichern und nächste Seite")); ?>" class="<?= BUTTON ?>" 
-				onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       			onMouseOut="this.className='<?= BUTTON ?>';">			
-			<?	
+			<input type="submit" name="naechste" value="<?php echo(getUebersetzung("speichern und nächste Seite")); ?>" class="<?php echo BUTTON ?>" 
+				onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       			onMouseOut="this.className='<?php echo BUTTON ?>';">			
+			<?php	
 		}
 	?>
 	<input name="uebersetzungs_ids" type="hidden" value="<?php echo($uebersetzungs_ids); ?>"/>
 	<br/><br/>
-	<input type="submit" name="zurueck" value="<?php echo(getUebersetzung("speichern und zurück")); ?>" class="<?= BUTTON ?>" 
-				onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       			onMouseOut="this.className='<?= BUTTON ?>';">
+	<input type="submit" name="zurueck" value="<?php echo(getUebersetzung("speichern und zurück")); ?>" class="<?php echo BUTTON ?>" 
+				onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       			onMouseOut="this.className='<?php echo BUTTON ?>';">
 </form>
 <?php 
 	  

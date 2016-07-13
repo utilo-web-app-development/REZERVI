@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 23.9.05
@@ -34,9 +34,9 @@ if (DEMO == true){
 }
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 ?>	
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Löschung durchführen")); ?></p>
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Löschung durchführen")); ?></p>
 <form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">	
-<table border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+<table border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
   <tr>
     <td>
 	<?php 		
@@ -57,13 +57,13 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 </table>
 </form>
 <br/>
-<table border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="0" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
   <tr> 
     <td>
     	<form action="./index.php" method="post" name="retour" target="_self" id="retour">
-	        <input name="retour2" type="submit" class="<?= BUTTON ?>" id="retour2" 
-	        	onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		 		onMouseOut="this.className='<?= BUTTON ?>';" 
+	        <input name="retour2" type="submit" class="<?php echo BUTTON ?>" id="retour2" 
+	        	onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+		 		onMouseOut="this.className='<?php echo BUTTON ?>';" 
 		 		value="<?php echo(getUebersetzung("zurück")); ?>">
         </form>
     </td>

@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -43,8 +43,8 @@ $url = str_replace("\\","/",$url);
  }
 
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Anzeigen aller Links zu ihren Mietobjekten")); ?>.</p>
-<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Anzeigen aller Links zu ihren Mietobjekten")); ?>.</p>
+<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <?php
 	while ($d=mysql_fetch_array($res)){
 		$bezeichnung = $d["BEZEICHNUNG"];
@@ -55,13 +55,13 @@ $url = str_replace("\\","/",$url);
 		$mietobjekt_id = $d["MIETOBJEKT_ID"];
   ?>
 	  <tr>
-	  	<td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-	  		<?= $str ?>
+	  	<td class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+	  		<?php echo $str ?>
 	  	<td>
 	  <tr>
 	  <tr>
 	  	<td>
-	  		<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+	  		<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 	  		<?php
 	  		$sprachen = getActivtedSprachenOfVermieter($vermieter_id);
 	  		while ($s = mysql_fetch_array($sprachen)){
@@ -71,10 +71,10 @@ $url = str_replace("\\","/",$url);
 	  		?>
 	  			<tr>
 	  				<td>
-	  					<?= $spr_bezeichnung ?>: 
+	  					<?php echo $spr_bezeichnung ?>: 
 	  				</td>	  			
 	  				<td>
-	  					<?= $url ?>start.php?vermieter_id=<?= $vermieter_id ?>&mietobjekt_id=<?= $mietobjekt_id ?>&sprache=<?= $sprache_id ?>
+	  					<?php echo $url ?>start.php?vermieter_id=<?php echo $vermieter_id ?>&mietobjekt_id=<?php echo $mietobjekt_id ?>&sprache=<?php echo $sprache_id ?>
 	  				</td>
 	  			</tr>
 	  		<?php
@@ -88,13 +88,13 @@ $url = str_replace("\\","/",$url);
 	  if($sucheAktiv){
 	  ?>
 	  <tr>
-	  	<td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-	  		<?= getUebersetzung("Suchfunktion: ") ?>
+	  	<td class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+	  		<?php echo getUebersetzung("Suchfunktion: ") ?>
 	  	<td>
 	  <tr>	
 	  <tr>
 	  	<td>
-	  		<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+	  		<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 	  		<?php
 	  		$sprachen = getActivtedSprachenOfVermieter($vermieter_id);
 	  		while ($s = mysql_fetch_array($sprachen)){
@@ -104,10 +104,10 @@ $url = str_replace("\\","/",$url);
 	  		?>
 	  			<tr>
 	  				<td>
-	  					<?= $spr_bezeichnung ?>: 
+	  					<?php echo $spr_bezeichnung ?>: 
 	  				</td>	  			
 	  				<td>
-	  					<?= $url ?>belegungsplan/suche.php?vermieter_id=<?= $vermieter_id ?>&sprache=<?= $sprache_id ?>
+	  					<?php echo $url ?>belegungsplan/suche.php?vermieter_id=<?php echo $vermieter_id ?>&sprache=<?php echo $sprache_id ?>
 	  				</td>
 	  			</tr>
 	  		<?php
@@ -120,16 +120,16 @@ $url = str_replace("\\","/",$url);
 	  }
 	  ?>
 	  <tr>
-	  	<td class="<?= STANDARD_SCHRIFT_BOLD ?>">
-	  		<?= getUebersetzung("Webinterface: ") ?>
+	  	<td class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+	  		<?php echo getUebersetzung("Webinterface: ") ?>
 	  	<td>
 	  <tr>	
 	  <tr>
 	  	<td>
-	  		<table border="0" cellpadding="0" cellspacing="3" class="<?= TABLE_STANDARD ?>">
+	  		<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 	  			<tr>  			
 	  				<td>
-	  					<?= $url ?>webinterface/index.php
+	  					<?php echo $url ?>webinterface/index.php
 	  				</td>
 	  			</tr>
 	  		</table>

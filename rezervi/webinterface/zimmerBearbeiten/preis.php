@@ -31,7 +31,7 @@ include_once("../templates/headerA.php");
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<script type="text/javascript" src="<?php echo($root); ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>&sprache="<?= $sprache ?>">
+<script type="text/javascript" src="<?php echo($root); ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>&sprache="<?php echo $sprache ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
@@ -61,7 +61,7 @@ if ($sizeRoomSelectBox > 5){
  <div class="panel panel-default">
   <div class="panel-body"> 	
 <h1>
-	<?= getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
+	<?php echo getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
 </h1>
 <?php 
 if (isset($nachricht) && $nachricht != ""){
@@ -70,7 +70,7 @@ if (isset($nachricht) && $nachricht != ""){
 		 
 		 		 <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
 			else {echo("class=\"belegt\"");} ?>>
-				<?= $nachricht ?>			
+				<?php echo $nachricht ?>			
 </div>
 
 <?php 
@@ -80,16 +80,16 @@ if (isset($nachricht) && $nachricht != ""){
 <table border="0" cellpadding="0" cellspacing="3" class="table">
 	<tr>
 		<td>
-			<?= getUebersetzung("gültig von",$sprache,$link) ?>
+			<?php echo getUebersetzung("gültig von",$sprache,$link) ?>
 		</td>
 		<td>
-			<?= getUebersetzung("gültig bis",$sprache,$link) ?>
+			<?php echo getUebersetzung("gültig bis",$sprache,$link) ?>
 		</td>
 		<td>
-			<?= getUebersetzung("Preis",$sprache,$link) ?>
+			<?php echo getUebersetzung("Preis",$sprache,$link) ?>
 		</td>
 		<td>
-			<?= getUebersetzung("Mietobjekt",$sprache,$link) ?>
+			<?php echo getUebersetzung("Mietobjekt",$sprache,$link) ?>
 		</td>		
 		<td>
 		</td>
@@ -125,36 +125,36 @@ if (isset($nachricht) && $nachricht != ""){
 		<tr>
 			<td>				
 				<script>
-					DateInput('valid_from_<?= $preis_id ?>', true, 'DD/MM/YYYY','<?php 
+					DateInput('valid_from_<?php echo $preis_id ?>', true, 'DD/MM/YYYY','<?php 
 						echo($valid_from); 
 					?>')
 				</script>
 			</td>
 			<td>				
 				<script>
-					DateInput('valid_to_<?= $preis_id ?>', true, 'DD/MM/YYYY','<?php 
+					DateInput('valid_to_<?php echo $preis_id ?>', true, 'DD/MM/YYYY','<?php 
 						echo($valid_to); 
 					?>')
 				</script>
 			</td>
 			<td>				
-				<input type="text" name="preis_<?= $preis_id ?>" value="<?= $preis ?>"/>
+				<input type="text" name="preis_<?php echo $preis_id ?>" value="<?php echo $preis ?>"/>
 			</td>
 			<!--
 			<td>				
-				<input type="text" name="standard_<?= $preis_id ?>" value="<?= $beschreibung ?>">
+				<input type="text" name="standard_<?php echo $preis_id ?>" value="<?php echo $beschreibung ?>">
 			</td>
 			-->	
 			<td>				
-			<select name="zimmer_<?= $preis_id ?>[]" size="<?= $sizeRoomSelectBox ?>" 
-				multiple="multiple" id="zimmer_<?= $preis_id ?>">
+			<select name="zimmer_<?php echo $preis_id ?>[]" size="<?php echo $sizeRoomSelectBox ?>" 
+				multiple="multiple" id="zimmer_<?php echo $preis_id ?>">
           	<?php
           	 $res3 = getZimmer($unterkunft_id,$link);			 
 				  while($g = mysql_fetch_array($res3)) {
 					$ziArt = getUebersetzungUnterkunft($g["Zimmerart"],$sprache,$unterkunft_id,$link);
 					$ziNr  = getUebersetzungUnterkunft($g["Zimmernr"],$sprache,$unterkunft_id,$link);
 					?>
-					<option value="<?= $g["PK_ID"] ?>" 
+					<option value="<?php echo $g["PK_ID"] ?>" 
 						<?php
 						$res2 = getZimmerForPrice($preis_id);
 						while($r = mysql_fetch_array($res2)) {
@@ -166,7 +166,7 @@ if (isset($nachricht) && $nachricht != ""){
 					    }
 						?>
 					>
-						<?= $ziArt." ".$ziNr ?>
+						<?php echo $ziArt." ".$ziNr ?>
 					</option>
 					<?php
 				  } //ende while
@@ -175,7 +175,7 @@ if (isset($nachricht) && $nachricht != ""){
 			</td>
 			<td>
 			    <input 
-      				name="loeschen_<?= $preis_id ?>" type="submit" id="loeschen_<?= $preis_id ?>" 
+      				name="loeschen_<?php echo $preis_id ?>" type="submit" id="loeschen_<?php echo $preis_id ?>" 
       				class="button200pxA" onMouseOver="this.className='button200pxB';"
        				onMouseOut="this.className='button200pxA';" 
        				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
@@ -211,7 +211,7 @@ if (isset($nachricht) && $nachricht != ""){
 			<input type="text" name="preis_neu" />
 		</td>
 		<td>				
-		<select name="zimmer_id_neu[]" size="<?= $sizeRoomSelectBox ?>" 
+		<select name="zimmer_id_neu[]" size="<?php echo $sizeRoomSelectBox ?>" 
 			multiple="multiple" id="zimmer_id_neu">
           <?php
 			 $res = getZimmer($unterkunft_id,$link);
@@ -221,7 +221,7 @@ if (isset($nachricht) && $nachricht != ""){
 					$ziArt = getUebersetzungUnterkunft($d["Zimmerart"],$sprache,$unterkunft_id,$link);
 					$ziNr  = getUebersetzungUnterkunft($d["Zimmernr"],$sprache,$unterkunft_id,$link);
 					?>
-					<option value="<?= $d["PK_ID"] ?>"<?php
+					<option value="<?php echo $d["PK_ID"] ?>"<?php
 						if ($i == 0){
 						?>
 							selected="selected"
@@ -230,7 +230,7 @@ if (isset($nachricht) && $nachricht != ""){
 						$i++;
 						?>						
 						>
-						<?= $ziArt." ".$ziNr ?>
+						<?php echo $ziArt." ".$ziNr ?>
 					</option>
 					<?php
 				  } //ende while

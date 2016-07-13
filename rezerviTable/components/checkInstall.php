@@ -20,7 +20,7 @@ if (getNumberOfGastros() < 1){
 		Bookline wurde noch nicht korrekt installiert. <br/>
 		Bitte modifizieren sie die Konfigurationseinstellungen zur Datenbank (/include/rdbmsConfig.inc.php) und
 		führen sie die Installation durch:
-		<a href="<?= $root ?>/install/index.php">Installation starten.</a>
+		<a href="<?php echo $root ?>/install/index.php">Installation starten.</a>
 	</body>
 	</html>
 <?php
@@ -39,7 +39,7 @@ if (getAnzahlVorhandeneRaeume($gastro_id) < 1){
 	<body>
 		Bookline wurde noch nicht richtig konfiguriert. <br/>
 		Rufen sie bitte Ihr Backoffice auf und legen sie ihre Räume und Tische an:
-		<a href="<?= $root ?>/backoffice/index.php">Backoffice starten.</a>
+		<a href="<?php echo $root ?>/backoffice/index.php">Backoffice starten.</a>
 	</body>
 	</html>
 <?php

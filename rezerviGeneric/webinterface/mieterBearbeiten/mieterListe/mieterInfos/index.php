@@ -1,4 +1,4 @@
-<? $root = "../../../..";
+<?php $root = "../../../..";
 
 /*   
 	date: 14.10.05
@@ -23,10 +23,10 @@ if(!hasMieterReservations($mieter_id)){
 include_once($root."/webinterface/templates/bodyStart.inc.php"); 
 if(hasMieterReservations($mieter_id)){
 ?>
-<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen für den Mieter vor")); ?>:
+<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen für den Mieter vor")); ?>:
 </p>
 <table  border="1" cellpadding="0" cellspacing="3">
-  <tr class="<?= TABLE_COLOR ?>">
+  <tr class="<?php echo TABLE_COLOR ?>">
 	<td><?php echo(getUebersetzung("Reservierung von")); ?></td>
 	<td><?php echo(getUebersetzung("bis")); ?></td>
 	<td><?php echo(getUebersetzung("für")); ?></td>
@@ -41,7 +41,7 @@ if(hasMieterReservations($mieter_id)){
 			$datumVon = $d["VON"];
 			$datumBis = $d["BIS"];
 	 ?>
-              <tr class="<?= TABLE_STANDARD ?>">
+              <tr class="<?php echo TABLE_STANDARD ?>">
                 <td><?php echo($datumVon); ?></td>
                 <td><?php echo($datumBis); ?></td>
                 <td><?php echo($bezeichnung); ?></td>
@@ -50,7 +50,7 @@ if(hasMieterReservations($mieter_id)){
 			} //ende while
 		?>
 </table>
-<?
+<?php
 }
 ?>
 <br/>
@@ -58,8 +58,8 @@ if(hasMieterReservations($mieter_id)){
   <tr>
     <td>
       <form action="../index.php" method="post" name="ok" target="_self" id="ok">
-        <input type="submit" name="Submit" class="<?= BUTTON ?>" id="zurueck" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+        <input type="submit" name="Submit" class="<?php echo BUTTON ?>" id="zurueck" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
 		<input name="index" type="hidden" value="<?php echo($index); ?>"/>
       </form>      
     </td>

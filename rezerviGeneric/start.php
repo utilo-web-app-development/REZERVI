@@ -81,7 +81,7 @@ setSessionWert(SPRACHE,$sprache);
 <style type="text/css">
   <?php include_once($root."/templates/stylesheets.php"); ?>
 </style>
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
@@ -217,33 +217,33 @@ include_once($root."/templates/bodyStart.inc.php");
 	<td valign="top">
 	<!-- linke seite - navigation: -->		
 	<form action="./start.php" method="post" name="reservierung">
-		<table border="0" class="<?= TABLE_STANDARD ?>">		
+		<table border="0" class="<?php echo TABLE_STANDARD ?>">		
 		  <tr>
 		    <td>		      
 		        <table border="0" cellspacing="3" cellpadding="0">
 		        	<tr>
 			        	<td colspan="2">
-			        		<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
-			        			<?= getUebersetzung("Ansicht für Datum") ?>:
+			        		<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+			        			<?php echo getUebersetzung("Ansicht für Datum") ?>:
 			          		</span>
 			          	</td>
 			        </tr>
 			        <tr>
 			        	<td colspan="2">
-							<script>DateInput('datumAnsicht', true, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script>
+							<script>DateInput('datumAnsicht', true, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script>
 			          	</td>
 			        </tr>
 		          <tr>
 		            <td colspan="2">
-		            	<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
-		            		<?= getUebersetzungVermieter(getVermieterMietobjektEz($vermieter_id),$sprache,$vermieter_id) ?>:
+		            	<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+		            		<?php echo getUebersetzungVermieter(getVermieterMietobjektEz($vermieter_id),$sprache,$vermieter_id) ?>:
 		            	</span>
 		            </td>
 		          </tr>
 		          <tr>  
 		            <td colspan="2">
 		                <select name="mietobjekt_id"  id="mietobjekt_id" onChange="submit()">
-		                  <?
+		                  <?php
 		  					$res = getMietobjekteOfVermieter($vermieter_id);
 		  					$anzahlMietobjekte = mysql_num_rows($res);
 		  					$hasMietobjekte = true;
@@ -251,8 +251,8 @@ include_once($root."/templates/bodyStart.inc.php");
 		  						$hasMietobjekte = false;
 		  					}
 			 				while($d = mysql_fetch_array($res)) { ?>
-		                  		<option value="<? echo $d["MIETOBJEKT_ID"] ?>"<? if ($mietobjekt_id == $d["MIETOBJEKT_ID"]) {echo(" selected=\"selected\"");} ?>><? echo $d["BEZEICHNUNG"] ?></option>
-		                  <? } ?>
+		                  		<option value="<?php echo $d["MIETOBJEKT_ID"] ?>"<?php if ($mietobjekt_id == $d["MIETOBJEKT_ID"]) {echo(" selected=\"selected\"");} ?>><?php echo $d["BEZEICHNUNG"] ?></option>
+		                  <?php } ?>
 		                </select>
 		            </td>
 		          </tr>
@@ -260,7 +260,7 @@ include_once($root."/templates/bodyStart.inc.php");
 		      </td>
 		  </tr>
 		  <tr>
-		    <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ansicht wählen")); ?>:</span></td>
+		    <td><span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ansicht wählen")); ?>:</span></td>
 		  </tr>
 		  <tr>
 		    <td>
@@ -288,7 +288,7 @@ include_once($root."/templates/bodyStart.inc.php");
 			            }
 			            if ($anzeigen === true){
 			          ?>
-			            <option value="<?= $ans ?>" <?php if ($ansicht == $ans) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung($ans)); ?></option>
+			            <option value="<?php echo $ans ?>" <?php if ($ansicht == $ans) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung($ans)); ?></option>
 			 		  <?php 
 			            }//ende if anzeigen
 		 		  } //ende foreach 
@@ -300,8 +300,8 @@ include_once($root."/templates/bodyStart.inc.php");
 		  <tr>
 		  	<td colspan ="2">
 		  		<input name="ansichtWechseln" type="submit" 
-		  			class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		      		onMouseOut="this.className='<?= BUTTON ?>';" 
+		  			class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+		      		onMouseOut="this.className='<?php echo BUTTON ?>';" 
 		      		id="ansichtWechseln" 
 		      		value="<?php echo(getUebersetzung("anzeigen")); ?>">
 		    </td>
@@ -321,13 +321,13 @@ include_once($root."/templates/bodyStart.inc.php");
 	  if ($sucheAktiv){
 	  ?>
 	  <form action="./belegungsplan/suche/index.php" method="post" name="suche">
-		  <table border="0" class="<?= TABLE_STANDARD ?>">
+		  <table border="0" class="<?php echo TABLE_STANDARD ?>">
 		    <tr>
 			    <td>		      
 			        <input name="keineSprache" type="hidden" value="true">
 			        <div align="center">
-			          <input name="suche" type="submit" id="suche" value="<?= getUebersetzung("Suchformular öffnen") ?>" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-					   onMouseOut="this.className='<?= BUTTON ?>';">  
+			          <input name="suche" type="submit" id="suche" value="<?php echo getUebersetzung("Suchformular öffnen") ?>" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+					   onMouseOut="this.className='<?php echo BUTTON ?>';">  
 			        </div>		     
 			     </td>
 			  </tr>
@@ -340,15 +340,15 @@ include_once($root."/templates/bodyStart.inc.php");
 
 	  <!-- anzeige belegt, frei -->
 	  <form>
-		  <table border="0" class="<?= TABLE_STANDARD ?>">
+		  <table border="0" class="<?php echo TABLE_STANDARD ?>">
 		    <tr>
-			    <td><table width="100%" border="0" class="<?= TABLE_COLOR ?>">
+			    <td><table width="100%" border="0" class="<?php echo TABLE_COLOR ?>">
 			        <tr>
-			          <td width="23" height="23" class="<?= BELEGT ?>">&nbsp;</td>
+			          <td width="23" height="23" class="<?php echo BELEGT ?>">&nbsp;</td>
 			          <td><?php echo(getUebersetzung("belegt")); ?></td>
 			        </tr>
 			        <tr>
-			          <td width="23" height="23" class="<?= FREI ?>">&nbsp;</td>
+			          <td width="23" height="23" class="<?php echo FREI ?>">&nbsp;</td>
 			          <td><?php echo(getUebersetzung("frei")); ?></td>
 			        </tr>
 			      </table></td>
@@ -357,33 +357,33 @@ include_once($root."/templates/bodyStart.inc.php");
 	  </form>
 	  
 	  <!-- ende anzeige belegt, frei -->
-	  <form action="<?= $root ?>/belegungsplan/anfrage/index.php" method="post" name="resAendern">
-		  <input type="hidden" name="ansicht" value="<?= $ansicht ?>"/>
-		  <input type="hidden" name="mietobjekt_id" value="<?= $mietobjekt_id ?>"/>
+	  <form action="<?php echo $root ?>/belegungsplan/anfrage/index.php" method="post" name="resAendern">
+		  <input type="hidden" name="ansicht" value="<?php echo $ansicht ?>"/>
+		  <input type="hidden" name="mietobjekt_id" value="<?php echo $mietobjekt_id ?>"/>
 			<?php include_once($root."/templates/datumVonDatumBis.inc.php"); ?>
 			        <p>
-			          <input name="reservierungAendern" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-			      		 onMouseOut="this.className='<?= BUTTON ?>';" id="reservierungAbsenden2" value="<?php echo(getUebersetzung("Reservierung starten")); ?>">
+			          <input name="reservierungAendern" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+			      		 onMouseOut="this.className='<?php echo BUTTON ?>';" id="reservierungAbsenden2" value="<?php echo(getUebersetzung("Reservierung starten")); ?>">
 			        </p>			        
 			     </td>
 			  </tr>
 			</table>
 		  </form>
 		  <!-- begin Anfrage per Mail --> 
-		  <form action="<?= $root ?>/belegungsplan/anfrage/anfragePerEMail.php" method="post" name="suche">
-			  <table border="0" class="<?= TABLE_STANDARD ?>">
+		  <form action="<?php echo $root ?>/belegungsplan/anfrage/anfragePerEMail.php" method="post" name="suche">
+			  <table border="0" class="<?php echo TABLE_STANDARD ?>">
 			    <tr>
 				    <td>		      
 				        <div align="center">
 				          <input name="suche" type="submit" id="suche" 
 				          	value="<?php echo(getUebersetzung("Anfrage per E-Mail")); ?>" 
-				          	class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-						    onMouseOut="this.className='<?= BUTTON ?>';">
-				          <input name="jahr" type="hidden" id="jahr" value="<?= $jahr ?>"/>
-				          <input name="monat" type="hidden" id="monat" value="<?= $monat ?>"/>	
-				          <input name="tag" type="hidden" id="monat" value="<?= $tag ?>"/>
-				          <input name="ansicht" type="hidden" id="ansicht" value="<?= $ansicht ?>"/>
-				          <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?= $mietobjekt_id ?>"/>	  
+				          	class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+						    onMouseOut="this.className='<?php echo BUTTON ?>';">
+				          <input name="jahr" type="hidden" id="jahr" value="<?php echo $jahr ?>"/>
+				          <input name="monat" type="hidden" id="monat" value="<?php echo $monat ?>"/>	
+				          <input name="tag" type="hidden" id="monat" value="<?php echo $tag ?>"/>
+				          <input name="ansicht" type="hidden" id="ansicht" value="<?php echo $ansicht ?>"/>
+				          <input name="mietobjekt_id" type="hidden" id="mietobjekt_id" value="<?php echo $mietobjekt_id ?>"/>	  
 				        </div>		     
 				     </td>
 				  </tr>
@@ -409,25 +409,25 @@ include_once($root."/templates/bodyStart.inc.php");
 			}
 			else if(!$hasMietobjekte){
 				?>
-				<table width="100%" border="0" class="<?= TABLE_STANDARD ?>">
+				<table width="100%" border="0" class="<?php echo TABLE_STANDARD ?>">
 				  <tr> 
 				    <td>
-				    	<? $temp = "Es wurden noch keine Mietobjekte angelegt. " .
+				    	<?php $temp = "Es wurden noch keine Mietobjekte angelegt. " .
 				    			"Bitte öffnen sie das Webinterface \"/webinterface/index.php\" und " .
 				    			"geben sie ihre Mietobjekte ein."; 
 				    	   echo(getUebersetzung($temp));
 				    	   ?>
 				    	   <br/><br/>
-				    	   <form action="<?= $root ?>/webinterface/index.php" method="post" name="wi">
+				    	   <form action="<?php echo $root ?>/webinterface/index.php" method="post" name="wi">
 					    	   <input name="webinterface" type="submit" id="webinterface" 
 					          		value="<?php echo(getUebersetzung("Webinterface öffnen")); ?>" 
-					          		class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-								    onMouseOut="this.className='<?= BUTTON ?>';">
+					          		class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+								    onMouseOut="this.className='<?php echo BUTTON ?>';">
 						   </form>
 					</td>
 				  </tr>
 				</table> 
-				<?	
+				<?php	
 			}
 		?>
 		<!-- ende rechte seite plan -->

@@ -196,10 +196,10 @@ include_once("../templates/headerB.php");
   ?>
   	<tr>
   		<td class="standardSchriftBold">
-  			<?= $zimmerbezeichnung ?>
+  			<?php echo $zimmerbezeichnung ?>
   		</td>
   		<td>
-  			<input type="checkbox" name="parent_room_<?= $p["PK_ID"] ?>" value="true" 
+  			<input type="checkbox" name="parent_room_<?php echo $p["PK_ID"] ?>" value="true" 
   				<?php
   					if (isset($_POST['zimmerIdsParents']) && !empty($_POST['zimmerIdsParents'])){
   						$parArr = explode(",",$_POST['zimmerIdsParents']);

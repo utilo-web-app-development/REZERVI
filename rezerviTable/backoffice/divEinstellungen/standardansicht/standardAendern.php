@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 
@@ -88,9 +88,9 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 
 <p class="standardschrift"><?php echo(getUebersetzung("Ändern der angezeigten Sprachen")); ?>.</p>
 
-	<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+	<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
 	  <tr>
-		<td><?=  getUebersetzung("Die Standardansicht wurde erfolgreich geändert!"); ?></td>
+		<td><?php echo  getUebersetzung("Die Standardansicht wurde erfolgreich geändert!"); ?></td>
 	  </tr>
 	</table>
 	<br/><br/>

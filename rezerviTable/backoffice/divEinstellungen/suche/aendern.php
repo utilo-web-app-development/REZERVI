@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 
@@ -28,7 +28,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 include_once($root."/backoffice/templates/components.inc.php"); 
 
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+	<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
 	  <tr>
 		<td><?php 	$temp = "Die Einstellungen zur Suchfunktion wurden erfolgreich geändert.";
 					$temp = getUebersetzung($temp);

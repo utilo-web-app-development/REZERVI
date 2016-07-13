@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Design";
 
@@ -27,27 +27,27 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 ?>
 <table>
 	<tr height="30">
-		<td><a href="<?=$root ?>/backoffice/designBearbeiten/freiBelegtTisch.php"><?= getUebersetzung("Frei/belegt Symbole") ?></a></td>
+		<td><a href="<?php echo$root ?>/backoffice/designBearbeiten/freiBelegtTisch.php"><?php echo getUebersetzung("Frei/belegt Symbole") ?></a></td>
     	<td> - </td>
-		<td><?= getUebersetzung("Ändern der Symbole für freie und belegte Tische") ?></td>
+		<td><?php echo getUebersetzung("Ändern der Symbole für freie und belegte Tische") ?></td>
 	</tr>
 	<tr height="30">
-		<td><a href="<?=$root ?>/backoffice/designBearbeiten/styles.php"><?= getUebersetzung("Stile ändern") ?></a></td>
+		<td><a href="<?php echo$root ?>/backoffice/designBearbeiten/styles.php"><?php echo getUebersetzung("Stile ändern") ?></a></td>
     	<td> - </td>
-		<td><?= getUebersetzung("Ändern der Symbole für freie und belegte Tische") ?> </td>
+		<td><?php echo getUebersetzung("Ändern der Symbole für freie und belegte Tische") ?> </td>
 	</tr>
 	<tr height="30">
-		<td><a href="<?=$root ?>/backoffice/designBearbeiten/standardWerte.php"><?= getUebersetzung("Standardwerte setzen") ?></a></td>
+		<td><a href="<?php echo$root ?>/backoffice/designBearbeiten/standardWerte.php"><?php echo getUebersetzung("Standardwerte setzen") ?></a></td>
     	<td> - </td>
 		<td><?php echo(getUebersetzung("Alle Änderungen werden auf die Standard-Werte zurückgesetzt.")); ?></td>
 	</tr>
 	<tr height="30">
-		<td><a href="<?=$root ?>/backoffice/designBearbeiten/stylesHochladen.php"><?= getUebersetzung("Stylesheet hochladen") ?></a></td>
+		<td><a href="<?php echo$root ?>/backoffice/designBearbeiten/stylesHochladen.php"><?php echo getUebersetzung("Stylesheet hochladen") ?></a></td>
     	<td> - </td>
 		<td><?php echo(getUebersetzung("Kann auch eine externe Stylesheet Datei verwendet werden.")); ?></td>
 	</tr>
 	<tr height="30">
-		<td><a href="<?=$root ?>/backoffice/designBearbeiten/farbtabelle.php"><?= getUebersetzung("Farbtabelle anzeigen") ?></a></td>
+		<td><a href="<?php echo$root ?>/backoffice/designBearbeiten/farbtabelle.php"><?php echo getUebersetzung("Farbtabelle anzeigen") ?></a></td>
     	<td> - </td>
 		<td><?php echo(getUebersetzung("Zeigt eine Tabelle mit Farbcodes an, die im Design verwendet werden können")); ?></td>
 	</tr>

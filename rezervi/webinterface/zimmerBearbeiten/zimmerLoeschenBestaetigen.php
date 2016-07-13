@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -64,7 +64,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	  			for($i = 0; $i < $anzahl; $i++){ 
 				$temp = $zimmer_id[$i];
 				?>
-            <option value="<? echo($temp); ?>" selected><?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$temp,$link),$sprache,$unterkunft_id,$link)); 
+            <option value="<?php echo($temp); ?>" selected><?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$temp,$link),$sprache,$unterkunft_id,$link)); 
             ?></option>
 			<?php 
 				} //ende for
@@ -76,7 +76,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	  			for($i = 0; $i < $anzahl; $i++){ 
 				$temp = $zimmer_id[$i];
 				?>
-            <option value="<? echo($temp); ?>" selected><?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$temp,$link),$sprache,$unterkunft_id,$link)); 
+            <option value="<?php echo($temp); ?>" selected><?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$temp,$link),$sprache,$unterkunft_id,$link)); 
             ?></option>
 			<?php 
 				} //ende for

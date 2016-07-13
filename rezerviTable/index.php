@@ -150,10 +150,10 @@ $minAnzahlPersonen = getMinimaleBelegungOfRaum($raum_id);
 <style type="text/css">
 	<?php  include_once($root."/templates/stylesheets.php");  ?>
 </style>
-<link rel="stylesheet" type="text/css" href="<?= $root ?>/templates/round_tabs.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $root ?>/templates/round_tabs.css">
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/tabview/assets/tabview.css">
-<link rel="stylesheet" type="text/css" href="<?= $root ?>/templates/rezerviTable.css">
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo $root ?>/templates/rezerviTable.css">
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
@@ -161,16 +161,16 @@ $minAnzahlPersonen = getMinimaleBelegungOfRaum($raum_id);
 	***********************************************/	
 </script>
 <!-- Namespace source file  
-<script type="text/javascript" src = '<?= $root ?>/yui/build/yahoo/yahoo.js' ></script>
-<script type="text/javascript" src = '<?= $root ?>/yui/build/dom/dom.js' ></script> 
-<script type="text/javascript" src="<?= $root ?>/yui/build/event/event.js"></script>
+<script type="text/javascript" src = '<?php echo $root ?>/yui/build/yahoo/yahoo.js' ></script>
+<script type="text/javascript" src = '<?php echo $root ?>/yui/build/dom/dom.js' ></script> 
+<script type="text/javascript" src="<?php echo $root ?>/yui/build/event/event.js"></script>
 -->
 <script src="http://yui.yahooapis.com/2.7.0/build/yahoo/yahoo-min.js"></script>
 <script src="http://yui.yahooapis.com/2.7.0/build/dom/dom-min.js"></script>
 <script type="text/javascript" src="http://yui.yahooapis.com/2.7.0/build/event/event-min.js" ></script>
 
 <!-- transparenz fuer objekte -->
-<script type="text/javascript" src='<?= $root ?>/templates/transobj.js' ></script>
+<script type="text/javascript" src='<?php echo $root ?>/templates/transobj.js' ></script>
 <script type="text/javascript">
 
 	function tischPos(x,y,element){
@@ -216,14 +216,14 @@ $minAnzahlPersonen = getMinimaleBelegungOfRaum($raum_id);
 			
 		}
 		if (vorhanden){
-			alert("<?= getUebersetzung("Der Tisch wurde bereits ausgewählt.") ?>");
+			alert("<?php echo getUebersetzung("Der Tisch wurde bereits ausgewählt.") ?>");
 		}
 		else{			
 			var optn = document.createElement("OPTION");
-			optn.text = "<?= getUebersetzung("Tisch Nr."); ?> "+tischnummer;
+			optn.text = "<?php echo getUebersetzung("Tisch Nr."); ?> "+tischnummer;
 			optn.value = tischnummer;
 			selectBox.options.add(optn);
-			alert("<?= getUebersetzung("Der Tisch wurde zur Auswahl links hinzugefügt.  Sie können nun noch weitere Tische reservieren, starten Sie danach die Reservierung links.") ?>");
+			alert("<?php echo getUebersetzung("Der Tisch wurde zur Auswahl links hinzugefügt.  Sie können nun noch weitere Tische reservieren, starten Sie danach die Reservierung links.") ?>");
 			exitTischInfo(tischnummer);
 		}
 	}
@@ -236,7 +236,7 @@ $minAnzahlPersonen = getMinimaleBelegungOfRaum($raum_id);
 		for(i=selectBox.options.length-1;i>=0;i--){			
 				 selectBox.remove(i);						
 		}
-		alert("<?= getUebersetzung("Alle ausgewählten Tische wurden entfernt.") ?>");
+		alert("<?php echo getUebersetzung("Alle ausgewählten Tische wurden entfernt.") ?>");
 	}
 	/*
 	prueft ob ein tisch selectiert wurde und loest reservierungsvorgang aus
@@ -245,7 +245,7 @@ $minAnzahlPersonen = getMinimaleBelegungOfRaum($raum_id);
 		var selectBox = document.getElementById('tische');
 		var i =selectBox.options.length;
 		if (i<1){
-			alert("<?= getUebersetzung("Bitte wählen Sie zuerst einen Tisch aus.") ?>");
+			alert("<?php echo getUebersetzung("Bitte wählen Sie zuerst einen Tisch aus.") ?>");
 			return false;
 		}
 		else{
@@ -254,7 +254,7 @@ $minAnzahlPersonen = getMinimaleBelegungOfRaum($raum_id);
 				 selectBox.options[i].selected = true;					
 			}
 			//send form:
-			document.reservationForm.action = "<?= $root ?>/frontpage/anfrage/index.php";
+			document.reservationForm.action = "<?php echo $root ?>/frontpage/anfrage/index.php";
 			document.reservationForm.submit();
 			return true;
 		}
@@ -284,9 +284,9 @@ $minAnzahlPersonen = getMinimaleBelegungOfRaum($raum_id);
 				$lefts = getLeftPosOfTisch($id);
 				$tops  = getTopPosOfTisch($id);
 				?>
-				tischPos(<?= $lefts ?>, <?= $tops ?>, 'tisch<?= $id ?>');
-				transparency('tischInfo_<?= $id ?>',<?= TRANSPARENZ ?>);
-				tischPos(<?= $lefts ?>, <?= $tops ?>, 'tischInfo_<?= $id ?>');
+				tischPos(<?php echo $lefts ?>, <?php echo $tops ?>, 'tisch<?php echo $id ?>');
+				transparency('tischInfo_<?php echo $id ?>',<?php echo TRANSPARENZ ?>);
+				tischPos(<?php echo $lefts ?>, <?php echo $tops ?>, 'tischInfo_<?php echo $id ?>');
 				<?php
 			}
 			?>	

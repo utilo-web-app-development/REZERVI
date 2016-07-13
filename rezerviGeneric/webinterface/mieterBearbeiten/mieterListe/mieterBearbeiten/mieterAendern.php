@@ -1,4 +1,4 @@
-<? $root = "../../../..";
+<?php $root = "../../../..";
 
 /*   
 	date: 14.10.05
@@ -46,17 +46,17 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 
 ?>
 
-<table  border="0" cellspacing="3" cellpadding="0" class="<?= FREI ?>">
+<table  border="0" cellspacing="3" cellpadding="0" class="<?php echo FREI ?>">
   <tr>
     <td><?php echo(getUebersetzung("Die Daten des Mieters wurden erfolgreich geändert")); ?>!</td>
   </tr>
 </table>
 <br/>
 <form action="../index.php" method="post" name="form1" target="_self">
-    	<input name="index" type="hidden" value="<?= $index ?>"/>
-        <input name="zurueck" type="submit" class="<?= BUTTON ?>" id="zurueck" 
-			onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       		onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>"/>
+    	<input name="index" type="hidden" value="<?php echo $index ?>"/>
+        <input name="zurueck" type="submit" class="<?php echo BUTTON ?>" id="zurueck" 
+			onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       		onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>"/>
 </form>
 <?php	  
 include_once($root."/webinterface/templates/footer.inc.php");

@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 $ueberschrift = "Raum bearbeiten";
 $unterschrift = "Anlegen";

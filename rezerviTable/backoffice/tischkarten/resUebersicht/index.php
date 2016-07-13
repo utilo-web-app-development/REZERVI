@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 $ueberschrift = "Tischkarten bearbeiten";
 $unterschrift = "Übersicht";
@@ -34,23 +34,23 @@ if (isset($_POST["jahr"])){
 }
 $startdatumDP = $tag."/".$monate."/".$jahr;
 ?>
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
 	* Keep this notice intact for use.
 	***********************************************/	
 </script>
-<h2><?= getUebersetzung("Übersicht drucken") ?></h2>
+<h2><?php echo getUebersetzung("Übersicht drucken") ?></h2>
 <table>	  	
   <tr>
 	<form action="./uebersicht.php" method="post" target="_self"> 	
-    	<td><script>DateInput('date2', false, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script></td>
+    	<td><script>DateInput('date2', false, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script></td>
 	  	<td>
 	  		<?php showSubmitButton(getUebersetzung("drucken")); ?>
 	  	</td>	  	
 	  	<td>
-	  		<?= getUebersetzung("Reservierungsübersicht für das ausgewählte Datum drucken") ?>
+	  		<?php echo getUebersetzung("Reservierungsübersicht für das ausgewählte Datum drucken") ?>
 	  	</td> 
   	</form> 	
   </tr>	  	  

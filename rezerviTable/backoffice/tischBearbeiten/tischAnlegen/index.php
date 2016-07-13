@@ -20,7 +20,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 	<table>
 		<h2><?php echo(getUebersetzung("Tisch anlegen")); ?>  	</h2>
 	    <tr>
-	    	<td><?= getUebersetzung("Raum") ?>:&nbsp;
+	    	<td><?php echo getUebersetzung("Raum") ?>:&nbsp;
 		      	<select name="raum_id" id="raum_id">
 		          <?php	
 		          	 //es muss ein raum zum tisch ausgewählt werden:
@@ -28,13 +28,13 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 				 	 $first = true;
 					  while($d = $res->FetchNextObject()) {
 						$ziArt = getUebersetzungGastro($d->BEZEICHNUNG,$sprache,$gastro_id);		?>
-						<option value="<?= $d->RAUM_ID ?>" <?
+						<option value="<?php echo $d->RAUM_ID ?>" <?php
 							if($first){	?>
 								selected="selected"	<?php
 								$first = false;
 							}
 							?>
-							><?= $ziArt ?></option>	<?php
+							><?php echo $ziArt ?></option>	<?php
 					  } //ende while
 					 ?>
 		           </select>

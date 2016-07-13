@@ -6,10 +6,10 @@
 		 */
 		?>		
 		</div><!-- ende content -->	
-		<div name="footer" id="footer" class="<?= SCHRIFT_KLEIN ?>"
+		<div name="footer" id="footer" class="<?php echo SCHRIFT_KLEIN ?>"
 			 
 			align="center">
-			<a href="http://www.utilo.eu/" class="<?= SCHRIFT_KLEIN ?>">
+			<a href="http://www.utilo.eu/" class="<?php echo SCHRIFT_KLEIN ?>">
 				Rezervi Table V 0.1 &copy; UTILO 2008 
 			</a>
 		</div>
@@ -22,19 +22,19 @@
 						$maxBelegung  = $d->MAXIMALE_BELEGUNG;
 						$minBelegung  = $d->MINIMALE_BELEGUNG;
 					?>
-						<div name="tischInfo_<?= $id ?>" id="tischInfo_<?= $id ?>" 
-							style="visibility:hidden;z-index:<?= $zindex++ ?>;width:200px;">
+						<div name="tischInfo_<?php echo $id ?>" id="tischInfo_<?php echo $id ?>" 
+							style="visibility:hidden;z-index:<?php echo $zindex++ ?>;width:200px;">
 							
-							<table celspacing="0" cellpadding="0" border="0" class="<?= TABLE_COLOR ?>">
+							<table celspacing="0" cellpadding="0" border="0" class="<?php echo TABLE_COLOR ?>">
 								<tr style="background-color:#ccc;">
 									<td>
 										<div align="left" style="position:relative;float:left" 
-										class="<?= STANDARD_SCHRIFT_BOLD ?>">
-											<?= getUebersetzung("Tisch Nr."); ?> <?= $id ?>
+										class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+											<?php echo getUebersetzung("Tisch Nr."); ?> <?php echo $id ?>
 										</div>
-										<div align="right" onMouseDown="exitTischInfo('<?= $id ?>');"
+										<div align="right" onMouseDown="exitTischInfo('<?php echo $id ?>');"
 											style="font-size:12px;font-weight:bolder;font-family: Arial">
-											<img src="<?= $root ?>/templates/img/close.gif" border="0"/>
+											<img src="<?php echo $root ?>/templates/img/close.gif" border="0"/>
 										</div>
 									</td>
 								</tr>
@@ -43,7 +43,7 @@
 								?>
 								<tr>
 									<td>
-										<?= $beschreibung ?>
+										<?php echo $beschreibung ?>
 									</td>
 								</tr>
 								<?php
@@ -54,7 +54,7 @@
 								?>
 								<tr>
 									<td>
-										<?= getUebersetzung("Maximal") ?> <?= $maxBelegung ?> <?= getUebersetzung("Personen") ?>
+										<?php echo getUebersetzung("Maximal") ?> <?php echo $maxBelegung ?> <?php echo getUebersetzung("Personen") ?>
 									</td>
 								</tr>
 								<?php
@@ -65,7 +65,7 @@
 								?>
 								<tr>
 									<td>
-										<?= getUebersetzung("Minimal") ?> <?= $minBelegung ?> <?= getUebersetzung("Personen") ?>
+										<?php echo getUebersetzung("Minimal") ?> <?php echo $minBelegung ?> <?php echo getUebersetzung("Personen") ?>
 									</td>
 								</tr>
 								<?php
@@ -85,7 +85,7 @@
 										?>
 											<tr>
 												<td>
-													<?= getUebersetzung("Reserviert von") ?> <?= $timeVon ?> <?= getUebersetzung("bis") ?> <?= $timeBis ?> <?= getUebersetzung("Uhr") ?>
+													<?php echo getUebersetzung("Reserviert von") ?> <?php echo $timeVon ?> <?php echo getUebersetzung("bis") ?> <?php echo $timeBis ?> <?php echo getUebersetzung("Uhr") ?>
 												</td>
 											</tr>
 										<?php
@@ -98,12 +98,12 @@
 								<tr>
 									<td>
 										<input type="button" 
-											name="tischgebucht_<?= $id ?>" 
-											onClick="addTisch('<?= $id ?>');"
-											class="<?= BUTTON ?>" 
-						  					onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-				       						onMouseOut="this.className='<?= BUTTON ?>';"											
-											value="<?= getUebersetzung("reservieren") ?>" />										
+											name="tischgebucht_<?php echo $id ?>" 
+											onClick="addTisch('<?php echo $id ?>');"
+											class="<?php echo BUTTON ?>" 
+						  					onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+				       						onMouseOut="this.className='<?php echo BUTTON ?>';"											
+											value="<?php echo getUebersetzung("reservieren") ?>" />										
 									</td>
 								</tr>
 								<?php

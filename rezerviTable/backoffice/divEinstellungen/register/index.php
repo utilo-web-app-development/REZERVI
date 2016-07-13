@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 $unterschrift = "Registrierungen";
@@ -47,7 +47,7 @@ $key = getGastroProperty(RESERVIERUNGSSCHLUESSEL,$gastro_id);
     		<?php echo(getUebersetzung("Registrierungsschlüssel")); ?>
     	</td>
 	    <td>
-	      	<input type="text" name="key" value="<?= $key ?>" />
+	      	<input type="text" name="key" value="<?php echo $key ?>" />
 		</td>
   </tr>
   <tr>

@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../../.."; 
 $ueberschrift = "Benutzerdaten bearbeiten";
 
@@ -27,15 +27,15 @@ if (!isset($fehler) || $fehler != true){
     </tr>
     <tr>
       <td><?php echo(getUebersetzung("Benutzername")); ?>*</td>
-      <td><input name="name" type="text" id="name" value="<?= $name ?>" maxlength="20"/></td>
+      <td><input name="name" type="text" id="name" value="<?php echo $name ?>" maxlength="20"/></td>
     </tr>
     <tr>
       <td><?php echo(getUebersetzung("Passwort"));?>*</td>
-      <td><input name="pass" type="password" id="pass" value="<?= $pass ?>" maxlength="20"/></td>
+      <td><input name="pass" type="password" id="pass" value="<?php echo $pass ?>" maxlength="20"/></td>
     </tr>
     <tr>
       <td><?php echo(getUebersetzung("Passwort wiederholen")); ?>*</td>
-      <td><input name="pass2" type="password" id="pass2" value="<?= $pass2 ?>" maxlength="20"/></td>
+      <td><input name="pass2" type="password" id="pass2" value="<?php echo $pass2 ?>" maxlength="20"/></td>
     </tr>
     <tr>
       <td><?php echo(getUebersetzung("Benutzerrechte")); ?>*</td>

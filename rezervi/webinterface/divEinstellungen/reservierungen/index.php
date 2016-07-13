@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -79,15 +79,15 @@ if (isset($nachricht) && $nachricht != ""){
 			  if($resAnzeigen == "true"){ echo(" checked=\"checked\""); }
 			?>
 			/>
-			<?= getUebersetzung("Eingehende Anfragen als reserviert anzeigen.",$sprache,$link) ?>
+			<?php echo getUebersetzung("Eingehende Anfragen als reserviert anzeigen.",$sprache,$link) ?>
 		</td>
     </tr>
   	<tr>
 	    <td>
-	 	 <?= getUebersetzung("Eingehende Anfragen nach",$sprache,$link) ?>&nbsp; 	 	 
-  			<input type="text" name="xDays" value="<?= $xDays ?>" size="3" maxlength="3"/>&nbsp;  
-	 	 <?= getUebersetzung("Tagen löschen falls unbestätigt.",$sprache,$link) ?>&nbsp;  
-	 	 <?= getUebersetzung("(Bitte lassen sie dieses Feld leer falls dies nicht erwünscht ist.)",$sprache,$link) ?>  
+	 	 <?php echo getUebersetzung("Eingehende Anfragen nach",$sprache,$link) ?>&nbsp; 	 	 
+  			<input type="text" name="xDays" value="<?php echo $xDays ?>" size="3" maxlength="3"/>&nbsp;  
+	 	 <?php echo getUebersetzung("Tagen löschen falls unbestätigt.",$sprache,$link) ?>&nbsp;  
+	 	 <?php echo getUebersetzung("(Bitte lassen sie dieses Feld leer falls dies nicht erwünscht ist.)",$sprache,$link) ?>  
 		</td>
     </tr>  
     <tr>
@@ -97,7 +97,7 @@ if (isset($nachricht) && $nachricht != ""){
 			  if($resHouse == "true"){ echo(" checked=\"checked\""); }
 			?>
 			/>
-			<?= getUebersetzung("Wenn ein Zimmer eines Hauses reserviert oder belegt ist, das gesamte Haus als belegt anzeigen.",$sprache,$link) ?>
+			<?php echo getUebersetzung("Wenn ein Zimmer eines Hauses reserviert oder belegt ist, das gesamte Haus als belegt anzeigen.",$sprache,$link) ?>
 		</td>
     </tr>      
   	<tr>

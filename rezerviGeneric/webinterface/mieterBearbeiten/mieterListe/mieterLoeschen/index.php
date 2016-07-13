@@ -1,4 +1,4 @@
-<? $root = "../../../..";
+<?php $root = "../../../..";
 
 /*   
 	date: 17.10.05
@@ -27,7 +27,7 @@ deleteMieter($mieter_id);
 
 ?>
 
-<table width="100%" border="0" cellspacing="3" cellpadding="0" class="<?= FREI ?>">
+<table width="100%" border="0" cellspacing="3" cellpadding="0" class="<?php echo FREI ?>">
   <tr>
     <td><?php echo(getUebersetzung("Der Mieter wurde erfolgreich gelöscht")); ?>!    
     </td>
@@ -35,8 +35,8 @@ deleteMieter($mieter_id);
 </table>
 <br/>
   <form action="../index.php" method="post" name="ok" target="_self" id="ok">
-    <input type="submit" name="Submit" class="<?= BUTTON ?>" id="zurueck" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-   onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+    <input type="submit" name="Submit" class="<?php echo BUTTON ?>" id="zurueck" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+   onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
 	<input name="index" type="hidden" value="<?php echo($index); ?>"/>
   </form>  
 <?php	  

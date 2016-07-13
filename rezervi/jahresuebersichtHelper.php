@@ -40,9 +40,9 @@ Christian Osterrieder
 		?>
 			<table border="0" cellspacing="0" cellpadding="0" width="100%">
 				<tr>
-					<td class="<?= parseStatus($status[0],$isSamstag) ?>" 
-						align="right" width="50%"><? echo $i; ?></td>
-					<td class="<?= parseStatus($status[1],$isSamstag) ?>" 
+					<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" 
+						align="right" width="50%"><?php echo $i; ?></td>
+					<td class="<?php echo parseStatus($status[1],$isSamstag) ?>" 
 						align="right" width="50%">&nbsp;</td>
 				</tr>
 			</table>
@@ -81,8 +81,8 @@ Christian Osterrieder
 				?>
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
-							<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
-							<td class="<?= parseStatus(0,$isSamstag) ?>" align="right" width="50%"><? echo $i; ?></td>
+							<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+							<td class="<?php echo parseStatus(0,$isSamstag) ?>" align="right" width="50%"><?php echo $i; ?></td>
 						</tr>
 					</table>
 				<?php
@@ -122,8 +122,8 @@ Christian Osterrieder
 					?>
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 							<tr>
-								<td class="<?= parseStatus(0,$isSamstag) ?>" align="right" width="50%"><? echo $i; ?></td>
-								<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+								<td class="<?php echo parseStatus(0,$isSamstag) ?>" align="right" width="50%"><?php echo $i; ?></td>
+								<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
 							</tr>
 						</table>
 					<?php

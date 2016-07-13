@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Tisch bearbeiten";
 
@@ -91,7 +91,7 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
 
 <form action="./index.php" method="post" name="bilderHochladen" 
 	target="_self">
-  <table border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+  <table border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
     <tr> 
       <td height="30"><?php echo(getUebersetzung("Das Bild wurde erfolgreich hochladen")); ?>.</td>
     </tr>
@@ -100,8 +100,8 @@ include_once($root."/backoffice/templates/bodyStart.inc.php");
     <table border="0" cellpadding="0" cellspacing="3">
     <tr> 
       <td>
-        <input name="Submit" type="submit" id="Submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-       onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>"></td>
+        <input name="Submit" type="submit" id="Submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+       onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>"></td>
     </tr>
   </table>
 </form>

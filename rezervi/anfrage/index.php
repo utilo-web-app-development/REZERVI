@@ -212,7 +212,7 @@ else {
 	?>
 	<table border="0" cellpadding="0" cellspacing="3" class="tableColor">
 	  <tr>
-		<td><p class="standardSchriftBold"><?= getBuchungseinschraenkungText($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zi_ids); ?></p>
+		<td><p class="standardSchriftBold"><?php echo getBuchungseinschraenkungText($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$zi_ids); ?></p>
 		  <p class="standardSchriftBold"><?php echo(getUebersetzung("Bitte korrigieren Sie das Datum Ihrer Anfrage!",$sprache,$link)); ?></p>
 		</td>
 	  </tr>
@@ -500,7 +500,7 @@ else {
 			      <input name="zusatz" type="radio" value="Uebernachtung" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_FRUEHSTUECK,$unterkunft_id,$link) == "true"){
               ?>
@@ -514,7 +514,7 @@ else {
 			      <input name="zusatz" type="radio" value="Fruehstueck" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_HALB,$unterkunft_id,$link) == "true"){
               ?>
@@ -528,7 +528,7 @@ else {
 			      <input name="zusatz" type="radio" value="Halbpension" checked="checked"/>
                 </td>
               </tr>
-              <?
+              <?php
   			  }
   			  if (getPropertyValue(PENSION_VOLL,$unterkunft_id,$link) == "true"){
               ?>                      
@@ -554,8 +554,8 @@ else {
                   ?>
                 </td>
 			    <td>
-			      <?= $preis ?> <?= getWaehrung($unterkunft_id) ?>
-			      <input type="hidden" name="preis" value="<?= $preis ?>"/>
+			      <?php echo $preis ?> <?php echo getWaehrung($unterkunft_id) ?>
+			      <input type="hidden" name="preis" value="<?php echo $preis ?>"/>
                 </td>
               </tr>
 			  <?php
@@ -565,15 +565,15 @@ else {
         <p>(<?php echo(getUebersetzung("Die mit * gekennzeichneten Felder müssen ausgefüllt werden!",$sprache,$link)); ?>) 
 		  <?php if(!isset($zimmer_ids)){ 
 		  ?>
-          	<input name="zimmer_id" type="hidden" id="zimmer_id" value="<?= $zimmer_id ?>">
+          	<input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
 		  <?php }
 		  ?>
-          <input name="vonTag" type="hidden" id="vonTag" value="<?= $vonTag ?>">
-          <input name="bisTag" type="hidden" id="bisTag" value="<?= $bisTag ?>">
-          <input name="vonMonat" type="hidden" id="vonMonat" value="<?= $vonMonat ?>">
-          <input name="bisMonat" type="hidden" id="bisMonat" value="<?= $bisMonat ?>">
-          <input name="vonJahr" type="hidden" id="vonJahr" value="<?= $vonJahr ?>">
-          <input name="bisJahr" type="hidden" id="bisJahr" value="<?= $bisJahr ?>">
+          <input name="vonTag" type="hidden" id="vonTag" value="<?php echo $vonTag ?>">
+          <input name="bisTag" type="hidden" id="bisTag" value="<?php echo $bisTag ?>">
+          <input name="vonMonat" type="hidden" id="vonMonat" value="<?php echo $vonMonat ?>">
+          <input name="bisMonat" type="hidden" id="bisMonat" value="<?php echo $bisMonat ?>">
+          <input name="vonJahr" type="hidden" id="vonJahr" value="<?php echo $vonJahr ?>">
+          <input name="bisJahr" type="hidden" id="bisJahr" value="<?php echo $bisJahr ?>">
         </p>
         <p><?php echo(getUebersetzung("Hinweis: Es handelt sich hierbei um eine Reservierungs-Anfrage.",$sprache,$link));
 			     echo(getUebersetzung("Der Vermieter wird sich mit Ihnen in Verbindung setzen um gegebenenfalls die Reservierung zu bestätigen.",$sprache,$link)); ?></p>

@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 $unterschrift = "Sprachen";
@@ -65,9 +65,9 @@ include_once($root."/backoffice/templates/components.inc.php");
 		if (!empty($bilder_id)){ 
 			$width_pic = getBildBreite($bilder_id);
 			$height_pic= getBildHoehe($bilder_id); 	?>
-			<img src="<?= $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
-				width="<?= $width_pic ?>" 
-				height="<?= $height_pic ?>"/><?php
+			<img src="<?php echo $root."/templates/picture.php?bilder_id=".$bilder_id ?>" 
+				width="<?php echo $width_pic ?>" 
+				height="<?php echo $height_pic ?>"/><?php
 		}?>
 	</td>    
     <td colspan="2"><?php echo(getUebersetzung($bezeichnung)); ?></td>
@@ -96,7 +96,7 @@ include_once($root."/backoffice/templates/components.inc.php");
 		?>
 		<input name="loeschen" type="hidden" value="true">	
 		<input type="submit" name="loeschen" class="button" 
-				onclick="javascript:del('<?= $message ?>','./spracheEntfernen.php')"
+				onclick="javascript:del('<?php echo $message ?>','./spracheEntfernen.php')"
 				value="<?php echo(utf8_encode(getUebersetzung("loeschen"))); ?>"/>		
 	</td></form>
 	<form action="./spracheHinfuegen.php" method="post" name="spracheHinfuegen" target="_self">

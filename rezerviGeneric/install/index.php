@@ -40,31 +40,31 @@ include_once($root."/conf/conf.inc.php");
 <!-- ist die conf datei richtig? -->					    
 <p class="standardSchrift">Please check your changings in the 'conf/rdbmsConfig.inc.php' file:<br/>
 Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.inc.php' Datei.</p>
-<form action="lizenz.php" method="post" id="form1" name="form1" target="_self" onSubmit="return checkConf('<?=$EMAIL ?>','<?=$URL ?>');">
+<form action="lizenz.php" method="post" id="form1" name="form1" target="_self" onSubmit="return checkConf('<?php echo$EMAIL ?>','<?php echo$URL ?>');">
 	<table  border="0" cellpadding="0" cellspacing="3" class="table">
 		<tr>
 	          <td>URL for your MySQL database e.g. "localhost" <br/>
 				  URL zur MySQL Datenbank, z. B. "localhost"
 			  </td>
-			  <td valign="bottom"><?=$DBMS_URL ?></td>
+			  <td valign="bottom"><?php echo$DBMS_URL ?></td>
 	    </tr>
 		<tr>
 	          <td>Name of the MySQL database <br/>
 				  Name der MySQL Datenbank
 			  </td>
-			  <td valign="bottom"><?=$DB_NAME ?></td>
+			  <td valign="bottom"><?php echo$DB_NAME ?></td>
 	    </tr>
 		<tr>
 	          <td>Username of the MySQL database<br/>
 				  Benutzername der MySQL Datenbank
 			  </td>
-			  <td valign="bottom"><?=$USERNAME ?></td>
+			  <td valign="bottom"><?php echo$USERNAME ?></td>
 	    </tr>	
 		<tr>
 	          <td>Password of the MySQL database<br/>
 				  Passwort der MySQL Datenbank
 			  </td>
-			  <td valign="bottom"><?=$PASS ?></td>
+			  <td valign="bottom"><?php echo$PASS ?></td>
 	    </tr>
 		<tr>
 	          <td>URL of your homepage/your availibilty overview<br/>
@@ -79,13 +79,13 @@ Bitte prüfen sie ihre Eingaben in der 'conf/rdbmsConfig.inc.php' Datei.</p>
 					installiert wurde, geben sie bitte auch diesen Pfad mit in der URL an.<br/>
 					z. B. $URL = "http://www.mein-domainname.com/rezerviGeneric/"<br/>
 			  </td>
-			  <td valign="bottom"><?= $URL ?></td>
+			  <td valign="bottom"><?php echo $URL ?></td>
 	    </tr>	
 		<tr>
 	          <td>E-mail address<br/>
 				  E-Mail-Adresse
 			  </td>
-			  <td valign="bottom"><?=$EMAIL ?></td>
+			  <td valign="bottom"><?php echo$EMAIL ?></td>
 	    </tr>	        	 	        
 	</table> 	
 	<br/>

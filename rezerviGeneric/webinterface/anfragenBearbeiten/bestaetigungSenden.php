@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 7.10.05
@@ -26,7 +26,7 @@ sendMail($von,$an,$subject,$message);
  insertMieterText($text,$mieter_id);
 			 
 ?>
-<p class="<?= FREI ?>"><?php echo(getUebersetzung("Der Mieter wurde per E-Mail verständigt")); ?>.</p>
+<p class="<?php echo FREI ?>"><?php echo(getUebersetzung("Der Mieter wurde per E-Mail verständigt")); ?>.</p>
 <table border="0" cellpadding="0" cellspacing="3">
   <tr>
     <td>

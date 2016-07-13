@@ -1,4 +1,4 @@
-<?  
+<?php  
 $root = "../.."; 
 $ueberschrift = "Raum bearbeiten";
 
@@ -42,15 +42,15 @@ if (!(isset ($fehler) && $fehler != true)){
 				$bezeichnung = getUebersetzungGastro($d->BEZEICHNUNG,$sprache,$gastro_id);
 				$id = $d->MIETOBJEKT_ID
 				?>
-					<option value="<?= $id ?>"
+					<option value="<?php echo $id ?>"
 					<?php
 					if (isset($mietobjekt_id) && $mietobjekt_id == $id){
 					?>
 						selected="selected"
-					<?
+					<?php
 					}
 					?>
-					><?= $bezeichnung; ?></option>
+					><?php echo $bezeichnung; ?></option>
 				<?php 
 			  } //ende while 
 			 ?>
@@ -66,11 +66,11 @@ if (!(isset ($fehler) && $fehler != true)){
 	</tr>
 	<tr>
 		<td><span><?php echo(getUebersetzung("Maximale Bildhöhe")); ?></span></td>
-		<td><input type="text" name="maxHoehe" value="<?= $maxHoehe ?>"/>*</td>
+		<td><input type="text" name="maxHoehe" value="<?php echo $maxHoehe ?>"/>*</td>
 	</tr>
 	<tr>
 		<td><span><?php echo(getUebersetzung("Maximale Bildbreite")); ?></span></td>
-		<td><input type="text" name="maxBreite" value="<?= $maxBreite ?>"/>*</td>
+		<td><input type="text" name="maxBreite" value="<?php echo $maxBreite ?>"/>*</td>
 	</tr>
     <tr> 
       <td colspan="2">

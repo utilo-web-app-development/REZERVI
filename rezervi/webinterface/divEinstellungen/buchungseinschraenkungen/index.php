@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -73,7 +73,7 @@ if (isset($nachricht) && $nachricht != ""){
   <form action="./aendern.php" method="post" target="_self" name="reservierung">
 
 
- 	<h3> <?= 
+ 	<h3> <?php echo 
 	  getUebersetzung("Zeitraum (z. B. Saison):",$sprache,$link);
 	 ?></h3>
 	 
@@ -84,12 +84,12 @@ if (isset($nachricht) && $nachricht != ""){
     <td colspan="2">
 		<table class="table" >
 			<tr>
-				<td><?= getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link); ?></td>
-				<td><?= getUebersetzung("Tag von",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("Tag bis",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("Datum von",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("Datum bis",$sprache,$link); ?></td>
-				<td><?= getUebersetzung("löschen/hinzufügen",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id,$link),$sprache,$unterkunft_id,$link); ?></td>
+				<td><?php echo getUebersetzung("Tag von",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzung("Tag bis",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzung("Datum von",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzung("Datum bis",$sprache,$link); ?></td>
+				<td><?php echo getUebersetzung("löschen/hinzufügen",$sprache,$link); ?></td>
 			</tr>
 			<?php			
 			
@@ -106,16 +106,16 @@ if (isset($nachricht) && $nachricht != ""){
 					 
 				?>
 				<tr>
-					<td><?= $zimmerart . " " . $zimmer ?></td>
-					<td><?= $von ?></td>
-					<td><?= $bis ?></td>
-					<td><?= $datum_von ?></td>
-					<td><?= $datum_bis ?></td>
+					<td><?php echo $zimmerart . " " . $zimmer ?></td>
+					<td><?php echo $von ?></td>
+					<td><?php echo $bis ?></td>
+					<td><?php echo $datum_von ?></td>
+					<td><?php echo $datum_bis ?></td>
 					<td>
-						<input name="loeschen#<?= $id ?>" 
+						<input name="loeschen#<?php echo $id ?>" 
 							   type="submit" 
 							   class="btn btn-danger" 
-							   value="<?= getUebersetzung("löschen",$sprache,$link); ?>"/>
+							   value="<?php echo getUebersetzung("löschen",$sprache,$link); ?>"/>
 							   <!-- onMouseOver="this.className='button200pxB';"
        						   onMouseOut="this.className='button200pxA';"  -->
 							 
@@ -128,36 +128,36 @@ if (isset($nachricht) && $nachricht != ""){
 				<tr>
 					<td>
 						<select name="zimmer_id">
-							<?
+							<?php
 							$res = getZimmer($unterkunft_id,$link);
 							while ($d = mysql_fetch_array($res)){
 								$zimmer_id = $d["PK_ID"];
 								$zimmer = getZimmerNr($unterkunft_id,$zimmer_id,$link);
 								$zimmerart = getZimmerArt($unterkunft_id,$zimmer_id,$link);
 							?>
-							<option value="<?= $zimmer_id ?>"><?= $zimmerart . " " . $zimmer ?></option>
-							<?
+							<option value="<?php echo $zimmer_id ?>"><?php echo $zimmerart . " " . $zimmer ?></option>
+							<?php
 							} //ende while
 							?>
 						</select>
 					</td>
 					<td><select name="von_wochentag">
-							<?
+							<?php
 							$res = getWochentage();
 							foreach ($res as $wochentag){
 							?>
-							<option value="<?= $wochentag ?>"><?= $wochentag ?></option>
-							<?
+							<option value="<?php echo $wochentag ?>"><?php echo $wochentag ?></option>
+							<?php
 							} //ende while
 							?>
 						</select></td>
 					<td><select name="bis_wochentag">
-							<?
+							<?php
 							$res = getWochentage();
 							foreach ($res as $wochentag){
 							?>
-							<option value="<?= $wochentag ?>"><?= $wochentag ?></option>
-							<?
+							<option value="<?php echo $wochentag ?>"><?php echo $wochentag ?></option>
+							<?php
 							} //ende while
 							?>
 						</select></td>
@@ -225,7 +225,7 @@ if (isset($nachricht) && $nachricht != ""){
 						<input name="add" 
 							   type="submit" 
 							   class="btn btn-success" 
-							   value="<?= getUebersetzung("hinzufügen",$sprache,$link); ?>"/>
+							   value="<?php echo getUebersetzung("hinzufügen",$sprache,$link); ?>"/>
 							   <!-- onMouseOver="this.className='button200pxB';"
        						   onMouseOut="this.className='button200pxA';"  -->
 							

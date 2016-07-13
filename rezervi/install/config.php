@@ -110,7 +110,7 @@
 
             <form action="install.php" method="post" class="form-horizontal" id="formConfig" name="formConfig"
                   target="_self" onSubmit="return checkForm();">
-                <input type="hidden" name="sprache" value="<?= $_POST["sprache"] ?>"/>
+                <input type="hidden" name="sprache" value="<?php echo $_POST["sprache"] ?>"/>
 
 
                 <div class="form-group">
@@ -192,6 +192,6 @@
     </div>
     </form>
 
-
+</div>
 </body>
 </html>

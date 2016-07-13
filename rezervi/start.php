@@ -148,14 +148,14 @@ else{
 		echo(getUebersetzung("Es wurden noch keine Mietobjekte (z. B. Zimmer) eingegeben. Bitte rufen sie das Webinterface auf und geben sie ihre Mietobjekte ein.",$sprache,$link));
 		?>
 			<a href="webinterface/index.php">--> Webinterface</a>
-		<?
+		<?php
 	}
 	else{
 	?>
 		Please install Rezervi first! <br/>
 		Bitte insallieren sie Rezervi zuerst! <br/>
 		<a href="install/index.php">--> Install</a>
-	<?
+	<?php
 	}
 	?>
 	</body>

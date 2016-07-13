@@ -24,13 +24,13 @@ include_once($root."/include/uebersetzer.inc.php");
 	<form action="./spracheSpeichern.php" method="post" target="_self" name="spracheSpeichern" enctype="multipart/form-data"> 
 	<table>
 		<tr>
-			<td><?= getUebersetzung("Sprache ID") ?></td> 	  	  		  	
+			<td><?php echo getUebersetzung("Sprache ID") ?></td> 	  	  		  	
 			<td>
 		  		<input type="text" name="spracheID" value=""/>
 			</td> 
 	  	</tr>  
 		<tr>
-			<td><?= getUebersetzung("Bezeichnung") ?></td> 	  	  		  	
+			<td><?php echo getUebersetzung("Bezeichnung") ?></td> 	  	  		  	
 		  	<td>
 		  		<input type="text" name="bezeichnung" value=""/>
 			</td> 
@@ -39,7 +39,7 @@ include_once($root."/include/uebersetzer.inc.php");
 			<td colspan="2"><hr/></td>
 		</tr>
 		<tr>
-	    	<td><?= getUebersetzung("Fahne") ?></td>
+	    	<td><?php echo getUebersetzung("Fahne") ?></td>
 		    <td>
 		    	<input name="bild" type="file"/>
 		    </td>

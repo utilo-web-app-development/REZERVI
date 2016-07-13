@@ -38,8 +38,8 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 		?>
 			<table border="0" cellspacing="0" cellpadding="0" width="100%">
 				<tr>
-					<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%"></td>
-					<td class="<?= parseStatus($status[1],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+					<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%"></td>
+					<td class="<?php echo parseStatus($status[1],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
 				</tr>
 			</table>
 		<?php			
@@ -77,8 +77,8 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 			?>
 				<table border="0" cellspacing="0" cellpadding="0" width="100%">
 					<tr>
-						<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
-						<td class="<?= parseStatus(0,$isSamstag) ?>" align="right" width="50%"></td>
+						<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+						<td class="<?php echo parseStatus(0,$isSamstag) ?>" align="right" width="50%"></td>
 					</tr>
 				</table>
 			<?php
@@ -114,8 +114,8 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 				?>
 					<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						<tr>
-							<td class="<?= parseStatus(0,$isSamstag) ?>" align="right" width="50%"></td>
-							<td class="<?= parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
+							<td class="<?php echo parseStatus(0,$isSamstag) ?>" align="right" width="50%"></td>
+							<td class="<?php echo parseStatus($status[0],$isSamstag) ?>" align="right" width="50%">&nbsp;</td>
 						</tr>
 					</table>
 				<?php
@@ -162,26 +162,26 @@ function showAllRooms($month,$year,$unterkunft_id,$link,$saAktiviert,$sprache){
 			for ($i = 1; $i <= $anzahlTageMo; $i++){
 				$tagName = getDayName($i,$month,$year);	
 			?>
-				<td align="center"><?= getUebersetzung($tagName,$sprache,$link) ?></td>
+				<td align="center"><?php echo getUebersetzung($tagName,$sprache,$link) ?></td>
 			<?php
 			}
 			?>
 		</tr>	
 		<tr>
-			<td><?= $zimmerart ?>&nbsp;</td>
+			<td><?php echo $zimmerart ?>&nbsp;</td>
 			<?php
 			//ausgeben der spaltenüberschriften wenn zusaetzlich attribute da sind:
 			if ($attResult != false){
 				while ($d = mysql_fetch_array($attResult)){
 					$bezeichnung = $d["Bezeichnung"];
-					?><td align="center"><?= $bezeichnung ?>&nbsp;</td><?php
+					?><td align="center"><?php echo $bezeichnung ?>&nbsp;</td><?php
 				}
 			}			
 			//ausgeben der tage in ziffern:
 			$anzahlTageMo = getNumberOfDays($month,$year);
 			for ($i = 1; $i <= $anzahlTageMo; $i++){
 			?>
-				<td align="center"><?= $i ?></td>
+				<td align="center"><?php echo $i ?></td>
 			<?php
 			}
 			?>
@@ -194,7 +194,7 @@ function showAllRooms($month,$year,$unterkunft_id,$link,$saAktiviert,$sprache){
 	  ?>
 		  <tr> 
 			<td align="center">
-				<?= getUebersetzungUnterkunft($zimmer_value,$sprache,$unterkunft_id,$link) ?>
+				<?php echo getUebersetzungUnterkunft($zimmer_value,$sprache,$unterkunft_id,$link) ?>
 			</td>
 			<?php
 			//ausgeben der spaltenwerte wenn zusaetzlich attribute da sind:
@@ -203,7 +203,7 @@ function showAllRooms($month,$year,$unterkunft_id,$link,$saAktiviert,$sprache){
 				while ($d = mysql_fetch_array($attResult)){
 					$attribut_id = $d["PK_ID"];
 					$wert = getAttributValue($attribut_id,$zimmer_id);
-					?><td align="center"><?= $wert ?></td><?php
+					?><td align="center"><?php echo $wert ?></td><?php
 				}
 			}			
 			for ($i = 1; $i <= $anzahlTageMo; $i++){

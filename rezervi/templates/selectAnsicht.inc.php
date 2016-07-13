@@ -50,9 +50,9 @@
 	    }
 	    ?>
 	  </select>
-	  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
-	  <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
-	  <input name="monat" type="hidden" id="monat" value="<? echo(parseMonthNumber(getTodayMonth())); ?>">
+	  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
+	  <input name="jahr" type="hidden" id="jahr" value="<?php echo($jahr); ?>">
+	  <input name="monat" type="hidden" id="monat" value="<?php echo(parseMonthNumber(getTodayMonth())); ?>">
 				</div>
 				
   		
@@ -78,9 +78,9 @@
 	    }
 	    ?>
 	  </select>
-	  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<? echo($zimmer_id); ?>">
-	  <input name="jahr" type="hidden" id="jahr" value="<? echo($jahr); ?>">
-	  <input name="monat" type="hidden" id="monat" value="<? echo(parseMonthNumber(getTodayMonth())); ?>">
+	  <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
+	  <input name="jahr" type="hidden" id="jahr" value="<?php echo($jahr); ?>">
+	  <input name="monat" type="hidden" id="monat" value="<?php echo(parseMonthNumber(getTodayMonth())); ?>">
 	</div>
 </form> -->
 <?php

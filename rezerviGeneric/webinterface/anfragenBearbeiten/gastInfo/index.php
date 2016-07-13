@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 20.10.05
@@ -81,10 +81,10 @@ $mieter_id = $_POST["mieter_id"];
     	<?php
     	if(hasMieterReservations($mieter_id)){
 		?>
-		<p class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen für den Mieter vor")); ?>:
+		<p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Es liegen folgende Reservierungen für den Mieter vor")); ?>:
 		</p>
 		<table  border="1" cellpadding="0" cellspacing="3">
-		  <tr class="<?= TABLE_COLOR ?>">
+		  <tr class="<?php echo TABLE_COLOR ?>">
 			<td><?php echo(getUebersetzung("Reservierung von")); ?></td>
 			<td><?php echo(getUebersetzung("bis")); ?></td>
 			<td><?php echo(getUebersetzung("für")); ?></td>
@@ -99,7 +99,7 @@ $mieter_id = $_POST["mieter_id"];
 					$datumVon = $d["VON"];
 					$datumBis = $d["BIS"];
 			 ?>
-		              <tr class="<?= TABLE_STANDARD ?>">
+		              <tr class="<?php echo TABLE_STANDARD ?>">
 		                <td><?php echo($datumVon); ?></td>
 		                <td><?php echo($datumBis); ?></td>
 		                <td><?php echo($bezeichnung); ?></td>
@@ -108,7 +108,7 @@ $mieter_id = $_POST["mieter_id"];
 					} //ende while
 				?>
 		</table>
-		<?
+		<?php
 		}
 		?>
     	</td>

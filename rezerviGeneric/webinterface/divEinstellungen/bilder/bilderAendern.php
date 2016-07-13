@@ -1,4 +1,4 @@
-<? $root = "../../..";
+<?php $root = "../../..";
 
 /*   
 	date: 26.9.05
@@ -74,7 +74,7 @@ include_once($root."/webinterface/templates/components.inc.php");
 	setVermieterEigenschaftenWert(BILDER_HEIGHT,$height,$vermieter_id);
 		
 ?>
-	<table  border="0" cellpadding="0" cellspacing="3" class="<?= FREI ?>">
+	<table  border="0" cellpadding="0" cellspacing="3" class="<?php echo FREI ?>">
 	  <tr>
 		<td><?php $nachricht = "Die Einstellungen der Bilder wurden erfolgreich geändert.";
 				  $nachricht = getUebersetzung($nachricht);				

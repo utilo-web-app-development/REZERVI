@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../..";
 $ueberschrift = "Anfragen bearbeiten";
 /*   
@@ -41,15 +41,15 @@ if (hasVermieterReservations($gastro_id,STATUS_RESERVIERT)){
   	<tr></tr>
   <tr>
     <td>
-    	<?= getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestätigten Reservierungsanfragen.") ?><br/>
+    	<?php echo getUebersetzung("Hier sehen Sie die Liste mit noch nicht bestätigten Reservierungsanfragen.") ?><br/>
 	        <ul>
-	        	<li><?= getUebersetzung("Falls Sie eine Reservierungsanfrage bestätigen wird " .
+	        	<li><?php echo getUebersetzung("Falls Sie eine Reservierungsanfrage bestätigen wird " .
 	        			"diese als \"reserviert\" eingetragen, " .
 	        			"der Gast wird darüber nur informiert wenn die automatischen " .
 	        			"E-Mails aktiviert wurden.") ?></li>
-	        	<li><?= getUebersetzung("Ein Gast kann nur gelöscht werden, falls es keine " .
+	        	<li><?php echo getUebersetzung("Ein Gast kann nur gelöscht werden, falls es keine " .
 	        		"anderen Reservierungen für diesen Gast gibt.") ?></li>
-	        	<li><?= getUebersetzung("Falls ein Gast in einer Anfrage mehrere" .
+	        	<li><?php echo getUebersetzung("Falls ein Gast in einer Anfrage mehrere" .
 	        			" Tische reserviert hat, ist für jeden Tisch einzeln" .
 	        			" die Anfrage zu bearbeiten.") ?></li>
 	        </ul>
@@ -75,29 +75,29 @@ if (hasVermieterReservations($gastro_id,STATUS_RESERVIERT)){
 <table>
   <tr></tr><tr></tr>
         <tr>
-          <td><span><?php echo(getUebersetzung("Reservierungsanfrage von")); ?>:</span> <?= $mieter ?></td>
+          <td><span><?php echo(getUebersetzung("Reservierungsanfrage von")); ?>:</span> <?php echo $mieter ?></td>
         </tr>
         <tr>
-          <td><span><?php echo(getUebersetzung("Datum/Uhrzeit")); ?>:</span> <?= $zeitraum ?> <?php echo(getUebersetzung("Uhr")); ?></td>
+          <td><span><?php echo(getUebersetzung("Datum/Uhrzeit")); ?>:</span> <?php echo $zeitraum ?> <?php echo(getUebersetzung("Uhr")); ?></td>
         </tr>
         <tr>
-          <td><span><?php echo(getUebersetzung("Raum/Tisch")); ?>:</span> <?= $mietobjekt ?></td>
+          <td><span><?php echo(getUebersetzung("Raum/Tisch")); ?>:</span> <?php echo $mietobjekt ?></td>
         </tr>
 </table>
 <table>
-        <form action="<?= $root ?>/backoffice/anfragenBearbeiten/gastInfo/index.php" 
+        <form action="<?php echo $root ?>/backoffice/anfragenBearbeiten/gastInfo/index.php" 
         	method="post" name="mieterInfos" target="_self">
           <tr valign="middle">
             <td>
-            	<input name="mieter_id" type="hidden" value="<?= $mieter_id ?>"/>
+            	<input name="mieter_id" type="hidden" value="<?php echo $mieter_id ?>"/>
                 <input name="gastInfos" type="submit" id="gastInfos" 
 	              	value="<?php echo(getUebersetzung("Gast-Infos")); ?>" 
 	              	class="button"/>
        		</td>
         </form>
         <form action="./anfrageLoeschen.php" method="post" name="reservierungEntfernen" target="_self" onSubmit="return sicher()">
-            <td><input name="mieter_id" type="hidden" value="<?= $mieter_id ?>">
-              <input name="reservierungs_id" type="hidden" value="<?= $reservierungs_id ?>"/>
+            <td><input name="mieter_id" type="hidden" value="<?php echo $mieter_id ?>">
+              <input name="reservierungs_id" type="hidden" value="<?php echo $reservierungs_id ?>"/>
               <input name="entfernen" type="submit" id="entfernen" 
               	value="<?php echo(getUebersetzung("Löschen")); ?>" 
               	class="button"/>

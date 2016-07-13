@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 $unterschrift = "Reservierungen";
@@ -19,7 +19,7 @@ include_once($root."/include/buchungseinschraenkung.inc.php");
 include_once($root."/include/datumFunctions.inc.php");
 
 ?>
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
@@ -38,7 +38,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 	<table>	  	
 	  <tr>
 	  	<td>
-	  		<?= getUebersetzung("Reservierungsdauer") ?>:
+	  		<?php echo getUebersetzung("Reservierungsdauer") ?>:
 	  	<td>
 	  	<td>
 	  		<select name="vonDauerStunde" id="vonDauerStunde">
@@ -49,12 +49,12 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 							$str="0".$l;
 						} 
 				?>
-	            <option value="<?= $l ?>"<?php if ($str == $vonDauerStunde){ 
+	            <option value="<?php echo $l ?>"<?php if ($str == $vonDauerStunde){ 
 	            									echo(" selected=\"selected\""); 
-												}?>><?= $str ?></option>
+												}?>><?php echo $str ?></option>
 	            <?php } ?>
 		     </select>
-		     <?= getUebersetzung("Stunden") ?>
+		     <?php echo getUebersetzung("Stunden") ?>
 	         <select name="vonDauerMinute"  id="vonDauerMinute">
 	            <?php	
 	            for ($l=0; $l < 2; $l++){ 
@@ -63,12 +63,12 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 						$str="0".$str;
 					}	
 				?>
-	            <option value="<?= $l ?>"<?php if ($str == $vonDauerMinute) {
+	            <option value="<?php echo $l ?>"<?php if ($str == $vonDauerMinute) {
 	            								echo(" selected=\"selected\""); }
-	            						  ?>><?= $str ?></option>
+	            						  ?>><?php echo $str ?></option>
 	            <?php } ?>
 	         </select> 
-	         <?= getUebersetzung("Minuten") ?>
+	         <?php echo getUebersetzung("Minuten") ?>
 	  	</td>
 		<td><?php showSubmitButton(getUebersetzung("ändern")); ?></td>	  	
 	  <tr>
@@ -80,28 +80,28 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 <table>	  	
   <tr>
   	<td colspan="4">
-  		<?= getUebersetzung("Keine Reservierungen möglich in der Uhrzeit"); ?>:
+  		<?php echo getUebersetzung("Keine Reservierungen möglich in der Uhrzeit"); ?>:
   	<td>
   <tr>
   <tr>
 	<th>
 		<div align="left">
-			<?= getUebersetzung("Raum/Tisch"); ?> 
+			<?php echo getUebersetzung("Raum/Tisch"); ?> 
 		</div>
 	</th>		  		
 	<th>
 		<div align="left">
-			<?= getUebersetzung("von") ?> 
+			<?php echo getUebersetzung("von") ?> 
 		</div>
 	</th>
 	<th>
 		<div align="left">
-			<?= getUebersetzung("bis") ?> 
+			<?php echo getUebersetzung("bis") ?> 
 		</div>
 	</th>	
 	<th>
 		<div align="left">
-			<?= getUebersetzung("löschen/hinzufügen") ?> 
+			<?php echo getUebersetzung("löschen/hinzufügen") ?> 
 		</div>
 	</th> 			
   </tr>
@@ -156,18 +156,18 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 	}  
   ?>
   <form action="./buchungseinschraenkungLoeschen.inc.php" method="post" target="_self">
-	  <input type="hidden" name="einschraenkungs_id" value="<?= $einschraenkungs_id ?>" />
-	  <input type="hidden" name="typ" value="<?= $typ ?>" />
-	  <input type="hidden" name="alle" value="<?= $alle ?>" />
+	  <input type="hidden" name="einschraenkungs_id" value="<?php echo $einschraenkungs_id ?>" />
+	  <input type="hidden" name="typ" value="<?php echo $typ ?>" />
+	  <input type="hidden" name="alle" value="<?php echo $alle ?>" />
 	  <tr>
 	  	<td>
-			<?= $raum_tisch ?>
+			<?php echo $raum_tisch ?>
 	  	</td>
 	  	<td>
-			<?= $vonStunde ?>:<?= $vonMinute ?> <?= getUebersetzung("Uhr"); ?> 
+			<?php echo $vonStunde ?>:<?php echo $vonMinute ?> <?php echo getUebersetzung("Uhr"); ?> 
 		</td>
 		<td>
-		    <?= $bisStunde ?>:<?= $bisMinute ?> <?= getUebersetzung("Uhr"); ?>
+		    <?php echo $bisStunde ?>:<?php echo $bisMinute ?> <?php echo getUebersetzung("Uhr"); ?>
 	  	</td>
 	  	<td><?php showSubmitButton(getUebersetzung("löschen")); ?></td>
 	  </tr>  
@@ -185,11 +185,11 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
   $bisStunde = 1;
   ?>
   <form action="./buchungseinschraenkungHinzufuegen.inc.php" method="post" target="_self">
-  <input type="hidden" name="typ" value="<?= BE_TYP_ZEIT ?>"/>
+  <input type="hidden" name="typ" value="<?php echo BE_TYP_ZEIT ?>"/>
   <tr>
   	<td>
 		<select name="moId" id="moId">
-				<option value="alle"><?= getUebersetzung("alle") ?></option>
+				<option value="alle"><?php echo getUebersetzung("alle") ?></option>
 				<?php
 				$raum_res = getRaeume($gastro_id);
 				while ($l = $raum_res->FetchNextObject()){
@@ -200,7 +200,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 						$tisch_id = $t->TISCHNUMMER;
 						$raum_tisch = $raum_bez."/".$tisch_id;
 						?>
-						<option value="<?= $tisch_id ?>"><?= $raum_tisch ?></option>			  						
+						<option value="<?php echo $tisch_id ?>"><?php echo $raum_tisch ?></option>			  						
 					<?php	
 					}	
 				}
@@ -216,7 +216,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 							$str="0".$l;
 						} 
 				?>
-	            <option value="<?php echo $l ?>"<?php if ($str == $vonStunde) echo(" selected=\"selected\""); ?>><?= $str ?></option>
+	            <option value="<?php echo $l ?>"<?php if ($str == $vonStunde) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 	            <?php } ?>
 	          </select>
 	          <select name="vonMinute"  id="vonMinute">
@@ -227,11 +227,11 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 						$str="0".$str;
 					}	
 				?>
-	            <option value="<?= $l ?>"<?php if ($str == $vonMinute) echo(" selected=\"selected\""); ?>><?= $str ?></option>
+	            <option value="<?php echo $l ?>"<?php if ($str == $vonMinute) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 	            <?php } ?>
 	          </select> 
 	          <span>
-	          	<?= getUebersetzung("Uhr"); ?></span> 
+	          	<?php echo getUebersetzung("Uhr"); ?></span> 
 	  </td>
 	  <td>
 	          <select name="bisStunde"  id="bisStunde">
@@ -242,7 +242,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 							$str="0".$l;
 						}						
 				?>
-	            <option value="<?= $l ?>"<?php if ($str == $bisStunde) echo(" selected=\"selected\""); ?>><?= $str ?></option>
+	            <option value="<?php echo $l ?>"<?php if ($str == $bisStunde) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 	            <?php } ?>
 	          </select>
 	          <select name="bisMinute"  id="bisMinute">
@@ -253,11 +253,11 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 						$str="0".$str;
 					}	
 				?>
-	            <option value="<?= $l ?>"<?php if ($str == $bisMinute) echo(" selected=\"selected\""); ?>><?= $str ?></option>
+	            <option value="<?php echo $l ?>"<?php if ($str == $bisMinute) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 	            <?php } ?>
 	          </select> 
 	          <span>
-	          	<?= getUebersetzung("Uhr"); ?></span>
+	          	<?php echo getUebersetzung("Uhr"); ?></span>
   	</td>
   	<td><?php showSubmitButton(getUebersetzung("hinzufügen")); ?></td>
   </tr>   
@@ -267,52 +267,52 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 <br/><br/>
 <!-- start tage   -->
  
-<h2><?= getUebersetzung("Keine Reservierungen möglich an folgenden Tagen"); ?>:</h2>
+<h2><?php echo getUebersetzung("Keine Reservierungen möglich an folgenden Tagen"); ?>:</h2>
 	<table>	 	
 		<tr>
 			<th>
 				<div align="left">
-					<?= getUebersetzung("Raum/Tisch"); ?>
+					<?php echo getUebersetzung("Raum/Tisch"); ?>
 				</div>
 			</th>
 	  		<th>
 	  			<div align="left">
-  				 <?= getUebersetzung("Montag") ?> 
+  				 <?php echo getUebersetzung("Montag") ?> 
   				</div>
   			</th>
 	  		<th>
 	  			<div align="left">
-  				 <?= getUebersetzung("Dienstag") ?> 
+  				 <?php echo getUebersetzung("Dienstag") ?> 
   				</div>
   			</th>
   			<th>
   				<div align="left">
-  				 <?= getUebersetzung("Mittwoch") ?> 
+  				 <?php echo getUebersetzung("Mittwoch") ?> 
   				</div>
   			</th>
 	  		<th>
 	  			<div align="left">
-  				 <?= getUebersetzung("Donnerstag") ?> 
+  				 <?php echo getUebersetzung("Donnerstag") ?> 
   				</div>
   			</th>
 	  		<th>
 	  			<div align="left">
-  				 <?= getUebersetzung("Freitag") ?> 
+  				 <?php echo getUebersetzung("Freitag") ?> 
   				</div>
   			</th>
 	  		<th>
 	  			<div align="left">
-	 				 <?= getUebersetzung("Samstag") ?>
+	 				 <?php echo getUebersetzung("Samstag") ?>
 				</div>
 			</th>
 	  		<th>
 	  			<div align="left">
-	 				 <?= getUebersetzung("Sonntag") ?> 
+	 				 <?php echo getUebersetzung("Sonntag") ?> 
 				</div>
 			</th>	
 			<th>
 				<div align="left">
-					<?= getUebersetzung("löschen/hinzufügen") ?> 
+					<?php echo getUebersetzung("löschen/hinzufügen") ?> 
 				</div>
 			</th> 
 		</tr>
@@ -341,7 +341,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 			  	}
 			  ?>
 			  <form action="./buchungseinschraenkungLoeschen.inc.php" method="post" target="_self">
-			  <input type="hidden" name="mietobjekt_id" value="<?= $tisch_id ?>" /> 
+			  <input type="hidden" name="mietobjekt_id" value="<?php echo $tisch_id ?>" /> 
 		  		<tr>
 		  			<td>
 		  				<?php
@@ -406,11 +406,11 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 			    ?>
 			    
 			    <form action="./buchungseinschraenkungHinzufuegen.inc.php" method="post" target="_self">
-			  	<input type="hidden" name="typ" value="<?= BE_TYP_TAG ?>"/>
+			  	<input type="hidden" name="typ" value="<?php echo BE_TYP_TAG ?>"/>
 			  	<tr>
 		  			<td>
 						<select name="moId" id="moId">
-								<option value="alle"><?= getUebersetzung("alle") ?></option>
+								<option value="alle"><?php echo getUebersetzung("alle") ?></option>
 								<?php
 								$raum_res = getRaeume($gastro_id);
 								while ($l = $raum_res->FetchNextObject()){
@@ -421,7 +421,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 										$tisch_id = $t->TISCHNUMMER;
 										$raum_tisch = $raum_bez."/".$tisch_id;
 										?>
-										<option value="<?= $tisch_id ?>"><?= $raum_tisch ?></option>			  						
+										<option value="<?php echo $tisch_id ?>"><?php echo $raum_tisch ?></option>			  						
 									<?php	
 									}	
 								}
@@ -430,36 +430,36 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_MONTAG ?>"/>  
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_MONTAG ?>"/>  
 		  				</div>
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_DIENSTAG ?>"/> 
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_DIENSTAG ?>"/> 
 		  				</div>
 		  			</td>
 		  			<td>
 		  				<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_MITTWOCH ?>"/> 
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_MITTWOCH ?>"/> 
 		  				</div>
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_DONNERSTAG ?>"/>  
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_DONNERSTAG ?>"/>  
 		  				</div>
 		  			</td>
 			  		<td><div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_FREITAG ?>"/> 
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_FREITAG ?>"/> 
 		  				</div>
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_SAMSTAG ?>"/>  
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_SAMSTAG ?>"/>  
 		  				</div>
 		  			</td>
 			  		<td>
 			  			<div align="center">
-		  					<input type="checkbox" name="tage[]" value="<?= KURZFORM_SONNTAG ?>"/>  
+		  					<input type="checkbox" name="tage[]" value="<?php echo KURZFORM_SONNTAG ?>"/>  
 		  				</div>
 		  			</td>	
 		  			<td>
@@ -471,27 +471,27 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 <!-- ende tage -->
 <br/><br/>
   <!-- start datum -->
-<h2><?= getUebersetzung("Keine Reservierungen möglich zu folgendem Datum"); ?>:</h2>
+<h2><?php echo getUebersetzung("Keine Reservierungen möglich zu folgendem Datum"); ?>:</h2>
   		<table>	  	
 		  		<tr>
 			  		<th>
 			  			<div align="left">
-		  					<?= getUebersetzung("Raum/Tisch"); ?> 
+		  					<?php echo getUebersetzung("Raum/Tisch"); ?> 
 		  				</div>
 		  			</th>		  		
 			  		<th>
 			  			<div align="left">
-		  					<?= getUebersetzung("Datum von") ?> 
+		  					<?php echo getUebersetzung("Datum von") ?> 
 		  				</div>
 		  			</th>
 			  		<th>
 			  			<div align="left">
-		  					<?= getUebersetzung("Datum bis") ?> 
+		  					<?php echo getUebersetzung("Datum bis") ?> 
 		  				</div>
 		  			</th>
 		  			<th>
 		  				<div align="left">
-		  					<?= getUebersetzung("löschen/hinzufügen") ?> 
+		  					<?php echo getUebersetzung("löschen/hinzufügen") ?> 
 		  				</div>
 		  			</th>
 		  		</tr>
@@ -543,18 +543,18 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 					  	
 					?>
 			  			<form action="./buchungseinschraenkungLoeschen.inc.php" method="post" target="_self">
-			  			<input type="hidden" name="einschraenkungs_id" value="<?= $einschr_id ?>" />
-			  			<input type="hidden" name="typ" value="<?= $typ ?>" />
-	  					<input type="hidden" name="alle" value="<?= $alle ?>" />	
+			  			<input type="hidden" name="einschraenkungs_id" value="<?php echo $einschr_id ?>" />
+			  			<input type="hidden" name="typ" value="<?php echo $typ ?>" />
+	  					<input type="hidden" name="alle" value="<?php echo $alle ?>" />	
 				  		<tr>
 				  			<td>
-				  				<?= $raum_tisch ?> 
+				  				<?php echo $raum_tisch ?> 
 				  			</td>
 					  		<td>
-				  				<?= $einschrVon ?> <?= getUebersetzung("Uhr"); ?>
+				  				<?php echo $einschrVon ?> <?php echo getUebersetzung("Uhr"); ?>
 				  			</td>
 					  		<td>
-				  				<?= $einschrBis ?> <?= getUebersetzung("Uhr"); ?> 
+				  				<?php echo $einschrBis ?> <?php echo getUebersetzung("Uhr"); ?> 
 				  			</td>
 					  		<td>
 				  				<?php showSubmitButton(getUebersetzung("löschen")); ?> 
@@ -616,11 +616,11 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
  
 				?>
 			<form action="./buchungseinschraenkungHinzufuegen.inc.php" method="post" target="_self">
-	  		<input type="hidden" name="typ" value="<?= $typ ?>" />
+	  		<input type="hidden" name="typ" value="<?php echo $typ ?>" />
   			<tr>
   				<td>
 					<select name="moId" id="moId">
-							<option value="alle"><?= getUebersetzung("alle") ?></option>
+							<option value="alle"><?php echo getUebersetzung("alle") ?></option>
 							<?php
 							$raum_res = getRaeume($gastro_id);
 							while ($l = $raum_res->FetchNextObject()){
@@ -631,7 +631,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 									$tisch_id = $t->TISCHNUMMER;
 									$raum_tisch = $raum_bez."/".$tisch_id;
 									?>
-									<option value="<?= $tisch_id ?>"><?= $raum_tisch ?></option>			  						
+									<option value="<?php echo $tisch_id ?>"><?php echo $raum_tisch ?></option>			  						
 								<?php	
 								}	
 							}
@@ -642,7 +642,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 		        <table>
 			        <tr>
 			        	<td colspan = "2">
-							<script>DateInput('datumVon', true, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script>
+							<script>DateInput('datumVon', true, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script>
 			          	</td>
 			        </tr>
 			        <tr>
@@ -666,7 +666,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 				            <option value="<?php echo $str ?>"<?php if ($str == $vonMinute) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 				            <?php } ?>
 				          </select> <span>
-				          	<?= getUebersetzung("Uhr"); ?></span></td>
+				          	<?php echo getUebersetzung("Uhr"); ?></span></td>
 			        </tr>
 		        </table>
 		    </td>
@@ -674,7 +674,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 		        <table>
 			        <tr>
 			        	<td colspan = "2">
-							<script>DateInput('datumBis', true, 'DD/MM/YYYY','<?= $enddatumDP  ?>')</script>
+							<script>DateInput('datumBis', true, 'DD/MM/YYYY','<?php echo $enddatumDP  ?>')</script>
 			          	</td>
 			        </tr>
 			        <tr>
@@ -699,7 +699,7 @@ $vonDauerMinute = $dauer-($vonDauerStunde*60);
 				            <option value="<?php echo $str ?>"<?php if ($str == $bisMinute) echo(" selected=\"selected\""); ?>><?php echo $str ?></option>
 				            <?php } ?>
 				          </select> <span>
-				          	<?= getUebersetzung("Uhr"); ?></span></td>
+				          	<?php echo getUebersetzung("Uhr"); ?></span></td>
 			        </tr>
 		        </table>
   			  </td>

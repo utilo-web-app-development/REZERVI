@@ -1,4 +1,4 @@
-<? 
+<?php 
 $root = "../../..";
 $ueberschrift = "Diverse Einstellungen";
 $unterschrift = "Übersetzungen";
@@ -38,7 +38,7 @@ include_once($root."/backoffice/templates/components.inc.php");
 		  		$bezeichnung = $d->BEZEICHNUNG;
 		  		$spracheID   = $d->SPRACHE_ID;       
 		    ?>  
-			<option value="<?= $spracheID ?>"><?= getUebersetzung($bezeichnung); ?></option>
+			<option value="<?php echo $spracheID ?>"><?php echo getUebersetzung($bezeichnung); ?></option>
 			<?php
 		  	}
 		  	?> 

@@ -1,4 +1,4 @@
-<? session_start();
+<?php session_start();
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -74,7 +74,7 @@ if (isset($nachricht) && $nachricht != ""){
 		      	if (getPropertyValue(PENSION_UEBERNACHTUNG,$unterkunft_id,$link) == "true"){
 		      ?>
 		      		checked="checked"
-		      <?
+		      <?php
 		      	}
 		      ?>
 		      />
@@ -92,7 +92,7 @@ if (isset($nachricht) && $nachricht != ""){
 		      	if (getPropertyValue(PENSION_FRUEHSTUECK,$unterkunft_id,$link) == "true"){
 		      ?>
 		      		checked="checked"
-		      <?
+		      <?php
 		      	}
 		      ?>
 		      />
@@ -110,7 +110,7 @@ if (isset($nachricht) && $nachricht != ""){
 		      	if (getPropertyValue(PENSION_HALB,$unterkunft_id,$link) == "true"){
 		      ?>
 		      		checked="checked"
-		      <?
+		      <?php
 		      	}
 		      ?>
 		      />
@@ -128,7 +128,7 @@ if (isset($nachricht) && $nachricht != ""){
 		      	if (getPropertyValue(PENSION_VOLL,$unterkunft_id,$link) == "true"){
 		      ?>
 		      		checked="checked"
-		      <?
+		      <?php
 		      	}
 		      ?>
 		      />

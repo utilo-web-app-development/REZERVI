@@ -78,7 +78,7 @@
 			wenn sie sich das erste mal anmelden. Vergessen sie nicht diese Daten danach zu &Auml;ndern!
 		</p>
 							
-       	<form action="<?= $root ?>/backoffice/anmelden.php" method="post" name="passwortEingabe" target="_self" id="passwortEingabe">
+       	<form action="<?php echo $root ?>/backoffice/anmelden.php" method="post" name="passwortEingabe" target="_self" id="passwortEingabe">
 		<p><table>
 			<tr>
 				<td valign="middle">Username/Benutzername</td>

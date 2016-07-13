@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 20.10.05
@@ -13,7 +13,7 @@ include_once($root."/include/datumFunctions.inc.php");
 include_once($root."/include/reservierungFunctions.inc.php");
 include_once($root."/templates/constants.inc.php");
 	
-	//falls keine mietobjekt_id ausgewählt wurde, das erste gefundene zimmer nehmen:
+	//falls keine mietobjekt_id ausgewï¿½hlt wurde, das erste gefundene zimmer nehmen:
 	if (isset($_POST["mietobjekt_id"])) {
 		$mietobjekt_id = $_POST["mietobjekt_id"];
 	}
@@ -21,7 +21,7 @@ include_once($root."/templates/constants.inc.php");
 		$mietobjekt_id = getFirstMietobjektId($vermieter_id);
 	}
 	
-	//falls kein jahr ausgewählt wurde, das aktuelle jahr verwenden:
+	//falls kein jahr ausgewï¿½hlt wurde, das aktuelle jahr verwenden:
 	if (isset($_POST["datumAnsicht"])){
 		$jahr = getJahrFromDatePicker($_POST["datumAnsicht"]);
 	}
@@ -141,7 +141,7 @@ include_once($root."/templates/constants.inc.php");
 ?>
 <script language="JavaScript" type="text/javascript" src="./leftJS.js">
 </script>
-<script type="text/javascript" src="<?= $root ?>/templates/calendarDateInput.inc.php?root=<?= $root ?>">
+<script type="text/javascript" src="<?php echo $root ?>/templates/calendarDateInput.inc.php?root=<?php echo $root ?>">
 	/***********************************************
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
@@ -153,37 +153,37 @@ include_once($root."/templates/constants.inc.php");
 	<td valign="top">
 	<!-- linke seite - navigation: -->		
 	<form action="./index.php" method="post" name="reservierung">
-		<table border="0" class="<?= TABLE_STANDARD ?>">		
+		<table border="0" class="<?php echo TABLE_STANDARD ?>">		
 		  <tr>
 		    <td>		      
 		        <table border="0" cellspacing="3" cellpadding="0">
 		        	<tr>
 			        	<td colspan="2">
-			        		<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
-			        			<?= getUebersetzung("Ansicht für Datum") ?>:
+			        		<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+			        			<?php echo getUebersetzung("Ansicht fï¿½r Datum") ?>:
 			          		</span>
 			          	</td>
 			        </tr>
 			        <tr>
 			        	<td colspan="2">
-							<script>DateInput('datumAnsicht', true, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script>
+							<script>DateInput('datumAnsicht', true, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script>
 			          	</td>
 			        </tr>
 		          <tr>
 		            <td colspan="2">
-		            	<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
-		            		<?= getUebersetzungVermieter(getVermieterMietobjektEz($vermieter_id),$sprache,$vermieter_id) ?>:
+		            	<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
+		            		<?php echo getUebersetzungVermieter(getVermieterMietobjektEz($vermieter_id),$sprache,$vermieter_id) ?>:
 		            	</span>
 		            </td>
 		          </tr>
 		          <tr>  
 		            <td colspan="2">
 		                <select name="mietobjekt_id"  id="mietobjekt_id" onchange="submit()">
-		                  <?
+		                  <?php
 		  					$res = getMietobjekteOfVermieter($vermieter_id);
 			 				while($d = mysql_fetch_array($res)) { ?>
-		                  		<option value="<? echo $d["MIETOBJEKT_ID"] ?>"<? if ($mietobjekt_id == $d["MIETOBJEKT_ID"]) {echo(" selected=\"selected\"");} ?>><? echo $d["BEZEICHNUNG"] ?></option>
-		                  <? } ?>
+		                  		<option value="<?php echo $d["MIETOBJEKT_ID"] ?>"<?php if ($mietobjekt_id == $d["MIETOBJEKT_ID"]) {echo(" selected=\"selected\"");} ?>><?php echo $d["BEZEICHNUNG"] ?></option>
+		                  <?php } ?>
 		                </select>
 		            </td>
 		          </tr>
@@ -191,14 +191,14 @@ include_once($root."/templates/constants.inc.php");
 		      </td>
 		  </tr>
 		  <tr>
-		    <td><span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ansicht wählen")); ?>:</span></td>
+		    <td><span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Ansicht wï¿½hlen")); ?>:</span></td>
 		  </tr>
 		  <tr>
 		    <td>
 		        <div align="left">
 		          <select name="ansicht" onchange="submit()">
 		          <?php foreach ($ansicht_array as $ans){ ?>
-		            <option value="<?= $ans ?>" <?php if ($ansicht == $ans) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung($ans)); ?></option>
+		            <option value="<?php echo $ans ?>" <?php if ($ansicht == $ans) {?> selected="selected" <?php } ?>><?php echo(getUebersetzung($ans)); ?></option>
 		 		  <?php } ?>
 		 		  </select>
 		        </div>
@@ -207,8 +207,8 @@ include_once($root."/templates/constants.inc.php");
 		  <tr>
 		  	<td colspan ="2">
 		  		<input name="ansichtWechseln" type="submit" 
-		  			class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		      		onMouseOut="this.className='<?= BUTTON ?>';" 
+		  			class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+		      		onMouseOut="this.className='<?php echo BUTTON ?>';" 
 		      		id="ansichtWechseln" 
 		      		value="<?php echo(getUebersetzung("anzeigen")); ?>">
 		    </td>
@@ -216,40 +216,40 @@ include_once($root."/templates/constants.inc.php");
 		  </table>
 	  </form>
 	  <br/>
-	  <form action="<?= $root ?>/webinterface/reservierung/resAendern.php" method="post" name="resAendern">
-	  <input type="hidden" name="ansicht" value="<?= $ansicht ?>"/>
-	  <input type="hidden" name="mietobjekt_id" value="<?= $mietobjekt_id ?>"/>
-		<table border="0" class="<?= TABLE_STANDARD ?>">		  
+	  <form action="<?php echo $root ?>/webinterface/reservierung/resAendern.php" method="post" name="resAendern">
+	  <input type="hidden" name="ansicht" value="<?php echo $ansicht ?>"/>
+	  <input type="hidden" name="mietobjekt_id" value="<?php echo $mietobjekt_id ?>"/>
+		<table border="0" class="<?php echo TABLE_STANDARD ?>">		  
 		  <tr>
 		    <td>
-		        <span class="<?= STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Reservierung ändern")); ?>:</span>
+		        <span class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Reservierung ï¿½ndern")); ?>:</span>
 		        <table>
 		          <tr>
-		            <td width="1" class="<?= BELEGT ?>">
+		            <td width="1" class="<?php echo BELEGT ?>">
 		              <label>
-		              	<input name="status" type="radio" value="<?= STATUS_BELEGT ?>" checked="checked">
+		              	<input name="status" type="radio" value="<?php echo STATUS_BELEGT ?>" checked="checked">
 		              </label></td>
-		            <td class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("belegt")); ?></td>
+		            <td class="<?php echo STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("belegt")); ?></td>
 		          </tr>
 		          <tr>
-		            <td width="1" class="<?= FREI ?>">
+		            <td width="1" class="<?php echo FREI ?>">
 		              <label>
-		              	<input name="status" type="radio" value="<?= STATUS_FREI ?>">
+		              	<input name="status" type="radio" value="<?php echo STATUS_FREI ?>">
 		              </label></td>
-		            <td class="<?= STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("frei")); ?></td>
+		            <td class="<?php echo STANDARD_SCHRIFT ?>"><?php echo(getUebersetzung("frei")); ?></td>
 		          </tr>
 		        </table>
 		        <table>
 		        <tr>
 		        	<td colspan = "2">
-		        		<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
+		        		<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
 		        			<?php echo(getUebersetzung("von")); ?>:
 		          		</span>
 		          	</td>
 		        </tr>
 		        <tr>
 		        	<td colspan = "2">
-						<script>DateInput('datumVon', true, 'DD/MM/YYYY','<?= $startdatumDP  ?>')</script>
+						<script>DateInput('datumVon', true, 'DD/MM/YYYY','<?php echo $startdatumDP  ?>')</script>
 		          	</td>
 		        </tr>
 		        <tr>
@@ -268,21 +268,21 @@ include_once($root."/templates/constants.inc.php");
 								if ($l<10){$l="0".$l;} ?>
 			            <option value="<?php echo $l ?>"<?php if ($l == $vonMinute) echo(" selected=\"selected\""); ?>><?php echo $l ?></option>
 			            <?php } ?>
-			          </select> <span class="<?= STANDARD_SCHRIFT ?>">
-			          	<?= getUebersetzung("Uhr"); ?></span></td>
+			          </select> <span class="<?php echo STANDARD_SCHRIFT ?>">
+			          	<?php echo getUebersetzung("Uhr"); ?></span></td>
 		        </tr>
 		        </table>
 		        <table>
 		        <tr>
 		        	<td colspan = "2">
-		        		<span class="<?= STANDARD_SCHRIFT_BOLD ?>">
+		        		<span class="<?php echo STANDARD_SCHRIFT_BOLD ?>">
 		        			<?php echo(getUebersetzung("bis")); ?>:
 		          		</span>
 		          	</td>
 		        </tr>
 		        <tr>
 		        	<td colspan = "2">
-						<script>DateInput('datumBis', true, 'DD/MM/YYYY','<?= $enddatumDP  ?>')</script>
+						<script>DateInput('datumBis', true, 'DD/MM/YYYY','<?php echo $enddatumDP  ?>')</script>
 		          	</td>
 		        </tr>
 		        <tr>
@@ -303,14 +303,14 @@ include_once($root."/templates/constants.inc.php");
 						?>
 			            <option value="<?php echo $l ?>"<?php if ($l == $bisMinute) echo(" selected=\"selected\""); ?>><?php echo $l ?></option>
 			            <?php } ?>
-			          </select> <span class="<?= STANDARD_SCHRIFT ?>">
-			          	<?= getUebersetzung("Uhr"); ?></span></td>
+			          </select> <span class="<?php echo STANDARD_SCHRIFT ?>">
+			          	<?php echo getUebersetzung("Uhr"); ?></span></td>
 		        </tr>
 		        </table>		        
 
 		        <p>
-		          <input name="reservierungAendern" type="submit" class="<?= BUTTON ?>" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-		      		 onMouseOut="this.className='<?= BUTTON ?>';" id="reservierungAbsenden2" value="<?php echo(getUebersetzung("Reservierung ändern")); ?>">
+		          <input name="reservierungAendern" type="submit" class="<?php echo BUTTON ?>" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+		      		 onMouseOut="this.className='<?php echo BUTTON ?>';" id="reservierungAbsenden2" value="<?php echo(getUebersetzung("Reservierung ï¿½ndern")); ?>">
 		        </p>
 		        
 		     </td>

@@ -1,6 +1,6 @@
 <?php
 
-//gibt select-statements für farbtabelle aus:
+//gibt select-statements fï¿½r farbtabelle aus:
 	function getColorTable(){
 		$hex = array("00", "33", "66", "99", "CC", "FF");
 		for ($r=0; $r<count($hex); $r++){ //the red colors loop

@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 23.9.05
@@ -83,18 +83,18 @@ include_once($root."/include/mietobjektFunctions.inc.php");
 	updateMietobjekt($mietobjekt_id,$defaultBezeichnung,$defaultBeschreibung,$preis,$linkName);
 	
 	?>
-	<table border="0" cellpadding="0" cellspacing="0" class="<?= FREI ?>">
+	<table border="0" cellpadding="0" cellspacing="0" class="<?php echo FREI ?>">
 	  <tr>
 		<td><?php echo(getUebersetzung("Das Mietobjekt wurde erfolgreich verändert.")); ?></td>
 	  </tr>
 	</table>	
 	<br/>
 		
-<table border="0" cellpadding="0" cellspacing="0" class="<?= TABLE_STANDARD ?>">
+<table border="0" cellpadding="0" cellspacing="0" class="<?php echo TABLE_STANDARD ?>">
   <tr> 
     <td><form action="./index.php" method="post" name="zurueck" target="_self" id="zurueck">
-        <input name="retour2" type="submit" class="<?= BUTTON ?>" id="retour2" onMouseOver="this.className='<?= BUTTON_HOVER ?>';"
-	 onMouseOut="this.className='<?= BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
+        <input name="retour2" type="submit" class="<?php echo BUTTON ?>" id="retour2" onMouseOver="this.className='<?php echo BUTTON_HOVER ?>';"
+	 onMouseOut="this.className='<?php echo BUTTON ?>';" value="<?php echo(getUebersetzung("zurück")); ?>">
       </form></td>
   </tr>
 </table>

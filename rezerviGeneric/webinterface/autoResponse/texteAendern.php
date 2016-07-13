@@ -1,4 +1,4 @@
-<? $root = "../..";
+<?php $root = "../..";
 
 /*   
 	date: 7.10.05
@@ -121,7 +121,7 @@ if ($art == NEWSLETTER){
 	
 if ($art != NEWSLETTER){
 ?>
-<table border="0" cellpadding="0" cellspacing="2" class="<?= FREI ?>">
+<table border="0" cellpadding="0" cellspacing="2" class="<?php echo FREI ?>">
   <tr>
     <td><?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.")); ?></td>
   </tr>
@@ -132,7 +132,7 @@ if ($art != NEWSLETTER){
 else{
 		
 ?>
-	<table class="<?= TABLE_STANDARD ?>" border="0" cellspacing="2" cellpadding="0">
+	<table class="<?php echo TABLE_STANDARD ?>" border="0" cellspacing="2" cellpadding="0">
 	   <tr>
   		<td><select name="mieter[]" size="10">
 		<?php
@@ -174,7 +174,7 @@ else{
     </tr>
   </table>
   <br/>
-	<table border="0" cellpadding="0" cellspacing="2" class="<?= FREI ?>">
+	<table border="0" cellpadding="0" cellspacing="2" class="<?php echo FREI ?>">
 	  <tr>
 		<td><?php echo(getUebersetzung("Die E-Mails wurden erfolgreich versendet")); ?>!</td>
 	  </tr>

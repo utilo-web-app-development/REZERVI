@@ -95,7 +95,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
 <?php 
 if (isset($nachricht) && $nachricht != ""){
 ?>
- <div class="alert alert-info" role="alert" <? if (isset($fehler) && $fehler == true) { ?> class="belegt" <? } else { ?> class="frei" <? } ?>>
+ <div class="alert alert-info" role="alert" <?php if (isset($fehler) && $fehler == true) { ?> class="belegt" <?php } else { ?> class="frei" <?php } ?>>
 	  
 		<?php echo($nachricht) ?>
 	  

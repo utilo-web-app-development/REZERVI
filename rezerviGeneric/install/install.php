@@ -130,7 +130,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 <!-- webinterface öffnen -->
 <form action="../webinterface/index.php" method="post" id="formLizenz" name="formLizenz" target="_self" onSubmit="return checkLicence();">
 	<p class="standardSchrift"><?php echo(getUebersetzung("Bitte ändern sie nun ihre Einstellungen im Webinterface",$sprache,$link)); ?></p>
-	<input name="Submit" type="submit" class="button200pxA" value="<?= getUebersetzung("Webinterface öffnen",$sprache,$link) ?>">
+	<input name="Submit" type="submit" class="button200pxA" value="<?php echo getUebersetzung("Webinterface öffnen",$sprache,$link) ?>">
 </form>
 <!-- ende webinterface öffnen -->
 
