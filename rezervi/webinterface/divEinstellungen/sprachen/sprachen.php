@@ -44,8 +44,9 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
           onSubmit="return chkFormular();" class="form-horizontal">
 
         <h2><?php echo(getUebersetzung("Ändern der angezeigten Sprachen", $sprache, $link)); ?>.</h2>
-        <h4><?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen", $sprache, $link)); ?>:</h4>
-        <?php echo($link)?>
+        <h4><?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen", $sprache, $link)); ?>
+            :</h4>
+
 
         <br/>
         <?php

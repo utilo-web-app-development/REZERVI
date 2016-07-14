@@ -37,19 +37,23 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
 <div class="panel panel-default">
     <div class="panel-body">
         <a class="btn btn-primary" href="./index.php">
-            <span class="glyphicon glyphicon-menu-left"  aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
             <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
         </a>
     </div>
 </div>
 
 <div class="panel panel-default">
+    <div class="panel-heading">
+        <h2><?php echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen", $sprache, $link)); ?></h2>
+    </div>
     <div class="panel-body">
         <!-- <form action="./zimmerEintragen.php" method="post" name="zimmerEintragen" target="_self"> -->
         <form action="./zimmerEintragen.php" method="post" name="zimmerEintragen" target="_self"
               onSubmit="return chkFormular();" class="form-horizontal">
 
-            <h1><?php echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen", $sprache, $link)); ?></h1>
+            <!--            <h1>-->
+            <?php //echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen", $sprache, $link)); ?><!--</h1>-->
             <h5>
                 <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.", $sprache, $link)); ?>
 

@@ -63,22 +63,27 @@ $haustiere = getHaustiere($unterkunft_id, $zimmer_id, $link);
 ?>
     !</h4>-->
 
-<div class="panel panel-default">
-    <div class="panel-body">
-        <a class="btn btn-primary" href="./index.php">
-            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;
-            <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
-        </a>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a class="btn btn-primary" href="./index.php">
+                <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;
+                <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
+            </a>
+        </div>
     </div>
-</div>
 
 <div class="panel panel-default">
+    <div class="panel-heading"> <!--<p class=" standardSchriftBold lead">-->
+        <h2><?php echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten", $sprache, $link)); ?></h2>
+    </div>
     <div class="panel-body">
 
         <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
               class="form-horizontal">
 
-            <h1><?php echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten", $sprache, $link)); ?></h1><br/>
+            <!--            <h1>-->
+            <?php //echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten", $sprache, $link));
+            ?><!--</h1><br/>-->
             <h5> <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.", $sprache, $link)); ?>
                 <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden", $sprache, $link)); ?>
                 !</h5>
