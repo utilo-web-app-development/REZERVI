@@ -81,10 +81,10 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
             <table border="0" cellpadding="0" cellspacing="3" class="table">
                 <tr>
                     <td>
-                        <?php echo getUebersetzung("Bezeichnung", $sprache, $link) ?>
+                        <label class="label-control">  <?php echo getUebersetzung("Bezeichnung", $sprache, $link) ?></label>
                     </td>
                     <td>
-                        <?php echo getUebersetzung("Beschreibung", $sprache, $link) ?>
+                        <label class="label-control"> <?php echo getUebersetzung("Beschreibung", $sprache, $link) ?></label>
                     </td>
                     <td>
                     </td>
@@ -100,11 +100,11 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                     ?>
                     <tr>
                         <td>
-                            <input type="text" name="bezeichnung_<?php echo $att_id ?>"
+                            <input class="form-control" type="text" name="bezeichnung_<?php echo $att_id ?>"
                                    value="<?php echo $bezeichnung ?>">
                         </td>
                         <td>
-                            <input type="text" name="beschreibung_<?php echo $att_id ?>"
+                            <input class="form-control" type="text" name="beschreibung_<?php echo $att_id ?>"
                                    value="<?php echo $beschreibung ?>">
                         </td>
                         <td>
@@ -121,10 +121,10 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                 ?>
                 <tr>
                     <td>
-                        <input type="text" name="bezeichnung_neu">
+                        <input class="form-control" type="text" name="bezeichnung_neu">
                     </td>
                     <td>
-                        <input type="text" name="beschreibung_neu">
+                        <input class="form-control" type="text" name="beschreibung_neu">
                     </td>
                     <td>
                         <input
@@ -141,7 +141,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
             <table border="0" cellpadding="0" cellspacing="3" class="table">
                 <tr>
                     <td>
-                        <?php echo getUebersetzung("Gesamtübersicht", $sprache, $link) ?>
+                        <label class="label-control"> <?php echo getUebersetzung("Gesamtübersicht", $sprache, $link) ?> </label>
                     </td>
                     <td>
                         <input type="checkbox" name="showInGesamtuebersicht" value="true"
@@ -155,12 +155,16 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                     </td>
                 </tr>
             </table>
-            <br/>
 
-            <input
-                name="aendern" type="submit" id="aendern"
-                class="btn btn-success"
-                value="<?php echo(getUebersetzung("speichern", $sprache, $link)); ?>"/>
+            <div class="form-group">
+                <div class="col-sm-offset-11 col-sm-1"  style="margin-left: 89.666667%;">
+                    <input
+                        name="aendern" type="submit" id="aendern"
+                        class="btn btn-success"
+                        value="<?php echo(getUebersetzung("speichern", $sprache, $link)); ?>"/>
+                </div>
+            </div>
+
 
             <!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"

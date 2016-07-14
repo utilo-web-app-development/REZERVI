@@ -26,7 +26,7 @@ $benutzername = getSessionWert(BENUTZERNAME);
 $passwort = getSessionWert(PASSWORT);
 $sprache = getSessionWert(SPRACHE);
 
-include_once("../templates/headerA.php"); 
+include_once("../templates/headerA.php");
 ?>
 <style type="text/css">
 <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
@@ -36,15 +36,15 @@ include_once("../templates/headerA.php");
 	* Jason's Date Input Calendar- By Jason Moon http://www.jasonmoon.net/
 	* Script featured on and available at http://www.dynamicdrive.com
 	* Keep this notice intact for use.
-	***********************************************/	
+	***********************************************/
 </script>
-<?php 
-include_once("../templates/headerB.php"); 
-include_once("../templates/bodyA.php"); 
+<?php
+include_once("../templates/headerB.php");
+include_once("../templates/bodyA.php");
 
 //passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
-	
+
 //generiert das heutige datum für den date picker:
 $startdatumDP = getTodayDay()."/".parseMonthNumber(getTodayMonth())."/".getTodayYear();
 
@@ -55,16 +55,19 @@ if ($sizeRoomSelectBox > 5){
 ?>
 <div class="panel panel-default">
   <div class="panel-body">
-  	<a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
+  	<a class="btn btn-primary" href="./index.php">
+	<span class="glyphicon glyphicon-menu-left" ></span>
+	<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>
+	</a>
  </div>
 </div>
    <div class="panel panel-default">
   <div class="panel-body">
-  	
+
 <h1>
-	<?php echo getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
+<?php echo getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
 </h1>
-<h4">
+<h4>
 	<?php
 	$text = "Definieren sie hier für jedes Mietobjekt einen Standardpreis. Wird " .
 			"bei der Berechnung des Preises kein Preis für eine Saison gefunden, dann " .
@@ -74,20 +77,18 @@ if ($sizeRoomSelectBox > 5){
 </h4>
 </br>
 </br>
-<?php 
+<?php
 if (isset($nachricht) && $nachricht != ""){
 ?>
 <div class="alert alert-info" role="alert"
-	
-	  <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } 
+
+	  <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); }
 			else {echo("class=\"belegt\"");} ?>>
 				<?php echo $nachricht ?>
-	
-	
-	
+
 </div>
 	<br/>
-<?php 
+<?php
 }
 ?>
 <form action="./standardPreisAendern.inc.php" method="post" target="_self">
@@ -98,31 +99,31 @@ if (isset($nachricht) && $nachricht != ""){
 		</td>
 		<td>
 			<?php echo getUebersetzung("Mietobjekt",$sprache,$link) ?>
-		</td>		
+		</td>
 		<td>
 		</td>
 	</tr>
-<?php		
+<?php
 	//alle bestehenden attribute auslesen:
 	$res = getStandardPrices($unterkunft_id,$link);
-	while ($d = mysql_fetch_array($res)){		
+	while ($d = mysql_fetch_array($res)){
 		$preis_id 	= $d["PK_ID"];
 		$preis		= $d["Preis"];
 ?>
 		<tr>
-			<td>				
-				<input type="text" name="preis_<?php echo $preis_id ?>" value="<?php echo $preis ?>"/>
+			<td>
+				<input class="form-control" type="text" name="preis_<?php echo $preis_id ?>" value="<?php echo $preis ?>"/>
 			</td>
-			<td>				
-			<select name="zimmer_<?php echo $preis_id ?>[]" size="<?php echo $sizeRoomSelectBox ?>" 
+			<td>
+			<select class="form-control" name="zimmer_<?php echo $preis_id ?>[]" size="<?php echo $sizeRoomSelectBox ?>"
 				multiple="multiple" id="zimmer_<?php echo $preis_id ?>">
           	<?php
-          	 $res3 = getZimmer($unterkunft_id,$link);			 
+          	 $res3 = getZimmer($unterkunft_id,$link);
 				  while($g = mysql_fetch_array($res3)) {
 					$ziArt = getUebersetzungUnterkunft($g["Zimmerart"],$sprache,$unterkunft_id,$link);
 					$ziNr  = getUebersetzungUnterkunft($g["Zimmernr"],$sprache,$unterkunft_id,$link);
 					?>
-					<option value="<?php echo $g["PK_ID"] ?>" 
+					<option value="<?php echo $g["PK_ID"] ?>"
 						<?php
 						$res2 = getZimmerForPrice($preis_id);
 						while($r = mysql_fetch_array($res2)) {
@@ -142,9 +143,9 @@ if (isset($nachricht) && $nachricht != ""){
         	</select>
 			</td>
 			<td>
-			    <input 
-      				name="loeschen_<?php echo $preis_id ?>" type="submit" id="loeschen_<?php echo $preis_id ?>" 
-      				class="btn btn-danger" 
+			    <input  name="loeschen_<?php echo $preis_id ?>"
+                    type="submit" id="loeschen_<?php echo $preis_id ?>"
+      				class="btn btn-danger"
        				value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
 			</td>
 		</tr>
@@ -152,11 +153,11 @@ if (isset($nachricht) && $nachricht != ""){
 	} //ende while attribute
 ?>
 	<tr valign="top">
-		<td>				
-			<input type="text" name="preis_neu" />
+		<td>
+			<input class="form-control" type="text" name="preis_neu" />
 		</td>
-		<td>				
-		<select name="zimmer_id_neu[]" size="<?php echo $sizeRoomSelectBox ?>" 
+		<td>
+		<select class="form-control" name="zimmer_id_neu[]" size="<?php echo $sizeRoomSelectBox ?>"
 			multiple="multiple" id="zimmer_id_neu">
           <?php
 			 $res = getZimmer($unterkunft_id,$link);
@@ -173,43 +174,45 @@ if (isset($nachricht) && $nachricht != ""){
 						<?php
 						}
 						$i++;
-						?>						
+						?>
 						>
 						<?php echo $ziArt." ".$ziNr ?>
 					</option>
 					<?php
 				  } //ende while
-			 //ende zimmer ausgeben    
+			 //ende zimmer ausgeben
 			 ?>
         </select>
 		</td>
 		<td>
-		    <input 
-  				name="hinzufuegen" type="submit" id="hinzufuegen" 
+		    <input
+  				name="hinzufuegen" type="submit" id="hinzufuegen"
   				class="btn btn-success"
    				value="<?php echo(getUebersetzung("hinzufügen",$sprache,$link)); ?>" />
 		</td>
 	</tr>
 </table>
-<br/>
 
-	
-		<input 
-  				name="aendern" type="submit" id="aendern" 
-  				class="btn btn-success" 
-   				value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
-		
-		
+                    <div class="form-group">
+                        <div class="col-sm-offset-10 col-sm-2" style="margin-left: 86.333333%;">
+                            <input
+                                    name="aendern" type="submit" id="aendern"
+                                    class="btn btn-success"
+                                    value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
+                        </div>
+                    </div>
+
+
 
 </form>
 </br>
- 
+
      	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
 		<input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
 	 	onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
   		</form> -->
 
- 
+
 <table border="0" cellpadding="0" cellspacing="0" class="table">
   <tr>
     <!-- <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
@@ -223,6 +226,6 @@ if (isset($nachricht) && $nachricht != ""){
 else {
 	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
-?>   
+?>
 </body>
 </html>

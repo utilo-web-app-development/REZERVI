@@ -247,10 +247,9 @@ if ($sizeRoomSelectBox > 5){
 </table>
 <div class="form-group">
 <div class="col-sm-offset-10 col-sm-2" style="margin-left: 86.333333%;">
-<input
-  				name="aendern" type="submit" id="aendern"
-  				class="btn btn-success"
-   				value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
+    <input name="aendern" type="submit" id="aendern"
+  		   class="btn btn-success"
+   		   value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
 </div>
 
 </div>

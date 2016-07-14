@@ -20,9 +20,13 @@ function showSubmitButtonWithForm($path,$value){
 
 
 function showSubmitButton($value){
-?>	
+?>
+	<div class="form-group">
+		<div class="col-sm-offset-10 col-sm-2">
 			<input name="<?php echo($value); ?>" type="submit" class="btn btn-primary" id="<?php echo($value); ?>" ;" value="<?php echo($value); ?>">
-	
+		</div>
+	</div>
+
 <?php
 }
 ?>
