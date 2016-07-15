@@ -60,6 +60,9 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 <?php echo(getUebersetzung("ändern der E-Mail-Buchungsbestätigung die ein Gast erhält wenn Sie die Reservierung akzeptieren", $sprache, $link)); ?>.
             </label>
         </div>
+    </form>
+    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
+          class="form-horizontal">
         <div class="row">
             <div class="col-sm-3">
                 <input name="ablehnung" type="submit" class="btn btn-primary" id="ablehnung" style="width: 160px;"
@@ -69,6 +72,9 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 <?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage die ein Gast erhält wenn Sie die Reservierung ablehnen", $sprache, $link)); ?>.
             </label>
         </div>
+    </form>
+    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
+          class="form-horizontal">
         <div class="row">
             <div class="col-sm-3">
                 <input name="anfrage" type="submit" class="btn btn-primary" id="anfrage" style="width: 160px;"
@@ -78,6 +84,9 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 <?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage die ein Gast erhält wenn er eine Buchungsanfrage im Belegungsplan vornimmt", $sprache, $link)); ?>.
             </label>
         </div>
+    </form>
+    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
+          class="form-horizontal">
         <div class="row">
             <div class="col-sm-3">
                 <input name="emails" type="submit" class="btn btn-primary" id="emails" style="width: 160px;"

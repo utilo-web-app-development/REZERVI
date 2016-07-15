@@ -326,6 +326,7 @@ else if ($standardsprache == "es"){
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
+	<?php echo($_POST["aktiviert"]); ?>
 <?php 
 	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
@@ -409,6 +410,9 @@ else if ($standardsprache == "es"){
 	}
 	
 ?>
+        <script>
+            console.log("<?php $_POST["aktiviert"]?>");
+        </script>
 <table border="0" cellpadding="0" cellspacing="2">
   <tr>
     <td class="frei"><?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.",$sprache,$link)); ?></td>
