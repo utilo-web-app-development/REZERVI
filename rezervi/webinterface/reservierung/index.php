@@ -1,38 +1,56 @@
 <?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
-define( '_JEXEC', 1 );
-include_once($root."/include/sessionFunctions.inc.php");
-	//datenbank öffnen:
-	include_once("../../conf/rdbmsConfig.php");
-	include_once("../../include/einstellungenFunctions.php");
-	$unterkunft_id = getSessionWert(UNTERKUNFT_ID);
+define('_JEXEC', 1);
+include_once($root . "/include/sessionFunctions.inc.php");
+
+//datenbank öffnen:
+include_once("../../conf/rdbmsConfig.php");
+include_once("../../include/einstellungenFunctions.php");
+$unterkunft_id = getSessionWert(UNTERKUNFT_ID);
+
+//datums-funktionen einbinden:
+include_once("../../include/datumFunctions.php");
+include_once("../../include/benutzerFunctions.php");
+include_once("../../include/zimmerFunctions.php");
+include_once("../../include/uebersetzer.php");
+include_once("../../include/unterkunftFunctions.php");
+include_once("../../include/propertiesFunctions.php");
+include_once("../../include/reseller/reseller.php");
+//funktions einbinden:
+
+
+include_once("../../include/reservierungFunctions.php");
+include_once("../../include/gastFunctions.php");
+
+include_once("./rightHelper.php");
+include_once("../../leftHelper.php");
+
+include_once("../templates/headerA.php");
+
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
-<html>
-<head>
 <title>Zimmerreservierungsplan</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-</head>
-<?php
-	//framegroessen auslesen:;
-  	$framesizeLeftWI = getFramesizeLeftWI($unterkunft_id,$link);
-  	$framesizeRightWI= getFramesizeRightWI($unterkunft_id,$link);
-  	$framesizeLeftWIUnit = getFramesizeLeftWIUnit($unterkunft_id,$link);
-  	$framesizeRightWIUnit= getFramesizeRightWIUnit($unterkunft_id,$link);
-  	if ($framesizeLeftWIUnit == "%"){
-  		$framesizeLeftWI.=$framesizeLeftWIUnit;
-  	}	
-  	if ($framesizeRightWIUnit == "%"){
-  		$framesizeRightWI.=$framesizeRigthWIUnit;
-  	}	
-?>
-<frameset cols="<?php echo($framesizeLeftWI); ?>,<?php echo($framesizeRightWI); ?>" framespacing="1" frameborder="yes" border="1" bordercolor="#000000">
-  <frame src="left.php" name="reservierung" frameborder="yes" id="reservierung">
-  <frame src="ansichtWaehlen.php" name="kalender" frameborder="no" id="kalender">
-</frameset>
-<noframes><body class="backgroundColor">
-<p>Diese Seite verwendet Frames - bitte aktualisieren Sie Ihren Browser!</p>
-<p><a href="http://www.utilo.eu" target="_parent">http://www.utilo.eu</a></p>
-</body></noframes>
+<style type="text/css">
+    <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+</style>
+
+<script language="JavaScript" type="text/javascript" src="../../templates/changeForms.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="./leftJS.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="./rightJS.js">
+</script>
+<?php include_once("../templates/headerB.php"); ?>
+
+<?php include_once("../templates/bodyA.php"); ?>
+<div class="row">
+    <div class="col-sm-5">
+        <?php include_once("left.php"); ?>
+    </div>
+    <div class="col-sm-7">
+        <?php include_once("right.php"); ?>
+    </div>
+</div>
+</body>
 </html>

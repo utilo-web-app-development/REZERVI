@@ -1,4 +1,4 @@
-if(parent == null || parent == self) {top.location.href = './index.php';}
+// if(parent == null || parent == self) {top.location.href = './index.php';}
 		 
 function updateLeft(monatValue,jahrValue,zimmer_idValue,form){	
 

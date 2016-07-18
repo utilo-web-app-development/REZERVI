@@ -700,13 +700,6 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                 <label
                     class="col-sm-4 label-control"><?php echo(getUebersetzung("Automatische Antwort aktiviert", $sprache, $link)); ?> </label>
                 <div class="col-sm-8">
-                    <!--<input type="checkbox" name="aktiviert" checked>
-                    <script>
-                        $(function() {
-                            $("[name='aktiviert']").bootstrapSwitch();
-                        })
-                    </script>-->
-
                     <input type="checkbox" name="aktiviert" id="aktiviert"
                         <?php if (isMessageActive($unterkunft_id, $art, $link)) echo("checked"); ?>>
                     <script>

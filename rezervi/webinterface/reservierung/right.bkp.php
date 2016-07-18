@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -12,7 +12,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
-/*//funktions einbinden:
+//funktions einbinden:
 include_once("../../include/unterkunftFunctions.php");
 include_once("../../include/zimmerFunctions.php");
 include_once("../../include/datumFunctions.php");
@@ -22,7 +22,7 @@ include_once("../../include/benutzerFunctions.php");
 include_once("../../include/uebersetzer.php");
 include_once("./rightHelper.php");	
 include_once("../../leftHelper.php");
-include_once("../../include/propertiesFunctions.php");*/
+include_once("../../include/propertiesFunctions.php");
 
 //variablen initialisieren:
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
@@ -58,9 +58,19 @@ $saAktiviert = getPropertyValue(SHOW_OTHER_COLOR_FOR_SA,$unterkunft_id,$link);
 
 setSessionWert(ZIMMER_ID,$zimmer_id);
 
-?>
+include_once("../templates/headerA.php"); 
 
-<?php
+?>
+<style type="text/css">
+<?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+</style>
+<?php 
+	include_once("../templates/headerB.php"); 
+?>
+<script language="JavaScript" type="text/javascript" src="./rightJS.js">
+</script>
+<?php include_once("../templates/bodyA.php"); 
+	
 //passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ 
 ?>
@@ -129,3 +139,5 @@ else{
  echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
 ?>
+</body>
+</html>
