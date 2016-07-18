@@ -57,7 +57,7 @@ if (isset($antwort)) echo($antwort); ?></p>
 
 	
 <div class=	"col-md-8">        
-		<textarea class="form-control" rows="20" cols="80">
+		<textarea class="form-control" rows="20" cols="80" readonly>
 	          
 	          <?php
 	          if ($_POST["sprache"] == "de"){
