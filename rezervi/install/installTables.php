@@ -33,12 +33,12 @@ foreach ($files as $filename){
 	$query = @implode("",(@file($filename)));	
 	$query3 = trim($query);
 	//query absetzen:
-	$res = mysql_query($query3, $link);
+	$res = mysqli_query($link,$query3 );
 	
 	if (!$res){
 		$tabellen = false;
 		$fehler = true;
-		$antwort=mysql_error($link)."<br/>";
+		$antwort=mysqli_error($link)."<br/>";
 		$antwort.=getUebersetzung("Anlegen der Tabellen scheiterte!",$sprache,$link)."<br/>";
 	    $antwort.=getUebersetzung("Eine mögliche Ursache ist, dass die Zugangsdaten in ihrer Konfigurationsdatei nicht korrekt sind oder die Tabellen bereits angelegt wurden.",$sprache,$link)."<br/>";
 		$antwort.=getUebersetzung("Überprüfen Sie die Zugangsdaten in conf/rdbmsConfig.php und die Version Ihrer MySQL Datenbank.",$sprache,$link)."<br/>";  
@@ -60,9 +60,9 @@ $query = "REPLACE INTO
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
 		('de','deutsch','$fahne','3')";
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res){
-    $antwort=$antwort.(mysql_error($link));
+    $antwort=$antwort.(mysqli_error($link));
 	$fail = true;
 }
 $binFile="../fahneEN.gif";
@@ -72,9 +72,9 @@ $query = "REPLACE INTO
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
 		('en','englisch','$fahne','3')";
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res){
-    $antwort=$antwort.(mysql_error($link));
+    $antwort=$antwort.(mysqli_error($link));
 	$fail = true;
 }
 $binFile="../fahneFR.gif";
@@ -84,9 +84,9 @@ $query = "REPLACE INTO
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
 		('fr','französisch','$fahne','2')";
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res){
-    $antwort=$antwort.(mysql_error($link));
+    $antwort=$antwort.(mysqli_error($link));
 	$fail = true;
 }
 $binFile="../fahneIT.gif";
@@ -96,9 +96,9 @@ $query = "REPLACE INTO
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
 		('it','italienisch','$fahne','0')";
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res){
-    $antwort=$antwort.(mysql_error($link));
+    $antwort=$antwort.(mysqli_error($link));
 	$fail = true;
 }
 $binFile="../fahneSP.gif";
@@ -108,9 +108,9 @@ $query = "REPLACE INTO
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
 		('sp','spanisch','$fahne','0')";
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res){
-    $antwort=$antwort.(mysql_error($link));
+    $antwort=$antwort.(mysqli_error($link));
 	$fail = true;
 }
 $binFile="../fahneES.gif";
@@ -120,7 +120,7 @@ $query = "REPLACE INTO
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
 		('es','estonisch','$fahne','0')";
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 $binFile="../fahneNL.gif";
 $fahne = addslashes(fread(fopen($binFile, "r"), filesize($binFile)));
 $query = "REPLACE INTO 
@@ -128,9 +128,9 @@ $query = "REPLACE INTO
 		(Sprache_ID,Bezeichnung, Fahne,aktiv) 
 		VALUES 
 		('nl','Niederländisch','$fahne','3')";
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res){
-    $antwort=$antwort.(mysql_error($link));
+    $antwort=$antwort.(mysqli_error($link));
 	$fail = true;
 }
 

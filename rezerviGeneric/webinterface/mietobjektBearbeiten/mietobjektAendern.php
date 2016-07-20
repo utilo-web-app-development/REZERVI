@@ -46,7 +46,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
     </tr>
     <?php
     $res = getActivtedSprachenOfVermieter($vermieter_id);
-    while ($d = mysql_fetch_array($res)){
+    while ($d = mysqli_fetch_array($res)){
     	$sprache_id = $d["SPRACHE_ID"];
     	$bezeichnung= $d["BEZEICHNUNG"];
     	$bez= getUebersetzungVermieter($bez_mietobj,$sprache_id,$vermieter_id); 
@@ -75,7 +75,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
     </tr>
     <?php
     $res = getActivtedSprachenOfVermieter($vermieter_id);
-    while ($d = mysql_fetch_array($res)){
+    while ($d = mysqli_fetch_array($res)){
     	$sprache_id = $d["SPRACHE_ID"];
     	$bezeichnung= $d["BEZEICHNUNG"];
     	$bes= getUebersetzungVermieter($bes_mietobj,$sprache_id,$vermieter_id); 

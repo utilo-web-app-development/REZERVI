@@ -64,7 +64,7 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
     <?php
 
     $res = getActivtedSprachenOfVermieter($vermieter_id);
-    while ($d = mysql_fetch_array($res)){
+    while ($d = mysqli_fetch_array($res)){
     	$sprache_id = $d["SPRACHE_ID"];
     	$bezeichnung= $d["BEZEICHNUNG"];
 		$subject = 			getUebersetzungVermieter($betreffStandard,$sprache_id,$vermieter_id);
@@ -168,7 +168,7 @@ $standardsprache = getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
           <?php
 		//alle gäste der unterkunft auslesen:
 		$res = getAllMieterFromVermieter($vermieter_id);
-		while ($d = mysql_fetch_array($res)){
+		while ($d = mysqli_fetch_array($res)){
 			$mieter_id = $d["MIETER_ID"];
 			$vorname = $d["VORNAME"];
 			$nachname = $d["NACHNAME"];

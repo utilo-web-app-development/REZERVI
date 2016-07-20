@@ -28,7 +28,7 @@ if ($anzahlVorhandMietobjekte > 0){
           <?php	
 		 	 $res = getMietobjekte($vermieter_id);
 		 	 $first = true;
-			  while($d = mysql_fetch_array($res)) {
+			  while($d = mysqli_fetch_array($res)) {
 				$ziArt = getUebersetzungVermieter($d["BEZEICHNUNG"],$sprache,$vermieter_id);
 				?>
 				<option value="<?php echo $d["MIETOBJEKT_ID"] ?>" <?php
@@ -66,7 +66,7 @@ if ($anzahlVorhandMietobjekte > 0){
           <?php	
 		 	 $res = getMietobjekte($vermieter_id);
 		 	 $first = true;
-			  while($d = mysql_fetch_array($res)) {
+			  while($d = mysqli_fetch_array($res)) {
 				$ziArt = getUebersetzungVermieter($d["BEZEICHNUNG"],$sprache,$vermieter_id);
 				?>
 				<option value="<?php echo $d["MIETOBJEKT_ID"] ?>" <?php

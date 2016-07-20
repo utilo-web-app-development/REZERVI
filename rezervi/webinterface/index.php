@@ -190,7 +190,7 @@ else{
                   <td><select name="sprache">
                   <?php
                   	$res = getSprachenForWebinterface($link);
-                  	while($d = mysql_fetch_array($res)){
+                  	while($d = mysqli_fetch_array($res)){
                   		$bezeichnung = $d["Bezeichnung"];
                   		$spracheID   = $d["Sprache_ID"];
                   		if ($noLanguage){
@@ -210,8 +210,7 @@ else{
                 </tr>
               </table>
               <p align="center">
-                <input name="anmelden" type="submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       				onMouseOut="this.className='button200pxA';" id="anmelden" value="<?php 
+                <input name="anmelden" type="submit" class="btn btn-success" id="anmelden" value="<?php
        				//keine sprache -> auch englisch anzeigen:
         			if ($noLanguage){
         				echo("login/");

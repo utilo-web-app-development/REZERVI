@@ -95,7 +95,7 @@ if ($sizeRoomSelectBox > 5){
 <?php
 	//alle bestehenden attribute auslesen:
 	$res = getPrices($unterkunft_id,$link);
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 		$valid_from = $d["gueltig_von"];
 		$tag = getTagFromSQLDate($valid_from);
 		if (strlen($tag)<2){ $tag = "0".$tag; }
@@ -143,14 +143,14 @@ if ($sizeRoomSelectBox > 5){
 				multiple="multiple" id="zimmer_<?php echo $preis_id ?>">
           	<?php
           	 $res3 = getZimmer($unterkunft_id,$link);
-				  while($g = mysql_fetch_array($res3)) {
+				  while($g = mysqli_fetch_array($res3)) {
 					$ziArt = getUebersetzungUnterkunft($g["Zimmerart"],$sprache,$unterkunft_id,$link);
 					$ziNr  = getUebersetzungUnterkunft($g["Zimmernr"],$sprache,$unterkunft_id,$link);
 					?>
 					<option value="<?php echo $g["PK_ID"] ?>"
 						<?php
 						$res2 = getZimmerForPrice($preis_id);
-						while($r = mysql_fetch_array($res2)) {
+						while($r = mysqli_fetch_array($res2)) {
 							if ($r["PK_ID"] == $g["PK_ID"]){
 						?>
 							selected="selected"
@@ -207,7 +207,7 @@ if ($sizeRoomSelectBox > 5){
 			 $res = getZimmer($unterkunft_id,$link);
 			  //zimmer ausgeben:
 			  $i = 0;
-				  while($d = mysql_fetch_array($res)) {
+				  while($d = mysqli_fetch_array($res)) {
 					$ziArt = getUebersetzungUnterkunft($d["Zimmerart"],$sprache,$unterkunft_id,$link);
 					$ziNr  = getUebersetzungUnterkunft($d["Zimmernr"],$sprache,$unterkunft_id,$link);
 					?>

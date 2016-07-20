@@ -102,7 +102,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                 <?php
 
                 $res = getBuchungseinschraenkungen($unterkunft_id);
-                while ($d = mysql_fetch_array($res)) {
+                while ($d = mysqli_fetch_array($res)) {
                     $von = $d["Tag_von"];
                     $bis = $d["Tag_bis"];
                     $datum_von = $d["Datum_von"];
@@ -145,7 +145,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                         <select name="zimmer_id" class="form-control">
                             <?php
                             $res = getZimmer($unterkunft_id, $link);
-                            while ($d = mysql_fetch_array($res)) {
+                            while ($d = mysqli_fetch_array($res)) {
                                 $zimmer_id = $d["PK_ID"];
                                 $zimmer = getZimmerNr($unterkunft_id, $zimmer_id, $link);
                                 $zimmerart = getZimmerArt($unterkunft_id, $zimmer_id, $link);

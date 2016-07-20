@@ -125,7 +125,7 @@ if ($status != STATUS_FREI) { ?>
 	                <option value="<?php echo NEUER_MIETER ?>" selected><?php echo(getUebersetzung("neuer Mieter")); ?></option>
 	                <?php 
 	                $res = getAllMieterFromVermieter($vermieter_id);
-					while($d = mysql_fetch_array($res)) {
+					while($d = mysqli_fetch_array($res)) {
 						$mie_id = $d["MIETER_ID"];
 						$nachname = getNachnameOfMieter($mie_id);
 						$vorname = getMieterVorname($mie_id);
@@ -230,7 +230,7 @@ if ($status != STATUS_FREI) { ?>
             	//sprachen des belegungsplanes anzeigen:
             	$stdSpr= getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
             	$res = getActivtedSprachenOfVermieter($vermieter_id);
-            	while ($d = mysql_fetch_array($res)){
+            	while ($d = mysqli_fetch_array($res)){
 				 	$spr = $d["SPRACHE_ID"];
 					$bezeichnung = getBezeichnungOfSpracheID($spr);
             	?>
@@ -292,7 +292,7 @@ if ($status != STATUS_FREI) { ?>
 			//alle Reservierungen ausgeben die gelöscht werden, wenn auf ok gedrueckt wird:
 			$result = getReservationWithDate($mietobjekt_id,0,0,$vonTag,$vonMonat,$vonJahr,0,0,$bisTag,$bisMonat,$bisJahr);
 			$first = true;
-			while($d = mysql_fetch_array($result)){
+			while($d = mysqli_fetch_array($result)){
 				if ($first){ ?>					
 					  <tr>
 					  	<td>

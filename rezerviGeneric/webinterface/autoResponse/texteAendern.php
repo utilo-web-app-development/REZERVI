@@ -23,7 +23,7 @@ $art = $_POST["art"];
 	$unterschriftArray = array();
 	
 	$res = getActivtedSprachenOfVermieter($vermieter_id);
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 		$sprache_id = $d["SPRACHE_ID"];
 		$bezeichnung= $d["BEZEICHNUNG"];
 		$subject = "";
@@ -145,7 +145,7 @@ else{
 				 $an = getEmailOfMieter($mieter_id);
 				 
 				 $res = getActivtedSprachenOfVermieter($vermieter_id);
-				 while ($d = mysql_fetch_array($res)){
+				 while ($d = mysqli_fetch_array($res)){
 					$sprache_id = $d["SPRACHE_ID"];
 					$bezeichnung= $d["BEZEICHNUNG"];
 					if ($speech == $sprache_id){

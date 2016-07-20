@@ -66,7 +66,7 @@ define( '_JEXEC', 1 );
 
  //2. wurde löschen geklickt?
  $res = getStandardPrices($unterkunft_id,$link);
- while ($d = mysql_fetch_array($res)){	
+ while ($d = mysqli_fetch_array($res)){
 	$preis_id 	= $d["PK_ID"];
 	if (isset($_POST["loeschen_".$preis_id])){
 		deletePreis($preis_id);
@@ -82,7 +82,7 @@ define( '_JEXEC', 1 );
  	
  	 $res = getStandardPrices($unterkunft_id,$link);
  	 //gehe alle preise durch ob sie evt. verändert wurden:
-	 while ($d = mysql_fetch_array($res)){	
+	 while ($d = mysqli_fetch_array($res)){
 	 		
 	 		$preis_id = $d["PK_ID"];
 		

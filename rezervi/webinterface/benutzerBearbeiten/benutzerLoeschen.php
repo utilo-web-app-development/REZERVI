@@ -59,13 +59,13 @@ $sprache = getSessionWert(SPRACHE);
 				  ORDER BY 
 				  Name";
 	
-		 $res = mysql_query($query, $link);
+		 $res = mysqli_query($link, $query);
 		 if (!$res){
 			echo("die Anfrage $query scheitert.");
 		 }
 		 else{     
 		  
-		   while($d = mysql_fetch_array($res)) {
+		   while($d = mysqli_fetch_array($res)) {
 	 		
 			if ($d["PK_ID"] == $benutzer_id) continue;
 			if ($d["PK_ID"] == 1 && DEMO == true) continue;
@@ -77,7 +77,7 @@ $sprache = getSessionWert(SPRACHE);
 	           			 	WHERE
 	           				PK_ID = ".$d["PK_ID"]);          
 	
-				$res = mysql_query($query, $link);
+				$res = mysqli_query($link, $query);
 				if (!$res) { 
 					echo("die Anfrage $query scheitert"); 
 				}	

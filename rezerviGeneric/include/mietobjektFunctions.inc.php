@@ -19,15 +19,15 @@ function getMietobjektEigenschaftenWert($bezeichnung,$mietobjekt_id){
 					   MIETOBJEKT_ID = '$mietobjekt_id'
 		   			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$wert = $d["WERT"];
 		if ($wert == ""){
 			return false;
@@ -67,11 +67,11 @@ function setMietobjektEigenschaftenWert($bezeichnung,$wert,$mietobjekt_id){
 		  ");  
 	}
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
@@ -94,7 +94,7 @@ function deleteMietobjekt($mietobjekt_id){
 				MIETOBJEKT_ID = '$mietobjekt_id'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -108,7 +108,7 @@ function deleteMietobjekt($mietobjekt_id){
 				MIETOBJEKT_ID = '$mietobjekt_id'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -120,7 +120,7 @@ function deleteMietobjekt($mietobjekt_id){
 	include_once($root."/include/bildFunctions.inc.php");
 	include_once($root."/include/filesAndFolders.inc.php");
 	$res = getBilderOfMietobjekt($mietobjekt_id);
-	while ($d=mysql_fetch_array($res)){
+	while ($d=mysqli_fetch_array($res)){
 		rmFile($root."/".$d["PFAD"]);
 	}
 	deleteBilderOfMietobjekt($mietobjekt_id);
@@ -132,7 +132,7 @@ function deleteMietobjekt($mietobjekt_id){
 				MIETOBJEKT_ID = '$mietobjekt_id'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -161,7 +161,7 @@ function updateMietobjekt($mietobjekt_id,$bezeichnung,$beschreibung,$preis,$url)
 				MIETOBJEKT_ID = '$mietobjekt_id'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -188,15 +188,15 @@ function setMietobjekt($vermieter_id,$bezeichnung,$beschreibung,$preis,$url){
 		('$vermieter_id','$bezeichnung','$beschreibung','$preis','$url')
 		";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
 		return false;
 	}
 	else{
-		return mysql_insert_id($link);
+		return mysqli_insert_id($link);
 	}
 
 } 
@@ -217,13 +217,13 @@ function getAnzahlVorhandeneMietobjekte($vermieter_id){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["anzahl"];			
 		}			
 } 
@@ -246,9 +246,9 @@ function getMietobjekte($vermieter_id){
 				  BEZEICHNUNG
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{		
@@ -273,13 +273,13 @@ function getFirstMietobjektId($vermieter_id){
 				  BEZEICHNUNG
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{		
-			$row = mysql_fetch_row($res);
+			$row = mysqli_fetch_row($res);
 			return $row[0];			
 		}	
 			
@@ -302,10 +302,10 @@ function getMietobjekteOfVermieter($vermieter_id){
 					BEZEICHNUNG
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 	return $res;
@@ -326,13 +326,13 @@ function getMietobjektBezeichnung($mietobjekt_id){
 				  MIETOBJEKT_ID = '$mietobjekt_id' 
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
 			return false;
 		}
 		else{		
-			$d = mysql_fetch_array($res);			
+			$d = mysqli_fetch_array($res);
 			return $d["BEZEICHNUNG"];
 		}
 			
@@ -353,13 +353,13 @@ function getMietobjektBeschreibung($mietobjekt_id){
 				  MIETOBJEKT_ID = '$mietobjekt_id' 
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
 			return false;
 		}
 		else{		
-			$d = mysql_fetch_array($res);			
+			$d = mysqli_fetch_array($res);
 			return $d["BESCHREIBUNG"];
 		}
 			
@@ -379,13 +379,13 @@ function getMietobjektLink($mietobjekt_id){
 				  MIETOBJEKT_ID = '$mietobjekt_id' 
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
 			return false;
 		}
 		else{		
-			$d = mysql_fetch_array($res);			
+			$d = mysqli_fetch_array($res);
 			return $d["LINK"];
 		}	
 			
@@ -405,13 +405,13 @@ function getMietobjektPreis($mietobjekt_id){
 				  MIETOBJEKT_ID = '$mietobjekt_id' 
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
 			return false;
 		}
 		else{		
-			$d = mysql_fetch_array($res);			
+			$d = mysqli_fetch_array($res);
 			return $d["PREIS"];
 		}	
 			

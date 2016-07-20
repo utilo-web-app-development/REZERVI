@@ -67,13 +67,13 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 				  ORDER BY 
 				  Name";
 
-                        $res = mysql_query($query, $link);
+                        $res = mysqli_query($link, $query);
                         if (!$res) {
                             echo("die Anfrage $query scheitert.");
                         } else {
                             //benutzer ausgeben:
                             $i = 0;
-                            while ($d = mysql_fetch_array($res)) { ?>
+                            while ($d = mysqli_fetch_array($res)) { ?>
                                 <option value="<?php echo($d["PK_ID"]); ?>"
                                     <?php if ($i == 0) echo(" selected");
                                     $i++; ?>>

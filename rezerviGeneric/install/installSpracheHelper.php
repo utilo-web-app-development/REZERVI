@@ -66,10 +66,10 @@ function insertSprache($zeile){
 				"('$spracheId','$satz','$standardtext')";
 			
 		//query absetzen:
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res){
 			echo($query);
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
 			exit;
 		}
 		

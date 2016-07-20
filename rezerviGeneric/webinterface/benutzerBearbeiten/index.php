@@ -23,7 +23,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
       	<select name="id" size="5" id="id">
           <?php
 		  $res = getBenutzer($vermieter_id);
-		  while($d = mysql_fetch_array($res)) {?>
+		  while($d = mysqli_fetch_array($res)) {?>
           	<option value="<?php echo($d["BENUTZER_ID"]); ?>" <?php if ($benutzer_id == $d["BENUTZER_ID"]) echo(" selected"); ?>> <?php echo($d["NAME"]); ?></option>
           <?php
 		  } //ende while   
@@ -61,7 +61,7 @@ if (getAnzahlVorhandeneBenutzer($vermieter_id) > 1){
           <?php
 		  $res = getBenutzer($vermieter_id);
 		  $i = true;
-		  while($d = mysql_fetch_array($res)) {
+		  while($d = mysqli_fetch_array($res)) {
 		  	if ($d["BENUTZER_ID"] == $benutzer_id){
 		  		continue; //man kann sich nicht selbst löschen!
 		  	}

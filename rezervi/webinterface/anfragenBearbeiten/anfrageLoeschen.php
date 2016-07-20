@@ -79,7 +79,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 		//wenn room child rooms hat auch diese löschen:
 		$resu = getChildRooms($zimmer_id);
 		if (!empty ($resu)) {
-			while ($d = mysql_fetch_array($resu)) {
+			while ($d = mysqli_fetch_array($resu)) {
 				$child = $d['PK_ID'];
 				deleteReservationWithDate($child, $vonDatum, $bisDatum, $link);
 			}
@@ -97,13 +97,13 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 					   		FK_Gast_ID = '$gast_id'
 					   	  ");
 
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res) {
 			echo ("die Anfrage $query scheitert");
-			echo (mysql_error($link));
+			echo (mysqli_error($link));
 		} //ende if
 		else {
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$temp = $d["FK_Gast_ID"];
 			if ($temp == "") {
 				//gast kann gelöscht werden, es sind keine weiteren reservierungen vorhanden:
@@ -113,10 +113,10 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 							   				PK_ID = '$gast_id'
 							   			  ");
 
-				$res = mysql_query($query, $link);
+				$res = mysqli_query($link, $query);
 				if (!$res) {
 					echo ("die Anfrage $query scheitert");
-					echo (mysql_error($link));
+					echo (mysqli_error($link));
 				} else {
 			?>
 			<table  border="0" cellpadding="0" cellspacing="3" class="frei">

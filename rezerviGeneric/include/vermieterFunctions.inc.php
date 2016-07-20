@@ -37,15 +37,15 @@ function getVermieterEigenschaftenWert($bezeichnung,$vermieter_id){
 					   VERMIETER_ID = '$vermieter_id'
 		   			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$wert = $d["WERT"];
 		if ($wert == ""){
 			return false;
@@ -86,11 +86,11 @@ function setVermieterEigenschaftenWert($bezeichnung,$wert,$vermieter_id){
 		  ");  
 	}
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
@@ -115,13 +115,13 @@ function getVermieterFirmenName($vermieter_id){
 					v.ADRESSE_ID = a.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["FIRMA"];
 		}
 		
@@ -143,13 +143,13 @@ function getVermieterMietobjektEz($vermieter_id){
 					VERMIETER_ID = '$vermieter_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["MIETOBJEKT_EZ"];
 		}		
 		
@@ -170,13 +170,13 @@ function getVermieterMietobjektMz($vermieter_id){
 					VERMIETER_ID = '$vermieter_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["MIETOBJEKT_MZ"];
 		}		
 		
@@ -197,13 +197,13 @@ function getAnzahlMietobjekteOfVermieter($vermieter_id){
 					VERMIETER_ID = '$vermieter_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["ANZAHL_MIETOBJEKTE"];
 		}
 		
@@ -226,13 +226,13 @@ function getMietobjekt_EZ($vermieter_id){
 					VERMIETER_ID = '$vermieter_id' 
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);			
+			$d = mysqli_fetch_array($res);
 			return $d["MIETOBJEKT_EZ"];
 		}
 			
@@ -253,13 +253,13 @@ function getMietobjekt_MZ($vermieter_id){
 					VERMIETER_ID = '$vermieter_id'
 				  ";	
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);			
+			$d = mysqli_fetch_array($res);
 			return $d["MIETOBJEKT_MZ"];
 		}
 		
@@ -279,13 +279,13 @@ function getAnzahlBenutzer($vermieter_id){
 					VERMIETER_ID = '$vermieter_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["AnzahlBenutzer"];
 		}
 		
@@ -309,13 +309,13 @@ function getVermieterVorname($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				   ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["VORNAME"];
 		}
 		
@@ -339,13 +339,13 @@ function getVermieterNachname($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				   ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["NACHNAME"];
 		}
 		
@@ -371,13 +371,13 @@ function getVermieterEmail($vermieter_id){
 					v.ADRESSE_ID = a.ADRESSE_ID
 				   ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["EMAIL"];
 		}
 		
@@ -399,13 +399,13 @@ function getVermieterStrasse($vermieter_id){
 					v.ADRESSE_ID = a.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["STRASSE"];
 		}
 } 
@@ -426,13 +426,13 @@ function getVermieterPlz($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["PLZ"];
 		}
 				
@@ -455,13 +455,13 @@ function getVermieterOrt($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["ORT"];
 		}
 				
@@ -483,13 +483,13 @@ function getVermieterLand($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["LAND"];
 		}
 				
@@ -513,13 +513,13 @@ function getVermieterTel($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
   		else{		
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["TELEFON"];
   		}
 				
@@ -541,13 +541,13 @@ function getVermieterTel2($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["TELEFON2"];
 		}
 } 
@@ -568,13 +568,13 @@ function getVermieterFax($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["FAX"];
 		}
 				
@@ -596,13 +596,13 @@ function getVermieterUrl($vermieter_id){
 					a.ADRESSE_ID = v.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["URL"];
 		}
 				
@@ -625,13 +625,13 @@ function getVermieterUrl($vermieter_id){
 					v.ADRESSE_ID = a.ADRESSE_ID
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
   		else{
-  			$d = mysql_fetch_array($res);
+  			$d = mysqli_fetch_array($res);
   			$id = $d["ADRESSE_ID"];
   			if ($id == ""){
   				return false;
@@ -654,7 +654,7 @@ function setAnzahlMietobjekte($vermieter_id,$anzahlMO){
 					VERMIETER_ID = '$vermieter_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -679,7 +679,7 @@ function setAnzahlBenutzer($vermieter_id,$anzahlBenutzer){
 					VERMIETER_ID = '$vermieter_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -716,7 +716,7 @@ function setVermieterVorname($vermieter_id,$vname){
 				  ";
 	}
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res){
 		echo("Anfrage $query scheitert.");
 		return false;
@@ -753,7 +753,7 @@ function setVermieterNachname($vermieter_id,$nname){
 				  ";
 	}
 	
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -790,7 +790,7 @@ function setVermieterFirmenname($vermieter_id,$fname){
 				  ";
 	}
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -826,7 +826,7 @@ function setVermieterEmail($vermieter_id,$email){
 				  ";
 	}
 	
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -861,7 +861,7 @@ function setVermieterStrasse($vermieter_id,$strasse){
 				  ";
 	}
 	
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -896,7 +896,7 @@ function setVermieterPlz($vermieter_id,$plz){
 				  ";
 	}
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -928,7 +928,7 @@ function setVermieterOrt($vermieter_id,$ort){
 				  ";
 	}
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -963,7 +963,7 @@ function setVermieterLand($vermieter_id,$land){
 				  ";
 	}
 	
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -998,7 +998,7 @@ function setVermieterTel($vermieter_id,$tel){
 				  ";
 	}
 	
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -1033,7 +1033,7 @@ function setVermieterTel2($vermieter_id,$tel2){
 				  ";
 	}
 	
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -1068,7 +1068,7 @@ function setVermieterFax($vermieter_id,$fax){
 				  ";
 	}
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -1103,7 +1103,7 @@ function setVermieterUrl($vermieter_id,$url){
 				  ";
 	}
 	
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -1129,10 +1129,10 @@ function setMietobjekt_EZ($vermieter_id,$mietobjekt){
 					VERMIETER_ID = '$vermieter_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
   		else{
@@ -1156,10 +1156,10 @@ function setMietobjekt_MZ($vermieter_id,$mietobjekt){
 					VERMIETER_ID = '$vermieter_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
   		else{

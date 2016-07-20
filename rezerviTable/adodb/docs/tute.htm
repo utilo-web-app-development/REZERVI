@@ -29,7 +29,7 @@
   such a fantastic job that the Web site is more popular than your wildest dreams. 
   You find that MySQL cannot scale to handle the workload; time to switch databases. 
 <p> Unfortunately in PHP every database is accessed slightly differently. To connect 
-  to MySQL, you would use <i>mysql_connect()</i>; when you decide to upgrade to 
+  to MySQL, you would use <i>mysqli_connect()</i>; when you decide to upgrade to
   Oracle or Microsoft SQL Server, you would use <i>ocilogon() </i>or <i>mssql_connect()</i> 
   respectively. What is worse is that the parameters you use for the different 
   connect functions are different also.. One database says po-tato, the other 
@@ -47,11 +47,11 @@
   with the following code. It connects to a MySQL server at <i>localhost</i>, 
   database <i>mydb</i>, and executes an SQL select statement. The results are 
   printed, one line per row. 
-<pre><font color="#666600">$db = <b>mysql_connect</b>(&quot;localhost&quot;, &quot;root&quot;, &quot;password&quot;);
-<b>mysql_select_db</b>(&quot;mydb&quot;,$db);</font>
-<font color="#660000">$result = <b>mysql_query</b>(&quot;SELECT * FROM employees&quot;,$db)</font><code><font color="#663300">;
+<pre><font color="#666600">$db = <b>mysqli_connect</b>(&quot;localhost&quot;, &quot;root&quot;, &quot;password&quot;);
+<b>mysqli_select_db</b>(&quot;mydb&quot;,$db);</font>
+<font color="#660000">$result = <b>mysqli_query</b>(&quot;SELECT * FROM employees&quot;,$db)</font><code><font color="#663300">;
 if ($result === false) die(&quot;failed&quot;);</font></code> 
-<font color="#006666"><b>while</b> ($fields =<b> mysql_fetch_row</b>($result)) &#123;
+<font color="#006666"><b>while</b> ($fields =<b> mysqli_fetch_row</b>($result)) &#123;
  <b>for</b> ($i=0, $max=sizeof($fields); $i &lt; $max; $i++) &#123;
 		<b>print</b> $fields[$i].' ';
  &#125;

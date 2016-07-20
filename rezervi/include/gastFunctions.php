@@ -15,10 +15,10 @@ function insertGuestWithID($guest_id,$unterkunft_id,$anrede,$vorname,$nachname,$
 				('$guest_id','$unterkunft_id','$anrede','$vorname','$nachname','$strasse','$plz','$ort','$land','$email','$tel','$fax','$anmerkung','$sprache')
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res) { 
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	
@@ -38,12 +38,12 @@ function insertGuest($unterkunft_id,$anrede,$vorname,$nachname,$strasse,$plz,$or
 				('$unterkunft_id','$anrede','$vorname','$nachname','$strasse','$plz','$ort','$land','$email','$tel','$fax','$anmerkung','$sprache')
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
 	//letzte eingetragene id zurückgeben:
-	return mysql_insert_id($link); 
+	return mysqli_insert_id($link); 
 
 }
 
@@ -69,7 +69,7 @@ function updateGuest($gast_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$lan
 				PK_ID = '$gast_id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 } //ende updateGuest
@@ -91,11 +91,11 @@ function getGuestID($unterkunft_id,$vorname,$nachname,$email,$link){
 				FK_Unterkunft_ID = '$unterkunft_id'
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	$gast_id = $d["PK_ID"];
 	return $gast_id;
 
@@ -117,11 +117,11 @@ function getGuestIDDetail($unterkunft_id,$vorname,$nachname,$strasse,$ort,$link)
 				Ort = '$ort'
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	$gast_id = $d["PK_ID"];
 	if (!isset($gast_id) || $gast_id == "")
 		return -1;
@@ -143,11 +143,11 @@ function getGuestNachname($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Nachname"];
 
 }
@@ -162,11 +162,11 @@ function getGuestSprache($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Sprache"];
 
 }
@@ -183,11 +183,11 @@ function getGuestOrt($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Ort"];
 
 }
@@ -204,11 +204,11 @@ function getGuestVorname($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Vorname"];
 
 }
@@ -225,11 +225,11 @@ function getGuestStrasse($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Strasse"];
 
 }
@@ -246,11 +246,11 @@ function getGuestPLZ($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["PLZ"];
 
 }
@@ -267,11 +267,11 @@ function getGuestLand($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Land"];
 
 }
@@ -288,11 +288,11 @@ function getGuestEmail($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["EMail"];
 
 }
@@ -309,11 +309,11 @@ function getGuestTel($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Tel"];
 
 }
@@ -330,11 +330,11 @@ function getGuestFax($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Fax"];
 
 }
@@ -351,11 +351,11 @@ function getGuestAnmerkung($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Anmerkung"];
 
 }
@@ -372,11 +372,11 @@ function getGuestAnrede($gast_id,$link){
 				PK_ID = '$gast_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Anrede"];
 
 }
@@ -395,7 +395,7 @@ function getGuestList($unterkunft_id,$link){
 				Nachname
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage $query scheitert");
 	else
@@ -422,7 +422,7 @@ function getGuestListWithLimitAndIndex($unterkunft_id,$limit,$index,$link){
 				$index,$limit
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage $query scheitert");
 	else
@@ -444,12 +444,12 @@ function getAnzahlGaeste($unterkunft_id,$link){
 				PK_ID != 1
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		return $d["anzahl"];
 	}
 }

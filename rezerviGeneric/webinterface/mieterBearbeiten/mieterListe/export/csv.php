@@ -26,7 +26,7 @@
 	//gästeliste ausgeben:	
 	$res = getAllMieterFromVermieter($vermieter_id);
 		
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 	
 		$vorname = $d["VORNAME"];
 		$nachname = $d["NACHNAME"];

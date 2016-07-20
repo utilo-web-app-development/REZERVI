@@ -31,9 +31,9 @@ function getAttributes(){
 			  Bezeichnung
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			exit;
   		}
 		else{		
@@ -59,9 +59,9 @@ function setAttribute($bezeichnung,$beschreibung){
 			  ('$unterkunft_id','$bezeichnung','$beschreibung')
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			exit;
   		}
 		else{		
@@ -87,9 +87,9 @@ function changeAttribut($id,$bezeichnung,$beschreibung){
 			  		"where PK_ID = '$id'
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			exit;
   		}
 		else{		
@@ -112,9 +112,9 @@ function deleteAttribut($pk_id){
 			  PK_ID = '$pk_id'
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			exit;
   		}
 		else{		
@@ -142,13 +142,13 @@ function getAttributValue($att_id,$zi_id){
 			  		" limit 1
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			exit;
   		}
 		else{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["Wert"];
 		}	
 }
@@ -168,9 +168,9 @@ function setAttributWert($zimmer_id,$att_id,$wert){
 			  ('$zimmer_id','$att_id','$wert')
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			exit;
   		}
 		else{		

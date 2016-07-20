@@ -69,7 +69,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 <?php
                 //sprachen anzeigen die aktiviert sind:
                 $res = getSprachenForBelegungsplan($link);
-                while ($d = mysql_fetch_array($res)) {
+                while ($d = mysqli_fetch_array($res)) {
                     $bezeichnung = $d["Bezeichnung"];
                     $spracheID = $d["Sprache_ID"];
                     $aktiviert = isSpracheShown($unterkunft_id, $spracheID, $link);

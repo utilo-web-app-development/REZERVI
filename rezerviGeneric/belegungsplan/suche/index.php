@@ -107,7 +107,7 @@ include_once($root."/templates/bodyStart.inc.php");
             <?php 
 			$res = getMietobjekte($vermieter_id);
 			$zaehler = 0;
-			while ($d = mysql_fetch_array($res)){ 
+			while ($d = mysqli_fetch_array($res)){
 				$mietobjekt_ez = getMietobjekt_EZ($vermieter_id);
 				$bezeichnung = getUebersetzungVermieter($mietobjekt_ez,$sprache,$vermieter_id);
 				$bezeichnung .= " ".$d["BEZEICHNUNG"];

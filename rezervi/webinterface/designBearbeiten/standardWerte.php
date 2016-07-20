@@ -137,7 +137,7 @@ include_once("../../include/uebersetzer.php");
 				   FK_Unterkunft_ID = $unterkunft_id;");		
 		
 		//query absetzen:
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res) {
 			echo("Anfrage $query scheitert.");
 		}

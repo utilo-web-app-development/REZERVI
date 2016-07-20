@@ -63,7 +63,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 </span>
 <?php
 $res = getReservationsOfGuest($gast_id,$link);
-if (!empty($res) && mysql_affected_rows($link)>0){
+if (!empty($res) && mysqli_affected_rows($link)>0){
 ?>
 <table  border="0" cellpadding="0" cellspacing="3" class="tableColor">
 		  <tr class="tableColor">
@@ -80,7 +80,7 @@ if (!empty($res) && mysql_affected_rows($link)>0){
   </tr>
 	<!-- ausgeben der reservierungen: -->
 	<?php
-		while($d = mysql_fetch_array($res)){
+		while($d = mysqli_fetch_array($res)){
 			//variablen auslesen:
 			$zimmer_id = $d["FK_Zimmer_ID"];
 			$zimmernr = getZimmerNr($unterkunft_id,$zimmer_id,$link);

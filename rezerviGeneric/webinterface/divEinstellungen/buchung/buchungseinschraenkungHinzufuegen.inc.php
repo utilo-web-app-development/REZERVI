@@ -37,7 +37,7 @@ include_once($root."/include/datumFunctions.inc.php");
 
  	if ($moId == "alle"){
  		$res = getMietobjekteOfVermieter($vermieter_id);
- 		while ($d = mysql_fetch_array($res)){
+ 		while ($d = mysqli_fetch_array($res)){
  			$mietobjekt_id = $d["MIETOBJEKT_ID"];
  			insertBuchungseinschraenkung($mietobjekt_id,$vonStunde,$vonMinute,$bisStunde,$bisMinute,$typ);
  		}
@@ -65,7 +65,7 @@ include_once($root."/include/datumFunctions.inc.php");
  		$day = $tage[$i];
 	 	if ($moId == "alle"){
 	 		$res = getMietobjekteOfVermieter($vermieter_id);
-	 		while ($d = mysql_fetch_array($res)){
+	 		while ($d = mysqli_fetch_array($res)){
 	 			$mietobjekt_id = $d["MIETOBJEKT_ID"];
 	 			insertBuchungseinschraenkungTag($mietobjekt_id,$day);
 	 		}
@@ -101,7 +101,7 @@ include_once($root."/include/datumFunctions.inc.php");
  	}
     if ($moId == "alle"){
  		$res = getMietobjekteOfVermieter($vermieter_id);
- 		while ($d = mysql_fetch_array($res)){
+ 		while ($d = mysqli_fetch_array($res)){
  			$mietobjekt_id = $d["MIETOBJEKT_ID"];
  			insertBuchungseinschraenkungVonBis($mietobjekt_id,$datumVon,$datumBis,$typ);
  		}

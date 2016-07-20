@@ -59,7 +59,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
             <?php
 
             $res = getSprachen($unterkunft_id, $link);
-            while ($d = mysql_fetch_array($res)) {
+            while ($d = mysqli_fetch_array($res)) {
                 $spracheID = $d["Sprache_ID"];
                 $bezeichnung = getBezeichnungOfSpracheID($spracheID, $link);
                 ?>
@@ -79,7 +79,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         <ul class="list-unstyled">
             <?php
             $res = getSprachenForWebinterface($link);
-            while ($d = mysql_fetch_array($res)) {
+            while ($d = mysqli_fetch_array($res)) {
                 $bezeichnung = $d["Bezeichnung"];
                 $spracheID = $d["Sprache_ID"];
                 ?>

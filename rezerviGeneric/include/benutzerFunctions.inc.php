@@ -13,7 +13,7 @@ function deleteBenutzer($benutzer_id){
 				  BENUTZER_ID = '$benutzer_id' 
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -41,14 +41,14 @@ function isBenutzerVorhanden($name,$pass,$vermieter_id){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			//nichts anzeigen - sonst wird passwort sichtbar!
   			//echo("Anfrage $query scheitert.");
   			return false;
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$temp = $d["anzahl"];
 			if (!(empty($temp) || $temp > 1)) {
 				return true;
@@ -78,7 +78,7 @@ function changeBenutzer($id,$name,$pass,$rechte){
            		BENUTZER_ID = '$id'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
     if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
 		return false;
@@ -104,14 +104,14 @@ function checkPassword($name,$password){
 				  NAME = '$name'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			//nichts anzeigen - sonst wird passwort sichtbar!
   			//echo("Anfrage $query scheitert.");
   			return -1;
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$temp = $d["BENUTZER_ID"];
 			if (!(empty($temp) || $temp == "")) {
 				return $temp;
@@ -139,13 +139,13 @@ function getUserName($id){
 				  BENUTZER_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
   			return false;
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$name = $d["NAME"];
 			return $name;
 		}		
@@ -169,13 +169,13 @@ function getPassword($id){
 				  BENUTZER_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			//nicht aus sicherheitsgründen: echo("Anfrage $query scheitert.");
   			return false;
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$name = $d["PASSWORT"];
 		}
 	
@@ -199,13 +199,13 @@ function getUserRights($id){
 				  BENUTZER_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
   			return false;
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$rechte = $d["RECHTE"];
 		}
 	
@@ -232,13 +232,13 @@ function getVermieterID($id){
 				  BENUTZER_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
   			return false;
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["VERMIETER_ID"];
 		}
 		
@@ -262,13 +262,13 @@ function getAnzahlVorhandeneBenutzer($vermieter_id){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return 0;
   		}
 		else{
-			$d= mysql_fetch_array($res);		
+			$d= mysqli_fetch_array($res);
 			$num_rows = $d["anzahl"];
 		}	
 	
@@ -292,7 +292,7 @@ function getBenutzer($vermieter_id){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -319,7 +319,7 @@ function setBenutzer($name,$pass,$rechte,$vermieter_id){
 				  RECHTE = '$rechte'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;

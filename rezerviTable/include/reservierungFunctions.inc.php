@@ -599,7 +599,7 @@ function getStatusString($mietobjekt_id,$minute=0,$stunde=0,$tag,$monat,$jahr){
 	
 	//wenn kein eintrag vorhanden ist,
 	//frei zur�ckgeben:
-	if (mysql_num_fields($res) < 1 || $stat == ""){
+	if (mysqli_num_fields($res) < 1 || $stat == ""){
 		return parseStatus(STATUS_FREI);
 	}
 

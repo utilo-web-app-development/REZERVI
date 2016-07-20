@@ -21,10 +21,10 @@ function getZimmerID($id,$link){
 			   PK_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert"); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["FK_Zimmer_ID"];
 	
 } //ende getZimmerID
@@ -64,11 +64,11 @@ function getReservationsBefore($date,$state){
 			   r.STATUS = '$state'
 			   ");
 	   
-	$res = mysql_query($query, $link);		
+	$res = mysqli_query($link, $query);
 	  
 	if (!$res) {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 			   
@@ -84,7 +84,7 @@ function getReservationsBefore($date,$state){
 function deleteReservationsBefore($date,$state){
 	global $link; //db link	
 	$res = getReservationsBefore($date,$state);
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 		$id = $d["PK_ID"];
 		deleteReservation($id,$link);
 	}		
@@ -103,7 +103,7 @@ function deleteReservationsBeforeXDays($xDays,$state){
 	$date = date("Y-m-d H:i:s",$date);
 	
 	$res = getReservationsBefore($date,$state);
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 		$id = $d["PK_ID"];
 		deleteReservation($id,$link);
 	}		
@@ -134,11 +134,11 @@ function getReservation($res_id){
 
 	global $link;
 	$query = "select * from Rezervi_Reservierung where PK_ID = '$res_id'";
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		die("die Anfrage $query scheitert"); 
 	}
-	return mysql_fetch_array($res);
+	return mysqli_fetch_array($res);
 	
 }
 /**
@@ -157,7 +157,7 @@ function changeReservationState($res_id,$status,$link){
 				PK_ID = '$res_id'
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	
 	if (!$res)  {
 		echo("die Anfrage $query scheitert"); 
@@ -170,19 +170,19 @@ function changeReservationState($res_id,$status,$link){
 
 	//auch fuer alle child rooms aendern:
 	$query = ("select FK_Zimmer_ID from Rezervi_Reservierung where PK_ID = '$res_id'");
-	$res = mysql_query($query, $link);	
-	$d = mysql_fetch_array($res);
+	$res = mysqli_query($link, $query);
+	$d = mysqli_fetch_array($res);
 	$zimmer_id = $d['FK_Zimmer_ID'];	
 	$resu = getChildRooms($zimmer_id);
 	if (!empty($resu)){
-		while ($d = mysql_fetch_array($resu)){
+		while ($d = mysqli_fetch_array($resu)){
 			$child = $d['PK_ID'];
 			
 			$query = ("update Rezervi_Reservierung ".
 					  "set Status = '$status' where FK_Zimmer_ID = '$child' ".
 					  "and FK_Gast_ID = '$gast_id' and Datum_von = '$datum_von' and ".
 					  "Datum_bis = '$datum_bis'");
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 			if (!$res)  {
 				die("die Anfrage $query scheitert"); 
 			}
@@ -212,11 +212,11 @@ function deleteReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link){
 			   (FK_Zimmer_ID = $zimmer_id AND	
 			   ('$vonDatum' <= Datum_von and '$bisDatum' >= Datum_bis))");
 			   
-	$res = mysql_query($query, $link);		
+	$res = mysqli_query($link, $query);
 	  
 	if (!$res) {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 			   
@@ -245,11 +245,11 @@ function getReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link){
 			   ('$vonDatum' <= Datum_von and '$bisDatum' >= Datum_bis)
 			   )");
 			   
-	$res = mysql_query($query, $link);		
+	$res = mysqli_query($link, $query);
 	  
 	if (!$res) {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 	}
 			   
 	return $res;
@@ -274,7 +274,7 @@ function insertReservationWithDate($zimmer_id,$gast_id,$vonDatum,$bisDatum,$stat
 				('$zimmer_id','$gast_id','$vonDatum','$bisDatum','$status','$anzahlErwachsene','$anzahlKinder','$pension','$timestamp')
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -285,7 +285,7 @@ function insertReservationWithDate($zimmer_id,$gast_id,$vonDatum,$bisDatum,$stat
 	global $root;
 	include_once($root.'/include/zimmerFunctions.php');	
 	if (!empty($res)){
-		while ($d = mysql_fetch_array($res)){
+		while ($d = mysqli_fetch_array($res)){
 			insertReservationWithDate($d['PK_ID'],$gast_id,$vonDatum,$bisDatum,$status,
 				$anzahlErwachsene,$anzahlKinder,$pension,$link);
 		}	
@@ -318,12 +318,12 @@ function getReservierungID($zimmer_id,$tag,$monat,$jahr,$link){
 				('$datum' >= Datum_von and '$datum' <= Datum_bis)				
 				";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
 	}
 	else {		
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$id = $d["PK_ID"];
 	}
 				
@@ -355,7 +355,7 @@ function getReservierungGastIDs($zimmer_id,$tag,$monat,$jahr,$link){
 				order by Datum_von				
 				";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
 	}
@@ -388,12 +388,12 @@ function getReservierungGastID($zimmer_id,$tag,$monat,$jahr,$link){
 				('$datum' >= Datum_von and '$datum' <= Datum_bis)				
 				";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
 	}
 	else {		
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$gast_id = $d["FK_Gast_ID"];
 	}
 			
@@ -501,11 +501,11 @@ function getStatusString($zimmer_id,$tag,$monat,$jahr,$saAktiviert,$link){
 				('$datum' >= Datum_von and '$datum' <= Datum_bis)				
 				";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res)
 		echo("Anfrage $query scheitert.");
 	else		
-		$d = mysql_fetch_array($res);		
+		$d = mysqli_fetch_array($res);
 	
 	$day = getDayName($tag,$monat,$jahr);
 	
@@ -570,7 +570,7 @@ function getStatusString($zimmer_id,$tag,$monat,$jahr,$saAktiviert,$link){
 		
 		//if room is a parent, check if the child has another status:
 		$childs = getChildRooms($zimmer_id);
-		while ($c = mysql_fetch_array($childs)){
+		while ($c = mysqli_fetch_array($childs)){
 			
 			$child_zi_id = $c['PK_ID'];
 			$statStringc = getStatusString($child_zi_id,$tag,$monat,$jahr,$saAktiviert,$link);	
@@ -592,7 +592,7 @@ function getStatusString($zimmer_id,$tag,$monat,$jahr,$saAktiviert,$link){
 		$occ = "true";
 		$rse = "true"; 
 		$fre = "true";
-		while ($c = mysql_fetch_array($childs)){
+		while ($c = mysqli_fetch_array($childs)){
 			$child_zi_id = $c['PK_ID'];
 			
 			//check if the child is occupied:
@@ -689,7 +689,7 @@ function getStatus($zimmer_id,$tag,$monat,$jahr,$link){
 				Datum_von
 				";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res){
   			die("Anfrage $query scheitert.");
 	}
@@ -697,7 +697,7 @@ function getStatus($zimmer_id,$tag,$monat,$jahr,$link){
 	//create the state array:
 	$status = array();	
 	$ids    = array();									
-	while($d = mysql_fetch_array($res)){
+	while($d = mysqli_fetch_array($res)){
 		$state = $d["Status"];
 		if (!$showReservation && $state == STATUS_RESERVIERT){
 			//do not show reservation state
@@ -741,7 +741,7 @@ function getStatus($zimmer_id,$tag,$monat,$jahr,$link){
 						Datum_von
 						";
 		
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 			if (!$res){
 					die("Anfrage $query scheitert.");
 			}
@@ -749,7 +749,7 @@ function getStatus($zimmer_id,$tag,$monat,$jahr,$link){
 			//create the state array:
 			$nstatus = array();	
 			$nids    = array();									
-			while($d = mysql_fetch_array($res)){
+			while($d = mysqli_fetch_array($res)){
 				$state = $d["Status"];
 				if (!$showReservation && $state == STATUS_RESERVIERT){
 					//do not show reservation state
@@ -786,7 +786,7 @@ function getStatus($zimmer_id,$tag,$monat,$jahr,$link){
 						Datum_von
 						";
 		
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 			if (!$res){
 					die("Anfrage $query scheitert.");
 			}
@@ -794,7 +794,7 @@ function getStatus($zimmer_id,$tag,$monat,$jahr,$link){
 			//create the state array:
 			$vstatus = array();	
 			$vids    = array();									
-			while($d = mysql_fetch_array($res)){
+			while($d = mysqli_fetch_array($res)){
 				$state = $d["Status"];
 				if (!$showReservation && $state == STATUS_RESERVIERT){
 					//do not show reservation state
@@ -825,7 +825,7 @@ function getStatus($zimmer_id,$tag,$monat,$jahr,$link){
 	$childs = getChildRooms($zimmer_id);
 	$childArray = array();
 	//create an array with child ids:
-	while ($c = mysql_fetch_array($childs)){ //continue 1
+	while ($c = mysqli_fetch_array($childs)){ //continue 1
 
 			$childArray[] = $c['PK_ID'];
 			
@@ -911,11 +911,11 @@ function isRoomTaken($zimmer_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bi
 				Status = '2'				
 				";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 	if ($d["Status"] == "2"){
 		return true;
@@ -959,7 +959,7 @@ function insertReservation($zimmer_id,$gast_id,$vonTag,$vonMonat,$vonJahr,$bisTa
 				('$zimmer_id','$gast_id','$vonDatum','$bisDatum','$status','$anzahlErwachsene','$anzahlKinder','$pension','$timestamp')
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage $query scheitert"); 
 		
@@ -968,7 +968,7 @@ function insertReservation($zimmer_id,$gast_id,$vonTag,$vonMonat,$vonJahr,$bisTa
 	include_once($root.'/include/zimmerFunctions.php');
 	$res = getChildRooms($zimmer_id);
 	if (!empty($res)){
-		while ($d = mysql_fetch_array($res)){
+		while ($d = mysqli_fetch_array($res)){
 			insertReservation($d['PK_ID'],$gast_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$status,$anzahlErwachsene,$anzahlKinder,$pension,$link);
 		}	
 	}
@@ -1005,7 +1005,7 @@ function insertAnfrage($zimmer_id,$gast_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$b
 				('$zimmer_id','$gast_id','$vonDatum','$bisDatum','$status','$anzahlErwachsene','$anzahlKinder','$pension','$timestamp')
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage $query scheitert"); 
 		
@@ -1014,7 +1014,7 @@ function insertAnfrage($zimmer_id,$gast_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$b
 	include_once($root.'/include/zimmerFunctions.php');
 	$res = getChildRooms($zimmer_id);
 	if (!empty($res)){
-		while ($d = mysql_fetch_array($res)){
+		while ($d = mysqli_fetch_array($res)){
 			insertAnfrage($d['PK_ID'],$gast_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$status,$anzahlErwachsene,$anzahlKinder,$haustiere,$pension,$link);
 		}	
 	}		
@@ -1031,11 +1031,11 @@ function deleteReservation($id,$link){
 			   PK_ID = $id
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	
@@ -1053,10 +1053,10 @@ function getDatumVon($id,$link){
 			   PK_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert"); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Datum_von"];
 	
 } //ende getDatumVon
@@ -1072,10 +1072,10 @@ function getPension($id,$link){
 			   PK_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert"); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Pension"];
 	
 } //ende getDatumVon
@@ -1091,10 +1091,10 @@ function getDatumBis($id,$link){
 			   PK_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert"); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Datum_bis"];
 	
 } //ende getDatumVon
@@ -1111,10 +1111,10 @@ function getErwachsene($id,$link){
 			   PK_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert"); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Erwachsene"];
 	
 } //ende getDatumVon
@@ -1131,10 +1131,10 @@ function getKinder($id,$link){
 			   PK_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert"); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Kinder"];
 	
 } //ende getDatumVon
@@ -1151,10 +1151,10 @@ function getState($id,$link){
 			   PK_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert"); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["Status"];
 	
 } //ende getDatumVon
@@ -1171,10 +1171,10 @@ function getGastID($id,$link){
 			   PK_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert"); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["FK_Gast_ID"];
 	
 } //ende getDatumVon
@@ -1229,14 +1229,14 @@ function hasParentSameReservation($reservierungs_id){
 					z.Parent_ID is null and 
 					r.FK_Zimmer_ID = z.PK_ID ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	
 	if (!$res)  {
 		echo("die Anfrage scheitert");
-		echo("<br/>".mysql_error()); 
+		echo("<br/>".mysqli_error()); 
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$id = $d["PK_ID"];
 		if (!empty($id)){
 			return true;

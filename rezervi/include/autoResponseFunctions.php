@@ -62,11 +62,11 @@ function getMessageSubject($unterkunft_id,$art,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 				
 		$uebers = $d["Subject"];
 		if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
@@ -89,11 +89,11 @@ function getMessageBody($unterkunft_id,$art,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 				
 		$uebers = $d["Body"];
 		if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
@@ -116,11 +116,11 @@ function getMessageUnterschrift($unterkunft_id,$art,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 				
 		$uebers = $d["Unterschrift"];
 		if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
@@ -143,11 +143,11 @@ function getMessageAnrede($unterkunft_id,$art,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 				
 		$uebers = $d["Anrede"];
 		if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
@@ -170,11 +170,11 @@ function getMessageID($unterkunft_id,$art,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 				
 		$uebers = $d["PK_ID"];
 		if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
@@ -197,11 +197,11 @@ function isMessageActive($unterkunft_id,$art,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 				
 		$uebers = $d["aktiviert"];
 		if (!isset($uebers) || $uebers == 0 || $uebers == "NULL" || $uebers == ""){
@@ -222,7 +222,7 @@ function setMessage($unterkunft_id,$art,$subject,$body,$unterschrift,$anrede,$li
 				('$unterkunft_id','$subject','$body','$unterschrift','$art','$anrede')
 			  ");
 				  
-		$res = mysql_query($query, $link);	
+		$res = mysqli_query($link, $query);
 		if (!$res){  
 			echo("die Anfrage $query scheitert");
 			return false;
@@ -249,7 +249,7 @@ function changeMessage($unterkunft_id,$art,$subject,$body,$unterschrift,$anrede,
 				PK_ID = '$id'
 			  ";
 	
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 			if (!$res){
 				echo("Anfrage $query scheitert.");
 				return false;
@@ -271,7 +271,7 @@ function setMessageActive($unterkunft_id,$art,$link){
 			Art = '$art'
 		  ";
 
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res){
 			echo("Anfrage $query scheitert.");
 			return false;
@@ -293,7 +293,7 @@ function setMessageInactive($unterkunft_id,$art,$link){
 			Art = '$art'
 		  ";
 
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res){
 			echo("Anfrage $query scheitert.");
 			return false;

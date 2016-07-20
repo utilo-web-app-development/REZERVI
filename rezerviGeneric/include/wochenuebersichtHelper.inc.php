@@ -76,7 +76,7 @@ function showWeek($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 							<?php
 								//wie viele reservierungen sind in dieser Woche?
 								$resIds = getReservierungIDs($mietobjekt_id,0,0,$firstDayOfWeek,$firstDayMonth,$firstDayYear,59,23,$lastDayOfWeek,$lastDayMonth,$lastDayYear);
-								$anzahlRes = mysql_num_rows($resIds);
+								$anzahlRes = mysqli_num_rows($resIds);
 							?>					
 						  <table cellpadding="0" cellspacing="0" border="0">
 						    <tr>
@@ -121,7 +121,7 @@ function showWeek($day,$month,$year,$vermieter_id,$mietobjekt_id,$modus){
 
 				if ($anzahlResOnDayI > 0) {
 						$resIds = getReservierungIDs($mietobjekt_id,0,0,$i_day,$i_month,$i_year,59,23,$i_day,$i_month,$i_year);
-						while ($d=mysql_fetch_array($resIds)){
+						while ($d=mysqli_fetch_array($resIds)){
 							$reservierungs_id = $d["RESERVIERUNG_ID"];
 							$mieter_id = getMieterIdOfReservierung($reservierungs_id);
 							$mietdauer = getNumberOfDaysOfReservation($reservierungs_id);

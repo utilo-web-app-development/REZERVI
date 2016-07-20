@@ -25,7 +25,7 @@ include_once($root."/include/mietobjektFunctions.inc.php");
 	$defaultBezeichnung = false;
 	$defaultBeschreibung = false;
     $res = getActivtedSprachenOfVermieter($vermieter_id);
-    while ($d = mysql_fetch_array($res)){
+    while ($d = mysqli_fetch_array($res)){
     	$sprache_id = $d["SPRACHE_ID"];
 		
 		$bezeichnung = false;

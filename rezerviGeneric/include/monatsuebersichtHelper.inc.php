@@ -42,7 +42,7 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 					<?php
 						//wie viele reservierungen sind an diesem tag?
 						$resIds = getReservierungIDs($mietobjekt_id,0,0,$i,$month,$year,59,23,$i,$month,$year);
-						$anzahlRes = mysql_num_rows($resIds);
+						$anzahlRes = mysqli_num_rows($resIds);
 					?>					
 				  <table cellpadding="0" cellspacing="0" border="0">
 				    <tr>
@@ -64,7 +64,7 @@ function showMonth($month,$year,$vermieter_id,$mietobjekt_id,$modus){
 					?>
 					<table cellpadding="3" cellspacing="0" border="0" class="<?php echo STANDARD_SCHRIFT ?>">
 						<?php
-						while ($d=mysql_fetch_array($resIds)){
+						while ($d=mysqli_fetch_array($resIds)){
 							$reservierungs_id = $d["RESERVIERUNG_ID"];
 							$mieter_id = getMieterIdOfReservierung($reservierungs_id);
 							$mietdauer = getNumberOfDaysOfReservation($reservierungs_id);

@@ -114,7 +114,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 				include_once($root."/include/bildFunctions.php");
 				  if (hasZimmerBilder($zimmer_id,$link)){	  
 					$result = getBilderOfZimmer($zimmer_id,$link);
-					while ($z = mysql_fetch_array($result)){
+					while ($z = mysqli_fetch_array($result)){
 					?><?php
 						$pfad = $z["Pfad"];
 						$pfad = substr($pfad,6,strlen($pfad));

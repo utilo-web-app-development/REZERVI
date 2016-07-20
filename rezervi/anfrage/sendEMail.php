@@ -82,11 +82,11 @@ include_once("../include/uebersetzer.php");
 		 //e-mail-adresse aus datenbank holen:
 		 $query = "select Email from Rezervi_Unterkunft where PK_ID = '$unterkunft_id'";
 
-  		 $res = mysql_query($query, $link);
+  		 $res = mysqli_query($link, $query);
   			if (!$res)
   				echo("Anfrage $query scheitert.");
 					
-		 $d = mysql_fetch_array($res);
+		 $d = mysqli_fetch_array($res);
 		 $an = $d["Email"];       
          	
   

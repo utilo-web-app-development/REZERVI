@@ -13,14 +13,14 @@ function countParentRooms($unterkunft_id){
 	global $link;
 	$query = ("select count(PK_ID) as anzahl from Rezervi_Zimmer where Parent_ID is not null");        
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
 		return false;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		if (!empty($d['anzahl']) && $d['anzahl'] > 0){
 			$hasParent = $d['anzahl'];
 			$allRooms = getAnzahlVorhandeneZimmer($unterkunft_id,$link);			
@@ -39,14 +39,14 @@ function hasParentRooms($unterkunft_id){
 	global $link;
 	$query = ("select count(PK_ID) as anzahl from Rezervi_Zimmer where Parent_ID is not null");        
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
 		return false;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		if (!empty($d['anzahl']) && $d['anzahl'] > 0){
 			return true;
 		}
@@ -63,14 +63,14 @@ function hasRoomParentRooms($room_id){
 	global $link;
 	$query = ("select count(PK_ID) as anzahl from Rezervi_Zimmer where Parent_ID is not null and PK_ID = '$room_id'");        
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
 		return false;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		if (!empty($d['anzahl']) && $d['anzahl'] > 0){
 			return true;
 		}
@@ -87,14 +87,14 @@ function getParentRoom($room_id){
 	global $link;
 	$query = ("select PK_ID from Rezervi_Zimmer where Parent_ID is not null and PK_ID = '$room_id'");        
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
 		return false;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		if (!empty($d['PK_ID'])){
 			return $d['PK_ID'];
 		}
@@ -113,7 +113,7 @@ function getParentRooms(){
 	if (hasParentRooms($unterkunft_id)){
 		$query = ("select * from Rezervi_Zimmer where Parent_ID is null");        
 	
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		
 		if (!$res) { 
 			echo("die Anfrage $query scheitert"); 
@@ -141,7 +141,7 @@ function deleteChildRooms($zimmer_id){
            		Parent_ID = '$zimmer_id'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -162,7 +162,7 @@ function getAllRoomsWithChilds($unterkunft_id){
 	global $link;
 	$query = ("select distinct Parent_ID from Rezervi_Zimmer where Parent_ID is not null");        
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -188,7 +188,7 @@ function setParentRoom($zimmer,$house){
            		PK_ID = '$zimmer'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -215,12 +215,12 @@ function hasChildRooms($room){
 				  Parent_ID = '$room'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$anzahl = $d['anzahl'];
 			if ($anzahl > 0){
 				return true;
@@ -246,9 +246,9 @@ function getChildRooms($room){
 				  Zimmernr
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   		}
 		else{		
 			return $res;
@@ -272,7 +272,7 @@ function updateZimmer($zimmer_id,$unterkunft_id,$zimmernr,$betten,$bettenKinder,
 				FK_Unterkunft_ID = '$unterkunft_id'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
@@ -295,15 +295,15 @@ function setZimmer($unterkunft_id,$zimmernr,$betten,$bettenKinder,$zimmerart,$li
 		('$unterkunft_id','$zimmernr','$betten','$bettenKinder','$zimmerart','$haustiere','$linkName')
 		";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
 		return false;
 	}
 	else{
-		return mysql_insert_id($link);
+		return mysqli_insert_id($link);
 	}
 
 } //ende zimmer eintragen
@@ -321,11 +321,11 @@ function getAnzahlVorhandeneZimmer($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			return 0;
 		else		
-			$num_rows = mysql_num_rows($res);	
+			$num_rows = mysqli_num_rows($res);
 	
 	return $num_rows;
 			
@@ -346,9 +346,9 @@ function getZimmer($unterkunft_id,$link){
 				  Zimmernr
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   		}
 		else{		
 			return $res;
@@ -375,13 +375,13 @@ function getZimmerNr($unterkunft_id,$zimmer_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
 			return false;
 		}
 		else{		
-			$d = mysql_fetch_array($res);			
+			$d = mysqli_fetch_array($res);
 			return $d["Zimmernr"];
 		}
 			
@@ -406,11 +406,11 @@ function getZimmerArt($unterkunft_id,$zimmer_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 		
 		return $d["Zimmerart"];
 			
@@ -461,9 +461,9 @@ function getZimmerArten($unterkunft_id,$link){
 				  where				
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
 		
-		while($d = mysql_fetch_array($res)){
+		while($d = mysqli_fetch_array($res)){
 			if ($zimmerart == ""){
 				$zimmerart = getUebersetzungUnterkunft($d["Zimmerart"],$sprache,$unterkunft_id,$link);
 			}
@@ -492,8 +492,8 @@ function getBetten($unterkunft_id,$zimmer_id,$link){
 				  PK_ID = '$zimmer_id'
 				 ";
 
-  		$res = mysql_query($query, $link);		
-		$d = mysql_fetch_array($res);
+  		$res = mysqli_query($link, $query);
+		$d = mysqli_fetch_array($res);
 				
 		return $d["Betten"];		
 			
@@ -515,8 +515,8 @@ function getBettenKinder($unterkunft_id,$zimmer_id,$link){
 				  PK_ID = '$zimmer_id'
 				 ";
 
-  		$res = mysql_query($query, $link);		
-		$d = mysql_fetch_array($res);
+  		$res = mysqli_query($link, $query);
+		$d = mysqli_fetch_array($res);
 				
 		return $d["Betten_Kinder"];		
 			
@@ -538,8 +538,8 @@ function getLink($unterkunft_id,$zimmer_id,$link){
 				  PK_ID = '$zimmer_id'
 				 ";
 
-  		$res = mysql_query($query, $link);		
-		$d = mysql_fetch_array($res);
+  		$res = mysqli_query($link, $query);
+		$d = mysqli_fetch_array($res);
 				
 		return $d["Link"];		
 			
@@ -561,8 +561,8 @@ function getHaustiere($unterkunft_id,$zimmer_id,$link){
 				  PK_ID = '$zimmer_id'
 				 ";
 
-  		$res = mysql_query($query, $link);		
-		$d = mysql_fetch_array($res);
+  		$res = mysqli_query($link, $query);
+		$d = mysqli_fetch_array($res);
 				
 		return $d["Haustiere"];		
 			

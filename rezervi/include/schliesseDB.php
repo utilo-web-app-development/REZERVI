@@ -5,7 +5,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 // Verbindung zur Datenbank trennen:
 if (isset($link)){
-	mysql_close($link);
+	mysqli_close($link);
 }
 
 ?>

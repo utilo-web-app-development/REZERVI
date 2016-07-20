@@ -48,7 +48,7 @@ define( '_JEXEC', 1 );
 
  //2. wurde löschen geklickt?
  $res = getAttributes();
- while ($d = mysql_fetch_array($res)){	
+ while ($d = mysqli_fetch_array($res)){
 	$att_id 	= $d["PK_ID"];
 	if (isset($_POST["loeschen_".$att_id])){
 		deleteAttribut($att_id);
@@ -63,7 +63,7 @@ define( '_JEXEC', 1 );
  if (isset($_POST["aendern"])){
  	
  	 $res = getAttributes();
-	 while ($d = mysql_fetch_array($res)){	
+	 while ($d = mysqli_fetch_array($res)){
 		$att_id 	= $d["PK_ID"];
 		$bezeichnung = "";
 		$beschreibung = "";

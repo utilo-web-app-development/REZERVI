@@ -89,7 +89,7 @@ include_once($root."/include/sessionFunctions.inc.php");
           <?php	
 			 $res = getZimmer($unterkunft_id,$link);
 			  //zimmer ausgeben:
-			  while($d = mysql_fetch_array($res)) {
+			  while($d = mysqli_fetch_array($res)) {
 				$ziArt = getUebersetzungUnterkunft($d["Zimmerart"],$sprache,$unterkunft_id,$link);
 				$ziNr  = getUebersetzungUnterkunft($d["Zimmernr"],$sprache,$unterkunft_id,$link);
 				?>
@@ -113,7 +113,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	</tr>
 	<?php
 	$spr = getSprachenForBelegungsplan($link);
-	while ($s = mysql_fetch_array($spr)){
+	while ($s = mysqli_fetch_array($spr)){
 	?>
 	<tr>
 		<td>

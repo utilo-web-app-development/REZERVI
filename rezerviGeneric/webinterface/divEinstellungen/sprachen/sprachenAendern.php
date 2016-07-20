@@ -22,7 +22,7 @@ $standard = $_POST["standard"];
 //zuerst alte sprachen rauslöschen, dann neu setzen:
 deleteAllActivtedSprachenOfVermieter($vermieter_id);
 
-while($d = mysql_fetch_array($res)){
+while($d = mysqli_fetch_array($res)){
 	$bezeichnung = $d["BEZEICHNUNG"];
 	$spracheID   = $d["SPRACHE_ID"];       
 

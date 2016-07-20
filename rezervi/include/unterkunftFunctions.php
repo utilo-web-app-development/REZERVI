@@ -21,13 +21,13 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 		}
 	
 		$email = $d["Email"];
@@ -52,11 +52,11 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Waehrung"];
  }
@@ -73,7 +73,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
  	
@@ -90,11 +90,11 @@ function getAnzahlZimmer($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["AnzahlZimmer"];
 		
@@ -112,11 +112,11 @@ function getZimmerart_EZ($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id' 
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			
 			return $d["Zimmerart_EZ"];
 			
@@ -134,11 +134,11 @@ function getZimmerart_MZ($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";	
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Zimmerart_MZ"];
 		
@@ -154,11 +154,11 @@ function getAnzahlBenutzer($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["AnzahlBenutzer"];
 		
@@ -176,11 +176,11 @@ function getKindesalter($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Kindesalter"];
 		
@@ -203,11 +203,11 @@ function getUnterkunftName($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				   ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Name"];
 } //ende getUnterkunftName
@@ -229,11 +229,11 @@ function getUnterkunftEmail($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				   ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Email"];
 } //ende getUnterkunftEmail
@@ -248,11 +248,11 @@ function getUnterkunftStrasse($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Strasse"];
 				
@@ -268,11 +268,11 @@ function getUnterkunftPlz($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["PLZ"];
 				
@@ -288,11 +288,11 @@ function getUnterkunftOrt($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Ort"];
 				
@@ -308,11 +308,11 @@ function getUnterkunftLand($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Land"];
 				
@@ -328,11 +328,11 @@ function getUnterkunftTel($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Tel"];
 				
@@ -348,11 +348,11 @@ function getUnterkunftTel2($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Tel2"];
 				
@@ -368,11 +368,11 @@ function getUnterkunftFax($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Fax"];
 				
@@ -388,11 +388,11 @@ function getUnterkunftArt($unterkunft_id,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 		return $d["Art"];
 				
@@ -412,7 +412,7 @@ function setAnzahlZimmer($unterkunft_id,$anzahlZimmer,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		
@@ -428,7 +428,7 @@ function setAnzahlBenutzer($unterkunft_id,$anzahlBenutzer,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		
@@ -444,7 +444,7 @@ function setKindesalter($unterkunft_id,$kindesalter,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		
@@ -460,7 +460,7 @@ function setUnterkunftName($unterkunft_id,$name,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 			
@@ -476,7 +476,7 @@ function setUnterkunftEmail($unterkunft_id,$email,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 			
@@ -492,7 +492,7 @@ function setUnterkunftStrasse($unterkunft_id,$strasse,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 				
@@ -508,7 +508,7 @@ function setUnterkunftPlz($unterkunft_id,$plz,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 				
@@ -524,7 +524,7 @@ function setUnterkunftOrt($unterkunft_id,$ort,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 				
@@ -540,7 +540,7 @@ function setUnterkunftLand($unterkunft_id,$land,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 				
@@ -557,7 +557,7 @@ function setUnterkunftTel($unterkunft_id,$tel,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 			
@@ -573,7 +573,7 @@ function setUnterkunftTel2($unterkunft_id,$tel2,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 				
@@ -589,7 +589,7 @@ function setUnterkunftFax($unterkunft_id,$fax,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 				
@@ -605,7 +605,7 @@ function setUnterkunftArt($unterkunft_id,$art,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 				
@@ -624,10 +624,10 @@ function setZimmerArt_EZ($unterkunft_id,$zimmerart,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   		}
   		else{
   			return true;
@@ -648,10 +648,10 @@ function setZimmerArt_MZ($unterkunft_id,$zimmerart,$link){
 					PK_ID = '$unterkunft_id'
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   		}
   		else{
   			return true;

@@ -55,13 +55,13 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	ENDE DER BENUTZEREINGABEN
 *****************************************************************************/
 	if ($USERNAME != "" && $PASS != ""){
-		$link = @mysql_connect($DBMS_URL,$USERNAME,$PASS);
+		$link = @mysqli_connect($DBMS_URL,$USERNAME,$PASS);
 	}
 	elseif ($USERNAME != ""){
-		$link = @mysql_connect($DBMS_URL,$USERNAME);
+		$link = @mysqli_connect($DBMS_URL,$USERNAME);
 	}
 	else{
-		$link = @mysql_connect($DBMS_URL);
+		$link = @mysqli_connect($DBMS_URL);
 	}
   	
   	if (!$link) {
@@ -74,8 +74,9 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	else{
   		// Auswahl der zu verwendenden Datenbank auf dem Server
   		$query = "use ".($DB_NAME);
-		
-  		if (!mysql_query($query, $link)){
+
+		//if (!mysqli_query($query, $link)){
+  		if (!mysqli_query($link,$query)){
   			echo("The database $DB_NAME does not exist.\n
 			  Please check your dates for the database!\n");
     		echo("Die Datenbank $DB_NAME existiert nicht.\n

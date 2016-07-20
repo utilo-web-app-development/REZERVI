@@ -51,7 +51,7 @@ if (hasVermieterReservations($vermieter_id,STATUS_RESERVIERT)){
 <p>
   <?php //sodala, nun alle reservierungen mit status=1 auslesen, wenn
 		$res = getReservationsOfVermieter($vermieter_id,STATUS_RESERVIERT);
-		while($d = mysql_fetch_array($res)){
+		while($d = mysqli_fetch_array($res)){
 			$reservierungs_id = $d["RESERVIERUNG_ID"];
 			$mieter_id = $d["MIETER_ID"];
 			$mieter = getMieterVorname($mieter_id)." ".getNachnameOfMieter($mieter_id).", ".getMieterOrt($mieter_id);

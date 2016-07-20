@@ -27,14 +27,14 @@ function getMessageSubject($vermieter_id,$bezeichnung){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);				
+			$d = mysqli_fetch_array($res);
 			$uebers = $d["SUBJECT"];
 			if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
 				return false;
@@ -63,14 +63,14 @@ function getMessageBody($vermieter_id,$bezeichnung){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);				
+			$d = mysqli_fetch_array($res);
 			$uebers = $d["BODY"];
 			if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
 				return false;
@@ -99,14 +99,14 @@ function getMessageUnterschrift($vermieter_id,$bezeichnung){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else {
-			$d = mysql_fetch_array($res);				
+			$d = mysqli_fetch_array($res);
 			$uebers = $d["UNTERSCHRIFT"];
 			if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
 				return false;
@@ -136,14 +136,14 @@ function getMessageAnrede($vermieter_id,$bezeichnung){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);					
+			$d = mysqli_fetch_array($res);
 			$uebers = $d["ANREDE"];
 			if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
 				return false;
@@ -173,14 +173,14 @@ function getMessageID($vermieter_id,$bezeichnung){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);				
+			$d = mysqli_fetch_array($res);
 			$uebers = $d["ANTWORTEN_ID"];
 			if (!isset($uebers) || $uebers == "NULL" || $uebers == ""){
 				return false;
@@ -210,14 +210,14 @@ function isMessageActive($vermieter_id,$bezeichnung){
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{
-			$d = mysql_fetch_array($res);				
+			$d = mysqli_fetch_array($res);
 			$uebers = $d["AKTIV"];
 			if (!isset($uebers) || $uebers == 0 || $uebers == "NULL" || $uebers == ""){
 				return false;
@@ -244,10 +244,10 @@ function setMessage($vermieter_id,$bezeichnung,$subject,$body,$unterschrift,$anr
 				('$vermieter_id','$subject','$body','$unterschrift','$bezeichnung','$anrede')
 			  ");
 				  
-		$res = mysql_query($query, $link);	
+		$res = mysqli_query($link, $query);
 		if (!$res){  
 			echo("die Anfrage $query scheitert");
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
 			return false;
 		}
 		
@@ -281,10 +281,10 @@ function changeMessage($vermieter_id,$bezeichnung,$subject,$body,$unterschrift,$
 				ANTWORTEN_ID = '$id'
 			  ";
 	
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 			if (!$res){
 				echo("Anfrage $query scheitert.");
-				echo(mysql_error($link));
+				echo(mysqli_error($link));
 				return false;
 			}
 			else{
@@ -312,10 +312,10 @@ function setMessageActive($vermieter_id,$bezeichnung){
 			BEZEICHNUNG = '$bezeichnung'
 		  ";
 
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res){
 			echo("Anfrage $query scheitert.");
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
 			return false;
 		}	
 
@@ -340,10 +340,10 @@ function setMessageInactive($vermieter_id,$bezeichnung){
 			BEZEICHNUNG = '$bezeichnung'
 		  ";
 
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res){
 			echo("Anfrage $query scheitert.");
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
 			return false;
 		}	
 

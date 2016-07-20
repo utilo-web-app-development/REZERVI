@@ -245,12 +245,12 @@ include_once($root."/templates/bodyStart.inc.php");
 		                <select name="mietobjekt_id"  id="mietobjekt_id" onChange="submit()">
 		                  <?php
 		  					$res = getMietobjekteOfVermieter($vermieter_id);
-		  					$anzahlMietobjekte = mysql_num_rows($res);
+		  					$anzahlMietobjekte = mysqli_num_rows($res);
 		  					$hasMietobjekte = true;
 		  					if ($anzahlMietobjekte<=0){
 		  						$hasMietobjekte = false;
 		  					}
-			 				while($d = mysql_fetch_array($res)) { ?>
+			 				while($d = mysqli_fetch_array($res)) { ?>
 		                  		<option value="<?php echo $d["MIETOBJEKT_ID"] ?>"<?php if ($mietobjekt_id == $d["MIETOBJEKT_ID"]) {echo(" selected=\"selected\"");} ?>><?php echo $d["BEZEICHNUNG"] ?></option>
 		                  <?php } ?>
 		                </select>

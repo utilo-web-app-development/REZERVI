@@ -81,7 +81,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                 " order by r.Datum_von				
 				");
 
-            $res = mysql_query($query, $link);
+            $res = mysqli_query($link, $query);
             if (!$res) {
                 echo("die Anfrage scheitert");
             }
@@ -89,7 +89,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
             $leer = true;
             //array to store reservierungs ids that are already taken:
             $idArray = array();
-            while ($d = mysql_fetch_array($res)){
+            while ($d = mysqli_fetch_array($res)){
             $leer = false;
             $reservierungs_id = $d["PK_ID"];
             $gast_id = getGastID($reservierungs_id, $link);
@@ -133,13 +133,13 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                 " r.Datum_bis = '" . $d["Datum_bis"] . "' and " .
                 " r.ANFRAGEDATUM = '" . $d["ANFRAGEDATUM"] . "'");
 
-            $res2 = mysql_query($query2, $link);
+            $res2 = mysqli_query($link,$query2);
             if (!$res2) {
                 echo("die Anfrage scheitert");
-                echo(mysql_error());
+                echo(mysqli_error());
                 echo($query);
             } else {
-                while ($d2 = mysql_fetch_array($res2)) {
+                while ($d2 = mysqli_fetch_array($res2)) {
                     $reservierungs_id2 = $d2["PK_ID"];
                     if (hasParentSameReservation($reservierungs_id2)) {
                         continue;

@@ -230,7 +230,7 @@ include_once("../templates/bodyA.php");
                 //sollen auch noch weitere attribute angezeigt werden?
                 if (getPropertyValue(SHOW_ZIMMER_ATTRIBUTE_GESAMTUEBERSICHT, $unterkunft_id, $link) == "true") {
                     $res = getAttributes();
-                    while ($d = mysql_fetch_array($res)) {
+                    while ($d = mysqli_fetch_array($res)) {
                         $att_id = $d["PK_ID"];
                         if (isset($_POST["attWert_" . $att_id])) {
                             $wert = $_POST["attWert_" . $att_id];

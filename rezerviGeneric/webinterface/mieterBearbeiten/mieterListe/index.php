@@ -53,7 +53,7 @@ include_once($root."/webinterface/templates/components.inc.php");
 
 	$res = getMieterListWithLimitAndIndex($vermieter_id,$index);
 		
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 		
 		$mieter_id = $d["MIETER_ID"];
 		$vorname = $d["VORNAME"];

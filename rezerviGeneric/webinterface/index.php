@@ -73,7 +73,7 @@
                   <td><select name="sprache">
                   <?php
                   	$res = getSprachen($link);
-                  	while($d = mysql_fetch_array($res)){
+                  	while($d = mysqli_fetch_array($res)){
                   		$bezeichnung = $d["BEZEICHNUNG"];
                   		$spracheID   = $d["SPRACHE_ID"];
                   		$sprache = "en";

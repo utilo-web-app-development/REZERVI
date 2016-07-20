@@ -36,14 +36,14 @@ function hasBuchungseinschraenkung($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,
 		   )
 		   ";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res){
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		echo($query);
 		exit;
 	}
 	
-	$d=mysql_fetch_array($res);
+	$d=mysqli_fetch_array($res);
 	$anzahl = $d["anzahl"];
 	if ($anzahl>0){
 		return true;
@@ -95,19 +95,19 @@ function checkBuchungseinschraenkung($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMona
 		   )
 		   ";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res){
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		echo($query);
 		exit;
 	}
 
 	//wenn leer dann auch true!
-	if (mysql_num_rows($res)<1){
+	if (mysqli_num_rows($res)<1){
 		return true;
 	}
 	
-	while ($d=mysql_fetch_array($res)){
+	while ($d=mysqli_fetch_array($res)){
 		$wo_von = $d["Tag_von"];
 		$wo_bis = $d["Tag_bis"];
 		if ($wochentag_von == $wo_von && $wochentag_bis == $wo_bis){
@@ -161,14 +161,14 @@ function getBuchungseinschraenkungText($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMo
 		   )
 		   ";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res){
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		echo($query);
 		exit;
 	}
 
-	while ($d=mysql_fetch_array($res)){
+	while ($d=mysqli_fetch_array($res)){
 		$wo_von = $d["Tag_von"];
 		$wo_von = getUebersetzung($wo_von,$sprache,$link);
 		$wo_bis = $d["Tag_bis"];
@@ -205,9 +205,9 @@ function getBuchungseinschraenkungen($unterkunft_id){
 				  z.PK_ID = e.FK_Zimmer_ID
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
   			return false;
 		}
 	
@@ -240,9 +240,9 @@ function getActualBuchungseinschraenkungen($unterkunft_id){
 				  e.Datum_bis >= $datum
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
   			return false;
 		}
 	
@@ -275,14 +275,14 @@ function getActualBuchungseinschraenkungen($unterkunft_id){
 				  e.Datum_bis >= $datum
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
 			echo($query);
 			exit;
 		}
 	
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		if ($d["anzahl"]>0){
 			return true;
 		}
@@ -306,9 +306,9 @@ function removeBuchungseinschraenkung($bu_id){
 				  PK_ID = '$bu_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
   			return false;
 		}
 		
@@ -336,14 +336,14 @@ function removeBuchungseinschraenkung($bu_id){
 				  ('$zimmer_id','$von_wochentag','$bis_wochentag','$datumVon','$datumBis')
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo($query);
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
   			return false;
 		}
 		
-	return mysql_insert_id($link);
+	return mysqli_insert_id($link);
  }
  
  function getZimmerBuchungseinschraenkung($zimmer_id){
@@ -355,9 +355,9 @@ function removeBuchungseinschraenkung($bu_id){
              WHERE FK_Zimmer_ID = '" . $zimmer_id . "'";
    
    //echo("Query: " . $query);
-   $res = mysql_query($query, $link);
+   $res = mysqli_query($link, $query);
   		if (!$res){
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
 			echo($query);
 			exit;
 		}

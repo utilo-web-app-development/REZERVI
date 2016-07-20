@@ -55,7 +55,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	deleteReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link);
 	$resu = getChildRooms($zimmer_id);
 	if (!empty($resu)){
-		while ($d = mysql_fetch_array($resu)){
+		while ($d = mysqli_fetch_array($resu)){
 			$child = $d['PK_ID'];
 			deleteReservationWithDate($child,$vonDatum,$bisDatum,$link);			
 		}	

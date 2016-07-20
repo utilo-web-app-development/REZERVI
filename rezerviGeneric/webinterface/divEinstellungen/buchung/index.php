@@ -59,7 +59,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
   <?php
   $typ = BE_TYP_ZEIT;
   $res = getBuchungseinschraenkungen($vermieter_id,$typ);
-  while ($d = mysql_fetch_array($res)){
+  while ($d = mysqli_fetch_array($res)){
 	$einschraenkungs_id = $d["EINSCHRAENKUNGS_ID"];
   	$mietobjekt_id = $d["MIETOBJEKT_ID"];
   	$moBez = getMietobjektBezeichnung($mietobjekt_id);
@@ -104,7 +104,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 				<option value="alle">alle</option>
 				<?php
 				$mobj = getMietobjekte($vermieter_id);
-				while ($l = mysql_fetch_array($mobj)){
+				while ($l = mysqli_fetch_array($mobj)){
 					$moBez = $l["BEZEICHNUNG"];
 					$moBez = getUebersetzungVermieter($moBez,$sprache,$vermieter_id);
 					$mietobjekt_id = $l["MIETOBJEKT_ID"];
@@ -238,13 +238,13 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 			 <?php
 			  $typ = BE_TYP_TAG;
 			  $res = getMietobjekteWithBuchungseinschraenkungen($vermieter_id,$typ);
-			  $anzahl = mysql_num_rows($res);
+			  $anzahl = mysqli_num_rows($res);
 			  $anzahlMietobjekte = getAnzahlMietobjekteOfVermieter($vermieter_id);
 			  $alleMietobjekte = false;
 			  if ($anzahl == $anzahlMietobjekte){
 			  	$alleMietobjekte = true;
 			  }
-			  while ($d = mysql_fetch_array($res)){
+			  while ($d = mysqli_fetch_array($res)){
 			  	$mietobjekt_id = $d["MIETOBJEKT_ID"];
 			  	$moBez = getMietobjektBezeichnung($mietobjekt_id);
 			  	$moBez = getUebersetzungVermieter($moBez,$sprache,$vermieter_id);  
@@ -329,7 +329,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 								<option value="alle">alle</option>
 								<?php
 								$mobj = getMietobjekte($vermieter_id);
-								while ($l = mysql_fetch_array($mobj)){
+								while ($l = mysqli_fetch_array($mobj)){
 									$moBez = $l["BEZEICHNUNG"];
 									$moBez = getUebersetzungVermieter($moBez,$sprach,$vermieter_id);
 									$mietobjekt_id = $l["MIETOBJEKT_ID"];
@@ -425,12 +425,12 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
 				 <?php
 				  $typ = BE_TYP_DATUM_VON_BIS;
 				  $res = getMietobjekteWithBuchungseinschraenkungen($vermieter_id,$typ);
-				  while ($d = mysql_fetch_array($res)){
+				  while ($d = mysqli_fetch_array($res)){
 				  	$mietobjekt_id = $d["MIETOBJEKT_ID"];
 				  	$moBez = getMietobjektBezeichnung($mietobjekt_id);
 					$moBez = getUebersetzungVermieter($moBez,$sprache,$vermieter_id);  
 				  	$res2 = getBuchungseinschraenkungenOfMietobjekt($mietobjekt_id,$typ);
-				  	while ($r = mysql_fetch_array($res2)){
+				  	while ($r = mysqli_fetch_array($res2)){
 					  	$einschrVon = $r["VON"];
 					  	$einschrVon = parseMySqlTimestamp($einschrVon,true,true,true,true,true);
 					  	$einschrBis = $r["BIS"];
@@ -516,7 +516,7 @@ $mietobjekt_einzahl = getUebersetzungVermieter($mietobjekt_einzahl,$sprache,$ver
   							<option value="alle">alle</option>
 		  					<?php
 		  					$mobj = getMietobjekte($vermieter_id);
-		  					while ($l = mysql_fetch_array($mobj)){
+		  					while ($l = mysqli_fetch_array($mobj)){
 		  						$moBez = $l["BEZEICHNUNG"];
 		  						$moBez = getUebersetzungVermieter($moBez,$sprach,$vermieter_id);
 		  						$mietobjekt_id = $l["MIETOBJEKT_ID"];

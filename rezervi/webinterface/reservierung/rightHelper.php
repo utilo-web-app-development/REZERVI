@@ -8,7 +8,7 @@
 		if (sizeof($status) < 1 && hasChildRooms($zimmer_id) && getPropertyValue(RES_HOUSE,$unterkunft_id,$link) == "true"){
 			//if room is a parent, check if the child has another status:
 			$childs = getChildRooms($zimmer_id);
-			while ($c = mysql_fetch_array($childs)){
+			while ($c = mysqli_fetch_array($childs)){
 				$child_zi_id = $c['PK_ID'];
 				$status = getStatus($child_zi_id,$i,$month,$year,$link);	
 				if (sizeof($status)>0){
@@ -59,7 +59,7 @@
 			if (sizeof($nStatus) < 1 && getPropertyValue(RES_HOUSE,$unterkunft_id,$link) == "true" && hasChildRooms($zimmer_id)){
 				//if room is a parent, check if the child has another status:
 				$childs = getChildRooms($zimmer_id);
-				while ($c = mysql_fetch_array($childs)){
+				while ($c = mysqli_fetch_array($childs)){
 					$child_zi_id = $c['PK_ID'];
 					$nStatus = getStatus($child_zi_id,$nTag,$nMonat,$nJahr,$link);	
 					if (sizeof($nStatus)>0){
@@ -94,7 +94,7 @@
 				if (sizeof($vStatus) < 1 && hasChildRooms($zimmer_id) && getPropertyValue(RES_HOUSE,$unterkunft_id,$link) == "true"){
 					//if room is a parent, check if the child has another status:
 					$childs = getChildRooms($zimmer_id);
-					while ($c = mysql_fetch_array($childs)){
+					while ($c = mysqli_fetch_array($childs)){
 						$child_zi_id = $c['PK_ID'];
 						$vStatus = getStatus($child_zi_id,$vTag,$vMonat,$vJahr,$link);	
 						if (sizeof($vStatus)>0){
@@ -160,13 +160,13 @@ function showMonth($month,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,
 							//gast-id auslesen:
 							//$gast_id = getReservierungGastID($zimmer_id,$i,$month,$year,$link);
 							$gast_ids = getReservierungGastIDs($zimmer_id,$i,$month,$year,$link);	
-							while ($h = mysql_fetch_array($gast_ids)){
+							while ($h = mysqli_fetch_array($gast_ids)){
 								$gast_id = $h["FK_Gast_ID"];
 								//if child rooms available, check also childs:
 								if ( ( $gast_id == 1 || empty($gast_id) ) && getPropertyValue(RES_HOUSE,$unterkunft_id,$link) == "true" && hasChildRooms($zimmer_id)){
 									//if room is a parent, check if the child has another status:
 									$childs = getChildRooms($zimmer_id);
-									while ($c = mysql_fetch_array($childs)){
+									while ($c = mysqli_fetch_array($childs)){
 										$child_zi_id = $c['PK_ID'];
 										$gast_id = getReservierungGastID($child_zi_id,$i,$month,$year,$link);	
 										if ($gast_id != 1 && $gast_id != ""){

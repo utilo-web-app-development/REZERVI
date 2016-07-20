@@ -82,7 +82,7 @@ if (isset($nachricht) && $nachricht != "") {
                         $res = getZimmer($unterkunft_id, $link);
                         //zimmer ausgeben:
                         $i = 0;
-                        while ($d = mysql_fetch_array($res)) {
+                        while ($d = mysqli_fetch_array($res)) {
                             $ziArt = getUebersetzungUnterkunft($d["Zimmerart"], $sprache, $unterkunft_id, $link);
                             $ziNr = getUebersetzungUnterkunft($d["Zimmernr"], $sprache, $unterkunft_id, $link);
                             ?>
@@ -133,7 +133,7 @@ if (isset($nachricht) && $nachricht != "") {
                         $res = getZimmer($unterkunft_id, $link);
                         //zimmer ausgeben:
                         $i = 0;
-                        while ($d = mysql_fetch_array($res)) {
+                        while ($d = mysqli_fetch_array($res)) {
                             $ziArt = getUebersetzungUnterkunft($d["Zimmerart"], $sprache, $unterkunft_id, $link);
                             $ziNr = getUebersetzungUnterkunft($d["Zimmernr"], $sprache, $unterkunft_id, $link);
                             ?>

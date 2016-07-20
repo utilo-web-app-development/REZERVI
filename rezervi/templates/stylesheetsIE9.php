@@ -9,10 +9,10 @@ $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 //alle werte für unterkunft auslesen:
 $query = "select * from Rezervi_CSS where FK_Unterkunft_ID = '$unterkunft_id'";
 
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
  if (!$res)  	echo("Anfrage $query scheitert.");
 	
-$d = mysql_fetch_array($res);
+$d = mysqli_fetch_array($res);
 
  echo(".backgroundColor { ").($d["backgroundColor"]).(" }");
  echo(".standardSchrift { ").($d["standardSchrift"]).(" }"); 

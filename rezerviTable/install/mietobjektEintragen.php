@@ -33,7 +33,7 @@ $query = "
 
 $res = $db->Execute($query);
 if (!$res) {
-	$antwort = mysql_error($link);
+	$antwort = mysqli_error($link);
 	$fail = true;		
 }
 $adress_id = $db->Insert_ID();
@@ -47,7 +47,7 @@ $query = "
 
 $res = $db->Execute($query);
 if (!$res) {
-	$antwort = mysql_error($link);
+	$antwort = mysqli_error($link);
 	$fail = true;		
 }
 	

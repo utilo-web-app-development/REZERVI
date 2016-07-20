@@ -63,7 +63,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 	           				FK_Zimmer_ID = '$zimmer_pk_id[$i]'
 			    ");
 
-                        $res = mysql_query($query, $link);
+                        $res = mysqli_query($link, $query);
                         if (!$res) {
                             echo("die Anfrage $query scheitert");
                         }
@@ -76,7 +76,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 							FK_Unterkunft_ID = '$unterkunft_id'
 			    ");
 
-                        $res = mysql_query($query, $link);
+                        $res = mysqli_query($link, $query);
                         if (!$res) {
                             echo("die Anfrage $query scheitert");
                         }
@@ -102,7 +102,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
             <div class="alert alert-success" role="alert">
                 <?php
 
-                $res = mysql_query($query, $link);
+                $res = mysqli_query($link, $query);
                 if (!$res) {
                     echo("die Anfrage $query scheitert");
                 }
@@ -115,7 +115,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 							FK_Unterkunft_ID = '$unterkunft_id'
 			    ");
 
-                $res = mysql_query($query, $link);
+                $res = mysqli_query($link, $query);
                 if (!$res) {
                     echo("die Anfrage $query scheitert");
                 }

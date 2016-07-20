@@ -119,7 +119,7 @@ define("BUTTON_HOVER","button200pxB");
 					VERMIETER_ID = '$vermieter_id'
 					");
 	
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res) { 
 			echo("die Anfrage $query scheitert");
 			return false;
@@ -146,13 +146,13 @@ define("BUTTON_HOVER","button200pxB");
 					Classname = '$classname'
 					");
 	
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res) { 
 			echo("die Anfrage $query scheitert");
 			return false;
 		}
 			
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$style = $d["WERT"];
 		if ($style == ""){
 			return false;
@@ -191,13 +191,13 @@ define("BUTTON_HOVER","button200pxB");
 				");
  	}
  	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res) { 
 		echo("die Anfrage $query scheitert");
 		return false;
 	}
 			
-	return mysql_insert_id($link);
+	return mysqli_insert_id($link);
 	
  }
 ?>

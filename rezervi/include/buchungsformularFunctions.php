@@ -31,15 +31,15 @@ function setBuchungsformularAttribut($attribut,$art,$typ,$erforderlich){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		
-		return mysql_insert_id($link);
+		return mysqli_insert_id($link);
 		
 }
 /**
@@ -62,10 +62,10 @@ function changeBuchungsformularAttribut($id,$attribut,$art,$typ,$erforderlich){
 				  PK_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -88,10 +88,10 @@ function deleteBuchungsformularAttribut($id){
 				  PK_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -118,10 +118,10 @@ function getBuchungsformularAttribute(){
 				  
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}

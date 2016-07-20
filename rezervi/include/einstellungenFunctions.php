@@ -17,13 +17,13 @@ function hasEintrag($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			if ($d["FK_Unterkunft_ID"] == $unterkunft_id){
 				return true;
 			} 
@@ -91,12 +91,12 @@ function getFramesizeLeftWIUnit($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
 		else	{
-		    $d = mysql_fetch_array($res);	
+		    $d = mysqli_fetch_array($res);
 			$frame = $d["Frame_left_WI"];			
 		}
 	return getUnitFromFramesize($frame);	
@@ -119,12 +119,12 @@ function getFramesizeLeftBPUnit($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
 		else{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$frame = $d["Frame_left_BP"];			
 		}
 	return  getUnitFromFramesize($frame);	
@@ -147,12 +147,12 @@ function getFramesizeRightBPUnit($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
 		else	{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$frame = $d["Frame_right_BP"];			
 		}
 	return  getUnitFromFramesize($frame);	
@@ -175,12 +175,12 @@ function getFramesizeRightWIUnit($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
 		else	{	
-		    $d = mysql_fetch_array($res);
+		    $d = mysqli_fetch_array($res);
 			$frame = $d["Frame_right_WI"];			
 		}
 	return  getUnitFromFramesize($frame);	
@@ -203,12 +203,12 @@ function getFramesizeLeftWI($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
 		else	{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$frame = $d["Frame_left_WI"];			
 		}
 	return removeUnitFromFramesize($frame);	
@@ -231,12 +231,12 @@ function getFramesizeLeftBP($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
 		else	{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$frame = $d["Frame_left_BP"];			
 		}
 	return  removeUnitFromFramesize($frame);	
@@ -259,12 +259,12 @@ function getFramesizeRightBP($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
 		else	{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$frame = $d["Frame_right_BP"];			
 		}
 	return  removeUnitFromFramesize($frame);	
@@ -287,12 +287,12 @@ function getFramesizeRightWI($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
 		else	{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$frame = $d["Frame_right_WI"];			
 		}
 	return  removeUnitFromFramesize($frame);	
@@ -317,7 +317,7 @@ function getSprachen($unterkunft_id,$link){
 				  Modul = 2
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
@@ -343,13 +343,13 @@ function getStandardSprachePKID($unterkunft_id,$sprache,$modul,$link){
 				  Sprache_ID = '$sprache'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("anfrage $query scheitert!");
   			return -1;
   		}
 		else{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$id = $d["PK_ID"];
 			if ($id == ""){
 				return -1;
@@ -373,13 +373,13 @@ function getStandardSprachePKID2($unterkunft_id,$modul,$link){
 				  Modul = '$modul'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("anfrage $query scheitert!");
   			return -1;
   		}
 		else{	
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$id = $d["PK_ID"];
 			if ($id == ""){
 				return -1;
@@ -409,7 +409,7 @@ function setSprache($unterkunft_id,$sprache,$modul,$link){
 			('$sprache','$modul','$unterkunft_id')
 			";	
 	
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 		
 	  	if (!$res) {
 	  		echo("Anfrage $query scheitert.");
@@ -453,11 +453,11 @@ function getStandardSprache($unterkunft_id,$link){
 				  Modul = 0
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 		
 		$sprachen_string = $d["Sprache_ID"];
 		
@@ -481,11 +481,11 @@ function getStandardSpracheBelegungsplan($unterkunft_id,$link){
 				  Modul = 1
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 		
 		$sprachen_string = $d["Sprache_ID"];
 		
@@ -521,10 +521,10 @@ function setStandardSprache($unterkunft_id,$spracheID,$link) {
 	}
 	
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{
@@ -561,10 +561,10 @@ function setStandardSpracheBelegungsplan($unterkunft_id,$spracheID,$link) {
 	}
 	
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{
@@ -645,11 +645,11 @@ function removeAllStandardSpracheFromModul($unterkunft_id,$modul,$link){
 			   Modul = '$modul'
 			   ");
 			   
-	$res = mysql_query($query, $link);		
+	$res = mysqli_query($link, $query);
 	  
 	if (!$res) {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 			   
@@ -677,10 +677,10 @@ function setFramesizeLeftWI($unterkunft_id,$framesize,$unit,$link) {
 			 ";
 	
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{
@@ -711,10 +711,10 @@ function setFramesizeRightWI($unterkunft_id,$framesize,$unit,$link) {
 
 	
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{
@@ -746,10 +746,10 @@ function setFramesizeLeftBP($unterkunft_id,$framesize,$unit,$link) {
 	
 	
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{
@@ -778,10 +778,10 @@ function setFramesizeRightBP($unterkunft_id,$framesize,$unit,$link) {
 			  FK_Unterkunft_ID = '$unterkunft_id'
 			 ";	
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{

@@ -27,7 +27,7 @@ while ($query = fgets($fp, 1024)){
 
 if ($fail){
 	$antwort .= getUebersetzung("Anlegen der Übersetzungen scheiterte!")."<br/>";
-	$antwort = $antwort.(mysql_error($link));
+	$antwort = $antwort.(mysqli_error($link));
 	$fehler = true;
 	$woerterbuch = false;
 }

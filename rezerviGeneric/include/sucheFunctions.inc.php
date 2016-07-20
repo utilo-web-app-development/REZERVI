@@ -27,7 +27,7 @@ function searchFreieMietobjekte($vermieter_id, $vonTag, $vonMonat, $vonJahr, $vo
 	 include_once($root."/include/mietobjektFunctions.inc.php");
 	
 		$res = getMietobjekte($vermieter_id);
-		while ($d = mysql_fetch_array($res)){ 
+		while ($d = mysqli_fetch_array($res)){
 
 			$mietobjekt_id = $d["MIETOBJEKT_ID"];
 			$isTaken = isMietobjektTaken($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJahr,

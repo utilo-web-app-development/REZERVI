@@ -306,7 +306,7 @@ ADOdb DSN's are compatible with version 1.0 of PEAR DB's DSN format.
 </a></p><h3><a name="connect_ex">Examples of Connecting to Databases</a></h3>
 <h4><a name="connect_ex">MySQL and Most Other Database Drivers</a></h4>
 <p><a name="connect_ex">MySQL connections are very straightforward, and the parameters are identical 
-  to mysql_connect:</a></p>
+  to mysqli_connect:</a></p>
 <pre><a name="connect_ex">	$conn = &amp;ADONewConnection('mysql'); <br>	$conn-&gt;PConnect('localhost','userid','password','database');<br>	<br>	<font color="#008000"># or dsn </font>
 	$dsn = 'mysql://user:pwd@localhost/mydb'; 
 	$conn = ADONewConnection($dsn);  # no need for Connect()

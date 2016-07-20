@@ -32,12 +32,12 @@ $query = "
 	('$name','$EMAIL')
 	";
 
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res) {
-	$antwort = mysql_error($link);
+	$antwort = mysqli_error($link);
 	$fail = true;		
 }
-$adress_id = mysql_insert_id($link);
+$adress_id = mysqli_insert_id($link);
 $query = "
 	REPLACE INTO 
 	REZ_GEN_VERMIETER
@@ -46,9 +46,9 @@ $query = "
 	('$vermieter_id','$adress_id','$mietobjekt_einzahl','$mietobjekt_mehrzahl','$anzahl_mietobjekte','$anzahl_benutzer')
 	";
 
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res) {
-	$antwort = mysql_error($link);
+	$antwort = mysqli_error($link);
 	$fail = true;		
 }
 	
@@ -61,9 +61,9 @@ $query = "
 	('$vermieter_id','$username','$passwort','$rechte')
 	";
 
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res) {
-	$antwort = $antwort.(mysql_error($link));		
+	$antwort = $antwort.(mysqli_error($link));		
 	$fail = true;
 }
 
@@ -123,14 +123,14 @@ $query = ("insert into
 			('anonym','anonym','anonym')
 	   	  ");
 	   	  
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 if (!$res)  {
 	echo("die Anfrage $query scheitert");
-	echo(mysql_error($link));
+	echo(mysqli_error($link));
 	return false;
 }
 
-$adresse_id = mysql_insert_id($link);	
+$adresse_id = mysqli_insert_id($link);	
 $anoMieterId = ANONYMER_MIETER_ID;
 $query = ("insert into 
 			REZ_GEN_MIETER
@@ -139,11 +139,11 @@ $query = ("insert into
 			($anoMieterId,'$adresse_id','$vermieter_id','de')
 	   	  ");
 
-$res = mysql_query($query, $link);
+$res = mysqli_query($link, $query);
 
 if (!$res)  {
 	echo("die Anfrage $query scheitert"."<br/>");
-	echo(mysql_error($link));
+	echo(mysqli_error($link));
 	return false;
 }
 

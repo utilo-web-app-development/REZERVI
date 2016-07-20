@@ -20,7 +20,7 @@ if (isset($_POST["add"]) && $_POST["add"] == getUebersetzung("hinzufügen", $spr
     $hinzufuegen = true;
 } else {
     $res = getBuchungseinschraenkungen($unterkunft_id);
-    while ($d = mysql_fetch_array($res)) {
+    while ($d = mysqli_fetch_array($res)) {
         $id = $d["PK_ID"];
         //welche id soll gelöscht werden?
         if (isset($_POST["loeschen#" . $id])

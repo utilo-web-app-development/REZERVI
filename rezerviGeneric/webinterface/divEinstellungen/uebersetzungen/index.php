@@ -31,7 +31,7 @@ include_once($root."/webinterface/templates/components.inc.php");
 		    <?php
 		    //sprachen anzeigen die aktiviert sind: 
 		  	$res = getActivtedSprachenOfVermieter($vermieter_id);
-		  	while($d = mysql_fetch_array($res)){
+		  	while($d = mysqli_fetch_array($res)){
 		  		$bezeichnung = $d["BEZEICHNUNG"];
 		  		$spracheID   = $d["SPRACHE_ID"];       
 		    ?>  

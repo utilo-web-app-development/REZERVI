@@ -66,15 +66,15 @@ function getSessionWert($bezeichnung){
 					   HTTP_SESSION_ID = '$session_id'
 		   			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$wert = $d["WERT"];
 		if ($wert == ""){
 			return false;
@@ -116,11 +116,11 @@ function setSessionWert($bezeichnung,$wert){
 		  ");  
 	}
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
@@ -145,11 +145,11 @@ function destroySession(){
 			   HTTP_SESSION_ID = '$session_id'
    			  ");      
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
@@ -178,11 +178,11 @@ function destroyInactiveSessions(){
 			   ERSTELLUNG <= $erstellung
    			  ");      
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{

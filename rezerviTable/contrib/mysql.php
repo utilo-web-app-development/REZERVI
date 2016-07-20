@@ -11,12 +11,12 @@
     <th>Telefonnummer</th>
 </tr>
 <?php
-    mysql_connect("localhost", "oswald", "geheim");
-    mysql_select_db("phonebook");
+    mysqli_connect("localhost", "oswald", "geheim");
+    mysqli_select_db("phonebook");
 
     $query = "SELECT * FROM users";
-    $result = mysql_query($query);
-    while ($row = mysql_fetch_array  ($result))
+    $result = mysqli_query(null,$query);
+    while ($row = mysqli_fetch_array  ($result))
     {
         echo "<tr>";
         echo "<td>".$row['firstname']."</td>";

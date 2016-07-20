@@ -14,11 +14,11 @@
 			ORDER BY 
 			Zimmernr";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 	
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		return $d["PK_ID"];
 	
 	}

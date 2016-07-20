@@ -53,13 +53,13 @@
 	ENDE DER BENUTZEREINGABEN
 *****************************************************************************/
 	if ($USERNAME != "" && $PASS != ""){
-		$link = @mysql_connect($DBMS_URL,$USERNAME,$PASS);
+		$link = @mysqli_connect($DBMS_URL,$USERNAME,$PASS);
 	}
 	elseif ($USERNAME != ""){
-		$link = @mysql_connect($DBMS_URL,$USERNAME);
+		$link = @mysqli_connect($DBMS_URL,$USERNAME);
 	}
 	else{
-		$link = @mysql_connect($DBMS_URL);
+		$link = @mysqli_connect($DBMS_URL);
 	}
   	
   	if (!$link) {
@@ -79,7 +79,7 @@
   		// Auswahl der zu verwendenden Datenbank auf dem Server
   		$query = "use ".($DB_NAME);
 		
-  		if (!mysql_query($query, $link)){
+  		if (!mysqli_query($link, $query)){
   			echo("The database $DB_NAME does not exist.<br/>
 			  	  You need a MySQL database to install Rezervi Generic!<br/>" .
 			  	 "Please edit the file '\\conf\\rdbmsConfig.inc.php'<br/><br/>" .
@@ -104,8 +104,8 @@
 						   VERMIETER_ID = '1'
 			   			  ");           
 	
-		$res = mysql_query($query, $link);
-		if (!$res || (mysql_num_rows($res)<=0)){
+		$res = mysqli_query($link, $query);
+		if (!$res || (mysqli_num_rows($res)<=0)){
 			  	echo("Rezervi Generic was not correctly installed. Please go to the page '\\install\\index.php' and do the installation.<br/><br/>" .
 				  	 "If you need help for the installation, " .
 				  	 "please contact <a href=\"mailto:office@utilo.net\">office@utilo.net</a><br/><br/>");

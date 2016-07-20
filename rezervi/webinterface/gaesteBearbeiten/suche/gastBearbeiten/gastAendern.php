@@ -64,7 +64,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 					WHERE
 					PK_ID = '$gast_id'";
 					
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
 		}

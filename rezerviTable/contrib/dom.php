@@ -5,12 +5,12 @@
     $root = $dom->createElement('cds');
     $dom->appendChild($root);
 
-    mysql_connect("localhost","root","");
-    mysql_select_db("cdcol");
+    mysqli_connect("localhost","root","");
+    mysqli_select_db("cdcol");
 
-    $result=mysql_query("SELECT id,titel,interpret,jahr FROM cds ORDER BY interpret;");
+    $result=mysqli_query(null,"SELECT id,titel,interpret,jahr FROM cds ORDER BY interpret;");
     
-    while( $row=mysql_fetch_array($result) )
+    while( $row=mysqli_fetch_array($result) )
     {
 	    $cd = $dom->createElement('cd');
 	    $cd->setAttribute('id', $row['id']);

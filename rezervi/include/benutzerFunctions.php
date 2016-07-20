@@ -23,7 +23,7 @@ function setUser($benutzername,$pass,$rechte){
 		('$unterkunft_id','$benutzername','$pass','$rechte')
 		";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
 	}
@@ -50,7 +50,7 @@ function changeBenutzer($id,$name,$pass,$rechte,$unterkunft_id,$link){
 				FK_Unterkunft_ID = '$unterkunft_id'
 		   ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
     if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
 		return false;
@@ -77,12 +77,12 @@ function checkPassword($name,$password,$link){
 				  Name = '$name'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$temp = $d["PK_ID"];
 			if (!(empty($temp) || $temp == "")) {
 				return $temp;
@@ -108,12 +108,12 @@ function checkPass($name,$password,$unterkunft_id,$link){
 				  Name = '$name'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$uk_id = $d["FK_Unterkunft_ID"];
 			if ($uk_id == $unterkunft_id) {
 				return true;
@@ -144,12 +144,12 @@ function getUserId($username,$password,$link){
 				  Passwort = '$password'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$name = $d["PK_ID"];
 		}
 	
@@ -171,12 +171,12 @@ function getUserName($id,$link){
 				  PK_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$name = $d["Name"];
 		}
 	
@@ -197,12 +197,12 @@ function getPassword($id,$link){
 				  PK_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$name = $d["Passwort"];
 		}
 	
@@ -224,12 +224,12 @@ function getUserRights($id,$link){
 				  PK_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$rechte = $d["Rechte"];
 		}
 	
@@ -251,12 +251,12 @@ function getUnterkunftID($id,$link){
 				  PK_ID = '$id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
 		}
 		else {		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$uk = $d["FK_Unterkunft_ID"];
 		}
 	
@@ -277,11 +277,11 @@ function getAnzahlVorhandeneBenutzer($unterkunft_id,$link){
 				  FK_Unterkunft_ID = '$unterkunft_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$num_rows = mysql_num_rows($res);	
+			$num_rows = mysqli_num_rows($res);	
 	
 	return $num_rows;
 			

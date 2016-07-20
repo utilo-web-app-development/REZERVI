@@ -14,10 +14,10 @@ function getBilderOfMietobjekt($mietobjekt_id){
 					MIETOBJEKT_ID = '$mietobjekt_id'
 					 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -40,10 +40,10 @@ function deleteBilderOfMietobjekt($mietobjekt_id){
 					MIETOBJEKT_ID = '$mietobjekt_id'
 					 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -70,15 +70,15 @@ function getAnzahlBilderOfVermieter($vermieter_id){
 					b.BILDER_ID
 					 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["anzahl"];
 		}	
 
@@ -105,10 +105,10 @@ function getAllPicturesFromVermieterWithLimit($vermieter_id,$limit,$index){
 					$index,$limit
 					 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -134,15 +134,15 @@ function setBild($pfad,$beschreibung,$mietobjekt_id,$widht,$height,$mimeType){
 					  ('$mietobjekt_id','$blob','$beschreibung','$widht','$height','$mimeType')				  
 					 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			return mysql_insert_id($link);
+			return mysqli_insert_id($link);
 		}	
 			
 }  
@@ -163,15 +163,15 @@ function getBild($bilder_id){
 				  BILDER_ID = '$bilder_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d;
 		}	
 
@@ -192,10 +192,10 @@ function deleteBild($id){
 			  BILDER_ID = '$id'			  
 			 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -221,15 +221,15 @@ function getBildBeschreibung($bilder_id){
 				  BILDER_ID = '$bilder_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["BESCHREIBUNG"];
 		}	
 
@@ -251,15 +251,15 @@ function getBildBreite($bilder_id){
 				  BILDER_ID = '$bilder_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["WIDTH"];
 		}	
 
@@ -281,15 +281,15 @@ function getBildHoehe($bilder_id){
 				  BILDER_ID = '$bilder_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["HEIGHT"];
 		}	
 
@@ -312,10 +312,10 @@ function getBilderOfZimmer($mietobjekt_id){
 				  MIETOBJEKT_ID = '$mietobjekt_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -339,15 +339,15 @@ function hasMietobjektBilder($mietobjekt_id){
 				  MIETOBJEKT_ID = '$mietobjekt_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d=mysql_fetch_array($res);
+			$d=mysqli_fetch_array($res);
 			$anzahl = $d["anzahl"];
 			if ($anzahl > 0){
 				return true;

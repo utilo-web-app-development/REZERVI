@@ -20,10 +20,10 @@ function changeUebersetzung($standardtext,$text,$sprache){
 		  		" and SPRACHE_ID = '$sprache'
 		 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{	
@@ -48,14 +48,14 @@ function getAnzahlUebersetzungen($sprache){
 		  SPRACHE_ID = '$sprache'
 		 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["anzahl"];
 		}
 
@@ -86,10 +86,10 @@ function getAllUebersetzungenWithIndex($index,$sprache){
 		  $index,$limit
 		 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{		
@@ -115,10 +115,10 @@ function getAllUebersetzungen(){
 		  Text
 		 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{		
@@ -139,10 +139,10 @@ function deleteAllActivtedSprachenOfVermieter($vermieter_id){
 			  VERMIETER_ID = '$vermieter_id'
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{		
@@ -164,10 +164,10 @@ function setActivtedSpracheOfVermieter($vermieter_id,$sprache_id){
 			  SPRACHE_ID = '$sprache_id'
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{		
@@ -191,10 +191,10 @@ function getActivtedSprachenOfVermieter($vermieter_id){
 			  v.SPRACHE_ID = s.SPRACHE_ID
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{	
@@ -218,14 +218,14 @@ function isSpracheOfVermieterActiv($sprache_id,$vermieter_id){
 			  SPRACHE_ID = '$sprache_id'
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$anzahl = $d["anzahl"];
 			if ($anzahl <= 0){
 				return false;
@@ -251,13 +251,13 @@ function getBezeichnungOfSpracheID($spracheID){
 			  SPRACHE_ID = '$spracheID'
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["BEZEICHNUNG"];
 		}
 }
@@ -278,7 +278,7 @@ function getSprachen(){
 			  		" BEZEICHNUNG
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   			return false;
@@ -299,9 +299,9 @@ function setSprache($sprache_id,$bilder_id,$bezeichnung){
 				(SPRACHE_ID,BEZEICHNUNG, BILDER_ID) 
 				VALUES 
 				('$sprache_id','$bezeichnung','$bilder_id')";
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res){
-		    echo (mysql_error($link));
+		    echo (mysqli_error($link));
 			exit;
 		}
 		else{	
@@ -334,13 +334,13 @@ function setSprache($sprache_id,$bilder_id,$bezeichnung){
 		  SPRACHE_ID = '$sprache'
 		 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   		}
   		else{  			
-  			if (mysql_num_fields($res)>0){
-  				$d = mysql_fetch_array($res);
+  			if (mysqli_num_fields($res)>0){
+  				$d = mysqli_fetch_array($res);
   				if ($d["TEXT"] != ""){
   					$text_standard = $d["TEXT"];
   				}
@@ -375,13 +375,13 @@ function setSprache($sprache_id,$bilder_id,$bezeichnung){
 		  SPRACHE_ID = '$sprache_id'
 		 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			exit;
   		}
   		
-  		$d = mysql_fetch_array($res);
+  		$d = mysqli_fetch_array($res);
   		$text = $d["TEXT"];
 		if (empty($text)){
 			return $text_standard;
@@ -410,9 +410,9 @@ function setSprache($sprache_id,$bilder_id,$bezeichnung){
 		  ('$text_standard','$text','$changeSprache')
 		 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			exit;
   		}
   		else{  			
@@ -435,12 +435,12 @@ function getTextFromUebersetzung($stText){
 				  UEBERSETZUNGS_ID = '$stText'
 				 ";
 		
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			return -1;
   		}
 		else{					
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$text = $d["TEXT"];
 			return $text;
 		}
@@ -465,9 +465,9 @@ function setUebersetzungVermieter($text,$text_standard,$sprache,$sprache_standar
 				  ('$vermieter_id','$sprache','$text','$text_standard')
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{					
@@ -490,10 +490,10 @@ function setUebersetzungVermieter($text,$text_standard,$sprache,$sprache_standar
 				  VERMIETER_ID = '$vermieter_id'
 				 ";
 		
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
 
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 		else{					
@@ -527,14 +527,14 @@ function getUebersetzungVermieter($text,$sprache,$vermieter_id){
 			  SPRACHE_ID = '$sprache'
 			 ";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 
 	if (!$res){
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return $text;
 	}
 	else{	
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$textUebersetzt = $d["TEXT"];
 		if (!isset($textUebersetzt) || $textUebersetzt == ""){
 			return $text;
@@ -556,14 +556,14 @@ function isUebersetzungVorhanden($stText,$changeSprache){
 			  SPRACHE_ID = '$changeSprache'
 			 ";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 
 	if (!$res){
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{	
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$textUebersetzt = $d["TEXT"];
 		if (!empty($textUebersetzt)){
 			return true;	
@@ -591,14 +591,14 @@ function isTextVorhanden($text,$sprache,$vermieter_id){
 			  SPRACHE_ID = '$sprache'
 			 ";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 
 	if (!$res){
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{	
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$textUebersetzt = $d["TEXT"];
 		if (!empty($textUebersetzt)){
 			return true;	

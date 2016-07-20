@@ -95,15 +95,15 @@ function hasMieterReservations($mieter_id){
 				MIETER_ID = '$mieter_id'
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false ;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		if ($d["anzahl"] > 0){
 			return true;
 		}
@@ -128,15 +128,15 @@ function hasVermieterReservations($vermieter_id,$status){
 				r.STATUS = '$status'
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false ;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		if ($d["anzahl"] > 0){
 			return true;
 		}
@@ -163,11 +163,11 @@ function getReservationsOfVermieter($vermieter_id,$status){
 				r.VON
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false ;
 	}
 	return $res;
@@ -188,11 +188,11 @@ function getReservationsOfMieter($mieter_id){
 				MIETER_ID = '$mieter_id'
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false ;
 	}
 	return $res;
@@ -213,11 +213,11 @@ function changeReservationState($res_id,$status){
 				RESERVIERUNG_ID = '$res_id'
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	
 	if (!$res)  {
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 
@@ -252,11 +252,11 @@ function deleteReservationWithDate($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,
 			   (MIETOBJEKT_ID = $mietobjekt_id AND	
 			   ('$von' <= VON and '$bis' >= BIS))");
 			   
-	$res = mysql_query($query, $link);		
+	$res = mysqli_query($link, $query);
 	  
 	if (!$res) {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 			   
@@ -295,11 +295,11 @@ function getReservationWithDate($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vo
 			   ('$vonDatum' <= VON and '$bisDatum' >= BIS)
 			   )");
 			   
-	$res = mysql_query($query, $link);		
+	$res = mysqli_query($link, $query);
 	  
 	if (!$res) {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 			   
@@ -321,7 +321,7 @@ function insertReservationWithDate($mietobjekt_id,$gast_id,$vonDatum,$bisDatum,$
 				('$mietobjekt_id','$gast_id','$vonDatum','$bisDatum','$status','$anzahlErwachsene','$anzahlKinder')
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	
 	if (!$res)  
 		echo("die Anfrage $query scheitert"); 
@@ -352,14 +352,14 @@ function getReservierungID($mietobjekt_id,$minute=0,$stunde=0,$tag,$monat,$jahr)
 				('$datum' >= VON and '$datum' <= BIS)				
 				";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
   		return false;
 	}
 	else {	
-		$d=mysql_fetch_array($res);	
+		$d=mysqli_fetch_array($res);
 		return $d["RESERVIERUNG_ID"];
 	}
 
@@ -405,10 +405,10 @@ function getReservierungIDs($mietobjekt_id,$minuteVon,$stundeVon,$tagVon,$monatV
 			   order by
  			   VON";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
   		return false;
 	}
 	else {	
@@ -452,14 +452,14 @@ function countReservierungIDs($mietobjekt_id,$minuteVon,$stundeVon,$tagVon,$mona
 			   )";
 	
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
   		return false;
 	}
 	else {	
-		$d=mysql_fetch_array($res);
+		$d=mysqli_fetch_array($res);
 		return $d["anzahl"];
 	}
 
@@ -488,15 +488,15 @@ function getReservierungMieterId($mietobjekt_id,$minute,$stunde,$tag,$monat,$jah
 				('$datum' >= VON and '$datum' <= BIS)				
 				";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
   		return false;
 	}
 	else {		
 		//echo($query);
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		return $d["MIETER_ID"];		
 	}			
 
@@ -520,15 +520,15 @@ function getMieterIdOfReservierung($reservierungs_id){
 				RESERVIERUNG_ID	= '$reservierungs_id'			
 				";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
   		return false;
 	}
 	else {		
 		//echo($query);
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		return $d["MIETER_ID"];		
 	}			
 
@@ -581,19 +581,19 @@ function getStatusString($mietobjekt_id,$minute=0,$stunde=0,$tag,$monat,$jahr){
 				('$datum' >= VON and '$datum' <= BIS)				
 				";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res){
 		echo("Anfrage $query scheitert.");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}	
 	
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	$stat = $d["STATUS"];
 	
 	//wenn kein eintrag vorhanden ist,
 	//frei zurückgeben:
-	if (mysql_num_fields($res) < 1 || $stat == ""){
+	if (mysqli_num_fields($res) < 1 || $stat == ""){
 		return parseStatus(STATUS_FREI);
 	}
 
@@ -633,16 +633,16 @@ function getStatus($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMonat,$vonJa
 			    ('$vonDatum' <= VON and '$bisDatum' >= BIS))			
 				";
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 //	echo($query);
 	if (!$res){
 		echo("Anfrage $query scheitert.");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
 	$i = 0;	$status=array();									
-	while($d = mysql_fetch_array($res)){
+	while($d = mysqli_fetch_array($res)){
 		$temp = $d["STATUS"];
 		
 		if ($temp != STATUS_RESERVIERT){ //reserviert nicht anzeigen
@@ -701,14 +701,14 @@ function isMietobjektTaken($mietobjekt_id,$vonMinute,$vonStunde,$vonTag,$vonMona
 				Status = '$status'				
 				";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			return false;
   		}
 	
-	$d = mysql_fetch_array($res);	
+	$d = mysqli_fetch_array($res);
 	if ($d["STATUS"] == STATUS_BELEGT){
 		return true;
 	}
@@ -748,14 +748,14 @@ function isFullDayFree($mietobjekt_id,$tag,$monat,$jahr){
 			    ('$vonDatum' <= VON and '$bisDatum' >= BIS))			
 				";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
   		return false;
 	}
 	else {	
-		$d=mysql_fetch_array($res);
+		$d=mysqli_fetch_array($res);
 		$anzahl = $d["anzahl"];
 		if ($anzahl < 1){
 			return true;
@@ -790,14 +790,14 @@ function isFullDayBooked($mietobjekt_id,$tag,$monat,$jahr){
 			   (VON <= '$vonDatum' and BIS >= '$bisDatum')
 			   )";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
   		return false;
 	}
 	else {	
-		$d=mysql_fetch_array($res);
+		$d=mysqli_fetch_array($res);
 		$anzahl = $d["anzahl"];
 		if ($anzahl == 1){
 			return true;
@@ -827,14 +827,14 @@ function insertReservation($mietobjekt_id,$mieter_id,$vonMinute,$vonStunde,$vonT
 				('$mietobjekt_id','$mieter_id','$von','$bis','$status')
 		   	  ");
 			  
-	$res = mysql_query($query, $link);	
+	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	
-	return mysql_insert_id($link);
+	return mysqli_insert_id($link);
 
 }
 /**
@@ -850,10 +850,10 @@ function deleteReservation($id){
 			   RESERVIERUNG_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	return true;
@@ -875,14 +875,14 @@ function getDatumVonOfReservierung($res_id){
 			   RESERVIERUNG_ID = '$res_id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["VON"];
 	
 } 
@@ -941,14 +941,14 @@ function getDatumBisOfReservierung($res_id){
 			   RESERVIERUNG_ID = '$res_id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["BIS"];
 	
 } 
@@ -967,14 +967,14 @@ function getStateOfReservierung($id){
 			   RESERVIERUNG_ID = '$id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["STATUS"];
 	
 }
@@ -993,15 +993,15 @@ function getMieterIdFromReservierung($res_id){
 			   RESERVIERUNG_ID = '$res_id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	
 	if (!$res)  {
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["MIETER_ID"];
 	
 } 
@@ -1022,13 +1022,13 @@ function getMietobjektIdFromReservierung($res_id){
 			   RESERVIERUNG_ID = '$res_id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["MIETOBJEKT_ID"];
 	
 } 

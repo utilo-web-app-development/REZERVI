@@ -133,7 +133,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) { ?>
                             //sprachen des belegungsplanes anzeigen:
                             $stdSpr = getStandardSprache($unterkunft_id, $link);
                             $res = getSprachen($unterkunft_id, $link);
-                            while ($d = mysql_fetch_array($res)) {
+                            while ($d = mysqli_fetch_array($res)) {
                                 $spr = $d["Sprache_ID"];
                                 $bezeichnung = getBezeichnungOfSpracheID($spr, $link);
                                 ?>

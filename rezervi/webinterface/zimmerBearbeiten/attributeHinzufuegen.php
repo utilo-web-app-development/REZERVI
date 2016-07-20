@@ -93,7 +93,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 
                 //alle bestehenden attribute auslesen:
                 $res = getAttributes();
-                while ($d = mysql_fetch_array($res)) {
+                while ($d = mysqli_fetch_array($res)) {
                     $bezeichnung = $d["Bezeichnung"];
                     $beschreibung = $d["Beschreibung"];
                     $att_id = $d["PK_ID"];

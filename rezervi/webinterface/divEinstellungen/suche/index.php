@@ -77,7 +77,7 @@ if (isset($nachricht) && $nachricht != ""){
      //sprachen anzeigen die aktiviert sind:
      //liefert alle Möglichkeiten, die durch den Benutzer ausgesucht werden können
      $res = getPropertiesSuche($unterkunft_id, $link); //Methode in einstellungenFunctions.php definiert
-     while($d = mysql_fetch_array($res))
+     while($d = mysqli_fetch_array($res))
      {
      $name = $d["Name"];
      //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmöglichkeiten "angehackelt"

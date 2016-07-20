@@ -20,11 +20,11 @@ define("BE_TYP_DATUM_VON_BIS","buchungsein datum vonBis");
 	$query = ("delete from REZ_GEN_BUCHUNGSEINSCHRAENKUNG where " .
 			"EINSCHRAENKUNGS_ID = '$einschraenkungs_id'");      
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
@@ -44,11 +44,11 @@ define("BE_TYP_DATUM_VON_BIS","buchungsein datum vonBis");
 	$query = ("delete from REZ_GEN_BUCHUNGSEINSCHRAENKUNG where " .
 			"MIETOBJEKT_ID = '$mietobjekt_id' and TYP = '$typ'");      
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
@@ -133,11 +133,11 @@ define("BE_TYP_DATUM_VON_BIS","buchungsein datum vonBis");
 				   values" .
 				 " ('$mietobjekt_id','$timestampVon','$timestampBis','$typ')
 	   			  ");  
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		
 		if (!$res) { 
 			echo("die Anfrage $query scheitert"); 
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
 			exit;
 		}
 	}
@@ -181,11 +181,11 @@ function insertBuchungseinschraenkung($mietobjekt_id,$vonStunde,$vonMinute,$bisS
 	 " ('$mietobjekt_id','$datumVon','$datumBis','$typ')
 	  ");           
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
@@ -216,11 +216,11 @@ function setBuchungseinschraenkungUniqueMietobjekt($mietobjekt_id,$timestampVon,
 	   			  ");           
 	}
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
@@ -238,15 +238,15 @@ function hasMietobjektBuchungseinschraenkung($mietobjekt_id,$typ){
 			   		" MIETOBJEKT_ID = '$mietobjekt_id'
    			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$anzahl = $d["anzahl"];
 		if ($anzahl > 0){
 			return true;
@@ -259,7 +259,7 @@ function isDayEingeschraenkt($mietobjekt_id,$day){
 	include_once($root."/include/datumFunctions.inc.php");
 	$typ = BE_TYP_TAG;
 	$res = getBuchungseinschraenkungZeitVon($mietobjekt_id,$typ);
-	while($d = mysql_fetch_array($res)){
+	while($d = mysqli_fetch_array($res)){
 		$timestamp = $d["VON"];
 		$tag = getDayFromMySqlTimestamp($timestamp);
 		$monat = getMonthFromMySqlTimestamp($timestamp);
@@ -336,11 +336,11 @@ function getMietobjekteWithBuchungseinschraenkungen($vermieter_id,$typ){
 			 " b.TYP = '$typ'
    			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
@@ -370,11 +370,11 @@ function getBuchungseinschraenkungen($vermieter_id,$typ){
 			 " b.TYP = '$typ'
    			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
@@ -403,11 +403,11 @@ function getBuchungseinschraenkungenOfMietobjekt($mietobjekt_id,$typ){
 			 " TYP = '$typ'
    			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
@@ -435,11 +435,11 @@ function getBuchungseinschraenkungZeitVon($mietobjekt_id,$typ){
 			   		" TYP = '$typ'
    			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 
@@ -459,7 +459,7 @@ function getBuchungseinschraenkungZeitVonStunde($mietobjekt_id){
 	include_once($root."/include/datumFunctions.inc.php");
 	$typ = BE_TYP_ZEIT_VON;
 	$res = getBuchungseinschraenkungZeitVon($mietobjekt_id,$typ);
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	$timestamp = $d["VON"];
 	$std = getHourFromMySqlTimestamp($timestamp);
 	return $std;
@@ -477,7 +477,7 @@ function getBuchungseinschraenkungZeitVonMinute($mietobjekt_id){
 	include_once($root."/include/datumFunctions.inc.php");
 	$typ = BE_TYP_ZEIT_VON;
 	$res = getBuchungseinschraenkungZeitVon($mietobjekt_id,$typ);
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	$timestamp = $d["VON"];	
 	$min = getMinuteFromMySqlTimestamp($timestamp);
 	return $min;
@@ -500,15 +500,15 @@ function getBuchungseinschraenkungZeitVonMinute($mietobjekt_id){
 			   EINSCHRAENKUNGS_ID = '$buchungseinschr_id'
    			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	else{
-		return mysql_fetch_array($res);
+		return mysqli_fetch_array($res);
 	}
  }
 /**
@@ -587,11 +587,11 @@ function getBuchungseinschraenkungZeitBis($mietobjekt_id,$typ){
 			   		" TYP = '$typ'
    			  ");           
 
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	
 	if (!$res) { 
 		echo("die Anfrage $query scheitert"); 
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 
@@ -611,7 +611,7 @@ function getBuchungseinschraenkungZeitBisStunde($mietobjekt_id){
 	include_once($root."/include/datumFunctions.inc.php");
 	$typ = BE_TYP_ZEIT_BIS;
 	$res = getBuchungseinschraenkungZeitBis($mietobjekt_id,$typ); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	$timestamp = $d["BIS"];	
 	$std = getHourFromMySqlTimestamp($timestamp);
 	return $std;
@@ -629,7 +629,7 @@ function getBuchungseinschraenkungZeitBisMinute($mietobjekt_id){
 	include_once($root."/include/datumFunctions.inc.php");
 	$typ = BE_TYP_ZEIT_BIS;
 	$res = getBuchungseinschraenkungZeitBis($mietobjekt_id,$typ); 
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	$timestamp = $d["BIS"];	
 	$min = getMinuteFromMySqlTimestamp($timestamp);
 	return $min;
@@ -648,7 +648,7 @@ function hasBuchungseinschraenkungOnDay($mietobjekt_id,$tag){
 	include_once($root."/include/datumFunctions.inc.php");
 	$typ = BE_TYP_TAG;
 	$res = getBuchungseinschraenkungZeitBis($mietobjekt_id,$typ); 
-	while($d = mysql_fetch_array($res)){		
+	while($d = mysqli_fetch_array($res)){
 		$timestamp = $d["VON"];
 		$day = getDayFromMySqlTimestamp($timestamp);
 		if ($tag == $day){

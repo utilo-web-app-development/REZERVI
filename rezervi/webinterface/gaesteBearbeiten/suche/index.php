@@ -52,11 +52,11 @@ include_once($root."/include/sessionFunctions.inc.php");
 				Nachname
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  
 		echo("die Anfrage scheitert");
 		
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 		$gast_id = $d["PK_ID"];
 		$vorname = $d["Vorname"];
 		$nachname = $d["Nachname"];

@@ -94,7 +94,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 				</tr>
 			<?php 
 				$res = getAllPicturesFromUnterkunftWithLimit($unterkunft_id,$limit,$index,$link);
-				while ($d=mysql_fetch_array($res)){
+				while ($d=mysqli_fetch_array($res)){
 					$bild = $d["Pfad"];
 					$zimmer = $d["Zimmernr"];
 					$description = $d["Beschreibung"];

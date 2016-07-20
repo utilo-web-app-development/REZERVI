@@ -87,7 +87,7 @@ $index = $_POST["index"];
             	<?php
             	//sprachen des belegungsplanes anzeigen:
             	$res = getSprachen($vermieter_id);
-            	while ($d = mysql_fetch_array($res)){
+            	while ($d = mysqli_fetch_array($res)){
 				 	$spr = $d["SPRACHE_ID"];
 					$bezeichnung = getBezeichnungOfSpracheID($spr);
             	?>

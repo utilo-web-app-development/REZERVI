@@ -114,7 +114,7 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 		
 		if (!empty($ablehnungSenden) && $ablehnungSenden == true){
 			$reserv = getReservationsBeforeXDays($xDays,STATUS_RESERVIERT);
-			while ($l = mysql_fetch_array($reserv)){
+			while ($l = mysqli_fetch_array($reserv)){
 				$reservierungsID = $l["PK_ID"];
 				$gast_id = getIDFromGast($reservierungsID,$link);
 				sendMessage($gast_id,AUTO_RESPONSE_ABLEHNUNG);

@@ -48,7 +48,7 @@ include_once($root."/templates/constants.inc.php");
 				</tr>
 			<?php 
 				$res = getAllPicturesFromVermieterWithLimit($vermieter_id,$limit,$index);
-				while ($d=mysql_fetch_array($res)){
+				while ($d=mysqli_fetch_array($res)){
 					$bilder_id = $d["BILDER_ID"];
 					$bezeichnung = $d["BEZEICHNUNG"];
 			?>

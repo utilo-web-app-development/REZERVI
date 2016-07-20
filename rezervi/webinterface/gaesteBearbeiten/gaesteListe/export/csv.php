@@ -46,7 +46,7 @@ include_once("../../../../include/uebersetzer.php");
 	//gästeliste ausgeben:	
 	$res = getGuestList($unterkunft_id,$link);
 		
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 	
 		$gast_id = $d["PK_ID"];
 		$vorname = $d["Vorname"];

@@ -62,10 +62,10 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 				   FK_Gast_ID = '$gast_id'
 				  ");
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
 		if (!$res)  
 			echo("die Anfrage scheitert"); 
-		if($d = mysql_fetch_array($res)){
+		if($d = mysqli_fetch_array($res)){
 		 // es ist noch eine offene res vorhanden!
 		 ?>
 		<table width="100%" border="0" cellspacing="3" cellpadding="0" class="table">
@@ -118,7 +118,7 @@ if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 						Rezervi_Gast	
 						WHERE
 						PK_ID = '$gast_id'";
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 			if (!$res){ 
 				echo("die Anfrage scheitert"); 
 			}

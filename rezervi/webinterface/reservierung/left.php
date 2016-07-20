@@ -46,12 +46,12 @@ if (!isset($zimmer_id) || $zimmer_id == "" || empty($zimmer_id)) {
 			ORDER BY 
 			Zimmernr";
 
-    $res = mysql_query($query, $link);
+    $res = mysqli_query($link, $query);
     if (!$res) {
         echo("Anfrage $query scheitert.");
     }
 
-    $d = mysql_fetch_array($res);
+    $d = mysqli_fetch_array($res);
     $zimmer_id = $d["PK_ID"];
 }
 
@@ -140,10 +140,10 @@ if ($showReservation != "true") {
                                 " order by Zimmernr
 						";
 
-                            $res = mysql_query($query, $link);
+                            $res = mysqli_query($link, $query);
                             if (!$res)
                                 echo("Anfrage $query scheitert.");
-                            while ($d = mysql_fetch_array($res)) { ?>
+                            while ($d = mysqli_fetch_array($res)) { ?>
                                 <option value="<?php echo $d["PK_ID"] ?>"<?php if ($zimmer_id == $d["PK_ID"]) {
                                     echo(" selected");
                                 } ?>><?php echo(getUebersetzungUnterkunft($d["Zimmernr"], $sprache, $unterkunft_id, $link)); ?></option>

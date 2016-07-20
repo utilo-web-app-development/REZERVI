@@ -100,7 +100,7 @@ if (!(isset($fehler) && $fehler == true)){
             	//sprachen des belegungsplanes anzeigen:
             	$stdSpr= getVermieterEigenschaftenWert(STANDARDSPRACHE,$vermieter_id);
             	$res = getSprachen($vermieter_id);
-            	while ($d = mysql_fetch_array($res)){
+            	while ($d = mysqli_fetch_array($res)){
 				 	$spr = $d["SPRACHE_ID"];
 					$bezeichnung = getBezeichnungOfSpracheID($spr);
             	?>

@@ -49,7 +49,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$standardLang = false;
 	$anyDescription=false;
 	$standardDescription = "";
-	while ($s = mysql_fetch_array($spr)){
+	while ($s = mysqli_fetch_array($spr)){
 		$lang = $s['Sprache_ID'];		
 		if (isset($_POST["beschreibung_$lang"])){
 			$besc = $_POST["beschreibung_$lang"];
@@ -103,7 +103,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 		$id = setBild($uploaddir.$file_save_as,$standardDescription,$zimmer_id,$img->image_resized_width,$img->image_resized_height,$link);
 		//set descriptions in other languages:
 		$spr = getSprachenForBelegungsplan($link);
-		while ($s = mysql_fetch_array($spr)){
+		while ($s = mysqli_fetch_array($spr)){
 			$lang = $s['Sprache_ID'];		
 			if (isset($_POST["beschreibung_$lang"])){
 				$besc = $_POST["beschreibung_$lang"];

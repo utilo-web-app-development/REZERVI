@@ -51,15 +51,15 @@ function isPropertyInDatabase($name,$unterkunft_id,$link){
 				  Name = '$name'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			if ($d["Name"] == $name){
 				return true;
 			}
@@ -98,10 +98,10 @@ function setProperty($name,$value,$unterkunft_id,$link){
 					 ";
 		}
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -157,15 +157,15 @@ function getPropertyValue($name,$unterkunft_id,$link){
 				  Name = '$name'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["Value"];
 		}	
 
@@ -195,7 +195,7 @@ function getPropertiesSuche($unterkunft_id, $link){
 				  )
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
@@ -216,12 +216,12 @@ function isPropertyShown($unterkunft_id,$name,$link)
 			";
   //echo("<h4>: Echo query: " . $query . "</h4>");
 
-  $res = mysql_query($query, $link);
+  $res = mysqli_query($link, $query);
   if (!$res)
     echo("Anfrage $query scheitert.");
   else
   {
-    while($array = mysql_fetch_array($res))
+    while($array = mysqli_fetch_array($res))
 	{
   	  $wert = $array["Value"];
 	  return $wert;

@@ -18,15 +18,15 @@ function getAnzahlBilder($unterkunft_id,$link){
 					z.PK_ID = b.FK_Zimmer_ID
 					 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["anzahl"];
 		}	
 
@@ -53,10 +53,10 @@ function getAllPicturesFromUnterkunftWithLimit($unterkunft_id,$limit,$index,$lin
 					$index,$limit
 					 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -79,15 +79,15 @@ function setBild($pfad,$beschreibung,$zimmer_id,$widht,$height,$link){
 					  ('$zimmer_id','$pfad','$beschreibung','$widht','$height')				  
 					 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{		
-			return mysql_insert_id($link);
+			return mysqli_insert_id($link);
 		}	
 			
 }  
@@ -106,15 +106,15 @@ function getBildPfad($bilder_id,$link){
 				  PK_ID = '$bilder_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["Pfad"];
 		}	
 
@@ -133,10 +133,10 @@ function deleteBild($id,$link){
 			  PK_ID = '$id'			  
 			 ";		
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -160,15 +160,15 @@ function getBildBeschreibung($bilder_id,$link){
 				  PK_ID = '$bilder_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["Beschreibung"];
 		}	
 
@@ -188,15 +188,15 @@ function getBildBreite($bilder_id,$link){
 				  PK_ID = '$bilder_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["Width"];
 		}	
 
@@ -216,15 +216,15 @@ function getBildHoehe($bilder_id,$link){
 				  PK_ID = '$bilder_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d = mysql_fetch_array($res);	
+			$d = mysqli_fetch_array($res);
 			return $d["Height"];
 		}	
 
@@ -244,10 +244,10 @@ function getBilderOfZimmer($zimmer_id,$link){
 				  FK_Zimmer_ID = '$zimmer_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
@@ -271,15 +271,15 @@ function hasZimmerBilder($zimmer_id,$link){
 				  FK_Zimmer_ID = '$zimmer_id'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		
   		if (!$res){
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   			echo("Anfrage $query scheitert.");
   			return false;
   		}
 		else{	
-			$d=mysql_fetch_array($res);
+			$d=mysqli_fetch_array($res);
 			$anzahl = $d["anzahl"];
 			if ($anzahl > 0){
 				return true;

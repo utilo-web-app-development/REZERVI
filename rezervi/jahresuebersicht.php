@@ -71,12 +71,12 @@ include_once("./jahresuebersichtHelper.php");
 				ORDER BY 
 				Zimmernr";
 	
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 			if (!$res) {
 				echo("Anfrage $query scheitert.");
 			}
 			else {
-				$d = mysql_fetch_array($res);
+				$d = mysqli_fetch_array($res);
 				$zimmer_id = $d["PK_ID"];
 			}
 	}
@@ -118,7 +118,7 @@ include_once("./templates/headerA.php");
 				include_once($root."/include/bildFunctions.php");
 				  if (hasZimmerBilder($zimmer_id,$link)){	  
 					$result = getBilderOfZimmer($zimmer_id,$link);
-					while ($z = mysql_fetch_array($result)){
+					while ($z = mysqli_fetch_array($result)){
 					?><?php
 						$pfad = $z["Pfad"];
 						$pfad = substr($pfad,6,strlen($pfad));

@@ -18,10 +18,10 @@ function deleteMieter($mieter_id){
 				MIETER_ID = '$mieter_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	
@@ -31,10 +31,10 @@ function deleteMieter($mieter_id){
 				MIETER_ID = '$mieter_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	
@@ -44,10 +44,10 @@ function deleteMieter($mieter_id){
 				MIETER_ID = '$mieter_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 		
@@ -69,14 +69,14 @@ function insertMieter($vermieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$or
 				('$anrede','$vorname','$nachname','$strasse','$plz','$ort','$land','$email','$tel','$tel2','$fax','$url','$firma')
 		   	  ");
 		   	  
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}
 	
-	$adresse_id = mysql_insert_id($link);	
+	$adresse_id = mysqli_insert_id($link);	
 	   	  
 	$query = ("insert into 
 				REZ_GEN_MIETER
@@ -85,14 +85,14 @@ function insertMieter($vermieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$or
 				('$adresse_id','$vermieter_id','$speech')
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
 		exit;
 	}
 
-	$mieter_id = mysql_insert_id($link);
+	$mieter_id = mysqli_insert_id($link);
 	return $mieter_id;
 
 }
@@ -113,14 +113,14 @@ function insertMieter($vermieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$or
 				MIETER_ID = '$mieter_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["ADRESSE_ID"];
  
  }
@@ -143,10 +143,10 @@ function updateMieter($mieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$
 				MIETER_ID = '$mieter_id' 
 			");
 			
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}		
 	
@@ -170,10 +170,10 @@ function updateMieter($mieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$
 				ADRESSE_ID = '$adresse_id'
 		   	  ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	
@@ -209,10 +209,10 @@ function updateMieter($mieter_id,$anrede,$vorname,$nachname,$strasse,$plz,$ort,$
 				('$mieter_id','$text','$datum')
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		exit;
 	}		
  	
@@ -241,14 +241,14 @@ function getMieterId($vermieter_id,$vorname,$nachname,$email){
 				m.ADRESSE_ID = a.ADRESSE_ID
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	$mieter_id = $d["MIETER_ID"];
 	return $mieter_id;
 
@@ -272,14 +272,14 @@ function getNachnameOfMieter($mieter_id){
 				m.ADRESSE_ID = a.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["NACHNAME"];
 
 }
@@ -300,14 +300,14 @@ function getSpracheOfMieter($mieter_id){
 				MIETER_ID = '$mieter_id'
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["SPRACHE_ID"];
 
 }
@@ -328,14 +328,14 @@ function getMieterOrt($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["ORT"];
 
 }
@@ -356,14 +356,14 @@ function getMieterVorname($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["VORNAME"];
 
 }
@@ -384,14 +384,14 @@ function getMieterStrasse($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["STRASSE"];
 
 }
@@ -412,14 +412,14 @@ function getMieterPlz($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["PLZ"];
 
 }
@@ -440,14 +440,14 @@ function getMieterLand($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["LAND"];
 
 }
@@ -468,14 +468,14 @@ function getMieterFirma($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["FIRMA"];
 
 }
@@ -498,14 +498,14 @@ function getEmailOfMieter($mieter_id){
 				m.ADRESSE_ID = a.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["EMAIL"];
 
 }
@@ -526,14 +526,14 @@ function getMieterTel($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["TELEFON"];
 
 }
@@ -554,14 +554,14 @@ function getMieterTel2($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["TELEFON2"];
 
 }
@@ -582,14 +582,14 @@ function getMieterUrl($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["URL"];
 
 }
@@ -610,14 +610,14 @@ function getMieterFax($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["FAX"];
 
 }
@@ -638,14 +638,14 @@ function getMieterAnrede($mieter_id){
 				a.ADRESSE_ID = m.ADRESSE_ID
 				 ");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 		
-	$d = mysql_fetch_array($res);
+	$d = mysqli_fetch_array($res);
 	return $d["ANREDE"];
 
 }
@@ -673,10 +673,10 @@ function getAllMieterFromVermieter($vermieter_id){
 				a.NACHNAME
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
@@ -710,10 +710,10 @@ function getMieterListWithLimitAndIndex($vermieter_id,$index){
 				$index,$limit
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
@@ -738,14 +738,14 @@ function getAnzahlMieter($vermieter_id){
 				MIETER_ID != '$ano'
 				");
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	if (!$res)  {
 		echo("die Anfrage $query scheitert");
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
 		return false;
 	}
 	else{
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		return $d["anzahl"];
 	}
 }

@@ -73,7 +73,7 @@ include_once("../../templates/components.php");
             //$res = getGuestList($unterkunft_id,$link);
             $res = getGuestListWithLimitAndIndex($unterkunft_id, LIMIT, $index, $link);
 
-            while ($d = mysql_fetch_array($res)) {
+            while ($d = mysqli_fetch_array($res)) {
                 $gast_id = $d["PK_ID"];
                 $vorname = $d["Vorname"];
                 $nachname = $d["Nachname"];

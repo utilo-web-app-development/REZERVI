@@ -1,4 +1,4 @@
 <?php
 	//datenbank schliessen:
-	mysql_close($link);
+	mysqli_close($link);
 ?>

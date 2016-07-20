@@ -62,26 +62,26 @@ if ($sizeRoomSelectBox > 5){
 }
 ?>
 
-<h4>
+<p class="lead">
 	<?php
 	$text = "Definieren sie hier für jedes Mietobjekt einen Standardpreis. Wird " .
 			"bei der Berechnung des Preises kein Preis für eine Saison gefunden, dann " .
 			"wird dieser Preis zur Preisberechnung herangezogen.";
 	?>
 	<?php echo getUebersetzung($text,$sprache,$link) ?>
-</h4>
+</p>
 
 <?php
 if (isset($nachricht) && $nachricht != ""){
 ?>
-<div class="alert alert-info" role="alert"
+<div class="alert alert-info" role="alert">
 
 	  <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); }
 			else {echo("class=\"belegt\"");} ?>>
 				<?php echo $nachricht ?>
 
 </div>
-	<br/>
+
 <?php
 }
 ?>
@@ -100,7 +100,7 @@ if (isset($nachricht) && $nachricht != ""){
 <?php
 	//alle bestehenden attribute auslesen:
 	$res = getStandardPrices($unterkunft_id,$link);
-	while ($d = mysql_fetch_array($res)){
+	while ($d = mysqli_fetch_array($res)){
 		$preis_id 	= $d["PK_ID"];
 		$preis		= $d["Preis"];
 ?>
@@ -113,14 +113,14 @@ if (isset($nachricht) && $nachricht != ""){
 				multiple="multiple" id="zimmer_<?php echo $preis_id ?>">
           	<?php
           	 $res3 = getZimmer($unterkunft_id,$link);
-				  while($g = mysql_fetch_array($res3)) {
+				  while($g = mysqli_fetch_array($res3)) {
 					$ziArt = getUebersetzungUnterkunft($g["Zimmerart"],$sprache,$unterkunft_id,$link);
 					$ziNr  = getUebersetzungUnterkunft($g["Zimmernr"],$sprache,$unterkunft_id,$link);
 					?>
 					<option value="<?php echo $g["PK_ID"] ?>"
 						<?php
 						$res2 = getZimmerForPrice($preis_id);
-						while($r = mysql_fetch_array($res2)) {
+						while($r = mysqli_fetch_array($res2)) {
 							if ($r["PK_ID"] == $g["PK_ID"]){
 						?>
 							selected="selected"
@@ -157,7 +157,7 @@ if (isset($nachricht) && $nachricht != ""){
 			 $res = getZimmer($unterkunft_id,$link);
 			  //zimmer ausgeben:
 			  $i = 0;
-				  while($d = mysql_fetch_array($res)) {
+				  while($d = mysqli_fetch_array($res)) {
 					$ziArt = getUebersetzungUnterkunft($d["Zimmerart"],$sprache,$unterkunft_id,$link);
 					$ziNr  = getUebersetzungUnterkunft($d["Zimmernr"],$sprache,$unterkunft_id,$link);
 					?>
@@ -184,8 +184,8 @@ if (isset($nachricht) && $nachricht != ""){
 		</td>
 	</tr>
 </table>
-                    <div class="form-group">
-                        <div class="col-sm-offset-9 col-sm-3" style="text-align=right;">
+                    <div class="row">
+                        <div class="col-sm-offset-9 col-sm-3" style="text-align:right;">
                             <input name="aendern" type="submit" id="aendern" class="btn btn-success"
                                     value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
 										<a class="btn btn-primary" href="./index.php">

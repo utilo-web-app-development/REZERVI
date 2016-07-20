@@ -8,7 +8,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 		if (sizeof($status) < 1 && hasChildRooms($zimmer_id) && getPropertyValue(RES_HOUSE,$unterkunft_id,$link) == "true"){
 			//if room is a parent, check if the child has another status:
 			$childs = getChildRooms($zimmer_id);
-			while ($c = mysql_fetch_array($childs)){
+			while ($c = mysqli_fetch_array($childs)){
 				$child_zi_id = $c['PK_ID'];
 				$status = getStatus($child_zi_id,$i,$month,$year,$link);	
 				if (sizeof($status)>0){
@@ -60,7 +60,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 			if (sizeof($nStatus) < 1 && hasChildRooms($zimmer_id) && getPropertyValue(RES_HOUSE,$unterkunft_id,$link) == "true"){
 				//if room is a parent, check if the child has another status:
 				$childs = getChildRooms($zimmer_id);
-				while ($c = mysql_fetch_array($childs)){
+				while ($c = mysqli_fetch_array($childs)){
 					$child_zi_id = $c['PK_ID'];
 					$nStatus = getStatus($child_zi_id,$nTag,$nMonat,$nJahr,$link);	
 					if (sizeof($nStatus)>0){
@@ -110,7 +110,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 				if (sizeof($vStatus) < 1 && hasChildRooms($zimmer_id) && getPropertyValue(RES_HOUSE,$unterkunft_id,$link) == "true"){
 					//if room is a parent, check if the child has another status:
 					$childs = getChildRooms($zimmer_id);
-					while ($c = mysql_fetch_array($childs)){
+					while ($c = mysqli_fetch_array($childs)){
 						$child_zi_id = $c['PK_ID'];
 						$vStatus = getStatus($child_zi_id,$vTag,$vMonat,$vJahr,$link);	
 						if (sizeof($vStatus)>0){
@@ -168,12 +168,12 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 			ORDER BY 
 			Zimmernr";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res) {
   			echo("Anfrage $query scheitert.");
 		}
 		else {
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$zimmer_id = $d["PK_ID"];
 		}
 	}

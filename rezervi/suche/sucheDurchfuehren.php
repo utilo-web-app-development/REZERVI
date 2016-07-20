@@ -55,7 +55,7 @@ define( '_JEXEC', 1 );
 	if (hasParentRooms($unterkunft_id) && getPropertyValue(SEARCH_SHOW_PARENT_ROOM,$unterkunft_id,$link) == "true"){
   		$parentsRes = getParentRooms();
   		$zimmerIdsParents = array();
-  			while ($p = mysql_fetch_array($parentsRes)){
+  			while ($p = mysqli_fetch_array($parentsRes)){
   				$i = $p["PK_ID"];
   				if ($_POST['parent_room_'.$i] && $_POST['parent_room_'.$i] == "true"){
   					$zimmerIdsParents[] = $i;
@@ -435,7 +435,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 			  <?php		
 			  if (hasZimmerBilder($zimmer_id,$link)){	  
 				$result = getBilderOfZimmer($zimmer_id,$link);
-				while ($z = mysql_fetch_array($result)){
+				while ($z = mysqli_fetch_array($result)){
 					$pfad = $z["Pfad"];
 					$pfad = substr($pfad,3,strlen($pfad));
 					$width = $z["Width"];
@@ -473,7 +473,7 @@ if (!isDatumEarlier($vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr)) {
 	        <?php }
 		    //checking if Link should be activated 
 		    $res = getPropertiesSuche($unterkunft_id, $link); //Methode in einstellungenFunctions.php definiert
-	  	    while($d = mysql_fetch_array($res))
+	  	    while($d = mysqli_fetch_array($res))
 		    {
 	  	      if($d["Name"] == LINK_SUCHE)
 			  {

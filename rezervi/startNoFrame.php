@@ -127,7 +127,7 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 		
 		if (!empty($ablehnungSenden) && $ablehnungSenden == true){
 			$reserv = getReservationsBeforeXDays($xDays,STATUS_RESERVIERT);
-			while ($l = mysql_fetch_array($reserv)){
+			while ($l = mysqli_fetch_array($reserv)){
 				$reservierungsID = $l["PK_ID"];
 				$gast_id = getIDFromGast($reservierungsID,$link);
 				sendMessage($gast_id,AUTO_RESPONSE_ABLEHNUNG);
@@ -594,7 +594,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 				include_once($root."/include/bildFunctions.php");
 				  if (hasZimmerBilder($zimmer_id,$link)){	  
 					$result = getBilderOfZimmer($zimmer_id,$link);
-					while ($z = mysql_fetch_array($result)){
+					while ($z = mysqli_fetch_array($result)){
 					?><?php
 						$pfad = $z["Pfad"];
 						$pfad = substr($pfad,6,strlen($pfad));

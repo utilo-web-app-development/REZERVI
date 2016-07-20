@@ -30,11 +30,11 @@ for ($i=0; $i<count($queries); $i++){
 $query = trim($queries[$i]);
 	//query absetzen:
 	if (!empty($query)){
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res){
 			$tabellen = false;
 			$fehler = true;
-			$antwort=mysql_error($link)."<br/>";
+			$antwort=mysqli_error($link)."<br/>";
 			$antwort.="Anlegen der Tabellen scheiterte!"."<br/>";
 		    $antwort.="Eine mögliche Ursache ist, dass die Zugangsdaten in ihrer Konfigurationsdatei nicht korrekt sind oder die Tabellen bereits angelegt wurden."."<br/>";
 			$antwort.="Überprüfen Sie die Zugangsdaten in conf/rdbmsConfig.php und die Version Ihrer MySQL Datenbank."."<br/>";  

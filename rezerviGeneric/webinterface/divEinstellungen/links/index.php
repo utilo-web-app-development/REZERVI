@@ -46,7 +46,7 @@ $url = str_replace("\\","/",$url);
 <p class="<?php echo STANDARD_SCHRIFT_BOLD ?>"><?php echo(getUebersetzung("Anzeigen aller Links zu ihren Mietobjekten")); ?>.</p>
 <table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
   <?php
-	while ($d=mysql_fetch_array($res)){
+	while ($d=mysqli_fetch_array($res)){
 		$bezeichnung = $d["BEZEICHNUNG"];
 		$bezeichnung = getUebersetzungVermieter($bezeichnung,$sprache,$vermieter_id);
 		$mietobjekt_einzahl = getMietobjekt_EZ($vermieter_id);
@@ -64,7 +64,7 @@ $url = str_replace("\\","/",$url);
 	  		<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 	  		<?php
 	  		$sprachen = getActivtedSprachenOfVermieter($vermieter_id);
-	  		while ($s = mysql_fetch_array($sprachen)){
+	  		while ($s = mysqli_fetch_array($sprachen)){
 	  			$sprache_id = $s["SPRACHE_ID"];
 	  			$spr_bezeichnung = getBezeichnungOfSpracheID($sprache_id);	
 	  			$spr_bezeichnung = getUebersetzung($spr_bezeichnung);  		
@@ -97,7 +97,7 @@ $url = str_replace("\\","/",$url);
 	  		<table border="0" cellpadding="0" cellspacing="3" class="<?php echo TABLE_STANDARD ?>">
 	  		<?php
 	  		$sprachen = getActivtedSprachenOfVermieter($vermieter_id);
-	  		while ($s = mysql_fetch_array($sprachen)){
+	  		while ($s = mysqli_fetch_array($sprachen)){
 	  			$sprache_id = $s["SPRACHE_ID"];
 	  			$spr_bezeichnung = getBezeichnungOfSpracheID($sprache_id);	
 	  			$spr_bezeichnung = getUebersetzung($spr_bezeichnung);  		

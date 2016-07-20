@@ -23,13 +23,13 @@ function getBezeichnungOfSpracheID($spracheID,$link){
 			  Sprache_ID = '$spracheID'
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return $d["Bezeichnung"];
 		}
 }
@@ -50,7 +50,7 @@ function getSprachenForBelegungsplan($link){
 			  Aktiv = 3
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
@@ -73,7 +73,7 @@ function getSprachenForWebinterface($link){
 			  Aktiv = 3
 			 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
@@ -97,12 +97,12 @@ function getUebersetzungWithPKID($id,$sprache,$link){
 				 ";
 		    
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			return "";
   		}
 		else{					
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			return htmlentities($d["Text"]);
 		}
 }
@@ -127,13 +127,13 @@ function getUebersetzung($text,$sprache,$link){
 				  Sprache_ID = 'de'
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			return htmlentities($text);
   		}
 		else{	
 				
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$id = $d["PK_ID"];
 			if ($id == "" || $id == -1){
 				return htmlentities($text);
@@ -160,12 +160,12 @@ function getPKIDfromUebersetzungUnterkunft($text,$unterkunft_id,$link){
 		 ";
 		
 //		echo($query."<br/>");
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			return -1;
   		}
 		else{					
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$id = $d["Standardsprache_ID"];
 			if ($id == ""){
 						$query = "select 
@@ -180,12 +180,12 @@ function getPKIDfromUebersetzungUnterkunft($text,$unterkunft_id,$link){
 							  Standardsprache_ID = -1
 							 ";
 							 
-					   $res = mysql_query($query, $link);
+					   $res = mysqli_query($link, $query);
 			     		if (!$res){
 				  			return -1;
 				  		}
 						else{
-							$d = mysql_fetch_array($res);
+							$d = mysqli_fetch_array($res);
 							$id = $d["PK_ID"];
 							if ($id == ""){
 								return -1;
@@ -210,14 +210,14 @@ function insertNewUebersetzungUnterkunft($sprache,$standardsprache,$unterkunft_i
 		VALUES
 		('$sprache','$standardsprache','$unterkunft_id','$text')
 		";
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
 			return -1;
 		}
 		else{
-			return mysql_insert_id($link);
+			return mysqli_insert_id($link);
 		}
 }
 
@@ -235,10 +235,10 @@ function changeUebersetzungUnterkunft($pk_Id,$text,$sprache,$link){
 			)
 		  ";
 //	echo($query."<br/>");
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
-  			echo(mysql_error($link));
+  			echo(mysqli_error($link));
 			return -1;
 		}
 		else{
@@ -259,12 +259,12 @@ function getPKIDWithStandardsprachenID($standardsprachen_id,$sprache,$link){
 				  Sprache_ID = '$sprache'
 				 ";
 		
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			return -1;
   		}
 		else{					
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$id = $d["PK_ID"];
 			if ($id == ""){
 				return -1;
@@ -384,13 +384,13 @@ function getUebersetzungUnterkunft($text,$sprache,$unterkunft_id,$link){
 				  (Sprache_ID = '$sprache')
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
 //  		echo($query."<br/>");
   		if (!$res){
   			return htmlentities($text);
   		}
 		else{		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 			$te = $d["Text"];
 			if ($te == ""){
 				$query = "select 
@@ -407,12 +407,12 @@ function getUebersetzungUnterkunft($text,$sprache,$unterkunft_id,$link){
 				  (Sprache_ID = '$sprache')
 				 ";
 
-  				$res = mysql_query($query, $link);
+  				$res = mysqli_query($link, $query);
   				if (!$res){
   					return htmlentities($text);
   				}
   				else{
-  					$d = mysql_fetch_array($res);
+  					$d = mysqli_fetch_array($res);
 					$te = $d["Text"];
 					if ($te == ""){
 						return htmlentities($text);

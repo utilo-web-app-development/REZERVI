@@ -115,7 +115,7 @@ include_once("../templates/headerB.php");
           <?php 
 			$res = getZimmer($unterkunft_id,$link);
 			$zaehler = 0;
-			while ($d = mysql_fetch_array($res)){ 
+			while ($d = mysqli_fetch_array($res)){
 
 				$zaehler++;
 				$temp =  $d["Zimmerart"]; 
@@ -126,7 +126,7 @@ include_once("../templates/headerB.php");
 				$von = "";
 	            $bis = "";
 				$hallo = getZimmerBuchungseinschraenkung($d["PK_ID"]);
-			    while ($ergebnis = mysql_fetch_array($hallo)){
+			    while ($ergebnis = mysqli_fetch_array($hallo)){
 				  $von = $ergebnis["Tag_von"];
 				  $bis = $ergebnis["Tag_bis"];
 				  $monatVon = $ergebnis["Datum_von"];
@@ -187,7 +187,7 @@ include_once("../templates/headerB.php");
   if ($zimmeranzahl > 1) {
   	if (hasParentRooms($unterkunft_id) && getPropertyValue(SEARCH_SHOW_PARENT_ROOM,$unterkunft_id,$link) == "true"){
   		$parentsRes = getParentRooms();
-  		while ($p = mysql_fetch_array($parentsRes)){
+  		while ($p = mysqli_fetch_array($parentsRes)){
   				$temp  = $p["Zimmerart"];
 				$temp2 = $p["Zimmernr"];
 				$temp3 = getUebersetzungUnterkunft($temp,$sprache,$unterkunft_id,$link);

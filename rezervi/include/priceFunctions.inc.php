@@ -31,15 +31,15 @@ function setPrice($zimmer_id,$valid_from,$valid_to,$price,$waehrung,$standard,$l
 		('$valid_from','$valid_to','$price','$waehrung','$standard')
 		";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
 		return false;
 	}
 	else{
-		$preis_id = mysql_insert_id($link);
+		$preis_id = mysqli_insert_id($link);
 		foreach ($zimmer_id as $zi_id){
 			$query = "
 			INSERT INTO 
@@ -49,10 +49,10 @@ function setPrice($zimmer_id,$valid_from,$valid_to,$price,$waehrung,$standard,$l
 			('$zi_id','$preis_id')
 			";
 			
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 		  	if (!$res) {
 		  		echo("Anfrage $query scheitert.");
-		  		echo(mysql_error($link));
+		  		echo(mysqli_error($link));
 				return false;
 			}
 		}	
@@ -81,11 +81,11 @@ function setPrice($zimmer_id,$valid_from,$valid_to,$price,$waehrung,$standard,$l
 		('$preis_id','$valid_from','$valid_to','$price','$waehrung','$standard')
 		";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
 	
   	if (!$res) {
   		echo("Anfrage $query scheitert.");
-  		echo(mysql_error($link));
+  		echo(mysqli_error($link));
 		return false;
 	}
 	else{
@@ -98,10 +98,10 @@ function setPrice($zimmer_id,$valid_from,$valid_to,$price,$waehrung,$standard,$l
 			FK_PREISE_ID = '$preis_id'
 			";
 			
-			$res = mysql_query($query, $link);
+			$res = mysqli_query($link, $query);
 		  	if (!$res) {
 		  		echo("Anfrage $query scheitert.");
-		  		echo(mysql_error($link));
+		  		echo(mysqli_error($link));
 				return false;
 			}
 
@@ -114,10 +114,10 @@ function setPrice($zimmer_id,$valid_from,$valid_to,$price,$waehrung,$standard,$l
 				('$zi_id','$preis_id')
 				";
 				
-				$res = mysql_query($query, $link);
+				$res = mysqli_query($link, $query);
 			  	if (!$res) {
 			  		echo("Anfrage $query scheitert.");
-			  		echo(mysql_error($link));
+			  		echo(mysqli_error($link));
 					return false;
 				}
 			}	
@@ -148,10 +148,10 @@ function getPrices($unterkunft_id,$link){
 				  		" p.gueltig_von
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
 	  		echo("Anfrage $query scheitert.");
-	  		echo(mysql_error($link));
+	  		echo(mysqli_error($link));
 			return false;
   		}
 	
@@ -181,10 +181,10 @@ function getPrices($unterkunft_id,$link){
 				  		" p.gueltig_von
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
 	  		echo("Anfrage $query scheitert.");
-	  		echo(mysql_error($link));
+	  		echo(mysqli_error($link));
 			return false;
   		}
 	
@@ -210,14 +210,14 @@ function getPrices($unterkunft_id,$link){
 				  		" p.Standard = 0
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
 	  		echo("Anfrage $query scheitert.");
-	  		echo(mysql_error($link));
+	  		echo(mysqli_error($link));
 			return false;
   		}
   		
-  		$d = mysql_fetch_array($res);
+  		$d = mysqli_fetch_array($res);
   		if (!empty($d["PREIS"])){
   			return $d["PREIS"];
   		}  		
@@ -246,10 +246,10 @@ function getPrices($unterkunft_id,$link){
 				  		" z.Zimmernr
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
 	  		echo("Anfrage $query scheitert.");
-	  		echo(mysql_error($link));
+	  		echo(mysqli_error($link));
 			return false;
   		}
 	
@@ -271,10 +271,10 @@ function deletePreis($preis_id){
 				  FK_Preise_ID = '$preis_id' 
 				 ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
 	  		echo("Anfrage $query scheitert.");
-	  		echo(mysql_error($link));
+	  		echo(mysqli_error($link));
 			return false;
   		}
   		
@@ -284,10 +284,10 @@ function deletePreis($preis_id){
 		  where
 		  PK_ID = '$preis_id' 
 		 ";
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
 	  		echo("Anfrage $query scheitert.");
-	  		echo(mysql_error($link));
+	  		echo(mysqli_error($link));
 			return false;
   		}
   		return true;
@@ -335,11 +335,11 @@ function getPriceOfDate($zimmer_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,
 			    ('$vonDatum' <= gueltig_von and '$bisDatum' >= gueltig_bis))				
 				";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
-			$d = mysql_fetch_array($res);
+			$d = mysqli_fetch_array($res);
 	
 	if (!empty($d["Preis"])){
 		return $d["Preis"];

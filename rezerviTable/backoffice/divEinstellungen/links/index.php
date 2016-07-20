@@ -100,7 +100,7 @@ $url = str_replace("\\","/",$url);
 	  		<table>
 	  		<?php
 	  		$sprachen = getActivtedSprachenOfVermieter($gastro_id);
-	  		while ($s = mysql_fetch_array($sprachen)){
+	  		while ($s = mysqli_fetch_array($sprachen)){
 	  			$sprache_id = $s["SPRACHE_ID"];
 	  			$spr_bezeichnung = getBezeichnungOfSpracheID($sprache_id);	
 	  			$spr_bezeichnung = getUebersetzung($spr_bezeichnung);  		

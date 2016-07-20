@@ -141,7 +141,7 @@ else {
 		//if the room is a parent room, check if the child rooms are taken:
 		if (!$taken && hasChildRooms($zimmer_id)){
 			$childs = getChildRooms($zimmer_id);
-			while ($c = mysql_fetch_array($childs)){
+			while ($c = mysqli_fetch_array($childs)){
 				$child_zi_id = $c['PK_ID'];
 				$taken =  isRoomTaken($child_zi_id,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$link);
 				if ($taken){
@@ -386,7 +386,7 @@ else {
 			  	} //ende else anfrage kommt aus suche
 				//KINDER
 			  $res = getPropertiesSuche($unterkunft_id, $link); //Methode in einstellungenFunctions.php definiert
-  	          while($d = mysql_fetch_array($res))
+  	          while($d = mysqli_fetch_array($res))
 	          {
   	            if($d["Name"] == 'Kinder')
 				{
@@ -442,7 +442,7 @@ else {
 		      
 			  //HAUSTIERE
 			  $res = getPropertiesSuche($unterkunft_id, $link); //Methode in einstellungenFunctions.php definiert
-  	          while($d = mysql_fetch_array($res))
+  	          while($d = mysqli_fetch_array($res))
 	          {
   	            if($d["Name"] == 'Haustiere')
 				{

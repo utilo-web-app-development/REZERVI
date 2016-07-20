@@ -29,7 +29,7 @@ while ($query = fgets($fp, 1024)){
 	
 	$res = getSprachenForBelegungsplan($link);
 	$i = 0;
-	while($d = mysql_fetch_array($res)){
+	while($d = mysqli_fetch_array($res)){
 		$spr = $d["Sprache_ID"];
  		setSprache($unterkunft_id,$spr,2,$link);
 	}
@@ -38,7 +38,7 @@ while ($query = fgets($fp, 1024)){
 
 if ($fail){
 	$antwort .= getUebersetzung("Anlegen der Übersetzungen scheiterte!",$sprache,$link)."<br/>";
-	$antwort = $antwort.(mysql_error($link));
+	$antwort = $antwort.(mysqli_error($link));
 	$fehler = true;
 	$woerterbuch = false;
 }

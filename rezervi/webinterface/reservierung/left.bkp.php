@@ -46,12 +46,12 @@ include_once("../../include/reseller/reseller.php");
 			ORDER BY 
 			Zimmernr";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res){
   			echo("Anfrage $query scheitert.");
   		}
   		
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$zimmer_id = $d["PK_ID"];
 	}
 	
@@ -165,10 +165,10 @@ include_once("../../include/reseller/reseller.php");
 								" order by Zimmernr
 						";
 
-  					$res = mysql_query($query, $link);
+  					$res = mysqli_query($link, $query);
   					if (!$res)
   						echo("Anfrage $query scheitert.");	
-	 				while($d = mysql_fetch_array($res)) { ?>
+	 				while($d = mysqli_fetch_array($res)) { ?>
                   <option value="<?php echo $d["PK_ID"] ?>"<?php if ($zimmer_id == $d["PK_ID"]) {echo(" selected");} ?>><?php echo (getUebersetzungUnterkunft($d["Zimmernr"],$sprache,$unterkunft_id,$link)); ?></option>
                   <?php } ?>
                 </select>

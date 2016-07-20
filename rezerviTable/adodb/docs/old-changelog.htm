@@ -196,7 +196,7 @@
 <p> Move() and MoveLast() internals changed to support to support EOF and $this->fields 
   change. 
 <p> Added ADODB_FETCH_BOTH support to mssql. Thx to Angel Fradejas afradejas#mediafusion.es 
-<p> We now check if link resource exists before we run mysql_escape_string in 
+<p> We now check if link resource exists before we run mysqli_escape_string in
   qstr(). 
 <p> Before we flock in csv code, we check that it is not a http url. 
 <p><b>3.20 17 Feb 2003</b></p>
@@ -204,15 +204,15 @@
   - this is very much alpha quality code. The API can still change. See adodb/tests/test-datadict.php 
   for more info. 
 <p>We now ignore $ADODB_COUNTRECS for mysql, because PHP truncates incomplete 
-  recordsets when mysql_unbuffered_query() is called a second time. 
+  recordsets when mysqli_unbuffered_query() is called a second time.
 <p>Now postgresql works correctly when $ADODB_COUNTRECS = false. 
 <p>Changed _adodb_getcount to properly support SELECT DISTINCT. 
 <p>Discovered that $ADODB_COUNTRECS=true has some problems with prepared queries 
   - suspect PHP bug. 
 <p>Now GetOne and GetRow run in $ADODB_COUNTRECS=false mode for better performance. 
-<p>Added support for mysql_real_escape_string() and pg_escape_string() in qstr(). 
+<p>Added support for mysqli_real_escape_string() and pg_escape_string() in qstr().
 <p>Added an intermediate variable for mysql _fetch() and MoveNext() to store fields, 
-  to prevent overwriting field array with boolean when mysql_fetch_array() returns 
+  to prevent overwriting field array with boolean when mysqli_fetch_array() returns
   false. 
 <p>Made arrays for getinsertsql and getupdatesql case-insensitive. Suggested by 
   Tim Uckun" tim#diligence.com 

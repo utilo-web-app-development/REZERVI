@@ -70,14 +70,14 @@ function insertSpracheNeu($zeile,$link){
 				"('$spracheId','$standardspracheId','$satz')";
 			
 		//query absetzen:
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res){
 			echo($query);
-			echo(mysql_error($link));
+			echo(mysqli_error($link));
 			exit;
 		}
 		if ($spracheId == "de"){
-			$standardspracheId = mysql_insert_id($link);
+			$standardspracheId = mysqli_insert_id($link);
 		}
 		
 	}

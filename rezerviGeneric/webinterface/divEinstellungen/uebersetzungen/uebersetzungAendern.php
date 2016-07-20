@@ -71,7 +71,7 @@ if ($standardsprache == false || $standardsprache == ""){
 	<th><div align="left"><?php echo getUebersetzung("Uebersetzung in")." ".getBezeichnungOfSpracheID($changeSprache); ?></div></th>
   </tr>
   <?php
-  while ($d=mysql_fetch_array($res)){
+  while ($d=mysqli_fetch_array($res)){
   	$standardtext = $d["TEXT_STANDARD"];
   	$uebersetzungs_id = $d["UEBERSETZUNGS_ID"];
   	//hole nun dazu die uebersetzung der changeSprache:

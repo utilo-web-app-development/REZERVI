@@ -205,12 +205,12 @@ if ($status != 0) { ?>
 					   Nachname
 				 ");
 
-  			$res = mysql_query($query, $link);
+  			$res = mysqli_query($link, $query);
 			if (!$res) { 
 				echo("die Anfrage scheitert");
 			} //ende if
 			else {
-				while($d = mysql_fetch_array($res)) {
+				while($d = mysqli_fetch_array($res)) {
 					?>
                 <option value="<?php echo($d["PK_ID"]); ?>" <?php if ($d["PK_ID"] == $gast_id) echo("selected"); ?>><?php echo($d["Nachname"]." ".$d["Vorname"].", ".$d["Ort"]); ?></option>
                 <?php				
@@ -329,7 +329,7 @@ if ($status != 0) { ?>
 				<table cellpadding="0" cellspacing="0" border="0">
 				<?php  
             	$res = getSprachen($unterkunft_id,$link);
-            	while ($d = mysql_fetch_array($res)){
+            	while ($d = mysqli_fetch_array($res)){
 				 	$spracheID = $d["Sprache_ID"];
 		  			$bezeichnung = getBezeichnungOfSpracheID($spracheID,$link);
 				  ?>
@@ -486,7 +486,7 @@ if ($status != 0) { ?>
 			$bisDatum = parseDateFormular($bisTag,$bisMonat,$bisJahr);
 			$result = getReservationWithDate($zimmer_id,$vonDatum,$bisDatum,$link);
 			$first = true;
-			while($d = mysql_fetch_array($result)){
+			while($d = mysqli_fetch_array($result)){
 				if ($first){ ?>					
 					  <tr><td class="standardSchrift">
 					  <?php echo(getUebersetzung("Folgende Reservierungen werden gelöscht",$sprache,$link)); ?>:

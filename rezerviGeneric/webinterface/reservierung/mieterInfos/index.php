@@ -102,7 +102,7 @@ include_once($root."/webinterface/templates/bodyStart.inc.php");
 	<!-- ausgeben der reservierungen: -->
 	<?php
 		$res = getReservationsOfMieter($mieter_id);
-		while($d = mysql_fetch_array($res)){
+		while($d = mysqli_fetch_array($res)){
 			//variablen auslesen:
 			$mietobjekt_id = $d["MIETOBJEKT_ID"];
 			$bezeichnung = getMietobjektBezeichnung($mietobjekt_id);

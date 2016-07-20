@@ -36,7 +36,7 @@ if (!(isset ($fehler) && $fehler != true)){
           <?php	
 			 $res = getMietobjekte($vermieter_id);
 			  //zimmer ausgeben:
-			  while($d = mysql_fetch_array($res)) {
+			  while($d = mysqli_fetch_array($res)) {
 				$bezeichnung = getUebersetzungVermieter($d["BEZEICHNUNG"],$sprache,$vermieter_id);
 				$id = $d["MIETOBJEKT_ID"]
 				?>

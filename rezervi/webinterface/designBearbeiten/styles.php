@@ -206,11 +206,11 @@ include_once("./stylesHelper.php");
 					FK_Unterkunft_ID = '$unterkunft_id'
 					");
 	
-		$res = mysql_query($query, $link);
+		$res = mysqli_query($link, $query);
 		if (!$res)  
 			echo("die Anfrage $query scheitert");
 			
-		$d = mysql_fetch_array($res);
+		$d = mysqli_fetch_array($res);
 		$style = $d[$auslesen];
 	
 //passwortprüfung:	

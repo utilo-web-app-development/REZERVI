@@ -58,7 +58,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
 	</tr>
 	<?php
     $res = getActivtedSprachenOfVermieter($vermieter_id);
-    while ($d = mysql_fetch_array($res)){
+    while ($d = mysqli_fetch_array($res)){
     	$sprache_id = $d["SPRACHE_ID"];
     	$bezeichnung= $d["BEZEICHNUNG"];
     	$firma= getUebersetzungVermieter($firmenname,$sprache_id,$vermieter_id); 
@@ -134,7 +134,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
   </tr>
   	<?php
     $res = getActivtedSprachenOfVermieter($vermieter_id);
-    while ($d = mysql_fetch_array($res)){
+    while ($d = mysqli_fetch_array($res)){
     	$sprache_id = $d["SPRACHE_ID"];
     	$bezeichnung= $d["BEZEICHNUNG"];
     	$mo= getUebersetzungVermieter($mietobjekt_ez,$sprache_id,$vermieter_id); 
@@ -160,7 +160,7 @@ include_once($root."/include/vermieterFunctions.inc.php");
   ?>
   	<?php
     $res = getActivtedSprachenOfVermieter($vermieter_id);
-    while ($d = mysql_fetch_array($res)){
+    while ($d = mysqli_fetch_array($res)){
     	$sprache_id = $d["SPRACHE_ID"];
     	$bezeichnung= $d["BEZEICHNUNG"];
     	$mo= getUebersetzungVermieter($mietobjekt_mz,$sprache_id,$vermieter_id); 

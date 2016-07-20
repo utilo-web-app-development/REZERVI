@@ -15,12 +15,12 @@ function getAnzahlErwachsene($unterkunftId,$link){
 		FK_Unterkunft_ID = '$unterkunftId'	
 	";
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res) {
 		echo("Anfrage $query scheitert.");
 	}
 	else {		
-		while ($d = mysql_fetch_array($res)){ 
+		while ($d = mysqli_fetch_array($res)){
 			$r = $d["Betten"];
 			$anzahl = $anzahl + $r;
 		}	
@@ -44,12 +44,12 @@ function getAnzahlKinder($unterkunftId,$link){
 		FK_Unterkunft_ID = '$unterkunftId'	
 	";
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res) {
 		echo("Anfrage $query scheitert.");
 	}
 	else {		
-		while ($d = mysql_fetch_array($res)){ 
+		while ($d = mysqli_fetch_array($res)){
 			$r = $d["Betten_Kinder"];
 			$anzahl = $anzahl + $r;
 		}	
@@ -91,8 +91,8 @@ function getFreieZimmer($unterkunft_id, $anzahlErwachsene, $anzahlKinder, $anzah
 			ORDER BY
 			Zimmernr
 		";
-		$res = mysql_query($query, $link);
-		while ($d = mysql_fetch_array($res)){ 
+		$res = mysqli_query($link, $query);
+		while ($d = mysqli_fetch_array($res)){
 			//zimmer-id holen:
 			$zi_id = $d["PK_ID"];
 
@@ -167,7 +167,7 @@ function getFreieZimmer($unterkunft_id, $anzahlErwachsene, $anzahlKinder, $anzah
 				if (hasChildRooms($freeRoom)){
 					//the room is a parent room, check if ALL the children are free rooms
 					$childs = getChildRooms($freeRoom);
-					while ($c = mysql_fetch_array($childs)){
+					while ($c = mysqli_fetch_array($childs)){
 						$count2++;						
 						for ($i = 0; $i < count($freieZimmer); $i++){
 							if ($freieZimmer[$i] == $c['PK_ID']){
@@ -200,7 +200,7 @@ function getFreieZimmer($unterkunft_id, $anzahlErwachsene, $anzahlKinder, $anzah
 					//the room is a parent room, check if ALL the children are occupied:
 					$childs = getChildRooms($freeRoom);
 					$allOcc = true;
-					while ($c = mysql_fetch_array($childs)){
+					while ($c = mysqli_fetch_array($childs)){
 						$chid = $c['PK_ID'];
 						//if the child is not occupied -> set to false!
 						$taken = isRoomTaken($chid,$vonTag,$vonMonat,$vonJahr,$bisTag,$bisMonat,$bisJahr,$link);
@@ -241,14 +241,14 @@ function getInformationHaustiere($unterkunft_id,$link)
 		FK_Unterkunft_ID = '$unterkunft_id' AND Name='Haustiere' ;
 	";
  
-  $res = mysql_query($query, $link);
+  $res = mysqli_query($link, $query);
   if (!$res)
   {
      echo("Anfrage $query scheitert.");
   }
   else 
   {
-    while ($d = mysql_fetch_array($res))
+    while ($d = mysqli_fetch_array($res))
     { 
       $r = $d["Wert"];
       //echo ("<h1>getInformationHaustiere: " . $r. "</h1>");
@@ -268,13 +268,13 @@ function getHaustiereErlaubt($unterkunftId,$link)
 		FK_Unterkunft_ID = '$unterkunftId'	
 	";
 	
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
 	if (!$res) {
 		echo("Anfrage $query scheitert.");
 	}
 	else 
 	{		
-	  while ($d = mysql_fetch_array($res))
+	  while ($d = mysqli_fetch_array($res))
 	  { 
         $r = $d["Haustiere"];
           if($r == 'true')

@@ -246,9 +246,9 @@ include_once("./stylesHelper.php");
 	}
 	
 	//query absetzen:
-	$res = mysql_query($query, $link);
+	$res = mysqli_query($link, $query);
   	if (!$res) {
-		echo(mysql_error($link));
+		echo(mysqli_error($link));
   		echo("Anfrage $query scheitert.");
   		
 	}

@@ -126,9 +126,9 @@ $samstagReserviert=$reserviert;
 		($anzahl_zimmer,$unterkunft_id,'$name',$anzahl_benutzer,'$ZIMMERART_EZ','$ZIMMERART_MZ','$EMAIL','$art')
 		";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
-		$antwort = mysql_error($link);
+		$antwort = mysqli_error($link);
 		$fail = true;		
 	}
 	
@@ -141,9 +141,9 @@ $samstagReserviert=$reserviert;
 		($unterkunft_id,'$username','$passwort','$rechte')
 		";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
-		$antwort = $antwort.(mysql_error($link));		
+		$antwort = $antwort.(mysqli_error($link));		
 		$fail = true;
 	}
 
@@ -157,10 +157,10 @@ $samstagReserviert=$reserviert;
 		('$samstagBelegt','$samstagFrei','$samstagReserviert','$backgroundColor','$standardSchrift','$belegt','$frei','$reserviert','$standardSchriftBold','$ueberschrift','$table','$tableColor','$button200pxA','$button200pxB',$unterkunft_id)
 		";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	if (!$res) {
   		$antwort = $antwort.("Anfrage $query scheitert.\n");
-		$antwort = $antwort.(mysql_error($link));
+		$antwort = $antwort.(mysqli_error($link));
 		$fail = true;
 	}
 	
@@ -198,7 +198,7 @@ $samstagReserviert=$reserviert;
 			  ('$unterkunft_id')
 			 ";
 
-  	$res = mysql_query($query, $link);
+  	$res = mysqli_query($link, $query);
   	
  	setFramesizeRightBP($unterkunft_id,"","*",$link);
  	setFramesizeLeftBP($unterkunft_id,"280","px",$link);

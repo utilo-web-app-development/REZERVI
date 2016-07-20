@@ -40,7 +40,7 @@ $ueb_mo_ez = array();
 $ueb_mo_mz = array();
 
 $res = getActivtedSprachenOfVermieter($vermieter_id);
-while ($d = mysql_fetch_array($res)){
+while ($d = mysqli_fetch_array($res)){
 	$sprache_id = $d["SPRACHE_ID"];
 	
 	$firma = false;

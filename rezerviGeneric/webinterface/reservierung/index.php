@@ -181,7 +181,7 @@ include_once($root."/templates/constants.inc.php");
 		                <select name="mietobjekt_id"  id="mietobjekt_id" onchange="submit()">
 		                  <?php
 		  					$res = getMietobjekteOfVermieter($vermieter_id);
-			 				while($d = mysql_fetch_array($res)) { ?>
+			 				while($d = mysqli_fetch_array($res)) { ?>
 		                  		<option value="<?php echo $d["MIETOBJEKT_ID"] ?>"<?php if ($mietobjekt_id == $d["MIETOBJEKT_ID"]) {echo(" selected=\"selected\"");} ?>><?php echo $d["BEZEICHNUNG"] ?></option>
 		                  <?php } ?>
 		                </select>

@@ -15,7 +15,7 @@ function getReservationsOfGuest($gast_id,$link){
 					desc
 				  ";
 
-  		$res = mysql_query($query, $link);
+  		$res = mysqli_query($link, $query);
   		if (!$res)
   			echo("Anfrage $query scheitert.");
 		else		
