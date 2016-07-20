@@ -31,29 +31,19 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
 <style type="text/css">
     <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
+
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-
-<div class="panel panel-default">
-    <div class="panel-body">
-        <a class="btn btn-primary" href="./index.php">
-            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-            <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
-        </a>
-    </div>
-</div>
 
 <div class="panel panel-default">
     <div class="panel-heading">
         <h2><?php echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen", $sprache, $link)); ?></h2>
     </div>
     <div class="panel-body">
-        <!-- <form action="./zimmerEintragen.php" method="post" name="zimmerEintragen" target="_self"> -->
-        <form action="./zimmerEintragen.php" method="post" name="zimmerEintragen" target="_self"
-              onSubmit="return chkFormular();" class="form-horizontal">
 
-            <!--            <h1>-->
-            <?php //echo(getUebersetzung("Ein neues Zimmer/Appartement/Wohnung/etc. anlegen", $sprache, $link)); ?><!--</h1>-->
+        <form action="./zimmerEintragen.php" method="post" name="zimmerAnlegen" id="zimmerAnlegen" target="_self"
+              class="form-horizontal">
+
             <h5>
                 <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.", $sprache, $link)); ?>
 
@@ -88,22 +78,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
             }
             if (isEnglishShown($unterkunft_id, $link)) {
                 ?>
-                <!-- <tr>
-	      <td><?php echo(getUebersetzung("Zimmerart in englisch", $sprache, $link)); ?>
-	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)", $sprache, $link)); ?>
-	      <?php if ($standardsprache == "en") { ?>
-	      	*
-	      <?php } else {
-                    ?>
-	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.", $sprache, $link)); ?>)
-	      <?php
-                }
-                ?>
-	      </td>
-	      <td><input name="zimmerart_en" type="text" id="zimmerart_en" value="<?php if (isset($zimmerart_en)) {
-                    echo($zimmerart_en);
-                } ?>" maxlength="30"></td>
-	    </tr> -->
+
                 <div class="form-group">
                     <label for="zimmerart"
                            class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in englisch", $sprache, $link)); ?>
@@ -126,22 +101,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
             }
             if (isFrenchShown($unterkunft_id, $link)) {
                 ?>
-                <!-- <tr>
-	      <td><?php echo(getUebersetzung("Zimmerart in französisch", $sprache, $link)); ?>
-	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)", $sprache, $link)); ?>
-	      <?php if ($standardsprache == "fr") { ?>
-	      	*
-	      <?php } else {
-                    ?>
-	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.", $sprache, $link)); ?>)
-	      <?php
-                }
-                ?>
-	      </td>
-	      <td><input name="zimmerart_fr" type="text" id="zimmerart_fr"  value="<?php if (isset($zimmerart_fr)) {
-                    echo($zimmerart_fr);
-                } ?>" maxlength="30"></td>
-	    </tr> -->
+
                 <div class="form-group">
                     <label for="zimmerart_fr"
                            class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in französisch", $sprache, $link)); ?>
@@ -165,22 +125,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
             }
             if (isItalianShown($unterkunft_id, $link)) {
                 ?>
-                <!-- <tr>
-	      <td><?php echo(getUebersetzung("Zimmerart in italienisch", $sprache, $link)); ?>
-	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)", $sprache, $link)); ?>
-	      <?php if ($standardsprache == "it") { ?>
-	      	*
-	      <?php } else {
-                    ?>
-	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.", $sprache, $link)); ?>)
-	      <?php
-                }
-                ?>
-	      </td>
-	      <td><input name="zimmerart_it" type="text" id="zimmerart_it"  value="<?php if (isset($zimmerart_it)) {
-                    echo($zimmerart_it);
-                } ?>" maxlength="30"></td>
-	    </tr> -->
+
                 <div class="form-group">
                     <label for="zimmerart_it"
                            class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in italienisch", $sprache, $link)); ?>
@@ -204,22 +149,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
             }
             if (isNetherlandsShown($unterkunft_id, $link)) {
                 ?>
-                <!-- <tr>
-	      <td><?php echo(getUebersetzung("Zimmerart in holländisch", $sprache, $link)); ?>
-	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)", $sprache, $link)); ?>
-	      <?php if ($standardsprache == "nl") { ?>
-	      	*
-	      <?php } else {
-                    ?>
-	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.", $sprache, $link)); ?>)
-	      <?php
-                }
-                ?>
-	      </td>
-	      <td><input name="zimmerart_nl" type="text" id="zimmerart_nl"  value="<?php if (isset($zimmerart_nl)) {
-                    echo($zimmerart_nl);
-                } ?>" maxlength="30"></td>
-	    </tr> -->
+
                 <div class="form-group">
                     <label for="zimmerart_nl"
                            class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in holländisch", $sprache, $link)); ?>
@@ -243,22 +173,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
             }
             if (isEspaniaShown($unterkunft_id, $link)) {
                 ?>
-                <!-- <tr>
-	      <td><?php echo(getUebersetzung("Zimmerart in spanisch", $sprache, $link)); ?>
-	       <?php echo(getUebersetzung("(z. B. Zimmer, Wohnung, Ferienwohnung, Appartement, etc.)", $sprache, $link)); ?>
-	      <?php if ($standardsprache == "sp") { ?>
-	      	*
-	      <?php } else {
-                    ?>
-	      (<?php echo(getUebersetzung("Wird dieses Feld leer gelassen, wird die Standard-Sprache verwendet.", $sprache, $link)); ?>)
-	      <?php
-                }
-                ?>
-	       </td>
-	      <td><input name="zimmerart_sp" type="text" id="zimmerart_sp"  value="<?php if (isset($zimmerart_sp)) {
-                    echo($zimmerart_sp);
-                } ?>" maxlength="30"></td>
-	    </tr> -->
+
                 <div class="form-group">
                     <label for="zimmerart_sp"
                            class="col-sm-7 control-label"><?php echo(getUebersetzung("Zimmerart in spanisch", $sprache, $link)); ?>
@@ -534,12 +449,18 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
             }
             ?>
             <div class="form-group">
-                <div class="col-md-offset-10 col-sm-2">
-                    <input name="submit" type="submit" id="submit" class="btn btn-success"
-                           value="<?php echo(getUebersetzung("Zimmer eintragen", $sprache, $link)); ?>">
+                <div class="col-md-offset-9 col-sm-3" style="text-align: right;">
+                    <a name="submit" id="submit" class="btn btn-success" onclick="checkForm('zimmerAnlegen');">
+                        <?php echo(getUebersetzung("Zimmer eintragen", $sprache, $link)); ?>
+                    </a>
+                    <a class="btn btn-primary" href="./index.php">
+                        <!--                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>-->
+                        <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
+                    </a>
                 </div>
 
             </div>
+
         </form>
     </div>
 </div>

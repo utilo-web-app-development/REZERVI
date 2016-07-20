@@ -133,23 +133,28 @@ function showMonth($month,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,
 		$anzahlTage = getNumberOfDays($month,$year);
 		
 		?>
-		<table border="0" cellspacing="1" cellpadding="0" class="tableColor">
+
 		<?php 
 		for ($i = 1; $i <= $anzahlTage; $i++) { 
 			$res_id = getReservierungID($zimmer_id,$i,$month,$year,$link);
 			$statusString = getStatusString($zimmer_id,$i,$month,$year,$saAktiviert,$link);
 			$gast_id = -1;
 			?>
-<tr class="table"> 
+            <div class="row">
 				<!-- wochentag anzeigen -->
-				<td class="table" width="1" valign="middle">
-					<?php 
-						echo(getUebersetzung(getDayName($i,$month,$year),$sprache,$link));																																		
-		 			?></td>
+				<div class="col-sm-1">
+					<label class="control-label">
+						<?php echo(getUebersetzung(getDayName($i,$month,$year),$sprache,$link));?>
+					</label>
+				</div>
 				<!-- datum anzeigen -->
-				<td class="<?php echo($statusString); ?>" width="40" valign="middle"><?php printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?></td>				
+				<div class="col-sm-1 <?php echo($statusString); ?>">
+                    <label class="control-label">
+                        <?php printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link); ?>
+                    </label>
+                </div>
 				<!-- gast anzeigen -->
-				<td class="table" valign="middle">
+				<div class="col-sm-3">
 					<?php if ($statusString != "frei") { ?>
 							<?php
 							//gast-id auslesen:
@@ -187,24 +192,10 @@ function showMonth($month,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,
 						echo("&nbsp;");
 					}
 					?>
-					</td>
-				<!--	
-				<td class="table" valign="middle">
-
-					<?php 
-						if (!(empty($gast_id)) && $gast_id != -1 && $gast_id != 1) { ?>
-					<input type="submit" name="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-		   				onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Gäste-Info",$sprache,$link)); ?>">
-						<?php } //ende if 						
-						else {
-							echo("&nbsp;");					
-						}?>   
-				</td>
-				-->				
-			</tr>
+					</div>
+                </div>
 			<?php } //ende for
-		?>		
-		</table>	
+		?>
 <?php 	
 }//ende funktion  
 ?>
