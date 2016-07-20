@@ -40,8 +40,16 @@ include_once("../templates/headerA.php");
 </script>
 <?php 
 include_once("../templates/headerB.php"); 
-include_once("../templates/bodyA.php"); 
-
+include_once("../templates/bodyA.php");
+?>
+<div class="panel panel-default">
+<div class="panel-heading">
+    <h2>
+        <?php echo getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
+    </h2>
+</div>
+  <div class="panel-body">
+<?php
 //passwortprüfung:	
 if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 	
@@ -53,19 +61,7 @@ if ($sizeRoomSelectBox > 5){
 	$sizeRoomSelectBox = 5;
 }
 ?>
-<div class="panel panel-default">
-  <div class="panel-body">
-  	<a class="btn btn-primary" href="./index.php">
-  	<span class="glyphicon glyphicon-menu-left" ></span>
-  	<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>
-  	</a>
- </div>
-</div>
- <div class="panel panel-default">
-  <div class="panel-body"> 	
-        <h1>
-            <?php echo getUebersetzung("Preise hinzufügen, ändern, löschen",$sprache,$link) ?>.
-        </h1>
+
         <?php
         if (isset($nachricht) && $nachricht != ""){
         ?>
@@ -142,11 +138,6 @@ if ($sizeRoomSelectBox > 5){
 			<td>
 				<input type="text" class="form-control" name="preis_<?php echo $preis_id ?>" value="<?php echo $preis ?>"/>
 			</td>
-			<!--
-			<td>
-				<input type="text" name="standard_<?php echo $preis_id ?>" value="<?php echo $beschreibung ?>">
-			</td>
-			-->
 			<td>
 			<select class="form-control" name="zimmer_<?php echo $preis_id ?>[]" size="<?php echo $sizeRoomSelectBox ?>"
 				multiple="multiple" id="zimmer_<?php echo $preis_id ?>">
@@ -176,7 +167,7 @@ if ($sizeRoomSelectBox > 5){
         	</select>
 			</td>
 			<td>
-			    <input name="loeschen_<?php echo $preis_id ?>" type="submit" id="loeschen_<?php echo $preis_id ?>"
+			    <input name="loeschen_<?php echo $preis_id ?>" type="submit" id="loeschen_<?php echo $preis_id ?>" style="width: 100%;"
       				class="btn btn-danger"  value="<?php echo(getUebersetzung("löschen",$sprache,$link)); ?>" />
 			</td>
 		</tr>
@@ -238,18 +229,21 @@ if ($sizeRoomSelectBox > 5){
         </select>
 		</td>
 		<td>
-		    <input 
-  				name="hinzufuegen" type="submit" id="hinzufuegen" 
-  				class="btn btn-success" 
+		    <input  name="hinzufuegen" type="submit" id="hinzufuegen"  class="btn btn-success" style="width: 100%;"
    				value="<?php echo(getUebersetzung("hinzufügen",$sprache,$link)); ?>" />
 		</td>
 	</tr>
 </table>
 <div class="form-group">
-<div class="col-sm-offset-10 col-sm-2" style="margin-left: 86.333333%;">
+<div class="col-sm-offset-9 col-sm-3" style="text-align: right;">
     <input name="aendern" type="submit" id="aendern"
   		   class="btn btn-success"
    		   value="<?php echo(getUebersetzung("speichern",$sprache,$link)); ?>" />
+<!--   		   Zurück-->
+   		   <a class="btn btn-primary" href="./index.php">
+<!--  	<span class="glyphicon glyphicon-menu-left" ></span>-->
+  	<?php echo(getUebersetzung("Abbrechen",$sprache,$link)); ?>
+  	</a>
 </div>
 
 </div>
@@ -261,12 +255,6 @@ if ($sizeRoomSelectBox > 5){
 	</tr>
 </table>
 </form>
-</br>
-    	
-    	<!-- <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-		<input name="retour" type="submit" class="btn btn-primary" id="retour" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-  		</form> -->
-
 
 <?php
 }
@@ -274,5 +262,7 @@ else {
 	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 }
 ?>
+</div>
+</div>
 
 <?php include_once("../templates/end.php"); ?>

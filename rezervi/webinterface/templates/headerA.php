@@ -20,9 +20,11 @@
 
 
 		<!-- Bootstrap: latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="<?php echo ($root)?>/libs/bootstrap/css/bootstrap.min.css">
 		<!-- Bootstrap: Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+        <link rel="stylesheet" href="<?php echo ($root)?>/libs/bootstrap/css/bootstrap-theme.min.css">
 
         <link href="<?php echo ($root)?>/libs/bootstrap-toggle/css/bootstrap-toggle.css" rel="stylesheet">
 
@@ -30,7 +32,14 @@
 		<!-- Bootstrap: Latest compiled and minified JavaScript -->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <script src="<?php echo ($root)?>/libs/jquery/jquery-1.12.4.min.js"></script>
+
+        <!-- Angular js -->
+        <script src="<?php echo ($root)?>/libs/angular/angular.min.js"></script>
+
+        <script src="<?php echo ($root)?>/libs/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo ($root)?>/libs/bootstrap-toggle/js/bootstrap-toggle.js"></script>
+
+        <script src="<?php echo ($root)?>/libs/appJs/app-js.js"></script>
 

@@ -37,13 +37,13 @@ if (!isset($zimmer_id) || $zimmer_id == "") {
 }
 
 ?>
-<?php //include_once("../templates/headerA.php"); ?>
-<?php include_once("../templates/headerB.php"); ?>
+
+<?php include_once("../templates/headerA.php"); ?>
 <style type="text/css">
     <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<?php include_once("../templates/headerA.php"); ?>
-<?php //include_once("../templates/headerB.php"); ?>
+
+<?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 <?php //passwortprüfung:	
 if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
@@ -55,35 +55,15 @@ $haustiere = getHaustiere($unterkunft_id, $zimmer_id, $link);
 
 ?>
 
-<!--<h2><?php /*echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten", $sprache, $link)); */
-?></h2><br/>
-<h4> <?php /*echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.", $sprache, $link)); */
-?>
-    <?php /*echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden", $sprache, $link)); */
-?>
-    !</h4>-->
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <a class="btn btn-primary" href="./index.php">
-                <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;
-                <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
-            </a>
-        </div>
-    </div>
-
 <div class="panel panel-default">
-    <div class="panel-heading"> <!--<p class=" standardSchriftBold lead">-->
+    <div class="panel-heading">
         <h2><?php echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten", $sprache, $link)); ?></h2>
     </div>
     <div class="panel-body">
 
-        <form action="./anlegen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
-              class="form-horizontal">
+        <form action="./zimmerAendernDurchfuehren.php" method="post" name="zimmerAendern" id="zimmerAendern"  target="_self"   class="form-horizontal">
 
-            <!--            <h1>-->
-            <?php //echo(getUebersetzung("Zimmer/Appartement/Wohnung/etc. bearbeiten", $sprache, $link));
-            ?><!--</h1><br/>-->
+
             <h5> <?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.", $sprache, $link)); ?>
                 <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden", $sprache, $link)); ?>
                 !</h5>
@@ -521,12 +501,18 @@ $haustiere = getHaustiere($unterkunft_id, $zimmer_id, $link);
             }
             ?>
             <div class="form-group">
-                <div class="col-md-offset-10 col-sm-2">
+                <div class="col-md-offset-9 col-sm-3" style="text-align: right;">
                     <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
-                    <input name="Submit" type="submit" id="Submit" class="btn btn-success"
-                           value="<?php echo(getUebersetzung("Zimmer ändern", $sprache, $link)); ?>">
+                    <a name="submit" id="Submit" class="btn btn-success" onclick="checkForm('zimmerAendern');">
+                        <?php echo(getUebersetzung("Zimmer ändern", $sprache, $link)); ?>
+                    </a>
+                    <a class="btn btn-primary" href="./index.php">
+                        <!--                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;-->
+                        <?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?>
+                    </a>
                 </div>
             </div>
+
         </form>
         <?php
         } //ende if passwortprüfung
