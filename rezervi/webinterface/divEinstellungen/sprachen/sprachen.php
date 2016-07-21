@@ -33,38 +33,29 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
     </style>
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h2><?php echo(getUebersetzung("Ändern der angezeigten Sprachen", $sprache, $link)); ?>.</h2>
+    </div>
+    <div class="panel-body">
+
 <?php
 //passwortprüfung:
 if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
     ?>
-    <div class="panel panel-default">
-    <div class="panel-body">
+
+     <!-- Show message if there is -->
+    <?php include_once("../../templates/message.php"); ?>
 
     <form action="./sprachenAendern.php" method="post" name="adresseForm" target="_self"
-          onSubmit="return chkFormular();" class="form-horizontal">
-
-        <h2><?php echo(getUebersetzung("Ändern der angezeigten Sprachen", $sprache, $link)); ?>.</h2>
-        <h4><?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen", $sprache, $link)); ?>
-            :</h4>
-
-
-        <br/>
-        <?php
-        if (isset($nachricht) && $nachricht != "") {
-            ?>
+          onSubmit="return checkForm();" class="form-horizontal">
+        <p class="lead">
+            <?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen", $sprache, $link)); ?>
+            :
+        </p>
 
 
-            <<?php if (isset($fehler) && $fehler == false) {
-                echo("class=\"frei\"");
-            } else {
-                echo("class=\"belegt\"");
-            } ?>><?php echo($nachricht) ?>
-
-
-            <?php
-        }
-        ?>
-        <table border="0" cellpadding="0" cellspacing="3" class="table">
+        <div class="well">
             <form action="./sprachenAendern.php" method="post" target="_self">
                 <?php
                 //sprachen anzeigen die aktiviert sind:
@@ -74,8 +65,15 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                     $spracheID = $d["Sprache_ID"];
                     $aktiviert = isSpracheShown($unterkunft_id, $spracheID, $link);
                     ?>
-                    <tr>
-                        <td>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="label-control">
+                                <script>console.log("<?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>");</script>
+                                <?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>
+                            </label>
+
+                        </div>
+                        <div class="col-sm-4">
                             <label>
                                 <input name="<?php echo($spracheID); ?>"
                                        type="checkbox"
@@ -86,20 +84,23 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                                     } ?>
                                 />
                             </label>
-                        </td>
-                        <td>
-                            <label class="label-control">
-                                <script>console.log("<?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>");</script>
-                                <?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>
-                            </label>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                     <?php
                 }
                 ?>
 
-        </table>
-        <?php showSubmitButton(getUebersetzung("ändern", $sprache, $link)); ?>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+                <button name="aendern" type="submit" class="btn btn-success" id="aendern">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                    <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
+                </button>
+
+            </div>
+        </div>
+
     </form>
 
     <?php

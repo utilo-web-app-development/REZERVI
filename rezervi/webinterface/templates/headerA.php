@@ -26,6 +26,8 @@
 
         <link rel="stylesheet" href="<?php echo ($root)?>/libs/bootstrap/css/bootstrap-theme.min.css">
 
+
+
         <link href="<?php echo ($root)?>/libs/bootstrap-toggle/css/bootstrap-toggle.css" rel="stylesheet">
 
 
@@ -40,6 +42,7 @@
 
         <script src="<?php echo ($root)?>/libs/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo ($root)?>/libs/bootstrap-toggle/js/bootstrap-toggle.js"></script>
+        <script src="<?php echo ($root)?>/libs/bootboxjs/bootbox.min.js"></script>
 
         <script src="<?php echo ($root)?>/libs/appJs/app-js.js"></script>
 

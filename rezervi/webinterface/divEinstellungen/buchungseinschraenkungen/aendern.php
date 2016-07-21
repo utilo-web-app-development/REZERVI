@@ -30,7 +30,6 @@ if (isset($_POST["add"]) && $_POST["add"] == getUebersetzung("hinzufügen", $spr
             $loeschen = true;
             break;
         }
-
     }
 }
 
@@ -40,21 +39,14 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 
 ?>
-<?php include_once("../../templates/headerA.php"); ?>
-    <style type="text/css">
-        <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
-    </style>
-<?php include_once("../../templates/headerB.php"); ?>
-<?php include_once("../../templates/bodyA.php"); ?>
 <?php
-//passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 
     //löschen oder hinzufuegen:
     if ($loeschen && !$hinzufuegen) {
         removeBuchungseinschraenkung($bu_id);
         $nachricht = "Der Datensatz wurde erfolgreich entfernt";
         $nachricht = getUebersetzung($nachricht, $sprache, $link);
+        $fehler = false;
     } else if ($hinzufuegen && !$loeschen) {
         $von_wochentag = $_POST["von_wochentag"];
         $zimmer_id = $_POST["zimmer_id"];
@@ -79,47 +71,6 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         }
     }
 
+    include_once("index.php");
+
     ?>
-    <h3><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes", $sprache, $link)); ?>
-        .</h3>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left"
-                                                                aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
-            </a>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-    <div class="panel-body">
-    <?php
-if (isset($nachricht) && $nachricht != ""){
-    ?>
-    <div class="alert alert-info"
-         role="alert" <?php if (isset($fehler) && $fehler == true) { ?> class="belegt" <?php } else { ?> class="frei" <?php } ?>>
-
-    <?php echo($nachricht) ?>
-
-
-
-    <?php
-}
-    ?>
-
-    <!-- <?php
-    //-----buttons um zurück zum menue zu gelangen:
-    showSubmitButtonWithForm("./index.php", getUebersetzung("zurück", $sprache, $link));
-    ?> -->
-
-    <!-- <?php
-    //-----buttons um zurück zum menue zu gelangen:
-    showSubmitButtonWithForm("../../inhalt.php", getUebersetzung("Hauptmenü", $sprache, $link));
-    ?> -->
-    <?php
-} //ende if passwortprüfung
-else {
-    echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
-}
-include_once("../../templates/end.php");
-?>

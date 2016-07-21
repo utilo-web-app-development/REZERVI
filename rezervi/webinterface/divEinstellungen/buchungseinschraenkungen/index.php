@@ -38,66 +38,52 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
     </script>
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>
+                <?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes", $sprache, $link)); ?>.
+            </h2>
+        </div>
+
+        <div class="panel-body">
 <?php
 //passwortprüfung:
 if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
     ?>
-    <!-- <div class="panel panel-default">
-  <div class="panel-body">
-    <a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück", $sprache, $link)); ?></a>
-  </div>
-</div> -->
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2><?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes", $sprache, $link)); ?>
-                .</h2>
-        </div>
+    <!-- Show message if there is -->
+    <?php include_once("../../templates/message.php"); ?>
 
-        <div class="panel-body">
-            <?php
-            if (isset($nachricht) && $nachricht != "") {
-                ?>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <p <?php if (isset($fehler) && $fehler == false) {
-                            echo("class=\"frei\"");
-                        } else {
-                            echo("class=\"belegt\"");
-                        } ?>><?php echo($nachricht) ?></p>
-                    </div>
-                </div>
-
-                <?php
-            }
-            ?>
-            <h3> <?php echo getUebersetzung("Zeitraum (z. B. Saison):", $sprache, $link); ?></h3>
+            <p class="lead"> <?php echo getUebersetzung("Zeitraum (z. B. Saison):", $sprache, $link); ?></p>
             <form class="form-inline" action="./aendern.php" method="post" name="reservierung" target="_self"
                   onSubmit="return chkFormular();">
                 <div class="form-group" style="width: 100%;">
-                    <label
-                        class="label-control col-sm-1"><?php echo getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id, $link), $sprache, $unterkunft_id, $link); ?></label>
+                    <label class="label-control col-sm-1">
+                        <?php echo getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id, $link), $sprache, $unterkunft_id, $link); ?>
+                    </label>
 
+                    <label class="label-control col-sm-1" style="width: 10%;">
+                        <?php echo getUebersetzung("Tag von", $sprache, $link); ?>
+                    </label>
 
-                    <label class="label-control col-sm-1"
-                           style="width: 10%;"><?php echo getUebersetzung("Tag von", $sprache, $link); ?></label>
+                    <label class="label-control col-sm-1" style="width: 10%;">
+                        <?php echo getUebersetzung("Tag bis", $sprache, $link); ?>
+                    </label>
 
+                    <label class="label-control col-sm-3">
+                        <?php echo getUebersetzung("Datum von", $sprache, $link); ?>
+                    </label>
 
-                    <label class="label-control col-sm-1"
-                           style="width: 10%;"><?php echo getUebersetzung("Tag bis", $sprache, $link); ?></label>
+                    <label class="label-control col-sm-3">
+                        <?php echo getUebersetzung("Datum bis", $sprache, $link); ?>
+                    </label>
 
-
-                    <label
-                        class="label-control col-sm-3"><?php echo getUebersetzung("Datum von", $sprache, $link); ?></label>
-
-
-                    <label
-                        class="label-control col-sm-3"><?php echo getUebersetzung("Datum bis", $sprache, $link); ?></label>
-
-
-                    <label
-                        class="label-control col-sm-2"><?php echo getUebersetzung("löschen/hinzufügen", $sprache, $link); ?></label>
-
+                    <label class="label-control col-sm-2">
+                        <?php echo getUebersetzung("löschen/hinzufügen", $sprache, $link); ?>
+                    </label>
+                </div>
+                <div class="row">
+                    <hr>
                 </div>
                 <?php
 
@@ -114,27 +100,38 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 
                     ?>
                     <div class="form-group" style="width: 100%;">
-                        <label class="label-control col-sm-1"><?php echo $zimmerart . " " . $zimmer ?></label>
+                        <div class="label-control col-sm-1">
+                            <?php echo $zimmerart . " " . $zimmer ?>
+                        </div>
+
+                        <div class="label-control col-sm-1" style="width: 10%;">
+                            <?php echo $von ?>
+                        </div>
 
 
-                        <label class="label-control col-sm-1" style="width: 10%;"><?php echo $von ?></label>
+                        <div class="label-control col-sm-1" style="width: 10%;">
+                            <?php echo $bis ?>
+                        </div>
 
 
-                        <label class="label-control col-sm-1" style="width: 10%;"><?php echo $bis ?></label>
+                        <div class="label-control col-sm-3">
+                            <?php echo $datum_von ?>
+                        </div>
 
 
-                        <label class="label-control col-sm-3"><?php echo $datum_von ?></label>
+                        <div class="label-control col-sm-3">
+                            <?php echo $datum_bis ?>
+                        </div>
 
 
-                        <label class="label-control col-sm-3"><?php echo $datum_bis ?></label>
-
-
-                        <label class="label-control col-sm-2"><input class="form-control"
-                                                                     name="loeschen#<?php echo $id ?>"
-                                                                     type="submit"
-                                                                     class="btn btn-danger"
-                                                                     value="<?php echo getUebersetzung("löschen", $sprache, $link); ?>"/></label>
-
+                        <div class="label-control col-sm-2">
+                            <input  name="loeschen#<?php echo $id ?>"
+                                   type="submit"  class="btn btn-danger"
+                                   value="<?php echo getUebersetzung("löschen", $sprache, $link); ?>"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr>
                     </div>
                     <?php
                 }
@@ -285,7 +282,6 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                         </select>
                     </div>
 
-
                     <div class="col-sm-2">
                         <input name="add"
                                type="submit"
@@ -295,17 +291,6 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 
                 </div>
             </form>
-
-            <!-- <br/>
-<?php
-            //-----buttons um zurück zum menue zu gelangen:
-            showSubmitButtonWithForm("../index.php", getUebersetzung("zurück", $sprache, $link));
-            ?>
-<br/> -->
-            <!-- <?php
-            //-----buttons um zurück zum menue zu gelangen:
-            showSubmitButtonWithForm("../../inhalt.php", getUebersetzung("Hauptmenü", $sprache, $link));
-            ?> -->
             <?php
             } //ende if passwortprüfung
             else {

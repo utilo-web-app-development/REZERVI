@@ -34,19 +34,10 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
     </style>
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
-    <!--<div class="panel panel-default">
-        <div class="panel-body">
-            <a class="btn btn-primary" href="./index.php">
-                <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;
-                <?php /*echo(getUebersetzung("zurück", $sprache, $link)); */?>
-            </a>
-        </div>
-    </div>-->
+
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"> <!--<p class=" standardSchriftBold lead">-->
-            <?php //echo(getUebersetzung("Ändern der Framegrößen",$sprache,$link));
-            ?><!--.</p>-->
+        <div class="panel-heading">
              <h2><?php echo(getUebersetzung("Ändern der Framegrößen", $sprache, $link)); ?>.</h2>
         </div>
         <div class="panel-body">
@@ -55,17 +46,8 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
             if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 ?>
 
-                <?php
-                if (isset($nachricht) && $nachricht != "") {
-                    ?>
-                    <p class="lead"> <?php if (isset($fehler) && $fehler == false) {
-                            echo("class=\"frei\"");
-                        } else {
-                            echo("class=\"belegt\"");
-                        } ?>><?php echo($nachricht) ?> </p>
-                    <?php
-                }
-                ?>
+                <!-- Show message if there is -->
+                <?php include_once("../../templates/message.php"); ?>
 
                 <form role="form" action="./frameAendern.php" method="post" target="_self" class="form-horizontal">
                     <?php
@@ -163,7 +145,15 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
                             />
                         </div>
                     </div>
-                    <?php showSubmitButton(getUebersetzung("Ändern", $sprache, $link)); ?>
+                    <div class="row">
+                        <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+                            <button name="aendern" type="submit" class="btn btn-success" id="aendern">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                                <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
+                            </button>
+
+                        </div>
+                    </div>
                 </form>
             <?php } //ende if passwortprüfung
             else {
@@ -171,26 +161,4 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
             } ?>
         </div>
     </div>
-
-<?php
-/*//passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
-    */?><!--
-
-
-    <?php
-/*//-----buttons um zurück zum menue zu gelangen:
-    showSubmitButtonWithForm("../index.php", getUebersetzung("zurück", $sprache, $link));
-    */?>
-    <br/>
-    <?php
-/*//-----buttons um zurück zum menue zu gelangen:
-    showSubmitButtonWithForm("../../inhalt.php", getUebersetzung("Hauptmenü", $sprache, $link));
-    */?>
-    --><?php
-/*} //ende if passwortprüfung
-else {
-    echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
-}*/
-?>
 <?php include_once("../../templates/end.php"); ?>

@@ -34,27 +34,18 @@ $standardsprache = getStandardSprache($unterkunft_id,$link);
 </style>
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h2><?php echo(getUebersetzung("Ändern der Suchoptionen",$sprache,$link)); ?>.</h2>
+    </div>
+    <div class="panel-body">
 <?php 
 	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
- <div class="panel panel-default">
-		<div class="panel-heading">
-			<h2><?php echo(getUebersetzung("Ändern der Suchoptionen",$sprache,$link)); ?>.</h2>
-		</div>
-  <div class="panel-body">
+        <!-- Show message if there is -->
+        <?php include_once("../../templates/message.php"); ?>
 
-<?php 
-if (isset($nachricht) && $nachricht != ""){
-?>
-	<div class="form-group">
-	  <div class="col-sm-12">
-		<p <?php if (isset($fehler) && $fehler == false) {echo("class=\"frei\""); } else {echo("class=\"belegt\"");} ?>><?php echo($nachricht) ?></p>
-	  </div>
-	</div>
-<?php 
-}
-?>
 <form action="./sucheAendern.php" method="post" target="_self">
 
  <ul class="list-unstyled list-group"  >
@@ -111,21 +102,17 @@ if (isset($nachricht) && $nachricht != ""){
      </li>
  </ul>
 
-    <?php
-    showSubmitButton(getUebersetzung("ändern",$sprache,$link));
-    ?>
+    <div class="row">
+        <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+            <button name="aendern" type="submit" class="btn btn-success" id="aendern">
+                <span class="glyphicon glyphicon-wrench"></span>
+                <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
+            </button>
 
+        </div>
+    </div>
 </form>
-<br/>
-<!-- <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
-?>
-<br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?> -->
+
 <?php 
 	} //ende if passwortprüfung
 	else {

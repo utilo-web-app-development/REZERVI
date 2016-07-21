@@ -48,38 +48,25 @@ if (empty($xDays) || $xDays == 0 || $xDays == "0") {
     </style>
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
-<?php
-//passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
-    ?>
+
     <div class="panel panel-default">
     <div class="panel-heading">
         <h2><?php echo(getUebersetzung("Einstellungen für Reservierungen", $sprache, $link)); ?>.</h2>
     </div>
     <div class="panel-body">
 
-
-    <?php
-    if (isset($nachricht) && $nachricht != "") {
-        ?>
-        <div class="row">
-            <div class="col-sm-12">
-                <label <?php if (isset($fehler) && $fehler == false) {
-                    echo("class=\"frei\"");
-                } else {
-                    echo("class=\"belegt\"");
-                } ?>><?php echo($nachricht) ?></label>
-            </div>
-        </div>
-
-        <?php
-    }
+<?php
+//passwortprüfung:
+if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
     ?>
+
+    <!-- Show message if there is -->
+    <?php include_once("../../templates/message.php"); ?>
 
     <form action="./resAendern.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
           class="form-inline">
         <div class="form-group">
-            <label class="label-control col-sm-12">
+            <div class="col-sm-12">
                 <input name="resAnzeigen" type="checkbox" id="resAnzeigen" value="true"
                     <?php
                     if ($resAnzeigen == "true") {
@@ -87,8 +74,13 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                     }
                     ?>
                 />
-                <?php echo getUebersetzung("Eingehende Anfragen als reserviert anzeigen.", $sprache, $link) ?>
-            </label>
+                <label class="label-control ">
+
+                    <?php echo getUebersetzung("Eingehende Anfragen als reserviert anzeigen.", $sprache, $link) ?>
+                </label>
+
+
+            </div>
         </div>
         <br>
         <div class="form-group">
@@ -113,8 +105,15 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 <?php echo getUebersetzung("Wenn ein Zimmer eines Hauses reserviert oder belegt ist, das gesamte Haus als belegt anzeigen.", $sprache, $link) ?>
             </label>
         </div>
+        <div class="row">
+            <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+                <button name="speichern" type="submit" class="btn btn-success" id="speichern">
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                    <?php echo(getUebersetzung("Speichern", $sprache, $link)); ?>
+                </button>
 
-        <?php showSubmitButton(getUebersetzung("speichern", $sprache, $link)); ?>
+            </div>
+        </div>
 
     </form>
 

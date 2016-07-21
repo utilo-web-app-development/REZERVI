@@ -56,88 +56,37 @@ if ($de != "true" && $en != "true" && $fr != "true"
 	$fehler = true;
 	include_once("sprachen.php");
 }
-else{
-	
+else {
+
 	//zuerst alle alten eintraege löschen:
-	removeAllStandardSpracheFromModul($unterkunft_id,2,$link);
-	
-	if ($de == "true"){
-		setSprache($unterkunft_id,"de",2,$link);
-	}	
-	if ($en == "true"){
-		setSprache($unterkunft_id,"en",2,$link);
+	removeAllStandardSpracheFromModul($unterkunft_id, 2, $link);
+
+	if ($de == "true") {
+		setSprache($unterkunft_id, "de", 2, $link);
 	}
-	if ($fr == "true"){
-		setSprache($unterkunft_id,"fr",2,$link);
+	if ($en == "true") {
+		setSprache($unterkunft_id, "en", 2, $link);
 	}
-	if ($it == "true"){
-		setSprache($unterkunft_id,"it",2,$link);
+	if ($fr == "true") {
+		setSprache($unterkunft_id, "fr", 2, $link);
 	}
-	if ($nl == "true"){
-		setSprache($unterkunft_id,"nl",2,$link);
+	if ($it == "true") {
+		setSprache($unterkunft_id, "it", 2, $link);
 	}
-	if ($sp == "true"){
-		setSprache($unterkunft_id,"sp",2,$link);
+	if ($nl == "true") {
+		setSprache($unterkunft_id, "nl", 2, $link);
 	}
-	if ($es == "true"){
-		setSprache($unterkunft_id,"es",2,$link);
+	if ($sp == "true") {
+		setSprache($unterkunft_id, "sp", 2, $link);
 	}
-	
-	
+	if ($es == "true") {
+		setSprache($unterkunft_id, "es", 2, $link);
+	}
+
+
 	$nachricht = "Die angezeigten Sprachen wurden erfolgreich geändert!";
-	$nachricht = getUebersetzung($nachricht,$sprache,$link);
+	$nachricht = getUebersetzung($nachricht, $sprache, $link);
 	$fehler = false;
-
-?>
-<?php include_once("../../templates/headerA.php"); ?>
-<style type="text/css">
-<?php include_once($root."/templates/stylesheetsIE9.php"); ?>
-</style>
-<?php include_once("../../templates/headerB.php"); ?>
-<?php include_once("../../templates/bodyA.php"); ?>
-<?php 
-	//passwortprüfung:	
-	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
-?>
-
-<div class="panel panel-default">
-  	<div class="panel-body">
-  		  <a class="btn btn-primary" href="./sprachen.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
-  	</div>
-</div>
-  <div class="panel panel-default">
-  <div class="panel-body">
-  	
-<h1><?php echo(getUebersetzung("Ändern der angezeigten Sprachen",$sprache,$link)); ?>.</h1>
-<?php 
-if (isset($nachricht) && $nachricht != ""){
-?>
-	
-	
- <div class="alert alert-info" role="alert"<?php if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?>><?php echo($nachricht) ?>
-	  
-
-	
-<?php 
+	include_once("./sprachen.php");
 }
 ?>
-</div>
-</div>
-<!-- <?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
-?>
-<br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?> -->
-<?php 
-	} //ende if passwortprüfung
-	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
-	}
- ?>
- <?php include_once("../../templates/end.php"); 
-}
- ?>

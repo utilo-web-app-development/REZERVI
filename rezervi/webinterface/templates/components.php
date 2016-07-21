@@ -28,7 +28,7 @@ function showSubmitButton($value)
     ?>
     <div class="row">
         <div class="col-sm-offset-10 col-sm-2">
-            <input name="<?php echo($value); ?>" type="submit" class="btn btn-primary" id="<?php echo($value); ?>" ;"
+            <input name="<?php echo($value); ?>" type="submit" class="btn btn-primary" id="<?php echo($value); ?>;"
             value="<?php echo($value); ?>">
         </div>
     </div>

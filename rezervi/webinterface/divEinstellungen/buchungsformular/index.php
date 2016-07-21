@@ -34,10 +34,7 @@ $sprache = getSessionWert(SPRACHE);
     </script>
 <?php include_once($root . "/webinterface/templates/headerB.php"); ?>
 <?php include_once($root . "/webinterface/templates/bodyA.php"); ?>
-<?php
-//passwortprüfung:	
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
-    ?>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2><?php echo(getUebersetzung("Einstellungen für das Buchungsformular", $sprache, $link)); ?>.</h2>
@@ -45,123 +42,120 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
         <div class="panel-body">
 
             <?php
-            if (isset($nachricht) && $nachricht != "") {
+            //passwortprüfung:
+            if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 ?>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label <?php if (isset($fehler) && $fehler == false) {
-                            echo("class=\"frei\"");
-                        } else {
-                            echo("class=\"belegt\"");
-                        } ?>><?php echo($nachricht) ?></label>
-                    </div>
-                </div>
 
+                <!-- Show message if there is -->
+                <?php include_once("../../templates/message.php"); ?>
+
+                <form action="./aendern.php" method="post" target="_self" name="reservierung">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="label-control">
+                                <?php echo(getUebersetzung("Zusätzliche Attribute anzeigen:", $sprache, $link)); ?>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label class="label-control">
+                                <?php
+                                echo(getUebersetzung("Übernachtung", $sprache, $link));
+                                ?>
+                            </label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="uebernachtung" type="checkbox" value="true"
+                                <?php
+                                if (getPropertyValue(PENSION_UEBERNACHTUNG, $unterkunft_id, $link) == "true") {
+                                    ?>
+                                    checked="checked"
+                                    <?php
+                                }
+                                ?>
+                            />
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label class="label-control">
+                                <?php
+                                echo(getUebersetzung("Frühstück", $sprache, $link));
+                                ?>
+                            </label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="fruehstueck" type="checkbox" value="true"
+                                <?php
+                                if (getPropertyValue(PENSION_FRUEHSTUECK, $unterkunft_id, $link) == "true") {
+                                    ?>
+                                    checked="checked"
+                                    <?php
+                                }
+                                ?>
+                            />
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label class="label-control">
+                                <?php
+                                echo(getUebersetzung("Halbpension", $sprache, $link));
+                                ?>
+                            </label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="halbpension" type="checkbox" value="true"
+                                <?php
+                                if (getPropertyValue(PENSION_HALB, $unterkunft_id, $link) == "true") {
+                                    ?>
+                                    checked="checked"
+                                    <?php
+                                }
+                                ?>
+                            />
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label>
+                                <?php
+                                echo(getUebersetzung("Vollpension", $sprache, $link));
+                                ?>
+                            </label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="vollpension" type="checkbox" value="true"
+                                <?php
+                                if (getPropertyValue(PENSION_VOLL, $unterkunft_id, $link) == "true") {
+                                    ?>
+                                    checked="checked"
+                                    <?php
+                                }
+                                ?>
+                            />
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+                            <button name="aendern" type="submit" class="btn btn-success" id="aendern">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                                <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                </form>
                 <?php
-            }
-            ?>
-
-
-            <form action="./aendern.php" method="post" target="_self" name="reservierung">
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label class="label-control">
-                            <?php echo(getUebersetzung("Zusätzliche Attribute anzeigen:", $sprache, $link)); ?>
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <label class="label-control">
-                            <?php
-                            echo(getUebersetzung("Übernachtung", $sprache, $link));
-                            ?>
-                        </label>
-                    </div>
-                    <div class="col-sm-10">
-                        <input name="uebernachtung" type="checkbox" value="true"
-                            <?php
-                            if (getPropertyValue(PENSION_UEBERNACHTUNG, $unterkunft_id, $link) == "true") {
-                                ?>
-                                checked="checked"
-                                <?php
-                            }
-                            ?>
-                        />
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <label class="label-control">
-                            <?php
-                            echo(getUebersetzung("Frühstück", $sprache, $link));
-                            ?>
-                        </label>
-                    </div>
-                    <div class="col-sm-10">
-                        <input name="fruehstueck" type="checkbox" value="true"
-                            <?php
-                            if (getPropertyValue(PENSION_FRUEHSTUECK, $unterkunft_id, $link) == "true") {
-                                ?>
-                                checked="checked"
-                                <?php
-                            }
-                            ?>
-                        />
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-2">
-                        <label class="label-control">
-                            <?php
-                            echo(getUebersetzung("Halbpension", $sprache, $link));
-                            ?>
-                        </label>
-                    </div>
-                    <div class="col-sm-10">
-                        <input name="halbpension" type="checkbox" value="true"
-                            <?php
-                            if (getPropertyValue(PENSION_HALB, $unterkunft_id, $link) == "true") {
-                                ?>
-                                checked="checked"
-                                <?php
-                            }
-                            ?>
-                        />
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <label>
-                            <?php
-                            echo(getUebersetzung("Vollpension", $sprache, $link));
-                            ?>
-                        </label>
-                    </div>
-                    <div class="col-sm-10">
-                        <input name="vollpension" type="checkbox" value="true"
-                            <?php
-                            if (getPropertyValue(PENSION_VOLL, $unterkunft_id, $link) == "true") {
-                                ?>
-                                checked="checked"
-                                <?php
-                            }
-                            ?>
-                        />
-
-                    </div>
-                </div>
-                <!--                 buttons um zurück zum menue zu gelangen:-->
-                <?php showSubmitButton(getUebersetzung("ändern", $sprache, $link)); ?>
-
-
-            </form>
-            <?php
             } //ende if passwortprüfung
             else {
                 echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));

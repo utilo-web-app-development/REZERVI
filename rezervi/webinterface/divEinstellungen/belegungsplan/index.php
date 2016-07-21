@@ -40,35 +40,28 @@ $showGesamtansicht = getPropertyValue(SHOW_GESAMTANSICHT, $unterkunft_id, $link)
     </style>
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
-<?php
-//passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
-    ?>
 
-    <?php
-    if (isset($nachricht) && $nachricht != "") {
-        ?>
-
-
-        <?php if (isset($fehler) && $fehler == false) {
-            echo("class=\"frei\"");
-        } else {
-            echo("class=\"belegt\"");
-        } ?>><?php echo($nachricht) ?>
-
-
-        <?php
-    }
-    ?>
     <div class="panel panel-default">
     <div class="panel-heading">
         <h2><?php echo(getUebersetzung("Einstellungen für den Belegungsplan", $sprache, $link)); ?>.</h2>
     </div>
     <div class="panel-body">
 
-    <form role="form" action="./planAendern.php" method="post" target="_self">
+<?php
+//passwortprüfung:
+if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
+    ?>
+
+    <!-- Show message if there is -->
+    <?php include_once("../../templates/message.php"); ?>
+
+
+    <form role="form" action="./planAendern.php" method="post" target="_self" class="form-horizontal">
         <div class="row">
-            <label class="label-control col-sm-12">
+            <label class="label-control col-sm-4">
+                <?php echo(getUebersetzung("Samstage andersfärbig anzeigen.", $sprache, $link)); ?>
+            </label>
+            <div class="col-sm-1">
                 <input name="showSamstag" type="checkbox" id="showSamstag" value="true"
                     <?php
                     if ($aktiviert) {
@@ -76,74 +69,91 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                     }
                     ?>
                 >
-                <?php echo(getUebersetzung("Samstage andersfärbig anzeigen.", $sprache, $link)); ?>
-            </label>
-        </div>
+                </div>
 
-        <?php showSubmitButton(getUebersetzung("ändern", $sprache, $link)); ?>
+                <div class="col-sm-offset-5 col-sm-2" style="text-align: right;">
+                    <button name="aendern" type="submit" class="btn btn-success" id="aendern">
+                        <span class="glyphicon glyphicon-wrench"></span>
+                        <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
+                    </button>
+                </div>
+        </div>
 
     </form>
     <div class="form-group">
         <hr>
     </div>
     <form action="./ansichtenAendern.inc.php" method="post" target="_self">
-        <div class="row panel-heading">
+        <div class="row">
             <div class="col-sm-12">
-                <h4><?php echo getUebersetzung("Ansichten anzeigen", $sprache, $link) ?></h4>
+                <h3><?php echo getUebersetzung("Ansichten anzeigen", $sprache, $link) ?></h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-4">
                 <label class="label-control">
                     <!-- Monatsübersicht   -->
-                    <input name="showMonatsansicht" type="checkbox" id="showMonatsansicht" value="true"
-                        <?php
-                        if ($showMonatsansicht) {
-                            echo(" checked=\"checked\"");
-                        }
-                        ?>
-                    />
                     <?php echo getUebersetzung("Monatsübersicht", $sprache, $link) ?>
                 </label>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <label class="label-control">
-                    <!-- Jahresübersicht -->
-                    <input name="showJahresansicht" type="checkbox" id="showJahresansicht" value="true"
-                        <?php
-                        if ($showJahresansicht) {
-                            echo(" checked=\"checked\"");
-                        }
-                        ?>
-                    />
-                    <?php echo getUebersetzung("Jahresübersicht", $sprache, $link) ?>
-                </label>
+            <div class="col-sm-1">
+                <input name="showMonatsansicht" type="checkbox" id="showMonatsansicht" value="true"
+                    <?php
+                    if ($showMonatsansicht) {
+                        echo(" checked=\"checked\"");
+                    }
+                    ?>
+                />
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-4">
+                <label class="label-control">
+                    <!-- Jahresübersicht -->
+                    <?php echo getUebersetzung("Jahresübersicht", $sprache, $link) ?>
+                </label>
+            </div>
+            <div class="col-sm-1">
+                <input name="showJahresansicht" type="checkbox" id="showJahresansicht" value="true"
+                    <?php
+                    if ($showJahresansicht) {
+                        echo(" checked=\"checked\"");
+                    }
+                    ?>
+                />
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
                 <label class="label-control">
                     <!-- Gesammtübersicht -->
-                    <input name="showGesamtansicht" type="checkbox" id="showGesamtansicht" value="true"
-                        <?php
-                        if ($showGesamtansicht) {
-                            echo(" checked=\"checked\"");
-                        }
-                        ?>
-                    />
 
                     <?php echo getUebersetzung("Gesamtübersicht", $sprache, $link) ?>
                 </label>
             </div>
+            <div class="col-sm-1">
+                <input name="showGesamtansicht" type="checkbox" id="showGesamtansicht" value="true"
+                    <?php
+                    if ($showGesamtansicht) {
+                        echo(" checked=\"checked\"");
+                    }
+                    ?>
+                />
+
+            </div>
         </div>
 
-        <?php
-        showSubmitButton(getUebersetzung("ändern", $sprache, $link));
-        ?>
+        <div class="row">
+            <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+                <button name="aendern" type="submit" class="btn btn-success" id="aendern">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                    <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
+                </button>
+
+            </div>
+        </div>
 
     </form>
 
