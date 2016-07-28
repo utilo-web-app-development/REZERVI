@@ -47,6 +47,9 @@ include_once("../../../include/benutzerFunctions.php");
 </style>
 <?php include_once("../../templates/headerB.php"); ?>
 <?php include_once("../../templates/bodyA.php"); ?>
+<div class="panel panel-default">
+
+	<div class="panel-body">
 <?php		
 	//passwortprüfung:	
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
@@ -71,25 +74,22 @@ include_once("../../../include/benutzerFunctions.php");
 	}
 		
 ?>
-<div class="panel panel-default">
-  	<div class="panel-body">
-  		<a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück",$sprache,$link)); ?></a>
-	</div>
-</div>
 
-  <div class="panel panel-default">
-  <div class="panel-body">
-  	
 <form action="./index.php" method="post" name="form1" target="_self">
         <input name="nochmal" type="submit" class="btn btn-success" id="nochmal" 
-			 value="<?php echo(getUebersetzung("einen weiteren Gast anlegen",$sprache,$link)); ?>">
+			 value="<?php echo(getUebersetzung("Einen weiteren Gast anlegen",$sprache,$link)); ?>">
+		<a class="btn btn-primary" href="../index.php">
+			<!--  <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;-->
+			<?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?>
+		</a>
  </form>
-  
-  
+
 <?php } //ende passwortprüfung 
 	else{
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
+  </div>
+	  </div>
 </body>
 </html>

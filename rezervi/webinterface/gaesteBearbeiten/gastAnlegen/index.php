@@ -40,136 +40,141 @@ include_once("../../../include/einstellungenFunctions.php");
 <script language="JavaScript" type="text/javascript" src="formPruefen.php">
 </script>
 <?php include_once("../../templates/bodyA.php"); ?>
-<?php
-//passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) { ?>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2><?php echo(getUebersetzung("Anlegen eines neuen Gastes", $sprache, $link)); ?></h2>
-        </div>
-        <div class="panel-body">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2><?php echo(getUebersetzung("Anlegen eines neuen Gastes", $sprache, $link)); ?></h2>
+    </div>
+    <div class="panel-body">
+        <?php
+        //passwortprüfung:
+        if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) { ?>
 
-            <form action="./anlegen.php" method="post" name="adresseForm" target="_self"
-                  onSubmit="return chkFormular();" class="form-horizontal">
 
-                <div class="form-group">
-                    <label for="anrede"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Anrede", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="anrede" type="text" id="anrede" value="" class="form-control">
-                    </div>
+        <form action="./anlegen.php" method="post" name="gastAnlegen" id="gastAnlegen" target="_self"
+              class="form-horizontal">
+
+            <div class="form-group">
+                <label for="anrede"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Anrede", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
+                    <input name="anrede" type="text" id="anrede" value="" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="vorname"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Vorname", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="vorname" type="text" id="vorname" value="" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="vorname"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Vorname", $sprache, $link)); ?>
+                    *</label>
+                <div class="col-sm-10">
+                    <input name="vorname" type="text" id="vorname" value="" class="form-control"
+                           required="required">
                 </div>
-                <div class="form-group">
-                    <label for="nachname"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Nachname", $sprache, $link)); ?>
-                        *</label>
-                    <div class="col-sm-10">
-                        <input name="nachname" type="text" id="nachname" value="" class="form-control"
-                               required="required">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="nachname"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Nachname", $sprache, $link)); ?>
+                    *</label>
+                <div class="col-sm-10">
+                    <input name="nachname" type="text" id="nachname" value="" class="form-control"
+                           required="required">
                 </div>
-                <div class="form-group">
-                    <label for="strasse"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Straße/Hausnummer", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="strasse" type="text" id="strasse" value="" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="strasse"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Straße/Hausnummer", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
+                    <input name="strasse" type="text" id="strasse" value="" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="plz"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("PLZ", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="plz" type="text" id="plz" value="" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="plz"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("PLZ", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
+                    <input name="plz" type="text" id="plz" value="" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="ort"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Ort", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="ort" type="text" id="ort" value="" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="ort"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Ort", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
+                    <input name="ort" type="text" id="ort" value="" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="land"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Land", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="land" type="text" id="land" value="" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="land"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Land", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
+                    <input name="land" type="text" id="land" value="" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="email"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("E-Mail-Adresse", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="email" type="text" id="email" value="" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="email"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("E-Mail-Adresse", $sprache, $link)); ?>
+                    *</label>
+                <div class="col-sm-10">
+                    <input name="email" type="text" id="email" value="" class="form-control"
+                           required="required">
                 </div>
-                <div class="form-group">
-                    <label for="tel"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Telefonnummer", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="tel" type="text" id="tel" value="" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="tel"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Telefonnummer", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
+                    <input name="tel" type="text" id="tel" value="" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="fax"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Faxnummer", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <input name="fax" type="text" id="fax" value="" class="form-control">
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="fax"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Faxnummer", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
+                    <input name="fax" type="text" id="fax" value="" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="speech"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("bevorzugte Sprache", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
-                        <select name="speech" type="text" id="speech" value="" class="form-control">>
-                            <?php
-                            //sprachen des belegungsplanes anzeigen:
-                            $stdSpr = getStandardSprache($unterkunft_id, $link);
-                            $res = getSprachen($unterkunft_id, $link);
-                            while ($d = mysqli_fetch_array($res)) {
-                                $spr = $d["Sprache_ID"];
-                                $bezeichnung = getBezeichnungOfSpracheID($spr, $link);
-                                ?>
-                                <option
-                                    value="<?php echo($spr); ?>" <?php if ($stdSpr == $spr) echo("selected"); ?>><?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?></option>
-                                <?php
-                            }
+            </div>
+            <div class="form-group">
+                <label for="speech"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("bevorzugte Sprache", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
+                    <select name="speech" type="text" id="speech" value="" class="form-control">>
+                        <?php
+                        //sprachen des belegungsplanes anzeigen:
+                        $stdSpr = getStandardSprache($unterkunft_id, $link);
+                        $res = getSprachen($unterkunft_id, $link);
+                        while ($d = mysqli_fetch_array($res)) {
+                            $spr = $d["Sprache_ID"];
+                            $bezeichnung = getBezeichnungOfSpracheID($spr, $link);
                             ?>
-                        </select>
-                    </div>
+                            <option
+                                value="<?php echo($spr); ?>" <?php if ($stdSpr == $spr) echo("selected"); ?>><?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="anmerkungen"
-                           class="col-sm-2 control-label"><?php echo(getUebersetzung("Anmerkungen", $sprache, $link)); ?></label>
-                    <div class="col-sm-10">
+            </div>
+            <div class="form-group">
+                <label for="anmerkungen"
+                       class="col-sm-2 control-label"><?php echo(getUebersetzung("Anmerkungen", $sprache, $link)); ?></label>
+                <div class="col-sm-10">
                         <textarea name="anmerkungen" type="text" id="anmerkungen" value=""
                                   class="form-control"></textarea>
-                    </div>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <div class="col-sm-offset-9 col-sm-3">
-                        <input type="submit" name="anlegen" class="btn btn-success"
-                               value="<?php echo(getUebersetzung("Gast anlegen", $sprache, $link)); ?>">
-                        <a class="btn btn-primary" href="../index.php">
-<!--                            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;-->
-                            <?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?>
-                        </a>
-                    </div>
+            <div class="form-group">
+                <div class="col-sm-offset-9 col-sm-3" style="text-align: right;">
+                    <input type="button" onclick="checkForm('gastAnlegen');" name="anlegen" class="btn btn-success"
+                           value="<?php echo(getUebersetzung("Gast anlegen", $sprache, $link)); ?>">
+                    <a class="btn btn-primary" href="../index.php">
+                        <!--                            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;-->
+                        <?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?>
+                    </a>
                 </div>
+            </div>
 
-            </form>
+        </form>
 
 
-        </div>
     </div>
+</div>
 
 <?php } //ende passwortprüfung 
 else {

@@ -184,11 +184,11 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){ ?>
 
 
             <div class="row">
-                <div class="col-sm-offset-9 col-sm-3">
-                    <a class="btn btn-primary" href="./gaesteListe/index.php" style="float: right;">
+                <div class="col-sm-offset-9 col-sm-3" style="text-align: right;">
+                    <button type="submit" class="btn btn-primary" >
                         <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                         &nbsp;<?php echo(getUebersetzung("Gästeliste anzeigen", $sprache, $link)); ?>
-                    </a>
+                    </button>
                 </div>
             </div>
 

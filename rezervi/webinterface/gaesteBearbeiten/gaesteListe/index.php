@@ -49,8 +49,6 @@ include_once("../../templates/components.php");
 <style type="text/css">
     <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
-<?php include_once("../../templates/headerB.php"); ?>
-<?php include_once("../../templates/bodyA.php"); ?>
 <script language="JavaScript">
     <!--
     function sicher() {
@@ -58,15 +56,60 @@ include_once("../../templates/components.php");
     }
     //-->
 </script>
-
+<?php include_once("../../templates/headerB.php"); ?>
+<?php include_once("../../templates/bodyA.php"); ?>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3><?php echo(getUebersetzung("Gästeliste anzeigen und bearbeiten", $sprache, $link)); ?>.</h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" ng-app="rezerviApp" ng-controller="MainController">
         <?php
         //passwortprüfung:
         if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) { ?>
+
+            <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table table-hover">
+            <thead>
+            <tr>
+                <?php if ($anrede_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Anrede", $sprache, $link)); ?></th>
+                <?php }
+                if ($vorname_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Vorname", $sprache, $link)); ?></th>
+                <?php }
+                if ($nachname_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Nachname", $sprache, $link)); ?></th>
+                <?php }
+                if ($strasse_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Straße/Hausnummer", $sprache, $link)); ?></th>
+                <?php }
+                if ($plz_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("PLZ", $sprache, $link)); ?></th>
+                <?php }
+                if ($ort_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Ort", $sprache, $link)); ?></th>
+                <?php }
+                if ($land_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Land", $sprache, $link)); ?></th>
+                <?php }
+                if ($email_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("E-Mail-Adresse", $sprache, $link)); ?></th>
+                <?php }
+                if ($tel_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Telefon", $sprache, $link)); ?></th>
+                <?php }
+                if ($fax_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Faxnummer", $sprache, $link)); ?></th>
+                <?php }
+                if ($sprache_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Sprache", $sprache, $link)); ?></th>
+                <?php }
+                if ($anmerkung_val == "true") { ?>
+                    <th><?php echo(getUebersetzung("Anmerkungen", $sprache, $link)); ?></th>
+                <?php }
+                ?>
+                <th><?php echo(getUebersetzung("Bearbeiten/ Reservierungs-Information/ Löschen", $sprache, $link)); ?></th>
+            </tr>
+            </thead>
 
             <?php
             //gästeliste ausgeben:
@@ -98,215 +141,173 @@ include_once("../../templates/components.php");
                     $speech = "Holländisch";
 
                 ?>
-                <table width="100%" border="0" cellspacing="3" cellpadding="0" class="tableColor">
-                    <tr>
-                        <?php if ($anrede_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Anrede", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($vorname_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Vorname", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($nachname_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Nachname", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($strasse_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Straße/Hausnummer", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($plz_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("PLZ", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($ort_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Ort", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($land_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Land", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($email_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("E-Mail-Adresse", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($tel_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Telefon", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($fax_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Faxnummer", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($sprache_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Sprache", $sprache, $link)); ?></td>
-                        <?php }
-                        if ($anmerkung_val == "true") { ?>
-                            <td><?php echo(getUebersetzung("Anmerkungen", $sprache, $link)); ?></td>
-                        <?php }
-                        ?>
-                    </tr>
-                    <tr>
-                        <?php if ($anrede_val == "true") { ?>
-                            <td><?php echo($anrede); ?></td>
-                        <?php }
-                        if ($vorname_val == "true") { ?>
-                            <td><?php echo($vorname); ?></td>
-                        <?php }
-                        if ($nachname_val == "true") { ?>
-                            <td><?php echo($nachname); ?></td>
-                        <?php }
-                        if ($strasse_val == "true") { ?>
-                            <td><?php echo($strasse); ?></td>
-                        <?php }
-                        if ($plz_val == "true") { ?>
-                            <td><?php echo($plz); ?></td>
-                        <?php }
-                        if ($ort_val == "true") { ?>
-                            <td><?php echo($ort); ?></td>
-                        <?php }
-                        if ($land_val == "true") { ?>
-                            <td><?php echo($land); ?></td>
-                        <?php }
-                        if ($email_val == "true") { ?>
-                            <td><a href="mailto:<?php echo($email); ?>"><?php echo($email); ?></a></td>
-                        <?php }
-                        if ($tel_val == "true") { ?>
-                            <td><?php echo($tel); ?></td>
-                        <?php }
-                        if ($fax_val == "true") { ?>
-                            <td><?php echo($fax); ?></td>
-                        <?php }
-                        if ($sprache_val == "true") { ?>
-                            <td><?php echo($speech); ?></td>
-                        <?php }
-                        if ($anmerkung_val == "true") { ?>
-                            <td><?php echo($anmerkung); ?></td>
-                        <?php }
-                        ?>
-                    </tr>
-                    <tr>
-                        <td colspan="11">
-                            <table border="0" cellspacing="3" cellpadding="0">
-                                <tr>
-                                    <td>
-                                        <form action="./gastBearbeiten/index.php" method="post" name="gastBearbeiten"
-                                              target="_self">
-                                            <div align="right">
-                                                <input name="plz_val" type="hidden" id="plz_val"
-                                                       value="<?php echo($plz_val); ?>">
-                                                <input name="anrede_val" type="hidden" id="anrede_var"
-                                                       value="<?php echo($anrede_val); ?>">
-                                                <input name="vorname_val" type="hidden" id="vorname_var3"
-                                                       value="<?php echo($vorname_val); ?>">
-                                                <input name="nachname_val" type="hidden" id="anrede_var4"
-                                                       value="<?php echo($nachname_val); ?>">
-                                                <input name="strasse_val" type="hidden" id="anrede_var5"
-                                                       value="<?php echo($strasse_val); ?>">
-                                                <input name="plz_val" type="hidden" id="anrede_var5"
-                                                       value="<?php echo($plz_val); ?>">
-                                                <input name="ort_val" type="hidden" id="anrede_var6"
-                                                       value="<?php echo($ort_val); ?>">
-                                                <input name="land_val" type="hidden" id="anrede_var7"
-                                                       value="<?php echo($land_val); ?>">
-                                                <input name="email_val" type="hidden" id="anrede_var8"
-                                                       value="<?php echo($email_val); ?>">
-                                                <input name="tel_val" type="hidden" id="anrede_var9"
-                                                       value="<?php echo($tel_val); ?>">
-                                                <input name="fax_val" type="hidden" id="anrede_var"
-                                                       value="<?php echo($fax_val); ?>">
-                                                <input name="anmerkung_val" type="hidden" id="anrede_var"
-                                                       value="<?php echo($anmerkung_val); ?>">
-                                                <input name="sprache_val" type="hidden" id="anrede_var"
-                                                       value="<?php echo($sprache_val); ?>">
-                                                <input name="gast_id" type="hidden" id="gast_id"
-                                                       value="<?php echo($gast_id); ?>">
-                                                <input name="index" type="hidden" value="<?php echo($index); ?>"/>
-                                                <input name="gastBearbeiten" type="submit" id="gastBearbeiten"
-                                                       class="btn btn-primary"
-                                                       value="<?php echo(getUebersetzung("Gast bearbeiten", $sprache, $link)); ?>">
 
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="./gastInfos/index.php" method="post" name="gastInfos"
-                                              target="_self">
-                                            <div align="right">
-                                                <input name="gastInfos" type="submit" id="gastInfos"
-                                                       class="btn btn-primary"
-                                                       value="<?php echo(getUebersetzung("Reservierungs-Informationen", $sprache, $link)); ?>">
-                                                <input name="anrede_val" type="hidden" id="anrede_var10"
-                                                       value="<?php echo($anrede_val); ?>">
-                                                <input name="vorname_val" type="hidden" id="vorname_var"
-                                                       value="<?php echo($vorname_val); ?>">
-                                                <input name="nachname_val" type="hidden" id="nachname_var"
-                                                       value="<?php echo($nachname_val); ?>">
-                                                <input name="strasse_val" type="hidden" id="strasse_var"
-                                                       value="<?php echo($strasse_val); ?>">
-                                                <input name="ort_val" type="hidden" id="ort_var"
-                                                       value="<?php echo($ort_val); ?>">
-                                                <input name="land_val" type="hidden" id="land_var"
-                                                       value="<?php echo($land_val); ?>">
-                                                <input name="email_val" type="hidden" id="email_var"
-                                                       value="<?php echo($email_val); ?>">
-                                                <input name="tel_val" type="hidden" id="tel_var"
-                                                       value="<?php echo($tel_val); ?>">
-                                                <input name="fax_val" type="hidden" id="anrede_var10"
-                                                       value="<?php echo($fax_val); ?>">
-                                                <input name="anmerkung_val" type="hidden" id="anrede_var10"
-                                                       value="<?php echo($anmerkung_val); ?>">
-                                                <input name="plz_val" type="hidden" id="plz_val"
-                                                       value="<?php echo($plz_val); ?>">
-                                                <input name="gast_id" type="hidden" id="gast_id"
-                                                       value="<?php echo($gast_id); ?>">
-                                                <input name="sprache_val" type="hidden" id="anrede_var"
-                                                       value="<?php echo($sprache_val); ?>">
-                                                <input name="index" type="hidden" value="<?php echo($index); ?>"/>
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="./gastLoeschen/index.php" method="post" name="gastLoeschen"
-                                              target="_self" onSubmit="return sicher()">
-                                            <div align="right">
-                                                <input name="gastLoeschen" type="submit" id="gastLoeschen"
-                                                       class="btn btn-danger"
-                                                       value="<?php echo(getUebersetzung("Gast löschen", $sprache, $link)); ?>">
-                                                <input name="anrede_val" type="hidden" id="anrede_var10"
-                                                       value="<?php echo($anrede_val); ?>">
-                                                <input name="vorname_val" type="hidden" id="vorname_var"
-                                                       value="<?php echo($vorname_val); ?>">
-                                                <input name="nachname_val" type="hidden" id="nachname_var"
-                                                       value="<?php echo($nachname_val); ?>">
-                                                <input name="strasse_val" type="hidden" id="strasse_var"
-                                                       value="<?php echo($strasse_val); ?>">
-                                                <input name="ort_val" type="hidden" id="ort_var"
-                                                       value="<?php echo($ort_val); ?>">
-                                                <input name="land_val" type="hidden" id="land_var"
-                                                       value="<?php echo($land_val); ?>">
-                                                <input name="email_val" type="hidden" id="email_var"
-                                                       value="<?php echo($email_val); ?>">
-                                                <input name="tel_val" type="hidden" id="tel_var"
-                                                       value="<?php echo($tel_val); ?>">
-                                                <input name="fax_val" type="hidden" id="anrede_var10"
-                                                       value="<?php echo($fax_val); ?>">
-                                                <input name="anmerkung_val" type="hidden" id="anrede_var10"
-                                                       value="<?php echo($anmerkung_val); ?>">
-                                                <input name="plz_val" type="hidden" id="plz_val"
-                                                       value="<?php echo($plz_val); ?>">
-                                                <input name="gast_id" type="hidden" id="gast_id"
-                                                       value="<?php echo($gast_id); ?>">
-                                                <input name="sprache_val" type="hidden" id="anrede_var"
-                                                       value="<?php echo($sprache_val); ?>">
-                                                <input name="index" type="hidden" value="<?php echo($index); ?>"/>
-                                            </div>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <br/>
+                <tr>
+                    <?php if ($anrede_val == "true") { ?>
+                        <td><?php echo($anrede); ?></td>
+                    <?php }
+                    if ($vorname_val == "true") { ?>
+                        <td><?php echo($vorname); ?></td>
+                    <?php }
+                    if ($nachname_val == "true") { ?>
+                        <td><?php echo($nachname); ?></td>
+                    <?php }
+                    if ($strasse_val == "true") { ?>
+                        <td><?php echo($strasse); ?></td>
+                    <?php }
+                    if ($plz_val == "true") { ?>
+                        <td><?php echo($plz); ?></td>
+                    <?php }
+                    if ($ort_val == "true") { ?>
+                        <td><?php echo($ort); ?></td>
+                    <?php }
+                    if ($land_val == "true") { ?>
+                        <td><?php echo($land); ?></td>
+                    <?php }
+                    if ($email_val == "true") { ?>
+                        <td><a href="mailto:<?php echo($email); ?>"><?php echo($email); ?></a></td>
+                    <?php }
+                    if ($tel_val == "true") { ?>
+                        <td><?php echo($tel); ?></td>
+                    <?php }
+                    if ($fax_val == "true") { ?>
+                        <td><?php echo($fax); ?></td>
+                    <?php }
+                    if ($sprache_val == "true") { ?>
+                        <td><?php echo($speech); ?></td>
+                    <?php }
+                    if ($anmerkung_val == "true") { ?>
+                        <td><?php echo($anmerkung); ?></td>
+                    <?php }
+                    ?>
+                    <td>
+                        <table>
+                            <tr>
+                                <td style="padding-right: 2px;">
+                                    <form action="./gastBearbeiten/index.php" method="post" name="gastBearbeiten"
+                                          target="_self">
+                                        <input name="plz_val" type="hidden" id="plz_val"
+                                               value="<?php echo($plz_val); ?>">
+                                        <input name="anrede_val" type="hidden" id="anrede_var"
+                                               value="<?php echo($anrede_val); ?>">
+                                        <input name="vorname_val" type="hidden" id="vorname_var3"
+                                               value="<?php echo($vorname_val); ?>">
+                                        <input name="nachname_val" type="hidden" id="anrede_var4"
+                                               value="<?php echo($nachname_val); ?>">
+                                        <input name="strasse_val" type="hidden" id="anrede_var5"
+                                               value="<?php echo($strasse_val); ?>">
+                                        <input name="plz_val" type="hidden" id="anrede_var5"
+                                               value="<?php echo($plz_val); ?>">
+                                        <input name="ort_val" type="hidden" id="anrede_var6"
+                                               value="<?php echo($ort_val); ?>">
+                                        <input name="land_val" type="hidden" id="anrede_var7"
+                                               value="<?php echo($land_val); ?>">
+                                        <input name="email_val" type="hidden" id="anrede_var8"
+                                               value="<?php echo($email_val); ?>">
+                                        <input name="tel_val" type="hidden" id="anrede_var9"
+                                               value="<?php echo($tel_val); ?>">
+                                        <input name="fax_val" type="hidden" id="anrede_var"
+                                               value="<?php echo($fax_val); ?>">
+                                        <input name="anmerkung_val" type="hidden" id="anrede_var"
+                                               value="<?php echo($anmerkung_val); ?>">
+                                        <input name="sprache_val" type="hidden" id="anrede_var"
+                                               value="<?php echo($sprache_val); ?>">
+                                        <input name="gast_id" type="hidden" id="gast_id"
+                                               value="<?php echo($gast_id); ?>">
+                                        <input name="index" type="hidden" value="<?php echo($index); ?>"/>
+                                        <button name="gastBearbeiten" type="submit" id="gastBearbeiten"
+                                                class="btn btn-success">
+                                            <span class="glyphicon glyphicon-wrench"></span>
+                                        </button>
+                                    </form>
+                                </td>
+
+                                <td style="padding-right: 2px;">
+                                    <form action="./gastInfos/index.php" method="post" name="gastInfos"
+                                          target="_self">
+
+                                        <button name="gastInfos" type="submit" id="gastInfos"
+                                                class="btn btn-primary">
+                                            <span class="glyphicon glyphicon-info-sign"></span>
+                                        </button>
+                                        <input name="anrede_val" type="hidden" id="anrede_var10"
+                                               value="<?php echo($anrede_val); ?>">
+                                        <input name="vorname_val" type="hidden" id="vorname_var"
+                                               value="<?php echo($vorname_val); ?>">
+                                        <input name="nachname_val" type="hidden" id="nachname_var"
+                                               value="<?php echo($nachname_val); ?>">
+                                        <input name="strasse_val" type="hidden" id="strasse_var"
+                                               value="<?php echo($strasse_val); ?>">
+                                        <input name="ort_val" type="hidden" id="ort_var"
+                                               value="<?php echo($ort_val); ?>">
+                                        <input name="land_val" type="hidden" id="land_var"
+                                               value="<?php echo($land_val); ?>">
+                                        <input name="email_val" type="hidden" id="email_var"
+                                               value="<?php echo($email_val); ?>">
+                                        <input name="tel_val" type="hidden" id="tel_var"
+                                               value="<?php echo($tel_val); ?>">
+                                        <input name="fax_val" type="hidden" id="anrede_var10"
+                                               value="<?php echo($fax_val); ?>">
+                                        <input name="anmerkung_val" type="hidden" id="anrede_var10"
+                                               value="<?php echo($anmerkung_val); ?>">
+                                        <input name="plz_val" type="hidden" id="plz_val"
+                                               value="<?php echo($plz_val); ?>">
+                                        <input name="gast_id" type="hidden" id="gast_id"
+                                               value="<?php echo($gast_id); ?>">
+                                        <input name="sprache_val" type="hidden" id="anrede_var"
+                                               value="<?php echo($sprache_val); ?>">
+                                        <input name="index" type="hidden" value="<?php echo($index); ?>"/>
+
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="./gastLoeschen/index.php" method="post" name="gastLoeschen" id="gastLoeschen"
+                                          target="_self">
+
+                                        <button name="gastLoeschen" type="button" id="gastLoeschen"
+                                                ng-confirm-click="Sind Sie Sicher?" confirmed-click="sicher('gastLoeschen');"
+                                                class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+
+                                        <input name="anrede_val" type="hidden" id="anrede_var10"
+                                               value="<?php echo($anrede_val); ?>">
+                                        <input name="vorname_val" type="hidden" id="vorname_var"
+                                               value="<?php echo($vorname_val); ?>">
+                                        <input name="nachname_val" type="hidden" id="nachname_var"
+                                               value="<?php echo($nachname_val); ?>">
+                                        <input name="strasse_val" type="hidden" id="strasse_var"
+                                               value="<?php echo($strasse_val); ?>">
+                                        <input name="ort_val" type="hidden" id="ort_var"
+                                               value="<?php echo($ort_val); ?>">
+                                        <input name="land_val" type="hidden" id="land_var"
+                                               value="<?php echo($land_val); ?>">
+                                        <input name="email_val" type="hidden" id="email_var"
+                                               value="<?php echo($email_val); ?>">
+                                        <input name="tel_val" type="hidden" id="tel_var"
+                                               value="<?php echo($tel_val); ?>">
+                                        <input name="fax_val" type="hidden" id="anrede_var10"
+                                               value="<?php echo($fax_val); ?>">
+                                        <input name="anmerkung_val" type="hidden" id="anrede_var10"
+                                               value="<?php echo($anmerkung_val); ?>">
+                                        <input name="plz_val" type="hidden" id="plz_val"
+                                               value="<?php echo($plz_val); ?>">
+                                        <input name="gast_id" type="hidden" id="gast_id"
+                                               value="<?php echo($gast_id); ?>">
+                                        <input name="sprache_val" type="hidden" id="anrede_var"
+                                               value="<?php echo($sprache_val); ?>">
+                                        <input name="index" type="hidden" value="<?php echo($index); ?>"/>
+
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
             <?php } //ende while
             ?>
-            </td>
-            </tr>
-            <tr>
-                <td>
+            </table>
+
                     <table>
                         <tr>
                             <?php
@@ -395,9 +396,7 @@ include_once("../../templates/components.php");
                             ?>
                         </tr>
                     </table>
-                </td>
-            </tr>
-            </table>
+
             <form action="./export/csv.php" method="post" name="hauptmenue" id="hauptmenue">
                 <input name="plz_val" type="hidden" id="plz_val" value="<?php echo($plz_val); ?>">
                 <input name="anrede_val" type="hidden" id="anrede_var" value="<?php echo($anrede_val); ?>">
@@ -414,12 +413,12 @@ include_once("../../templates/components.php");
 
 
                 <div class="row">
-                    <div class="col-sm-2">
-                        <select name="format" size="1" class="btn btn-primary">
+                    <div class="col-sm-offset-8 col-sm-2" style="text-align: right;">
+                        <select name="format" size="1" class="form-control">
                             <option value="csv"><?php echo(getUebersetzung("Text", $sprache, $link)); ?> CSV</option>
                         </select>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2" style="text-align: right;">
                         <input name="exportieren" type="submit" class="btn btn-primary"
                                value="<?php echo(getUebersetzung("exportieren", $sprache, $link)); ?>">
                     </div>
@@ -435,9 +434,9 @@ include_once("../../templates/components.php");
             <hr>
         </div>
         <div class="row">
-            <div class="col-sm-offset-10 col-sm-2">
+            <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
                 <a class="btn btn-primary" href="../../gaesteBearbeiten/index.php">
-<!--                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp-->
+                    <!--                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp-->
                     <?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?></a>
             </div>
         </div>
