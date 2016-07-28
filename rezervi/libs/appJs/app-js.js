@@ -4,27 +4,27 @@
 function checkForm(formId) {
     var invalid=false;
     $("input").each(function () {
-        if ($(this).val() == '') {
+        if ($(this).val() == '' && $(this).attr('required')) {
             invalid=true;
             $(this).focus();
-            alert("Füllen Sie bitte alle Fields");
+           // alert("Füllen Sie bitte alle Fields");
             return false;
 
         }
     });
     $("select").each(function () {
-        if ($(this).val() == '') {
+        if ($(this).val() == '' && $(this).attr('required')) {
             invalid=true;
             $(this).focus();
-            alert("Füllen Sie bitte alle Fields");
+            //alert("Füllen Sie bitte alle Fields");
             return false;
         }
     });
     $("textarea").each(function () {
-        if ($(this).val() == '') {
+        if ($(this).val() == '' && $(this).attr('required')) {
             invalid=true;
             $(this).focus();
-            alert("Füllen Sie bitte alle Fields");
+
             return false;
         }
     });
@@ -32,6 +32,12 @@ function checkForm(formId) {
     if(!invalid)
     {
         $('#'+formId).submit();
+    }
+    else
+    {
+        bootbox.alert(
+            "Füllen Sie bitte alle Fields"
+        );
     }
 
 };

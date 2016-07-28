@@ -75,15 +75,6 @@ $unterschrift_es = "";
 if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 ?>
 
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <a class="btn btn-primary" href="./index.php">
-                <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-                <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
-            </a>
-        </div>
-    </div>
-
 <div class="panel panel-default">
     <div class="panel-heading">
         <?php
@@ -95,12 +86,12 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
         } else if (isset($_POST["ablehnung"])) {
             $art = "ablehnung";
             ?>
-            <h1><?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage", $sprache, $link)); ?></h1>
+            <h1><?php echo(getUebersetzung("Ändern des Absagetextes einer Anfrage", $sprache, $link)); ?></h1>
             <?php
         } else if (isset($_POST["anfrage"])) {
             $art = "anfrage";
             ?>
-            <h1><?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage", $sprache, $link)); ?></h1>
+            <h1><?php echo(getUebersetzung("Ändern des Bestätigungstextes einer Buchungsanfrage", $sprache, $link)); ?></h1>
             <?php
         } else if (isset($_POST["emails"])) {
             $art = "emails";
@@ -781,10 +772,22 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
             </div>
 
 
-            <?php
-            //-----buttons um zurück zum menue zu gelangen:
-            showSubmitButton(getUebersetzung("Texte ändern", $sprache, $link));
-            ?>
+<!--            --><?php
+//            //-----buttons um zurück zum menue zu gelangen:
+//            showSubmitButton(getUebersetzung("Texte ändern", $sprache, $link));
+//            ?>
+            <div class="row">
+                <div class="col-sm-offset-9 col-sm-3" style="text-align: right;">
+                    <button name="aendern" type="submit" class="btn btn-success" id="aendern">
+                        <span class="glyphicon glyphicon-wrench"></span>
+                        <?php echo(getUebersetzung("Texte ändern", $sprache, $link)); ?>
+                    </button>
+                    <a class="btn btn-primary" href="./index.php">
+<!--                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>-->
+                        <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
+                    </a>
+                </div>
+            </div>
         </form>
         <?php
         } else {
@@ -792,7 +795,6 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
             //gästeliste anzeigen zur auswahl:
             ?>
             <div class="well">
-
                     <div class="lead" style="margin-bottom: 0px;">
                         <?php echo(getUebersetzung("Bitte wählen Sie die Gäste aus, an denen das E-Mail gesendet werden soll.", $sprache, $link)); ?>
                         <br/>
@@ -823,9 +825,19 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                     </div>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-sm-offset-9 col-sm-3" style="text-align: right;">
+                    <button name="email" type="submit" class="btn btn-success" id="email">
+                        <span class="glyphicon glyphicon-send"></span>
+                        <?php echo(getUebersetzung("E-Mails senden", $sprache, $link)); ?>
+                    </button>
+                    <a class="btn btn-primary" href="./index.php">
+                        <!--                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>-->
+                        <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
+                    </a>
+                </div>
+            </div>
             <?php
-            showSubmitButton(getUebersetzung("E-Mails senden", $sprache, $link));
         }
         ?>
         <?php

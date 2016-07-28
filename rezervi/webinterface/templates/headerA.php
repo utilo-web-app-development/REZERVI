@@ -39,6 +39,8 @@
 
         <!-- Angular js -->
         <script src="<?php echo ($root)?>/libs/angular/angular.min.js"></script>
+        <script src="<?php echo ($root)?>/libs/angular/angular-animate.js"></script>
+        <script src="<?php echo ($root)?>/libs/angular/angular-sanitize.js"></script>
 
         <script src="<?php echo ($root)?>/libs/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo ($root)?>/libs/bootstrap-toggle/js/bootstrap-toggle.js"></script>

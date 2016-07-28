@@ -97,7 +97,6 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                     <span class="glyphicon glyphicon-wrench"></span>
                     <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
                 </button>
-
             </div>
         </div>
 

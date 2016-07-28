@@ -31,16 +31,15 @@ include_once("../../include/uebersetzer.php");
     </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php
-//passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
-    ?>
     <div class="panel panel-default">
     <div class="panel-heading">
         <h2><?php echo(getUebersetzung("Automatische Antworten bearbeiten, E-Mails an Ihre Gäste senden", $sprache, $link)); ?></h2>
     </div>
     <div class="panel-body">
-
+<?php
+//passwortprüfung:
+if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
+    ?>
 
     <p class="lead">
         <?php echo(getUebersetzung("Ändern Sie hier die automatischen E-Mail Antworten an Ihre Gäste oder benutzen Sie das Mail-Formular zum senden von E-Mails an Ihre Gäste.", $sprache, $link)); ?>
@@ -48,51 +47,58 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         <?php echo(getUebersetzung("Eine nicht-aktivierte E-Mail Antwort wird nicht an Ihren Gast gesendet - Sie müssen die Anfragen händisch beantworten!", $sprache, $link)); ?>
     </p>
 
-    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
+
+
+    <form action="./texteAnzeigen.php" method="post" name="BuchungsbestaetigungForm" id="BuchungsbestaetigungForm" target="_self"
           class="form-horizontal">
-        <!-- <form action="./texteAnzeigen.php" method="post" target="_self"> -->
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input name="bestaetigung" type="submit" class="btn btn-primary" id="bestaetigung" style="width: 160px;"
                        value="<?php echo(getUebersetzung("Buchungsbestätigung", $sprache, $link)); ?>">
             </div>
-            <label class="col-sm-9 label-control">
-                <?php echo(getUebersetzung("ändern der E-Mail-Buchungsbestätigung die ein Gast erhält wenn Sie die Reservierung akzeptieren", $sprache, $link)); ?>.
+            <label class="col-sm-10 label-control">
+                <?php echo(getUebersetzung("ändern der E-Mail-Buchungsbestätigung die ein Gast erhält wenn Sie die Reservierung akzeptieren", $sprache, $link)); ?>
+                .
             </label>
         </div>
     </form>
-    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
+    <br>
+    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self"
           class="form-horizontal">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input name="ablehnung" type="submit" class="btn btn-primary" id="ablehnung" style="width: 160px;"
                        value="<?php echo(getUebersetzung("Buchungs-Absage", $sprache, $link)); ?>">
             </div>
-            <label class="col-sm-9 label-control">
-                <?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage die ein Gast erhält wenn Sie die Reservierung ablehnen", $sprache, $link)); ?>.
+            <label class="col-sm-10 label-control">
+                <?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage die ein Gast erhält wenn Sie die Reservierung ablehnen", $sprache, $link)); ?>
+                .
             </label>
         </div>
     </form>
+    <br>
     <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
           class="form-horizontal">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input name="anfrage" type="submit" class="btn btn-primary" id="anfrage" style="width: 160px;"
                        value="<?php echo(getUebersetzung("Buchungs-Anfrage", $sprache, $link)); ?>">
             </div>
-            <label class="col-sm-9 label-control">
-                <?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage die ein Gast erhält wenn er eine Buchungsanfrage im Belegungsplan vornimmt", $sprache, $link)); ?>.
+            <label class="col-sm-10 label-control">
+                <?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage die ein Gast erhält wenn er eine Buchungsanfrage im Belegungsplan vornimmt", $sprache, $link)); ?>
+                .
             </label>
         </div>
     </form>
+    <br>
     <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
           class="form-horizontal">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input name="emails" type="submit" class="btn btn-primary" id="emails" style="width: 160px;"
                        value="<?php echo(getUebersetzung("E-Mails senden", $sprache, $link)); ?>">
             </div>
-            <label class="col-sm-9 label-control">
+            <label class="col-sm-10 label-control">
                 <?php echo(getUebersetzung("E-Mails an ihre Gäste senden", $sprache, $link)); ?>.
             </label>
         </div>
