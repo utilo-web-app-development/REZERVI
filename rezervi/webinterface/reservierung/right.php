@@ -56,13 +56,13 @@ $sprache = getSessionWert(SPRACHE);
 $saAktiviert = getPropertyValue(SHOW_OTHER_COLOR_FOR_SA, $unterkunft_id, $link);
 
 setSessionWert(ZIMMER_ID, $zimmer_id);
-
+//include_once("rightJS.js.php");
 ?>
-<div class="panel panel-default">
+<div class="panel panel-default" id="rightView">
     <div class="panel-heading">
         <?php echo(getUebersetzung("Belegungsplan", $sprache, $link)); ?> <?php echo($monat . "-" . $jahr); ?>,
         <?php echo(getUebersetzung("für", $sprache, $link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id, $zimmer_id, $link), $sprache, $unterkunft_id, $link)); ?>
-        <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id, $zimmer_id, $link), $sprache, $unterkunft_id, $link)); ?>
+        -<?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id, $zimmer_id, $link), $sprache, $unterkunft_id, $link)); ?>
     </div>
     <div class="panel-body">
         <?php
@@ -70,65 +70,83 @@ setSessionWert(ZIMMER_ID, $zimmer_id);
         if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
             ?>
 
-            <?php
-            //kontrolle ob monat nicht 0 oder 13:
-            if ($monat > 12) {
-                $monat = 1;
-                $jahr = $jahr + 1;
-            } elseif ($monat < 1) {
-                $monat = 12;
-                $jahr = $jahr - 1;
-            }
-            //monat ausgeben:
-            showMonth($monat, $jahr, $unterkunft_id, $zimmer_id, $sprache, $saAktiviert, $link);
-            ?>
+            <div id="monthView">
+                <?php
+                //kontrolle ob monat nicht 0 oder 13:
+                if ($monat > 12) {
+                    $monat = 1;
+                    $jahr = $jahr + 1;
+                } elseif ($monat < 1) {
+                    $monat = 12;
+                    $jahr = $jahr - 1;
+                }
+                //monat ausgeben:
+                showMonth($monat, $jahr, $unterkunft_id, $zimmer_id, $sprache, $saAktiviert, $link);
+                ?>
+            </div>
 
-<div class="form-group">
-    <hr>
-</div>
-            <div class="row">
-                <div class="col-sm-offset-1 col-sm-3">
-                    <?php
-                    $mon = $monat - 1;
-                    $jah = $jahr;
-                    if ($mon < 1) {
-                        $mon = 12;
-                        $jah = $jah - 1;
-                    }
-                    ?>
-                    <form action="./right.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
-
-                            <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
-                            <input name="monat" type="hidden" id="monat" value="<?php echo($mon); ?>">
-                            <input name="jahr" type="hidden" id="jahr" value="<?php echo($jah); ?>">
-                            <input name="zurueck" type="submit" class="btn btn-primary"
-                                   onClick="updateLeft(<?php echo (($mon) . "," . ($jah)) . "," . ($zimmer_id); ?>,0);"
+            <div class="form-group">
+                <hr>
+            </div>
+            <div id="NPButtons">
+                <div id="monthViewButtons" ng-show="show">
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <?php
+                            $mon = $monat - 1;
+                            $jah = $jahr;
+                            if ($mon < 1) {
+                                $mon = 12;
+                                $jah = $jah - 1;
+                            }
+                            ?>
+                            <input name="zimmer_id_right" type="hidden" id="zimmer_id_right" ng-model="zimmer_id_right"
+                                   value="<?php echo $zimmer_id ?>">
+                            <input name="monat_right" type="hidden" id="monat_right" value="<?php echo($mon); ?>">
+                            <input name="jahr_right" type="hidden" id="jahr_right" value="<?php echo($jah); ?>">
+                            <input name="zurueck" type="button" class="btn btn-primary" ng-model="getpreviousMonth"
+                                   ng-click="previousMonth();"
                                    id="zurueck"
                                    value="<?php echo(getUebersetzung("einen Monat zurück", $sprache, $link)); ?>">
+                        </div>
 
-                    </form>
+                        <div class="col-sm-offset-4 col-sm-3">
+                            <?php
+                            $mon = $monat + 1;
+                            $jah = $jahr;
+                            if ($mon > 12) {
+                                $mon = 1;
+                                $jah = $jah + 1;
+                            }
+                            ?>
+                            <input name="weiter" type="button" class="btn btn-primary" ng-model="getnextMonth"
+                                   ng-click="nextMonth();"
+                                   id="weiter"
+                                   value="<?php echo(getUebersetzung("einen Monat weiter", $sprache, $link)); ?>">
+                        </div>
+                    </div>
+                </div>
+                <div id="yearViewButtons" ng-show="!show">
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-3">
+                            <input name="zurueckyear" type="button" class="btn btn-primary"
+                                   ng-show="showzurueckyear"
+                                   ng-click="previousYear();"
+                                   id="zurueckyear"
+                                   value="<?php echo(getUebersetzung("ein Jahr zurück",$sprache,$link)); ?>">
+                        </div>
+                        <div class="col-sm-offset-4 col-sm-3">
+                            <input name="weiteryear" type="button" class="btn btn-primary"
+                                   ng-show="showweiteryear"
+                                   ng-click="nextYear();"
+                                   id="weiteryear"
+                                   value="<?php echo(getUebersetzung("ein Jahr weiter",$sprache,$link)); ?>">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-sm-offset-4 col-sm-3">
-                    <?php
-                    $mon = $monat + 1;
-                    $jah = $jahr;
-                    if ($mon > 12) {
-                        $mon = 1;
-                        $jah = $jah + 1;
-                    }
-                    ?>
-                    <form action="./right.php" method="post" name="monatWeiter" target="_self" id="monatWeiter">
-                        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
-                        <input name="monat" type="hidden" id="monat" value="<?php echo($mon); ?>">
-                        <input name="jahr" type="hidden" id="jahr" value="<?php echo($jah); ?>">
-                        <input name="weiter" type="submit" class="btn btn-primary"
-                               onClick="updateLeft(<?php echo(($mon) . "," . ($jah) . "," . ($zimmer_id)); ?>,1);"
-                               id="weiter"
-                               value="<?php echo(getUebersetzung("einen Monat weiter", $sprache, $link)); ?>">
-                    </form>
-                </div>
             </div>
+
             <?php
         } //ende passwortprüfung
         else {

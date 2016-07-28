@@ -69,8 +69,10 @@ $showReservation = getPropertyValue(SHOW_RESERVATION_STATE, $unterkunft_id, $lin
 if ($showReservation != "true") {
     $showReservation = false;
 }
+
+include_once("leftJS.js.php");
 ?>
-<div class="panel panel-default">
+<div class="panel panel-default" id="leftView">
     <div class="panel-heading">
         <?php echo(getUebersetzung("Belegungsplan", $sprache, $link)); ?>
     </div>
@@ -79,11 +81,12 @@ if ($showReservation != "true") {
         //passwortprüfung:
         if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) { ?>
 
+
             <form action="./ansichtWaehlen.php" method="post" name="ZimmerNrForm" target="kalender"
                   class="form-horizontal">
                 <h4><?php echo(getUebersetzung("Ansicht für", $sprache, $link)); ?>:</h4>
-
-
+                <input ng-model="language" name="language" id="language" type="hidden"
+                       ng-value="<?php echo $sprache ?>">
                 <div class="form-group">
                     <div class="col-sm-2 ">
                         <label for="jahr" class="control-label">
@@ -92,145 +95,159 @@ if ($showReservation != "true") {
                     </div>
 
                     <div class="col-sm-4">
-                        <select name="jahr" class="form-control" id="jahr" value=""
-                                onChange="zimmerNrFormJahrChanged()">
-                            <?php
-                            for ($l = getTodayYear() - 4; $l < (getTodayYear() + 4); $l++) { ?>
-                                <option
-                                    value="<?php echo($l); ?>"<?php if ($l == $jahr) echo(" selected"); ?>><?php echo($l); ?>
-                                </option>
-                            <?php } ?>
+                        <select name="year" class="form-control"
+                                id="year"
+                                value=""
+                                ng-model="year"
+                                ng-change="yearChanged();"
+                                ng-options="item.year as item.year for item in years"
+                        >
+
                         </select>
                     </div>
 
-                    <label class="col-sm-2 control-label">
-                        <?php echo(getUebersetzung("Monat", $sprache, $link)); ?>
-                    </label>
+                    <div class="col-sm-2">
+                        <label class="control-label">
+                            <?php echo(getUebersetzung("Monat", $sprache, $link)); ?>
+                        </label>
+                    </div>
+
 
                     <div class="col-sm-4">
-                        <select name="monat" class="form-control" id="monat"
-                                onChange="zimmerNrFormJahrChanged()">
-                            <?php
-                            for ($i = 1; $i <= 12; $i++) { ?>
-                                <option
-                                    value="<?php echo $i ?>"<?php if ($i == parseMonthNumber(getTodayMonth())) echo(" selected"); ?>>
-                                    <?php echo(getUebersetzung(parseMonthName($i, "de"), $sprache, $link)); ?>
-                                </option>
-                            <?php } ?>
+                        <select name="month" class="form-control"
+                                id="month"
+                                value=""
+                                ng-model="month"
+                                ng-change="monthChanged();"
+                                ng-options="item.monthIndex as item.month for item in months"
+                        >
+
                         </select>
                     </div>
                 </div>
+
                 <div class="form-group">
 
-                    <label class="col-sm-2 control-label">
-                    <?php echo getZimmerArten($unterkunft_id, $link) ?>
-                    </label>
-
-                    <div class="col-sm-3">
+                    <div class="col-sm-6">
+                        <label class="control-label">
+                            <?php //echo getZimmerArten($unterkunft_id, $link) ?>
+                            <?php echo(getUebersetzung("Zimmer Art-Zimmer Nummer", $sprache, §link)); ?>
+                        </label>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4">
                         <select name="zimmer_id" class="form-control" id="zimmer_id"
-                                onChange="zimmerNrFormJahrChanged()">
-                            <?php
-                            $query = "
-						select
-						Zimmernr, PK_ID
-						from
-						Rezervi_Zimmer 
-						where 
-						FK_Unterkunft_ID = '$unterkunft_id'" .
-                                " order by Zimmernr
-						";
-
-                            $res = mysqli_query($link, $query);
-                            if (!$res)
-                                echo("Anfrage $query scheitert.");
-                            while ($d = mysqli_fetch_array($res)) { ?>
-                                <option value="<?php echo $d["PK_ID"] ?>"<?php if ($zimmer_id == $d["PK_ID"]) {
-                                    echo(" selected");
-                                } ?>><?php echo(getUebersetzungUnterkunft($d["Zimmernr"], $sprache, $unterkunft_id, $link)); ?></option>
-                            <?php } ?>
+                                ng-model="zimmer_id"
+                                ng-change="zimmer_idChanged();"
+                                ng-options="item.zimmerid as item.zimmerartnr for item in zimmers"
+                        >
                         </select>
                     </div>
                 </div>
 
-            </form>
-            <h4>  <?php echo(getUebersetzung("Ansicht wählen", $sprache, $link)); ?>:
-            </h4>
-            <form action="./ansichtWaehlen.php" method="post" id="ansichtWaehlen" name="ansichtWaehlen"
-                  target="kalender">
-
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <?php echo(getUebersetzung("Monat/Jahr", $sprache, $link)); ?> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a
-                                onclick="
-                                   $('#ansichtWaehlen').submit();
-                               "><?php echo(getUebersetzung("Monatsübersicht", $sprache, $link)); ?></a>
-                        </li>
-                        <li><a
-                                onclick="
-                                   $('#ansichtWaehlen').submit();
-                               "><?php echo(getUebersetzung("Jahresübersicht", $sprache, $link)); ?></a>
-                        </li>
-                    </ul>
+                <div class="row">
+                    <hr>
                 </div>
 
-                <!--<select name="ansichtWechsel" onChange="submit()" class="btn btn-primary">
-                                <option value="0"><?php /*echo(getUebersetzung("Monatsübersicht", $sprache, $link)); */ ?></option>
-                                <option value="1"><?php /*echo(getUebersetzung("Jahresübersicht", $sprache, $link)); */ ?></option>
-                            </select>-->
-                <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
-                <input name="jahr" type="hidden" id="jahr" value="<?php echo($jahr); ?>">
-                <input name="monat" type="hidden" id="monat"
-                       value="<?php echo(parseMonthNumber($monat)); ?>">
-
             </form>
+            <h4>
+                <?php echo(getUebersetzung("Ansicht wählen", $sprache, $link)); ?>:
+            </h4>
 
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    <?php echo(getUebersetzung("Monat/Jahr", $sprache, $link)); ?> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a ng-click="changeView(0);">
+                            <?php echo(getUebersetzung("Monatsübersicht", $sprache, $link)); ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="changeView(1);">
+                            <?php echo(getUebersetzung("Jahresübersicht", $sprache, $link)); ?>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-            <form action="./resAendern/resAendern.php" method="post" name="reservierung" target="kalender"
+            <input name="zimmer_id_left" type="hidden" id="zimmer_id_left" ng-model="zimmer_id_left"
+                   value="<?php echo($zimmer_id); ?>">
+            <input name="jahr_left" type="hidden" ng-model="jahr_left" id="jahr_left" value="<?php echo($jahr); ?>">
+            <input name="monat_left" type="hidden" id="monat_left" ng-model="monat_left"
+                   value="<?php echo(parseMonthNumber($monat)); ?>">
+            <input name="view" type="hidden" id="view" ng-model="view" value="0">
+
+            <div class="row">
+                <hr>
+            </div>
+
+            <form action="./resAendern/resAendern.php" method="post"  name="reservierung" target="_blank"
                   class="form-horizontal"
                   id="reservierung">
-                <h4> <?php echo(getUebersetzung("Reservierung ändern", $sprache, $link)); ?>:
+                <h4>
+                    <?php echo(getUebersetzung("Reservierung ändern", $sprache, $link)); ?>:
                 </h4>
-
-                <label class="control-label">
-                    <?php
-                    //status = 0: frei
-                    //status = 1: reserviert
-                    //status = 2: belegt
-                    ?>
-                    <input name="status" type="radio" value="2" checked/>
-                </label>
-                <?php echo(getUebersetzung("belegt", $sprache, $link)); ?>
-
                 <?php
-                if ($showReservation) {
-                    ?>
-
-                    <label class="control-label">
-                        <input name="status" type="radio" value="1"/>
-
-                        <?php echo(getUebersetzung("reserviert", $sprache, $link)); ?>
-                    </label>
-
-                    <?php
-                }
+                //status = 0: frei
+                //status = 1: reserviert
+                //status = 2: belegt
                 ?>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-danger active">
+                                <input type="radio" name="status" id="belegt" autocomplete="off" value="2" > <?php echo(getUebersetzung("belegt", $sprache, $link)); ?>
+                            </label>
+                            <?php
+                            if ($showReservation) {
+                                ?>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="status" id="reserviert" autocomplete="off" value="1"> <?php echo(getUebersetzung("reserviert", $sprache, $link)); ?>
+                                </label>
+                                <?php
+                            }
+                            ?>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="status" id="frei" autocomplete="off" value="0" checked> <?php echo(getUebersetzung("frei", $sprache, $link)); ?>
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
-                <label>
-                    <input name="status" type="radio" value="0"/>
 
-                    <?php echo(getUebersetzung("frei", $sprache, $link)); ?>
-                </label>
+<!--                <label class="control-label">-->
+<!--                    <input name="status" type="radio" value="2" checked/>-->
+<!--                </label>-->
+<!--                --><?php //echo(getUebersetzung("belegt", $sprache, $link)); ?>
+<!---->
+<!--                --><?php
+//                if ($showReservation) {
+//                    ?>
+<!---->
+<!--                    <label class="control-label">-->
+<!--                        <input name="status" type="radio" value="1"/>-->
+<!---->
+<!--                        --><?php //echo(getUebersetzung("reserviert", $sprache, $link)); ?>
+<!--                    </label>-->
+<!---->
+<!--                    --><?php
+//                }
+//                ?>
+<!---->
+<!--                <label>-->
+<!--                    <input name="status" type="radio" value="0"/>-->
+<!---->
+<!--                    --><?php //echo(getUebersetzung("frei", $sprache, $link)); ?>
+<!--                </label>-->
 
                 <div class="form-group">
                     <label class="control-label col-sm-2"><?php echo(getUebersetzung("von", $sprache, $link)); ?>
                         : </label>
                     <div class="col-sm-3">
                         <!--  heutigen tag selectiert anzeigen: -->
-                        <select name="vonTag" class="form-control " id="select">
+                        <select name="vonTag" ng-model="vonTag" class="form-control " id="vonTag">
                             <?php for ($i = 1; $i <= 31; $i++) { ?>
                                 <option
                                     value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo(" selected"); ?>><?php echo($i); ?></option>
@@ -268,7 +285,7 @@ if ($showReservation != "true") {
                     </div>
                     <div class="col-sm-3">
                         <!--  heutiges jahr selectiert anzeigen: -->
-                        <select name="vonJahr" class="form-control " id="vonJahr" onChange="chkDays(0)">
+                        <select name="vonJahr" class="form-control "  id="vonJahr" onChange="chkDays(0)">
                             <?php
                             for ($l = getTodayYear() - 4; $l < (getTodayYear() + 4); $l++) { ?>
                                 <option
@@ -284,16 +301,15 @@ if ($showReservation != "true") {
                     <label class="control-label col-sm-2"><?php echo(getUebersetzung("bis", $sprache, $link)); ?>
                         : </label>
                     <div class="col-sm-3">
-                        <select name="bisTag" class="form-control" id="select4">
+                        <select name="bisTag" class="form-control" id="bisTag">
                             <?php for ($i = 1; $i <= 31; $i++) { ?>
-                                <option
-                                    value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo " selected"; ?>><?php echo($i); ?></option>
+                                <option value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo " selected"; ?>><?php echo($i); ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="col-sm-4">
                         <!--  heutiges monat selectiert anzeigen: -->
-                        <select name="bisMonat" class="form-control" id="bisMonat" onChange="chkDays(1)">
+                        <select name="bisMonat"  class="form-control" id="bisMonat"  onChange="chkDays(1)">
                             <option
                                 value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
                             <option
@@ -332,21 +348,29 @@ if ($showReservation != "true") {
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-sm-offset-6 col-sm-3">
+                <div class="row">
+                    <div class="col-sm-offset-6 col-sm-6" style="text-align: right;">
                         <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
-                        <input name="reservierungAendern" type="submit" class="btn btn-primary"
-                               id="reservierungAbsenden2"
-                               value="<?php echo(getUebersetzung("Reservierung ändern", $sprache, $link)); ?>">
+                        <button name="reservierungAendern" type="submit" class="btn btn-primary"
+                                id="reservierungAbsenden2">
+                            <span class="glyphicon glyphicon-wrench"></span>
+                            <?php echo(getUebersetzung("Reservierung ändern", $sprache, $link)); ?>
+                        </button>
                     </div>
                 </div>
 
             </form>
+
+            <div class="row">
+                <hr>
+            </div>
             <div class="form-group">
                 <form action="../inhalt.php" method="post" name="hauptmenue" target="_parent">
-                    <input type="submit" name="Submit3"
-                           value="<?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>"
-                           class="btn btn-success">
+                    <button type="submit" name="Submit3" class="btn btn-success">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>
+                    </button>
+
                 </form>
             </div>
 

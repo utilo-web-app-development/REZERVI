@@ -189,6 +189,7 @@ function printResAdmin($zimmer_id,$i,$month,$year,$saAktiviert,$link){
 //---------------------------------------------------------------
 //funktion zum anzeigen eines kalendermonats:
 function showYear($month,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,$link){ ?>
+
 		<table  border="0" cellspacing="0" cellpadding="0" class="tableColor">
 		  <tr>
 			<td class="tableColor"><?php echo(getUebersetzung("Januar",$sprache,$link)); ?></td>

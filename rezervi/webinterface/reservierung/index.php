@@ -1,4 +1,6 @@
-<?php session_start();
+<?php
+//session_save_path('/Users/emreerden/Desktop/temp');
+session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define('_JEXEC', 1);
@@ -37,15 +39,16 @@ include_once("../templates/headerA.php");
 
 <script language="JavaScript" type="text/javascript" src="../../templates/changeForms.js">
 </script>
-<script language="JavaScript" type="text/javascript" src="./leftJS.js">
-</script>
-<script language="JavaScript" type="text/javascript" src="./rightJS.js">
-</script>
+<!--<script language="JavaScript" type="text/javascript" src="./leftJS.js">-->
+<!--</script>-->
+<!--<script language="JavaScript" type="text/javascript" src="./rightJS.js">-->
+<!--</script>-->
 <?php include_once("../templates/headerB.php"); ?>
 
 <?php include_once("../templates/bodyA.php"); ?>
-<div class="row">
+<div class="row" ng-app="rezervierungApp" ng-controller="rezervierungController">
     <div class="col-sm-5">
+
         <?php include_once("left.php"); ?>
     </div>
     <div class="col-sm-7">

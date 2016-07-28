@@ -1,3 +1,4 @@
+<script language="JavaScript" type="text/javascript">
 
     function updateLeft(monatValue,jahrValue,zimmer_idValue,form){
 
@@ -19,3 +20,4 @@
     document.monatZurueck.submit();
 }
 }
+</script>

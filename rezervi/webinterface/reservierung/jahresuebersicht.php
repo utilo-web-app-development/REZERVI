@@ -1,8 +1,8 @@
-<?php session_start();
+<?php //session_start();
 $root = "../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
-include_once($root."/include/sessionFunctions.inc.php");
+//include_once($root."/include/sessionFunctions.inc.php");
 /*   
 	reservierungsplan
 	anzeige des kalenders
@@ -12,16 +12,38 @@ include_once($root."/include/sessionFunctions.inc.php");
 	Unterkunft PK_ID ($unterkunft_id)
 */
 
-//variablen initialisieren:
-$unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-$passwort = getSessionWert(PASSWORT);
-$benutzername = getSessionWert(BENUTZERNAME);
-$sprache = getSessionWert(SPRACHE);
-$zimmer_id = $_POST["zimmer_id"];
-$monat = 1;
-$jahr = $_POST["jahr"];
-setSessionWert(ZIMMER_ID,$zimmer_id);
-$sprache = getSessionWert(SPRACHE);
+$data = json_decode(file_get_contents("php://input"));
+
+$unterkunft_id = $data->unterkunft_id;
+
+
+$sprache = $data->sprache;
+
+if (isset($data->zimmer_id)) {
+    $zimmer_id = $data->zimmer_id;
+} else {
+    $zimmer_id = getFirstRoom($unterkunft_id, $link);
+}
+if (isset($data->month)) {
+    $month = $data->month;
+} else {
+    $month = parseMonthNumber(getTodayMonth());
+}
+if (isset($data->year)) {
+    $year = $data->year;
+} else {
+    $year = getTodayYear();
+}
+//ich brauche für jahr einen integer:
+$year += 1;
+$year -= 1;
+//und fürs monat einen integer
+$month -= 1;
+$month += 1;
+
+$month = 1;
+
+//setSessionWert(ZIMMER_ID,$zimmer_id);
 
 //datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
@@ -41,79 +63,8 @@ include_once("./jahresuebersichtHelper.php");
 	include_once("../../include/propertiesFunctions.php");
 	$saAktiviert = getPropertyValue(SHOW_OTHER_COLOR_FOR_SA,$unterkunft_id,$link);
 
-	
+$response = "";
+
+$response .= showYear(1,$year,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,$link);
+echo $response;
 ?>
-<?php include_once("../templates/headerA.php"); ?>
-<style type="text/css">
-<?php include_once($root."/templates/stylesheetsIE9.php"); ?>
-</style>
-<?php include_once("../templates/headerB.php"); ?>
-<?php include_once("../templates/bodyA.php"); ?>
-<script language="JavaScript" type="text/javascript" src="./rightJS.js">
-</script>
-<?php		
-	//passwortprüfung:	
-	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){ ?>
-<div class="panel panel-default">
-  <div class="panel-body">
-  	
-
-
-    <h4><?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <?php echo($jahr); ?>, 
-      <?php echo(getUebersetzung("für",$sprache,$link)); ?> <?php echo(getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?> 
-      <?php echo(getUebersetzungUnterkunft(getZimmerNr($unterkunft_id,$zimmer_id,$link),"de",$unterkunft_id,$link)); ?></h4>
-
-<br/>
-<table width="100%" border="0" class="tableColor">
-  <tr>
-    <td colspan="2"><?php			
-			//monat ausgeben:
-			showYear(1,$jahr,$unterkunft_id,$zimmer_id,$sprache,$saAktiviert,$link);			
-		?>
-    </td>
-  </tr>
-  <tr valign="middle">
-    <td width="50%"><?php		
-		$jah = $jahr-1;
-		if (!($jah < getTodayYear()-4)){																					 																			
-		?>
-		
-		<br>
-      <form action="./jahresuebersicht.php" method="post" name="monatZurueck" target="_self" id="monatZurueck">
-        <div align="right">
-          <input name="monat" type="hidden" id="monat" value="<?php echo($monat); ?>">
-          <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
-          <input name="jahr" type="hidden" id="jahr" value="<?php echo($jah); ?>">
-          <input name="zurueck" type="submit" class="btn btn-primary"  onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,0);" id="zurueck" value="<?php echo(getUebersetzung("ein Jahr zurück",$sprache,$link)); ?>">
-        </div>
-        <br>
-      </form>
-      <?php } //ende if jahr 
-	  ?></td>
-    <td width="50%"><?php		
-		$jah = $jahr+1;
-		if (!($jah >= getTodayYear()+4)){																															
-		?>
-      <form action="./jahresuebersicht.php" method="post" name="monatWeiter" target="_self" id="monatWeiter">
-        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
-        <input name="jahr" type="hidden" id="jahr" value="<?php echo ($jah); ?>">
-        <input name="monat" type="hidden" id="monat" value="<?php echo($monat); ?>">
-        <input name="weiter" type="submit" class="btn btn-primary"  onClick="updateLeft(<?php echo(($monat).",".($jah).",".($zimmer_id)); ?>,1);" id="weiter" value="<?php echo(getUebersetzung("ein Jahr weiter",$sprache,$link)); ?>">
-      </form>
-      <?php } //ende if jahr 
-	  ?></td>
-  </tr>
-  <tr valign="middle">
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-<?php } //ende passwortprüfung 
-	else{
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
-		}
-?>
-</div>
-</div>
-</body>
-</html>
