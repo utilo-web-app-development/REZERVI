@@ -24,7 +24,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	$DBMS_URL = "localhost";
 	//Name of the MySQL database:
 	//-- german:
-	$DB_NAME = "rezervi_test";
+	$DB_NAME = "rezervi";
 	//username of the MySQL database:
 	//-- german:
 	//Benutzername der MySQL Datenbank:

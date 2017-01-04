@@ -2,29 +2,26 @@
 'use strict';
 
 function checkForm(formId) {
-    var invalid=false;
+    var invalid = false;
     $("input").each(function () {
         if ($(this).val() == '' && $(this).attr('required')) {
-            invalid=true;
+            invalid = true;
             $(this).focus();
-           // alert("Füllen Sie bitte alle Fields");
             return false;
 
         }
     });
     $("select").each(function () {
         if ($(this).val() == '' && $(this).attr('required')) {
-            invalid=true;
+            invalid = true;
             $(this).focus();
-            //alert("Füllen Sie bitte alle Fields");
             return false;
         }
     });
     $("textarea").each(function () {
         if ($(this).val() == '' && $(this).attr('required')) {
-            invalid=true;
+            invalid = true;
             $(this).focus();
-
             return false;
         }
     });
@@ -46,7 +43,7 @@ var rezervi = angular.module('rezerviApp', []);
 
 rezervi.controller('MainController', function($scope,$http) {
 
-    $scope.sicher=function (formId) {
+    $scope.sicher = function (formId) {
         $('#'+formId).submit();
     }
 });
@@ -72,4 +69,4 @@ rezervi.directive('ngConfirmClick', [
                 });
             }
         };
-    }])
+    }]);
