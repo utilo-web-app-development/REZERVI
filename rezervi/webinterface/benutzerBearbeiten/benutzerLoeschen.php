@@ -91,28 +91,6 @@ $sprache = getSessionWert(SPRACHE);
 	<div class="alert alert-success" role="alert">
 		<?php echo(getUebersetzung("Der Benutzer wurde aus der Datenbank gelöscht!",$sprache,$link)); ?></p>
 	</div>
-	
-	
-
-<!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr> 
-    <td><form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-
-        <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>">
-      </form></td>
-  </tr>
-</table>
-<br/>
-<table border="0" cellpadding="0" cellspacing="0" class="table">
-  <tr> 
-    <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
-
-        <input name="retour2" type="submit" class="button200pxA" id="retour2" onMouseOver="this.className='button200pxB';"
-	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü",$sprache,$link)); ?>">
-      </form></td>
-  </tr>
-</table> -->
 <?php 
 	} //ende if passwortprüfung
 	else {
@@ -122,5 +100,7 @@ $sprache = getSessionWert(SPRACHE);
 		</div>		
  <?php	}
  ?>
+  </div>
+</div>
 </body>
 </html>

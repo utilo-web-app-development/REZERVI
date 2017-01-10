@@ -13,4 +13,4 @@
 <script src="../libs/bootstrap-toggle/js/bootstrap-toggle.js"></script>
 <script src="../libs/bootboxjs/bootbox.min.js"></script>
 
-<script src="../libs/appJs/app-js.js"></script>
+<!--<script src="../libs/appJs/app-js.js"></script>-->

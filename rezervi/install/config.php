@@ -8,125 +8,68 @@ include_once($root . "/layouts/header.php");
 
 ?>
 <title>Installation Rezervi</title>
+<?php include_once("subtemplates/config.js.php"); ?>
 <?php include_once($root . "/layouts/headerEnd.php"); ?>
 
 <body class="backgroundColor" data-pinterest-extension-installed="cr1.39.1">
 <div class="container" style="margin-top:20px;">
-    <div class="panel panel-default" ng-app="rezerviApp" ng-controller="MainController">
+    <div class="panel panel-default"  ng-app="rezerviApp" ng-controller="MainController">
 
         <div class="panel-heading">
             <h2>
-                <?php
-                if ($_POST["sprache"] == "de") {
-                    ?>
-                    Rezervi Belegungsplan und Kundendatenbank
-                    <?php
-                } else {
-                    ?>
-                    Rezervi availability overview and guest database
-                    <?php
-                }
-                ?>
+                {{title}}
             </h2>
         </div>
         <div class="panel-body">
 
-            <form action="install.php" method="post" class="form-horizontal" id="formConfig" name="formConfig"
-                  target="_self" >
+            <form action="install.php" method="post" class="form-horizontal" name="formConfig" id="formConfig"
+                  target="_self" novalidate>
+                <input type="hidden" name="sprache" ng-model="sprache" value="<?php echo $_POST["sprache"]; ?>">
 
+                <div class="form-group">
+                    <label for="unterkunft_name" class="col-sm-4">
+                        {{unterkunft_name_Label}}
+                    </label>
+                    <div class="col-sm-8">
+                        <input name="unterkunft_name" id="unterkunft_name" ng-model="unterkunft_name" type="text" class="form-control"
+                               required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="art" class="col-sm-4">
+                        {{art_Label}}
+                    </label>
+                    <div class="col-sm-8">
+                        <input name="art" id="art" type="text" ng-model="art" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mietobjekt_ez" class="col-sm-4">
+                        {{mietobjekt_ez_Label}}
 
-                <div class="form-group">
-                    <label for="anrede" class="col-sm-4">
-                        <?php
-                        if ($_POST["sprache"] == "de") {
-                            ?>
-                            Name ihrer Unterkunft
-                            <?php
-                        } else {
-                            ?>
-                            Name of your accomodation
-                            <?php
-                        }
-                        ?>
                     </label>
                     <div class="col-sm-8">
-                        <input name="unterkunft_name" type="text" class="form-control">
+                        <input name="mietobjekt_ez" id="mietobjekt_ez" ng-model="mietobjekt_ez" type="text" class="form-control"
+                               required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="anrede" class="col-sm-4 ">
-                        <?php
-                        if ($_POST["sprache"] == "de") {
-                            ?>
-                            Art ihrer Unterkunft (z. B. Hotel)
-                            <?php
-                        } else {
-                            ?>
-                            Type of your accomodation (eg. Hotel)
-                            <?php
-                        }
-                        ?>
+                    <label for="mietobjekt_mz" class="col-sm-4">
+                        {{mietobjekt_mz_Label}}
                     </label>
                     <div class="col-sm-8">
-                        <input name="art" type="text" class="form-control">
+                        <input name="mietobjekt_mz" id="mietobjekt_mz" ng-model="mietobjekt_mz" type="text" class="form-control"
+                               required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="anrede" class="col-sm-4 ">
-                        <?php
-                        if ($_POST["sprache"] == "de") {
-                            ?>
-                            Bezeichnung ihres Mietobjektes - Einzahl (z. B. Zimmer, Appartement)
-                            <?php
-                        } else {
-                            ?>
-                            Name of your object to rent - singular (eg. room, apartement)
-                            <?php
-                        }
-                        ?>
-                    </label>
-                    <div class="col-sm-8">
-                        <input name="mietobjekt_ez" type="text" class="form-control">
-                    </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary" ng-model="submit" ng-disabled="formConfig.$invalid">
+                        {{button_Label}}
+                    </button>
                 </div>
-                <div class="form-group">
-                    <label for="anrede" class="col-sm-4 ">
-                        <?php
-                        if ($_POST["sprache"] == "de") {
-                            ?>
-                            Bezeichnung ihres Mietobjektes - Mehrzahl (z. B. Zimmer, Appartements)
-                            <?php
-                        } else {
-                            ?>
-                            Name of your object to rent - plural (eg. rooms, apartements)
-                            <?php
-                        }
-                        ?>
-                    </label>
-                    <div class="col-sm-8">
-                        <input name="mietobjekt_mz" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-offset-10 col-md-2">
-                    <input name="Submit" type="submit" class="btn btn-success" ng-disabled="!formConfig.$valid" value="<?php
-                    if ($_POST["sprache"] == "de") {
-                        ?>Weiter<?php
-                    } else {
-                        ?>Continue<?php
-                    }
-                    ?>">
-                </div>
+            </form>
         </div>
     </div>
-    </form>
-
 </div>
-<script>
-    var rezervi = angular.module('rezerviApp', []);
-
-    rezervi.controller('MainController', function($scope) {
-
-    });
-</script>
 </body>
 </html>

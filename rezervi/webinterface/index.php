@@ -18,7 +18,7 @@ define( '_JEXEC', 1 );
 	else if (isset($_GET["sprache"])){
 		$sprache = $_GET["sprache"];
 	}
-	else if (getSessionWert(SPRACHE)!=false){
+	else if (getSessionWert(SPRACHE) != false){
 		$sprache = getSessionWert(SPRACHE);
 	}
 	if (!isset($sprache) || $sprache == ""){
@@ -42,7 +42,7 @@ define( '_JEXEC', 1 );
 	if (!isset($unterkunft_id)){
 		$unterkunft_id = 1;
 	}
- 	
+    setSessionWert(SPRACHE, $sprache);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -240,7 +240,7 @@ else{
         <?php if ($isReseller) { ?>
         	<font size="1">Rezervi by <?php echo $resellerName ?> 2008</font>
         <?php } else { ?>
-    		<font size="1">&copy; UTILO, 2002 - 2008</font>
+    		<font size="1">&copy; UTILO, 2002 - 2017</font>
     	<?php } ?>
     </td>
   </tr>

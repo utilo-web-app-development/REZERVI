@@ -6,7 +6,6 @@ define('_JEXEC', 1);
 include_once($root . "/conf/rdbmsConfig.php");
 ?>
 <!DOCTYPE HTML>
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
@@ -127,7 +126,7 @@ include_once($root . "/conf/rdbmsConfig.php");
                         <option value="en">Englisch</option>
                     </select>
                 </div>
-                <input name="Submit" type="submit" class="btn btn-success" ng-disabled="submitButtonDisable" value="Continue / Weiter">
+                <input name="Submit" type="submit" class="btn btn-primary" ng-disabled="submitButtonDisable" value="Continue / Weiter">
             </form>
         </div>
     </div>

@@ -72,8 +72,9 @@ if (isset($_POST["sprache"]) && $_POST["sprache"] != "") {
     setSessionWert(SPRACHE, $sprache);
 } else {
     $sprache = getSessionWert(SPRACHE);
-}
 
+}
+setSessionWert(SPRACHE, $sprache);
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //unterkünfte sperren:
@@ -81,7 +82,9 @@ if (isset($_POST["sprache"]) && $_POST["sprache"] != "") {
 if ($unterkunft_id == -1) {
     echo("Zugang gesperrt!");
     $fehlgeschlagen = true;
-    include_once("./index.php");
+    //include_once("./index.php");
+    header("Location: http://localhost/rezervi/rezervi/webinterface/index.php"); /* Redirect browser */
+    exit();
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -433,14 +436,7 @@ else {
         </div>
     </div>
 
-
-    </div>
-    </div>
-    </div>
-
-
-    </body>
-    </html>
+    <?php include_once("../templates/bodyA.php"); ?>
     <?php
 } //ende sperren unterkünfte
 //} //ende passwortprüfung ok

@@ -46,5 +46,7 @@
         <script src="<?php echo ($root)?>/libs/bootstrap-toggle/js/bootstrap-toggle.js"></script>
         <script src="<?php echo ($root)?>/libs/bootboxjs/bootbox.min.js"></script>
 
+        <script src="<?php echo ($root)?>/libs/angular/use-form-error.js"></script>
+        <script src="<?php echo ($root)?>/libs/angular/angular-messages.min.js"></script>
         <script src="<?php echo ($root)?>/libs/appJs/app-js.js"></script>
 

@@ -13,14 +13,14 @@ include_once("../include/propertiesFunctions.php");
 include_once("../include/reseller/reseller.php");
 	
 ?>
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
 <title>Unterkunft in DB eintragen</title>
 <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
 </head>
 
-<body class="backgroundColor">
+<body class="backgroundColor">-->
 <?php
 
 $anwort = "";
@@ -223,5 +223,5 @@ else{
 
 
 ?> 
-</body>
-</html>
+<!--</body>
+</html>-->

@@ -11,8 +11,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand"
-               href="#"><?php echo(getUebersetzung(getUnterkunftName($unterkunft_id, $link), $sprache, $link)); ?></a>
+            <a class="navbar-brand" href="#">
+                <?php echo(getUebersetzung(getUnterkunftName($unterkunft_id, $link), $sprache, $link)); ?>
+            </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -80,10 +81,12 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo $root ?>/webinterface/abmelden.php">Abmelden</a></li>
-        </div><!--/.nav-collapse -->
+                <li>
+                    <a href="<?php echo $root ?>/webinterface/abmelden.php">Abmelden</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
-<!--    <div class="container" style="margin-top:70px;">-->
 <div class="container" style="margin-top:20px;">
