@@ -24,7 +24,6 @@ include_once("../../include/unterkunftFunctions.php");
 //uebersetzer einfuegen:
 include_once("../../include/uebersetzer.php");
 
-
 ?>
 <?php include_once("../templates/headerA.php"); ?>
 <style type="text/css">
@@ -33,18 +32,50 @@ include_once("../../include/uebersetzer.php");
 <?php include_once("subtemplates/index.js.php"); ?>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
-<?php //passwortprüfung:	
+<?php
+//passwortprüfung:
 if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 ?>
-
+<div class="panel panel-default">
+    <div class="panel-body">
+        <a class="btn btn-primary" href="./benutzerAnlegen.php">
+            <?php echo(getUebersetzung("Benutzer anlegen", $sprache, $link)); ?>
+        </a>
+    </div>
+</div>
 <div class="panel panel-default" ng-app="rezerviApp" ng-controller="MainController">
     <div class="panel-heading">
-        <h2>
-            <?php echo(getUebersetzung("Benutzer bearbeiten", $sprache, $link)); ?>
-            TODO: Make a list of users
-        </h2>
+        <h3 class="panel-title">
+            <?php echo(getUebersetzung("Benutzer", $sprache, $link)); ?>
+        </h3>
     </div>
     <div class="panel-body">
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th><?php echo(getUebersetzung("Benutzer", $sprache, $link)); ?></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="userInfo in usersArray">
+                <td>
+                    {{userInfo.name}}
+                </td>
+                <td class="text-right" nowrap>
+                    <a class="btn btn-primary" href="./benutzerAendern.php?id={{userInfo.id}}" id="{{userInfo.id}}">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp
+                        <?php echo(getUebersetzung('Bearbeiten', $sprache, $link)); ?>
+                    </a>
+                    <a class="btn btn-danger" href="./benutzerLoeschenBestaetigen.php?id={{userInfo.id}}"
+                       id="{{userInfo.id}}">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp
+                        <?php echo(getUebersetzung('Löschen', $sprache, $link)); ?>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
         <div class="form-group">
             <label class="col-sm-2">
                 <?php echo(getUebersetzung("Benutzer", $sprache, $link)); ?>
@@ -58,7 +89,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
             <div class="col-sm-7">
                 <a class="btn btn-primary" href="./benutzerAendern.php?id={{users}}" id="{{users}}">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp
-                    <?php echo(getUebersetzung("Benutzer Ändern", $sprache, $link)); ?>
+                    <?php echo(getUebersetzung("Benutzer Bearbeiten", $sprache, $link)); ?>
                 </a>
 
                 <?php

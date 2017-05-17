@@ -1,5 +1,6 @@
 <script>
 
+
     var rezervi = angular.module('rezerviApp', []);
 
     rezervi.controller('MainController', function($scope,$http) {
