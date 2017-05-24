@@ -83,7 +83,7 @@ if ($unterkunft_id == -1) {
     echo("Zugang gesperrt!");
     $fehlgeschlagen = true;
     //include_once("./index.php");
-    header("Location: http://localhost/rezervi/rezervi/webinterface/index.php"); /* Redirect browser */
+    header("Location: ".$URL."webinterface/index.php"); /* Redirect browser */
     exit();
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -116,7 +116,7 @@ else {
             <?php
             if ($benutzerrechte >= 1 && $anzahlVorhandenerZimmer > 0) {
                 ?>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 1){ echo('style="margin-bottom: 10px;"'); }?>>
                     <div class="col-sm-3">
                         <a href="./reservierung/index.php" role="button" class="btn btn-default"
                            name="resEingebenAendern" style="width: 100%;"
@@ -131,7 +131,7 @@ else {
                         </label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 1){ echo('style="margin-bottom: 10px;"'); }?>>
                     <div class="col-sm-3">
                         <a href="./anfragenBearbeiten/index.php" role="button" class="btn btn-default"
                            name="anfragenBearbeiten" style="width: 100%;"
@@ -146,7 +146,7 @@ else {
                         </label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 1){ echo('style="margin-bottom: 10px;"'); }?>>
                     <div class="col-sm-3">
                         <a href="./gaesteBearbeiten/index.php" role="button" class="btn btn-default"
                            name="gaesteBearbeiten" style="width: 100%;"
@@ -185,7 +185,10 @@ else {
             }
             if ($benutzerrechte >= 2) {
                 ?>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 2)
+                {
+	                echo('style="margin-bottom: 10px;"');
+                } ?> >
                     <div class="col-sm-3">
                         <a href="./benutzerBearbeiten/index.php" role="button" class="btn btn-default"
                            style="width: 100%;"
@@ -204,7 +207,7 @@ else {
             }
             if ($benutzerrechte >= 2) {
                 ?>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 2){ echo('style="margin-bottom: 10px;"'); }?> >
                     <div class="col-sm-3">
                         <a href="./zimmerBearbeiten/index.php" role="button" class="btn btn-default"
                            name="zimmerBearbeiten" style="width: 100%;"
@@ -243,7 +246,7 @@ else {
             //prüfen ob benutzer das recht hat den folgenden link auszuführen:
             if ($benutzerrechte >= 2) {
                 ?>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 2){ echo('style="margin-bottom: 10px;"'); }?> >
                     <div class="col-sm-3">
                         <a href="./unterkunftBearbeiten/index.php" role="button" class="btn btn-default"
                            style="width: 100%;"
@@ -282,7 +285,7 @@ else {
             //prüfen ob benutzer das recht hat den folgenden link auszuführen:
             if ($benutzerrechte >= 2) {
                 ?>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 2){ echo('style="margin-bottom: 10px;"'); }?> >
                     <div class="col-sm-3">
                         <a href="./divEinstellungen/index.php" role="button" class="btn btn-default"
                            name="DiverseEinstellungen" style="width: 100%;"
@@ -319,7 +322,7 @@ else {
             }
             if ($benutzerrechte >= 2) {
                 ?>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 2){ echo('style="margin-bottom: 10px;"'); }?> >
                     <div class="col-sm-3">
                         <a href="../webinterface/designBearbeiten/index.php" role="button" class="btn btn-default"
                            style="width: 100%;"
@@ -357,7 +360,7 @@ else {
             }
             if ($benutzerrechte >= 2) {
                 ?>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 2){ echo('style="margin-bottom: 10px;"'); }?> >
                     <div class="col-sm-3">
                         <a href="./autoResponse/index.php" role="button" class="btn btn-default"
                            name="antwortenBearbeiten" style="width: 100%;"
@@ -395,7 +398,7 @@ else {
                 <?php
             }
             ?>
-            <div class="row">
+            <div class="row" <?php if ($benutzerrechte >= 1){ echo('style="margin-bottom: 10px;"'); }?>>
                 <div class="col-sm-3">
                     <a href="http://www.rezervi.com/joomlaRezervi/index.php/rezervi-belegungsplan/dokumentation"
                        role="button" style="width: 100%;"
@@ -413,7 +416,7 @@ else {
             <?php
             if ($benutzerrechte >= 1) {
                 ?>
-                <div class="row">
+                <div class="row" <?php if ($benutzerrechte >= 1){ echo('style="margin-bottom: 10px;"'); }?>>
                     <div class="col-sm-3">
                         <a href="./abmelden.php" role="button" class="btn btn-default" name="abmelden" target="_blank"
                            style="width: 100%;">
@@ -436,7 +439,7 @@ else {
         </div>
     </div>
 
-    <?php include_once("../templates/bodyA.php"); ?>
+	<?php include_once("./templates/end.php"); ?>
     <?php
 } //ende sperren unterkünfte
 //} //ende passwortprüfung ok

@@ -6,25 +6,43 @@
 
     rezervi.controller('MainController', function($scope,$http) {
 
-        $scope.sprache = "<?php echo $sprache; ?>";
-        $scope.pass = "";
-        $scope.pass2 = "";
+    $scope.sprache = "<?php echo $sprache; ?>";
+    $scope.pass = "";
+    $scope.pass2 = "";
 
-        $scope.name = "";
+    $scope.name = "";
 
-        $scope.roles = [
-            {id: '0', role: '<?php echo(getUebersetzung("Benutzer", $sprache, $link)); ?>'},
-            {id: '1', role: '<?php echo(getUebersetzung("Administrator", $sprache, $link)); ?>'}
-        ];
-        $scope.rechte = $scope.roles[0].id;
-
-        if($scope.sprache == "de"){
-
+    $scope.roles = [
+        <?php
+        $query = "select 
+                    *
+                    from 
+                    Rezervi_Role
+                    ";
+        $res = mysqli_query($link, $query);
+        if (!$res)
+        {
+            echo("die Anfrage $query scheitert.");
         }
-        else{
-
+        else
+        {
+            while ($d = mysqli_fetch_array($res)) {
+        ?>
+            {id: '<?php echo($d["FK_Role_ID"]); ?>', role: '<?php echo($d["Name"]); ?>'},
+        <?php
+            }
         }
-    });
+        ?>
+    ];
+    $scope.rechte = $scope.roles[0].id;
+
+    if($scope.sprache == "de"){
+
+}
+    else{
+
+}
+});
 
 
 </script>

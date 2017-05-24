@@ -44,7 +44,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	//falls Rezervi in einem speziellen Verzeichnis ihres Webservers
 	//installiert wurde, geben sie bitte auch diesen Pfad mit in der URL an.
 	//z. B. $URL = "http://www.mein-domainname.com/rezerviStable/"
-	$URL = "http://www.rezervi.com";
+	//$URL = "http://www.rezervi.com";
+	$URL = "http://localhost/rezervi/rezervi/";
 	//e-mail address:
 	//--german:
 	//E-Mail-Adresse:

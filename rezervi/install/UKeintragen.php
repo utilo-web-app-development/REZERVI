@@ -115,7 +115,25 @@ $button200pxB="	font-family: Arial, Helvetica, sans-serif;
 
 $samstagBelegt=$belegt;
 $samstagFrei=$frei;
-$samstagReserviert=$reserviert;		
+$samstagReserviert=$reserviert;
+
+    //insert roles
+$roleAdmin = "Admin";
+$roleUser = "User";
+$roleGuest = "Guest";
+    $query = "
+        REPLACE INTO 
+        Rezervi_Role
+        (FK_Role_ID, Name)
+        VALUES 
+        (2,'$roleAdmin'),
+        (0,'$roleUser')
+    ";
+    $res = mysqli_query($link, $query);
+    if (!$res) {
+        $antwort = mysqli_error($link);
+        $fail = true;
+    }
 
 	//als erstes die unterkunft anlegen und den PK_ID ausspucken:
 	$query = "

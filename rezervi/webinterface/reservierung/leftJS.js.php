@@ -69,10 +69,10 @@
 
 }
 
-//
-//    liefert den ausgew ? hlten tag aus dem
-//    von - select
-//
+    //
+    // liefert den ausgew ? hlten tag aus dem
+    // von - select
+    //
     function getSelectedTagVon(){
 
     return document.reservierung.vonTag.selectedIndex;;
@@ -156,29 +156,282 @@
 }
 
     //Angular-Start
-    var rezervi = angular.module('rezervierungApp', []);
+    var rezervi = angular.module('rezervierungApp', []
+    )
+    ;
 
-    rezervi.controller('rezervierungController', function ($scope, $http){
+    rezervi.controller('rezervierungController', function ($scope, $http
+    ){
 
-        $scope.show=true;
-        $scope.showweiteryear=true;
-        $scope.showzurueckyear=true;
-        $scope.view = 0;
+    $scope.show = true;
+    $scope.showweiteryear=true;
+    $scope.showzurueckyear=true;
+    $scope.view = 0;
 
-        //getting years
-        var i=0;
-        var yearsArray=[];
-        for(var year = (new Date().getFullYear())-4;year< ((new Date().getFullYear())+4);year++)
+    //getting years
+    var i=0;
+    var yearsArray=[];
+    for(var year = (new Date().getFullYear())-4;year< ((new Date().getFullYear())+4);year++)
+{
+    yearsArray[i]={"year":year };
+    i++;
+}
+    $scope.years = yearsArray;
+    $scope.year = new Date().getFullYear();
+
+    $scope.yearChanged=function () {
+    $scope.jahr_left = $scope.year;
+    $scope.jahr_right = $scope.year;
+    var FormData = {
+    'month' : $scope.month,
+    'year' : $scope.year,
+    'zimmer_id':$scope.zimmer_id,
+    'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
+    'sprache':'<?php echo($sprache);?>'
+};
+    if($scope.view == 0)
+{
+    url="<?php echo $URL; ?>webinterface/reservierung/updateRightView.php";
+}
+    else
+{
+    url="<?php echo $URL; ?>webinterface/reservierung/jahresuebersicht.php";
+}
+    var zimmerName = $.grep($scope.zimmers,function(zimmer){
+    return zimmer.zimmerid == $scope.zimmer_id;
+})[0].zimmerartnr;
+
+    var head="";
+    if($scope.view == 0)
+{
+    head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
+}
+    else
+{
+    head = "Belegungsplan "+$scope.year+", für "+$scope.zimmer_id;
+}
+    $http.post(url,FormData)
+    .then(function(response){
+
+    //var head= "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+$scope.zimmer_id;
+    // $('#rightView').hide('slow');
+    $('#rightView').children('.panel-heading').html(head);
+    $('#monthView').html(response.data);
+    //$('#rightView').show('slow');
+});
+
+};
+
+
+    //Getting months
+    var monthsArray=[];
+
+	<?php for ($i = 1; $i <= 12; $i++) { ?>
+    monthsArray[<?php echo $i - 1?>]={"monthIndex": <?php echo $i ?> ,"month": "<?php echo(getUebersetzung(parseMonthName($i, "de"), $sprache, $link)); ?>" };
+	<?php } ?>
+
+    $scope.months = monthsArray;
+    $scope.month = new Date().getMonth()+1;
+
+    $scope.monthChanged=function () {
+    $scope.monat_left = $scope.month;
+    $scope.monat_right = $scope.month;
+    var FormData = {
+    'month' : $scope.month,
+    'year' : $scope.year,
+    'zimmer_id':$scope.zimmer_id,
+    'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
+    'sprache':'<?php echo($sprache);?>'
+};
+    if($scope.view == 0)
+{
+    url="<?php echo $URL; ?>webinterface/reservierung/updateRightView.php";
+}
+    else
+{
+    url="<?php echo $URL; ?>webinterface/reservierung/jahresuebersicht.php";
+}
+
+    var head="";
+    var zimmerName = $.grep($scope.zimmers,function(zimmer){
+    return zimmer.zimmerid == $scope.zimmer_id;
+})[0].zimmerartnr;
+    if($scope.view == 0)
+{
+    head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
+}
+    else
+{
+    head = "Belegungsplan "+$scope.year+", für "+zimmerName;
+}
+    $http.post(url,FormData)
+    .then(function(response){
+
+    //var head= "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+$scope.zimmer_id;
+    //$('#rightView').hide('slow');
+    $('#rightView').children('.panel-heading').html(head);
+    $('#monthView').html(response.data);
+    // $('#rightView').show('slow');
+});
+};
+
+
+    //Zimmer
+    var zimmers=[];
+    var i=0;
+    var selectedZimmer=0;
+	<?php
+	$query = "
+                select
+                Zimmernr, PK_ID, Zimmerart
+                from
+                Rezervi_Zimmer
+                where
+                FK_Unterkunft_ID = '$unterkunft_id'" .
+		" order by Zimmernr ";
+	$res = mysqli_query($link, $query);
+	if (!$res)
+		echo("Anfrage $query scheitert.");
+	while ($d = mysqli_fetch_array($res)) { ?>
+    zimmers[i]={"zimmerid":<?php echo $d["PK_ID"] ?>,"zimmerartnr":"<?php echo(getUebersetzungUnterkunft($d["Zimmerart"], $sprache, $unterkunft_id, $link));?>-<?php echo(getUebersetzungUnterkunft($d["Zimmernr"], $sprache, $unterkunft_id, $link)); ?>"};
+	<?php if ($zimmer_id == $d["PK_ID"]) { ?>
+    //    selectedZimmer="<?php //echo(getUebersetzungUnterkunft($d["Zimmerart"], $sprache, $unterkunft_id, $link));?>//-<?php //echo(getUebersetzungUnterkunft($d["Zimmernr"], $sprache, $unterkunft_id, $link)); ?>//";
+    selectedZimmer=<?php  echo $d["PK_ID"]; ?>;
+	<?php } ?>
+    i++;
+	<?php } ?>
+
+    $scope.zimmers=zimmers;
+    $scope.zimmer_id=selectedZimmer;
+
+    $scope.zimmer_idChanged=function(){
+
+    $scope.zimmer_id_left=$scope.zimmer_id;
+    $scope.zimmer_id_right=$scope.zimmer_id;
+
+    var FormData = {
+    'month' : $scope.month,
+    'year' : $scope.year,
+    'zimmer_id':$scope.zimmer_id,
+    'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
+    'sprache':'<?php echo($sprache);?>'
+};
+
+    if($scope.view == 0)
+{
+    url="<?php echo $URL;?>webinterface/reservierung/updateRightView.php";
+}
+    else
+{
+    url="<?php echo $URL;?>webinterface/reservierung/jahresuebersicht.php";
+}
+
+    var head="";
+    var zimmerName = $.grep($scope.zimmers,function(zimmer){
+    return zimmer.zimmerid == $scope.zimmer_id;
+})[0].zimmerartnr;
+    if($scope.view == 0)
+{
+    head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
+}
+    else
+{
+    head = "Belegungsplan "+$scope.year+", für "+zimmerName;
+}
+    $http.post(url,FormData).then(function(response) {
+    console.log(response);
+    $('#rightView').children('.panel-heading').html(head);
+    $('#monthView').html(response.data);
+});
+};
+    $scope.nextMonth=function () {
+
+    if( ($scope.month+1) > 12)
+{
+    $scope.month=1;
+    $scope.year =   $scope.year +1;
+
+}
+    else
+{
+    $scope.month = $scope.month+1;
+}
+
+    $scope.monat_left =   $scope.month;
+    $scope.monat_right =   $scope.month;
+
+    $scope.jahr_left =   $scope.year;
+    $scope.jahr_right =   $scope.year;
+    var FormData = {
+    'month' : $scope.month,
+    'year' : $scope.year,
+    'zimmer_id':$scope.zimmer_id,
+    'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
+    'sprache':'<?php echo($sprache);?>'
+};
+    var zimmerName = $.grep($scope.zimmers,function(zimmer){
+    return zimmer.zimmerid == $scope.zimmer_id;
+})[0].zimmerartnr;
+    $http.post("<?php echo $URL; ?>webinterface/reservierung/updateRightView.php",FormData).then(function(response){
+    var head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
+    // $('#rightView').hide('slow');
+    $('#rightView').children('.panel-heading').html(head);
+    $('#monthView').html(response.data);
+    //$('#rightView').show('slow');
+});
+
+};
+
+    $scope.previousMonth = function (){
+    if( ($scope.month-1) < 1)
+{
+    $scope.month=12;
+    $scope.year =   $scope.year - 1;
+
+}
+    else
+{
+    $scope.month = $scope.month-1;
+}
+
+    $scope.monat_left =   $scope.month;
+    $scope.monat_right =   $scope.month;
+
+    $scope.jahr_left =   $scope.year;
+    $scope.jahr_right =   $scope.year;
+    var FormData = {
+    'month' : $scope.month,
+    'year' : $scope.year,
+    'zimmer_id':$scope.zimmer_id,
+    'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
+    'sprache':'<?php echo($sprache);?>'
+};
+    var zimmerName = $.grep($scope.zimmers,function(zimmer){
+    return zimmer.zimmerid == $scope.zimmer_id;
+})[0].zimmerartnr;
+    $http.post("http://localhost/rezervi/rezervi/webinterface/reservierung/updateRightView.php",FormData)
+    .then(function(response){
+    var head= "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
+    // $('#rightView').hide('slow');
+    $('#rightView').children('.panel-heading').html(head);
+    $('#monthView').html(response.data);
+    //$('#rightView').show('slow');
+});
+
+};
+
+    //Month and Year View
+    $scope.changeView = function (view)
     {
-        yearsArray[i]={"year":year };
-        i++;
+        var url ="";
+        if(view == 0)
+    {
+        url="http://localhost/rezervi/rezervi/webinterface/reservierung/updateRightView.php";
     }
-        $scope.years = yearsArray;
-        $scope.year = new Date().getFullYear();
-
-        $scope.yearChanged=function () {
-        $scope.jahr_left = $scope.year;
-        $scope.jahr_right = $scope.year;
+        else
+    {
+        url="http://localhost/rezervi/rezervi/webinterface/reservierung/jahresuebersicht.php";
+    }
         var FormData = {
         'month' : $scope.month,
         'year' : $scope.year,
@@ -186,361 +439,111 @@
         'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
         'sprache':'<?php echo($sprache);?>'
     };
-        if($scope.view == 0)
-        {
-            url="http://localhost/rezervi/rezervi/webinterface/reservierung/updateRightView.php";
-        }
-            else
-        {
-            url="http://localhost/rezervi/rezervi/webinterface/reservierung/jahresuebersicht.php";
-        }
         var zimmerName = $.grep($scope.zimmers,function(zimmer){
         return zimmer.zimmerid == $scope.zimmer_id;
     })[0].zimmerartnr;
+        $http.post(url,FormData).then(function(response){
 
-        var head="";
-        if($scope.view == 0)
-        {
-            head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
-        }
-            else
-        {
-            head = "Belegungsplan "+$scope.year+", für "+$scope.zimmer_id;
-        }
-        $http.post(url,FormData)
-        .success(function(data, status, headers, config){
-
-        //var head= "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+$scope.zimmer_id;
+        var head= "";
+        if(view == 0)
+    {
+        head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
+        $scope.show=true;
+        $scope.view=0;
+    }
+        else
+    {
+        head = "Belegungsplan "+$scope.year+", für "+zimmerName;
+        $scope.show=false;
+        $scope.view=1;
+    }
         // $('#rightView').hide('slow');
         $('#rightView').children('.panel-heading').html(head);
-        $('#monthView').html(data);
+        $('#monthView').html(response.data);
         //$('#rightView').show('slow');
     });
-
     };
 
+    $scope.nextYear = function () {
 
-    //Getting months
-        var monthsArray=[];
+    $scope.showzurueckyear = true;
 
-        <?php for ($i = 1; $i <= 12; $i++) { ?>
-        monthsArray[<?php echo $i - 1?>]={"monthIndex": <?php echo $i ?> ,"month": "<?php echo(getUebersetzung(parseMonthName($i, "de"), $sprache, $link)); ?>" };
-        <?php } ?>
+    if( ($scope.year+1) >= (new Date().getFullYear() + 3))
+{
+    $scope.showweiteryear=false;
+}
+    else
+{
 
-        $scope.months = monthsArray;
-        $scope.month = new Date().getMonth()+1;
+}
+    $scope.year =   $scope.year+1;
 
-        $scope.monthChanged=function () {
-            $scope.monat_left = $scope.month;
-            $scope.monat_right = $scope.month;
-            var FormData = {
-            'month' : $scope.month,
-            'year' : $scope.year,
-            'zimmer_id':$scope.zimmer_id,
-            'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
-            'sprache':'<?php echo($sprache);?>'
-        };
-            if($scope.view == 0)
-            {
-                url="http://localhost/rezervi/rezervi/webinterface/reservierung/updateRightView.php";
-            }
-                else
-            {
-                url="http://localhost/rezervi/rezervi/webinterface/reservierung/jahresuebersicht.php";
-            }
+    $scope.monat_left =   $scope.month;
+    $scope.monat_right =   $scope.month;
 
-            var head="";
-            var zimmerName = $.grep($scope.zimmers,function(zimmer){
-                return zimmer.zimmerid == $scope.zimmer_id;
-                })[0].zimmerartnr;
-            if($scope.view == 0)
-            {
-                head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
-            }
-                else
-            {
-                head = "Belegungsplan "+$scope.year+", für "+zimmerName;
-            }
-            $http.post(url,FormData)
-            .success(function(data, status, headers, config){
+    $scope.jahr_left =   $scope.year;
+    $scope.jahr_right =   $scope.year;
+    var FormData = {
+    'month' : $scope.month,
+    'year' : $scope.year,
+    'zimmer_id':$scope.zimmer_id,
+    'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
+    'sprache':'<?php echo($sprache);?>'
+};
+    var zimmerName = $.grep($scope.zimmers,function(zimmer){
+    return zimmer.zimmerid == $scope.zimmer_id;
+})[0].zimmerartnr;
+    $http.post("<?php echo $URL; ?>webinterface/reservierung/jahresuebersicht.php",FormData)
+    .then(function(response){
 
-            //var head= "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+$scope.zimmer_id;
-            //$('#rightView').hide('slow');
-            $('#rightView').children('.panel-heading').html(head);
-            $('#monthView').html(data);
-            // $('#rightView').show('slow');
-        });
-    };
+    var head= "Belegungsplan "+$scope.year+", für "+zimmerName;
+    // $('#rightView').hide('slow');
+    $('#rightView').children('.panel-heading').html(head);
+    $('#monthView').html(response.data);
+    //$('#rightView').show('slow');
+});
+};
+
+    $scope.previousYear = function (){
+
+    $scope.showweiteryear = true;
+
+    if( ($scope.year-1) <= (new Date().getFullYear() - 4))
+{
+    $scope.showzurueckyear=false;
+}
+    else
+{
+
+}
+    $scope.year =   $scope.year -1;
+    $scope.monat_left =   $scope.month;
+    $scope.monat_right =   $scope.month;
+
+    $scope.jahr_left =   $scope.year;
+    $scope.jahr_right =   $scope.year;
+    var FormData = {
+    'month' : $scope.month,
+    'year' : $scope.year,
+    'zimmer_id':$scope.zimmer_id,
+    'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
+    'sprache':'<?php echo($sprache);?>'
+};
+    var zimmerName = $.grep($scope.zimmers,function(zimmer){
+    return zimmer.zimmerid == $scope.zimmer_id;
+})[0].zimmerartnr;
+    $http.post("<?php echo $URL; ?>webinterface/reservierung/jahresuebersicht.php",FormData)
+    .then(function(response){
 
 
-        //Zimmer
-        var zimmers=[];
-        var i=0;
-        var selectedZimmer=0;
-        <?php
-        $query = "
-                select
-                Zimmernr, PK_ID, Zimmerart
-                from
-                Rezervi_Zimmer
-                where
-                FK_Unterkunft_ID = '$unterkunft_id'" .
-            " order by Zimmernr ";
-        $res = mysqli_query($link, $query);
-        if (!$res)
-            echo("Anfrage $query scheitert.");
-        while ($d = mysqli_fetch_array($res)) { ?>
-        zimmers[i]={"zimmerid":<?php echo $d["PK_ID"] ?>,"zimmerartnr":"<?php echo(getUebersetzungUnterkunft($d["Zimmerart"], $sprache, $unterkunft_id, $link));?>-<?php echo(getUebersetzungUnterkunft($d["Zimmernr"], $sprache, $unterkunft_id, $link)); ?>"};
-        <?php if ($zimmer_id == $d["PK_ID"]) { ?>
-    //    selectedZimmer="<?php //echo(getUebersetzungUnterkunft($d["Zimmerart"], $sprache, $unterkunft_id, $link));?>//-<?php //echo(getUebersetzungUnterkunft($d["Zimmernr"], $sprache, $unterkunft_id, $link)); ?>//";
-        selectedZimmer=<?php  echo $d["PK_ID"]; ?>;
-        <?php } ?>
-        i++;
-        <?php } ?>
 
-        $scope.zimmers=zimmers;
-        $scope.zimmer_id=selectedZimmer;
+    var head= "Belegungsplan "+$scope.year+", für "+zimmerName;
+    // $('#rightView').hide('slow');
+    $('#rightView').children('.panel-heading').html(head);
+    $('#monthView').html(response.data);
+    //$('#rightView').show('slow');
+});
 
-        $scope.zimmer_idChanged=function(){
-
-            $scope.zimmer_id_left=$scope.zimmer_id;
-            $scope.zimmer_id_right=$scope.zimmer_id;
-
-            var FormData = {
-                'month' : $scope.month,
-                'year' : $scope.year,
-                'zimmer_id':$scope.zimmer_id,
-                'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
-                'sprache':'<?php echo($sprache);?>'
-            };
-
-        if($scope.view == 0)
-        {
-            url="http://localhost/rezervi/rezervi/webinterface/reservierung/updateRightView.php";
-        }
-            else
-        {
-            url="http://localhost/rezervi/rezervi/webinterface/reservierung/jahresuebersicht.php";
-        }
-
-        var head="";
-        var zimmerName = $.grep($scope.zimmers,function(zimmer){
-        return zimmer.zimmerid == $scope.zimmer_id;
-            })[0].zimmerartnr;
-        if($scope.view == 0)
-        {
-            head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
-        }
-            else
-        {
-            head = "Belegungsplan "+$scope.year+", für "+zimmerName;
-        }
-            $http.post(url,FormData)
-            .success(function(data, status, headers, config){
-
-                //var head= "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+$scope.zimmer_id;
-                //$('#rightView').hide('slow');
-                $('#rightView').children('.panel-heading').html(head);
-                $('#monthView').html(data);
-                //$('#rightView').show('slow');
-            });
-        };
-        $scope.nextMonth=function () {
-
-            if( ($scope.month+1) > 12)
-            {
-                $scope.month=1;
-                $scope.year =   $scope.year +1;
-
-            }
-            else
-            {
-                $scope.month = $scope.month+1;
-            }
-
-            $scope.monat_left =   $scope.month;
-            $scope.monat_right =   $scope.month;
-
-            $scope.jahr_left =   $scope.year;
-            $scope.jahr_right =   $scope.year;
-            var FormData = {
-                'month' : $scope.month,
-                'year' : $scope.year,
-                'zimmer_id':$scope.zimmer_id,
-                'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
-                'sprache':'<?php echo($sprache);?>'
-            };
-            var zimmerName = $.grep($scope.zimmers,function(zimmer){
-                return zimmer.zimmerid == $scope.zimmer_id;
-            })[0].zimmerartnr;
-            $http.post("http://localhost/rezervi/rezervi/webinterface/reservierung/updateRightView.php",FormData).success(function(data, status, headers, config){
-
-                    var head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
-                    // $('#rightView').hide('slow');
-                    $('#rightView').children('.panel-heading').html(head);
-                    $('#monthView').html(data);
-                    //$('#rightView').show('slow');
-                });
-    };
-
-        $scope.previousMonth=function(){
-            if( ($scope.month-1) < 1)
-            {
-                $scope.month=12;
-                $scope.year =   $scope.year - 1;
-
-            }
-            else
-            {
-                $scope.month = $scope.month-1;
-            }
-
-            $scope.monat_left =   $scope.month;
-            $scope.monat_right =   $scope.month;
-
-            $scope.jahr_left =   $scope.year;
-            $scope.jahr_right =   $scope.year;
-            var FormData = {
-                'month' : $scope.month,
-                'year' : $scope.year,
-                'zimmer_id':$scope.zimmer_id,
-                'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
-                'sprache':'<?php echo($sprache);?>'
-            };
-            var zimmerName = $.grep($scope.zimmers,function(zimmer){
-                return zimmer.zimmerid == $scope.zimmer_id;
-            })[0].zimmerartnr;
-            $http.post("http://localhost/rezervi/rezervi/webinterface/reservierung/updateRightView.php",FormData).success(function(data, status, headers, config){
-
-                var head= "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
-                // $('#rightView').hide('slow');
-                $('#rightView').children('.panel-heading').html(head);
-                $('#monthView').html(data);
-                //$('#rightView').show('slow');
-            });
-
-        };
-
-        //Month and Year View
-        $scope.changeView=function(view)
-        {
-            var url ="";
-            if(view == 0)
-            {
-                url="http://localhost/rezervi/rezervi/webinterface/reservierung/updateRightView.php";
-            }
-            else
-            {
-                 url="http://localhost/rezervi/rezervi/webinterface/reservierung/jahresuebersicht.php";
-            }
-            var FormData = {
-                'month' : $scope.month,
-                'year' : $scope.year,
-                'zimmer_id':$scope.zimmer_id,
-                'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
-                'sprache':'<?php echo($sprache);?>'
-            };
-            var zimmerName = $.grep($scope.zimmers,function(zimmer){
-                return zimmer.zimmerid == $scope.zimmer_id;
-            })[0].zimmerartnr;
-            $http.post(url,FormData).success(function(data, status, headers, config){
-
-                var head= "";
-                if(view == 0)
-                {
-                    head = "Belegungsplan "+$scope.month+"-"+$scope.year+", für "+zimmerName;
-                    $scope.show=true;
-                    $scope.view=0;
-                }
-                else
-                {
-                    head = "Belegungsplan "+$scope.year+", für "+zimmerName;
-                    $scope.show=false;
-                    $scope.view=1;
-                }
-                // $('#rightView').hide('slow');
-                $('#rightView').children('.panel-heading').html(head);
-                $('#monthView').html(data);
-                //$('#rightView').show('slow');
-            });
-        };
-
-        $scope.nextYear=function () {
-
-            $scope.showzurueckyear=true;
-
-            if( ($scope.year+1) >= (new Date().getFullYear() + 3))
-            {
-                $scope.showweiteryear=false;
-            }
-            else
-            {
-
-            }
-                $scope.year =   $scope.year+1;
-
-                $scope.monat_left =   $scope.month;
-                $scope.monat_right =   $scope.month;
-
-                $scope.jahr_left =   $scope.year;
-                $scope.jahr_right =   $scope.year;
-                var FormData = {
-                'month' : $scope.month,
-                'year' : $scope.year,
-                'zimmer_id':$scope.zimmer_id,
-                'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
-                'sprache':'<?php echo($sprache);?>'
-            };
-        var zimmerName = $.grep($scope.zimmers,function(zimmer){
-        return zimmer.zimmerid == $scope.zimmer_id;
-    })[0].zimmerartnr;
-                $http.post("http://localhost/rezervi/rezervi/webinterface/reservierung/jahresuebersicht.php",FormData).success(function(data, status, headers, config){
-
-                var head= "Belegungsplan "+$scope.year+", für "+zimmerName;
-                // $('#rightView').hide('slow');
-                $('#rightView').children('.panel-heading').html(head);
-                $('#monthView').html(data);
-                //$('#rightView').show('slow');
-            });
-        };
-
-        $scope.previousYear=function(){
-
-            $scope.showweiteryear=true;
-
-            if( ($scope.year-1) <= (new Date().getFullYear() - 4))
-            {
-                $scope.showzurueckyear=false;
-            }
-            else
-            {
-
-            }
-                $scope.year =   $scope.year -1;
-                $scope.monat_left =   $scope.month;
-                $scope.monat_right =   $scope.month;
-
-                $scope.jahr_left =   $scope.year;
-                $scope.jahr_right =   $scope.year;
-                var FormData = {
-                'month' : $scope.month,
-                'year' : $scope.year,
-                'zimmer_id':$scope.zimmer_id,
-                'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
-                'sprache':'<?php echo($sprache);?>'
-            };
-        var zimmerName = $.grep($scope.zimmers,function(zimmer){
-            return zimmer.zimmerid == $scope.zimmer_id;
-        })[0].zimmerartnr;
-                $http.post("http://localhost/rezervi/rezervi/webinterface/reservierung/jahresuebersicht.php",FormData).success(function(data, status, headers, config){
-
-                var head= "Belegungsplan "+$scope.year+", für "+zimmerName;
-                // $('#rightView').hide('slow');
-                $('#rightView').children('.panel-heading').html(head);
-                $('#monthView').html(data);
-                //$('#rightView').show('slow');
-            });
-
-        };
+};
     });
 </script>

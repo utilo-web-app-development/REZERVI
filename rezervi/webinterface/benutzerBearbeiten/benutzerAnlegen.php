@@ -43,6 +43,7 @@ include_once("../../include/uebersetzer.php");
     <div class="panel-body">
         <form action="./benutzerEintragen.php" method="post" name="benutzer" id="benutzer" target="_self"
               class="form-horizontal" novalidate>
+            <input name="sprache" type="hidden" ng-model="sprache" value="<?php echo $sprache; ?>">
             <div class="form-group">
                 <label for="name" class="col-sm-2 ">
                     <?php echo(getUebersetzung("Benutzername", $sprache, $link)); ?> *

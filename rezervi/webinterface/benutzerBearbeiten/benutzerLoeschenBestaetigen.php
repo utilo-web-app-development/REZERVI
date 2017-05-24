@@ -10,8 +10,8 @@ include_once($root . "/include/sessionFunctions.inc.php");
 */
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-$passwort = getSessionWert(PASSWORT);
-$benutzername = getSessionWert(BENUTZERNAME);
+$passwort      = getSessionWert(PASSWORT);
+$benutzername  = getSessionWert(BENUTZERNAME);
 //$id = $_POST["id"];
 $sprache = getSessionWert(SPRACHE);
 
@@ -39,7 +39,8 @@ include_once("../../include/uebersetzer.php");
 <div class="panel panel-default">
     <div class="panel-body">
         <a class="btn btn-primary" href="./index.php">
-            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
+            <span class="glyphicon glyphicon-menu-left"
+                  aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
         </a>
     </div>
 </div>
@@ -52,12 +53,12 @@ include_once("../../include/uebersetzer.php");
             <h4><?php echo(getUebersetzung("Folgende Benutzer werden aus der Datenbank entfernt", $sprache, $link)); ?>
                 :</h4>
 
-            <?php
+			<?php
 
-            $benutzer_id = getUserId($benutzername, $passwort, $link);
+			$benutzer_id = getUserId($benutzername, $passwort, $link);
 
-            //benutzer auslesen:
-            $query = "select 
+			//benutzer auslesen:
+			$query = "select 
 				  PK_ID, Name
 				  from 
 				  Rezervi_Benutzer
@@ -66,17 +67,21 @@ include_once("../../include/uebersetzer.php");
 				  ORDER BY 
 				  Name";
 
-            $res = mysqli_query($link, $query);
-            if (!$res) {
-                echo("die Anfrage $query scheitert.");
-            } else {
+			$res = mysqli_query($link, $query);
+			if (!$res)
+			{
+				echo("die Anfrage $query scheitert.");
+			}
+			else
+			{
 
-                while ($d = mysqli_fetch_array($res)) {
+				while ($d = mysqli_fetch_array($res))
+				{
 
-                    if ($d["PK_ID"] == $benutzer_id) continue;
-                    if ($d["PK_ID"] == 1 && DEMO == true) continue;
+					if ($d["PK_ID"] == $benutzer_id) continue;
+					if ($d["PK_ID"] == 1 && DEMO == true) continue;
 
-                    ?>
+					?>
 
                     <div class="checkbox">
                         <label>
@@ -85,14 +90,16 @@ include_once("../../include/uebersetzer.php");
                         </label>
                     </div>
 
-                <?php }
-            }
-            ?>
+				<?php }
+			}
+			?>
 
             <input name="retour" type="submit" class="btn btn-danger" id="retour"
                    value="<?php echo(getUebersetzung("löschen", $sprache, $link)); ?>">
 
         </form>
 
-        </body>
-        </html>
+    </div>
+</div>
+
+<?php include_once("../templates/end.php"); ?>

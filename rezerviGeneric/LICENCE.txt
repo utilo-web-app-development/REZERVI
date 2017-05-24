@@ -10,7 +10,7 @@
 |              Lizenz:  LICENCE.txt 
 |
 +----------------------------------------------------------------------------
-| Copyright (c) 2002 - 2006 - UTILO - All rights reserved.
+| Copyright (c) 2002 - 2017 - UTILO - All rights reserved.
 +----------------------------------------------------------------------------
 
 
@@ -88,6 +88,6 @@ For this warranty apply the austrian rights.
 The Convention on Contract for the International Sale of Goods - CISG
 is not acceptable for this product. 
 
-Copyright © 2006 
+Copyright ï¿½ 2017
 UTILO Christian Osterrieder
 All rights reserved.

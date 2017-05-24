@@ -69,11 +69,11 @@ include_once("../templates/bodyA.php");
         <form action="./attributeAendern.inc.php" method="post" target="_self">
             <div class="well">
                 <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <label
                             class="control-label">  <?php echo getUebersetzung("Bezeichnung", $sprache, $link) ?></label>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-1">
                         <label
                             class="control-label"> <?php echo getUebersetzung("Beschreibung", $sprache, $link) ?></label>
                     </div>
@@ -125,12 +125,12 @@ include_once("../templates/bodyA.php");
                     <?php echo getUebersetzung("Attribute anzeigen", $sprache, $link) ?>:
                 </h4>
                 <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <label class="label-control">
                             <?php echo getUebersetzung("Gesamtübersicht", $sprache, $link) ?>
                         </label>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-1">
                         <input type="checkbox" name="showInGesamtuebersicht" value="true"
                             <?php
                             $show = getPropertyValue(SHOW_ZIMMER_ATTRIBUTE_GESAMTUEBERSICHT, $unterkunft_id, $link);

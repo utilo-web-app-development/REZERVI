@@ -287,4 +287,22 @@ function getAnzahlVorhandeneBenutzer($unterkunft_id,$link){
 			
 } //ende getAnzahlVorhandeneZimmer
 
+function getRoleName($role_ID, $link){
+	$query = "select 
+				  *
+				  from
+				  Rezervi_Role
+				  where
+				  FK_Role_ID = '$role_ID'
+				 ";
+	$res = mysqli_query($link, $query);
+	if (!$res)
+		echo("Anfrage $query scheitert.");
+	else
+		$num_rows = mysqli_fetch_array($res);
+
+	$roleName = $num_rows["Name"];
+
+	return $roleName;
+}
 ?>

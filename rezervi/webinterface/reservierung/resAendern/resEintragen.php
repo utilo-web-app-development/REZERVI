@@ -10,42 +10,45 @@ include_once($root . "/include/sessionFunctions.inc.php");
 */
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-$passwort = getSessionWert(PASSWORT);
-$benutzername = getSessionWert(BENUTZERNAME);
-$sprache = getSessionWert(SPRACHE);
-$gast_id = $_POST["gast_id"];
-$zimmer_id = $_POST["zimmer_id"];
-$status = $_POST["status"];
-$vonTag = $_POST["vonTag"];
-$bisTag = $_POST["bisTag"];
-$vonMonat = $_POST["vonMonat"];
-$bisMonat = $_POST["bisMonat"];
-$vonJahr = $_POST["vonJahr"];
-$bisJahr = $_POST["bisJahr"];
+$passwort      = getSessionWert(PASSWORT);
+$benutzername  = getSessionWert(BENUTZERNAME);
+$sprache       = getSessionWert(SPRACHE);
+$gast_id       = $_POST["gast_id"];
+$zimmer_id     = $_POST["zimmer_id"];
+$status        = $_POST["status"];
+$vonTag        = $_POST["vonTag"];
+$bisTag        = $_POST["bisTag"];
+$vonMonat      = $_POST["vonMonat"];
+$bisMonat      = $_POST["bisMonat"];
+$vonJahr       = $_POST["vonJahr"];
+$bisJahr       = $_POST["bisJahr"];
 
-if ($gast_id != 1) { //1= anonymer gast
+if ($gast_id != 1)
+{ //1= anonymer gast
 
-    $pension = $_POST["zusatz"];
-    $anzahlErwachsene = $_POST["anzahlErwachsene"];
-    $anzahlKinder = $_POST["anzahlKinder"];
-    $anrede = $_POST["anrede"];
-    $vorname = $_POST["vorname"];
-    $nachname = $_POST["nachname"];
-    $strasse = $_POST["strasse"];
-    $plz = $_POST["plz"];
-    $ort = $_POST["ort"];
-    $land = $_POST["land"];
-    $email = $_POST["email"];
-    $tel = $_POST["tel"];
-    $fax = $_POST["fax"];
-    //$mob = $_POST["mob"];
-    $speech = $_POST["speech"];
-    $anmerkung = $_POST["anmerkungen"];
+	$pension          = $_POST["zusatz"];
+	$anzahlErwachsene = $_POST["anzahlErwachsene"];
+	$anzahlKinder     = $_POST["anzahlKinder"];
+	$anrede           = $_POST["anrede"];
+	$vorname          = $_POST["vorname"];
+	$nachname         = $_POST["nachname"];
+	$strasse          = $_POST["strasse"];
+	$plz              = $_POST["plz"];
+	$ort              = $_POST["ort"];
+	$land             = $_POST["land"];
+	$email            = $_POST["email"];
+	$tel              = $_POST["tel"];
+	$fax              = $_POST["fax"];
+	//$mob = $_POST["mob"];
+	$speech    = $_POST["speech"];
+	$anmerkung = $_POST["anmerkungen"];
 
-} else {
-    $anzahlErwachsene = 1;
-    $anzahlKinder = 0;
-    $pension = "";
+}
+else
+{
+	$anzahlErwachsene = 1;
+	$anzahlKinder     = 0;
+	$pension          = "";
 }
 
 //datenbank öffnen:
@@ -68,68 +71,103 @@ include_once("../../../include/uebersetzer.php");
     <div class="panel-body">
 
 
-        <?php
-        //passwortprüfung:
-        if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) { ?>
-            <?php
+		<?php
+		//passwortprüfung:
+		if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
+		{ ?>
+			<?php
 
-            //anonymen gast eintragen:
-            if ($gast_id == 1) {
-                //do nothing
-            } //2. gast ist neu:
-            else if ($gast_id == -1) {
-                $gast_id = insertGuest($unterkunft_id, $anrede, $vorname, $nachname, $strasse, $plz, $ort, $land, $email, $tel, $fax, $anmerkung, $speech, $link);
-            } else {//3. gast ist bereits vorhanden und wurde gändert
-                updateGuest($gast_id, $anrede, $vorname, $nachname, $strasse, $plz, $ort, $land, $email, $tel, $fax, $anmerkung, $speech, $link);
-            }
+			//anonymen gast eintragen:
+			if ($gast_id == 1)
+			{
+				//do nothing
+			} //2. gast ist neu:
+			else if ($gast_id == -1)
+			{
+				$gast_id = insertGuest($unterkunft_id, $anrede, $vorname, $nachname, $strasse, $plz, $ort, $land, $email, $tel, $fax, $anmerkung, $speech, $link);
+			}
+			else
+			{//3. gast ist bereits vorhanden und wurde gändert
+				updateGuest($gast_id, $anrede, $vorname, $nachname, $strasse, $plz, $ort, $land, $email, $tel, $fax, $anmerkung, $speech, $link);
+			}
 
-            //reservierung eintragen:
-            //wenn bereits eine reservierung in dem geforderten zeitraum vorhanden ist,
-            //muss diese upgedatet werden!
-            //mach mas so: zuerst alle reservierungen in diesem zeitraum vernichten und
-            //dann einfach neu eintragen...wird alles von funktion insertReservation erledigt:
-            insertReservation($zimmer_id, $gast_id, $vonTag, $vonMonat, $vonJahr, $bisTag, $bisMonat, $bisJahr, $status, $anzahlErwachsene, $anzahlKinder, $pension, $link);
+			//reservierung eintragen:
+			//wenn bereits eine reservierung in dem geforderten zeitraum vorhanden ist,
+			//muss diese upgedatet werden!
+			//mach mas so: zuerst alle reservierungen in diesem zeitraum vernichten und
+			//dann einfach neu eintragen...wird alles von funktion insertReservation erledigt:
+			insertReservation($zimmer_id, $gast_id, $vonTag, $vonMonat, $vonJahr, $bisTag, $bisMonat, $bisJahr, $status, $anzahlErwachsene, $anzahlKinder, $pension, $link);
 
-            ?>
+			?>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="alert alert-success">
-                        <?php echo(getUebersetzung("Die Reservierung/Belegung wurde erfolgreich geändert", $sprache, $link)); ?>
+						<?php echo(getUebersetzung("Die Reservierung/Belegung wurde erfolgreich geändert", $sprache, $link)); ?>
                         !
                     </div>
                 </div>
             </div>
             <div class="row">
 
-                <div class="col-sm-6">
-                    <?php echo(getUebersetzung("eingetragenes Datum", $sprache, $link)); ?>:
-                    <?php echo(getUebersetzung("von", $sprache, $link)); ?> <?php echo($vonTag . "." . $vonMonat . "." . $vonJahr); ?> <?php echo(getUebersetzung("bis", $sprache, $link)); ?> <?php echo($bisTag . "." . $bisMonat . "." . $bisJahr); ?>
-                    <br>
-                    <?php echo(getUebersetzung("Status", $sprache, $link)); ?>:
-                    <span class="<?php
-                    //status = 0: frei
-                    //status = 1: reserviert
-                    //status = 2: belegt
-                    if ($status == 0)
-                        echo("frei");
+                <div class="col-sm-2">
+                    <label>
+	                    <?php echo(getUebersetzung("eingetragenes Datum", $sprache, $link)); ?>:
+                    </label>
+                </div>
+                <div class="col-sm-10">
+					<?php echo(getUebersetzung("von", $sprache, $link)); ?>
+                    <label>
+						<?php echo($vonTag . "." . $vonMonat . "." . $vonJahr); ?>
+                    </label>
+
+					<?php echo(getUebersetzung("bis", $sprache, $link)); ?>
+                    <label>
+						<?php echo($bisTag . "." . $bisMonat . "." . $bisJahr); ?>
+                    </label>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>
+						<?php echo(getUebersetzung("Status", $sprache, $link)); ?>:
+                    </label>
+                </div>
+                <div class="col-sm-1">
+
+                    <div class="alert <?php
+					//status = 0: frei
+					//status = 1: reserviert
+					//status = 2: belegt
+					if ($status == 0)
+						echo("frei");
                     elseif ($status == 1)
-                        echo("reserviert");
+						echo("reserviert");
                     elseif ($status == 2)
-                        echo("belegt");
-                    ?>"><?php if ($status == 0)
-                            echo(getUebersetzung("frei", $sprache, $link));
+						echo("belegt");
+					?>" style="padding: 2px;">
+						<?php if ($status == 0)
+							echo(getUebersetzung("frei", $sprache, $link));
                         elseif ($status == 1)
-                            echo(getUebersetzung("reserviert", $sprache, $link));
-                        else
-                            echo(getUebersetzung("belegt", $sprache, $link));
-                        ?></span>
-                    <br>
-                    <?php echo(getUebersetzung("Gast", $sprache, $link)); ?>
-                    :<?php echo(getGuestNachname($gast_id, $link)); ?>
+							echo(getUebersetzung("reserviert", $sprache, $link));
+						else
+							echo(getUebersetzung("belegt", $sprache, $link));
+						?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>
+	                    <?php echo(getUebersetzung("Gast", $sprache, $link)); ?>:
+                    </label>
+                </div>
+                <div class="col-sm-10">
+					<?php echo(getGuestNachname($gast_id, $link)); ?>
                 </div>
             </div>
 
-            <form action="../ansichtWaehlen.php" method="post" name="form1" target="_self" class="form-horizontal">
+            <form action="../index.php" method="post" name="form1" target="_self" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
                         <input name="monat" type="hidden" id="monat" value="<?php echo($vonMonat); ?>">
@@ -140,11 +178,13 @@ include_once("../../../include/uebersetzer.php");
                     </div>
                 </div>
             </form>
-        <?php } //ende passwortprüfung
-        else {
-            echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
-        }
-        ?>
+			<?php
+		} //ende passwortprüfung
+		else
+		{
+			echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
+		}
+		?>
     </div>
 </div>
 </body>

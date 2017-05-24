@@ -134,7 +134,7 @@ include_once("leftJS.js.php");
                             <?php echo(getUebersetzung("Zimmer Art-Zimmer Nummer", $sprache, §link)); ?>
                         </label>
                     </div>
-                    <div class="col-sm-offset-2 col-sm-4">
+                    <div class="col-sm-6">
                         <select name="zimmer_id" class="form-control" id="zimmer_id"
                                 ng-model="zimmer_id"
                                 ng-change="zimmer_idChanged();"
@@ -216,38 +216,12 @@ include_once("leftJS.js.php");
                     </div>
                 </div>
 
-
-<!--                <label class="control-label">-->
-<!--                    <input name="status" type="radio" value="2" checked/>-->
-<!--                </label>-->
-<!--                --><?php //echo(getUebersetzung("belegt", $sprache, $link)); ?>
-<!---->
-<!--                --><?php
-//                if ($showReservation) {
-//                    ?>
-<!---->
-<!--                    <label class="control-label">-->
-<!--                        <input name="status" type="radio" value="1"/>-->
-<!---->
-<!--                        --><?php //echo(getUebersetzung("reserviert", $sprache, $link)); ?>
-<!--                    </label>-->
-<!---->
-<!--                    --><?php
-//                }
-//                ?>
-<!---->
-<!--                <label>-->
-<!--                    <input name="status" type="radio" value="0"/>-->
-<!---->
-<!--                    --><?php //echo(getUebersetzung("frei", $sprache, $link)); ?>
-<!--                </label>-->
-
                 <div class="form-group">
                     <label class="control-label col-sm-2"><?php echo(getUebersetzung("von", $sprache, $link)); ?>
                         : </label>
                     <div class="col-sm-3">
                         <!--  heutigen tag selectiert anzeigen: -->
-                        <select name="vonTag" ng-model="vonTag" class="form-control " id="vonTag">
+                        <select name="vonTag" class="form-control " id="vonTag">
                             <?php for ($i = 1; $i <= 31; $i++) { ?>
                                 <option
                                     value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo(" selected"); ?>><?php echo($i); ?></option>

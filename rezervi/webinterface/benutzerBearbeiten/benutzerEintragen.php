@@ -30,12 +30,12 @@ $sprache = getSessionWert(SPRACHE);
  //passwortprüfung:
 	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 		setUser($name,$pass,$rechte);
-        header("Location: http://localhost/rezervi/rezervi/webinterface/benutzerBearbeiten/index.php"); /* Redirect browser */
+        header("Location: ".$URL."webinterface/benutzerBearbeiten/index.php"); /* Redirect browser */
         exit();
     } //ende if passwortprüfung
     else {
         echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
-        header("Location: http://localhost/rezervi/rezervi/webinterface/index.php"); /* Redirect browser */
+        header("Location: ".$URL."webinterface/index.php"); /* Redirect browser */
         exit();
     }
 ?>

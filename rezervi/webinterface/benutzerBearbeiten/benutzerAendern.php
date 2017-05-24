@@ -65,9 +65,9 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
             <form action="./benutzerAendernDurchfuehren.php" method="post" name="benutzer" target="_self"
                   class="form-horizontal">
 
-                <input name="id" ng-model="id" type="hidden" value="">
-                <input name="testuser" ng-model="testuser" type="hidden" value="">
-                <input name="sprache" type="hidden" ng-model="sprache" value="">
+                <input name="id" ng-model="id" type="hidden" value="<?php echo $id; ?>">
+                <input name="testuser" ng-model="testuser" type="hidden" value="<?php echo($testuser); ?>">
+                <input name="sprache" type="hidden" ng-model="sprache" value="<?php echo $sprache; ?>">
 
                 <div class="form-group">
                     <label for="name" class="col-sm-2"><?php echo(getUebersetzung("Benutzername", $sprache, $link)); ?>
@@ -133,7 +133,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
     <?php
 } //ende if passwortprüfung
 else {
-    header("Location: http://localhost/rezervi/rezervi/webinterface/index.php"); /* Redirect browser */
+    header("Location: ".$URL."webinterface/index.php"); /* Redirect browser */
     exit();
 }
 ?>

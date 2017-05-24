@@ -12,15 +12,39 @@
     $scope.pass = "";
     $scope.pass2 = "";
 
-    $scope.name = "<?php if (isset($name)) {echo($name);} ?>";
+    console.log($scope.id );
+    console.log($scope.testuser );
+
+    $scope.name = "<?php if (isset($name))
+{
+	echo($name);
+} ?>";
 
     $scope.roles = [
-        {id: '0', role: '<?php echo(getUebersetzung("Benutzer", $sprache, $link)); ?>'},
-        {id: '1', role: '<?php echo(getUebersetzung("Administrator", $sprache, $link)); ?>'}
+        <?php
+        $query = "select 
+                *
+            from 
+            Rezervi_Role
+            ";
+        $res = mysqli_query($link, $query);
+        if (!$res)
+        {
+            echo("die Anfrage $query scheitert.");
+        }
+        else
+        {
+            while ($d = mysqli_fetch_array($res)) {
+            ?>
+                {id: '<?php echo($d["FK_Role_ID"]); ?>', role: '<?php echo($d["Name"]); ?>'},
+            <?php
+            }
+        }
+        ?>
     ];
-    var recht = parseInt("<?php echo $rechte; ?>");
+    var recht ="<?php echo $rechte; ?>";
 
-    $scope.rechte = $scope.roles[recht].id;
+    $scope.rechte = recht;
 
 });
 

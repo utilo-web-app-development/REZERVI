@@ -6,6 +6,7 @@ define( '_JEXEC', 1 );
 include_once("../include/uebersetzer.php");
 
 $files[] = "createTableBenutzer.sql";
+$files[] = "createTableRole.sql";
 $files[] = "createTableUnterkunft.sql";
 $files[] = "createTableCSS.sql";
 $files[] = "createTableGast.sql";

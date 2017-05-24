@@ -3,6 +3,7 @@
 <!-- Bootstrap Menu -->
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
@@ -11,8 +12,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-                <?php echo(getUebersetzung(getUnterkunftName($unterkunft_id, $link), $sprache, $link)); ?>
+            <a class="navbar-brand" href="<?php echo $root ?>/webinterface/inhalt.php">
+				<?php echo(getUebersetzung(getUnterkunftName($unterkunft_id, $link), $sprache, $link)); ?>
             </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">

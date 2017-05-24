@@ -14,7 +14,6 @@ $benutzername  = getSessionWert(BENUTZERNAME);
 //$id = $_POST["id"];
 $sprache = getSessionWert(SPRACHE);
 
-
 //datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
 
@@ -28,14 +27,28 @@ include_once("../../include/zimmerFunctions.php");
 include_once("../../include/uebersetzer.php");
 
 ?>
-
-
-
+<?php include_once("../templates/headerA.php"); ?>
+<style type="text/css">
+    <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+</style>
+<?php include_once("../templates/headerB.php"); ?>
+<?php include_once("../templates/bodyA.php"); ?>
+<h3><?php echo(getUebersetzung("Löschung bestätigen", $sprache, $link)); ?></h3>
 <?php //passwortprüfung:
 if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
 {
 $benutzer_id = getUserId($benutzername, $passwort, $link);
 ?>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left"
+                                                            aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
+        </a>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
 
 		<?php
 
@@ -52,8 +65,7 @@ $benutzer_id = getUserId($benutzername, $passwort, $link);
 		$res = mysqli_query($link, $query);
 		if (!$res)
 		{
-			header("Location: ".$URL."webinterface/benutzerBearbeiten/index.php?message=Database-Fehler,-Versuchen-Sie-erneut-wieder&error=true"); /* Redirect browser */
-			exit();
+			echo("die Anfrage $query scheitert.");
 		}
 		else
 		{
@@ -64,7 +76,7 @@ $benutzer_id = getUserId($benutzername, $passwort, $link);
 				if ($d["PK_ID"] == $benutzer_id) continue;
 				if ($d["PK_ID"] == 1 && DEMO == true) continue;
 
-				if (isset($_GET["user_" . $d["PK_ID"]]))
+				if (isset($_POST["user_" . $d["PK_ID"]]))
 				{
 
 					$query = ("DELETE FROM 
@@ -75,27 +87,29 @@ $benutzer_id = getUserId($benutzername, $passwort, $link);
 					$res = mysqli_query($link, $query);
 					if (!$res)
 					{
-						header("Location: ".$URL."webinterface/benutzerBearbeiten/index.php?message=Database-Fehler,-Versuchen-Sie-erneut-wieder&error=true"); /* Redirect browser */
-						exit();
+						echo("die Anfrage $query scheitert");
 					}
 
 				}
 			} //ende for
 
 		}
+		?>
 
-
-    header("Location: ".$URL."webinterface/benutzerBearbeiten/index.php?message=Der-Benutzer-wurde-aus-der-Datenbank-gelöscht!&error=false"); /* Redirect browser */
-    exit();
-    //echo(getUebersetzung("Der Benutzer wurde aus der Datenbank gelöscht!", $sprache, $link)); ?>
-
+        <div class="alert alert-success" role="alert">
+			<?php echo(getUebersetzung("Der Benutzer wurde aus der Datenbank gelöscht!", $sprache, $link)); ?></p>
+        </div>
 		<?php
 		} //ende if passwortprüfung
 		else
 		{
-			header("Location: ".$URL."webinterface/benutzerBearbeiten/index.php?message=Bitte-Browser-schließen-und-neu-anmelden.-Passwortprüfung fehlgeschlagen!&error=true"); /* Redirect browser */
-			exit();
-            //echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link)); ?>
-
+			?>
+            <div class="alert alert-danger" role="alert">
+				<?php echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link)); ?>
+            </div>
 		<?php }
 		?>
+    </div>
+</div>
+
+<?php include_once("../templates/end.php"); ?>

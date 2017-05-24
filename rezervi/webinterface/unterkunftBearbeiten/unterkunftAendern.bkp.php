@@ -398,7 +398,12 @@ else
 {
 
 	?>
-
+	<?php include_once("../templates/headerA.php"); ?>
+    <style type="text/css">
+        <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+    </style>
+	<?php include_once("../templates/headerB.php"); ?>
+	<?php include_once("../templates/bodyA.php"); ?>
 	<?php //passwortprüfung:
 	if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
 	{
@@ -651,17 +656,54 @@ else
 		setUebersetzungUnterkunft($zimmerart_mz_nl, $defaultzimmerart_mz, "nl", $standardsprache, $unterkunft_id, $link);
 		setUebersetzungUnterkunft($zimmerart_mz_es, $defaultzimmerart_mz, "es", $standardsprache, $unterkunft_id, $link);
 
+		?>
 
-		header("Location: ".$URL."webinterface/unterkunftBearbeiten/index.php?message=Die-Daten-zu-Ihrer-Unterkunft-wurden-geändert.&error=false"); /* Redirect browser */
-		exit();
-		//echo(getUebersetzung("Die Daten zu Ihrer Unterkunft wurden geändert.", $sprache, $link));
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a class="btn btn-primary" href="./index.php"><span class="glyphicon glyphicon-menu-left"
+                                                                    aria-hidden="true"></span>&nbsp;<?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
+                </a>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+        <div class="panel-body">
+
+        <div class="alert alert-info" role="alert">
+			<?php echo(getUebersetzung("Die Daten zu Ihrer Unterkunft wurden geändert.", $sprache, $link)); ?>
+        </div>
+
+        <!-- <table  border="0" cellpadding="0" cellspacing="0" class="table">
+  <tr>
+    <td><form action="./index.php" method="post" name="unterkunft aendern" target="_self" id="unterkunft aendern">
+
+        <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück", $sprache, $link)); ?>">
+      </form></td>
+  </tr>
+</table> -->
+
+        <!-- <table border="0" cellpadding="0" cellspacing="0" class="table">
+  <tr>
+    <td><form action="../inhalt.php" method="post" name="hauptmenue" target="_self" id="hauptmenue">
+
+        <input name="retour" type="submit" class="button200pxA" id="retour" onMouseOver="this.className='button200pxB';"
+	 onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>">
+      </form></td>
+  </tr>
+</table> -->
+
+		<?php
 	} //ende if passwortprüfung
 	else
 	{
-		header("Location: ".$URL."webinterface/unterkunftBearbeiten/index.php?message=Bitte-Browser-schließen-und-neu-anmelden.-Passwortprüfung-fehlgeschlagen!&error=true"); /* Redirect browser */
-		exit();
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
 	}
-
+	?>
+    </div>
+    </div>
+    </body>
+    </html>
+	<?php
 } //ende pruefung formular-pflichtfelder
 ?>

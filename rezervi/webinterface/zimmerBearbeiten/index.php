@@ -127,7 +127,7 @@ if (isset($nachricht) && $nachricht != "") {
                 </label>
 
                 <div class="col-sm-3">
-                    <select name="zimmer_id[]" type="text" id="zimmer_id[]" value="" class="form-control">
+                    <select name="zimmer_id[]" type="text" id="zimmer_id[]" value="" class="form-control" multiple>
 
                         <?php
                         $res = getZimmer($unterkunft_id, $link);

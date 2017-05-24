@@ -325,5 +325,7 @@ include_once("../../include/reseller/reseller.php");
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 		}
 ?>
+  </div>
+</div>
 </body>
 </html>
