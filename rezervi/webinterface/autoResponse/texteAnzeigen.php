@@ -777,7 +777,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 //            showSubmitButton(getUebersetzung("Texte ändern", $sprache, $link));
 //            ?>
             <div class="row">
-                <div class="col-sm-offset-9 col-sm-3" style="text-align: right;">
+                <div class="col-sm-12" >
                     <button name="aendern" type="submit" class="btn btn-success" id="aendern">
                         <span class="glyphicon glyphicon-wrench"></span>
                         <?php echo(getUebersetzung("Texte ändern", $sprache, $link)); ?>
@@ -826,7 +826,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-offset-9 col-sm-3" style="text-align: right;">
+                <div class="col-sm-12" >
                     <button name="email" type="submit" class="btn btn-success" id="email">
                         <span class="glyphicon glyphicon-send"></span>
                         <?php echo(getUebersetzung("E-Mails senden", $sprache, $link)); ?>

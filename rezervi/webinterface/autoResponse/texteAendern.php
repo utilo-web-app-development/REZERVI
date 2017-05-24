@@ -396,11 +396,13 @@ else
     </style>
 	<?php include_once("../templates/headerB.php"); ?>
 	<?php include_once("../templates/bodyA.php"); ?>
-	<?php echo($_POST["aktiviert"]); ?>
+<!--	--><?php //echo($_POST["aktiviert"]); ?>
 	<?php
 	//passwortprüfung:	
 	if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
 	{
+
+	    $title ="";
 
 		if ($art != "emails")
 		{
@@ -417,6 +419,7 @@ else
 
 			if ($art == "bestaetigung")
 			{
+				$title = "Bestätigung";
 				if ($ownMail)
 				{
 					setProperty(MAIL_KOPIE_AN_VERMIETER_BESTAETIGUNG, "true", $unterkunft_id, $link);
@@ -428,6 +431,7 @@ else
 			}
 			else if ($art == "ablehnung")
 			{
+				$title = "Ablehnung";
 				if ($ownMail)
 				{
 					setProperty(MAIL_KOPIE_AN_VERMIETER_ABLEHNUNG, "true", $unterkunft_id, $link);
@@ -439,6 +443,7 @@ else
 			}
 			else if ($art == "anfrage")
 			{
+				$title = "Anfrage";
 				if ($ownMail)
 				{
 					setProperty(MAIL_KOPIE_AN_VERMIETER_ANFRAGE, "true", $unterkunft_id, $link);
@@ -498,17 +503,15 @@ else
             <script>
                 console.log("<?php $_POST["aktiviert"]?>");
             </script>
-            <table border="0" cellpadding="0" cellspacing="2">
-                <tr>
-                    <td class="frei">
-						<?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.", $sprache, $link)); ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
-            <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><?php echo(getUebersetzung($art , $sprache, $link)); ?></h3>
+                </div>
+                <div class="panel-body">
+	                <?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.", $sprache, $link)); ?>
+                </div>
+            </div>
+
 			<?php
 		} //ende wenn nicht emails.
 		else
@@ -579,14 +582,20 @@ else
                                     <option>
 										<?php
 										echo(getUebersetzung("E-Mail an:", $sprache, $link) . " " . $gastName . " (" . $an . ") ... ");
-										echo(getUebersetzung("erfolgreich gesendet", $sprache, $link) . " ...<br/>");
+										//mail($an, $subject, $message, "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
+										//mail($an, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
+
+										if(sendMail($von, $an, $subject, $message)){
+											echo(getUebersetzung("erfolgreich gesendet", $sprache, $link) . " ...<br/>");
+                                        }
+										else{
+											echo(getUebersetzung("konnte nicht gesendet werden", $sprache, $link) . " ...<br/>");
+                                        }
 										?>
                                     </option>
 									<?php
 
-									//mail($an, $subject, $message, "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
-									//mail($an, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
-									sendMail($von, $an, $subject, $message);
+
 								}
 								?>
                             </select>

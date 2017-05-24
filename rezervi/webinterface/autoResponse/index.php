@@ -53,8 +53,8 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
           class="form-horizontal">
         <div class="row">
             <div class="col-sm-2">
-                <input name="bestaetigung" type="submit" class="btn btn-primary" id="bestaetigung" style="width: 160px;"
-                       value="<?php echo(getUebersetzung("Buchungsbestätigung", $sprache, $link)); ?>">
+                <input name="bestaetigung" type="submit" class="btn btn-primary" id="bestaetigung" style="width: 100%;"
+                       value="<?php echo(getUebersetzung("Bestätigung", $sprache, $link)); ?>">
             </div>
             <label class="col-sm-10 label-control">
                 <?php echo(getUebersetzung("ändern der E-Mail-Buchungsbestätigung die ein Gast erhält wenn Sie die Reservierung akzeptieren", $sprache, $link)); ?>
@@ -67,8 +67,8 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
           class="form-horizontal">
         <div class="row">
             <div class="col-sm-2">
-                <input name="ablehnung" type="submit" class="btn btn-primary" id="ablehnung" style="width: 160px;"
-                       value="<?php echo(getUebersetzung("Buchungs-Absage", $sprache, $link)); ?>">
+                <input name="ablehnung" type="submit" class="btn btn-primary" id="ablehnung" style="width: 100%;"
+                       value="<?php echo(getUebersetzung("Absage", $sprache, $link)); ?>">
             </div>
             <label class="col-sm-10 label-control">
                 <?php echo(getUebersetzung("ändern des Absagetextes einer Anfrage die ein Gast erhält wenn Sie die Reservierung ablehnen", $sprache, $link)); ?>
@@ -81,8 +81,8 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
           class="form-horizontal">
         <div class="row">
             <div class="col-sm-2">
-                <input name="anfrage" type="submit" class="btn btn-primary" id="anfrage" style="width: 160px;"
-                       value="<?php echo(getUebersetzung("Buchungs-Anfrage", $sprache, $link)); ?>">
+                <input name="anfrage" type="submit" class="btn btn-primary" id="anfrage" style="width: 100%;"
+                       value="<?php echo(getUebersetzung("Anfrage", $sprache, $link)); ?>">
             </div>
             <label class="col-sm-10 label-control">
                 <?php echo(getUebersetzung("ändern des Bestätigungstextes einer Buchungsanfrage die ein Gast erhält wenn er eine Buchungsanfrage im Belegungsplan vornimmt", $sprache, $link)); ?>
@@ -95,7 +95,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
           class="form-horizontal">
         <div class="row">
             <div class="col-sm-2">
-                <input name="emails" type="submit" class="btn btn-primary" id="emails" style="width: 160px;"
+                <input name="emails" type="submit" class="btn btn-primary" id="emails" style="width: 100%;"
                        value="<?php echo(getUebersetzung("E-Mails senden", $sprache, $link)); ?>">
             </div>
             <label class="col-sm-10 label-control">

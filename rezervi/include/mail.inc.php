@@ -99,10 +99,11 @@ function sendMail($from,$to,$subject,$message){
 		$mailer->WordWrap = true;
 		$mailer->IsHTML(true);
 		$mailer->AddAddress($to);
-		$mailer->send();
+		return $mailer->send();
 		
 		//mail($to, unhtmlentities($subject), $message, "From: $from\nReply-To: $from\nX-Mailer: PHP/" . phpversion());
 	}
+	return false;
 	
 }
 ?>
