@@ -2,7 +2,7 @@
 'use strict';
 
 function checkForm(formId) {
-    console.log("hea");
+    console.log("checkForm(" + formId + ")");
     var invalid = false;
     $("input").each(function () {
         if ($(this).val() == '' && $(this).attr('required')) {

@@ -22,6 +22,47 @@ include_once("../../include/unterkunftFunctions.php");
 include_once("../../include/benutzerFunctions.php");
 include_once($root . "/include/propertiesFunctions.php");
 
+//variablen initialisieren:
+if (isset($_POST["ben"]) && isset($_POST["pass"]))
+{
+	$ben  = $_POST["ben"];
+	$pass = $_POST["pass"];
+}
+else
+{
+	//aufruf kam innerhalb des webinterface:
+	$ben  = getSessionWert(BENUTZERNAME);
+	$pass = getSessionWert(PASSWORT);
+}
+
+$benutzer_id = -1;
+if (isset($ben) && isset($pass))
+{
+	$benutzer_id = checkPassword($ben, $pass, $link);
+}
+if ($benutzer_id == -1)
+{
+	//passwortprüfung fehlgeschlagen, auf index-seite zurück:
+	$fehlgeschlagen = true;
+	header("Location: " . $URL . "webinterface/index.php?fehlgeschlagen=true"); /* Redirect browser */
+	exit();
+	//include_once("./index.php");
+	//exit;
+}
+else
+{
+	$benutzername = $ben;
+	$passwort     = $pass;
+	setSessionWert(BENUTZERNAME, $benutzername);
+	setSessionWert(PASSWORT, $passwort);
+
+	//unterkunft-id holen:
+	$unterkunft_id = getUnterkunftID($benutzer_id, $link);
+	setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
+	setSessionWert(BENUTZER_ID, $benutzer_id);
+}
+
+
 //variablen intitialisieren:
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $benutzername = getSessionWert(BENUTZERNAME);
@@ -69,11 +110,11 @@ include_once("../templates/bodyA.php");
         <form action="./attributeAendern.inc.php" method="post" target="_self">
             <div class="well">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <label
                             class="control-label">  <?php echo getUebersetzung("Bezeichnung", $sprache, $link) ?></label>
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-5">
                         <label
                             class="control-label"> <?php echo getUebersetzung("Beschreibung", $sprache, $link) ?></label>
                     </div>

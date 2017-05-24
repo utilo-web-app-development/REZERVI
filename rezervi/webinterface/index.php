@@ -52,6 +52,38 @@ if (!isset($unterkunft_id))
 	$unterkunft_id = 1;
 }
 setSessionWert(SPRACHE, $sprache);
+
+//variablen initialisieren:
+if (isset($_POST["ben"]) && isset($_POST["pass"])) {
+	$ben = $_POST["ben"];
+	$pass = $_POST["pass"];
+} else {
+	//aufruf kam innerhalb des webinterface:
+	$ben = getSessionWert(BENUTZERNAME);
+	$pass = getSessionWert(PASSWORT);
+}
+
+//TODO: redirect to inhalt
+$benutzer_id = -1;
+if (isset($ben) && isset($pass)) {
+	$benutzer_id = checkPassword($ben, $pass, $link);
+}
+if ($benutzer_id != -1) {
+	$benutzername = $ben;
+	$passwort = $pass;
+	setSessionWert(BENUTZERNAME, $benutzername);
+	setSessionWert(PASSWORT, $passwort);
+
+	//unterkunft-id holen:
+	$unterkunft_id = getUnterkunftID($benutzer_id, $link);
+	setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
+	setSessionWert(BENUTZER_ID, $benutzer_id);
+	header("Location: ".$URL."webinterface/inhalt.php"); /* Redirect browser */
+	exit();
+
+}
+
+$fehlgeschlagen = $_GET["fehlgeschlagen"];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -61,7 +93,9 @@ setSessionWert(SPRACHE, $sprache);
     <link href="../templates/stylesheets.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
 <?php
+echo getSessionWert(BENUTZERNAME); echo getSessionWert(PASSWORT);
 //pruefen ob installation schon durchgeführt wurde:
 if (!isInstalled($unterkunft_id))
 {

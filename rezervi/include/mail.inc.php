@@ -21,8 +21,8 @@ require_once($root."/include/phpmailer/phpmailer.inc.php");
 */
 function check_version($currentversion, $requiredversion)
 {
-   list($majorC, $minorC, $editC) = split('[/.-]', $currentversion);
-   list($majorR, $minorR, $editR) = split('[/.-]', $requiredversion);
+   list($majorC, $minorC, $editC) = explode('[/.-]', $currentversion);
+   list($majorR, $minorR, $editR) = explode('[/.-]', $requiredversion);
   
    if ($majorC > $majorR) return true;
    if ($majorC < $majorR) return false;

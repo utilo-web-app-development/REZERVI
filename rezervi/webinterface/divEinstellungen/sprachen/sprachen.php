@@ -19,11 +19,13 @@ include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/uebersetzer.php");
 include_once("../../templates/components.php");
 
+include_once("../../templates/auth.php");
+
 //variablen:
-$unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-$passwort = getSessionWert(PASSWORT);
-$benutzername = getSessionWert(BENUTZERNAME);
-$sprache = getSessionWert(SPRACHE);
+$unterkunft_id   = getSessionWert(UNTERKUNFT_ID);
+$passwort        = getSessionWert(PASSWORT);
+$benutzername    = getSessionWert(BENUTZERNAME);
+$sprache         = getSessionWert(SPRACHE);
 $standardsprache = getStandardSprache($unterkunft_id, $link);
 
 ?>
@@ -41,35 +43,37 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
 
 <?php
 //passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
-    ?>
+if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
+{
+	?>
 
-     <!-- Show message if there is -->
-    <?php include_once("../../templates/message.php"); ?>
+    <!-- Show message if there is -->
+	<?php include_once("../../templates/message.php"); ?>
 
     <form action="./sprachenAendern.php" method="post" name="adresseForm" target="_self"
           onSubmit="return checkForm();" class="form-horizontal">
         <p class="lead">
-            <?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen", $sprache, $link)); ?>
+			<?php echo(getUebersetzung("Markieren sie die Sprachen, die auf ihrer Website zur Auswahl angeboten werden sollen", $sprache, $link)); ?>
             :
         </p>
 
 
         <div class="well">
             <form action="./sprachenAendern.php" method="post" target="_self">
-                <?php
-                //sprachen anzeigen die aktiviert sind:
-                $res = getSprachenForBelegungsplan($link);
-                while ($d = mysqli_fetch_array($res)) {
-                    $bezeichnung = $d["Bezeichnung"];
-                    $spracheID = $d["Sprache_ID"];
-                    $aktiviert = isSpracheShown($unterkunft_id, $spracheID, $link);
-                    ?>
+				<?php
+				//sprachen anzeigen die aktiviert sind:
+				$res = getSprachenForBelegungsplan($link);
+				while ($d = mysqli_fetch_array($res))
+				{
+					$bezeichnung = $d["Bezeichnung"];
+					$spracheID   = $d["Sprache_ID"];
+					$aktiviert   = isSpracheShown($unterkunft_id, $spracheID, $link);
+					?>
                     <div class="row">
                         <div class="col-sm-4">
                             <label class="label-control">
                                 <script>console.log("<?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>");</script>
-                                <?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>
+								<?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>
                             </label>
 
                         </div>
@@ -79,33 +83,38 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                                        type="checkbox"
                                        id="<?php echo($spracheID); ?>"
                                        value="true"
-                                    <?php if ($aktiviert) {
-                                        echo(" checked");
-                                    } ?>
+									<?php if ($aktiviert)
+									{
+										echo(" checked");
+									} ?>
                                 />
                             </label>
                         </div>
                     </div>
-                    <?php
-                }
-                ?>
+					<?php
+				}
+				?>
 
         </div>
         <div class="row">
-            <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+            <div class="col-sm-12" style="text-align: right;">
                 <button name="aendern" type="submit" class="btn btn-success" id="aendern">
                     <span class="glyphicon glyphicon-wrench"></span>
-                    <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
+					<?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
                 </button>
+                <a href="../index.php" class="btn btn-primary">
+	                <?php echo(getUebersetzung("Zurück", $sprache, $link)); ?>
+                </a>
             </div>
         </div>
 
     </form>
 
-    <?php
+	<?php
 } //ende if passwortprüfung
-else {
-    echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
+else
+{
+	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
 }
 ?>
 <?php include_once("../../templates/end.php"); ?>

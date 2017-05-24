@@ -14,23 +14,23 @@ include_once($root . "/include/sessionFunctions.inc.php");
 */
 
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-$passwort = getSessionWert(PASSWORT);
-$benutzername = getSessionWert(BENUTZERNAME);
-$anrede_val = $_POST["anrede_val"];
-$vorname_val = $_POST["vorname_val"];
-$nachname_val = $_POST["nachname_val"];
-$strasse_val = $_POST["strasse_val"];
-$plz_val = $_POST["plz_val"];
-$ort_val = $_POST["ort_val"];
-$land_val = $_POST["land_val"];
-$email_val = $_POST["email_val"];
-$tel_val = $_POST["tel_val"];
-$fax_val = $_POST["fax_val"];
-$sprache_val = $_POST["anmerkung_val"];
+$passwort      = getSessionWert(PASSWORT);
+$benutzername  = getSessionWert(BENUTZERNAME);
+$anrede_val    = $_POST["anrede_val"];
+$vorname_val   = $_POST["vorname_val"];
+$nachname_val  = $_POST["nachname_val"];
+$strasse_val   = $_POST["strasse_val"];
+$plz_val       = $_POST["plz_val"];
+$ort_val       = $_POST["ort_val"];
+$land_val      = $_POST["land_val"];
+$email_val     = $_POST["email_val"];
+$tel_val       = $_POST["tel_val"];
+$fax_val       = $_POST["fax_val"];
+$sprache_val   = $_POST["anmerkung_val"];
 $anmerkung_val = $_POST["anmerkung_val"];
-$gast_id = $_POST["gast_id"];
-$sprache = getSessionWert(SPRACHE);
-$index = $_POST["index"];
+$gast_id       = $_POST["gast_id"];
+$sprache       = getSessionWert(SPRACHE);
+$index         = $_POST["index"];
 
 //datenbank öffnen:
 include_once("../../../../conf/rdbmsConfig.php");
@@ -54,12 +54,13 @@ include_once("../../../../include/benutzerFunctions.php");
     <div class="panel-body">
 
 
-        <?php
-        //passwortprüfung:
-        if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
-            ?>
-            <?php //prüfen ob noch reservierungen oder sowas für diesen gast vorhanden sind:
-            $query = ("SELECT		 
+		<?php
+		//passwortprüfung:
+		if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
+		{
+			?>
+			<?php //prüfen ob noch reservierungen oder sowas für diesen gast vorhanden sind:
+			$query = ("SELECT		 
 				   PK_ID
 				   FROM
 				   Rezervi_Reservierung
@@ -67,26 +68,27 @@ include_once("../../../../include/benutzerFunctions.php");
 				   FK_Gast_ID = '$gast_id'
 				  ");
 
-            $res = mysqli_query($link, $query);
-            if (!$res)
-                echo("die Anfrage scheitert");
-            if ($d = mysqli_fetch_array($res)) {
-                // es ist noch eine offene res vorhanden!
-                ?>
+			$res = mysqli_query($link, $query);
+			if (!$res)
+				echo("die Anfrage scheitert");
+			if ($d = mysqli_fetch_array($res))
+			{
+				// es ist noch eine offene res vorhanden!
+				?>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="alert alert-danger">
-                            <?php echo(getUebersetzung("Der Gast kann nicht gelöscht werden, da Reservierungen oder offene Reservierungsanfragen für diesen Gast eingetragen sind", $sprache, $link)); ?>
+							<?php echo(getUebersetzung("Der Gast kann nicht gelöscht werden, da Reservierungen oder offene Reservierungsanfragen für diesen Gast eingetragen sind", $sprache, $link)); ?>
                             !
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-offset-8 col-sm-2">
+                    <div class="col-sm-3">
                         <form action="../gastInfos/index.php" method="post" name="gastInfos" target="_self">
                             <button name="gastInfos" type="submit" id="gastInfos" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-info-sign"></span>
-                                <?php echo(getUebersetzung("Reservierungs-Informationen", $sprache, $link)); ?>
+								<?php echo(getUebersetzung("Reservierungs-Informationen", $sprache, $link)); ?>
                             </button>
                             <input name="anrede_val" type="hidden" id="anrede_var10"
                                    value="<?php echo($anrede_val); ?>">
@@ -135,40 +137,45 @@ include_once("../../../../include/benutzerFunctions.php");
                     </div>
                 </div>
 
-            <?php }//ende if
-            else { //keine reservierungen mehr vorhanden, gast rausschmeissen:
-                $query = "DELETE FROM
+			<?php }//ende if
+			else
+			{ //keine reservierungen mehr vorhanden, gast rausschmeissen:
+				$query = "DELETE FROM
 						Rezervi_Gast	
 						WHERE
 						PK_ID = '$gast_id'";
-                $res = mysqli_query($link, $query);
-                if (!$res) {
-                    echo("die Anfrage scheitert");
-                } else {
+				$res   = mysqli_query($link, $query);
+				if (!$res)
+				{
+					echo("die Anfrage scheitert");
+				}
+				else
+				{
 
-                    ?>
+					?>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="alert alert-success">
-                                <?php echo(getUebersetzung("Der Gast wurde erfolgreich aus der Gästeliste entfernt", $sprache, $link)); ?>
+								<?php echo(getUebersetzung("Der Gast wurde erfolgreich aus der Gästeliste entfernt", $sprache, $link)); ?>
                                 !
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-offset-9 col-sm-2" style="text-align: right;">
-                            <form action="../../../inhalt.php" method="post" name="hauptmenue" target="_self"
+                            <form action="<?php echo $URL . "webinterface/inhalt.php"; ?>" method="post"
+                                  name="hauptmenue" target="_self"
                                   id="hauptmenue">
                                 <button type="submit" name="Submit3" class="btn btn-primary">
                                     <span class="glyphicon glyphicon-home"></span>
-                                    <?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>
+									<?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>
                                 </button>
                             </form>
                         </div>
                         <div class="col-sm-1">
                             <form action="../index.php" method="post" name="ok" target="_self" id="ok">
                                 <input type="submit" name="Submit" class="btn btn-primary" id="zurueck"
-                                       value="<?php echo(getUebersetzung("zurück", $sprache, $link)); ?>">
+                                       value="<?php echo(getUebersetzung("Zurück", $sprache, $link)); ?>">
                                 <input name="anrede_val" type="hidden" id="anrede_val"
                                        value="<?php echo($anrede_val); ?>">
                                 <input name="vorname_val" type="hidden" id="vorname_val"
@@ -191,13 +198,14 @@ include_once("../../../../include/benutzerFunctions.php");
                         </div>
                     </div>
 
-                <?php } //ende else
-            } //ende else
-        } //ende passwortprüfung
-        else {
-            echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
-        }
-        ?>
+				<?php } //ende else
+			} //ende else
+		} //ende passwortprüfung
+		else
+		{
+			echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
+		}
+		?>
     </div>
 </div>
 </body>

@@ -18,6 +18,16 @@ $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
 $sprache = getSessionWert(SPRACHE);
 
+//variablen initialisieren:
+if (isset($_POST["ben"]) && isset($_POST["pass"])) {
+	$ben = $_POST["ben"];
+	$pass = $_POST["pass"];
+} else {
+	//aufruf kam innerhalb des webinterface:
+	$ben = getSessionWert(BENUTZERNAME);
+	$pass = getSessionWert(PASSWORT);
+}
+
 //datenbank öffnen:
 include_once("../../../conf/rdbmsConfig.php");
 
@@ -29,6 +39,29 @@ include_once("../../../include/reservierungFunctions.php");
 include_once("../../../include/gastFunctions.php");
 include_once("../../../include/benutzerFunctions.php");
 include_once("../../../include/einstellungenFunctions.php");
+
+$benutzer_id = -1;
+if (isset($ben) && isset($pass)) {
+	$benutzer_id = checkPassword($ben, $pass, $link);
+}
+if ($benutzer_id == -1) {
+	//passwortprüfung fehlgeschlagen, auf index-seite zurück:
+	$fehlgeschlagen = true;
+	header("Location: ".$URL."webinterface/index.php?fehlgeschlagen=true"); /* Redirect browser */
+	exit();
+	//include_once("./index.php");
+	//exit;
+} else {
+	$benutzername = $ben;
+	$passwort = $pass;
+	setSessionWert(BENUTZERNAME, $benutzername);
+	setSessionWert(PASSWORT, $passwort);
+
+	//unterkunft-id holen:
+	$unterkunft_id = getUnterkunftID($benutzer_id, $link);
+	setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
+	setSessionWert(BENUTZER_ID, $benutzer_id);
+}
 
 ?>
 
@@ -42,7 +75,9 @@ include_once("../../../include/einstellungenFunctions.php");
 <?php include_once("../../templates/bodyA.php"); ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2><?php echo(getUebersetzung("Anlegen eines neuen Gastes", $sprache, $link)); ?></h2>
+        <h2>
+            <?php echo(getUebersetzung("Anlegen eines neuen Gastes", $sprache, $link)); ?>
+        </h2>
     </div>
     <div class="panel-body">
         <?php
@@ -164,7 +199,6 @@ include_once("../../../include/einstellungenFunctions.php");
                     <input type="button" onclick="checkForm('gastAnlegen');" name="anlegen" class="btn btn-success"
                            value="<?php echo(getUebersetzung("Gast anlegen", $sprache, $link)); ?>">
                     <a class="btn btn-primary" href="../index.php">
-                        <!--                            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;-->
                         <?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?>
                     </a>
                 </div>

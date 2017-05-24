@@ -15,6 +15,16 @@ $benutzername  = getSessionWert(BENUTZERNAME);
 $sprache       = getSessionWert(SPRACHE);
 setSessionWert(SPRACHE, $sprache);
 
+//variablen initialisieren:
+if (isset($_POST["ben"]) && isset($_POST["pass"])) {
+	$ben = $_POST["ben"];
+	$pass = $_POST["pass"];
+} else {
+	//aufruf kam innerhalb des webinterface:
+	$ben = getSessionWert(BENUTZERNAME);
+	$pass = getSessionWert(PASSWORT);
+}
+
 //Messae
 $message = $_GET["message"];
 $error   = $_GET["error"];
@@ -32,6 +42,29 @@ include_once("../../include/benutzerFunctions.php");
 include_once("../../include/unterkunftFunctions.php");
 //uebersetzer einfuegen:
 include_once("../../include/uebersetzer.php");
+
+$benutzer_id = -1;
+if (isset($ben) && isset($pass)) {
+	$benutzer_id = checkPassword($ben, $pass, $link);
+}
+if ($benutzer_id == -1) {
+	//passwortprüfung fehlgeschlagen, auf index-seite zurück:
+	$fehlgeschlagen = true;
+	header("Location: ".$URL."webinterface/index.php?fehlgeschlagen=true"); /* Redirect browser */
+	exit();
+	//include_once("./index.php");
+	//exit;
+} else {
+	$benutzername = $ben;
+	$passwort = $pass;
+	setSessionWert(BENUTZERNAME, $benutzername);
+	setSessionWert(PASSWORT, $passwort);
+
+	//unterkunft-id holen:
+	$unterkunft_id = getUnterkunftID($benutzer_id, $link);
+	setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
+	setSessionWert(BENUTZER_ID, $benutzer_id);
+}
 
 ?>
 <?php include_once("../templates/headerA.php"); ?>
@@ -115,60 +148,11 @@ else if ($error == false && $error != null)
                         <span class="glyphicon glyphicon-trash"></span>&nbsp
 						<?php echo(getUebersetzung('Löschen', $sprache, $link)); ?>
                     </button>
-                    <!--                    <a class="btn btn-danger btn-sm" href="./benutzerLoeschenBestaetigen.php?id={{userInfo.id}}"-->
-                    <!--                       id="{{userInfo.id}}">-->
-                    <!--                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp-->
-                    <!--                        --><?php //echo(getUebersetzung('Löschen', $sprache, $link));
-					?>
-                    <!--                    </a>-->
                 </td>
             </tr>
             </tbody>
         </table>
-        <!--        <div class="form-group">-->
-        <!--            <label class="col-sm-2">-->
-        <!--                --><?php //echo(getUebersetzung("Benutzer", $sprache, $link));
-		?>
-        <!--            </label>-->
-        <!--            <div class="col-sm-3">-->
-        <!--                <select class="form-control" name="users" id="users"-->
-        <!--                        ng-model="users"-->
-        <!--                        ng-options="user.id as user.name for user in usersArray">-->
-        <!--                </select>-->
-        <!--            </div>-->
-        <!--            <div class="col-sm-7">-->
-        <!--                <a class="btn btn-primary" href="./benutzerAendern.php?id={{users}}" id="{{users}}">-->
-        <!--                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp-->
-        <!--                    --><?php //echo(getUebersetzung("Benutzer Bearbeiten", $sprache, $link));
-		?>
-        <!--                </a>-->
-        <!---->
-        <!--                --><?php
-		//                //-------------ende benutzer ändern
-		//                /*
-		//                //-------------benutzer löschen
-		//                prüfen ob benutzer überhaupt vorhanden sind
-		//                */
-		//                if (getAnzahlVorhandeneBenutzer($unterkunft_id, $link) > 1) {
-		//
-		?>
-        <!--                    <a class="btn btn-danger" href="./benutzerLoeschenBestaetigen.php?id={{users}}" id="{{users}}">-->
-        <!--                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp-->
-        <!--                        --><?php //echo(getUebersetzung("Benutzer Löschen", $sprache, $link));
-		?>
-        <!--                    </a>-->
-        <!---->
-        <!--                    --><?php
-		//                } //ende anzahlBenutzer ist ok
-		//
-		?>
-        <!--                <a class="btn btn-primary" href="./benutzerAnlegen.php">-->
-        <!--                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp-->
-        <!--                    --><?php //echo(getUebersetzung("Benutzer anlegen", $sprache, $link));
-		?>
-        <!--                </a>-->
-        <!--            </div>-->
-        <!--        </div>-->
+
 
 		<?php
 		} //ende if passwortprüfung

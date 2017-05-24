@@ -1,4 +1,7 @@
 <?php session_start();
+
+//not in use
+
 $root = "../../..";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
