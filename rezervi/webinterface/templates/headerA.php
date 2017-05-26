@@ -26,9 +26,6 @@
 
         <link rel="stylesheet" href="<?php echo ($root)?>/libs/bootstrap/css/bootstrap-theme.min.css">
 
-        <link rel="stylesheet" href="<?php echo ($root)?>/libs/bootstrap/css/simple-sidebar.css">
-
-
 
         <link href="<?php echo ($root)?>/libs/bootstrap-toggle/css/bootstrap-toggle.css" rel="stylesheet">
 

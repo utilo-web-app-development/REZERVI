@@ -18,7 +18,9 @@ include_once("../../../include/unterkunftFunctions.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/propertiesFunctions.php");
 include_once("../../../include/uebersetzer.php");	
-include_once("../../templates/components.php"); 
+include_once("../../templates/components.php");
+
+include_once("../../templates/auth.php");
 
 //variablen:
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);

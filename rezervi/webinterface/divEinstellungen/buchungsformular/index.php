@@ -18,6 +18,7 @@ include_once($root . "/include/unterkunftFunctions.php");
 include_once($root . "/include/propertiesFunctions.php");
 include_once($root . "/include/uebersetzer.php");
 include_once($root . "/webinterface/templates/components.php");
+include_once("../../templates/auth.php");
 
 //variablen:
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);

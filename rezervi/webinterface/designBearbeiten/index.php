@@ -25,6 +25,8 @@ include_once("../../include/zimmerFunctions.php");
 //uebersetzer einfuegen:
 include_once("../../include/uebersetzer.php");
 
+include_once("../templates/auth.php");
+
 //should the reservation state be shown?
 $showReservation = getPropertyValue(SHOW_RESERVATION_STATE, $unterkunft_id, $link);
 if ($showReservation != "true") {
@@ -36,11 +38,12 @@ if ($showReservation != "true") {
 <style type="text/css">
     <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
+
 <?php include_once("../templates/headerB.php"); ?>
 
 <?php include_once("../templates/bodyA.php"); ?>
 
-<div class="panel panel-default" ng-app="rezerviApp" ng-controller="MainController">
+<div class="panel panel-default">
     <div class="panel-body">
 
         <?php
@@ -145,7 +148,7 @@ if ($showReservation != "true") {
             </div>
 
             <form action="./styles.php" method="post" name="markierteSchrift" id="markierteSchrift" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-4">
 
                         <label class="control-label">
@@ -176,7 +179,7 @@ if ($showReservation != "true") {
             </div>
 
             <form action="./styles.php" method="post" name="buttonAForm" id="buttonAForm" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-4">
 
                         <label class="control-label">
@@ -205,7 +208,8 @@ if ($showReservation != "true") {
                 <hr>
             </div>
             <form action="./styles.php" method="post" name="buttonBForm"  id="buttonBForm" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row
+">
                     <div class="col-sm-7">
                         <label class="control-label">
                             <?php echo(getUebersetzung("Ändern des Buttons der angezeigt wird, wenn die Maus darüber bewegt wird", $sprache, $link)); ?>
@@ -233,7 +237,7 @@ if ($showReservation != "true") {
                 <hr>
             </div>
             <form action="./styles.php" method="post" name="tabelleForm" id="tabelleForm" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">
                             <?php echo(getUebersetzung("Ändern der Tabelle (Hintergrundfarbe, Schriftfarbe, Rahmen, etc.)", $sprache, $link)); ?>
@@ -262,7 +266,7 @@ if ($showReservation != "true") {
             </div>
 
             <form action="./styles.php" method="post" name="tabelleColorForm" id="tabelleColorForm" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">
                             <?php echo(getUebersetzung("Ändern der färbigen Tabellen", $sprache, $link)); ?>
@@ -291,7 +295,7 @@ if ($showReservation != "true") {
             </div>
 
             <form action="./styles.php" method="post" name="belegtForm" id="belegtForm" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">
                             <?php echo(getUebersetzung("Ändern der Farbe der belegt-Anzeige", $sprache, $link)); ?>
@@ -320,7 +324,7 @@ if ($showReservation != "true") {
             </div>
 
             <form action="./styles.php" method="post" name="samstagBelegtForm" id="samstagBelegtForm" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">
                             <?php echo(getUebersetzung("Ändern der Farbe der Samstag belegt-Anzeige", $sprache, $link)); ?>
@@ -349,7 +353,7 @@ if ($showReservation != "true") {
             </div>
 
             <form action="./styles.php" method="post" name="freiForm" id="freiForm" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">
                             <?php echo(getUebersetzung("Ändern der Farbe der frei-Anzeige", $sprache, $link)); ?>
@@ -378,7 +382,7 @@ if ($showReservation != "true") {
             </div>
 
             <form action="./styles.php" method="post" name="samstagFreiForm" id="samstagFreiForm" target="_self" class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">
                             <?php echo(getUebersetzung("Ändern der Farbe der Samstag frei-Anzeige", $sprache, $link)); ?>
@@ -411,7 +415,7 @@ if ($showReservation != "true") {
                 ?>
 
                 <form action="./styles.php" method="post" name="reserviertForm" id="reserviertForm"  target="_self" class="form-horizontal">
-                    <div class="form-group">
+                    <div class="row">
                         <div class="col-sm-7">
                             <label class="control-label">
                                 <?php echo(getUebersetzung("Ändern der Farbe der reserviert-Anzeige", $sprache, $link)); ?>
@@ -440,7 +444,7 @@ if ($showReservation != "true") {
                 </div>
 
                 <form action="./styles.php" method="post" name="samstagReserviertForm" id="samstagReserviertForm" target="_self" class="form-horizontal">
-                    <div class="form-group">
+                    <div class="row">
                         <div class="col-sm-7">
                             <label class="control-label">
                                 <?php echo(getUebersetzung("Ändern der Farbe der Samstag reserviert-Anzeige", $sprache, $link)); ?>
@@ -475,7 +479,7 @@ if ($showReservation != "true") {
 
             <form action="./standardWerte.php" method="post" name="standardWerte" id="standardWerte" target="_self"
                    class="form-horizontal">
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-7">
                         <label class="control-label">
                             <?php echo(getUebersetzung("Alle Änderungen werden auf die Rezervi-Standard-Werte zurückgesetzt.", $sprache, $link)); ?>

@@ -11,12 +11,15 @@ include_once($root . "/include/uebersetzer.php");
 include_once($root . "/include/benutzerFunctions.php");
 include_once($root . "/include/unterkunftFunctions.php");
 include_once($root . "/webinterface/templates/components.php");
+
+include_once("../../templates/auth.php");
+
 $sprache = getSessionWert(SPRACHE);
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $loeschen = false;
 $hinzufuegen = false;
 $bu_id = -1;
-if (isset($_POST["add"]) && $_POST["add"] == getUebersetzung("hinzufügen", $sprache, $link)) {
+if (isset($_POST["add"]) && $_POST["add"] == getUebersetzung("Hinzufügen", $sprache, $link)) {
     $hinzufuegen = true;
 } else {
     $res = getBuchungseinschraenkungen($unterkunft_id);
@@ -24,7 +27,7 @@ if (isset($_POST["add"]) && $_POST["add"] == getUebersetzung("hinzufügen", $spr
         $id = $d["PK_ID"];
         //welche id soll gelöscht werden?
         if (isset($_POST["loeschen#" . $id])
-            && $_POST["loeschen#" . $id] == getUebersetzung("löschen", $sprache, $link)
+            && $_POST["loeschen#" . $id] == getUebersetzung("Löschen", $sprache, $link)
         ) {
             $bu_id = $id;
             $loeschen = true;

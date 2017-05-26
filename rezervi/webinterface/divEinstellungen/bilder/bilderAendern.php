@@ -22,6 +22,7 @@ include_once("../../../include/benutzerFunctions.php");
 include_once("../../../include/unterkunftFunctions.php");
 include_once("../../../include/filesAndFolders.php");
 include_once("../../templates/components.php");
+include_once("../../templates/auth.php");
 
 	if ($active == true){	
 		setProperty(ZIMMER_THUMBS_ACTIV,"true",$unterkunft_id,$link);
@@ -58,43 +59,3 @@ include_once("../../templates/components.php");
 	include_once("index.php");
 
 ?>
-<?php //include_once("../../templates/headerA.php"); ?>
-<!--<style type="text/css">-->
-<?php //include_once($root."/templates/stylesheetsIE9.php"); ?>
-<!--</style>-->
-<?php //include_once("../../templates/headerB.php"); ?>
-<?php //include_once("../../templates/bodyA.php"); ?>
-<?php //
-//	//passwortprüfung:
-//	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
-//?>
-<!--<div class="panel panel-default">-->
-<!--  <div class="panel-body">-->
-<!--<h1>--><?php //echo(getUebersetzung("Einstellungen für Bilder der Zimmer",$sprache,$link)); ?><!--.</h1>-->
-<?php //
-//if (isset($nachricht) && $nachricht != ""){
-//?>
-<!--	 <div class="alert alert-info" role="alert"-->
-<!--		<--><?php //if (isset($fehler) && !$fehler) {echo("class=\"frei\"");} else{ echo("class=\"belegt\""); }?><!--><?php //echo($nachricht) ?>
-<!--</div>-->
-<?php //
-//}
-//?>
-<!---->
-<!--<!-- --><?php //
-//	  //-----buttons um zurück zum menue zu gelangen:
-//	  showSubmitButtonWithForm("../index.php",getUebersetzung("zurück",$sprache,$link));
-//?>
-<!--<br/>-->
-<?php //
-//	  //-----buttons um zurück zum menue zu gelangen:
-//	  showSubmitButtonWithForm("../../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-//?><!-- -->
-<?php //
-//	} //ende if passwortprüfung
-//	else {
-//		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
-//	}
-// ?>
-<!-- --><?php //include_once("../../templates/end.php");
-// ?>
