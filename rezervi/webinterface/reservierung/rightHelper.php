@@ -159,7 +159,7 @@ function showMonth($month, $year, $unterkunft_id, $zimmer_id, $sprache, $saAktiv
                 </label>
             </div>
             <!-- gast anzeigen -->
-            <div class="col-sm-3">
+            <div class="col-sm-10">
                 <?php if ($statusString != "frei") { ?>
                     <?php
                     //gast-id auslesen:

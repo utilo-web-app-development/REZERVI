@@ -12,6 +12,8 @@ include_once("../../../include/benutzerFunctions.php");
 include_once("../../../include/unterkunftFunctions.php");
 include_once("../../templates/components.php");
 
+include_once("./templates/auth.php");
+
 //variablen initialisieren:
 
 if (isset($_POST["showMonatsansicht"])){

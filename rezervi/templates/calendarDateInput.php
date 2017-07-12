@@ -511,6 +511,7 @@ function calendarObject(DateName, DateFormat, DefaultDate) {
 
 // Main function that creates the form elements
 function DateInput(DateName, Required, DateFormat, DefaultDate) {
+
    if (DateName == undefined) document.writeln('<span style="color:red;font-size:' + FontSize + 'px;font-family:' + FontFamily + ';">ERROR: Missing required parameter in call to \'DateInput\': [name of hidden date field].</span>');
    else {
       if (Required == undefined) Required = false;
@@ -554,7 +555,7 @@ function DateInput(DateName, Required, DateFormat, DefaultDate) {
           write(String.fromCharCode(13) + '<a' + InitialStatus + ' id="' + DateName + '_ID_Link" href="javascript:' + DateName + '_Object.show()" onMouseOver="return ' + DateName + '_Object.iconHover(true)" onMouseOut="return ' + DateName + '_Object.iconHover(false)"><img src="' + ImageURL + '" align="baseline" title="Calendar" width="16" height="15" border="0"></a>&nbsp;');
         
          //tag:
-         writeln('<select' + InitialStatus + ' class="tableColor" id="' + DateName + '_Day_ID" name="' + DateName + '_Day_ID" onChange="' + DateName + '_Object.changeDay(this)">');
+         writeln('<select ' + InitialStatus + ' class="tableColor" id="' + DateName + '_Day_ID" name="' + DateName + '_Day_ID" onChange="' + DateName + '_Object.changeDay(this)">');
          for (var j=1;j<=eval(DateName + '_Object.picked.dayCount');j++) {
             DaySelected = ((DefaultDate != undefined) && eval(DateName + '_Object.picked.day=='+j)) ? ' selected' : '';
             writeln('<option' + DaySelected + '>' + j + '</option>');

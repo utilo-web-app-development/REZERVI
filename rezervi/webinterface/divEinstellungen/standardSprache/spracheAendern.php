@@ -22,6 +22,8 @@ include_once("../../../include/benutzerFunctions.php");
 include_once("../../../include/unterkunftFunctions.php");
 include_once("../../templates/components.php");
 
+include_once("../../templates/auth.php");
+
 //kontrolle ob überhaupt eine sprache ausgewählt wurde:
 if (!isset($standardsprache) || $standardsprache == "" || !isset($standardspracheBelegungsplan) || $standardspracheBelegungsplan == ""){
 	$nachricht = "Sie müssen mindestens eine Sprache auswählen!";

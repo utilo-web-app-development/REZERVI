@@ -22,11 +22,13 @@ include_once("../../../include/datumFunctions.php");
 include_once("../../../include/uebersetzer.php");
 include_once("../../../webinterface/templates/components.php");
 
+include_once("../../templates/auth.php");
+
 //variablen:
-$unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-$passwort = getSessionWert(PASSWORT);
-$benutzername = getSessionWert(BENUTZERNAME);
-$sprache = getSessionWert(SPRACHE);
+$unterkunft_id   = getSessionWert(UNTERKUNFT_ID);
+$passwort        = getSessionWert(PASSWORT);
+$benutzername    = getSessionWert(BENUTZERNAME);
+$sprache         = getSessionWert(SPRACHE);
 $standardsprache = getStandardSprache($unterkunft_id, $link);
 
 ?>
@@ -41,260 +43,271 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2>
-                <?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes", $sprache, $link)); ?>.
+				<?php echo(getUebersetzung("Einschränken von Buchungen innerhalb eines bestimmten Zeitraumes", $sprache, $link)); ?>
+                .
             </h2>
         </div>
 
         <div class="panel-body">
-<?php
-//passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
-    ?>
+			<?php
+			//passwortprüfung:
+			if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
+			{
+				?>
 
-    <!-- Show message if there is -->
-    <?php include_once("../../templates/message.php"); ?>
+                <!-- Show message if there is -->
+				<?php include_once("../../templates/message.php"); ?>
+                <form class="form-inline" action="./aendern.php" method="post" name="reservierung"
+                      target="_self">
+                    <p class="lead"> <?php echo getUebersetzung("Zeitraum (z. B. Saison):", $sprache, $link); ?></p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>
+									<?php echo getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id, $link), $sprache, $unterkunft_id, $link); ?>
+                                </th>
+                                <th>
+									<?php echo getUebersetzung("Tag von", $sprache, $link); ?>
+                                </th>
+                                <th>
+									<?php echo getUebersetzung("Tag bis", $sprache, $link); ?>
+                                </th>
+                                <th>
+									<?php echo getUebersetzung("Datum von", $sprache, $link); ?>
+                                </th>
+                                <th>
+									<?php echo getUebersetzung("Datum bis", $sprache, $link); ?>
+                                </th>
+                                <th>
+									<?php echo getUebersetzung("löschen/hinzufügen", $sprache, $link); ?>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+							<?php
 
-            <p class="lead"> <?php echo getUebersetzung("Zeitraum (z. B. Saison):", $sprache, $link); ?></p>
-            <form class="form-inline" action="./aendern.php" method="post" name="reservierung" target="_self"
-                  onSubmit="return chkFormular();">
-                <div class="form-group" style="width: 100%;">
-                    <label class="label-control col-sm-1">
-                        <?php echo getUebersetzungUnterkunft(getZimmerart_EZ($unterkunft_id, $link), $sprache, $unterkunft_id, $link); ?>
-                    </label>
+							$res = getBuchungseinschraenkungen($unterkunft_id);
+							while ($d = mysqli_fetch_array($res))
+							{
+								$von       = $d["Tag_von"];
+								$bis       = $d["Tag_bis"];
+								$datum_von = $d["Datum_von"];
+								$datum_bis = $d["Datum_bis"];
+								$id        = $d["PK_ID"];
+								$zimmer_id = $d["FK_Zimmer_ID"];
+								$zimmer    = getZimmerNr($unterkunft_id, $zimmer_id, $link);
+								$zimmerart = getZimmerArt($unterkunft_id, $zimmer_id, $link);
 
-                    <label class="label-control col-sm-1" style="width: 10%;">
-                        <?php echo getUebersetzung("Tag von", $sprache, $link); ?>
-                    </label>
+								?>
 
-                    <label class="label-control col-sm-1" style="width: 10%;">
-                        <?php echo getUebersetzung("Tag bis", $sprache, $link); ?>
-                    </label>
+                                <tr>
 
-                    <label class="label-control col-sm-3">
-                        <?php echo getUebersetzung("Datum von", $sprache, $link); ?>
-                    </label>
+                                    <td class="label-control col-sm-1">
+										<?php echo $zimmerart . " " . $zimmer ?>
+                                    </td>
 
-                    <label class="label-control col-sm-3">
-                        <?php echo getUebersetzung("Datum bis", $sprache, $link); ?>
-                    </label>
-
-                    <label class="label-control col-sm-2">
-                        <?php echo getUebersetzung("löschen/hinzufügen", $sprache, $link); ?>
-                    </label>
-                </div>
-                <div class="row">
-                    <hr>
-                </div>
-                <?php
-
-                $res = getBuchungseinschraenkungen($unterkunft_id);
-                while ($d = mysqli_fetch_array($res)) {
-                    $von = $d["Tag_von"];
-                    $bis = $d["Tag_bis"];
-                    $datum_von = $d["Datum_von"];
-                    $datum_bis = $d["Datum_bis"];
-                    $id = $d["PK_ID"];
-                    $zimmer_id = $d["FK_Zimmer_ID"];
-                    $zimmer = getZimmerNr($unterkunft_id, $zimmer_id, $link);
-                    $zimmerart = getZimmerArt($unterkunft_id, $zimmer_id, $link);
-
-                    ?>
-                    <div class="form-group" style="width: 100%;">
-                        <div class="label-control col-sm-1">
-                            <?php echo $zimmerart . " " . $zimmer ?>
-                        </div>
-
-                        <div class="label-control col-sm-1" style="width: 10%;">
-                            <?php echo $von ?>
-                        </div>
-
-
-                        <div class="label-control col-sm-1" style="width: 10%;">
-                            <?php echo $bis ?>
-                        </div>
+                                    <td class="label-control col-sm-1" style="width: 10%;">
+										<?php echo $von ?>
+                                    </td>
 
 
-                        <div class="label-control col-sm-3">
-                            <?php echo $datum_von ?>
-                        </div>
+                                    <td class="label-control col-sm-1" style="width: 10%;">
+										<?php echo $bis ?>
+                                    </td>
 
 
-                        <div class="label-control col-sm-3">
-                            <?php echo $datum_bis ?>
-                        </div>
+                                    <td class="label-control col-sm-3">
+										<?php echo $datum_von ?>
+                                    </td>
 
 
-                        <div class="label-control col-sm-2">
-                            <input  name="loeschen#<?php echo $id ?>"
-                                   type="submit"  class="btn btn-danger"
-                                   value="<?php echo getUebersetzung("löschen", $sprache, $link); ?>"/>
-                        </div>
+                                    <td class="label-control col-sm-3">
+										<?php echo $datum_bis ?>
+                                    </td>
+
+
+                                    <td class="label-control col-sm-2">
+
+                                        <input type="submit" class="btn btn-danger" name="loeschen#<?php echo $id ?>"
+                                               value="<?php echo getUebersetzung("Löschen", $sprache, $link); ?>"/>
+                                    </td>
+
+                                </tr>
+
+								<?php
+							}
+							?>
+
+                            <tr>
+                                <td>
+                                    <select name="zimmer_id" class="form-control">
+										<?php
+										$res = getZimmer($unterkunft_id, $link);
+										while ($d = mysqli_fetch_array($res))
+										{
+											$zimmer_id = $d["PK_ID"];
+											$zimmer    = getZimmerNr($unterkunft_id, $zimmer_id, $link);
+											$zimmerart = getZimmerArt($unterkunft_id, $zimmer_id, $link);
+											?>
+                                            <option
+                                                    value="<?php echo $zimmer_id ?>"><?php echo $zimmerart . " " . $zimmer ?></option>
+											<?php
+										} //ende while
+										?>
+                                    </select>
+                                </td>
+
+
+                                <td>
+                                    <select name="von_wochentag" class="form-control">
+										<?php
+										$res = getWochentage();
+										foreach ($res as $wochentag)
+										{
+											?>
+                                            <option value="<?php echo $wochentag ?>"><?php echo $wochentag ?></option>
+											<?php
+										} //ende while
+										?>
+                                    </select>
+                                </td>
+
+
+                                <td>
+                                    <select name="bis_wochentag" class="form-control">
+										<?php
+										$res = getWochentage();
+										foreach ($res as $wochentag)
+										{
+											?>
+                                            <option value="<?php echo $wochentag ?>"><?php echo $wochentag ?></option>
+											<?php
+										} //ende while
+										?>
+                                    </select>
+                                </td>
+
+
+                                <td>
+                                    <div class="row">
+                                        <select name="vonTag" class="col-sm-4 form-control tableColor" id="select">
+											<?php for ($i = 1; $i <= 31; $i++)
+											{ ?>
+                                                <option
+                                                        value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo(" selected"); ?>><?php echo($i); ?></option>
+											<?php } ?>
+                                        </select>
+                                        <!--  heutiges monat selectiert anzeigen: -->
+                                        <select name="vonMonat" class="col-sm-4 form-control tableColor" id="vonMonat"
+                                                onChange="chkDays(0)">
+                                            <option
+                                                    value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="7"<?php if (getTodayMonth() == "Juli") echo " selected"; ?>><?php echo(getUebersetzung("Juli", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="8"<?php if (getTodayMonth() == "August") echo " selected"; ?>><?php echo(getUebersetzung("August", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="9"<?php if (getTodayMonth() == "September") echo " selected"; ?>><?php echo(getUebersetzung("September", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="10"<?php if (getTodayMonth() == "Oktober") echo " selected"; ?>><?php echo(getUebersetzung("Oktober", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="11"<?php if (getTodayMonth() == "November") echo " selected"; ?>><?php echo(getUebersetzung("November", $sprache, $link)); ?></option>
+                                            <option
+                                                    value="12"<?php if (getTodayMonth() == "Dezember") echo " selected"; ?>><?php echo(getUebersetzung("Dezember", $sprache, $link)); ?></option>
+                                        </select>
+                                        <!--  heutiges jahr selectiert anzeigen: -->
+                                        <select name="vonJahr" class="col-sm-4 form-control tableColor" id="vonJahr"
+                                                onChange="chkDays(0)">
+											<?php
+											for ($l = getTodayYear(); $l < (getTodayYear() + 4); $l++)
+											{ ?>
+                                                <option
+                                                        value="<?php echo $l ?>"<?php if ($l == getTodayYear()) echo(" selected"); ?>><?php echo $l ?></option>
+											<?php } ?>
+                                        </select>
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <select class="col-sm-4 form-control tableColor" name="bisTag" id="select4">
+                                        <!--  heutigen tag selectiert anzeigen: -->
+										<?php $anzahlTage = getNumberOfDays(parseMonthNumber($monat), $jahr);
+										for ($i = 1; $i <= $anzahlTage; $i++)
+										{ ?>
+                                            <option
+                                                    value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo " selected"; ?>><?php echo($i); ?></option>
+										<?php } ?>
+                                    </select>
+                                    <!--  heutiges monat selectiert anzeigen: -->
+                                    <select class="col-sm-4 form-control tableColor" name="bisMonat" id="bisMonat"
+                                            onChange="chkDays(1)">
+                                        <option
+                                                value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
+                                        <option
+                                                value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar", $sprache, $link)); ?></option>
+                                        <option
+                                                value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März", $sprache, $link)); ?></option>
+                                        <option
+                                                value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April", $sprache, $link)); ?></option>
+                                        <option
+                                                value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai", $sprache, $link)); ?></option>
+                                        <option
+                                                value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni", $sprache, $link)); ?></option>
+                                        <option
+                                                value="7"<?php if (getTodayMonth() == "Juli") echo " selected"; ?>><?php echo(getUebersetzung("Juli", $sprache, $link)); ?></option>
+                                        <option
+                                                value="8"<?php if (getTodayMonth() == "August") echo " selected"; ?>><?php echo(getUebersetzung("August", $sprache, $link)); ?></option>
+                                        <option
+                                                value="9"<?php if (getTodayMonth() == "September") echo " selected"; ?>><?php echo(getUebersetzung("September", $sprache, $link)); ?></option>
+                                        <option
+                                                value="10"<?php if (getTodayMonth() == "Oktober") echo " selected"; ?>><?php echo(getUebersetzung("Oktober", $sprache, $link)); ?></option>
+                                        <option
+                                                value="11"<?php if (getTodayMonth() == "November") echo " selected"; ?>><?php echo(getUebersetzung("November", $sprache, $link)); ?></option>
+                                        <option
+                                                value="12"<?php if (getTodayMonth() == "Dezember") echo " selected"; ?>><?php echo(getUebersetzung("Dezember", $sprache, $link)); ?></option>
+                                    </select>
+                                    <!--  heutiges jahr selectiert anzeigen: -->
+                                    <select class="col-sm-4 form-control" name="bisJahr" class="tableColor" id="bisJahr"
+                                            onChange="chkDays(1)">
+										<?php
+										for ($l = getTodayYear() - 4; $l < (getTodayYear() + 4); $l++)
+										{ ?>
+                                            <option value="<?php echo($l); ?>"<?php if ($l == getTodayYear()) echo(" selected"); ?>>
+												<?php echo($l); ?>
+                                            </option>
+										<?php } ?>
+                                    </select>
+                                </td>
+
+                                <td>
+                                    <input type="submit" name="add" class="btn btn-success"
+                                           value="<?php echo getUebersetzung("Hinzufügen", $sprache, $link); ?>"/>
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="row">
-                        <hr>
-                    </div>
-                    <?php
-                }
-                ?>
-
-                <div class="form-group" style="width: 100%;">
-                    <div class="col-sm-1">
-                        <select name="zimmer_id" class="form-control">
-                            <?php
-                            $res = getZimmer($unterkunft_id, $link);
-                            while ($d = mysqli_fetch_array($res)) {
-                                $zimmer_id = $d["PK_ID"];
-                                $zimmer = getZimmerNr($unterkunft_id, $zimmer_id, $link);
-                                $zimmerart = getZimmerArt($unterkunft_id, $zimmer_id, $link);
-                                ?>
-                                <option
-                                    value="<?php echo $zimmer_id ?>"><?php echo $zimmerart . " " . $zimmer ?></option>
-                                <?php
-                            } //ende while
-                            ?>
-                        </select>
-                    </div>
-
-
-                    <div class="col-sm-1" style="width: 10%;">
-                        <select name="von_wochentag" class="form-control">
-                            <?php
-                            $res = getWochentage();
-                            foreach ($res as $wochentag) {
-                                ?>
-                                <option value="<?php echo $wochentag ?>"><?php echo $wochentag ?></option>
-                                <?php
-                            } //ende while
-                            ?>
-                        </select>
-                    </div>
-
-
-                    <div class="col-sm-1" style="width: 10%;">
-                        <select name="bis_wochentag" class="form-control">
-                            <?php
-                            $res = getWochentage();
-                            foreach ($res as $wochentag) {
-                                ?>
-                                <option value="<?php echo $wochentag ?>"><?php echo $wochentag ?></option>
-                                <?php
-                            } //ende while
-                            ?>
-                        </select>
-                    </div>
-
-
-                    <div class="col-sm-3">
-                        <div class="row">
-                            <select name="vonTag" class="col-sm-4 form-control tableColor" id="select">
-                                <?php for ($i = 1; $i <= 31; $i++) { ?>
-                                    <option
-                                        value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo(" selected"); ?>><?php echo($i); ?></option>
-                                <?php } ?>
-                            </select>
-                            <!--  heutiges monat selectiert anzeigen: -->
-                            <select name="vonMonat" class="col-sm-4 form-control tableColor" id="vonMonat"
-                                    onChange="chkDays(0)">
-                                <option
-                                    value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
-                                <option
-                                    value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar", $sprache, $link)); ?></option>
-                                <option
-                                    value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März", $sprache, $link)); ?></option>
-                                <option
-                                    value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April", $sprache, $link)); ?></option>
-                                <option
-                                    value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai", $sprache, $link)); ?></option>
-                                <option
-                                    value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni", $sprache, $link)); ?></option>
-                                <option
-                                    value="7"<?php if (getTodayMonth() == "Juli") echo " selected"; ?>><?php echo(getUebersetzung("Juli", $sprache, $link)); ?></option>
-                                <option
-                                    value="8"<?php if (getTodayMonth() == "August") echo " selected"; ?>><?php echo(getUebersetzung("August", $sprache, $link)); ?></option>
-                                <option
-                                    value="9"<?php if (getTodayMonth() == "September") echo " selected"; ?>><?php echo(getUebersetzung("September", $sprache, $link)); ?></option>
-                                <option
-                                    value="10"<?php if (getTodayMonth() == "Oktober") echo " selected"; ?>><?php echo(getUebersetzung("Oktober", $sprache, $link)); ?></option>
-                                <option
-                                    value="11"<?php if (getTodayMonth() == "November") echo " selected"; ?>><?php echo(getUebersetzung("November", $sprache, $link)); ?></option>
-                                <option
-                                    value="12"<?php if (getTodayMonth() == "Dezember") echo " selected"; ?>><?php echo(getUebersetzung("Dezember", $sprache, $link)); ?></option>
-                            </select>
-                            <!--  heutiges jahr selectiert anzeigen: -->
-                            <select name="vonJahr" class="col-sm-4 form-control tableColor" id="vonJahr"
-                                    onChange="chkDays(0)">
-                                <?php
-                                for ($l = getTodayYear(); $l < (getTodayYear() + 4); $l++) { ?>
-                                    <option
-                                        value="<?php echo $l ?>"<?php if ($l == getTodayYear()) echo(" selected"); ?>><?php echo $l ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-sm-3">
-                        <select class="col-sm-4 form-control tableColor" name="bisTag" id="select4">
-                            <!--  heutigen tag selectiert anzeigen: -->
-                            <?php $anzahlTage = getNumberOfDays(parseMonthNumber($monat), $jahr);
-                            for ($i = 1; $i <= $anzahlTage; $i++) { ?>
-                                <option
-                                    value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo " selected"; ?>><?php echo($i); ?></option>
-                            <?php } ?>
-                        </select>
-                        <!--  heutiges monat selectiert anzeigen: -->
-                        <select class="col-sm-4 form-control tableColor" name="bisMonat" id="bisMonat"
-                                onChange="chkDays(1)">
-                            <option
-                                value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
-                            <option
-                                value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar", $sprache, $link)); ?></option>
-                            <option
-                                value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März", $sprache, $link)); ?></option>
-                            <option
-                                value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April", $sprache, $link)); ?></option>
-                            <option
-                                value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai", $sprache, $link)); ?></option>
-                            <option
-                                value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni", $sprache, $link)); ?></option>
-                            <option
-                                value="7"<?php if (getTodayMonth() == "Juli") echo " selected"; ?>><?php echo(getUebersetzung("Juli", $sprache, $link)); ?></option>
-                            <option
-                                value="8"<?php if (getTodayMonth() == "August") echo " selected"; ?>><?php echo(getUebersetzung("August", $sprache, $link)); ?></option>
-                            <option
-                                value="9"<?php if (getTodayMonth() == "September") echo " selected"; ?>><?php echo(getUebersetzung("September", $sprache, $link)); ?></option>
-                            <option
-                                value="10"<?php if (getTodayMonth() == "Oktober") echo " selected"; ?>><?php echo(getUebersetzung("Oktober", $sprache, $link)); ?></option>
-                            <option
-                                value="11"<?php if (getTodayMonth() == "November") echo " selected"; ?>><?php echo(getUebersetzung("November", $sprache, $link)); ?></option>
-                            <option
-                                value="12"<?php if (getTodayMonth() == "Dezember") echo " selected"; ?>><?php echo(getUebersetzung("Dezember", $sprache, $link)); ?></option>
-                        </select>
-                        <!--  heutiges jahr selectiert anzeigen: -->
-                        <select class="col-sm-4 form-control" name="bisJahr" class="tableColor" id="bisJahr"
-                                onChange="chkDays(1)">
-                            <?php
-                            for ($l = getTodayYear() - 4; $l < (getTodayYear() + 4); $l++) { ?>
-                                <option
-                                    value="<?php echo($l); ?>"<?php if ($l == getTodayYear()) echo(" selected"); ?>><?php echo($l); ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-
-                    <div class="col-sm-2">
-                        <input name="add"
-                               type="submit"
-                               class="btn btn-success"
-                               value="<?php echo getUebersetzung("hinzufügen", $sprache, $link); ?>"/>
-                    </div>
-
-                </div>
-            </form>
-            <?php
-            } //ende if passwortprüfung
-            else {
-                echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
-            }
-            ?>
+                </form>
+				<?php
+			} //ende if passwortprüfung
+			else
+			{
+				echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
+			}
+			?>
 <?php include_once("../../templates/end.php"); ?>

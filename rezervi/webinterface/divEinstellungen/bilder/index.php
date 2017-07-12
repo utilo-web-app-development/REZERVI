@@ -20,6 +20,7 @@ include_once("../../../include/bildFunctions.php");
 include_once("../../../include/propertiesFunctions.php");
 include_once("../../../include/uebersetzer.php");
 include_once("../../templates/components.php");
+include_once("../../templates/auth.php");
 
 //variablen:
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
@@ -102,7 +103,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         <br>
         <div class="row">
             <label class="label-control col-sm-5">
-                <?php echo(getUebersetzung("Maximale Höhe bei upload", $sprache, $link)); ?>
+                <?php echo(getUebersetzung("Maximale Höhe bei upload (px)", $sprache, $link)); ?>
             </label>
             <div class="col-sm-4">
 
@@ -113,7 +114,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 
         <div class="row">
             <label class="label-control col-sm-5">
-                <?php echo(getUebersetzung("Maximale Breite bei upload", $sprache, $link)); ?>
+                <?php echo(getUebersetzung("Maximale Breite bei upload (px)", $sprache, $link)); ?>
             </label>
             <div class="col-sm-4">
                 <input class="form-control" name="height" type="text" id="height" value="<?php echo($height); ?>"

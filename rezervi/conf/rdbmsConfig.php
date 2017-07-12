@@ -49,7 +49,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	//e-mail address:
 	//--german:
 	//E-Mail-Adresse:
-	$EMAIL = "office@utilo.eu";
+	$EMAIL = "emre.erden@utilo.eu"; //"office@utilo.eu";
 	
 	
 /****************************************************************************
@@ -87,7 +87,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	}
 	
 	define('DEBUG',false);  //aktivieren des debug modus
-	define('DEMO',true); //wenn demo aktiviert werden z. b. keine mails versendet.
+	define('DEMO',false); //wenn demo aktiviert werden z. b. keine mails versendet.
 	 
 	 ////////////////////////////////////////////////////////////
 	 // dont't make changings after this line

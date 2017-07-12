@@ -18,14 +18,15 @@ include_once("../../../include/unterkunftFunctions.php");
 include_once("../../../include/einstellungenFunctions.php");
 include_once("../../../include/uebersetzer.php");
 include_once("../../templates/components.php");
+include_once("../../templates/auth.php");
 
 //variablen:
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-$passwort = getSessionWert(PASSWORT);
-$benutzername = getSessionWert(BENUTZERNAME);
-$sprache = getSessionWert(SPRACHE);
+$passwort      = getSessionWert(PASSWORT);
+$benutzername  = getSessionWert(BENUTZERNAME);
+$sprache       = getSessionWert(SPRACHE);
 //standard-sprache aus datenbank auslesen:
-$standard = getStandardSprache($unterkunft_id, $link);
+$standard              = getStandardSprache($unterkunft_id, $link);
 $standardBelegungsplan = getStandardSpracheBelegungsplan($unterkunft_id, $link);
 
 ?>
@@ -42,104 +43,114 @@ $standardBelegungsplan = getStandardSpracheBelegungsplan($unterkunft_id, $link);
     <div class="panel-body">
 <?php
 //passwortprüfung:
-if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
-    ?>
+if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
+{
+	?>
 
     <!-- Show message if there is -->
-    <?php include_once("../../templates/message.php"); ?>
+	<?php include_once("../../templates/message.php"); ?>
 
     <p class="lead">
-        <?php echo(getUebersetzung("Bitte wählen sie die Standard-Sprache ihres Belegungsplanes", $sprache, $link)); ?>.
+		<?php echo(getUebersetzung("Bitte wählen sie die Standard-Sprache ihres Belegungsplanes", $sprache, $link)); ?>.
     </p>
     <p class="lead">
-        <?php echo(getUebersetzung("Es werden hier nur Sprachen angeboten die unter dem Menüpunkt [Sprachen] ausgewählt wurden", $sprache, $link)); ?>
+		<?php echo(getUebersetzung("Es werden hier nur Sprachen angeboten die unter dem Menüpunkt [Sprachen] ausgewählt wurden", $sprache, $link)); ?>
         .
     </p>
 
     <form action="./spracheAendern.php" method="post" target="_self">
 
         <div class="well">
-            <?php
+			<?php
 
-            $res = getSprachen($unterkunft_id, $link);
-            while ($d = mysqli_fetch_array($res)) {
-                $spracheID = $d["Sprache_ID"];
-                $bezeichnung = getBezeichnungOfSpracheID($spracheID, $link);
-                ?>
+			$res = getSprachen($unterkunft_id, $link);
+			while ($d = mysqli_fetch_array($res))
+			{
+				$spracheID   = $d["Sprache_ID"];
+				$bezeichnung = getBezeichnungOfSpracheID($spracheID, $link);
+				?>
                 <div class="row">
                     <div class="col-sm-4">
                         <label
-                            class="label-control"> <?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?></label>
+                                class="label-control"> <?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?></label>
                     </div>
                     <div class="col-sm-1">
                         <input type="radio" name="standardspracheBelegungsplan" value="<?php echo($spracheID); ?>"
-                            <?php if ($standardBelegungsplan == $spracheID) {
-                                echo(" checked");
-                            } ?>>
+							<?php if ($standardBelegungsplan == $spracheID)
+							{
+								echo(" checked");
+							} ?>>
                     </div>
 
                 </div>
-                <?php
-            } //ende foreach
-            ?>
+				<?php
+			} //ende foreach
+			?>
         </div>
         <p class="lead">
-            <?php echo(getUebersetzung("Bitte wählen sie die Standard-Sprache ihres Webinterfaces", $sprache, $link)); ?>.
+			<?php echo(getUebersetzung("Bitte wählen sie die Standard-Sprache ihres Webinterfaces", $sprache, $link)); ?>
+            .
         </p>
 
         <div class="well">
-            <?php
-            $res = getSprachenForWebinterface($link);
-            while ($d = mysqli_fetch_array($res)) {
-                $bezeichnung = $d["Bezeichnung"];
-                $spracheID = $d["Sprache_ID"];
-                ?>
+			<?php
+			$res = getSprachenForWebinterface($link);
+			while ($d = mysqli_fetch_array($res))
+			{
+				$bezeichnung = $d["Bezeichnung"];
+				$spracheID   = $d["Sprache_ID"];
+				?>
                 <div class="row">
                     <div class="col-sm-4">
                         <label
-                            class="label-control">
-                            <?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>
+                                class="label-control">
+							<?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>
                         </label>
                     </div>
                     <div class="col-sm-1">
                         <input type="radio" name="standardsprache" value="<?php echo($spracheID); ?>"
-                            <?php if ($standard == $spracheID) {
-                                echo(" checked");
-                            } ?>>
+							<?php if ($standard == $spracheID)
+							{
+								echo(" checked");
+							} ?>>
                     </div>
                 </div>
 
-                <?php
-            } //ende foreach
-            ?>
+				<?php
+			} //ende foreach
+			?>
 
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <label class="label-control">
-                    <?php echo(getUebersetzung("Zur ausgewählten Sprache wechseln", $sprache, $link)); ?>.
+					<?php echo(getUebersetzung("Zur ausgewählten Sprache wechseln", $sprache, $link)); ?>.
                 </label>
-                </div>
+            </div>
             <div class="col-sm-1">
                 <input type="checkbox" name="jetztWechseln" value="true" checked>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+            <div class="col-sm-12" style="text-align: right;">
                 <button name="aendern" type="submit" class="btn btn-success" id="aendern">
                     <span class="glyphicon glyphicon-wrench"></span>
-                    <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
+					<?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
                 </button>
+                <a href="../index.php" class="btn btn-primary">
+					<?php echo(getUebersetzung("Zurück", $sprache, $link)); ?>
+                </a>
             </div>
         </div>
 
     </form>
     <br/>
 
-    <?php
+	<?php
 } //ende if passwortprüfung
-else {
-    echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
+else
+{
+	echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
 }
 ?>
 <?php include_once("../../templates/end.php"); ?>

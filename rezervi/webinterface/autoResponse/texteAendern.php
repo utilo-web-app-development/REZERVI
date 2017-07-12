@@ -27,6 +27,39 @@ include_once("../../include/uebersetzer.php");
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $passwort      = getSessionWert(PASSWORT);
 $benutzername  = getSessionWert(BENUTZERNAME);
+//variablen initialisieren:
+if (isset($_POST["ben"]) && isset($_POST["pass"])) {
+	$ben = $_POST["ben"];
+	$pass = $_POST["pass"];
+} else {
+	//aufruf kam innerhalb des webinterface:
+	$ben = getSessionWert(BENUTZERNAME);
+	$pass = getSessionWert(PASSWORT);
+}
+
+$benutzer_id = -1;
+if (isset($ben) && isset($pass)) {
+	$benutzer_id = checkPassword($ben, $pass, $link);
+}
+if ($benutzer_id == -1) {
+	//passwortprüfung fehlgeschlagen, auf index-seite zurück:
+	$fehlgeschlagen = true;
+	header("Location: ".$URL."webinterface/index.php?fehlgeschlagen=true"); /* Redirect browser */
+	exit();
+	//include_once("./index.php");
+	//exit;
+} else {
+	$benutzername = $ben;
+	$passwort = $pass;
+	setSessionWert(BENUTZERNAME, $benutzername);
+	setSessionWert(PASSWORT, $passwort);
+
+	//unterkunft-id holen:
+	$unterkunft_id = getUnterkunftID($benutzer_id, $link);
+	setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
+	setSessionWert(BENUTZER_ID, $benutzer_id);
+}
+
 
 if (isset($_POST["subject_de"]))
 {
@@ -396,13 +429,14 @@ else
     </style>
 	<?php include_once("../templates/headerB.php"); ?>
 	<?php include_once("../templates/bodyA.php"); ?>
-<!--	--><?php //echo($_POST["aktiviert"]); ?>
+    <!--	--><?php //echo($_POST["aktiviert"]);
+	?>
 	<?php
 	//passwortprüfung:	
 	if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
 	{
 
-	    $title ="";
+		$title = "";
 
 		if ($art != "emails")
 		{
@@ -505,10 +539,29 @@ else
             </script>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3><?php echo(getUebersetzung($art , $sprache, $link)); ?></h3>
+                    <h3>
+                        <?php echo(getUebersetzung($title, $sprache, $link)); ?>
+                    </h3>
                 </div>
                 <div class="panel-body">
-	                <?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.", $sprache, $link)); ?>
+                    <div class="row" style="padding-bottom: 10px;">
+                        <div class="col-sm-12">
+                            <label>
+								<?php echo(getUebersetzung("Ihre automatische E-Mail-Antwort wurde erfolgreich verändert.", $sprache, $link)); ?>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a href="../inhalt.php" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-home"></span>
+								<?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>
+                            </a>
+                            <a href="index.php" class="btn btn-default">
+								<?php echo getUebersetzung("Zurück", $sprache, $link); ?>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -525,7 +578,7 @@ else
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="alert alert-info">
-				                <?php echo(getUebersetzung("Die E-Mails wurden versendet", $sprache, $link)); ?>!
+								<?php echo(getUebersetzung("Die E-Mails wurden versendet", $sprache, $link)); ?>!
                             </div>
                         </div>
                     </div>
@@ -585,32 +638,31 @@ else
 										//mail($an, $subject, $message, "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
 										//mail($an, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
 
-										if(sendMail($von, $an, $subject, $message)){
+										if (sendMail($von, $an, $subject, $message))
+										{
 											echo(getUebersetzung("erfolgreich gesendet", $sprache, $link) . " ...<br/>");
-                                        }
-										else{
+										}
+										else
+										{
 											echo(getUebersetzung("konnte nicht gesendet werden", $sprache, $link) . " ...<br/>");
-                                        }
+										}
 										?>
                                     </option>
 									<?php
-
-
 								}
 								?>
                             </select>
                         </div>
                     </div>
 
-                    <div class="row" >
-
+                    <div class="row">
                         <div class="col-sm-12">
                             <a href="../inhalt.php" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-home"></span>
-	                            <?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>
+								<?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>
                             </a>
                             <a href="index.php" class="btn btn-default">
-		                        <?php echo getUebersetzung("zurück", $sprache, $link); ?>
+								<?php echo getUebersetzung("Zurück", $sprache, $link); ?>
                             </a>
                         </div>
                     </div>
@@ -625,7 +677,11 @@ else
 		?>
         <div class="panel panel-default">
             <div class="panel-body">
-				<?php echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link)); ?>
+                <div class="row">
+                    <div class="col-sm-12">
+						<?php echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link)); ?>
+                    </div>
+                </div>
             </div>
         </div>
 
