@@ -14,10 +14,10 @@ $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 //sprache auslesen:
 //entweder aus übergebener url oder aus session
 if (isset($_POST["sprache"]) && $_POST["sprache"] != "") {
-    $sprache = $_POST["sprache"];
-    setSessionWert(SPRACHE, $sprache);
+	$sprache = $_POST["sprache"];
+	setSessionWert(SPRACHE, $sprache);
 } else {
-    $sprache = getSessionWert(SPRACHE);
+	$sprache = getSessionWert(SPRACHE);
 
 }
 setSessionWert(SPRACHE, $sprache);
@@ -41,35 +41,35 @@ include_once("../../include/gastFunctions.php");
 
 //variablen initialisieren:
 if (isset($_POST["ben"]) && isset($_POST["pass"])) {
-    $ben = $_POST["ben"];
-    $pass = $_POST["pass"];
+	$ben = $_POST["ben"];
+	$pass = $_POST["pass"];
 } else {
-    //aufruf kam innerhalb des webinterface:
-    $ben = getSessionWert(BENUTZERNAME);
-    $pass = getSessionWert(PASSWORT);
+	//aufruf kam innerhalb des webinterface:
+	$ben = getSessionWert(BENUTZERNAME);
+	$pass = getSessionWert(PASSWORT);
 }
 
 $benutzer_id = -1;
 if (isset($ben) && isset($pass)) {
-    $benutzer_id = checkPassword($ben, $pass, $link);
+	$benutzer_id = checkPassword($ben, $pass, $link);
 }
 if ($benutzer_id == -1) {
-    //passwortprüfung fehlgeschlagen, auf index-seite zurück:
-    $fehlgeschlagen = true;
-    header("Location: ".$URL."webinterface/index.php?fehlgeschlagen=true"); /* Redirect browser */
-    exit();
-    //include_once("./index.php");
-    //exit;
+	//passwortprüfung fehlgeschlagen, auf index-seite zurück:
+	$fehlgeschlagen = true;
+	header("Location: ".$URL."webinterface/index.php?fehlgeschlagen=true"); /* Redirect browser */
+	exit();
+	//include_once("./index.php");
+	//exit;
 } else {
-    $benutzername = $ben;
-    $passwort = $pass;
-    setSessionWert(BENUTZERNAME, $benutzername);
-    setSessionWert(PASSWORT, $passwort);
+	$benutzername = $ben;
+	$passwort = $pass;
+	setSessionWert(BENUTZERNAME, $benutzername);
+	setSessionWert(PASSWORT, $passwort);
 
-    //unterkunft-id holen:
-    $unterkunft_id = getUnterkunftID($benutzer_id, $link);
-    setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
-    setSessionWert(BENUTZER_ID, $benutzer_id);
+	//unterkunft-id holen:
+	$unterkunft_id = getUnterkunftID($benutzer_id, $link);
+	setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
+	setSessionWert(BENUTZER_ID, $benutzer_id);
 }
 
 include_once("./rightHelper.php");
@@ -96,16 +96,16 @@ include_once("../templates/headerA.php");
 <?php
 if ($error == false && $error != null)
 {
-    ?>
+	?>
     <div class="panel panel-danger">
         <div class="panel-body">
             <div class="alert alert-success">
-                <?php echo $message1; ?>
-                <?php echo $message2; ?>
+				<?php echo $message1; ?>
+				<?php echo $message2; ?>
             </div>
         </div>
     </div>
-    <?php
+	<?php
 } ?>
 <div class="row" ng-app="rezervierungApp" ng-controller="rezervierungController">
     <div class="col-sm-5">

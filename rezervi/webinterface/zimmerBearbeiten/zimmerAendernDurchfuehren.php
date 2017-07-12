@@ -403,7 +403,7 @@ include_once("../templates/bodyA.php");
 <!---->
 <!--                    </form>-->
 <!--                </div>-->
-                <div class="col-sm-1" style="text-align: right;">
+                <div class="col-sm-12" style="text-align: right;">
                     <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
                         <input name="retour" type="submit" class="btn btn-default" id="retour"
                                value="<?php echo(getUebersetzung("Zurück", $sprache, $link)); ?>">

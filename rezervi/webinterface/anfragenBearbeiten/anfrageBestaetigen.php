@@ -136,7 +136,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
                     </div>
 
 					<?php
-					showSubmitButtonWithForm("./index.php", getUebersetzung("zurück", $sprache, $link));
+					//showSubmitButtonWithForm("./index.php", getUebersetzung("zurück", $sprache, $link));
 				}
 				else
 				{
@@ -230,12 +230,11 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
                     <div class="col-sm-10">
                         <textarea name="message" type="text" id="text_de" value="" class="form-control"
                                   style="height: 200px;">
-
                         </textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="text-align: right;">
                         <input type="submit" name="absenden"
                                value="<?php echo(getUebersetzung("Absenden", $sprache, $link)); ?>"
                                class="btn btn-success" id="absenden"/>

@@ -12,7 +12,7 @@
 define( '_JEXEC', 1 );
  include_once($root."/conf/rdbmsConfig.php");
  include_once($root."/include/uebersetzer.php");
- include_once($root."/include/uebersetzer.php");
+include_once("../../include/benutzerFunctions.php");
  include_once($root."/include/sessionFunctions.inc.php");
  include_once($root."/include/propertiesFunctions.php");
  include_once($root."/include/priceFunctions.inc.php");
