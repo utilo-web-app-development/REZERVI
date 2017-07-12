@@ -155,168 +155,6 @@
     document.ZimmerNrForm.submit();
 }
 
-    function showReservierungAendernDialog() {
-
-    var html = `
-    <form action="./resAendern/resAendern.php" method="post"  name="reservierung" target="_blank"
-                  class="form-horizontal"
-                  id="reservierung">
-                <?php
-    //status = 0: frei
-    //status = 1: reserviert
-    //status = 2: belegt
-    ?>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-danger active">
-                                <input type="radio" name="status" id="belegt" autocomplete="off" value="2" > <?php echo(getUebersetzung("belegt", $sprache, $link)); ?>
-                            </label>
-                            <?php
-    if ($showReservation) {
-    ?>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="status" id="reserviert" autocomplete="off" value="1"> <?php echo(getUebersetzung("reserviert", $sprache, $link)); ?>
-                                </label>
-                                <?php
-    }
-    ?>
-                            <label class="btn btn-primary">
-                                <input type="radio" name="status" id="frei" autocomplete="off" value="0" checked> <?php echo(getUebersetzung("frei", $sprache, $link)); ?>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-sm-2"><?php echo(getUebersetzung("von", $sprache, $link)); ?>
-                        : </label>
-                    <div class="col-sm-3">
-                        <!--  heutigen tag selectiert anzeigen: -->
-                        <select name="vonTag" class="form-control " id="vonTag">
-                            <?php for ($i = 1; $i <= 31; $i++) { ?>
-                                <option
-                                    value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo(" selected"); ?>><?php echo($i); ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <!--  heutiges monat selectiert anzeigen: -->
-                        <select name="vonMonat" class="form-control" id="vonMonat" onChange="chkDays(0)">
-                            <option
-                                value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
-                            <option
-                                value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar", $sprache, $link)); ?></option>
-                            <option
-                                value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März", $sprache, $link)); ?></option>
-                            <option
-                                value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April", $sprache, $link)); ?></option>
-                            <option
-                                value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai", $sprache, $link)); ?></option>
-                            <option
-                                value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni", $sprache, $link)); ?></option>
-                            <option
-                                value="7"<?php if (getTodayMonth() == "Juli") echo " selected"; ?>><?php echo(getUebersetzung("Juli", $sprache, $link)); ?></option>
-                            <option
-                                value="8"<?php if (getTodayMonth() == "August") echo " selected"; ?>><?php echo(getUebersetzung("August", $sprache, $link)); ?></option>
-                            <option
-                                value="9"<?php if (getTodayMonth() == "September") echo " selected"; ?>><?php echo(getUebersetzung("September", $sprache, $link)); ?></option>
-                            <option
-                                value="10"<?php if (getTodayMonth() == "Oktober") echo " selected"; ?>><?php echo(getUebersetzung("Oktober", $sprache, $link)); ?></option>
-                            <option
-                                value="11"<?php if (getTodayMonth() == "November") echo " selected"; ?>><?php echo(getUebersetzung("November", $sprache, $link)); ?></option>
-                            <option
-                                value="12"<?php if (getTodayMonth() == "Dezember") echo " selected"; ?>><?php echo(getUebersetzung("Dezember", $sprache, $link)); ?></option>
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <!--  heutiges jahr selectiert anzeigen: -->
-                        <select name="vonJahr" class="form-control "  id="vonJahr" onChange="chkDays(0)">
-                            <?php
-    for ($l = getTodayYear() - 4; $l < (getTodayYear() + 4); $l++) { ?>
-                                <option
-                                    value="<?php echo $l ?>"<?php if ($l == $jahr) echo(" selected"); ?>><?php echo $l ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-
-                </div>
-
-
-                <div class="form-group">
-                    <label class="control-label col-sm-2"><?php echo(getUebersetzung("bis", $sprache, $link)); ?>
-                        : </label>
-                    <div class="col-sm-3">
-                        <select name="bisTag" class="form-control" id="bisTag">
-                            <?php for ($i = 1; $i <= 31; $i++) { ?>
-                                <option value="<?php echo($i); ?>"<?php if (getTodayDay() == $i) echo " selected"; ?>><?php echo($i); ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <!--  heutiges monat selectiert anzeigen: -->
-                        <select name="bisMonat"  class="form-control" id="bisMonat"  onChange="chkDays(1)">
-                            <option
-                                value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
-                            <option
-                                value="2"<?php if (getTodayMonth() == "Februar") echo " selected"; ?>><?php echo(getUebersetzung("Februar", $sprache, $link)); ?></option>
-                            <option
-                                value="3"<?php if (getTodayMonth() == "März") echo " selected"; ?>><?php echo(getUebersetzung("März", $sprache, $link)); ?></option>
-                            <option
-                                value="4"<?php if (getTodayMonth() == "April") echo " selected"; ?>><?php echo(getUebersetzung("April", $sprache, $link)); ?></option>
-                            <option
-                                value="5"<?php if (getTodayMonth() == "Mai") echo " selected"; ?>><?php echo(getUebersetzung("Mai", $sprache, $link)); ?></option>
-                            <option
-                                value="6"<?php if (getTodayMonth() == "Juni") echo " selected"; ?>><?php echo(getUebersetzung("Juni", $sprache, $link)); ?></option>
-                            <option
-                                value="7"<?php if (getTodayMonth() == "Juli") echo " selected"; ?>><?php echo(getUebersetzung("Juli", $sprache, $link)); ?></option>
-                            <option
-                                value="8"<?php if (getTodayMonth() == "August") echo " selected"; ?>><?php echo(getUebersetzung("August", $sprache, $link)); ?></option>
-                            <option
-                                value="9"<?php if (getTodayMonth() == "September") echo " selected"; ?>><?php echo(getUebersetzung("September", $sprache, $link)); ?></option>
-                            <option
-                                value="10"<?php if (getTodayMonth() == "Oktober") echo " selected"; ?>><?php echo(getUebersetzung("Oktober", $sprache, $link)); ?></option>
-                            <option
-                                value="11"<?php if (getTodayMonth() == "November") echo " selected"; ?>><?php echo(getUebersetzung("November", $sprache, $link)); ?></option>
-                            <option
-                                value="12"<?php if (getTodayMonth() == "Dezember") echo " selected"; ?>><?php echo(getUebersetzung("Dezember", $sprache, $link)); ?></option>
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <!--  heutiges jahr selectiert anzeigen: -->
-                        <select name="bisJahr" class="form-control" id="bisJahr" onChange="chkDays(1)">
-                            <?php
-    for ($l = getTodayYear() - 4; $l < (getTodayYear() + 4); $l++) { ?>
-                                <option
-                                    value="<?php echo($l); ?>"<?php if ($l == $jahr) echo(" selected"); ?>><?php echo($l); ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-offset-6 col-sm-6" style="text-align: right;">
-                        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
-                        <button name="reservierungAendern" type="submit" class="btn btn-primary"
-                                id="reservierungAbsenden2">
-                            <span class="glyphicon glyphicon-wrench"></span>
-                            <?php echo(getUebersetzung("Reservierung ändern", $sprache, $link)); ?>
-                        </button>
-                    </div>
-                </div>
-
-            </form>
-    `;
-
-    bootbox.dialog({
-        title: "<?php echo(getUebersetzung("Reservierung ändern", $sprache, $link)); ?>",
-        message: html,
-        callback: function (result) {
-            console.log(result);
-        }
-    });
-}
-
     //Angular-Start
     var rezervi = angular.module('rezervierungApp', []
     )
@@ -467,15 +305,24 @@
     $scope.zimmers=zimmers;
     $scope.zimmer_id=selectedZimmer;
 
-    $scope.zimmer_idChanged=function(zimmer_id){
+    $scope.zimmer_id_left=$scope.zimmer_id;
+    $scope.zimmer_id_reservierung_aendern = $scope.zimmer_id;
+    $scope.zimmer_id_right=$scope.zimmer_id;
+
+    $scope.jahr_left = '<?php echo($jahr); ?>';
+    $scope.monat_left = '<?php echo(parseMonthNumber($monat)); ?>';
+
+
+    $scope.zimmer_idChanged=function(){
 
     $scope.zimmer_id_left=$scope.zimmer_id;
+    $scope.zimmer_id_reservierung_aendern = $scope.zimmer_id;
     $scope.zimmer_id_right=$scope.zimmer_id;
-    console.log(zimmer_id);
+
     var FormData = {
         'month' : $scope.month,
         'year' : $scope.year,
-        'zimmer_id':zimmer_id,
+        'zimmer_id':$scope.zimmer_id,
         'unterkunft_id':<?php echo(getSessionWert(UNTERKUNFT_ID));?>,
         'sprache':'<?php echo($sprache);?>'
     };
@@ -489,9 +336,9 @@
         url="<?php echo $URL;?>webinterface/reservierung/jahresuebersicht.php";
     }
 
-        var head="";
+    var head="";
     var zimmerName = $.grep($scope.zimmers,function(zimmer){
-        return zimmer.zimmerid == zimmer_id;
+        return zimmer.zimmerid == $scope.zimmer_id;
     })[0].zimmerartnr;
     if($scope.view == 0)
     {
@@ -502,7 +349,7 @@
         head = "Belegungsplan "+$scope.year+", für "+zimmerName;
     }
         $http.post(url,FormData).then(function(response) {
-        console.log(response);
+
         $('#rightView').children('.panel-heading').html(head);
         $('#monthView').html(response.data);
     });
@@ -521,10 +368,10 @@
 }
 
     $scope.monat_left =   $scope.month;
-    $scope.monat_right =   $scope.month;
+    $scope.monat_right =  $scope.month;
 
     $scope.jahr_left =   $scope.year;
-    $scope.jahr_right =   $scope.year;
+    $scope.jahr_right =  $scope.year;
     var FormData = {
     'month' : $scope.month,
     'year' : $scope.year,

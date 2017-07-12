@@ -172,11 +172,9 @@ include_once("leftJS.js.php");
                 </ul>
             </div>
 
-            <input name="zimmer_id_left" type="hidden" id="zimmer_id_left" ng-model="zimmer_id_left"
-                   value="<?php echo($zimmer_id); ?>">
-            <input name="jahr_left" type="hidden" ng-model="jahr_left" id="jahr_left" value="<?php echo($jahr); ?>">
-            <input name="monat_left" type="hidden" id="monat_left" ng-model="monat_left"
-                   value="<?php echo(parseMonthNumber($monat)); ?>">
+            <input name="zimmer_id_left" type="hidden" id="zimmer_id_left" ng-model="zimmer_id_left" value="{{zimmer_id_left}}">
+            <input name="jahr_left" type="hidden" ng-model="jahr_left" id="jahr_left" value="{{jahr_left}}">
+            <input name="monat_left" type="hidden" id="monat_left" ng-model="monat_left" value="{{monat_left}}">
             <input name="view" type="hidden" id="view" ng-model="view" value="0">
 
             <div class="row">
@@ -324,7 +322,7 @@ include_once("leftJS.js.php");
 
                 <div class="row">
                     <div class="col-sm-offset-6 col-sm-6" style="text-align: right;">
-                        <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
+                        <input name="zimmer_id" type="hidden" id="zimmer_id_reservierung_aendern" ng-model="zimmer_id_reservierung_aendern" value="{{zimmer_id_reservierung_aendern}}">
                         <button name="reservierungAendern" type="submit" class="btn btn-primary"
                                 id="reservierungAbsenden2">
                             <span class="glyphicon glyphicon-wrench"></span>
