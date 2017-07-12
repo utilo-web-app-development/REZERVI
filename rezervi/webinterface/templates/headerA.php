@@ -26,6 +26,9 @@
 
         <link rel="stylesheet" href="<?php echo ($root)?>/libs/bootstrap/css/bootstrap-theme.min.css">
 
+        <link id="bsdp-css" href="<?php echo ($root)?>/libs/bootstrap-datepicker-1.6.4/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+
+        <link href="<?php echo ($root)?>/libs/bootstrap-year-calendar/css/bootstrap-year-calendar.css" rel="stylesheet">
 
         <link href="<?php echo ($root)?>/libs/bootstrap-toggle/css/bootstrap-toggle.css" rel="stylesheet">
 
@@ -43,6 +46,16 @@
 
         <script src="<?php echo ($root)?>/libs/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo ($root)?>/libs/bootstrap-toggle/js/bootstrap-toggle.js"></script>
+
+        <script src="<?php echo ($root)?>/libs/momentjs/moment.js"></script>
+        <script src="<?php echo ($root)?>/libs/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker.js"></script>
+        <script src="<?php echo ($root)?>/libs/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.de.min.js"></script>
+        <script src="<?php echo ($root)?>/libs/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.en-GB.min.js"></script>
+        <script src="<?php echo ($root)?>/libs/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.tr.min.js"></script>
+        <script src="<?php echo ($root)?>/libs/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.nl.min.js"></script>
+        <script src="<?php echo ($root)?>/libs/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.fr.min.js"></script>
+
+        <script src="<?php echo ($root)?>/libs/bootstrap-year-calendar/js/bootstrap-year-calendar.js"></script>
 
 
         <script src="<?php echo ($root)?>/libs/angular/use-form-error.js"></script>
