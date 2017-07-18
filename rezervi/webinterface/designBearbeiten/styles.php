@@ -548,7 +548,7 @@ $style = $d[$auslesen];
                             </label>
                         </div>
                         <div class="col-sm-3">
-                            <input class="form-control" name="border_color" id="border_colorcolor"
+                            <input class="form-control" name="border_color" id="border_color"
 
                                    value="<?php echo(getBorderColor($style)); ?>">
                             <script>

@@ -61,7 +61,7 @@ if ($monat == false){
 $monat-=1;$monat+=1;
 
 //seitenheader:	
-include_once("./templates/headerA.php");
+//include_once("./templates/headerA.php");
 
 //stylesheets einfügen:
 ?>
@@ -71,7 +71,7 @@ include_once("./templates/headerA.php");
 <script language="JavaScript" type="text/javascript" src="./rightJS.js">
 </script>
 <?php 
-include_once("./templates/headerB.php");
+//include_once("./templates/headerB.php");
 ?>
 <table width="100%" border="0" class="tableColor">
   <tr>
@@ -169,5 +169,6 @@ include_once("./templates/headerB.php");
      </td>
   </tr>  
 </table>
-</body>
-</html>
+
+<!--</body>-->
+<!--</html>-->

@@ -1,8 +1,8 @@
 <?php session_start();
 $root = "../..";
 // Set flag that this is a parent file
-define( '_JEXEC', 1 );
-include_once($root."/include/sessionFunctions.inc.php");
+define('_JEXEC', 1);
+include_once($root . "/include/sessionFunctions.inc.php");
 
 /*   
 			reservierungsplan
@@ -11,149 +11,240 @@ include_once($root."/include/sessionFunctions.inc.php");
 			date: 18.8.05
 */
 
-	//datenbank öffnen:
-	include_once("../../conf/rdbmsConfig.php");
-	
-	//andere funktionen importieren:
-	include_once("../../include/benutzerFunctions.php");
-	include_once("../../include/unterkunftFunctions.php");
-	include_once("../../include/uebersetzer.php");
-	include_once("../../include/einstellungenFunctions.php");
-	include_once("../../include/zimmerFunctions.php");	
-	include_once("../templates/components.php"); 
+//datenbank öffnen:
+include_once("../../conf/rdbmsConfig.php");
 
-	//variablen intitialisieren:
-	$unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-	$benutzername = getSessionWert(BENUTZERNAME);
-	$passwort = getSessionWert(PASSWORT);
-	$zimmer_id = $_POST["zimmer_id"];
-	$sprache = getSessionWert(SPRACHE);
-	$standardsprache = getStandardSprache($unterkunft_id,$link);
-	
-	if (!is_writable($root."/upload")){
-		$nachricht = "Achtung! Das Verzeichnis 'upload' ist nicht beschreibbar, Sie können erst Bilder hochladen wenn Sie diesem Verzeichnis Schreibrechte zuweisen!";
-		$nachricht = getUebersetzung($nachricht,$sprache,$link);
-		$fehler = true;
-	}	
-			
+//andere funktionen importieren:
+include_once("../../include/benutzerFunctions.php");
+include_once("../../include/unterkunftFunctions.php");
+include_once("../../include/uebersetzer.php");
+include_once("../../include/einstellungenFunctions.php");
+include_once("../../include/zimmerFunctions.php");
+include_once("../templates/components.php");
+
+//variablen intitialisieren:
+$unterkunft_id   = getSessionWert(UNTERKUNFT_ID);
+$benutzername    = getSessionWert(BENUTZERNAME);
+$passwort        = getSessionWert(PASSWORT);
+$zimmer_id       = $_POST["zimmer_id"];
+$sprache         = getSessionWert(SPRACHE);
+$standardsprache = getStandardSprache($unterkunft_id, $link);
+
+if (!is_writable($root . "/upload")) {
+    $nachricht
+               = "Achtung! Das Verzeichnis 'upload' ist nicht beschreibbar, Sie können erst Bilder hochladen wenn Sie diesem Verzeichnis Schreibrechte zuweisen!";
+    $nachricht = getUebersetzung($nachricht, $sprache, $link);
+    $fehler    = true;
+}
+
+$nachricht_alert = $_POST['nachricht_alert'];
+$fehler_alert = $_POST['fehler_alert'];
+
 ?>
 
 <?php include_once("../templates/headerA.php"); ?>
 <style type="text/css">
-<?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+    <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <?php include_once("../templates/headerB.php"); ?>
 <?php include_once("../templates/bodyA.php"); ?>
 
 <?php //passwortprüfung:	
-	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
-?>
+if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
+    ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>
+                <?php echo(getUebersetzung(
+                    "Bilder für Zimmer/Appartement/Wohnung/etc. hochladen",
+                    $sprache, $link
+                )); ?>
+            </h2>
+            <h4>
+                <?php echo(getUebersetzung(
+                    "Bitte füllen Sie die untenstehenden Felder aus.", $sprache,
+                    $link
+                )); ?>
+                <?php echo(getUebersetzung(
+                    "Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",
+                    $sprache, $link
+                )); ?>!
+            </h4>
+        </div>
+        <div class="panel-body">
+            <?php
+            if (isset($nachricht) && $nachricht != ""){
+            ?>
 
-<form action="./bilderHochladenDurchfuehren.php" method="post" name="zimmerEintragen" target="_self" enctype="multipart/form-data">
-  <table border="0" cellpadding="0" cellspacing="3" class="table">
-    <tr class="table"> 
-      <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. hochladen",$sprache,$link)); ?><br/>
-          <span class="standardSchrift"><?php echo(getUebersetzung("Bitte füllen Sie die untenstehenden Felder aus.",$sprache,$link)); ?> 
-          <?php echo(getUebersetzung("Die mit [*] gekennzeichneten Felder müssen ausgefüllt werden",$sprache,$link)); ?>!</span></p>
-      </td>
-    </tr>
-	<?php
-	if (isset($nachricht) && $nachricht != ""){
-	?>
-	<tr> 
-      <td height="30" colspan="2" 
-	  <?php 
-	  	if ($fehler == true) {
-	  ?>
-	  	class="belegt"
-	  <?php		
-	  	}
-	  else { 
-	  ?>
-	  	class="frei"
-	  <?php
-	  } 
-	  ?>
-	  ><?php echo($nachricht); ?>
-	  </td>
-    </tr>
+            <div role="alert" class="alert
+                            <?php
+            if ($fehler_alert == true) {
+            ?>
+                                alert-danger"
+                <?php
+                }
+                else {
+                ?>
+                 alert-success"
+            <?php
+            }
+            ?>
+            >
+            <?php echo($nachricht); ?>
+        </div>
+
+        <?php
+        }
+        ?>
+
+        <?php
+            if (isset($nachricht_alert) && $nachricht_alert != ""){
+            ?>
+
+            <div class="alert
+                            <?php
+            if ($fehler == true) {
+            ?>
+                                alert-danger"
+                <?php
+                }
+                else {
+                ?>
+                 alert-success"
+            <?php
+            }
+            ?>
+            >
+            <?php echo($nachricht_alert); ?>
+        </div>
+
+        <?php
+        }
+        ?>
+
+        <form action="./bilderHochladenDurchfuehren.php" method="post"
+              class="form-horizontal" name="zimmerEintragen" target="_self"
+              enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <label>
+                        <?php echo(getUebersetzung(
+                            "Zimmer", $sprache, $link
+                        )); ?>*
+                    </label>
+                </div>
+                <div class="col-sm-10">
+                    <select name="zimmer_id" id="zimmer_id"
+                            class="form-control">
+                        <?php
+                        $res = getZimmer($unterkunft_id, $link);
+                        //zimmer ausgeben:
+                        while ($d = mysqli_fetch_array($res)) {
+                            $ziArt = getUebersetzungUnterkunft(
+                                $d["Zimmerart"], $sprache, $unterkunft_id, $link
+                            );
+                            $ziNr  = getUebersetzungUnterkunft(
+                                $d["Zimmernr"], $sprache, $unterkunft_id, $link
+                            );
+                            ?>
+                            <option value="<?php echo($d["PK_ID"]); ?>"
+                                <?php if (isset($zimmer_id)
+                                    && ($zimmer_id == $d["PK_ID"])
+                                ) {
+                                    ?>
+                                    selected="selected"
+                                    <?php
+                                }
+                                ?>
+                            ><?php echo($ziArt . " " . $ziNr); ?>
+                            </option>
+                            <?php
+                        } //ende while
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <label>
+                        <?php echo(getUebersetzung("Bild", $sprache, $link)); ?>
+                        *
+                    </label>
+                </div>
+                <div class="col-sm-10">
+                    <input name="bild" type="file" class="form-control">
+                </div>
+            </div>
+            <?php
+            $spr = getSprachenForBelegungsplan($link);
+            while ($s = mysqli_fetch_array($spr)) {
+                ?>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label>
+                            <?php echo(getUebersetzung(
+                                "Beschreibung", $sprache, $link
+                            )); ?>&nbsp;
+                            <?php echo getUebersetzung(
+                                $s['Bezeichnung'], $sprache, $link
+                            ) ?>
+                            <?php if ($s['Sprache_ID'] == $standardsprache) { ?>
+                                *
+                            <?php } ?>
+                        </label>
+                    </div>
+                    <div class="col-sm-10">
+                        <textarea class="form-control"
+                                  name="beschreibung_<?php echo $s['Sprache_ID'] ?>"
+                                  cols="50" rows="3"></textarea>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+
+            <div class="form-group">
+                <div class="col-sm-12" style="text-align: right;">
+                    <button name="Submit" type="submit" id="Submit"
+                            class="btn btn-success">
+                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                        <?php echo(getUebersetzung(
+                            "Bild hochladen", $sprache, $link
+                        )); ?>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12" style="text-align: right;">
+                    <a href="../inhalt.php" name="home" id="home"
+                       class="btn btn-primary">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <?php echo(getUebersetzung(
+                            "Hauptmenü", $sprache, $link
+                        )); ?>
+                    </a>
+                    <a href="./index.php" name="back" id="back"
+                       class="btn btn-default">
+                        <?php echo(getUebersetzung(
+                            "Zurück", $sprache, $link
+                        )); ?>
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
     <?php
-	}
-	?>
-	<tr> 
-      <td height="30" colspan="2">&nbsp;</td>
-    </tr>
- 	<tr>
-		<td><span class="standardSchrift"><?php echo(getUebersetzung("Zimmer",$sprache,$link)); ?>*</span></td>
-		<td><select name="zimmer_id" id="zimmer_id">
-          <?php	
-			 $res = getZimmer($unterkunft_id,$link);
-			  //zimmer ausgeben:
-			  while($d = mysqli_fetch_array($res)) {
-				$ziArt = getUebersetzungUnterkunft($d["Zimmerart"],$sprache,$unterkunft_id,$link);
-				$ziNr  = getUebersetzungUnterkunft($d["Zimmernr"],$sprache,$unterkunft_id,$link);
-				?>
-					<option value="<?php echo($d["PK_ID"]); ?>" 
-							<?php if (isset($zimmer_id) && ($zimmer_id == $d["PK_ID"])){
-							?>
-								selected="selected"
-							<?php
-							}
-							?>
-							><?php echo($ziArt." ".$ziNr); ?>
-							</option>
-				<?php 
-			  } //ende while 
-			 ?>
-        </select></td>
-	</tr>
-	<tr>
-		<td><span class="standardSchrift"><?php echo(getUebersetzung("Bild",$sprache,$link)); ?>*</span></td>
-		<td><input name="bild" type="file"></td>
-	</tr>
-	<?php
-	$spr = getSprachenForBelegungsplan($link);
-	while ($s = mysqli_fetch_array($spr)){
-	?>
-	<tr>
-		<td>
-			<span class="standardSchrift">
-				<?php echo(getUebersetzung("Beschreibung",$sprache,$link)); ?>&nbsp;
-				<?php echo getUebersetzung($s['Bezeichnung'],$sprache,$link) ?>
-				<?php if ($s['Sprache_ID'] == $standardsprache) { ?> 
-					*
-				<?php } ?>
-			</span>
-		</td>
-		<td>
-			<textarea name="beschreibung_<?php echo $s['Sprache_ID'] ?>" cols="50" rows="3"></textarea>
-		</td>
-	</tr>
-	<?php
-	}
-	?>
-    <tr class="table"> 
-      <td colspan="2">
-        <input name="Submit" type="submit" id="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("Bild hochladen",$sprache,$link)); ?>"></td>
-    </tr>
-  </table>
-</form>
-<br/>
-<?php 
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+} //ende if passwortprüfung
+else {
+    $fehlgeschlagen = true;
+    header(
+        "Location: " . $URL . "webinterface/index.php?fehlgeschlagen=true"
+    ); /* Redirect browser */
+    exit();
+    //echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
+}
 ?>
-<br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
-<p></td> </tr> </table> </p>  
-<?php 
-	} //ende if passwortprüfung
-	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
-	}
- ?>   
- <?php include_once("../templates/end.php"); ?>
+<?php include_once("../templates/end.php"); ?>

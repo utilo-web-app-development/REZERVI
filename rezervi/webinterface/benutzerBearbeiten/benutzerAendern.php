@@ -13,6 +13,18 @@ include_once($root . "/include/sessionFunctions.inc.php");
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $passwort = getSessionWert(PASSWORT);
 $benutzername = getSessionWert(BENUTZERNAME);
+
+//variablen initialisieren:
+if (isset($_POST["ben"]) && isset($_POST["pass"])) {
+    $ben = $_POST["ben"];
+    $pass = $_POST["pass"];
+} else {
+    //aufruf kam innerhalb des webinterface:
+    $ben = getSessionWert(BENUTZERNAME);
+    $pass = getSessionWert(PASSWORT);
+}
+
+
 $id = $_POST["id"];
 if(!isset($id)){
     $id = $_GET["id"];
@@ -29,6 +41,29 @@ include_once("../../include/benutzerFunctions.php");
 include_once("../../include/unterkunftFunctions.php");
 //uebersetzer einfuegen:
 include_once("../../include/uebersetzer.php");
+
+$benutzer_id = -1;
+if (isset($ben) && isset($pass)) {
+    $benutzer_id = checkPassword($ben, $pass, $link);
+}
+if ($benutzer_id == -1) {
+    //passwortprüfung fehlgeschlagen, auf index-seite zurück:
+    $fehlgeschlagen = true;
+    header("Location: ".$URL."webinterface/index.php?fehlgeschlagen=true"); /* Redirect browser */
+    exit();
+    //include_once("./index.php");
+    //exit;
+} else {
+    $benutzername = $ben;
+    $passwort = $pass;
+    setSessionWert(BENUTZERNAME, $benutzername);
+    setSessionWert(PASSWORT, $passwort);
+
+    //unterkunft-id holen:
+    $unterkunft_id = getUnterkunftID($benutzer_id, $link);
+    setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
+    setSessionWert(BENUTZER_ID, $benutzer_id);
+}
 
 //daten des ausgewählten benutzers auslesen:
 $name = getUserName($id, $link);
@@ -56,7 +91,6 @@ if ($name == "test") {
 if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 
     ?>
-
     <div class="panel panel-default" ng-app="rezerviApp" ng-controller="MainController">
         <div class="panel-heading">
             <h2><?php echo(getUebersetzung("Benutzer bearbeiten", $sprache, $link)); ?></h2>
@@ -70,7 +104,8 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 <input name="sprache" type="hidden" ng-model="sprache" value="<?php echo $sprache; ?>">
 
                 <div class="form-group">
-                    <label for="name" class="col-sm-2"><?php echo(getUebersetzung("Benutzername", $sprache, $link)); ?>
+                    <label for="name" class="col-sm-2">
+                        <?php echo(getUebersetzung("Benutzername", $sprache, $link)); ?>
                         *</label>
                     <div class="col-sm-10">
                         <input name="name" type="text" id="name" ng-model="name" value="" class="form-control" required>
@@ -81,8 +116,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                         <?php echo(getUebersetzung("Passwort", $sprache, $link)); ?>*
                     </label>
                     <div class="col-sm-10">
-                        <input name="pass" type="password" id="pass" ng-model="pass" value="" class="form-control"
-                               required>
+                        <input name="pass" type="password" id="pass" ng-model="pass" value="" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
@@ -91,7 +125,6 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                     </label>
                     <div class="col-sm-10">
                         <input name="pass2" type="password" id="pass2" ng-model="pass2" value="" class="form-control"
-                               required
                                use-form-error="isNotSame" use-error-expression="pass && pass2 && pass!=pass2">
                     </div>
                 </div>
@@ -117,7 +150,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button name="submit" type="submit" id="submit" ng-model="submit"ng-disabled="benutzer.$invalid" class="btn btn-success">
+                        <button name="submit" type="submit" id="submit" ng-model="submit" ng-disabled="benutzer.$invalid" class="btn btn-success">
                             <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
                         <?php echo(getUebersetzung("Benutzer ändern", $sprache, $link)); ?>
                         </button>

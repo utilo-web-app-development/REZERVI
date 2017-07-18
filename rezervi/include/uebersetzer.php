@@ -124,7 +124,7 @@ function getUebersetzung($text,$sprache,$link){
 				  where
 				  Text = '$text'
 				  AND 
-				  Sprache_ID = 'de'
+				  Sprache_ID = $sprache
 				 ";
 
   		$res = mysqli_query($link, $query);

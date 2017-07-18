@@ -8,8 +8,10 @@
     var t = function (e, t) {
         this.element = e, this.element.addClass("calendar"), this._initializeEvents(t), this._initializeOptions(t), this._render()
     };
+
     t.prototype = {
         constructor: t, _initializeOptions: function (t) {
+
             null == t && (t = []), this.options = {
                 startYear: isNaN(parseInt(t.startYear)) ? (new Date).getFullYear() : parseInt(t.startYear),
                 minDate: t.minDate instanceof Date ? t.minDate : null,
@@ -99,6 +101,7 @@
                 }
                 s.append(o), t.append(s)
             }
+
             this.element.append(t)
         }, _renderDataSource: function () {
             var t = this;
@@ -151,6 +154,7 @@
         }, _applyEvents: function () {
             var t = this;
             this.element.find(".year-neighbor, .year-neighbor2").click(function () {
+
                 e(this).hasClass("disabled") || t.setYear(parseInt(e(this).text()))
             }), this.element.find(".calendar-header .prev").click(function () {
                 e(this).hasClass("disabled") || t.element.find(".months-container").animate({"margin-left": "100%"}, 100, function () {
@@ -274,7 +278,7 @@
             return this.options.startYear
         }, setYear: function (e) {
             var t = parseInt(e);
-            isNaN(t) || (this.options.startYear = t, this._render())
+            isNaN(t) || (this.options.startYear = t, this._render());
         }, getMinDate: function () {
             return this.options.minDate
         }, setMinDate: function (e) {
@@ -362,12 +366,24 @@
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
             monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             weekShort: "W",
-            weekStart: 0
+            weekStart: 1
+        },
+        de:{
+            days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+            daysShort: ["Son", "Mon", "Die", "Mit", "Don", "Fre", "Sam"],
+            daysMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+            months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+            monthsShort: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+            today: "Heute",
+            monthsTitle: "Monate",
+            clear: "Löschen",
+            weekStart: 1,
+            format: "dd.mm.yyyy"
         }
     }, a = e.fn.calendar.colors = ["#2C8FC9", "#9CB703", "#F5BB00", "#FF4A32", "#B56CE2", "#45A597"];
     e(function () {
         e('[data-provide="calendar"]').each(function () {
             e(this).calendar()
-        })
+        });
     })
 }(window.jQuery);

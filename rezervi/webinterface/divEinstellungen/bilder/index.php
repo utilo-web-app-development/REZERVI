@@ -123,11 +123,14 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         </div>
 
         <div class="row">
-            <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+            <div class="col-sm-12" style="text-align: right;">
                 <button name="aendern" type="submit" class="btn btn-success" id="aendern">
                     <span class="glyphicon glyphicon-wrench"></span>
                     <?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>
                 </button>
+                <a href="../index.php" class="btn btn-default">
+                    <?php echo(getUebersetzung("Zurück", $sprache, $link)); ?>
+                </a>
 
             </div>
         </div>

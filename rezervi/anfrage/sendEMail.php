@@ -21,6 +21,7 @@ $email = $_POST["email"];
 $telefon = $_POST["telefon"];		
 $fax = $_POST["fax"];
 $nachricht = $_POST["nachricht"];
+$fehler = $_POST["fehler"];
 $zimmer_id = $_POST["zimmer_id"];
 $jahr = $_POST["jahr"];
 $monat = $_POST["monat"];
@@ -91,7 +92,7 @@ include_once("../include/uebersetzer.php");
          	
   
     //mail absenden:     
-	sendMail($von,$an,$subject,$message); 
+	sendMail($von,$an,$subject,$message, $name);
 	  
    ?>
 <table border="0" cellspacing="3" cellpadding="0" class="tableColor">

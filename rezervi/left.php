@@ -1,8 +1,9 @@
-<?php session_start();
-$root = ".";
+<?php
+//session_start();
+//$root = ".";
 // Set flag that this is a parent file
-define( '_JEXEC', 1 );
-include_once($root."/include/sessionFunctions.inc.php");
+//define( '_JEXEC', 1 );
+//include_once($root."/include/sessionFunctions.inc.php");
 	/*   
 			reservierungsplan
 			steuerung des kalenders und reservierung für den gast
@@ -20,14 +21,14 @@ include_once($root."/include/sessionFunctions.inc.php");
 	include_once("./include/reseller/reseller.php");
 	//datums-funktionen einbinden:
 	include_once("./include/datumFunctions.php");
-	include_once("./include/zimmerFunctions.php");
-	include_once("./include/unterkunftFunctions.php");
+	//include_once("./include/zimmerFunctions.php");
+	//include_once("./include/unterkunftFunctions.php");
 	//uebersetzer einfuegen:
-	include_once("./include/uebersetzer.php");
+	//include_once("./include/uebersetzer.php");
 	//helper-datei einfügen:
 	include_once("./leftHelper.php");
 	include_once("./include/einstellungenFunctions.php");
-	include_once("./include/propertiesFunctions.php");
+	//include_once("./include/propertiesFunctions.php");
 	
 	//variablen initialisieren:
 	$zimmer_id = getSessionWert(ZIMMER_ID);
@@ -65,9 +66,9 @@ include_once($root."/include/sessionFunctions.inc.php");
 	$enddatumDP   = $startdatumDP;
 	
 ?>
-<?php include_once("./templates/headerA.php"); ?>
+<?php //include_once("./templates/headerA.php"); ?>
 <style type="text/css">
-<?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+<?php //include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <!-- dynamisches update der anzahl der tage für ein gewisses monat mit java-script: -->
 <script language="JavaScript" type="text/javascript" src="./templates/changeForms.js">
@@ -81,11 +82,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 	* Keep this notice intact for use.
 	***********************************************/	
 </script>
-</head>
+<!--</head>-->
+<!--<body>-->
 <div class="panel panel-default">
   <div class="panel-body">
   	
-<body class="backgroundColor">
+<div class="backgroundColor">
 
 <table width="100%" border="0">
   <tr>
@@ -118,5 +120,8 @@ include_once($root."/include/sessionFunctions.inc.php");
   	</td>
   </tr>
 </table>
-</body>
-</html>
+</div>
+  </div>
+</div>
+<!--</body>-->
+<!--</html>-->

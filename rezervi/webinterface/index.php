@@ -1,4 +1,5 @@
 <?php
+//session_start();
 $root = "..";
 // Set flag that this is a parent file
 define('_JEXEC', 1);
@@ -95,11 +96,11 @@ $fehlgeschlagen = $_GET["fehlgeschlagen"];
 <body>
 
 <?php
-echo getSessionWert(BENUTZERNAME); echo getSessionWert(PASSWORT);
 //pruefen ob installation schon durchgeführt wurde:
 if (!isInstalled($unterkunft_id))
 {
 	?>
+
     Please install Rezervi first! <br/>
     Bitte insallieren sie Rezervi zuerst! <br/>
     <a href="../install/index.php">--> Install</a>
@@ -300,7 +301,7 @@ else
 							echo("You have no Rezervi for your accommodation?<br/>");
 						}
 						echo(getUebersetzung("Sie haben noch keinen Belegungs-/Reservierungsplan für Ihre Unterkunft?", $sprache, $link)); ?></span><br/>
-                    <a href="http://belegungsplan.utilo.eu" target="_blank"><?php
+                    <a href="https://utilo.eu" target="_blank"><?php
 						//keine sprache -> auch englisch anzeigen:
 						if ($noLanguage)
 						{

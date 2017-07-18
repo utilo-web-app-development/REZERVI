@@ -36,9 +36,13 @@ author: coster
 */
 function changeBenutzer($id,$name,$pass,$rechte,$unterkunft_id,$link){
 
-	$pass = sha1($pass);
+	/**
+	if password has been changed
+	 */
+	if(isset($pass)){
+        $pass = sha1($pass);
 
-	$query = ("UPDATE 
+        $query = ("UPDATE 
 				Rezervi_Benutzer
 				SET
           		Name = '$name',	
@@ -48,14 +52,35 @@ function changeBenutzer($id,$name,$pass,$rechte,$unterkunft_id,$link){
            		PK_ID = '$id'
 				and
 				FK_Unterkunft_ID = '$unterkunft_id'
-		   ");           
+		   ");
 
-	$res = mysqli_query($link, $query);
-    if (!$res) { 
-		echo("die Anfrage $query scheitert"); 
-		return false;
+        $res = mysqli_query($link, $query);
+        if (!$res) {
+            echo("die Anfrage $query scheitert");
+            return false;
+        }
+        return true;
 	}
-	return true;
+	else{
+        $query = ("UPDATE 
+				Rezervi_Benutzer
+				SET
+          		Name = '$name',	
+		   		Rechte = '$rechte'
+           		WHERE
+           		PK_ID = '$id'
+				and
+				FK_Unterkunft_ID = '$unterkunft_id'
+		   ");
+
+        $res = mysqli_query($link, $query);
+        if (!$res) {
+            echo("die Anfrage $query scheitert");
+            return false;
+        }
+        return true;
+	}
+
 }
 
 //--------------------------------------------

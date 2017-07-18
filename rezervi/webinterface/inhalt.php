@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 $root = "..";
 // Set flag that this is a parent file
 define('_JEXEC', 1);
@@ -34,6 +35,7 @@ include_once("../conf/rdbmsConfig.php");
 //andere funktionen einbeziehen:
 include_once("../include/benutzerFunctions.php");
 include_once("../include/unterkunftFunctions.php");
+include_once("../include/zimmerFunctions.php");
 include_once("../include/zimmerFunctions.php");
 include_once("../include/uebersetzer.php");
 
@@ -294,24 +296,24 @@ else {
                 </div>
                 <?php
             }
-            if ($benutzerrechte >= 2) {
-                ?>
-                <div class="row" <?php if ($benutzerrechte >= 2){ echo('style="margin-bottom: 10px;"'); }?> >
-                    <div class="col-sm-3">
-                        <a href="../webinterface/designBearbeiten/index.php" role="button" class="btn btn-default"
-                           style="width: 100%;"
-                           name="designBearbeiten" target="_self">
-                            <?php echo(getUebersetzung("Design bearbeiten", $sprache, $link)); ?>
-                        </a>
-                    </div>
-                    <div class="col-sm-9">
-                        <label class="label-control" style="margin-top:7px;">
-                            <?php echo(getUebersetzung("Das Design Ihres persönlichen Reservierungsplanes ändern (z. B. Hintergrundfarbe)", $sprache, $link)); ?>
-                        </label>
-                    </div>
-                </div>
-                <?php
-            }
+//            if ($benutzerrechte >= 2) {
+//                ?>
+<!--                <div class="row" --><?php //if ($benutzerrechte >= 2){ echo('style="margin-bottom: 10px;"'); }?><!-- >-->
+<!--                    <div class="col-sm-3">-->
+<!--                        <a href="../webinterface/designBearbeiten/index.php" role="button" class="btn btn-default"-->
+<!--                           style="width: 100%;"-->
+<!--                           name="designBearbeiten" target="_self">-->
+<!--                            --><?php //echo(getUebersetzung("Design bearbeiten", $sprache, $link)); ?>
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="col-sm-9">-->
+<!--                        <label class="label-control" style="margin-top:7px;">-->
+<!--                            --><?php //echo(getUebersetzung("Das Design Ihres persönlichen Reservierungsplanes ändern (z. B. Hintergrundfarbe)", $sprache, $link)); ?>
+<!--                        </label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                --><?php
+//            }
             if ($benutzerrechte == 1) {
                 ?>
                 <div class="row">
@@ -395,6 +397,7 @@ else {
                         <a href="./abmelden.php" role="button" class="btn btn-default" name="abmelden" target="_blank"
                            style="width: 100%;">
                             <?php echo(getUebersetzung("Abmelden", $sprache, $link)); ?>
+                            <span class="glyphicon glyphicon-log-out"></span>
                         </a>
                     </div>
                     <div class="col-sm-9">

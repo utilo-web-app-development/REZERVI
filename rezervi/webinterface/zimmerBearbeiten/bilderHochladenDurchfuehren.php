@@ -115,53 +115,40 @@ include_once($root."/include/sessionFunctions.inc.php");
 		
 		$nachricht = "Das Bild wurde erfolgreich hochgeladen.";
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
+		?>
+
+        <form action="bilderHochladen.php" method="post" id="redirectForm">
+            <input type="hidden" name="nachricht_alert" value="<?php echo $nachricht;?>">
+            <input type="hidden" name="fehler_alert" value="false">
+        </form>
+<?php
+
+//        header(
+//            "Location: " . $URL . "webinterface/zimmerBearbeiten/bilderHochladen.php?nachricht_alert=$nachricht&fehler_alert=false"
+//        ); /* Redirect browser */
+//        exit();
 
 	} else {
-	   $nachricht = "Das Bild konnte nicht hochgeladen werden!";
-	   $fehler = true;
-	   include_once("./bilderHochladen.php");
-	   exit;
+
+        $nachricht = "Das Bild konnte nicht hochgeladen werden!";
+        $fehler = true;
+        ?>
+        <form action="bilderHochladen.php" method="post" id="redirectForm">
+            <input type="hidden" name="nachricht_alert" value="<?php echo $nachricht;?>">
+            <input type="hidden" name="fehler_alert" value="<?php echo $fehler; ?>">
+        </form>
+<!--        --><?php
+//        header(
+//            "Location: " . $URL . "webinterface/zimmerBearbeiten/bilderHochladen.php?nachricht_alert=$nachricht&fehler_alert=$fehler"
+//        ); /* Redirect browser */
+//        exit();
+
+
+//	   include_once("./bilderHochladen.php");
+//	   exit;
 	}	
 			
 ?>
-
-<?php include_once("../templates/headerA.php"); ?>
-<style type="text/css">
-<?php include_once($root."/templates/stylesheetsIE9.php"); ?>
-</style>
-<?php include_once("../templates/headerB.php"); ?>
-<?php include_once("../templates/bodyA.php"); ?>
-
-<?php //passwortprüfung:	
-	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
-?>
-
-<form action="./index.php" method="post" name="zimmerEintragen" target="_self" enctype="multipart/form-data">
-  <table border="0" cellpadding="0" cellspacing="3" class="table">
-    <tr class="table"> 
-      <td colspan="2"><p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. hochladen",$sprache,$link)); ?><br/>
-      </td>
-    </tr>
-    <tr> 
-      <td height="30" colspan="2"><?php echo(getUebersetzung("Das Bild wurde erfolgreich hochladen",$sprache,$link)); ?>.</td>
-    </tr>
-    <tr class="table"> 
-      <td colspan="2"><input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
-        <input name="Submit" type="submit" id="Submit" class="button200pxA" onMouseOver="this.className='button200pxB';"
-       onMouseOut="this.className='button200pxA';" value="<?php echo(getUebersetzung("zurück",$sprache,$link)); ?>"></td>
-    </tr>
-  </table>
-</form>
-<br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
-<p></td> </tr> </table> </p>  
-<?php 
-	} //ende if passwortprüfung
-	else {
-		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
-	}
- ?>   
- <?php include_once("../templates/end.php"); ?>
+<script>
+    document.getElementById('redirectForm').submit();
+</script>

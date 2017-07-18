@@ -191,7 +191,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
 
                                 <td>
                                     <div class="row">
-                                        <select name="vonTag" class="col-sm-4 form-control tableColor" id="select">
+                                        <select name="vonTag" class="col-sm-4 form-control" id="select">
 											<?php for ($i = 1; $i <= 31; $i++)
 											{ ?>
                                                 <option
@@ -199,7 +199,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
 											<?php } ?>
                                         </select>
                                         <!--  heutiges monat selectiert anzeigen: -->
-                                        <select name="vonMonat" class="col-sm-4 form-control tableColor" id="vonMonat"
+                                        <select name="vonMonat" class="col-sm-4 form-control" id="vonMonat"
                                                 onChange="chkDays(0)">
                                             <option
                                                     value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
@@ -227,7 +227,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
                                                     value="12"<?php if (getTodayMonth() == "Dezember") echo " selected"; ?>><?php echo(getUebersetzung("Dezember", $sprache, $link)); ?></option>
                                         </select>
                                         <!--  heutiges jahr selectiert anzeigen: -->
-                                        <select name="vonJahr" class="col-sm-4 form-control tableColor" id="vonJahr"
+                                        <select name="vonJahr" class="col-sm-4 form-control" id="vonJahr"
                                                 onChange="chkDays(0)">
 											<?php
 											for ($l = getTodayYear(); $l < (getTodayYear() + 4); $l++)
@@ -242,7 +242,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
 
 
                                 <td>
-                                    <select class="col-sm-4 form-control tableColor" name="bisTag" id="select4">
+                                    <select class="col-sm-4 form-control" name="bisTag" id="select4">
                                         <!--  heutigen tag selectiert anzeigen: -->
 										<?php $anzahlTage = getNumberOfDays(parseMonthNumber($monat), $jahr);
 										for ($i = 1; $i <= $anzahlTage; $i++)
@@ -252,7 +252,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
 										<?php } ?>
                                     </select>
                                     <!--  heutiges monat selectiert anzeigen: -->
-                                    <select class="col-sm-4 form-control tableColor" name="bisMonat" id="bisMonat"
+                                    <select class="col-sm-4 form-control" name="bisMonat" id="bisMonat"
                                             onChange="chkDays(1)">
                                         <option
                                                 value="1"<?php if (getTodayMonth() == "Januar") echo " selected"; ?>><?php echo(getUebersetzung("Januar", $sprache, $link)); ?></option>
@@ -280,7 +280,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
                                                 value="12"<?php if (getTodayMonth() == "Dezember") echo " selected"; ?>><?php echo(getUebersetzung("Dezember", $sprache, $link)); ?></option>
                                     </select>
                                     <!--  heutiges jahr selectiert anzeigen: -->
-                                    <select class="col-sm-4 form-control" name="bisJahr" class="tableColor" id="bisJahr"
+                                    <select class="col-sm-4 form-control" name="bisJahr"id="bisJahr"
                                             onChange="chkDays(1)">
 										<?php
 										for ($l = getTodayYear() - 4; $l < (getTodayYear() + 4); $l++)
@@ -295,6 +295,7 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
                                 <td>
                                     <input type="submit" name="add" class="btn btn-success"
                                            value="<?php echo getUebersetzung("Hinzufügen", $sprache, $link); ?>"/>
+
                                 </td>
 
                             </tr>
@@ -303,6 +304,13 @@ $standardsprache = getStandardSprache($unterkunft_id, $link);
                         </table>
                     </div>
                 </form>
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: right;">
+                        <a href="../index.php" class="btn btn-default">
+                            <?php echo(getUebersetzung("Zurück", $sprache, $link)); ?>
+                        </a>
+                    </div>
+                </div>
 				<?php
 			} //ende if passwortprüfung
 			else

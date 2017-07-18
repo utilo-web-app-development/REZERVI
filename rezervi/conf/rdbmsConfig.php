@@ -73,6 +73,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
         exit;
     }
 	else{
+
   		// Auswahl der zu verwendenden Datenbank auf dem Server
   		$query = "use ".($DB_NAME);
 

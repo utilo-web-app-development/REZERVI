@@ -111,7 +111,9 @@ include_once("../templates/bodyA.php");
 					"bei der Berechnung des Preises kein Preis für eine Saison gefunden, dann " .
 					"wird dieser Preis zur Preisberechnung herangezogen.";
 				?>
-				<?php echo getUebersetzung($text, $sprache, $link) ?>
+				<?php echo getUebersetzung($text, $sprache, $link);
+				echo $nachricht;?>
+
             </p>
 
 			<?php
@@ -265,7 +267,7 @@ include_once("../templates/bodyA.php");
                     <div class="row">
                         <div class="col-sm-offset-9 col-sm-3" style="text-align:right;">
                             <input name="aendern" type="submit" id="aendern" class="btn btn-success"
-                                   value="<?php echo(getUebersetzung("Speichern", $sprache, $link)); ?>"/>
+                                   value="<?php echo(getUebersetzung("Ändern", $sprache, $link)); ?>"/>
                             <a class="btn btn-primary" href="./index.php">
                                 <!--	<span class="glyphicon glyphicon-menu-left" ></span> -->
 								<?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?>

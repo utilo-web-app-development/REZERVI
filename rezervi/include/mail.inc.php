@@ -10,7 +10,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	date: 5.2.06
 */
 
-require_once($root."/include/phpmailer/phpmailer.inc.php");
+//require_once($root."/include/phpmailer/phpmailer.inc.php");
+require_once($root."/include/phpmailer/class.phpmailer.php");
 
 /**
 	author: http://at.php.net/manual/de/function.phpversion.php
@@ -78,7 +79,32 @@ author:coster
 date:7.5.06
 sendet ein mail, mail wird nicht gesendet, falls programm im demo mode.
 */
-function sendMail($from,$to,$subject,$message){
+function sendMail($from,$to,$subject,$message,$gastName){
+
+    $mail = new PHPMailer; //From email address and name
+    $mail->From = $from;
+    $mail->FromName = $gastName; //To address and name
+    //$mail->addAddress("recepient1@example.com", "Recepient Name");//Recipient name is optional
+    $mail->addAddress($to); //Address to which recipient will reply
+    //$mail->addReplyTo("reply@yourdomain.com", "Reply"); //CC and BCC
+    //$mail->addCC("cc@example.com");
+    //$mail->addBCC("bcc@example.com"); //Send HTML or Plain Text email
+    $mail->isHTML(true);
+    $mail->Subject = $subject;
+    $mail->Body = "<i>" . $message . "</i>";
+    $mail->AltBody = "This is the plain text version of the email content";
+    if(!$mail->send())
+    {
+        return false;
+        //echo "Mailer Error: " . $mail->ErrorInfo;
+    }
+    else
+    {
+        return true;
+        //echo "Message has been sent successfully";
+    }
+}
+function sendMailOld($from,$to,$subject,$message){
 		
 	if (DEMO != true && !empty($from)){	
 	
@@ -100,6 +126,7 @@ function sendMail($from,$to,$subject,$message){
 		$mailer->IsHTML(true);
 		$mailer->AddAddress($to);
 		$result = $mailer->send();
+		echo $result;
 		return $result;
 		
 		//mail($to, unhtmlentities($subject), $message, "From: $from\nReply-To: $from\nX-Mailer: PHP/" . phpversion());

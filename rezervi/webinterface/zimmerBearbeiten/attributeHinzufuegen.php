@@ -216,7 +216,7 @@ include_once("../templates/bodyA.php");
                         <input name="aendern" type="submit" id="aendern"
                                class="btn btn-success"
                                value="<?php echo(getUebersetzung(
-                                   "speichern", $sprache, $link
+                                   "ändern", $sprache, $link
                                )); ?>"/>
                         <a class="btn btn-primary" href="./index.php">
                             <!--                            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>&nbsp;-->

@@ -71,8 +71,9 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
 				?>
                 <div class="row">
                     <div class="col-sm-4">
-                        <label
-                                class="label-control"> <?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?></label>
+                        <label class="label-control">
+                            <?php echo(getUebersetzung($bezeichnung, $sprache, $link)); ?>
+                        </label>
                     </div>
                     <div class="col-sm-1">
                         <input type="radio" name="standardspracheBelegungsplan" value="<?php echo($spracheID); ?>"

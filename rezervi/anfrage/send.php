@@ -290,7 +290,7 @@ include_once("../include/autoResponseFunctions.php");
             //mail absenden:
             //mail($an, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
 
-            sendMail($von, $an, $subject, $message);
+            sendMail($von, $an, $subject, $message, $anrede . " " . $vorname . " " . $nachname);
 
             //bestaetigung an gast auch senden?
             $art = "anfrage";
@@ -319,7 +319,7 @@ include_once("../include/autoResponseFunctions.php");
                 $message      .= $unterschrift;
                 //mail absenden:
                 //mail($an, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
-                sendMail($von, $an, $subject, $message);
+                sendMail($von, $an, $subject, $message, $gastName, $gastName);
 
                 //soll eine kopie an den vermieter gesendet werden:
                 if (getPropertyValue(
@@ -331,7 +331,7 @@ include_once("../include/autoResponseFunctions.php");
                             $sprache, $link
                         ) . ":\n\n" . $message;
                     //mail($mailVermieter, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
-                    sendMail($von, $mailVermieter, $subject, $message);
+                    sendMail($von, $mailVermieter, $subject, $message, $gastName);
                 }
             }
 

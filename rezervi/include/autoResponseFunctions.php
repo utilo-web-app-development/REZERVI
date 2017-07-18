@@ -40,11 +40,11 @@ function sendMessage($gast_id,$art){
 	
 	//mail absenden:  
 	 	
-	sendMail($von,$an,$subject,$message);
+	sendMail($von,$an,$subject,$message,$gastName);
 
     if (getPropertyValue(MAIL_KOPIE_AN_VERMIETER_ABLEHNUNG,$unterkunft_id,$link) == "true"){
 		$message = getUebersetzung("Folgende Nachricht wurde an ihren Gast versendet",$sprache,$link).":\n\n".$message;
-		sendMail($von,$von,$subject,$message);
+		sendMail($von,$von,$subject,$message,"Admin");
  
 	}
 	

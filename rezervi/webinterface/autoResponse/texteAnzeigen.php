@@ -848,7 +848,8 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                                 $nachname = $d["Nachname"];
                                 $ort = $d["Ort"];
                                 $land = $d["Land"];
-                                $gast = $nachname . " " . $vorname . ", " . $ort . ", " . $land;
+                                $email = $d["EMail"];
+                                $gast = $nachname . " " . $vorname . ", " . $ort . ", " . $land . " , " . $email;
                                 ?>
                                 <option value="<?php echo($gast_id); ?>"><?php echo($gast); ?></option>
                                 <?php

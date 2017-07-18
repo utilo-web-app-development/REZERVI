@@ -103,13 +103,36 @@ if (isset($nachricht) && $nachricht != "")
 	}
 	?>">
         <tr>
-            <td><?php echo($nachricht); ?>
+            <td>
+                <?php echo($nachricht); ?>
             </td>
-            <td>&nbsp;</td>
         </tr>
     </table>
     <br/>
 	<?php
+}
+?>
+<?php
+$message = $_POST["roomEditedMessage"];
+$message_type = $_POST["roomEditedMessageType"];
+
+if(isset($message) && isset($message_type)){
+    if($message_type == "success")
+    {
+        ?>
+        <div class="alert alert-success">
+            <label><?php echo $message;?></label>
+        </div>
+        <?php
+    }
+    else
+    {
+        ?>
+        <div class="alert alert-sdanger"></label>
+            <label> <?php echo $message;?>
+        </div>
+        <?php
+    }
 }
 ?>
 <div class="panel panel-default">

@@ -103,7 +103,7 @@ if ($benutzer_id == -1) {
 		if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
 		{ ?>
 
-            <table width="100%" border="0" cellspacing="3" cellpadding="0" class="table table-hover">
+            <table width="100%" style="font-size: 11px;" class="table table-hover">
                 <thead>
                 <tr>
 					<?php if ($anrede_val == "true")

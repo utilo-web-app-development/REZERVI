@@ -121,7 +121,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
 				$message = getUebersetzung("Folgende Nachricht wurde an ihren Gast versendet", $sprache, $link) . ":\n\n" . $message;
 				//mail($von, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
 
-				if (!sendMail($von, $von, $subject, $message))
+				if (!sendMail($von, $von, $subject, $message, $benutzername))
 				{
 					?>
                     <div class="row">

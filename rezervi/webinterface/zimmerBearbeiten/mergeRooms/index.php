@@ -141,7 +141,7 @@ while ($d = mysqli_fetch_array($res))
 				<?php
 			}
 			?>
-            <form action="./index.php" method="post" target="_self">
+            <form action="./aendern.inc.php" method="post" target="_self">
 
 				<?php
 				if (hasParentRooms($unterkunft_id))

@@ -209,15 +209,8 @@ include_once("../../../../include/einstellungenFunctions.php");
                 </div>
             </form>
             <div class="row">
-                <div class="col-sm-offset-9 col-sm-2" style="text-align: right;">
-
-                        <a href="../../../inhalt.php" name="Submit3" target="_self" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>
-                        </a>
-                </div>
-                <div class="col-sm-1">
-                    <form action="../index.php" method="post" name="zurueck" target="_self" id="zurueck">
+                <div class="col-sm-12" style="text-align: right;">
+                    <form action="../index.php" method="post" name="zurueck" target="_self" id="zurueck" style="float: right;padding-left: 5px;">
                         <button type="submit" name="Submit" class="btn btn-primary">
                             <?php echo(getUebersetzung("zurück", $sprache, $link)); ?>
                         </button>
@@ -239,6 +232,11 @@ include_once("../../../../include/einstellungenFunctions.php");
                                value="<?php echo($sprache_val); ?>">
                         <input name="plz_val" type="hidden" id="plz_val" value="<?php echo($plz_val); ?>">
                     </form>
+                        <a href="../../../inhalt.php" name="Submit3" target="_self" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-home"></span>
+                            <?php echo(getUebersetzung("Hauptmenü", $sprache, $link)); ?>
+                        </a>
+
                 </div>
             </div>
 

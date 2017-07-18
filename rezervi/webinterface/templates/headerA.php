@@ -31,6 +31,7 @@
         <link href="<?php echo ($root)?>/libs/bootstrap-year-calendar/css/bootstrap-year-calendar.css" rel="stylesheet">
 
         <link href="<?php echo ($root)?>/libs/bootstrap-toggle/css/bootstrap-toggle.css" rel="stylesheet">
+<!--        <link href="--><?php //echo ($root)?><!--/libs/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">-->
 
 
 		<!-- Bootstrap: Latest compiled and minified JavaScript -->
@@ -56,6 +57,7 @@
         <script src="<?php echo ($root)?>/libs/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.fr.min.js"></script>
 
         <script src="<?php echo ($root)?>/libs/bootstrap-year-calendar/js/bootstrap-year-calendar.js"></script>
+<!--        <script src="--><?php //echo ($root)?><!--/libs/bootstrap-switch/js/bootstrap-switch.js"></script>-->
 
 
         <script src="<?php echo ($root)?>/libs/angular/use-form-error.js"></script>

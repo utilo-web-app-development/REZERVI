@@ -83,7 +83,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="<?php echo $root ?>/webinterface/abmelden.php">Abmelden</a>
+                    <a href="<?php echo $root ?>/webinterface/abmelden.php">
+                        <?php echo(getUebersetzung("Abmelden", $sprache, $link)); ?>
+                        <span class="glyphicon glyphicon-log-out"></span>
+                    </a>
                 </li>
             </ul>
         </div>

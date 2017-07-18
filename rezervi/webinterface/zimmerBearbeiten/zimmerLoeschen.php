@@ -10,10 +10,10 @@ include_once($root . "/include/sessionFunctions.inc.php");
 
 //variablen intitialisieren:
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
-$benutzername = getSessionWert(BENUTZERNAME);
-$passwort = getSessionWert(PASSWORT);
-$zimmer_pk_id = $_POST["zimmer_pk_id"];
-$sprache = getSessionWert(SPRACHE);
+$benutzername  = getSessionWert(BENUTZERNAME);
+$passwort      = getSessionWert(PASSWORT);
+$zimmer_pk_id  = $_POST["zimmer_pk_id"];
+$sprache       = getSessionWert(SPRACHE);
 
 //datenbank öffnen:
 include_once("../../conf/rdbmsConfig.php");
@@ -39,36 +39,38 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2><?php echo(getUebersetzung("Löschung durchführen", $sprache, $link)); ?></h2>
+        <h2><?php echo(getUebersetzung(
+                "Löschung durchführen", $sprache, $link
+            )); ?></h2>
     </div>
     <div class="panel-body">
 
-        <form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen" target="_self" id="zimmerLoeschen">
+        <form action="./zimmerLoeschen.php" method="post" name="zimmerLoeschen"
+              target="_self" id="zimmerLoeschen">
 
 
-            <div class="alert alert-danger" role="alert">
-                <?php
+            <?php
 
-                //Reservierungen und Zimmer löschen:
-                $anzahl = count($zimmer_pk_id);
-                $demoNotPossible = false;
-                if (DEMO == true && $anzahl > 1){
-                    $anzahl--;
-                    $demoNotPossible = true;
-                    for ($i = 0; $i < $anzahl; $i++) {
-                        //zuerst mal die reservierungen raushauen:
-                        $query = ("DELETE FROM 
+            //Reservierungen und Zimmer löschen:
+            $anzahl = count($zimmer_pk_id);
+            $demoNotPossible = false;
+            if (DEMO == true && $anzahl > 1){
+                $anzahl--;
+                $demoNotPossible = true;
+                for ($i = 0; $i < $anzahl; $i++) {
+                    //zuerst mal die reservierungen raushauen:
+                    $query = ("DELETE FROM 
 							Rezervi_Reservierung
 	           			 	WHERE
 	           				FK_Zimmer_ID = '$zimmer_pk_id[$i]'
 			    ");
 
-                        $res = mysqli_query($link, $query);
-                        if (!$res) {
-                            echo("die Anfrage $query scheitert");
-                        }
-                        //dann die zimmer
-                        $query = ("DELETE FROM 
+                    $res = mysqli_query($link, $query);
+                    if (!$res) {
+                        echo("die Anfrage $query scheitert");
+                    }
+                    //dann die zimmer
+                    $query = ("DELETE FROM 
 							Rezervi_Zimmer
 	           			 	WHERE
 	           				PK_ID = '$zimmer_pk_id[$i]'
@@ -76,29 +78,47 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
 							FK_Unterkunft_ID = '$unterkunft_id'
 			    ");
 
-                        $res = mysqli_query($link, $query);
-                        if (!$res) {
-                            echo("die Anfrage $query scheitert");
-                        }
-                    } //ende for
-                    echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gelöscht " .
-                        "werden", $sprache, $link));
-                }
-                else if (DEMO == true && $anzahl <= 1){
-                    echo(getUebersetzung("Im Demo Modus kann das letzte Zimmer nicht gelöscht " .
-                        "werden", $sprache, $link));
-                }
-                else if (DEMO != true){
-                for ($i = 0;
-                $i < $anzahl;
-                $i++){
-                //zuerst mal die reservierungen raushauen:
-                $query = ("DELETE FROM 
+                    $res = mysqli_query($link, $query);
+                    if (!$res) {
+                        echo("die Anfrage $query scheitert");
+                    }
+                } //ende for
+                ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php
+                    echo(getUebersetzung(
+                        "Im Demo Modus kann das letzte Zimmer nicht gelöscht " .
+                        "werden", $sprache, $link
+                    ));
+                    ?>
+                </div>
+                <?php
+            }
+            else {
+            if (DEMO == true && $anzahl <= 1){
+                ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php
+                    echo(getUebersetzung(
+                        "Im Demo Modus kann das letzte Zimmer nicht gelöscht " .
+                        "werden", $sprache, $link
+                    ));
+                    ?>
+                </div>
+                <?php
+            }
+            else {
+            if (DEMO != true){
+            for ($i = 0;
+            $i < $anzahl;
+            $i++){
+            //zuerst mal die reservierungen raushauen:
+            $query = ("DELETE FROM 
 							Rezervi_Reservierung
 	           			 	WHERE
 	           				FK_Zimmer_ID = '$zimmer_pk_id[$i]'
 			    "); ?>
-            </div>
+
             <div class="alert alert-success" role="alert">
                 <?php
 
@@ -120,8 +140,13 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
                     echo("die Anfrage $query scheitert");
                 }
                 } //ende for
-                echo(getUebersetzung("Der/die/das Zimmer/Appartement/Wohnung/etc. " .
-                    "wurde samt seinen Reservierungen aus der Datenbank gelöscht", $sprache, $link));
+                echo(getUebersetzung(
+                    "Der/die/das Zimmer/Appartement/Wohnung/etc. " .
+                    "wurde samt seinen Reservierungen aus der Datenbank gelöscht",
+                    $sprache, $link
+                ));
+                }
+                }
                 }
                 ?>!
             </div>
@@ -138,7 +163,10 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)){
         <?php
         } //ende if passwortprüfung
         else {
-            echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!", $sprache, $link));
+            echo(getUebersetzung(
+                "Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",
+                $sprache, $link
+            ));
         }
         ?>
     </div>

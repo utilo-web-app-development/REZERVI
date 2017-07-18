@@ -82,7 +82,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
 
 
 
-    <form action="./texteAnzeigen.php" method="post" name="BuchungsbestaetigungForm" id="BuchungsbestaetigungForm" target="_self"
+    <form action="./bestaetigung.php" method="post" name="BuchungsbestaetigungForm" id="BuchungsbestaetigungForm" target="_self"
           class="form-horizontal">
         <div class="row">
             <div class="col-sm-2">
@@ -96,7 +96,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         </div>
     </form>
     <br>
-    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self"
+    <form action="./absage.php" method="post" name="adresseForm" target="_self"
           class="form-horizontal">
         <div class="row">
             <div class="col-sm-2">
@@ -110,7 +110,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         </div>
     </form>
     <br>
-    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
+    <form action="./anfrage.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
           class="form-horizontal">
         <div class="row">
             <div class="col-sm-2">
@@ -124,7 +124,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
         </div>
     </form>
     <br>
-    <form action="./texteAnzeigen.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
+    <form action="./emailSenden.php" method="post" name="adresseForm" target="_self" onSubmit="return chkFormular();"
           class="form-horizontal">
         <div class="row">
             <div class="col-sm-2">

@@ -247,7 +247,8 @@ function getTodayDay(){
 //gibt heutiges monat zurück:
 function getTodayMonth(){
 
-	$today = getdate(); 
+	$today = getdate();
+
 	$month = $today['mon']; 
 	switch($month){
 		case 1:

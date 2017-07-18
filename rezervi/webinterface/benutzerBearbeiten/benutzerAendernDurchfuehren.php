@@ -11,9 +11,19 @@ include_once($root . "/include/sessionFunctions.inc.php");
 $unterkunft_id = getSessionWert(UNTERKUNFT_ID);
 $passwort      = getSessionWert(PASSWORT);
 $benutzername  = getSessionWert(BENUTZERNAME);
+//variablen initialisieren:
+if (isset($_POST["ben"]) && isset($_POST["pass"])) {
+    $ben = $_POST["ben"];
+    $passwort = $_POST["pass"];
+} else {
+    //aufruf kam innerhalb des webinterface:
+    $ben = getSessionWert(BENUTZERNAME);
+    $passwort = getSessionWert(PASSWORT);
+}
+
 $id            = $_POST["id"];
-$pass          = $_POST["pass"];
 $name          = $_POST["name"];
+$pass          = $_POST["pass"];
 $pass2         = $_POST["pass2"];
 $rechte        = $_POST["rechte"];
 $sprache       = getSessionWert(SPRACHE);
@@ -36,6 +46,29 @@ include_once("../../include/benutzerFunctions.php");
 include_once("../../include/unterkunftFunctions.php");
 //uebersetzer einfuegen:
 include_once("../../include/uebersetzer.php");
+
+$benutzer_id = -1;
+if (isset($ben) && isset($passwort)) {
+    $benutzer_id = checkPassword($ben, $passwort, $link);
+}
+if ($benutzer_id == -1) {
+    //passwortprüfung fehlgeschlagen, auf index-seite zurück:
+    $fehlgeschlagen = true;
+    header("Location: ".$URL."webinterface/index.php?fehlgeschlagen=true"); /* Redirect browser */
+    exit();
+    //include_once("./index.php");
+    //exit;
+} else {
+    $benutzername = $ben;
+    $passwort = $passwort;
+    setSessionWert(BENUTZERNAME, $benutzername);
+    setSessionWert(PASSWORT, $passwort);
+
+    //unterkunft-id holen:
+    $unterkunft_id = getUnterkunftID($benutzer_id, $link);
+    setSessionWert(UNTERKUNFT_ID, $unterkunft_id);
+    setSessionWert(BENUTZER_ID, $benutzer_id);
+}
 
 ?>
 

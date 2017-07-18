@@ -259,41 +259,7 @@ if (empty($gast_id) || $gast_id == "")
 	                            }
 	                            ?>
                             </div>
-                            <!--<span class="<?php
-/*							//status = 0: frei
-							//status = 1: reserviert
-							//status = 2: belegt
-							if ($status == 0)
-							{
-								echo("frei");
-							}
-                            elseif ($status == 1)
-							{
-								echo("reserviert");
-							}
-                            elseif ($status == 2)
-							{
-								echo("belegt");
-							}
-							*/?>">
-                                <?php
-/*								//status = 0: frei
-								//status = 1: reserviert
-								//status = 2: belegt
-								if ($status == 0)
-								{
-									echo(getUebersetzung("frei", $sprache, $link));
-								}
-                                elseif ($status == 1)
-								{
-									echo(getUebersetzung("reserviert", $sprache, $link));
-								}
-                                elseif ($status == 2)
-								{
-									echo(getUebersetzung("belegt", $sprache, $link));
-								}
-								*/?>
-                            </span>-->
+
                         </div>
 
                     </div>
@@ -725,54 +691,7 @@ if (empty($gast_id) || $gast_id == "")
                                 </div>
                             </div>
                         </div>
-                        <!--                    --><?php
-						//                        if (getPropertyValue(PENSION_FRUEHSTUECK, $unterkunft_id, $link) == "true") {
-						//                            ?>
-                        <!---->
-                        <!--                            <div class="form-group">-->
-                        <!--                                <div class="col-sm-4">-->
-                        <!--                                    <label class="control-label">-->
-                        <!--                                        --><?php
-						//                                        echo(getUebersetzung("Frühstück", $sprache, $link));
-						//                                        ?>
-                        <!--                                    </label>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="col-sm-4">-->
-                        <!--                                    <input name="zusatz" type="radio" value="Fruehstueck" />-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        --><?php //}
-						//                        if (getPropertyValue(PENSION_HALB, $unterkunft_id, $link) == "true") {
-						//                            ?>
-                        <!--                            <div class="form-group">-->
-                        <!--                                <div class="col-sm-4">-->
-                        <!--                                    <label class="control-label">-->
-                        <!--                                        --><?php
-						//                                        echo(getUebersetzung("Halbpension", $sprache, $link));
-						//                                        ?>
-                        <!--                                    </label>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="col-sm-4">-->
-                        <!--                                    <input name="zusatz" type="radio" value="Halbpension" />-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        --><?php //}
-						//                        if (getPropertyValue(PENSION_VOLL, $unterkunft_id, $link) == "true") {
-						//                            ?>
-                        <!--                            <div class="form-group">-->
-                        <!--                                <div class="col-sm-4">-->
-                        <!--                                    <label class="control-label">-->
-                        <!--                                        --><?php
-						//                                        echo(getUebersetzung("Vollpension", $sprache, $link));
-						//                                        ?>
-                        <!--                                    </label>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="col-sm-4">-->
-                        <!--                                    <input name="zusatz" type="radio" value="Vollpension" checked="checked"/>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        --><?php //}
-						//                        ?>
+
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <div class="alert alert-warning">
@@ -846,7 +765,17 @@ if (empty($gast_id) || $gast_id == "")
 					?>
 
                     <div class="form-group">
-                        <div class="col-sm-offset-8 col-sm-2" style="text-align: right;">
+                        <div class="col-sm-12" style="text-align: right;">
+                            <form action="../ansichtWaehlen.php" method="post" name="adresseForm" target="_self" style="float: right; padding-left: 5px;"
+                                  class="form-horizontal"
+                                  id="adresseForm">
+                                <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
+                                <input name="monat" type="hidden" id="monat" value="<?php echo($vonMonat); ?>">
+                                <input name="jahr" type="hidden" id="jahr" value="<?php echo($vonJahr); ?>">
+                                <input name="abbrechen" type="submit" class="btn btn-primary"
+                                       id="abbrechen"
+                                       value="<?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?>">
+                            </form>
                             <form name="zimmerFrei" method="post" action="./resEntfernen.php" target="_self"
                                   class="form-horizontal">
                                 <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo $zimmer_id ?>">
@@ -864,18 +793,7 @@ if (empty($gast_id) || $gast_id == "")
 									<?php echo(getUebersetzung("weiter", $sprache, $link)); ?>
                                 </button>
                             </form>
-                        </div>
-                        <div class="col-sm-2">
-                            <form action="../ansichtWaehlen.php" method="post" name="adresseForm" target="_self"
-                                  class="form-horizontal"
-                                  id="adresseForm">
-                                <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">
-                                <input name="monat" type="hidden" id="monat" value="<?php echo($vonMonat); ?>">
-                                <input name="jahr" type="hidden" id="jahr" value="<?php echo($vonJahr); ?>">
-                                <input name="abbrechen" type="submit" class="btn btn-primary"
-                                       id="abbrechen"
-                                       value="<?php echo(getUebersetzung("Abbrechen", $sprache, $link)); ?>">
-                            </form>
+
                         </div>
                     </div>
 

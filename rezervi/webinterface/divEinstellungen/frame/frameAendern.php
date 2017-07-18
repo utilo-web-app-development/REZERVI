@@ -83,7 +83,6 @@ if (isset($_POST["splitHorizontal"]) && $_POST["splitHorizontal"] == "true")
 }
 else
 {
-    echo "test";
 	$success = setProperty(HORIZONTAL_FRAME, "false", $unterkunft_id, $link);
 }
 

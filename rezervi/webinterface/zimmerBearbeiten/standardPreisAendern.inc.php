@@ -70,8 +70,8 @@ else
  		$fehler = true;
  		$nachricht = "Der Preis muss eingegeben werden.";
  		$nachricht = getUebersetzung($nachricht,$sprache,$link);
- 		include_once("./standardpreis.php");
- 		exit;
+ 		//include_once("./standardpreis.php");
+ 		//exit;
  	}
  	
  	$preis =  $_POST["preis_neu"];
@@ -81,8 +81,8 @@ else
 		$fehler = true;
  		$nachricht = "Der Preis ist kein gültiger Wert.";
  		$nachricht = getUebersetzung($nachricht,$sprache,$link);
- 		include_once("./standardpreis.php");
- 		exit;
+ 		//include_once("./standardpreis.php");
+ 		//exit;
 	}
 	
 	//wurde ein zimmer ausgewählt:
@@ -91,8 +91,8 @@ else
 		$fehler = true;
  		$nachricht = "Es muss mindestens ein Mietobjekt ausgewählt werden.";
  		$nachricht = getUebersetzung($nachricht,$sprache,$link);
- 		include_once("./standardpreis.php");
- 		exit;
+ 		//include_once("./standardpreis.php");
+ 		//exit;
 	}
  	$zimmer_id_neu = $_POST["zimmer_id_neu"];
  	//preis speichern:
@@ -100,8 +100,8 @@ else
  	
  	$nachricht = "Der Preis wurde erfolgreich hinzugefügt.";
  	$nachricht = getUebersetzung($nachricht,$sprache,$link);
- 	include_once("./standardpreis.php");
- 	exit;
+ 	//include_once("./standardpreis.php");
+ 	//exit;
  }
 
  //2. wurde löschen geklickt?
@@ -112,8 +112,8 @@ else
 		deletePreis($preis_id);
  		$nachricht = "Der Preis wurde erfolgreich gelöscht.";
  		$nachricht = getUebersetzung($nachricht,$sprache,$link);		
-		include_once("./standardpreis.php");
- 		exit;
+		//include_once("./standardpreis.php");
+ 		//exit;
 	}
  }
  
@@ -131,8 +131,8 @@ else
 		 		$fehler = true;
 		 		$nachricht = "Der Preis muss eingegeben werden.";
 		 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
-		 		include_once("./standardpreis.php");
-		 		exit;
+                //include_once("./standardpreis.php");
+                //exit;
 		 	}
 		 	
 		 	$preis =  $_POST["preis_".$preis_id];
@@ -142,8 +142,8 @@ else
 				$fehler = true;
 		 		$nachricht = "Der Preis ist kein gültiger Wert.";
 		 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
-		 		include_once("./standardpreis.php");
-		 		exit;
+                //include_once("./standardpreis.php");
+                //exit;
 			}			
 			
 			//wurde ein zimmer ausgewählt:
@@ -152,18 +152,32 @@ else
 				$fehler = true;
 		 		$nachricht = "Es muss mindestens ein Mietobjekt ausgewählt werden.";
 		 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
-		 		include_once("./standardpreis.php");
-		 		exit;
+		 		//include_once("./standardpreis.php");
+		 		//exit;
 			}
 		 	$zimmer_id_neu = $_POST["zimmer_".$preis_id];
 		 	//preis speichern:
 		 	changePrice($preis_id,$zimmer_id_neu,null,null,$preis,"Euro",true,$link); 	
 		
 	 }//ende alle möglichen preise durchlaufen
-	$nachricht = "Die Preise wurden erfolgreich geändert.";
- 	$nachricht = getUebersetzung($nachricht,$sprache,$link);
- 	include_once("./standardpreis.php");
- 	exit;
+     if(!$fehler){
+         $fehler = false;
+         $nachricht = "Die Preise wurden erfolgreich geändert.";
+         $nachricht = getUebersetzung($nachricht,$sprache,$link);
+     }
+ 	//include_once("./standardpreis.php");
+ 	//exit;
+ 	?>
+<?php
  }
-
 ?>
+<?php include_once("../templates/headerA.php");?>
+<?php echo $fehler; ?>
+<form method="post" action="./standardpreis.php" id="redirectForm">
+    <input type="hidden" name="nachricht" value="<?php echo $nachricht; ?>">
+    <input type="hidden" name="fehler" value="<?php if($fehler) echo 'true'; else echo 'false'; ?>">
+</form>
+<script>
+    $('#redirectForm').submit();
+</script>
+<?php include_once("../templates/end.php");?>

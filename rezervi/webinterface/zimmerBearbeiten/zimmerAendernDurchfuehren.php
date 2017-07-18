@@ -203,14 +203,21 @@ include_once("../templates/bodyA.php");
 		)
 		{
 			?>
-
-            <div class="alert alert-danger" role="alert">
-				<?php echo(getUebersetzung("Bitte geben Sie die Zimmernummer ihrer Standardsprache ein!", $sprache, $link)); ?>
-            </div>
+            <form method="post" action="./zimmerAendern.php" id="redirectForm">
+                <input type="hidden" name="roomEditedMessage" value="<?php echo(getUebersetzung("Bitte geben Sie die Zimmernummer ihrer Standardsprache ein!", $sprache, $link)); ?>">
+                <input type="hidden" name="roomEditedMessageType" value="error">
+                <input type="hidden" name="zimmer_id" value="<?php echo $zimmer_id; ?>">
+            </form>
+            <script>
+                $('#redirectForm').submit();
+            </script>
+<!--            <div class="alert alert-danger" role="alert">-->
+<!--				--><?php //echo(getUebersetzung("Bitte geben Sie die Zimmernummer ihrer Standardsprache ein!", $sprache, $link)); ?>
+<!--            </div>-->
 
 
 			<?php
-			include_once("./zimmerAendern.php");
+			//include_once("./zimmerAendern.php");
 		}
 		else if ((($standardsprache == "en") && ($zimmerart == false || !isset($zimmerart))) ||
 			(($standardsprache == "en") && ($zimmerart_en == false || !isset($zimmerart_en))) ||
@@ -222,13 +229,20 @@ include_once("../templates/bodyA.php");
 		)
 		{
 			?>
-
-            <div class="alert alert-danger" role="alert">
-				<?php echo(getUebersetzung("Bitte geben Sie die Zimmerart ein!", $sprache, $link)); ?>
-            </div>
+            <form method="post" action="./zimmerAendern.php" id="redirectForm">
+                <input type="hidden" name="roomEditedMessage" value="<?php echo(getUebersetzung("Bitte geben Sie die Zimmerart ein!", $sprache, $link)); ?>">
+                <input type="hidden" name="roomEditedMessageType" value="error">
+                <input type="hidden" name="zimmer_id" value="<?php echo $zimmer_id; ?>">
+            </form>
+            <script>
+                $('#redirectForm').submit();
+            </script>
+<!--            <div class="alert alert-danger" role="alert">-->
+<!--				--><?php //echo(getUebersetzung("Bitte geben Sie die Zimmerart ein!", $sprache, $link)); ?>
+<!--            </div>-->
 
 			<?php
-			include_once("./zimmerAendern.php");
+			//include_once("./zimmerAendern.php");
 		}
 
 
@@ -354,10 +368,18 @@ include_once("../templates/bodyA.php");
 				}
 
 				?>
+                <form method="post" action="./index.php" id="redirectForm">
+                    <input type="hidden" name="roomEditedMessage" value="<?php echo(getUebersetzung("Die Änderung wurde erfolgreich durchgeführt", $sprache, $link)); ?>">
+                    <input type="hidden" name="roomEditedMessageType" value="success">
+                    <input type="hidden" name="zimmer_id" value="<?php echo $zimmer_id; ?>">
+                </form>
+                <script>
+                    $('#redirectForm').submit();
+                </script>
 
-                <div class="alert alert-success" role="alert">
-					<?php echo(getUebersetzung("Die Änderung wurde erfolgreich durchgeführt", $sprache, $link)); ?>.
-                </div>
+<!--                <div class="alert alert-success" role="alert">-->
+<!--					--><?php //echo(getUebersetzung("Die Änderung wurde erfolgreich durchgeführt", $sprache, $link)); ?><!--.-->
+<!--                </div>-->
 
 
 				<?php
@@ -365,11 +387,19 @@ include_once("../templates/bodyA.php");
 			else
 			{
 				?>
+            <form method="post" action="./zimmerAendern.php" id="redirectForm">
+                <input type="hidden" name="roomEditedMessage" value="<?php echo(getUebersetzung("Die Änderung konnte nicht erfolgreich durchgeführt werden, versuchen sie es bitte nochmals", $sprache, $link)); ?>">
+                <input type="hidden" name="roomEditedMessageType" value="error">
+                <input type="hidden" name="zimmer_id" value="<?php echo $zimmer_id; ?>">
+            </form>
+            <script>
+                $('#redirectForm').submit();
+            </script>
 
-                <div class="alert alert-danger" role="alert">
-					<?php echo(getUebersetzung("Die Änderung konnte nicht erfolgreich durchgeführt werden, versuchen sie es bitte nochmals", $sprache, $link)); ?>
-                    .
-                </div>
+<!--                <div class="alert alert-danger" role="alert">-->
+<!--					--><?php //echo(getUebersetzung("Die Änderung konnte nicht erfolgreich durchgeführt werden, versuchen sie es bitte nochmals", $sprache, $link)); ?>
+<!--                    .-->
+<!--                </div>-->
 
 
 				<?php
@@ -403,12 +433,12 @@ include_once("../templates/bodyA.php");
 <!---->
 <!--                    </form>-->
 <!--                </div>-->
-                <div class="col-sm-12" style="text-align: right;">
-                    <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">
-                        <input name="retour" type="submit" class="btn btn-default" id="retour"
-                               value="<?php echo(getUebersetzung("Zurück", $sprache, $link)); ?>">
-                    </form>
-                </div>
+<!--                <div class="col-sm-12" style="text-align: right;">-->
+<!--                    <form action="./index.php" method="post" name="zimmer aendern" target="_self" id="zimmer aendern">-->
+<!--                        <input name="retour" type="submit" class="btn btn-default" id="retour"-->
+<!--                               value="--><?php //echo(getUebersetzung("Zurück", $sprache, $link)); ?><!--">-->
+<!--                    </form>-->
+<!--                </div>-->
 
 
             </div>

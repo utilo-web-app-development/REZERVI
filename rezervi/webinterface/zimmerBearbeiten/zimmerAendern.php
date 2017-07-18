@@ -63,6 +63,30 @@ $haustiere    = getHaustiere($unterkunft_id, $zimmer_id, $link);
     </div>
     <div class="panel-body">
 
+        <?php
+        $message = $_POST["roomEditedMessage"];
+        $message_type = $_POST["roomEditedMessageType"];
+
+        if(isset($message) && isset($message_type)){
+            if($message_type == "success")
+            {
+            ?>
+                <div class="alert alert-success">
+                    <label><?php echo $message;?></label>
+                </div>
+            <?php
+            }
+            else
+            {
+            ?>
+                <div class="alert alert-sdanger">
+                    <label><?php echo $message;?></label>
+                </div>
+            <?php
+            }
+        }
+        ?>
+
         <form action="./zimmerAendernDurchfuehren.php" method="post" name="zimmerAendern" id="zimmerAendern"
               target="_self" class="form-horizontal">
 

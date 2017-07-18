@@ -53,63 +53,74 @@ include_once($root."/include/sessionFunctions.inc.php");
 		}
 		
 		$nachricht = getUebersetzung($nachricht,$sprache,$link);
+
+
 	
 ?>
-  <table border="0" cellpadding="0" cellspacing="3" class="table">
-    <tr class="table"> 
-      <td>
-	  	<p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. löschen",$sprache,$link)); ?><br/>
-          </p>
-      </td>
-    </tr>
-	<?php
-	if (isset($nachricht) && $nachricht != ""){
-	?>
-	<tr> 
-      <td height="30"  
-	  <?php 
-	  	if ($fehler == true) {
-	  ?>
-	  	class="belegt"
-	  <?php		
-	  	}
-	  else { 
-	  ?>
-	  	class="frei"
-	  <?php
-	  } 
-	  ?>
-	  ><?php echo($nachricht); ?>
-	  </td>
-    </tr>
-    <?php
-	}
-	?>
-	<tr> 
-      <td><form action="./bilderLoeschen.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">
-			<input name="index" type="hidden" value="<?php echo($index); ?>"/>
-			<?php 
-				showSubmitButton(getUebersetzung("weitere Bilder löschen",$sprache,$link));
-			?>
-		  </form>
-      </td>
-    </tr>
-  </table>
-<br/>
-<?php 
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
-?>
-<br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
-<p></td> </tr> </table> </p>  
-<?php 
+
+        <form action="bilderLoeschen.php" method="post" id="redirectForm">
+            <input type="hidden" name="nachricht_alert" value="<?php echo $nachricht;?>">
+            <input type="hidden" name="fehler_alert" value="<?php echo $fehler;?>">
+        </form>
+
+    <script>
+        document.getElementById('redirectForm').submit();
+    </script>
+<!--  <table border="0" cellpadding="0" cellspacing="3" class="table">-->
+<!--    <tr class="table"> -->
+<!--      <td>-->
+<!--	  	<p class="standardSchriftBold">--><?php //echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. löschen",$sprache,$link)); ?><!--<br/>-->
+<!--          </p>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--	--><?php
+//	if (isset($nachricht) && $nachricht != ""){
+//	?>
+<!--	<tr> -->
+<!--      <td height="30"  -->
+<!--	  --><?php //
+//	  	if ($fehler == true) {
+//	  ?>
+<!--	  	class="belegt"-->
+<!--	  --><?php	//
+//	  	}
+//	  else {
+//	  ?>
+<!--	  	class="frei"-->
+<!--	  --><?php
+//	  }
+//	  ?>
+<!--	  >--><?php //echo($nachricht); ?>
+<!--	  </td>-->
+<!--    </tr>-->
+<!--    --><?php
+//	}
+//	?>
+<!--	<tr> -->
+<!--      <td><form action="./bilderLoeschen.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">-->
+<!--			<input name="index" type="hidden" value="--><?php //echo($index); ?><!--"/>-->
+<!--			--><?php //
+//				showSubmitButton(getUebersetzung("weitere Bilder löschen",$sprache,$link));
+//			?>
+<!--		  </form>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--<br/>-->
+<?php //
+//	  //-----buttons um zurück zu gelangen:
+//	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
+//?>
+<!--<br/>-->
+<?php //
+//	  //-----buttons um zurück zum menue zu gelangen:
+//	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
+//?>
+<!--<p></td> </tr> </table> </p>  -->
+<?php
 	} //ende if passwortprüfung
 	else {
 		echo(getUebersetzung("Bitte Browser schließen und neu anmelden - Passwortprüfung fehlgeschlagen!",$sprache,$link));
 	}
- ?>   
+ ?>
  <?php include_once("../templates/end.php"); ?>

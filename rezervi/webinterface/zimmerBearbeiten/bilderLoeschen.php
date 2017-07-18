@@ -34,6 +34,9 @@ include_once($root."/include/sessionFunctions.inc.php");
 	else{
 		$index = 0;
 	}
+
+$nachricht_alert = $_POST['nachricht_alert'];
+$fehler_alert = $_POST['fehler_alert'];
 			
 ?>
 
@@ -51,122 +54,163 @@ include_once($root."/include/sessionFunctions.inc.php");
 	    //-->
 </script>
 <?php //passwortprüfung:	
-	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){		
+	if (checkPass($benutzername,$passwort,$unterkunft_id,$link)){
 ?>
-  <table border="0" cellpadding="0" cellspacing="3" class="table">
-    <tr class="table"> 
-      <td>
-	  	<p class="standardSchriftBold"><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. löschen",$sprache,$link)); ?><br/>
-          </p>
-      </td>
-    </tr>
-	<?php
-	if (isset($nachricht) && $nachricht != ""){
-	?>
-	<tr> 
-      <td height="30"  
-	  <?php 
-	  	if ($fehler == true) {
-	  ?>
-	  	class="belegt"
-	  <?php		
-	  	}
-	  else { 
-	  ?>
-	  	class="frei"
-	  <?php
-	  } 
-	  ?>
-	  ><?php echo($nachricht); ?>
-	  </td>
-    </tr>
-    <?php
-	}
-	?>
- 	<tr>
-		<td>
-			<table cellpadding="0" cellspacing="2" border="0">
-			  <tr>
-					<td><?php echo(getUebersetzung("Bild",$sprache,$link)); ?></td>
-					<td><?php echo(getUebersetzung("Zimmer",$sprache,$link)); ?></td>
-					<td><?php echo(getUebersetzung("Beschreibung",$sprache,$link)); ?></td>
-					<td><div align="center"><?php echo(getUebersetzung("löschen",$sprache,$link)); ?></div></td>
-				</tr>
-			<?php 
-				$res = getAllPicturesFromUnterkunftWithLimit($unterkunft_id,$limit,$index,$link);
-				while ($d=mysqli_fetch_array($res)){
-					$bild = $d["Pfad"];
-					$zimmer = $d["Zimmernr"];
-					$description = $d["Beschreibung"];
-			?>
-			  	  <tr>
-					  <td><img src="<?php echo($bild); ?>" /></td>
-					  <td><?php echo($zimmer); ?></td>
-					   <td><?php echo($description); ?></td>
-					  <td><form action="./bilderLoeschenDurchf.php" 
-					  			method="post" name="zimmerloeschen<?php echo($d["PK_ID"]); ?>" 
-								target="_self" onSubmit="return sicher()" 
-								enctype="multipart/form-data">
-			  				<input type="hidden" name="bilder_id" value="<?php echo($d["PK_ID"]); ?>"/>
-			  				<input type="hidden" name="index" value="<?php echo($index); ?>"/>
-			  				<input name="Submit" type="submit" id="Submit" class="button200pxA" 
-								onMouseOver="this.className='button200pxB';"
-       							onMouseOut="this.className='button200pxA';"
-								value="<?php echo(getUebersetzung("Bild löschen",$sprache,$link)); ?>">
-						 </form>
-					  </td>
-				  </tr>			
-			<?php
-			}
-			?>
-			  </table>
-		</td>
-    </tr>
-	<tr> 
-      <td>
-		<table>
-			<tr>
-			<?php
-			if (($index - $limit) > -1){
-			?>
-				<td>
-					<form action="./bilderLoeschen.php" method="post" name="zurueck" target="_self" enctype="multipart/form-data">
-					<input name="index" type="hidden" value="<?php echo($index-$limit); ?>"/>
-					<?php 
-	  					showSubmitButton(getUebersetzung("zurückblättern",$sprache,$link));
-					?>
-					</form>
-				</td>
-			<?php
-			}
-			if (($index + $limit) < getAnzahlBilder($unterkunft_id,$link)){
-			?>
-				<td><form action="./bilderLoeschen.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">
-					<input name="index" type="hidden" value="<?php echo($index+$limit); ?>"/>
-					<?php 
-	  					showSubmitButton(getUebersetzung("weiterblättern",$sprache,$link));
-					?>
-					</form>
-				</td>
-			<?php
-			}
-			?>
-			</tr>
-		</table>
-      </td>
-    </tr>
-  </table>
-<br/>
-<?php 
-	  //-----buttons um zurück zu gelangen: 
-	  showSubmitButtonWithForm("./index.php",getUebersetzung("zurück",$sprache,$link));
-?>
-<br/>
-<?php 
-	  //-----buttons um zurück zum menue zu gelangen: 
-	  showSubmitButtonWithForm("../inhalt.php",getUebersetzung("Hauptmenü",$sprache,$link));
-?>
-<p></td> </tr> </table> </p>  
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3><?php echo(getUebersetzung("Bilder für Zimmer/Appartement/Wohnung/etc. löschen",$sprache,$link)); ?></h3>
+            </div>
+            <div class="panel-body">
+                <?php
+                if (isset($nachricht) && $nachricht != ""){
+                    ?>
+
+                        <div
+                            <?php
+                            if ($fehler == true) {
+                                ?>
+                                class="alert alert-danger"
+                                <?php
+                            }
+                            else {
+                                ?>
+                                class="alert alert-success"
+                                <?php
+                            }
+                            ?>
+                        ><?php echo($nachricht); ?>
+                        </div>
+
+                    <?php
+                }
+                ?>
+
+                <?php
+                if (isset($nachricht_alert) && $nachricht_alert != ""){
+                ?>
+
+                <div class="alert
+                            <?php
+                if ($fehler == true) {
+                ?>
+                                alert-danger"
+                    <?php
+                    }
+                    else {
+                    ?>
+                     alert-success"
+                <?php
+                }
+                ?>
+                >
+                <?php echo($nachricht_alert); ?>
+            </div>
+
+            <?php
+            }
+            ?>
+
+
+            <div class="row" style="border-bottom: 1px darkgray solid; ">
+                    <div class="col-sm-4" >
+                        <label>
+                            <?php echo(getUebersetzung("Bild",$sprache,$link)); ?>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>
+                            <?php echo(getUebersetzung("Zimmer",$sprache,$link)); ?>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>
+                            <?php echo(getUebersetzung("Beschreibung",$sprache,$link)); ?>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <label>
+                            <?php echo(getUebersetzung("löschen",$sprache,$link)); ?>
+                        </label>
+                    </div>
+                </div>
+
+                <?php
+                $res = getAllPicturesFromUnterkunftWithLimit($unterkunft_id,$limit,$index,$link);
+                while ($d=mysqli_fetch_array($res)){
+                    $bild = $d["Pfad"];
+                    $zimmer = $d["Zimmernr"];
+                    $description = $d["Beschreibung"];
+                    ?>
+                    <div class="row" style="border-bottom: 1px darkgray solid; padding-top:10px;padding-bottom:10px;" >
+                        <div class="col-sm-4">
+                            <img class="img-responsive" src="<?php echo($bild); ?>" />
+                        </div>
+                        <div class="col-sm-3">
+                            <?php echo($zimmer); ?>
+                        </div>
+                        <div class="col-sm-3">
+                            <?php echo($description); ?>
+                        </div>
+                        <div>
+                            <form action="./bilderLoeschenDurchf.php"
+                                  method="post" name="zimmerloeschen<?php echo($d["PK_ID"]); ?>"
+                                  target="_self" onSubmit="return sicher()"
+                                  enctype="multipart/form-data">
+                                <input type="hidden" name="bilder_id" value="<?php echo($d["PK_ID"]); ?>"/>
+                                <input type="hidden" name="index" value="<?php echo($index); ?>"/>
+                                <button name="Submit" type="submit" id="Submit" class="btn btn-danger">
+                                    <?php echo(getUebersetzung("Bild löschen",$sprache,$link)); ?>
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+
+                <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                    <?php
+                    if (($index - $limit) > -1){
+                        ?>
+                        <div class="col-sm-12" style="text-align: right;">
+                            <form action="./bilderLoeschen.php" method="post" name="zurueck" target="_self" enctype="multipart/form-data">
+                                <input name="index" type="hidden" value="<?php echo($index-$limit); ?>"/>
+                                <button class="btn btn-primary" type="submit">
+                                    <?php echo getUebersetzung("zurückblättern",$sprache,$link); ?>
+                                </button>
+
+                            </form>
+                        </div>
+                        <?php
+                    }
+                    if (($index + $limit) < getAnzahlBilder($unterkunft_id,$link)){
+                        ?>
+                        <div class="col-sm-12" style="text-align: right;">
+                            <form action="./bilderLoeschen.php" method="post" name="weiter" target="_self" enctype="multipart/form-data">
+                                <input name="index" type="hidden" value="<?php echo($index+$limit); ?>"/>
+                                <button class="btn btn-primary" type="submit">
+                                    <?php echo getUebersetzung("weiterblättern",$sprache,$link); ?>
+                                </button>
+                            </form>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: right;">
+                        <a href="./index.php" class="btn btn-default">
+                            <?php echo getUebersetzung("zurück",$sprache,$link);?>
+                        </a>
+                        <a href="../index.php" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-home"></span>
+                            <?php echo getUebersetzung("Hauptmenü",$sprache,$link);?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 <?php 
 	} //ende if passwortprüfung
 	else {

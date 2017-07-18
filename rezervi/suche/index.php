@@ -64,12 +64,37 @@ if (isset($_POST['datumBis']) && !empty($_POST['datumBis']))
 	$enddatumDP = $_POST['datumBis'];
 }
 
+$language = "Deutsch";
+$flag = "../fahneDE.gif";
+if($sprache == "en"){
+    $language = "English";
+    $flag =  "../fahneEN.gif";
+}
+else if($sprache == "fr"){
+    $language = "Francais";
+    $flag =  "../fahneFR.gif";
+}
+else if($sprache == "it"){
+    $language = "Italia";
+    $flag =  "../fahneIT.gif";
+}
+else if($sprache == "nl"){
+    $language = "Nederlands";
+    $flag =  "../fahneNL.gif";
+}
+else if($sprache == "sp"){
+    $language = "España";
+    $flag =  "../fahneSP.gif";
+}
+
+
+
 //headerA einfügen:
 include_once("../templates/headerA.php");
 //stylesheets einfgen:
 ?>
 <style type="text/css">
-    <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+<?php //include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <script type="text/javascript" src="<?php echo($root); ?>/templates/calendarDateInput.php">
     /***********************************************
@@ -79,8 +104,8 @@ include_once("../templates/headerA.php");
      ***********************************************/
 </script>
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      crossorigin="anonymous">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      crossorigin="anonymous">-->
 <!-- Bootstrap ende -->
 <?php
 //headerB einfügen:
@@ -88,7 +113,144 @@ include_once("../templates/headerB.php");
 ?>
 <div class="container" style="margin-top:70px;">
 
+    <!-- Flaggen Sprachen -->
+    <?php
+    if (isset($keineSprache) && ($keineSprache == "true"))
+    {
+        //es soll die sprachauswahl nicht angezeigt werden, wenn
+        //keineSprache == True uebergeben wird
+    }
+    else
+    {
+        ?>
+        <div class="row">
+            <div class="col-sm-offset-10 col-sm-2" style="text-align: right;">
+                <!-- Single button -->
+                <div class="btn-group" style="min-width: 160px;">
+                    <button style="width: 100%; background: white; margin-bottom: 10px;" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="<?php echo $flag; ?>" width="25" height="16">
+                        &nbsp&nbsp;<?php echo $language; ?>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <?php
+                        //laender ausgeben die in den einstellungen definiert wurden:
+                        if (isEnglishShown($unterkunft_id, $link) && $sprache != "en")
+                        {
+                            ?>
+                            <li class="list-inline">
 
+                                <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=en"
+                                   target="_self" class="standardSchrift">
+                                    <img src="../fahneEN.gif" width="25" height="16">
+                                    &nbsp&nbsp;English
+                                </a>
+
+                            </li>
+                            <?php
+                        }
+                        if (isFrenchShown($unterkunft_id, $link) && $sprache != "fr")
+                        {
+                            ?>
+                            <li class="list-inline">
+
+                                <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=fr"
+                                   target="_self" class="standardSchrift">
+                                    <img src="../fahneFR.gif" width="25" height="16">&nbsp;&nbspFrancais
+                                </a>
+
+                            </li>
+                            <?php
+                        }
+                        if (isGermanShown($unterkunft_id, $link) && $sprache != "de")
+                        {
+                            ?>
+                            <li class="list-inline">
+
+                                <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=de"
+                                   target="_self" class="standardSchrift">
+                                    <img src="../fahneDE.gif" width="25" height="16">
+                                    &nbsp;&nbsp;Deutsch
+                                </a>
+
+                            </li>
+                            <?php
+                        }
+                        if (isItalianShown($unterkunft_id, $link) && $sprache != "it")
+                        {
+                            ?>
+                            <li class="list-inline">
+
+
+                                <a style="text-decoration-line: none;"
+                                   href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=it"
+                                   target="_self" class="standardSchrift">
+                                    <img src="../fahneIT.gif" width="25" height="16">
+                                    &nbsp;&nbsp;Italia
+                                </a>
+
+                            </li>
+                            <?php
+                        }
+                        if (isNetherlandsShown($unterkunft_id, $link) && $sprache != "nl")
+                        {
+                            ?>
+                            <li class="list-inline">
+
+                                <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=nl"
+                                   target="_self" class="standardSchrift">
+                                    <img src="../fahneNL.gif" width="25" height="16">
+                                    &nbsp;&nbsp;Nederlands
+                                </a>
+
+                            </li>
+                            <?php
+                        }
+                        if (isEspaniaShown($unterkunft_id, $link) && $sprache != "sp")
+                        {
+                            ?>
+                            <li class="list-inline">
+
+
+                                <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=sp"
+                                   target="_self" class="standardSchrift">
+                                    <img src="../fahneSP.gif" width="25" height="16">
+                                    &nbsp;&nbsp;España
+                                </a>
+
+
+                            </li>
+                            <?php
+                        }
+                        if (isEstoniaShown($unterkunft_id, $link) && $sprache != "es")
+                        {
+                            ?>
+                            <li>
+
+
+                                <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=es"
+                                   target="_self" class="standardSchrift">
+                                    <img src="../fahneES.gif" width="25" height="16">
+                                    &nbsp;&nbsp;Estonia
+                                </a>
+
+
+                            </li>
+                            <?php
+                        } //ende estonia
+                        ?>
+                    </ul>
+                </div>
+
+            </div>
+            <script>
+
+            </script>
+        </div>
+
+
+        <?php
+    } //ende sprache soll angezeigt werden
+    ?>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2>
@@ -98,141 +260,6 @@ include_once("../templates/headerB.php");
         <div class="panel-body">
 
             <?php include_once("./subtemplates/showMessages.php");?>
-            <!-- Flaggen Sprachen -->
-
-			<?php
-			if (isset($keineSprache) && ($keineSprache == "true"))
-			{
-				//es soll die sprachauswahl nicht angezeigt werden, wenn
-				//keineSprache == True uebergeben wird
-			}
-			else
-			{
-				?>
-                <div class="row">
-                    <div class="col-sm-12" style="text-align: right;">
-                        <ul class="list-inline">
-							<?php
-							//laender ausgeben die in den einstellungen definiert wurden:
-							if (isEnglishShown($unterkunft_id, $link) && $sprache != "en")
-							{
-								?>
-                                <li class="list-inline">
-
-                                    <div align="left">
-                                        <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=en"
-                                           target="_self" class="standardSchrift">
-                                            <img src="../fahneEN.gif" width="25" height="16">
-                                            &nbsp&nbsp;English
-                                        </a>
-                                    </div>
-
-                                </li>
-								<?php
-							}
-							if (isFrenchShown($unterkunft_id, $link) && $sprache != "fr")
-							{
-								?>
-                                <li class="list-inline">
-
-                                    <div align="left">
-                                        <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=fr"
-                                           target="_self" class="standardSchrift">
-                                            <img src="../fahneFR.gif" width="25" height="16">&nbsp;&nbsp;Francais
-                                        </a>
-                                    </div>
-
-                                </li>
-								<?php
-							}
-							if (isGermanShown($unterkunft_id, $link) && $sprache != "de")
-							{
-								?>
-                                <li class="list-inline">
-
-                                    <div align="left">
-                                        <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=de"
-                                           target="_self" class="standardSchrift">
-                                            <img src="../fahneDE.gif" width="25" height="16">
-                                            &nbsp;&nbsp;Deutsch
-                                        </a>
-                                    </div>
-
-                                </li>
-								<?php
-							}
-							if (isItalianShown($unterkunft_id, $link) && $sprache != "it")
-							{
-								?>
-                                <li class="list-inline">
-
-                                    <div align="left">
-                                        <a style="text-decoration-line: none;"
-                                                href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=it"
-                                                target="_self" class="standardSchrift">
-                                            <img src="../fahneIT.gif" width="25" height="16">
-                                            &nbsp;&nbsp;Italia
-                                        </a>
-                                    </div>
-                                    <
-                                </li>
-								<?php
-							}
-							if (isNetherlandsShown($unterkunft_id, $link) && $sprache != "nl")
-							{
-								?>
-                                <li class="list-inline">
-                                    <div align="left">
-                                        <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=nl"
-                                           target="_self" class="standardSchrift">
-                                            <img src="../fahneNL.gif" width="25" height="16">
-                                            &nbsp;&nbsp;Nederlands
-                                        </a>
-                                    </div>
-
-                                </li>
-								<?php
-							}
-							if (isEspaniaShown($unterkunft_id, $link) && $sprache != "sp")
-							{
-								?>
-                                <li class="list-inline">
-
-                                    <div align="left">
-                                        <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=sp"
-                                           target="_self" class="standardSchrift">
-                                            <img src="../fahneSP.gif" width="25" height="16">
-                                            &nbsp;&nbsp;España
-                                        </a>
-                                    </div>
-
-                                </li>
-								<?php
-							}
-							if (isEstoniaShown($unterkunft_id, $link) && $sprache != "es")
-							{
-								?>
-                                <li>
-
-                                    <div align="left">
-                                        <a style="text-decoration-line: none;" href="./index.php?unterkunft_id=<?php echo($unterkunft_id); ?>&sprache=es"
-                                           target="_self" class="standardSchrift">
-                                            <img src="../fahneES.gif" width="25" height="16">
-                                            &nbsp;&nbsp;Estonia
-                                        </a>
-                                    </div>
-
-                                </li>
-								<?php
-							} //ende estonia
-							?>
-                        </ul>
-                    </div>
-                </div>
-
-				<?php
-			} //ende sprache soll angezeigt werden
-			?>
 
 
             <p class="lead">
@@ -634,8 +661,10 @@ include_once("../templates/headerB.php");
                 <!-- Button Suche starten -->
                 <div class="form-group">
                     <div class="col-sm-12" style="text-align: right;">
-                        <input name="sucheStarten" type="submit" class="btn btn-default" id="sucheStarten"
-                               value="<?php echo(getUebersetzung("Suche starten...", $sprache, $link)); ?>">
+                        <button name="sucheStarten" type="submit" class="btn btn-primary" id="sucheStarten">
+                            <?php echo(getUebersetzung("Suchen", $sprache, $link)); ?>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
                     </div>
                 </div>
 

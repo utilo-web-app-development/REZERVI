@@ -1,5 +1,4 @@
-<div class="panel panel-default">
-  <div class="panel-body">
+
   	<?php session_start();
 $root = ".";
 // Set flag that this is a parent file
@@ -89,7 +88,7 @@ include_once("./jahresuebersichtHelper.php");
 		$jahr+=1;$jahr-=1;
 	}
 	
-include_once("./templates/headerA.php");
+//include_once("./templates/headerA.php");
 //stylesheets einfügen:
 ?>
 <style type="text/css">
@@ -97,9 +96,11 @@ include_once("./templates/headerA.php");
 </style>
 <script language="JavaScript" type="text/javascript" src="./rightJS.js">
 </script>
-<?php include_once("./templates/headerB.php");
-?>
+<?php //include_once("./templates/headerB.php");
 
+?>
+    <div class="panel panel-default">
+        <div class="panel-body">
 
    <?php echo(getUebersetzung("Belegungsplan",$sprache,$link)); ?> <?php echo($jahr) ?>,
       <?php	$art = getUebersetzungUnterkunft(getZimmerArt($unterkunft_id,$zimmer_id,$link),$sprache,$unterkunft_id,$link);
@@ -137,11 +138,6 @@ include_once("./templates/headerA.php");
 				  }			
 			}
 			?>
-			
-		
-	
-
-<br/>
 <table width="100%" border="0" class="table">
   <tr>
     <td colspan="2"><?php			
@@ -182,5 +178,7 @@ include_once("./templates/headerA.php");
 	  ?></td>
   </tr>
 </table>
-</body>
-</html>
+        </div>
+    </div>
+<!--</body>-->
+<!--</html>-->

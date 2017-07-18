@@ -1,8 +1,9 @@
-<?php session_start();		
-$root = ".";
+<?php
+//session_start();
+//$root = ".";
 // Set flag that this is a parent file
-define( '_JEXEC', 1 );
-include_once($root."/include/sessionFunctions.inc.php");
+//define( '_JEXEC', 1 );
+//include_once($root."/include/sessionFunctions.inc.php");
 /* 
 	reservierungsplan
 	anzeige des kalenders
@@ -18,20 +19,20 @@ include_once($root."/include/sessionFunctions.inc.php");
 */
 
 	//datenbank öffnen:
-	include_once("./conf/rdbmsConfig.php");
+	//include_once("./conf/rdbmsConfig.php");
 	
 	//funktions einbinden:
-	include_once("./include/unterkunftFunctions.php");
-	include_once("./include/zimmerFunctions.php");
-	include_once("./include/datumFunctions.php");
-	include_once("./include/reservierungFunctions.php");
-	include_once("./include/uebersetzer.php");
+	//include_once("./include/unterkunftFunctions.php");
+	//include_once("./include/zimmerFunctions.php");
+	//include_once("./include/datumFunctions.php");
+	//include_once("./include/reservierungFunctions.php");
+	//include_once("./include/uebersetzer.php");
 	
 	
-	include_once("./rightHelper.php");	
-	include_once("./leftHelper.php");
+	include_once("./rightHelper.php");
+	//include_once("./leftHelper.php");
 	
-	include_once("./include/propertiesFunctions.php");
+	//include_once("./include/propertiesFunctions.php");
 		
 	//variablen initialisieren:
 	//unset($zimmer_id);
@@ -71,29 +72,30 @@ include_once($root."/include/sessionFunctions.inc.php");
 	}
 	//ich brauche für jahr einen integer:
 	$jahr+=1;$jahr-=1;
-	
+
 	//falls kein monat ausgewählt wurde, das aktuelle monat verwenden:
 	if (!isset($monat) || $monat == "" || empty($monat)){
 		$monat = parseMonthNumber(getTodayMonth());
 	}
 	//und fürs monat einen integer
-	$monat-=1;$monat+=1;
+	$monat-=1;
+	$monat+=1;
 		
 ?>
 <div class="panel panel-default">
   <div class="panel-body">
   	
-<?php include_once("./templates/headerA.php"); ?>
+<?php //include_once("./templates/headerA.php"); ?>
 <style type="text/css">
-<?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+<?php //include_once($root."/templates/stylesheetsIE9.php"); ?>
 </style>
 <!-- <script language="JavaScript" type="text/javascript" src="./rightJS.js">
 </script> -->
-<?php include_once("./templates/headerB.php"); ?>
+<?php //include_once("./templates/headerB.php"); ?>
 <?php //kontrolle ob das monat noch ungültig ist:
 	if ($monat < parseMonthNumber(getTodayMonth()) && $jahr <= getTodayYear()){ ?>
 		
-			<h3><?php echo(getUebersetzung("<p>Das gewählte Monat ist bereits abgelaufen!</p><p>Bitte korrigieren Sie Ihre Anfrage!</p>",$sprache,$link)); ?></h3>
+			<h3><?php   echo parseMonthNumber(getTodayMonth()); echo(getUebersetzung("<p>Das gewählte Monat ist bereits abgelaufen!</p><p>Bitte korrigieren Sie Ihre Anfrage!</p>",$sprache,$link)); ?></h3>
 		
 <?php } //ende if monat zu klein
 	else { ?>
@@ -281,4 +283,4 @@ include_once($root."/include/sessionFunctions.inc.php");
 <?php } //ende else monat zu klein ?>
 </div>
 </div>
-</html>
+<!--</html>-->

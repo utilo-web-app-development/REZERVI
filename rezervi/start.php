@@ -1,4 +1,5 @@
-<?php  session_start();
+<?php
+session_start();
 $root = ".";
 // Set flag that this is a parent file
 define( '_JEXEC', 1 );
@@ -12,6 +13,9 @@ include_once($root."/include/uebersetzer.php");
 include_once($root."/include/unterkunftFunctions.php");
 include_once($root."/include/propertiesFunctions.php");
 include_once($root."/include/autoResponseFunctions.php");
+include_once($root."/include/reseller/reseller.php");
+include_once("./include/datumFunctions.php");
+include_once("./include/einstellungenFunctions.php");
 //alte sessions löschen:
 destroyInactiveSessions();
 
@@ -106,54 +110,37 @@ if(getAnzahlVorhandeneZimmer($unterkunft_id,$link) > 0){
 	}	
 	
     ?>
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<title>Zimmerreservierungsplan Belegungsplan und Gästedatenbank Rezervi</title>
-	<meta http-equiv="Content-Type" content="text/html">
-	<meta charset="UTF-8">
-	</head>
-	<frameset 
-		<?php if ($horizontal){ ?>
-			rows="<?php echo($framesizeLeftBP); ?>,<?php echo($framesizeRightBP); ?>"
-		<?php } 
+<?php include_once "./templates/headerA.php";?>
+    <style>
+        <?php include_once($root."/templates/stylesheetsIE9.php"); ?>
+    </style>
+
+    <?php include_once "./templates/headerB.php";?>
+
+
+            <?php include_once "./userBelegungsplan/nav_belegungsplan.php";?>
+
+            <?php include_once "./userBelegungsplan/full_year.php";?>
+
+
+	<!--<frameset
+		<?php /*if ($horizontal){ */?>
+			rows="<?php /*echo($framesizeLeftBP); */?>,<?php /*echo($framesizeRightBP); */?>"
+		<?php /*}
 			else {
-		?>
-			cols="<?php echo($framesizeLeftBP); ?>,<?php echo($framesizeRightBP); ?>"
-		<?php } ?>
+		*/?>
+			cols="<?php /*echo($framesizeLeftBP); */?>,<?php /*echo($framesizeRightBP); */?>"
+		<?php /*} */?>
 		framespacing="1" frameborder="yes" border="1" bordercolor="#000000">
 	  <frame src="left.php" name="reservierung" frameborder="yes" id="reservierung"/>
 	  <frame src="ansichtWaehlen.php?vonStart=true" name="kalender" frameborder="no" id="kalender"/>
-	<noframes>	
-		
-		<div class="row">
-			
-			<div class="col-md-4">
-				left.php
-			</div>
-			<div>
-				ansichten
-			</div>
-			
-		</div>
-		
-	<body class="backgroundColor">
-	<p>Rezervi Belegungsplan und Kundendatenbank von utilo.eu</p>
-	<p><a href="http://www.utilo.eu" target="_parent">http://www.utilo.eu</a></p>
-	<p><a href="http://www.rezervi.com" target="_parent">http://www.rezervi.com</a></p>
-	</body>
-	</noframes>
+    </frameset>-->
+
 <?php
 } 
 else{
 ?>
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<title>Zimmerreservierungsplan Belegungsplan und Gästedatenbank Rezervi</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	</head>
-	<body>
+
 	<?php
 	//pruefen ob installation schon durchgeführt wurde:
 	if (isInstalled($unterkunft_id)){
@@ -170,8 +157,7 @@ else{
 	<?php
 	}
 	?>
-	</body>
 <?php
 }
 ?>
-</html>
+<?php include_once "./templates/end.php";?>

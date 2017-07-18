@@ -638,7 +638,8 @@ else
 										//mail($an, $subject, $message, "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
 										//mail($an, unhtmlentities($subject), unhtmlentities($message), "From: $von\nReply-To: $von\nX-Mailer: PHP/" . phpversion());
 
-										if (sendMail($von, $an, $subject, $message))
+                                        $result = sendMail($von, $an, $subject, $message, $gastName);
+										if (isset($result))
 										{
 											echo(getUebersetzung("erfolgreich gesendet", $sprache, $link) . " ...<br/>");
 										}

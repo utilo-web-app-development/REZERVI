@@ -1,4 +1,6 @@
-if(parent == null || parent == self) {top.location.href = './start.php';}
+if(parent == null || parent == self) {
+	//top.location.href = './start.php';
+}
 
 function updateReservierung(vonTagIndex,vonMonatIndex,vonJahrValue,bisTagIndex,bisMonatIndex,bisJahrValue,zimmer_idValue){
 	
