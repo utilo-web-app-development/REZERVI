@@ -78,8 +78,12 @@ include_once($root."/include/sessionFunctions.inc.php");
 		include_once("./bilderHochladen.php");
 		exit;
 	}
-	
-	$uploaddir = "../../upload/";
+	$context_path="/Applications/XAMPP/xamppfiles/htdocs/rezervi/rezervi";
+	$uploaddir = $context_path."/upload/";
+    $uploaddir_thumbs = $context_path."/upload/thumbs/";
+
+    $src_path = $URL."upload/";
+    $src_path_thumbs = $URL."upload/thumbs/";
 
 	$mimeType = $_FILES['bild']['type'];
 	$file_save_as = uniqid("utilo_") . getFileExtension($mimeType);
@@ -90,7 +94,7 @@ include_once($root."/include/sessionFunctions.inc.php");
 	//so there will be no geometrical distortions:
 	$bildXMax = getPropertyValue(BILDER_SUCHE_WIDTH,$unterkunft_id,$link);
 	$bildYMax = getPropertyValue(BILDER_SUCHE_HEIGHT,$unterkunft_id,$link);
-	$img->resize($bildXMax,$bildYMax,"-"); 
+	$img->resize($bildXMax,$bildYMax,"-");
 	
 	//save the resized image to file
 	//commented to save server load
@@ -99,8 +103,49 @@ include_once($root."/include/sessionFunctions.inc.php");
 	if (move_uploaded_file($_FILES['bild']['tmp_name'], $uploaddir . $file_save_as)) {
 		chmod ($uploaddir . $file_save_as, 0755);
 
+        $upload_image = $uploaddir . $file_save_as;
+		$thumbnail = $uploaddir_thumbs.$file_save_as;
+        chmod ($uploaddir_thumbs.$file_save_as, 0755);
+        list($width,$height) = getimagesize($upload_image);
+        $thumb_width  = "100";
+        $thumb_height = "100";
+        $thumb_create = imagecreatetruecolor($thumb_width,$thumb_height);
+        switch(getFileExtension($mimeType)){
+            case 'jpg':
+                $source = imagecreatefromjpeg($upload_image);
+                break;
+            case 'jpeg':
+                $source = imagecreatefromjpeg($upload_image);
+                break;
+
+            case 'png':
+                $source = imagecreatefrompng($upload_image);
+                break;
+            case 'gif':
+                $source = imagecreatefromgif($upload_image);
+                break;
+            default:
+                $source = imagecreatefromjpeg($upload_image);
+        }
+        imagecopyresized($thumb_create,$source,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
+            switch(getFileExtension($mimeType)){
+                case 'jpg' || 'jpeg':
+                    imagejpeg($thumb_create,$thumbnail,100);
+                    break;
+                case 'png':
+                    imagepng($thumb_create,$thumbnail,100);
+                    break;
+
+                case 'gif':
+                    imagegif($thumb_create,$thumbnail,100);
+                    break;
+                default:
+                    imagejpeg($thumb_create,$thumbnail,100);
+            }
+
+
 		//file-upload war erfolgreich:
-		$id = setBild($uploaddir.$file_save_as,$standardDescription,$zimmer_id,$img->image_resized_width,$img->image_resized_height,$link);
+		$id = setBild($src_path.$file_save_as,$src_path_thumbs.$file_save_as,$standardDescription,$zimmer_id,$img->image_resized_width,$img->image_resized_height,$link);
 		//set descriptions in other languages:
 		$spr = getSprachenForBelegungsplan($link);
 		while ($s = mysqli_fetch_array($spr)){

@@ -9,8 +9,7 @@
 ?>
 
 <style>
-    #imagelightbox
-    {
+    #imagelightbox {
         position: fixed;
         z-index: 9999;
 
@@ -18,6 +17,14 @@
         touch-action: none;
     }
 </style>
+<noscript>
+    <style>
+        .es-carousel ul {
+            display: block;
+        }
+    </style>
+</noscript>
+
 <form action="../anfrage/index.php"
       class="form-horizontal"
       method="post" name="reservierung"
@@ -92,8 +99,7 @@
                         $sprache,
                         $link
                     ) . ".");
-            }
-            else {
+            } else {
                 echo(getUebersetzung(
                         "Bitte wählen Sie das gewünschte",
                         $sprache,
@@ -117,487 +123,557 @@
             ?>
         </div>
     </div>
-    <?php
-    $zaehle                 = 0;
-    $zaehleEinschraenkungen = 0;
-    foreach ($freieZimmer as $zimmer_id) {
-        if (isset($zimmerIdsParents) && count($zimmerIdsParents) > 0 ) {
-            foreach (  $zimmerIdsParents as $par) {
-                if ($zimmer_id  != $par  ) {
-                    //echo("continue: freies zimmer:".$zimmer_id);
-                    continue 2;
-                }
-            }
-        }
-        $zaehle++;
-        ?>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h5>
-
-                    <?php
-                    //checking if Link should be activated
-                    $res = getPropertiesSuche(
-                    $unterkunft_id, $link
-                    ); //Methode in einstellungenFunctions.php definiert
-                    while ($d = mysqli_fetch_array(
-                    $res
-                    )) {
-                    if ($d["Name"] == LINK_SUCHE) {
-                    $name = $d["Name"];
-
-                    //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmöglichkeiten "angehackelt"
-                    $aktiviert
-                    = isPropertyShown(
-                    $unterkunft_id,
-                    $name, $link
-                    ); //Methode in einstellungenFunctions.php definiert
-                    if ($aktiviert
-                    == 'true'
-                    ) {
-                    ?>
-
-                    <?php
-                    $uri
-                        = getLink(
-                        $unterkunft_id,
-                        $zimmer_id,
-                        $link
-                    );
-                    if ($uri
-                    != "")
-                    {
-                    ?>
-                    <a href="<?php echo($uri); ?>"
-                       class="standardSchrift">
-                        <?php
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <?php
+            $index = 0;
+            $zaehle = 0;
+            $zaehleEinschraenkungen = 0;
+            foreach ($freieZimmer as $zimmer_id) {
+                if (isset($zimmerIdsParents) && count($zimmerIdsParents) > 0) {
+                    foreach ($zimmerIdsParents as $par) {
+                        if ($zimmer_id != $par) {
+                            //echo("continue: freies zimmer:".$zimmer_id);
+                            continue 2;
                         }
-                        ?>
+                    }
+                }
+                $zaehle++;
+                ?>
+
+                <li role="presentation" <?php if ($index < 1) echo 'class="active"'; ?>>
+
+                    <a role="tab" data-toggle="tab"
+
+                       href="#zimmer_<?php echo $zimmer_id; ?>"
+                       aria-controls="zimmer_<?php echo $zimmer_id; ?>">
                         <?php
-                        echo((getZimmerArt(
-                                $unterkunft_id,
-                                $zimmer_id,
-                                $link
-                            ))
-                            . " "
-                            . (getZimmerNr(
-                                $unterkunft_id,
-                                $zimmer_id,
-                                $link
-                            ))); ?>
-                        <?php
-                        if ($uri
-                        != "") {
+                        //checking if Link should be activated
+                        $res = getPropertiesSuche(
+                            $unterkunft_id, $link
+                        ); //Methode in einstellungenFunctions.php definiert
+
+                        while ($d = mysqli_fetch_array(
+                            $res
+                        )) {
+
+                            if ($d["Name"] == LINK_SUCHE) {
+
+                                $name = $d["Name"];
+
+                                //falls Option schon aktiviert ist, ist die Checkbox bereits bei den Auswahlmöglichkeiten "angehackelt"
+                                $aktiviert
+                                    = isPropertyShown(
+                                    $unterkunft_id,
+                                    $name, $link
+                                ); //Methode in einstellungenFunctions.php definiert
+                                if ($aktiviert == 'true') {
+
+                                    $uri
+                                        = getLink(
+                                        $unterkunft_id,
+                                        $zimmer_id,
+                                        $link
+                                    );
+                                    if ($uri != "") {
+                                        echo '<a href="' . $uri . '" target="_blank">' . getZimmerArt($unterkunft_id, $zimmer_id, $link) . ' ' . getZimmerNr($unterkunft_id, $zimmer_id, $link) . '</a>';
+                                        echo((getZimmerArt(
+                                                $unterkunft_id,
+                                                $zimmer_id,
+                                                $link
+                                            )) . " "
+                                            . (getZimmerNr(
+                                                $unterkunft_id,
+                                                $zimmer_id,
+                                                $link
+                                            )));
+                                    } else {
+
+                                        echo((getZimmerArt(
+                                                $unterkunft_id,
+                                                $zimmer_id,
+                                                $link
+                                            )) . " "
+                                            . (getZimmerNr(
+                                                $unterkunft_id,
+                                                $zimmer_id,
+                                                $link
+                                            )));
+                                    }
+                                } else {
+                                    echo((getZimmerArt(
+                                            $unterkunft_id,
+                                            $zimmer_id,
+                                            $link
+                                        )) . " "
+                                        . (getZimmerNr(
+                                            $unterkunft_id,
+                                            $zimmer_id,
+                                            $link
+                                        )));
+                                }
+                            }
+                        }
+
                         ?>
                     </a>
+
+
+                </li>
                 <?php
+                //button nur anzeigen wenn es auch zimmer ohne einschraenkungen gibt:
+                $index++;
+            }
+            ?>
+
+        </ul>
+        <div class="tab-content">
+            <?php
+            $index = 0;
+            $zaehle = 0;
+            $zaehleEinschraenkungen = 0;
+            foreach ($freieZimmer as $zimmer_id) {
+                if (isset($zimmerIdsParents) && count($zimmerIdsParents) > 0) {
+                    foreach ($zimmerIdsParents as $par) {
+                        if ($zimmer_id != $par) {
+                            //echo("continue: freies zimmer:".$zimmer_id);
+                            continue 2;
+                        }
+                    }
                 }
+                $zaehle++;
                 ?>
 
-                    <?php
-                    }
-                    else {
-                        ?>
 
-                        <?php
-                        echo((getZimmerArt(
-                                $unterkunft_id,
-                                $zimmer_id,
-                                $link
-                            )) . " "
-                            . (getZimmerNr(
-                                $unterkunft_id,
-                                $zimmer_id,
-                                $link
-                            ))); ?>
-
-                        <?php
-                    }
-                    }
-                    }
-                    ?>
-                    </h5>
-                <span style="float: right;"></span>
-            </div>
-
-            <div class="panel-body">
-                <?php
-                //bilder anzeigen, falls vorhanden und gewünscht:
-                if (isPropertyShown( $unterkunft_id,  ZIMMER_THUMBS_ACTIV, $link )) {
-                    ?>
-                    <?php
-                    if (hasZimmerBilder(  $zimmer_id, $link )) {
-                        ?>
-                        <div class="form-group" >
-                            <div class="col-md-offset-2 col-md-8" id="imageGallery<?php echo $zimmer_id; ?>">
-                            </div>
+                <div role="tabpanel" class="tab-pane  <?php if ($index < 1) echo 'active'; ?>"
+                     id="zimmer_<?php echo $zimmer_id; ?>" style="padding: 10px;">
+                    <div class="form-group" style="margin-top: 10px;">
+                        <div class="col-sm-2">
+                            <label>
+                                <?php echo getUebersetzung("wahl die Zimmer", $sprache, $link); ?>
+                            </label>
                         </div>
-                        <script>
-                            //    $( function()
-                            //    {
-                            //        $( 'a<?php //echo $zimmer_id; ?>//' ).imageLightbox();
-                            //    });
+                        <div class="col-sm-10">
+                            <?php
+                            //pruefe ob fuer das zimmer eine buchungseinschraenkung besteht.
+                            //wenn ja dann kann es nicht ausgewaehlt werden
+                            //und es wird ein infotext ausgegeben.
+                            if (isset($zi_temp)) {
+                                unset($zi_temp);
+                            }
+                            $zi_temp
+                                = array();
+                            $zi_temp[0]
+                                = $zimmer_id;
 
+                            if (hasActualBuchungsbeschraenkungen($unterkunft_id)
+                                && !checkBuchungseinschraenkung(
+                                    $vonTag,
+                                    $vonMonat,
+                                    $vonJahr,
+                                    $bisTag,
+                                    $bisMonat,
+                                    $bisJahr,
+                                    $zi_temp
+                                )
+                            ) {
+                                echo(getBuchungseinschraenkungText(
+                                    $vonTag,
+                                    $vonMonat,
+                                    $vonJahr,
+                                    $bisTag,
+                                    $bisMonat,
+                                    $bisJahr,
+                                    $zi_temp
+                                ));
+                                echo(": ");
+                                $zaehleEinschraenkungen++;
+                            } else {
+                                ?>
 
-                            $( function()
-                            {
-                                var
-                                        /* ACTIVITY INDICATOR */
+                                <input name="zimmer_ids" class="zimmer_id" id="zimmer_id_<?php echo $zimmer_id; ?>"
+                                       onchange="checkboxChanged(this,'<?php echo $zimmer_id; ?>')"
+                                       type="checkbox"/>
 
-                                    activityIndicatorOn = function()
-                                    {
-                                        $( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
-                                    },
-                                    activityIndicatorOff = function()
-                                    {
-                                        $( '#imagelightbox-loading' ).remove();
-                                    },
+                            <?php } ?>
 
+                        </div>
+                    </div>
+                    <?php
+                    $index++;
+                    //bilder anzeigen, falls vorhanden und gewünscht:
+                    if (isPropertyShown($unterkunft_id, ZIMMER_THUMBS_ACTIV, $link)) {
+                        ?>
+                        <?php
+                        if (hasZimmerBilder($zimmer_id, $link)) {
+                            ?>
+                            <!--                        <div class="form-group">-->
+                            <!--                            <div class="col-md-offset-2 col-md-8" id="imageGallery--><?php //echo $zimmer_id; ?><!--">-->
+                            <!--                            </div>-->
+                            <!--                        </div>-->
 
-                                        /* OVERLAY*/
+                            <script>
+                                $(function () {
+                                    // ======================= imagesLoaded Plugin ===============================
+                                    // https://github.com/desandro/imagesloaded
 
-                                    overlayOn = function()
-                                    {
-                                        $( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
-                                    },
-                                    overlayOff = function()
-                                    {
-                                        $( '#imagelightbox-overlay' ).remove();
-                                    },
+                                    // $('#my-container').imagesLoaded(myFunction)
+                                    // execute a callback when all images have loaded.
+                                    // needed because .load() doesn't work on cached images
 
+                                    // callback function gets image collection as argument
+                                    //  this is the container
 
-                                        /* CLOSE BUTTON */
+                                    // original: mit license. paul irish. 2010.
+                                    // contributors: Oren Solomianik, David DeSandro, Yiannis Chatzikonstantinou
 
-                                    closeButtonOn = function( instance )
-                                    {
-                                        $( '<button type="button" id="imagelightbox-close" title="Close"></button>' ).appendTo( 'body' ).on( 'click touchend', function(){ $( this ).remove(); instance.quitImageLightbox(); return false; });
-                                    },
-                                    closeButtonOff = function()
-                                    {
-                                        $( '#imagelightbox-close' ).remove();
-                                    },
+                                    $.fn.imagesLoaded = function (callback) {
+                                        var $images = this.find('img'),
+                                            len = $images.length,
+                                            _this = this,
+                                            blank = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
-
-                                        /* CAPTION */
-
-                                    captionOn = function()
-                                    {
-                                        var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
-                                        console.log(description);
-                                        if( description.length > 0 )
-                                            $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
-                                    },
-                                    captionOff = function()
-                                    {
-                                        $( '#imagelightbox-caption' ).remove();
-                                    },
-
-
-                                        /* NAVIGATION */
-
-                                    navigationOn = function( instance, selector )
-                                    {
-                                        var images = $( selector );
-                                        if( images.length )
-                                        {
-                                            var nav = $( '<div id="imagelightbox-nav"></div>' );
-                                            for( var i = 0; i < images.length; i++ )
-                                                nav.append( '<button type="button"></button>' );
-
-                                            nav.appendTo( 'body' );
-                                            nav.on( 'click touchend', function(){ return false; });
-
-                                            var navItems = nav.find( 'button' );
-                                            navItems.on( 'click touchend', function()
-                                            {
-                                                var $this = $( this );
-                                                if( images.eq( $this.index() ).attr( 'href' ) != $( '#imagelightbox' ).attr( 'src' ) )
-                                                    instance.switchImageLightbox( $this.index() );
-
-                                                navItems.removeClass( 'active' );
-                                                navItems.eq( $this.index() ).addClass( 'active' );
-
-                                                return false;
-                                            })
-                                                .on( 'touchend', function(){ return false; });
+                                        function triggerCallback() {
+                                            callback.call(_this, $images);
                                         }
-                                    },
-                                    navigationUpdate = function( selector )
-                                    {
-                                        var items = $( '#imagelightbox-nav button' );
-                                        items.removeClass( 'active' );
-                                        items.eq( $( selector ).filter( '[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"]' ).index( selector ) ).addClass( 'active' );
-                                    },
-                                    navigationOff = function()
-                                    {
-                                        $( '#imagelightbox-nav' ).remove();
-                                    },
 
-
-                                        /* ARROWS */
-
-                                    arrowsOn = function( instance, selector )
-                                    {
-                                        var $arrows = $( '<button type="button" class="imagelightbox-arrow imagelightbox-arrow-left"></button><button type="button" class="imagelightbox-arrow imagelightbox-arrow-right"></button>' );
-
-                                        $arrows.appendTo( 'body' );
-
-                                        $arrows.on( 'click touchend', function( e )
-                                        {
-                                            e.preventDefault();
-
-                                            var $this	= $( this ),
-                                                $target	= $( selector + '[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"]' ),
-                                                index	= $target.index( selector );
-
-                                            if( $this.hasClass( 'imagelightbox-arrow-left' ) )
-                                            {
-                                                index = index - 1;
-                                                if( !$( selector ).eq( index ).length )
-                                                    index = $( selector ).length;
+                                        function imgLoaded() {
+                                            if (--len <= 0 && this.src !== blank) {
+                                                setTimeout(triggerCallback);
+                                                $images.off('load error', imgLoaded);
                                             }
-                                            else
-                                            {
-                                                index = index + 1;
-                                                if( !$( selector ).eq( index ).length )
-                                                    index = 0;
-                                            }
+                                        }
 
-                                            instance.switchImageLightbox( index );
-                                            return false;
+                                        if (!len) {
+                                            triggerCallback();
+                                        }
+
+                                        $images.on('load error', imgLoaded).each(function () {
+                                            // cached images don't fire load sometimes, so we reset src.
+                                            if (this.complete || this.complete === undefined) {
+                                                var src = this.src;
+                                                // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
+                                                // data uri bypasses webkit log warning (thx doug jones)
+                                                this.src = blank;
+                                                this.src = src;
+                                            }
                                         });
-                                    },
-                                    arrowsOff = function()
-                                    {
-                                        $( '.imagelightbox-arrow' ).remove();
+
+                                        return this;
                                     };
 
+                                    // gallery container
+                                    var $rgGallery = $('#rg-gallery<?php echo $zimmer_id; ?>'),
+                                        // carousel container
+                                        $esCarousel = $rgGallery.find('div.es-carousel-wrapper'),
+                                        // the carousel items
+                                        $items = $esCarousel.find('ul > li'),
+                                        // total number of items
+                                        itemsCount = $items.length;
 
-                                /*	WITH ACTIVITY INDICATION */
+                                    Gallery = (function () {
+                                        // index of the current item
+                                        var current = 0,
+                                            // mode : carousel || fullview
+                                            mode = 'carousel',
+                                            // control if one image is being loaded
+                                            anim = false,
+                                            init = function () {
 
-                                $( 'a[data-imagelightbox="a"]' ).imageLightbox(
-                                    {
-                                        onLoadStart:	function() { activityIndicatorOn(); },
-                                        onLoadEnd:		function() { activityIndicatorOff(); },
-                                        onEnd:	 		function() { activityIndicatorOff(); }
-                                    });
+                                                // (not necessary) preloading the images here...
+                                                $items.add('<img src="../libs/ResponsiveImageGallery/images/ajax-loader.gif"/><img src="../libs/ResponsiveImageGallery/images/black.png"/>').imagesLoaded(function () {
+                                                    // add options
+                                                    _addViewModes();
 
+                                                    // add large image wrapper
+                                                    _addImageWrapper();
 
-                                /*	WITH OVERLAY & ACTIVITY INDICATION */
+                                                    // show first image
+                                                    _showImage($items.eq(current));
 
-                                $( 'a[data-imagelightbox="b"]' ).imageLightbox(
-                                    {
-                                        onStart: 	 function() { overlayOn(); },
-                                        onEnd:	 	 function() { overlayOff(); activityIndicatorOff(); },
-                                        onLoadStart: function() { activityIndicatorOn(); },
-                                        onLoadEnd:	 function() { activityIndicatorOff(); }
-                                    });
+                                                });
 
+                                                // initialize the carousel
+                                                if (mode === 'carousel')
+                                                    _initCarousel();
 
-                                /*	WITH "CLOSE" BUTTON & ACTIVITY INDICATION */
+                                            },
+                                            _initCarousel = function () {
 
-                                var instanceC = $( 'a[data-imagelightbox="c"]' ).imageLightbox(
-                                    {
-                                        quitOnDocClick:	false,
-                                        onStart:		function() { closeButtonOn( instanceC ); },
-                                        onEnd:			function() { closeButtonOff(); activityIndicatorOff(); },
-                                        onLoadStart: 	function() { activityIndicatorOn(); },
-                                        onLoadEnd:	 	function() { activityIndicatorOff(); }
-                                    });
+                                                // we are using the elastislide plugin:
+                                                // http://tympanus.net/codrops/2011/09/12/elastislide-responsive-carousel/
+                                                $esCarousel.show().elastislide({
+                                                    imageW: 65,
+                                                    onClick: function ($item) {
+                                                        if (anim) return false;
+                                                        anim = true;
+                                                        // on click show image
+                                                        _showImage($item);
+                                                        // change current
+                                                        current = $item.index();
+                                                    }
+                                                });
 
+                                                // set elastislide's current to current
+                                                $esCarousel.elastislide('setCurrent', current);
 
-                                /*	WITH CAPTION & ACTIVITY INDICATION */
+                                            },
+                                            _addViewModes = function () {
 
-                                $( 'a[data-imagelightbox="d"]' ).imageLightbox(
-                                    {
-                                        onLoadStart: function() { captionOff(); activityIndicatorOn(); },
-                                        onLoadEnd:	 function() { captionOn(); activityIndicatorOff(); },
-                                        onEnd:		 function() { captionOff(); activityIndicatorOff(); }
-                                    });
+                                                // top right buttons: hide / show carousel
 
+                                                var $viewfull = $('<a href="#" class="rg-view-full"></a>'),
+                                                    $viewthumbs = $('<a href="#" class="rg-view-thumbs rg-view-selected"></a>');
 
-                                /*	WITH ARROWS & ACTIVITY INDICATION */
+                                                $rgGallery.prepend($('<div class="rg-view"/>').append($viewfull).append($viewthumbs));
 
-                                var selectorG = 'a[data-imagelightbox="g"]';
-                                var instanceG = $( selectorG ).imageLightbox(
-                                    {
-                                        onStart:		function(){ arrowsOn( instanceG, selectorG ); },
-                                        onEnd:			function(){ arrowsOff(); activityIndicatorOff(); },
-                                        onLoadStart: 	function(){ activityIndicatorOn(); },
-                                        onLoadEnd:	 	function(){ $( '.imagelightbox-arrow' ).css( 'display', 'block' ); activityIndicatorOff(); }
-                                    });
+                                                $viewfull.on('click.rgGallery', function (event) {
+                                                    if (mode === 'carousel')
+                                                        $esCarousel.elastislide('destroy');
+                                                    $esCarousel.hide();
+                                                    $viewfull.addClass('rg-view-selected');
+                                                    $viewthumbs.removeClass('rg-view-selected');
+                                                    mode = 'fullview';
+                                                    return false;
+                                                });
 
+                                                $viewthumbs.on('click.rgGallery', function (event) {
+                                                    _initCarousel();
+                                                    $viewthumbs.addClass('rg-view-selected');
+                                                    $viewfull.removeClass('rg-view-selected');
+                                                    mode = 'carousel';
+                                                    return false;
+                                                });
 
-                                /*	WITH NAVIGATION & ACTIVITY INDICATION */
+                                                if (mode === 'fullview')
+                                                    $viewfull.trigger('click');
 
-                                var selectorE = 'a[data-imagelightbox="e"]';
-                                var instanceE = $( selectorE ).imageLightbox(
-                                    {
-                                        onStart:	 function() { navigationOn( instanceE, selectorE ); },
-                                        onEnd:		 function() { navigationOff(); activityIndicatorOff(); },
-                                        onLoadStart: function() { activityIndicatorOn(); },
-                                        onLoadEnd:	 function() { navigationUpdate( selectorE ); activityIndicatorOff(); }
-                                    });
+                                            },
+                                            _addImageWrapper = function () {
 
+                                                // adds the structure for the large image and the navigation buttons (if total items > 1)
+                                                // also initializes the navigation events
 
-                                /*	ALL COMBINED */
+                                                $('#img-wrapper-tmpl<?php echo $zimmer_id;?>').tmpl({itemsCount: itemsCount}).appendTo($rgGallery);
 
-                                var selectorF = 'a[data-imagelightbox="f<?php echo $zimmer_id; ?>"]';
-                                var instanceF = $( selectorF ).imageLightbox(
-                                    {
-                                        onStart:		function() { overlayOn(); closeButtonOn( instanceF ); arrowsOn( instanceF, selectorF ); },
-                                        onEnd:			function() { overlayOff(); captionOff(); closeButtonOff(); arrowsOff(); activityIndicatorOff(); },
-                                        onLoadStart: 	function() { captionOff(); activityIndicatorOn(); },
-                                        onLoadEnd:	 	function() { captionOn(); activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
-                                    });
+                                                if (itemsCount > 1) {
+                                                    // addNavigation
+                                                    var $navPrev = $rgGallery.find('a.rg-image-nav-prev'),
+                                                        $navNext = $rgGallery.find('a.rg-image-nav-next'),
+                                                        $imgWrapper = $rgGallery.find('div.rg-image');
 
+                                                    $navPrev.on('click.rgGallery', function (event) {
+                                                        _navigate('left');
+                                                        return false;
+                                                    });
 
-                                /*	DYNAMICALLY ADDED ITEMS */
+                                                    $navNext.on('click.rgGallery', function (event) {
+                                                        _navigate('right');
+                                                        return false;
+                                                    });
 
-                                var instanceH = $( 'a[data-imagelightbox="h"]' ).imageLightbox(
-                                    {
-                                        quitOnDocClick:	false,
-                                        onStart:		function() { closeButtonOn( instanceH ); },
-                                        onEnd:			function() { closeButtonOff(); activityIndicatorOff(); },
-                                        onLoadStart: 	function() { activityIndicatorOn(); },
-                                        onLoadEnd:	 	function() { activityIndicatorOff(); }
-                                    });
+                                                    // add touchwipe events on the large image wrapper
+                                                    $imgWrapper.touchwipe({
+                                                        wipeLeft: function () {
+                                                            _navigate('right');
+                                                        },
+                                                        wipeRight: function () {
+                                                            _navigate('left');
+                                                        },
+                                                        preventDefaultEvents: false
+                                                    });
 
-                                $( '.js--add-dynamic ' ).on( 'click', function( e )
-                                {
-                                    e.preventDefault();
-                                    var items = $( '.js--dynamic-items' );
-                                    instanceH.addToImageLightbox( items.find( 'a' ) );
-                                    $( '.js--dynamic-place' ).append( items.find( 'li' ).detach() );
-                                    $( this ).remove();
-                                    items.remove();
+                                                    $(document).on('keyup.rgGallery', function (event) {
+                                                        if (event.keyCode == 39)
+                                                            _navigate('right');
+                                                        else if (event.keyCode == 37)
+                                                            _navigate('left');
+                                                    });
+
+                                                }
+
+                                            },
+                                            _navigate = function (dir) {
+
+                                                // navigate through the large images
+
+                                                if (anim) return false;
+                                                anim = true;
+
+                                                if (dir === 'right') {
+                                                    if (current + 1 >= itemsCount)
+                                                        current = 0;
+                                                    else
+                                                        ++current;
+                                                }
+                                                else if (dir === 'left') {
+                                                    if (current - 1 < 0)
+                                                        current = itemsCount - 1;
+                                                    else
+                                                        --current;
+                                                }
+
+                                                _showImage($items.eq(current));
+
+                                            },
+                                            _showImage = function ($item) {
+
+                                                // shows the large image that is associated to the $item
+
+                                                var $loader = $rgGallery.find('div.rg-loading').show();
+
+                                                $items.removeClass('selected');
+                                                $item.addClass('selected');
+
+                                                var $thumb = $item.find('img'),
+                                                    largesrc = $thumb.data('large'),
+                                                    title = $thumb.data('description');
+
+                                                $('<img/>').load(function () {
+
+                                                    $rgGallery.find('div.rg-image').empty().append('<img src="' + largesrc + '"/>');
+
+                                                    if (title)
+                                                        $rgGallery.find('div.rg-caption').show().children('p').empty().text(title);
+
+                                                    $loader.hide();
+
+                                                    if (mode === 'carousel') {
+                                                        $esCarousel.elastislide('reload');
+                                                        $esCarousel.elastislide('setCurrent', current);
+                                                    }
+
+                                                    anim = false;
+
+                                                }).attr('src', largesrc);
+
+                                            },
+                                            addItems = function ($new) {
+
+                                                $esCarousel.find('ul').append($new);
+                                                $items = $items.add($($new));
+                                                itemsCount = $items.length;
+                                                $esCarousel.elastislide('add', $new);
+
+                                            };
+
+                                        return {
+                                            init: init,
+                                            addItems: addItems
+                                        };
+
+                                    })();
+
+                                    Gallery.init();
+
+                                    /*
+                                     Example to add more items to the gallery:
+
+                                     var $new  = $('<li><a href="#"><img src="images/thumbs/1.jpg" data-large="images/1.jpg" alt="image01" data-description="From off a hill whose concave womb reworded" /></a></li>');
+                                     Gallery.addItems( $new );
+                                     */
                                 });
+                            </script>
+                            <script id="img-wrapper-tmpl<?php echo $zimmer_id; ?>" type="text/x-jquery-tmpl">
+                            <div class="rg-image-wrapper">
+                                {{if itemsCount > 1}}
+                                    <div class="rg-image-nav">
+                                        <a href="#" class="rg-image-nav-prev">Previous Image</a>
+                                        <a href="#" class="rg-image-nav-next">Next Image</a>
+                                    </div>
+                                {{/if}}
+                                <div class="rg-image"></div>
+                                <div class="rg-loading"></div>
+                                <div class="rg-caption-wrapper">
+                                    <div class="rg-caption" style="display:none;">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
 
-                            });
 
-                            function checkboxChanged(el, id) {
-                                $.each($('.zimmer_id'),function () {
-                                    if($(this).attr('id') != "zimmer_id_"+id){
-                                        $(this).prop('checked',false);
-                                    }
-                                })
-                            }
-                        </script>
-                        <script>
-                            $(document).on('click', '[data-toggle="lightbox<?php echo $zimmer_id;?>"]', function(event) {
-                                //event.preventDefault();
-                                //$(this).ekkoLightbox();
-                            });
 
-                            var lightboxImagesHTML = "";
-                            var i = 1;
-                            <?php
-                            $result = getBilderOfZimmer( $zimmer_id, $link);
-                            $i = 1;
-                            while ($z  = mysqli_fetch_array(  $result )) {
-                            if($i % 3 == 1){
-                            ?>
-                            lightboxImagesHTML +='<div class="row" style="margin-bottom: 15px;">';
-                            <?php
-                            }
-                            ?>
-                            <?php
+                            </script>
+                            <div id="rg-gallery<?php echo $zimmer_id; ?>" class="rg-gallery">
+                                <div class="rg-thumbs">
+                                    <!-- Elastislide Carousel Thumbnail Viewer -->
+                                    <div class="es-carousel-wrapper">
+                                        <div class="es-nav">
+                                            <span class="es-nav-prev">Previous</span>
+                                            <span class="es-nav-next">Next</span>
+                                        </div>
+                                        <div class="es-carousel">
+                                            <ul id="es-carousel-list<?php echo $zimmer_id; ?>">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- End Elastislide Carousel Thumbnail Viewer -->
+                                </div><!-- rg-thumbs -->
+                            </div><!-- rg-gallery -->
 
-                            $pfad = $z["Pfad"];
-                            $beschreibung = $z["Beschreibung"];
-                            $pfad = substr(
-                                $pfad, 3,
-                                strlen($pfad)
-                            );
-                            $width
-                                = $z["Width"];
-                            $height
-                                = $z["Height"];
-                            ?>
-//                            lightboxImagesHTML +='<a href="<?php //echo($pfad); ?>//" data-toggle="lightbox<?php //echo $zimmer_id; ?>//" data-gallery="gallery<?php //echo $zimmer_id; ?>//" class="col-sm-4">'+
-//                             '<img style="max-width:100%; height:auto;" src="<?php //echo($pfad); ?>//" class="img-fluid">'+
-//                             '</a>';
+                            <script>
 
-                            lightboxImagesHTML +='<a href="<?php echo($pfad); ?>" img-alt="<?php echo $beschreibung; ?>" data-imagelightbox="f<?php echo $zimmer_id;?>" class="col-sm-4">'+
-                                '<img style="max-width:100%; height:auto;" src="<?php echo($pfad); ?>" alt="<?php echo $beschreibung; ?>" class="img-fluid">'+
-                                '</a>';
+                                var lightboxImagesHTML = "";
+                                var i = 1;
+                                <?php
+                                $result = getBilderOfZimmer($zimmer_id, $link);
+                                $i = 1;
+                                while ($z = mysqli_fetch_array($result)) {
+
+                                $pfad = $z["Pfad"];
+                                $pfad_thumbs = $z["Pfad_Thumbnail"];
+                                if (!isset($pfad_thumbs))
+                                    $pfad_thumbs = $pfad;
+                                $beschreibung = $z["Beschreibung"];
+                                //                            $pfad = substr(
+                                //                                $pfad, 3,
+                                //                                strlen($pfad)
+                                //                            );
+                                $width
+                                    = $z["Width"];
+                                $height
+                                    = $z["Height"];
+                                ?>
+
+                                lightboxImagesHTML += '<li><a href="#" img-alt="<?php echo $beschreibung; ?>" data-imagelightbox="f<?php echo $zimmer_id;?>">' +
+                                    '<img src="<?php echo($pfad_thumbs); ?>" data-large="<?php echo($pfad); ?>" alt="<?php echo $beschreibung; ?>" data-description="<?php echo $beschreibung; ?>" />' +
+                                    '</a></li>';
+
+                                <?php
+                                $i++;
+                                }
+                                ?>
+                                $('#es-carousel-list<?php echo $zimmer_id; ?>').html(lightboxImagesHTML);
+                            </script>
 
                             <?php
-                            if($i % 3 == 0){
-                            ?>
-                            lightboxImagesHTML +='</div>';
-                            <?php
-                            }
-                            ?>
-                            <?php
-                            $i++;
-                            }
-                            ?>
-                            $('#imageGallery<?php echo $zimmer_id; ?>').html(lightboxImagesHTML);
-                        </script>
+                        }
+                        ?>
+
                         <?php
                     }
                     ?>
 
-                    <?php
-                }
-                ?>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <?php
-                        //pruefe ob fuer das zimmer eine buchungseinschraenkung besteht.
-                        //wenn ja dann kann es nicht ausgewaehlt werden
-                        //und es wird ein infotext ausgegeben.
-                        if (isset($zi_temp)) {
-                            unset($zi_temp);
-                        }
-                        $zi_temp
-                            = array();
-                        $zi_temp[0]
-                            = $zimmer_id;
-
-                        if (hasActualBuchungsbeschraenkungen( $unterkunft_id )
-                            && !checkBuchungseinschraenkung(
-                                $vonTag,
-                                $vonMonat,
-                                $vonJahr,
-                                $bisTag,
-                                $bisMonat,
-                                $bisJahr,
-                                $zi_temp
-                            )
-                        ) {
-                            echo(getBuchungseinschraenkungText(
-                                $vonTag,
-                                $vonMonat,
-                                $vonJahr,
-                                $bisTag,
-                                $bisMonat,
-                                $bisJahr,
-                                $zi_temp
-                            ));
-                            echo(": ");
-                            $zaehleEinschraenkungen++;
-                        }
-                        else {
-                            ?>
-
-                            <input name="zimmer_ids" class="zimmer_id" id="zimmer_id_<?php echo $zimmer_id; ?>" onchange="checkboxChanged(this,'<?php echo $zimmer_id;?>')" type="checkbox"/>
-
-                        <?php } ?>
-
-                    </div>
                 </div>
-            </div>
+
+
+                <?php
+                //button nur anzeigen wenn es auch zimmer ohne einschraenkungen gibt:
+            }
+            ?>
         </div>
-
-        <?php
-        //button nur anzeigen wenn es auch zimmer ohne einschraenkungen gibt:
-    }
-    ?>
-
+    </div>
 </form>
+<script>
+    function checkboxChanged(el, id) {
+        $.each($('.zimmer_id'), function () {
+            if ($(this).attr('id') != "zimmer_id_" + id) {
+                $(this).prop('checked', false);
+            }
+        })
+    }
+</script>
 
 
 <form action="./index.php"
@@ -607,56 +683,56 @@
       target="_self">
     <div class="form-group">
         <div class="col-sm-12" style="text-align: right;">
-    <input name="anzahlErwachsene"
-           type="hidden"
-           value="<?php echo($anzahlErwachsene); ?>"/>
-    <input name="anzahlKinder"
-           type="hidden"
-           value="<?php echo($anzahlKinder); ?>"/>
-    <input name="datumVon"
-           type="hidden"
-           value="<?php echo($datumDPv); ?>"/>
-    <input name="datumBis"
-           type="hidden"
-           value="<?php echo($datumDPb); ?>"/>
-    <input name="anzahlZimmer"
-           type="hidden"
-           value="<?php echo($anzahlZimmer); ?>"/>
-    <input name="haustiere"
-           type="hidden"
-           value="<?php echo($haustiere); ?>"/>
-    <input name="keineSprache"
-           type="hidden"
-           value="true"/>
-    <?php
-    if (isset($zimmerIdsParents)
-        && count(
-            $zimmerIdsParents
-        ) > 0
-    ) {
-        ?>
-        <input name="zimmerIdsParents"
-               type="hidden"
-               value="<?php
-               foreach (
-                   $zimmerIdsParents
-                   as
-                   $ziidpa
-               ) {
-                   echo($ziidpa
-                       . ",");
-               }
-               ?>"/>
-        <?php
-    }
-    ?>
+            <input name="anzahlErwachsene"
+                   type="hidden"
+                   value="<?php echo($anzahlErwachsene); ?>"/>
+            <input name="anzahlKinder"
+                   type="hidden"
+                   value="<?php echo($anzahlKinder); ?>"/>
+            <input name="datumVon"
+                   type="hidden"
+                   value="<?php echo($datumDPv); ?>"/>
+            <input name="datumBis"
+                   type="hidden"
+                   value="<?php echo($datumDPb); ?>"/>
+            <input name="anzahlZimmer"
+                   type="hidden"
+                   value="<?php echo($anzahlZimmer); ?>"/>
+            <input name="haustiere"
+                   type="hidden"
+                   value="<?php echo($haustiere); ?>"/>
+            <input name="keineSprache"
+                   type="hidden"
+                   value="true"/>
+            <?php
+            if (isset($zimmerIdsParents)
+                && count(
+                    $zimmerIdsParents
+                ) > 0
+            ) {
+                ?>
+                <input name="zimmerIdsParents"
+                       type="hidden"
+                       value="<?php
+                       foreach (
+                           $zimmerIdsParents
+                           as
+                           $ziidpa
+                       ) {
+                           echo($ziidpa
+                               . ",");
+                       }
+                       ?>"/>
+                <?php
+            }
+            ?>
 
+        </div>
     </div>
-</div>
 </form>
 
 <?php
-if ($zaehleEinschraenkungen < $zaehle ) {
+if ($zaehleEinschraenkungen < $zaehle) {
     ?>
     <div class="form-group">
         <div class="col-sm-12" style="text-align: right;">
@@ -666,7 +742,7 @@ if ($zaehleEinschraenkungen < $zaehle ) {
                     class="btn btn-success"
                     id="reservierungAbsenden"
                     onclick="submitReservierungForm();"
-                    >
+            >
                 <?php echo(getUebersetzung(
                     "Reservierung starten...",
                     $sprache,
@@ -688,13 +764,13 @@ if ($zaehleEinschraenkungen < $zaehle ) {
         function submitReservierungForm() {
             $('#reservierung').submit();
         }
+
         function submitSucheWiederholenForm() {
             $('#sucheWiederholen').submit();
         }
     </script>
     <?php
-}
-else {
+} else {
     $freieZimmer[0] = -1;
 }
 ?>

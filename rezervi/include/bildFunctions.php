@@ -70,13 +70,13 @@ function getAllPicturesFromUnterkunftWithLimit($unterkunft_id,$limit,$index,$lin
 	author: coster
 	date: 4. aug. 2005
 */
-function setBild($pfad,$beschreibung,$zimmer_id,$widht,$height,$link){	
+function setBild($pfad,$pfad_thumbs,$beschreibung,$zimmer_id,$widht,$height,$link){
 
 			$query = "INSERT INTO 
 					  Rezervi_Bilder
-					  (FK_Zimmer_ID,Pfad,Beschreibung,Width,Height)
+					  (FK_Zimmer_ID,Pfad,Pfad_Thumbnail,Beschreibung,Width,Height)
 					  VALUES
-					  ('$zimmer_id','$pfad','$beschreibung','$widht','$height')				  
+					  ('$zimmer_id','$pfad','$pfad_thumbs','$beschreibung','$widht','$height')				  
 					 ";		
 
   		$res = mysqli_query($link, $query);

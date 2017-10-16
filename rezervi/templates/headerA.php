@@ -54,6 +54,9 @@
             <link href="<?php echo ($root)?>/libs/lightbox-master/ekko-lightbox.css" rel="stylesheet">
             <link href="<?php echo ($root)?>/libs/image-lightbox/image-lightbox.css" rel="stylesheet">
             <!--        <link href="--><?php //echo ($root)?><!--/libs/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">-->
+            <link href="<?php echo ($root)?>/libs/ResponsiveImageGallery/css/demo.css" rel="stylesheet">
+            <link href="<?php echo ($root)?>/libs/ResponsiveImageGallery/css/style.css" rel="stylesheet">
+            <link href="<?php echo ($root)?>/libs/ResponsiveImageGallery/css/elastislide.css" rel="stylesheet">
 
 
             <!-- Bootstrap: Latest compiled and minified JavaScript -->
@@ -81,11 +84,16 @@
             <script src="<?php echo ($root)?>/libs/bootstrap-year-calendar/js/bootstrap-year-calendar.js"></script>
             <!--        <script src="--><?php //echo ($root)?><!--/libs/bootstrap-switch/js/bootstrap-switch.js"></script>-->
 
-            <script src="<?php echo ($root)?>/libs/lightbox-master/ekko-lightbox.js"></script>
-            <script src="<?php echo ($root)?>/libs/image-lightbox/image-lightbox.js"></script>
+<!--            <script src="--><?php //echo ($root)?><!--/libs/lightbox-master/ekko-lightbox.js"></script>-->
+<!--            <script src="--><?php //echo ($root)?><!--/libs/image-lightbox/image-lightbox.js"></script>-->
 
             <script src="<?php echo ($root)?>/libs/angular/use-form-error.js"></script>
             <script src="<?php echo ($root)?>/libs/angular/angular-messages.min.js"></script>
 
             <script src="<?php echo ($root)?>/libs/bootboxjs/bootbox.min.js"></script>
+
+            <script src="<?php echo ($root)?>/libs/ResponsiveImageGallery/js/jquery.tmpl.min.js"></script>
+            <script src="<?php echo ($root)?>/libs/ResponsiveImageGallery/js/jquery.easing.1.3.js"></script>
+            <script src="<?php echo ($root)?>/libs/ResponsiveImageGallery/js/jquery.elastislide.js"></script>
+
             <script src="<?php echo ($root)?>/libs/appJs/app-js.js"></script>

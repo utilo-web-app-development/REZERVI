@@ -72,6 +72,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
             </h4>
         </div>
         <div class="panel-body">
+
             <?php
             if (isset($nachricht) && $nachricht != ""){
             ?>
@@ -172,7 +173,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link)) {
                     </label>
                 </div>
                 <div class="col-sm-10">
-                    <input name="bild" type="file" class="form-control">
+                    <input name="bild" type="file" class="form-control" enctype="multipart/form-data">
                 </div>
             </div>
             <?php
