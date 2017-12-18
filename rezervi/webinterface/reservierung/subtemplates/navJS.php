@@ -258,13 +258,20 @@
                 console.log(result);
             }
         });
-        $('#vonTag').val(fromDay);
-        $('#vonMonat').val(fromMonth);
-        $('#vonJahr').val(fromYear);
 
-        $('#bisTag').val(toDay);
-        $('#bisMonat').val(toMonth);
-        $('#bisJahr').val(toYear);
+        if(fromDay != null)
+            $('#vonTag').val(fromDay);
+        if(fromMonth != null)
+            $('#vonMonat').val(fromMonth);
+        if(fromYear != null)
+            $('#vonJahr').val(fromYear);
+
+        if(toDay != null)
+            $('#bisTag').val(toDay);
+        if(toMonth != null)
+            $('#bisMonat').val(toMonth);
+        if(fromDay != null)
+            $('#bisJahr').val(toYear);
     }
 
     function zimmer_idChanged(zimmer_id, zimmer_name) {

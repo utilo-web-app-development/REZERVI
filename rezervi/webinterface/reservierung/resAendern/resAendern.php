@@ -766,7 +766,7 @@ if (empty($gast_id) || $gast_id == "")
 
                     <div class="form-group">
                         <div class="col-sm-12" style="text-align: right;">
-                            <form action="../ansichtWaehlen.php" method="post" name="adresseForm" target="_self" style="float: right; padding-left: 5px;"
+                            <form action="../index.php" method="post" name="adresseForm" target="_self" style="float: right; padding-left: 5px;"
                                   class="form-horizontal"
                                   id="adresseForm">
                                 <input name="zimmer_id" type="hidden" id="zimmer_id" value="<?php echo($zimmer_id); ?>">

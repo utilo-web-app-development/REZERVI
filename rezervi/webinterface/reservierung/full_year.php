@@ -72,7 +72,7 @@ setSessionWert(ZIMMER_ID, $zimmer_id);
         var selectedZimmer = '<?php echo $zimmer_id; ?>';
 
         loadFullYearCalendar();
-        setReservationInfo(null);
+        setReservationInfo("<?php echo $zimmer_id;?>");
 
 
     function setReservationInfo(zimmerid){
