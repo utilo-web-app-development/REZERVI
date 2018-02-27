@@ -265,7 +265,7 @@ else {
                                     :</span> <?php echo(getUebersetzung(
                                     "Erwachsene", $sprache, $link
                                 )); ?>
-                                :<?php echo(getErwachsene(
+                                : <?php echo(getErwachsene(
                                     $reservierungs_id, $link
                                 )); ?> <?php echo(getUebersetzung(
                                     "Kinder", $sprache, $link

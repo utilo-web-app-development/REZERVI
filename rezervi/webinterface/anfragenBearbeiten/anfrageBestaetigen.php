@@ -177,6 +177,7 @@ if (checkPass($benutzername, $passwort, $unterkunft_id, $link))
                     <span class="alert belegt" style="padding: 2px;">
                         <?php echo(getUebersetzung("belegt", $sprache, $link)); ?>
                     </span>
+                    <?php echo " "; ?>
 					<?php echo(getUebersetzung("in den Reservierungsplan aufgenommen", $sprache, $link)); ?>.
 
 					<?php if ($antwort == "true")
